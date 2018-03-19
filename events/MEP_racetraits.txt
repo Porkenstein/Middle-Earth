@@ -1,0 +1,597 @@
+namespace = birthevent
+
+# Blood of Numenor, Elf, half-Elf, Half-Orc
+character_event = {
+	id = birthevent.0
+	# desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { age = 1 }
+	}
+
+	immediate = {
+		# dispatching infertility after pregnancy events
+		mother_even_if_dead = {
+			if = {
+				limit = {
+					is_alive = yes
+					trait = elf
+				}
+				character_event = { id = mepmarriage.10  days = 1 }
+			}
+			if = {
+				limit = {
+					is_alive = yes
+					trait = dwarven
+				}
+				character_event = { id = mepmarriage.12  days = 1 }
+			}
+		}
+		if = {
+			limit = {
+				is_father_real_father = yes 
+			}
+			# Pure elf
+			if = {
+				limit = {
+					father = { trait = elf } # father is
+					mother = { trait = elf } # mother is
+				}
+				add_trait = elf
+			}
+			# Half Elf
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = elf } # father is
+							NOT = { mother = { trait = elf } } # mother is not
+						}
+						AND = {
+							NOT = { father = { trait = elf } } # father is not
+							mother = { trait = elf } # mother is
+						}
+					}
+				}
+				add_trait = half_elf
+			}
+			# Half Elves breed Half Elves with Each other or Elves
+			if = {
+				limit = {
+					father = { trait = half_elf } # father is
+					mother = { trait = half_elf } # mother is	
+				}
+				add_trait = half_elf
+			}
+			if = {
+				limit = {
+					father = { trait = elf } # father is
+					mother = { trait = half_elf } # mother is
+				}
+				add_trait = half_elf
+			}
+			if = {
+				limit = {
+					father = { trait = elf } # father is
+					mother = { trait = half_elf } # mother is
+					}
+				add_trait = half_elf
+			}
+			# Half Elves with non half_elves or non elves gives elven blood
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = half_elf } # father is
+							NOT = { mother = { trait = half_elf } }
+							NOT = { mother = { trait = elf } } # mother is not
+						}
+						AND = {
+							NOT = { father = { trait = elf } }
+							NOT = { father = { trait = half_elf } }# father is not
+							mother = { trait = half_elf } # mother is
+						}
+					}
+				}
+				add_trait = elven_blood
+			}
+			# Just elven blood
+			if = {
+				limit = {
+					father = { trait = elven_blood } # father is
+					mother = { trait = elven_blood } # mother is
+				}
+				add_trait = elven_blood
+			}
+			# Might loose elven blood
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = elven_blood } # father is
+							NOT = { mother = { trait = elven_blood } } # mother is not from elven blood
+							NOT = { mother = { trait = elf } } # mother is not an elf
+						}
+						AND = {
+							NOT = { father = { trait = elven_blood } } # father is not from elven blood
+							NOT = { father = { trait = elf } } # father is not an elf
+							mother = { trait = elven_blood } # mother is
+						}
+					}
+				}
+				random_list = {
+					70 = {
+						add_trait = elven_blood
+					}
+					30 = {
+					}
+				}
+			}
+			# Blood of Numenor, with a chance of it weakening
+			if = {
+				limit = {
+					father = { trait = blood_of_numenor } # father is
+					mother = { trait = blood_of_numenor } # mother is
+				}
+				random_list = {
+					3 = { 
+						add_trait = blood_of_numenor2
+					}
+					97 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+			# Blood of Numenor Likely to be weaker if marrage is done with non-true blood
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = blood_of_numenor } # father is
+							NOT = { mother = { trait = blood_of_numenor } } # mother is not
+							NOT = { mother = { trait = blood_of_numenor2 } } # mother is not - weaken					
+						}
+						AND = {
+							NOT = { father = { trait = blood_of_numenor } } # father is not
+							NOT = { father = { trait = blood_of_numenor } } # father is not - weaken				
+							mother = { trait = blood_of_numenor } # mother is
+						}
+					}
+				}
+				random_list = {
+					35 = {
+						add_trait = blood_of_numenor
+					}
+					65 = {
+						add_trait = blood_of_numenor2
+					}
+				}
+			}
+			# Even if both have weak blood, it could strengthen
+			if = {
+				limit = {
+					father = { trait =  blood_of_numenor2 } # father is
+					mother = { trait =  blood_of_numenor2 } # mother is
+				}
+				random_list = {
+					5 = { 
+						prestige = 10
+					}
+					80 = {
+						add_trait = blood_of_numenor2
+					}
+					15 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+			# A bigger chance of strengthening
+			if = {
+				limit = {
+					father = { trait =  blood_of_numenor } # father is
+					mother = { trait =  blood_of_numenor2 } # mother is
+				}
+				random_list = {
+					25 = {
+						add_trait = blood_of_numenor2
+					}
+					75 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					father = { trait =  blood_of_numenor2 } # father is
+					mother = { trait =  blood_of_numenor } # mother is
+				}
+				random_list = {
+					40 = {
+						add_trait = blood_of_numenor2
+					}
+					60 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+			# ordinary weak numemnor blood breeding
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait =  blood_of_numenor2 } # father is
+							NOT = { mother = { trait =  blood_of_numenor2 } } # mother is not
+						}
+						AND = {
+							NOT = { father = { trait =  blood_of_numenor2 } } # father is not
+							mother = { trait =  blood_of_numenor2 } # mother is
+						}
+					}
+				}
+				random_list = {
+					25 = { 
+						prestige = 10
+					}
+					12 = {
+						add_trait = blood_of_numenor
+					}
+					63 = {
+						add_trait = blood_of_numenor2
+					}
+				}
+			}
+			# orc breeding...
+			if = {
+				limit = {
+					
+					father = { trait = orc } # father is
+					mother = { trait = orc } # mother is
+					
+				}
+				add_trait = orc
+			}
+			# Half orc creation...
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = orc } # father is
+							NOT = { mother = { trait = orc } } # mother is not
+						}
+						AND = {
+							NOT = { father = { trait = orc } } # father is not
+							mother = { trait = orc } # mother is
+						}
+					}
+				}
+				add_trait = half_orc
+			}
+			# ordinary half orc breeding
+			if = {
+				limit = {
+				
+						father = { trait = half_orc } # father is
+						mother = { trait = half_orc } # mother is
+					
+				}
+				add_trait = half_orc
+			}
+			# reduced orc blood
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							father = { trait = half_orc } # father is
+							NOT = { mother = { trait = half_orc } } # mother is not
+						}
+						AND = {
+							NOT = { father = { trait = half_orc } } # father is not
+							mother = { trait = half_orc } # mother is
+						}					
+					}
+				}
+				random_list = {
+					45 = { 
+						prestige = -10
+					}
+					55 = {
+						add_trait = half_orc
+					}
+				}
+			}	
+		}
+		# an additional set which kicks in if the apparent father is not the real father
+		if = {
+			limit = {
+				is_father_real_father = no 
+			}
+		
+			if = {
+				limit = {
+				
+					real_father = { trait = elf } # real_father is
+					mother = { trait = elf } # mother is
+					
+				}
+				add_trait = elf
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							real_father = { trait = elf } # real_father is
+							NOT = { mother = { trait = elf } } # mother is not
+						}
+						AND = {
+							NOT = { real_father = { trait = elf } } # real_father is not
+							mother = { trait = elf } # mother is
+						}
+					}
+				}
+				add_trait = half_elf
+			}
+			if = {
+				limit = {
+			
+					real_father = { trait = half_elf } # real_father is
+					mother = { trait = half_elf } # mother is
+					
+				}
+				add_trait = half_elf
+			}
+		
+			if = {
+				limit = {
+				
+					real_father = { trait = elf } # real_father is
+					mother = { trait = half_elf } # mother is
+				
+				}
+				add_trait = half_elf
+			}
+			if = {
+				limit = {
+				
+				real_father = { trait = elf } # real_father is
+				mother = { trait = half_elf } # mother is
+				
+				}
+				add_trait = half_elf
+			}
+		
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							real_father = { trait = half_elf } # real_father is
+							NOT = { mother = { trait = half_elf } } # mother is not
+						}
+						AND = {
+							NOT = { real_father = { trait = half_elf } } # real_father is not
+							mother = { trait = half_elf } # mother is
+						}
+					}
+				}
+				add_trait = elven_blood
+			}
+			if = {
+				limit = {
+					
+					real_father = { trait = elven_blood } # real_father is
+					mother = { trait = elven_blood } # mother is
+			
+				}
+					add_trait = elven_blood
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							real_father = { trait = elven_blood } # real_father is
+							NOT = { mother = { trait = elven_blood } } # mother is not from elven blood
+							NOT = { mother = { trait = elf } } # mother is not an elf
+						}
+						AND = {
+							NOT = { real_father = { trait = elven_blood } } # real_father is not from elven blood
+							NOT = { real_father = { trait = elf } } # real_father is not an elf
+							mother = { trait = elven_blood } # mother is
+						}
+					}
+				}
+				random_list = {
+					70 = {
+						add_trait = elven_blood
+					}
+					30 = {
+					}
+				}
+			}		
+		
+			if = {
+				limit = {
+			
+					real_father = { trait = blood_of_numenor } # real_father is
+					mother = { trait = blood_of_numenor } # mother is
+				
+				}
+				random_list = {
+					3 = { 
+						add_trait = blood_of_numenor2
+					}
+					97 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							real_father = { trait = blood_of_numenor } # real_father is
+							NOT = { mother = { trait = blood_of_numenor } } # mother is not
+							NOT = { mother = { trait = blood_of_numenor2 } } # mother is not - weaken					
+						}
+						AND = {
+							NOT = { real_father = { trait = blood_of_numenor } } # real_father is not
+							NOT = { real_father = { trait = blood_of_numenor } } # real_father is not - weaken				
+							mother = { trait = blood_of_numenor } # mother is
+						}
+					}
+				}
+				random_list = {
+					35 = {
+						add_trait = blood_of_numenor
+					}
+					65 = {
+						add_trait = blood_of_numenor2
+					}
+				}
+			}
+			if = {
+				limit = {
+				
+					real_father = { trait =  blood_of_numenor2 } # real_father is
+					mother = { trait =  blood_of_numenor2 } # mother is
+				
+				}
+				random_list = {
+					5 = { 
+						prestige = 10
+					}
+					80 = {
+						add_trait = blood_of_numenor2
+					}
+					15 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+		
+			if = {
+				limit = {
+			
+					real_father = { trait =  blood_of_numenor } # real_father is
+					mother = { trait =  blood_of_numenor2 } # mother is
+				
+				}
+				random_list = {
+					25 = {
+						add_trait = blood_of_numenor2
+					}
+					75 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+		
+			if = {
+				limit = {
+				
+					real_father = { trait =  blood_of_numenor2 } # real_father is
+					mother = { trait =  blood_of_numenor } # mother is
+				
+				}
+				random_list = {
+					40 = {
+						add_trait = blood_of_numenor2
+					}
+					60 = {
+						add_trait = blood_of_numenor
+					}
+				}
+			}
+		
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						real_father = { trait =  blood_of_numenor2 } # real_father is
+						NOT = { mother = { trait =  blood_of_numenor2 } } # mother is not
+					}
+					AND = {
+						NOT = { real_father = { trait =  blood_of_numenor2 } } # real_father is not
+						mother = { trait =  blood_of_numenor2 } # mother is
+					}
+				}
+			}
+			random_list = {
+				25 = { 
+					prestige = 10
+				}
+				12 = {
+					add_trait = blood_of_numenor
+				}
+				63 = {
+					add_trait = blood_of_numenor2
+				}
+			}
+		}
+		if = {
+			limit = {
+				
+				real_father = { trait = orc } # real_father is
+				mother = { trait = orc } # mother is
+				
+			}
+			add_trait = orc
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						real_father = { trait = orc } # real_father is
+						NOT = { mother = { trait = orc } } # mother is not
+					}
+					AND = {
+						NOT = { real_father = { trait = orc } } # real_father is not
+						mother = { trait = orc } # mother is
+					}
+				}
+			}
+			add_trait = half_orc
+		}
+		if = {
+			limit = {
+			
+					real_father = { trait = half_orc } # real_father is
+					mother = { trait = half_orc } # mother is
+				
+			}
+			add_trait = half_orc
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						real_father = { trait = half_orc } # real_father is
+						NOT = { mother = { trait = half_orc } } # mother is not
+					}
+					AND = {
+						NOT = { real_father = { trait = half_orc } } # real_father is not
+						mother = { trait = half_orc } # mother is
+					}					
+				}
+			}
+			random_list = {
+				45 = { 
+					prestige = -10
+				}
+				55 = {
+					add_trait = half_orc
+				}
+			}
+		}
+	}
+	}  
+	
+	
+	option = {
+		# name = "OK"
+	}
+
+}

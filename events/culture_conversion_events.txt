@@ -1,0 +1,324 @@
+#################################################
+#
+# CULTURAL CONVERSION EVENTS
+#
+#################################################
+
+# Province culture changes
+province_event = {
+	id = 55000
+	desc = "EVTDESC55000"
+	picture = GFX_evt_stone_church
+	
+	trigger = {
+		NOT = {
+			has_game_rule = { name = culture_conversion  value = off }
+		}
+		# owner stuff...
+		owner = {
+			top_liege = {
+				culture = PREV
+			}
+			NOT = { culture = ROOT }
+			# Culture/Religions that should not spontaniously spread, ever
+			NOT = { mep_never_spread_culture = yes }
+		}
+		# only same-species/group conversion is allowed...
+		OR = {
+			AND = {  # Numenoreans
+				culture_group = culture_group_numenorean
+				owner = { culture_group = culture_group_numenorean }
+			}
+			AND = {  # For religion group melkor, all religions are species except orkish+uruk
+				religion_group = religion_group_melkor
+				OR = {
+					owner = { religion = ROOT }
+					AND = {
+						OR = { religion = religion_uruk
+							religion = religion_orkish }
+						owner = {
+							NOR = { religion = religion_uruk
+								religion = religion_orkish }
+						}
+					}
+				}
+			}
+			AND = {  # Non-Human, Non-Melkor
+				NOT = { mep_is_human_trigger = yes }
+				NOT = { religion_group = religion_group_melkor }
+				owner = { NOT = { religion_group = ROOT } }
+			}
+			AND = {  # Non-Númenórean human culture
+				mep_has_nondunedain_human_culture = yes
+				owner = { mep_has_nondunedain_human_culture = yes }
+			}
+		}
+
+		any_neighbor_province = {
+			has_owner = yes
+			NOT = { mep_low_pop_trigger = yes }
+			NOT = { mep_being_purged_trigger = yes }
+			ROOT = {
+				owner = {
+					culture = PREVPREV
+				}
+			}
+			owner = {
+				ROOT = {
+					owner = {
+						culture = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2400  # Culture shifting should be slower in general, originally months = 1200
+		# longer lived species are more resistant to change...
+		modifier = {
+			factor = 2
+			OR = {
+				terrain = mountain
+				terrain = hills
+			}
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 5
+			NOR = {
+				terrain = mountain
+				terrain = hills
+			}
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				terrain = forest
+				terrain = woods
+			}
+			religion_group = religion_group_eldar
+		}
+		modifier = {
+			factor = 6
+			NOR = {
+				terrain = forest
+				terrain = woods
+			}
+			religion_group = religion_group_eldar
+		}
+		modifier = {
+			factor = 3
+			culture_group = culture_group_numenorean
+		}
+		# poplevel encouragement
+		modifier = {
+			factor = 0.5
+			any_neighbor_province = {
+				mep_high_pop_trigger = yes
+				ROOT = {
+					owner = { culture = PREVPREV }
+				}
+				owner = {
+					ROOT = {
+						owner = { culture = PREVPREV }
+					}
+				}
+			}
+		}
+		# poplevel discouragement
+		modifier = {
+			factor = 2
+			mep_high_pop_trigger = yes
+		}
+		# The vanilla modifiers follow
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 2 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 3 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 4 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 5 } }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 9 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 11 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 13 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 15 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { conquest_culture_trigger = yes }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55000"
+		owner = {
+			ROOT = {
+				culture = PREV
+				religion = PREV
+			}
+		}
+	}
+}
+
+# Bring in some settlers
+province_event = {
+	id = 55001
+	desc = "EVTDESC55001"
+	picture = GFX_evt_stone_church
+	
+	trigger = {
+		owner = {
+			top_liege = {
+				culture = PREV
+			}
+			NOT = { culture = ROOT }
+			capital_scope = {
+				province_id = ROOT
+			}
+			NOT = { culture_group = culture_group_eru } #Keeps sauron from turning his lands to maiar culture.
+			# NOT = {
+				# OR = { #Keeps the following cultures from having culture changing events.
+					# culture_group = culture_group_numenorean
+					# culture_group = culture_group_quendi
+					# culture_group = culture_group_amanyar
+					# culture_group = culture_group_umanyar
+					# culture_group = culture_group_moriquendi
+					# culture_group = culture_group_dwarves
+				# }
+			# }
+			
+			conquest_culture_trigger = yes
+		}
+		
+		NOT = { # Exclude provinces covered by event 55000
+			any_neighbor_province = {
+				has_owner = yes
+				ROOT = {
+					owner = {
+						culture = PREVPREV
+					}
+				}
+				owner = {
+					ROOT = {
+						owner = {
+							culture = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+		
+		modifier = { # Added this a catch to make sure sauron isn't flipping cultures.
+			factor = 900
+			owner = { culture_group = culture_group_eru }
+		}
+		modifier = {
+			factor = 2.0
+			owner = {
+				OR = { #Makes the following cultures take longer to have culture changing events.
+					culture_group = culture_group_numenorean
+					mep_is_elf_culture = yes
+					culture_group = culture_group_dwarves
+				}
+			}
+		}
+		modifier = { #Adds additional time for dwarves and elves.
+			factor = 1.5
+			owner = {
+				OR = { #Makes the following cultures take longer to have culture changing events.
+					mep_is_elf_culture = yes
+					culture_group = culture_group_dwarves
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 2 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 3 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 4 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 5 } }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 9 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 11 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 13 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 15 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55001"
+		owner = {
+			ROOT = {
+				culture = PREV
+				if = {
+					limit = {
+						NOT = { religion = PREV }
+					}
+					religion = PREV
+				}
+			}
+		}
+	}
+}
+
+# Used to notify a liege that a Tribal Vassal has converted to Feudual
+# Nothing to do with culture at all.
+character_event = {
+	id = 55100
+	desc = EVTDESC55100
+	picture = GFX_evt_courier
+	
+	notification = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}

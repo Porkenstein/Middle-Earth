@@ -1,0 +1,702 @@
+# Merged marriage, fertility, and pregnancy events for MEP
+namespace = mepmarriage
+
+# events 0 to 9 - merger of wrongmarriage and orcmarriage. These should normally not happen, but I'll keep them in case
+# event 10 to 14 - elf, dwarf, and human infertility
+# TODO : revised dwarven and numenorean 'menopause'
+# Pregnancy generate events for dwarves and numenoreans older than 45.
+
+#--------------------------------------------------------------------------------------------------
+### Marriage between different races - Dwarves side
+character_event = {
+    id = mepmarriage.0
+    title = "EVTTITmepmarriage.0"
+    desc = "EVTDESCmepmarriage.0"
+    picture = "GFX_good"
+	religion_group = religion_group_khazad
+	is_married = yes
+	
+	trigger = {
+		culture_group = culture_group_dwarves
+		any_spouse  = {
+			NOT = { culture_group = culture_group_dwarves }
+		}
+		NOT = { has_character_flag = wrongmarriage1 }
+	}
+	
+	mean_time_to_happen = { days = 30 }
+	
+	option = {
+		name = "EVTOPTAmepmarriage.0" ### Revoke it
+		any_spouse = {
+			limit = {
+				is_landed = no
+				NOT = { culture_group = culture_group_dwarves }
+			}
+			remove_spouse = ROOT
+			# banish = yes
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTBmepmarriage.0"#Actually, I kind of like her...
+		trigger = { ai = no }
+		set_character_flag = wrongmarriage1
+	}	
+}
+
+### Marriage between different races - Elves side
+character_event = {
+    id = mepmarriage.1
+    title = "EVTTITmepmarriage.1"
+    desc = "EVTDESCmepmarriage.1"
+    picture = "GFX_good"
+	religion_group = religion_group_eldar
+	is_married = yes
+	
+	trigger = {
+		trait = elf
+		any_spouse = {
+			NOR = {
+				trait = elf
+				AND = {
+					age = 60
+					religion_group = religion_group_eldar
+				}
+			}
+			NOT = { has_character_flag = elfhumanmarriage }
+			is_landed = no
+		}
+		NOT = { has_character_flag = wrongmarriage1 }
+		NOT = { has_character_flag = elfhumanmarriage }
+	}
+	
+	mean_time_to_happen = { days = 60 }
+	
+	option = {
+		name = "EVTOPTAmepmarriage.1" ### Revoke it
+		any_spouse = {
+			limit = {
+				NOR = {
+					trait = elf
+					AND = {
+						age = 60
+						religion_group = religion_group_eldar
+					}
+				}
+				NOT = { has_character_flag = elfhumanmarriage }
+				is_landed = no
+			}
+			remove_spouse = ROOT
+			# banish = yes
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTBmepmarriage.1"#Actually, I kind of like her..."
+		trigger = { ai = no }
+		set_character_flag = wrongmarriage1
+	}	
+}
+
+
+### Marriage between different races - Orcs Side
+character_event = {
+    id = mepmarriage.2
+    title = "EVTTITmepmarriage.2"
+    desc = "EVTDESCmepmarriage.2"
+    picture = "GFX_good"
+	religion_group = religion_group_melkor
+	is_married = yes
+	
+	trigger = {
+		trait = orc
+		any_spouse = {
+			is_landed = no
+			NOR = {
+				trait = orc
+				mep_orc_troll_culture = yes
+			}
+		}
+		NOT = { has_character_flag = wrongmarriage1 }
+		NOT = { has_character_flag = orchumanmarriage }
+	}
+	
+	mean_time_to_happen = { days = 30 }
+	
+	option = {
+		name = "EVTOPTAmepmarriage.2" ### Revoke it!
+		any_spouse = {
+			limit = {
+				is_landed = no
+				NOR = {
+					trait = orc
+					mep_orc_troll_culture = yes
+				}
+			}
+			remove_spouse = ROOT
+			# banish = yes
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTBmepmarriage.2"#Actually, I kind of like her...
+		trigger = { ai = no }
+		set_character_flag = wrongmarriage1
+	}	
+}
+
+
+### Marriage between different races - Wight Side
+character_event = {
+    id = mepmarriage.3
+    title = "EVTTITmepmarriage.3"
+    desc = "EVTDESCmepmarriage.3"
+    picture = "GFX_good"
+	religion = religion_wight
+	is_married = yes
+	
+	trigger = {
+		trait = wight
+		spouse = {
+			NOT = { trait = wight }
+		}
+		NOT = { has_character_flag = wrongmarriage1 }
+		NOT = { has_character_flag = orchumanmarriage }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "EVTOPTAmepmarriage.3" ### Revoke it
+		any_spouse = {
+			limit = {
+				is_landed = no
+				NOT = { trait = wight }
+			}
+			remove_spouse = ROOT
+			# banish = yes
+		}
+	}	
+	
+	option = {
+		name = "EVTOPTBmepmarriage.3"#Actually, I kind of like her...
+		trigger = { ai = no }
+		set_character_flag = wrongmarriage1
+	}	
+}
+
+
+#someone discovers what their wife really looks like#
+character_event = {
+    id = mepmarriage.7
+    title = "EVTTITmepmarriage.7"#You've married a Monster
+    desc = "EVTDESCmepmarriage.7"#By all that is holy, your new wife is a monster! Not the fair maid you were promised... what cruel joke is this?
+    picture = "GFX_war_at_north"
+	
+	
+	trigger = {
+		spouse = {
+			OR = {
+				mep_orc_goblin_culture = yes
+				culture = culture_troll
+				culture = culture_spider
+				religion = religion_orkish
+				culture = culture_wight
+			}
+		}
+		ROOT = {
+			OR = {
+				mep_has_nondunedain_human_culture = yes
+				culture_group = culture_group_numenorean
+			}
+		}
+		NOT = { has_character_flag = orcmarriage1 }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "EVTOPTAmepmarriage.7"#Kill it! Kill it with fire!
+			any_spouse = {
+				limit = {
+					is_landed = no
+					OR = {
+						mep_orc_goblin_culture = yes
+						culture = culture_troll
+						culture = culture_spider
+						religion = religion_orkish
+						culture = culture_wight
+					}
+				}
+			death = {
+				death_reason = death_suicide
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTBmepmarriage.7"#Actually, I kind of like her...
+		trigger = { ai = no }
+		set_character_flag = orcmarriage1
+	}	
+}
+	
+#and now spawn some melkor brides, so the poor bastards wont have to marry orcs!#
+character_event = {
+    id = mepmarriage.8
+    title = "EVTTITmepmarriage.8"#Brides of Melkor
+    desc = "EVTDESCmepmarriage.8"#A few women have joined your inner circle, and have become devout worshippers of the Dark Lord!
+    picture = "GFX_death"
+	
+	only_independent = yes
+	
+	trigger = {
+		OR = {
+			mep_has_nondunedain_human_culture = yes
+			culture_group = culture_group_numenorean
+		}
+		trait = evil_side
+		NOT = { has_character_flag = orcmarriage2 }
+		is_ruler = yes
+		NOT = { year = 11363 }
+	}
+
+	mean_time_to_happen = { days = 1 }
+		
+	option = {
+		name = "EVTOPTAmepmarriage.8"#Excellent...
+		trigger = { 
+			OR = {
+				NOT = { trait = blood_of_numenor }  
+				NOT = { trait = blood_of_numenor2 }
+			}
+		}
+		set_character_flag = orcmarriage2
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 21
+			health = 6
+			fertility = 0.7
+			trait = mastermind_theologian
+			trait = hedonist
+			trait = proud
+			trait = cruel
+			trait = evil_side
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = impaler
+		}
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 23
+			health = 6
+			fertility = 0.7
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = lustful
+			trait = craven
+		}
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 26
+			health = 6
+			fertility = 0.7
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = lustful
+			trait = impaler
+			trait = cruel
+		}
+	}
+
+	option = {
+		name = "EVTOPTBmepmarriage.8"#Excellent...
+		trigger = { 
+			OR = {
+				trait = blood_of_numenor 
+				trait = blood_of_numenor2 
+			}
+		}
+		set_character_flag = orcmarriage2
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 21
+			health = 6
+			fertility = 0.7
+			trait = mastermind_theologian
+			trait = hedonist
+			trait = proud
+			trait = cruel
+			trait = evil_side
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = impaler
+			trait = blood_of_numenor2
+		}
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 23
+			health = 6
+			fertility = 0.7
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = lustful
+			trait = craven
+			trait = blood_of_numenor2
+		}
+		create_random_soldier = {
+			dynasty = none
+			religion = ROOT
+			culture = ROOT
+			female = yes
+			age = 26
+			health = 6
+			fertility = 0.7
+			trait = envious
+			trait = deceitful
+			trait = ambitious
+			trait = lustful
+			trait = impaler
+			trait = cruel
+			trait = blood_of_numenor2
+		}
+	}		
+}
+#--------------------------------------------------------------------------------------------------
+# Elven infertility after birth: I reduced the chance down to 40% (originally 60%)
+character_event = {
+	id = mepmarriage.10
+	title = "EVTTITmepmarriage.10"
+	desc = "EVTDESCmepmarriage.10"
+	picture = GFX_evt_pregnancy
+	
+	is_triggered_only = yes	
+	
+	trigger = {
+		is_female = yes
+		trait = elf
+	    NOT = { has_character_flag = elven_infertility }	
+	}
+		  
+	option = {
+		name = "EVTOPTAmepmarriage.10" #OK
+        random = { 
+			chance = 40
+			if = { limit = { trait = fertile }
+				remove_trait = fertile
+			}
+			add_trait = elven_infertility	
+			set_character_flag = elven_infertility
+	    }
+	}  
+}
+# For Elves: triggered event for adding the 'marriedforever' trait that prevents remarriage
+character_event = {
+	id = mepmarriage.11
+	title = "EVTTITmepmarriage.11"  # Death is not the end
+	desc = "EVTDESCmepmarriage.11"
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes	
+		  
+	option = {
+		name = "EVTOPTAmepmarriage.11" # Our spirits are linked forever.
+		ai_chance = { factor = 99 }
+		add_trait = marriedforever
+		add_trait = depressed
+	}
+
+	option = {
+		name = EVTOPTBmepmarriage.11 # If Finwë could remarry, so could I!
+		trigger = {
+			NOT = { has_character_flag = elven_infertility }
+		}
+		ai_chance = { factor = 1 }
+		random = {
+			chance = 75
+			add_trait = depressed
+		}
+	}
+}
+# Dwarven Inferitlity after Birth Event
+character_event = {
+	id = mepmarriage.12
+	title = "EVTTITmepmarriage.12"
+	desc = "EVTDESCmepmarriage.12"
+	picture = GFX_evt_pregnancy
+	religion_group = religion_group_khazad
+	
+	is_triggered_only = yes	
+		
+	trigger = {
+		is_female = yes
+		trait = dwarven
+		NOT = { has_character_flag = dwarven_infertility }
+	}
+	
+	option = {
+		name = "EVTOPTAmepmarriage.12" #OK
+		random = { 
+			chance = 35
+			if = { limit = { trait = fertile }
+				remove_trait = fertile
+			}
+			add_trait = dwarven_infertility	
+			set_character_flag = dwarven_infertility
+	    }
+	} 
+}
+
+# Simple infertility events
+# hidden event that dispatches mepmarriage.14 or just adds not_fertile if conditions are correct
+character_event = {
+	id = mepmarriage.13
+	hide_window = yes
+	only_women = yes
+	min_age = 45
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { mep_is_immortal_race_trigger = yes }
+		NOT = { religion_group = religion_group_wilderness }
+		NOT = { religion_group = religion_group_khazad }
+		NOT = { trait = not_fertile }
+		NOT = { trait = dunedain_infertility }
+		immortal = no  # just in case
+		is_alive = yes
+	}
+	
+	# option for Elven/Númenorean blood
+	option = {
+		trigger = {
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = elven_blood
+			}
+		}
+		# High/Pure Blood Númenorean (this generally assumes death age corresponds to something like 85)
+		if = {
+			limit = {
+				OR = {
+					trait = blood_of_numenor
+					trait = prince_numenor
+					trait = blood_of_isildur # ??
+					trait = blood_of_anarion # ??
+				}
+			}
+			# Max menopause: 215 (early Númenorean )
+			if = {
+				limit = { age = 215 }
+				character_event = { id = mepmarriage.14 }
+			}
+			# decline part 1
+			else_if = {
+				limit = {
+					year = 7300
+					age = 200
+				}
+				random = {
+					chance = 90
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+			# decline part 2
+			else_if = {
+				limit = {
+					year = 7600
+					age = 165
+				}
+				random = {
+					chance = 92
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+			# late 2nd age 
+			else_if = {
+				limit = {
+					year = 7900
+					age = 140
+				}
+				random = {
+					chance = 94
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+			# Into the 3rd age : 125
+			else_if = {
+				limit = {
+					year = 9100
+					age = 125
+				}
+				random = {
+					chance = 95
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+			# mid 3rd age
+			else_if = {
+				limit = {
+					year = 9750
+					age = 105
+				}
+				random = {
+					chance = 95
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+			# later 3rd age : 90 (Children and grandchildren of Aragorn are excluded, if pureblooded)
+			else_if = {
+				limit = {
+					year = 10400
+					age = 90
+					NOT = { is_child_of = 2038 }
+					NOT = { is_grandchild_of = 2038 }
+				}
+				random = {
+					chance = 95
+					character_event = { id = mepmarriage.14 }
+				}
+			}
+		}
+		# 'Medium Blood'
+		else_if = {
+			limit = { NOT = { trait = elven_blood } }
+			if = {
+				limit = { age = 65 }
+				character_event = { id = mepmarriage.14 }
+			}
+		}
+		# Elven Blood (and no other Númenorean traits }
+		else = {
+			if = {
+				limit = { age = 85 }
+				character_event = { id = mepmarriage.14 }
+			}
+		}
+	}
+	
+	# Half-Orcs with Elven/Númenorean Blood ?
+	
+	# Option for Hobbits
+	option = {
+		trigger = {
+			religion_group = religion_group_periannath
+		}
+		if = {
+			limit = { age = 50 }
+			mep_addinfertile = yes
+		}
+	}
+	
+	# Option for Other Humans
+	option = {
+		trigger = {
+			mep_is_human_trigger = yes
+			NOT = { culture_group = culture_group_numenorean }
+			NOT = { trait = elven_blood }
+		}
+		if = {
+			limit = { age = 45 }
+			mep_addinfertile = yes
+		}
+	}
+	
+	# Orcs/Goblins
+	option = {
+		trigger = {
+			mep_orc_goblin_culture = yes
+		}
+		if = {
+			limit = { age = 45 }
+			mep_addinfertile = yes
+		}
+	}
+	# Trolls
+	option = {
+		trigger = {
+			religion = religion_olog
+		}
+		if = {
+			limit = { age = 45 }
+			mep_addinfertile = yes
+		}
+	}
+	
+	# Misc unaccounted for crossbreeds and such ?
+
+}
+
+# Event for Númenórean or Elven-Blooded Women that they get once they are deemed infertile due to age.
+character_event = {
+	id = mepmarriage.14
+	title = "EVTTITmepmarriage.14"
+	desc = "EVTDESCmepmarriage.14"
+	picture = GFX_evt_pregnancy
+	
+	is_triggered_only = yes	
+		
+	option = {
+		name = "OPTAmepmarriage.14" #OK
+		if = {
+			limit = { trait = fertile }
+			remove_trait = fertile
+		}
+		add_trait = dunedain_infertility
+		set_character_flag = human_infertility
+	}
+
+} 
+#--------------------------------------------------------------------------------------------------
+# Dwarven Menopause
+character_event = {
+	id = mepmarriage.15
+	title = "EVTTITmepmarriage.15"
+	desc = "EVTDESCmepmarriage.15"
+	picture = GFX_evt_pregnancy
+	religion_group = religion_group_khazad
+	only_women = yes
+	min_age = 105 # not really sure what the bare minimum should be...
+	
+	is_triggered_only = yes	
+	
+	trigger = {
+		trait = dwarven # just be be sure...
+		NOT = { trait = dwarven_infertility }  # a separate event can addthis even before old age
+		immortal = no
+		# the condition below could perhaps be replaced by something more complicated later.
+		age = 150
+		
+	}
+		
+	option = {
+		name = "OPTAmepmarriage.14" #OK
+		if = {
+			limit = { trait = fertile }
+			remove_trait = fertile
+		}
+		add_trait = dwarven_infertility
+	}
+
+}

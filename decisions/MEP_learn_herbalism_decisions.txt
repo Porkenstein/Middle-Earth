@@ -1,0 +1,29 @@
+decisions = {
+	## Learn herbal abilities ##
+	learn_herbal_abilities = {
+		is_high_prio = yes
+		potential = {
+			OR = {
+				mep_is_elf_culture = yes
+				culture_group = culture_group_numenorean
+			}
+			ai = no
+			age = 16
+			NOT = { has_character_flag = learn_herbal }
+			NOT = { trait = incapable }
+			NOT = { trait = healer_master }
+			has_character_flag = special_decisions_open
+		}
+		allow = {
+			prestige = 200
+			piety = 200
+			wealth = 250
+		}
+		effect = {
+			set_character_flag = learn_herbal
+			character_event = { id = learnherbal.1 }
+			prestige = -200
+			piety = -200
+		}
+	}
+}

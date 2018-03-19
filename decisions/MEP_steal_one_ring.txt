@@ -1,0 +1,30 @@
+decisions = {
+	#Steal the One Ring#
+	steal_one_ring = {
+		is_high_prio = yes
+		potential = {
+			ai = no
+			any_courtier = {
+				prisoner = yes
+				has_artifact = artifact_ring
+			}
+		}
+		allow = {
+			in_command = no
+			age = 16
+			prisoner = no
+			NOT = { trait = blinded }
+			NOT = { trait = craven }
+			NOT = { trait = imbecile }
+			NOT = { trait = weak }
+			NOT = { year = 11363 }
+			NOT = { trait = incapable }
+			NOT = { trait = elf_childhood }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = stealonering.0 }
+			}
+		}
+	}
+}

@@ -1,0 +1,45 @@
+decisions = {
+	council_gondor = {
+		potential = {
+			ai = no
+			OR = {
+				has_landed_title = e_gondor
+				has_landed_title = e_steward_gondor
+			}
+			has_character_flag = special_decisions_open
+			age = 1
+			religion = religion_dunedain
+			NOT = { has_character_flag = councilgondor }
+		}
+		allow = {
+			prestige = 500
+			piety = 500
+		}
+		effect = {
+			ROOT = {
+				narrative_event = { id = councilgondor.0 }
+			}
+			set_character_flag = councilgondor
+		}
+	}
+
+    recruit_rangers = {
+	    potential = {
+		    ai = no
+			   has_landed_title = d_ithilien_rangers
+			age = 16
+			religion = religion_dunedain
+			has_character_flag = special_decisions_open
+			NOT = {
+			    has_character_flag = hiring_soldiers
+			}
+		}
+		allow = {
+		    treasury = 250
+		}
+		effect = {
+			character_event = { id = gondorwotr.19 }
+			set_character_flag = hiring_soldiers
+		}
+	}
+}

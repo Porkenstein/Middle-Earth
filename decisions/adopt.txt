@@ -1,0 +1,157 @@
+targetted_decisions = {
+	iam_adopt= {
+		filter = sub_realm
+		ai_target_filter = sub_realm
+
+		potential = {
+			AND = {
+				OR  = {
+					dynasty = none
+				}
+				is_primary_heir = no
+				religion = religion_orkish
+				is_landed = no
+				is_married = no
+				prisoner = no
+				NOT = {
+					is_child_of = FROM
+				}
+				NOT = {
+					age = 50
+				}
+				NOT = { culture = culture_dunedain }
+			}
+		}		
+		allow = {
+			FROM = {
+				age = 70
+				NOT = { religion = religion_eruhini }
+				NOT = { religion = religion_enyd }
+				NOT = { religion = religion_mahal }
+				NOT = { religion = religion_moriquendi }
+				NOT = { religion = religion_perian }
+				NOT = { religion = religion_druedain }
+				NOT = { religion = religion_edain }
+				NOT = { religion = religion_dunedain }
+				NOT = { religion = religion_numenorean }
+				NOT = { religion = religion_rhovanion }
+				NOT = { religion = religion_haldadian }
+				NOT = { religion = religion_ishmalogim }
+				NOT = { religion = religion_lossoth }
+				NOT = { religion = religion_nurning }
+				NOT = { religion = religion_angmarim }
+				NOT = { religion = religion_southron }
+				NOT = { religion = religion_easterlings }
+			NOT = { religion = religion_black_numenorean}
+				NOT = { religion = religion_umaiar }
+				NOT = { religion = religion_wight }
+				NOT = { religion = religion_olog }
+				NOT = { religion = religion_spider }
+				NOT = { religion = religion_dragons }
+				NOT = { religion = religion_wilderness }
+
+			}
+			prisoner = no
+			NOT = { trait = in_hiding }
+			religion = FROM
+		}		
+		effect = {
+			if = {
+				limit = {
+					FROM = { is_female = yes }
+				}	
+				set_mother = FROM
+				set_father = 0
+			}
+			if = {
+				limit = {
+					NOT = { FROM = { is_female = yes } }
+				}
+				set_father = FROM
+				set_real_father = 0
+			}
+			hidden_tooltip = {
+				any_child = {
+					limit = { dynasty = ROOT }
+					dynasty = FROM
+					any_child = {
+						limit = { dynasty = ROOT }
+						dynasty = FROM
+					}
+				}
+			}
+			dynasty = FROM
+			recalc_succession = yes
+			FROM = { 
+			}
+			opinion = {
+				who = FROM
+				modifier = iam_adopted_pos
+				years = 20
+			}
+			FROM = {
+				spouse = {
+					if = {
+						limit = {
+							NOT = {
+								any_child = {
+									character = ROOT
+								}	
+							}
+						}
+						opinion = {
+							who = FROM
+							modifier = iam_adopted_neg
+							years = 20
+						}
+					}
+				}
+				any_child = {
+					limit = {
+						NOT = { character = ROOT }
+						dynasty = FROM
+						NOT = { trait = iam_adopted }
+					}
+					opinion = {
+						who = FROM
+						modifier = iam_adopted_neg
+						months = 12
+					}
+				}
+				any_sibling = {
+					limit = {
+						NOT = { character = ROOT }
+						dynasty = FROM
+						NOT = { trait = iam_adopted }
+					}
+					opinion = {
+						who = FROM
+						modifier = iam_adopted_neg
+						months = 12
+					}
+				}
+				any_realm_lord = {
+					limit = {
+						NOT = { character = ROOT }
+						NOT = { trait = iam_adopted }
+						NOT = { is_child_of = FROM }
+						OR = {
+							religion = religion_orkish
+						}
+					}
+					opinion = {
+						who = FROM
+						modifier = iam_adopted_vassal
+						months = 12
+					}
+				}
+			}
+		}		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

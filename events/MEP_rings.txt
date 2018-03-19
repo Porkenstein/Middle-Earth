@@ -1,0 +1,441 @@
+namespace = rings
+
+## List of holders of the rings ##
+	character_event = {
+    id = rings.0
+    title = "EVTTITrings.0"
+    desc = "EVTDESCrings.0"
+    picture = "GFX_shadows_coming"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArings.0" ## Show me the holders of the Elven Rings
+		character_event = { id = rings.1 }
+	}
+	
+	option = {
+		name = "EVTOPTBrings.0" ## Show me the holders of the Dwarven Rings
+		character_event = { id = dwarvenrings.0 }
+	}
+	
+	option = {
+		name = "EVTOPTCrings.0" ## Show me the holders of the Lesser Rings
+		character_event = { id = lesserrings.0  }
+	}	
+
+}
+
+
+### Holders of the Elven Rings ###
+character_event = {
+	id = rings.1
+	desc = "EVTDESCrings.1"
+	picture = "GFX_evt_dwarven_rings"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArings.1" #Living holders
+		narya = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTNARYA }
+		}
+		if = {
+			limit = { trait = narya }
+			custom_tooltip = { text = CURRENTNARYA }
+		}		
+		nenya = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTNENYA }
+		}
+		if = {
+			limit = { trait = nenya }
+			custom_tooltip = { text = CURRENTNENYA }
+		}	
+		vilya = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTVILYA }
+		}
+		if = {
+			limit = { trait = vilya }
+			custom_tooltip = { text = CURRENTVILYA }
+		}			
+	}
+}
+
+## List of holders of the rings ##
+	character_event = {
+    id = rings.2
+    title = "EVTTITrings.2"
+    desc = "EVTDESCrings.2"
+    picture = "GFX_shadows_coming"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArings.2" ## Show me the holders of the Rings
+		character_event = { id = rings.0 }
+	}
+	
+	option = {
+		name = "EVTOPTBrings.2" ## Show me the holders of the Palantiri
+		character_event = { id = palantir.52 }
+	}
+	
+	option = {
+		name = "EVTOPTCrings.2" ## Show me the holders of the Weapons
+		character_event = { id = rings.3  }
+	}	
+	
+	option = {
+		name = "EVTOPTDrings.2" ## Nevermind...
+	}		
+
+}
+
+
+## List of holders of the rings ##
+	character_event = {
+    id = rings.3
+    title = "EVTTITrings.3"
+    desc = "EVTDESCrings.3"
+    picture = "GFX_shadows_coming"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTArings.3" ## The Greatest Swords (Anduril/Narsil/Glamdring/Orcrist/Dagmor/Angrist/Aranruth/Ringil/Gurthang/Anguirel)
+		# unlike traits, artifacts cannot be cached
+		any_character = {
+			limit = {
+				ai = yes
+				is_alive = yes 
+				num_of_artifacts = 1
+			}
+			if = {
+				limit = { has_artifact = narsil_elendil } # Narsil (sword of the Lords of Andúnië and Elendil)
+				custom_tooltip = { text = CURRENTNARSIL }
+			}
+			if = {
+				limit = { has_artifact = anduril } # Aragorn's Sword
+				custom_tooltip = { text = CURRENTANDURIL }
+			}
+			if = {
+				limit = { has_artifact = glamdring }  # Gandalf's sword (once owned by Turgon in the first age)
+				custom_tooltip = { text = CURRENTGLAMDRING }
+			}
+			if = {
+				limit = { has_artifact = orcrist }  # Briefly held by Thorin II, interred with him
+				custom_tooltip = { text = CURRENTORCRIST  }
+			}
+			if = {
+				limit = { has_artifact = dagmor } # Sword of Beren, not mentioned since 1st age
+				custom_tooltip = { text = CURRENTDAGMOR  }
+			}
+			if = {
+				limit = { has_artifact = aranruth } # Sword of Thingol, destroyed in the downfall of Númenor
+				custom_tooltip = { text = CURRENTARANRUTH  }
+			}
+			if = {
+				limit = { has_artifact = ringil } # Sword of Fingolfin, lost when he died
+				custom_tooltip = { text = CURRENTRINGIL }
+			}
+			if = {
+				limit = { has_artifact = anguirel } # Black Sword of Eöl/Maeglin, lost in the sack of Gondolin
+				custom_tooltip = { text = CURRENTANGUIREL }
+			}
+		}
+		# list of the player's artifacts / trait-artifacts
+		if = {
+			limit = { has_artifact = narsil_elendil } # Narsil (sword of the Lords of Andúnië and Elendil)
+			custom_tooltip = { text = CURRENTNARSIL }
+		}
+		if = {
+			limit = { has_artifact = anduril } # Aragorn's Sword
+			custom_tooltip = { text = CURRENTANDURIL }
+		}
+		if = {
+			limit = { has_artifact = glamdring } # Gandalf's sword (once owned by Turgon in the first age)
+			custom_tooltip = { text = CURRENTGLAMDRING }
+		}	
+		if = {
+			limit = { has_artifact = orcrist } # Briefly held by Thorin II, interred with him
+			custom_tooltip = { text = CURRENTORCRIST }
+		}		
+		if = {
+			limit = { has_artifact = dagmor } # Sword of Beren, not mentioned since 1st age
+			custom_tooltip = { text = CURRENTDAGMOR }
+		}
+		if = {
+			limit = { has_artifact = aranruth } # Sword of Thingol, destroyed in the downfall of Númenor
+			custom_tooltip = { text = CURRENTARANRUTH }
+		}
+		if = {
+			limit = { has_artifact = ringil } # Sword of Fingolfin, lost when he died
+			custom_tooltip = { text = CURRENTRINGIL }
+		}
+		if = {
+			limit = { has_artifact = anguirel } # Black Sword of Eöl/Maeglin, lost in the sack of Gondolin
+			custom_tooltip = { text = CURRENTANGUIREL }
+		}
+		
+		# Iron-cleaving Knife broken in First Age. Left here in case someone wants to have a reforged version
+		angrist = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTANGRIST }
+		}
+		if = {
+			limit = { trait = angrist }
+			custom_tooltip = { text = CURRENTANGRIST }
+		}
+		# Gurthang was destroyed during the first age, left here in case someone wants to mod-in reforging it		
+		gurthang = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTGURTHANG }
+		}
+		if = {
+			limit = { trait = gurthang }
+			custom_tooltip = { text = CURRENTGURTHANG }
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTBrings.3" ## The Lesser Swords (Herugrim/Gutwhine/Sting/Sword of Maedhros/Amroth Sword/Morgul's Blades/Daggers of Westernesse)
+		# unlike traits, artifacts cannot be cached
+		any_character = {
+			limit = {
+				ai = yes
+				is_alive = yes 
+				num_of_artifacts = 1
+			}
+			if = {
+				limit = { has_artifact = sting } # Gondolin Elven long knife, used as a shortsword by Bilbo, Frodo, and Samwise
+				custom_tooltip = { text = CURRENTSTING }
+			}
+			if = {
+				limit = { has_artifact = herugrim } # Royal sword of Rohan
+				custom_tooltip = { text = CURRENTHERUGRIM }
+			}
+			if = {
+				limit = { has_artifact = guthwine }  # Sword of the House of Eomer
+				custom_tooltip = { text = CURRENTGUTWHINE }
+			}
+			if = {
+				limit = { has_artifact = himling_sword }  # Sword found in Himling (Maedhros' Sword)
+				custom_tooltip = { text = CURRENTSWORDMAEDHROS }
+			}
+			if = {
+				limit = { has_artifact = amroth_sword } # Sword of Amroth
+				custom_tooltip = { text = CURRENTSWORDAMROTH }
+			}
+			if = {
+				limit = { has_artifact = morgul_blade } # Daggers used by the Nazgûl
+				custom_tooltip = { text = CURRENTMORGULBLADE }
+			}
+			if = {
+				limit = { has_artifact = daggerwesternesse } # Dúnedain Daggers (as found by Merry, Pippin, and Samwise)
+				custom_tooltip = { text = CURRENTDAGGERWESTERNESSE }
+			}
+		}
+		
+		if = {
+			limit = { has_artifact = sting } # Gondolin Elven long knife, used as a shortsword by Bilbo, Frodo, and Samwise
+			custom_tooltip = { text = CURRENTSTING }
+		}
+		if = {
+			limit = { has_artifact = herugrim } # Royal sword of Rohan
+			custom_tooltip = { text = CURRENTHERUGRIM }
+		}
+		if = {
+			limit = { has_artifact = guthwine }  # Sword of the House of Eomer
+			custom_tooltip = { text = CURRENTGUTWHINE }
+		}
+		if = {
+			limit = { has_artifact = himling_sword }  # Sword found in Himling (Maedhros' Sword)
+			custom_tooltip = { text = CURRENTSWORDMAEDHROS }
+		}
+		if = {
+			limit = { has_artifact = amroth_sword } # Sword of Amroth
+			custom_tooltip = { text = CURRENTSWORDAMROTH }
+		}
+		if = {
+			limit = { has_artifact = morgul_blade } # Daggers used by the Nazgûl
+			custom_tooltip = { text = CURRENTMORGULBLADE }
+		}
+		if = {
+			limit = { has_artifact = daggerwesternesse } # Dúnedain Daggers (as found by Merry, Pippin, and Samwise)
+			custom_tooltip = { text = CURRENTDAGGERWESTERNESSE }
+		}
+		
+	}
+	
+	option = {
+		name = "EVTOPTCrings.3" ## Other Weapons (Staffs of Saruman-Gandalf-Radagast/Durin's Axe/Dramborleg/Aeglos/Belthronding)
+		# unlike traits, artifacts cannot be cached
+		any_character = {
+			limit = {
+				ai = yes
+				is_alive = yes 
+				num_of_artifacts = 1
+			}
+			if = {
+				limit = { has_artifact = durins_axe } # The most legendary artifact weapon of the Dwarves
+				custom_tooltip = { text = CURRENTDURINAXE}
+			}
+			if = {
+				limit = { has_artifact = dramborleg } # Axe of Tuor, destroyed in the downfall of Númenor
+				custom_tooltip = { text = CURRENTDRAMBORLEG }
+			}
+			if = {
+				limit = { has_artifact = aeglos }  # Spear of Gil-Galad, destroyed when he died
+				custom_tooltip = { text = CURRENTAEGLOS  }
+			}
+			if = {
+				limit = { has_artifact = belthronding }  # Bow of Beleg, buried with him during the first age. Since Tol Fuin exists, I suppose it could be dug up...
+				custom_tooltip = { text = CURRENTBELTHRONDING  }
+			}
+		}
+		if = {
+			limit = { has_artifact = durins_axe } # The most legendary artifact weapon of the Dwarves
+			custom_tooltip = { text = CURRENTDURINAXE}
+		}
+		if = {
+			limit = { has_artifact = dramborleg } # Axe of Tuor, destroyed in the downfall of Númenor
+			custom_tooltip = { text = CURRENTDRAMBORLEG }
+		}
+		if = {
+			limit = { has_artifact = aeglos }  # Spear of Gil-Galad, destroyed when he died
+			custom_tooltip = { text = CURRENTAEGLOS  }
+		}
+		if = {
+			limit = { has_artifact = belthronding } # Bow of Beleg, buried with him during the first age. Since Tol Fuin exists, I suppose it could be dug up...
+			custom_tooltip = { text = CURRENTBELTHRONDING  }
+		}
+		
+		# stuff not yet converted to artifacts
+		staff_of_gandalf = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTSTAFFGANDALF }
+		}
+		if = {
+			limit = { trait = staff_of_gandalf }
+			custom_tooltip = { text = CURRENTSTAFFGANDALF }
+		}	
+		staff_of_saruman = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTSTAFFSARUMAN }
+		}
+		if = {
+			limit = { trait = staff_of_saruman }
+			custom_tooltip = { text = CURRENTSTAFFSARUMAN }
+		}	
+		staff_of_radagast = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTSTAFFRADAGAST }
+		}
+		if = {
+			limit = { trait = staff_of_radagast }
+			custom_tooltip = { text = CURRENTSTAFFRADAGAST }
+		}
+		staff_of_pallando = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTSTAFFPALLANDO }
+		}
+		if = {
+			limit = { trait = staff_of_pallando }
+			custom_tooltip = { text = CURRENTSTAFFPALLANDO }
+		}
+		staff_of_alatar = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTSTAFFALATAR }
+		}
+		if = {
+			limit = { trait = staff_of_alatar }
+			custom_tooltip = { text = CURRENTSTAFFALATAR }
+		}
+		
+	}	
+	
+	option = {
+		name = "EVTOPTDrings.3" ## Broken Swords (Shards of Narsil/Shards of Gurthang) and Forged ones (Spear of Erebor/Dwarvish Sword/Elvish SWord/Ancient Elvish Sword)
+		# unlike traits, artifacts cannot be cached
+		any_character = {
+			limit = {
+				ai = yes
+				is_alive = yes 
+				num_of_artifacts = 1
+			}
+			if = {
+				limit = { has_artifact = dwarvish_sword }
+				custom_tooltip = { text = CURRENTDWARVISHSWORD  }
+			}
+			if = {
+				limit = { has_artifact = elvish_sword }
+				custom_tooltip = { text = CURRENTELVISHSWORD }
+			}
+			if = {
+				limit = { has_artifact = ancient_elvish_sword }
+				custom_tooltip = { text = CURRENTANCELVISHSWORD }
+			}
+			# The other 3 types of super-magical elvish swords are left out for now
+		}
+		if = {
+			limit = { has_artifact = dwarvish_sword }
+			custom_tooltip = { text = CURRENTDWARVISHSWORD  }
+		}
+		if = {
+			limit = { has_artifact = elvish_sword }
+			custom_tooltip = { text = CURRENTELVISHSWORD }
+		}
+		if = {
+			limit = { has_artifact = ancient_elvish_sword }
+			custom_tooltip = { text = CURRENTANCELVISHSWORD }
+		}
+		# The other 3 types of super-magical elvish swords are left out for now
+		
+		# Broken Swords
+		narsil = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTNARSILS }
+		}
+		if = {
+			limit = { trait = narsil }
+			custom_tooltip = { text = CURRENTNARSILS }
+		}	
+		shards_gurthang = {
+			limit = { 
+				is_alive = yes
+			}
+			custom_tooltip = { text = CURRENTGURTHANGS }
+		}
+		if = {
+			limit = { trait = shards_gurthang }
+			custom_tooltip = { text = CURRENTGURTHANGS }
+		}			
+	}	
+
+}

@@ -1,0 +1,699 @@
+ ###########################################
+#                                         #
+# Horse Lords Silk Route events 		  #
+#                                         #
+# ID HL.5000-HL.5999      	              #
+#                                         #
+###########################################
+
+# Written by Joel Hansson
+
+namespace = HL
+
+# The various 'Chinese Envoy' events stripped out (MEP)
+
+###
+# Raiders on the trade route
+province_event = {
+	id = HL.5050
+	desc = EVTDESC_HL_5050
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	trigger = {
+		has_trade_post = yes
+		trade_route = silk_road
+		#trade_route_active = silk_road
+		holder_scope = {
+			age = 16
+			prisoner = no
+			NOR = {
+				trait = incapable
+				trait = infirm
+				has_character_flag = do_not_disturb
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 130
+		modifier = {
+			factor = 2
+			has_province_modifier = caravan_guards
+		}
+		modifier = {
+			factor = 0.8
+			holder_scope = {
+				NOR = {
+					stewardship = 8
+					diplomacy = 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			holder_scope = {
+				NOR = {
+					stewardship = 5
+					diplomacy = 5
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			holder_scope = {
+				trait = greedy
+			}
+		}
+		modifier = {
+			factor = 0.85
+			holder_scope = {
+				trait = arbitrary
+			}
+		}
+		modifier = {
+			factor = 0.85
+			holder_scope = {
+				trait = cruel
+			}
+		}
+		modifier = {
+			factor = 1.15
+			holder_scope = {
+				trait = just
+			}
+		}
+		modifier = {
+			factor = 1.1
+			holder_scope = {
+				trait = kind
+			}
+		}
+		modifier = {
+			factor = 1.25
+			holder_scope = {
+				trait = charitable
+			}
+		}
+	}
+	
+	immediate = {
+		remove_province_modifier = caravan_guards
+		save_event_target_as = target_province
+	}
+	
+	option = {
+		name = EVTOPTA_HL_5050
+		add_province_modifier = {
+			modifier = caravan_raiders
+			months = 180
+		}
+		holder_scope = {
+			add_trait = arbitrary
+			scaled_wealth = 0.5
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5050
+		trigger = {
+			holder_scope = {
+				job_marshal = {
+					always = yes
+				}
+			}
+		}
+		add_province_modifier = {
+			modifier = caravan_raiders
+			months = 180
+		}
+		holder_scope = {
+			job_marshal = {
+				if = {
+					limit = {
+						NOT = { combat_rating = 1 }
+					}
+					tooltip = {
+						random = {
+							chance = 20
+							death = {
+								death_reason = death_battle
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						combat_rating = 1
+					}
+					tooltip = {
+						random = {
+							chance = 10
+							death = {
+								death_reason = death_battle
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						combat_rating = 3
+					}
+					tooltip = {
+						random = {
+							chance = 2
+							death = {
+								death_reason = death_battle
+							}
+						}
+					}
+				}
+				hidden_tooltip = {
+					character_event = { id = HL.5051 days = 7 }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_HL_5050
+		add_province_modifier = {
+			modifier = caravan_raiders
+			months = 180
+		}
+		hidden_tooltip = {
+			holder_scope = {
+				character_event = { id = HL.5056 days = 7 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.5051
+	desc = EVTDESC_HL_5051
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5051
+		ai_chance = {
+			factor = 30
+		}
+		random_list = {
+			20 = {
+				modifier = {
+					factor = 0.5
+					combat_rating = 1
+				}
+				modifier = {
+					factor = 0.2
+					combat_rating = 3
+				}
+				death = {
+					death_reason = death_battle
+				}
+				hidden_tooltip = {
+					liege = {
+						character_event = { id = HL.5053 }
+					}
+				}
+			}
+			20 = {
+				if = {
+					limit = {
+						NOT = { is_maimed_trigger = yes }
+					}
+					add_trait = wounded
+				}
+				hidden_tooltip = {
+					liege = {
+						character_event = { id = HL.5055 days = 7 }
+					}
+				}
+			}
+			60 = {
+				prestige = 100
+				tooltip = {
+					event_target:target_province = {
+						remove_province_modifier = caravan_raiders
+					}
+				}
+				hidden_tooltip = {
+					liege = {
+						character_event = {	id = HL.5052 days = 7 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5051
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 5
+				trait = craven
+			}
+			modifier = {
+				factor = 0
+				trait = brave
+			}
+		}
+		reverse_opinion = { who = FROM modifier = opinion_refused_order months = 36 }
+		custom_tooltip = { text = "EVTTOOLTIP_HL_5051" }
+		hidden_tooltip = {
+			liege = { character_event = { id = HL.5054 days = 7 } }
+		}
+	}
+}
+
+character_event = {
+	id = HL.5052
+	desc = EVTDESC_HL_5052
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5052
+		tooltip = { FROM = { prestige = 100 } }
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+		}
+	}
+}
+
+character_event = {
+	id = HL.5053
+	desc = EVTDESC_HL_5053
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5053
+		tooltip = {
+			FROM = {
+				death = { death_reason = death_battle }
+			}
+		}
+		prestige = -10
+		if = {
+			limit = {
+				NOT = { trait = brave }
+			}
+			random = {
+				chance = 40
+				add_trait = craven
+				hidden_tooltip = { character_event = { id = 38257 } } # Notify craven
+			}
+		}
+		if = {
+			limit = {
+				trait = brave
+			}
+			remove_trait = brave
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5053
+		tooltip = {
+			FROM = {
+				death = { death_reason = death_battle }
+			}
+		}
+		character_event = { id = HL.5056 days = 7 }
+	}
+	
+	option = {
+		name = EVTOPTC_HL_5053
+		tooltip = {
+			FROM = {
+				death = { death_reason = death_battle }
+			}
+		}
+		scaled_wealth = -0.5
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+			add_province_modifier = {
+				modifier = caravan_guards
+				months = 120
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.5054
+	desc = EVTDESC_HL_5054
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5054
+		job_marshal = {
+			imprison = ROOT
+		}
+	} 
+	
+	option = {
+		name = EVTOPTB_HL_5054
+		character_event = { id = HL.5056 days = 7 }
+	}
+	
+	option = {
+		name = EVTOPTC_HL_5054
+		scaled_wealth = -0.5
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+			add_province_modifier = {
+				modifier = caravan_guards
+				months = 120
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.5055
+	desc = EVTDESC_HL_5055
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5055
+		
+	}
+}
+
+character_event = {
+	id = HL.5056
+	desc = EVTDESC_HL_5056
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5056
+		hidden_tooltip = {
+			character_event = { id = HL.5057 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5056
+		hidden_tooltip = {
+			random_list = {
+				50 = {
+					modifier = {
+						factor = 0.7
+						intrigue = 7
+					}
+					modifier = {
+						factor = 0.7
+						intrigue = 10
+					}
+					modifier = {
+						factor = 0.7
+						intrigue = 13
+					}
+					character_event = { id = HL.5060 }
+				}
+				50 = {
+					character_event = { id = HL.5061 }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.5057
+	desc = EVTDESC_HL_5057
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5057
+		random_list = {
+			30 = { #success
+				modifier = {
+					factor = 1.5
+					combat_rating = 2
+				}
+				prestige = 75
+				event_target:target_province = {
+					remove_province_modifier = caravan_raiders
+				}
+			}
+			20 = { #wounded
+				modifier = {
+					factor = 0.5
+					combat_rating = 2
+				}
+				modifier = {
+					factor = 0
+					is_maimed_trigger = yes
+				}
+				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+			}
+			10 = { #maimed
+				modifier = {
+					factor = 0.5
+					combat_rating = 2
+				}
+				modifier = {
+					factor = 3
+					is_maimed_trigger = yes
+				}
+				add_maimed_trait_effect = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5057
+		scaled_wealth = -1.5
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_HL_5057
+		hidden_tooltip = {
+			character_event = { id = HL.5058 }
+		}
+	}
+}
+
+character_event = {
+	id = HL.5058
+	desc = EVTDESC_HL_5058
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5058
+		character_event = { id = HL.5059 }
+	}
+}
+
+character_event = {
+	id = HL.5059
+	desc = EVTDESC_HL_5059
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5059
+		scaled_wealth = -1
+		prestige = -75
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5059
+		prestige = -100
+		add_character_modifier = {
+			modifier = publicly_humiliated
+			months = 36
+		}
+	}
+}
+
+character_event = {
+	id = HL.5060
+	desc = EVTDESC_HL_5060
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5060
+		ai_chance = {
+			factor = 1
+		}
+		character_event = { id = HL.5059 }
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5060
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			trait = duelist
+		}
+		tooltip_info = duelist
+		random_list = {
+			80 = {
+				death = { death_reason = death_battle }
+			}
+			20 = {
+				modifier = {
+					factor = 2
+					combat_rating = 3
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 5
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 7
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -1 }
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -4 }
+				}
+				prestige = 75
+				event_target:target_province = {
+					remove_province_modifier = caravan_raiders
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5060
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			trait = lunatic
+		}
+		tooltip_info = lunatic
+		random_list = {
+			80 = {
+				death = { death_reason = death_battle }
+			}
+			20 = {
+				modifier = {
+					factor = 2
+					combat_rating = 3
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 5
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 7
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -1 }
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -4 }
+				}
+				prestige = 75
+				event_target:target_province = {
+					remove_province_modifier = caravan_raiders
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.5061
+	desc = EVTDESC_HL_5061
+	picture = GFX_evt_steppe_mercenaries
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_HL_5061
+		ai_chance = {
+			factor = 1
+		}
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_HL_5061
+		ai_chance = {
+			factor = 0
+		}
+		random_list = {
+			80 = {
+				death = { death_reason = death_battle }
+			}
+			20 = {
+				modifier = {
+					factor = 2
+					combat_rating = 3
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 5
+				}
+				modifier = {
+					factor = 2
+					combat_rating = 7
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -1 }
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { combat_rating = -4 }
+				}
+			}
+		}
+		add_trait = cruel
+		event_target:target_province = {
+			remove_province_modifier = caravan_raiders
+		}
+	}
+}

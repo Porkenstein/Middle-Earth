@@ -1,0 +1,2308 @@
+# These events allow for dynamic population increase and decrease based on a province's prosperity or repopulation.
+# The trigger events are activated from the 00_on_actions.txt file and are set to fire every 3-5 years.
+# To reduce the occurrences of these events, either change the 00_on_actions.txt file and move the trigger events to the decade pulse,
+# or adjust the the base "random" percent in the two main events (110 & 111).
+# If you have questions, these events were written by Bedivere (bedever42 on paradox, bedivere42 on MODDB) and are a heavily edited versions of the prosperity events introduced by the reaper's due DLC.
+# Enjoy!
+
+# Edit by JamesFox, 2017/04/27
+# - Using scripted triggers and effects for compactness
+# NOTE : the '#Narrows scope to one possible modifier' sections seem un-necessary, since there is nothing indicating a province
+# is supposed to have, or make use of, more than one population modifier at the same time.
+
+namespace = dynamic_pop
+
+character_event = {
+	id = dynamic_pop.101
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		has_dlc = "Reapers"
+	}
+	
+	immediate = {
+		any_realm_province = {
+			limit = {
+				owner = { mep_has_popmod_culture = yes }
+				owner = { character = ROOT }
+				#disallows event if province has these modifiers
+				NOT = { mep_has_depopulated_modifier = yes }
+				NOT = { mep_being_purged_trigger = yes }
+				# event requires these modifiers
+				mep_has_properity_modifier = yes 
+				mep_has_increasable_popmod_trigger = yes
+			}
+			province_event = { 
+				id = dynamic_pop.110
+			}
+		}
+	}
+}
+
+province_event = { #Population gain
+	id = dynamic_pop.110
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	# mean_time_to_happen = 1825 days #5 years
+	
+	option = {
+		random_list = {
+			5 = { #5% base chance to increase population IF YOU CHANGE THIS VALUE ADJUST THE OTHER ONE AT THE END OF THE EVENT SO THE SUM OF THE TWO = 100!
+				modifier = {
+					factor = 1.5 #good chance with the province modifier
+					has_province_modifier = prosperity_modifier_1
+				}
+				modifier = {
+					factor = 2.0 #high chance with the province modifier
+					has_province_modifier = prosperity_modifier_2
+				}
+				modifier = {
+					factor = 2.5 #very high chance with the province modifier
+					has_province_modifier = prosperity_modifier_3
+				}
+				modifier = {
+					factor = 1.5 #over 18 stewardship you have a 15% chance
+					owner = {
+						stewardship = 18
+					}
+				}
+				modifier = {
+					factor = 1.5 #over 25 stewardship you have a 20% chance
+					owner = {
+						stewardship = 25
+					}
+				}
+				modifier = {
+					factor = 1.5 #over 30 stewardship you increase to a 25% chance
+					owner = {
+						stewardship = 30
+					}
+				}
+				modifier = {
+					factor = 2.0
+					owner = {
+						OR = {
+							mep_has_xhumans_culture = yes
+							culture = culture_umaiar  # for Sauron
+						}
+					}
+				}
+				modifier = {
+					factor = 0.3 #these races have less of a chance of increasing their population.
+					OR = {
+						mep_has_dunedain_popmod_trigger = yes
+						mep_has_elves_popmod_trigger = yes
+						mep_has_dwarves_popmod_trigger = yes
+					}
+				}
+						
+				modifier = {
+					factor = 1.2 #having trade posts increases the chance
+					has_trade_post = yes
+				}
+				modifier = {
+					factor = 0.9 #having under 10 stewardship slightly reduces the chance
+					owner = {
+						NOT = { stewardship = 10 }
+					}
+				}
+				modifier = {
+					factor = 0.8 #having under 4 stewardship significantly reduces the chance
+					owner = {
+						NOT = { stewardship = 4 }
+					}
+				}
+				modifier = {
+					factor = 0.9 #not being independent slightly reduces the chance
+					owner = {
+						NOT = { independent = yes }
+					}
+				}
+				modifier = {
+					factor = 1.3 #Lower population increases the chance
+					OR = {
+						has_province_modifier = one_population_human
+						has_province_modifier = one_population_dunedain
+						has_province_modifier = one_population_elves
+						has_province_modifier = one_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 1.2 #Lower population increases the chance
+					OR = {
+						has_province_modifier = two_population_human
+						has_province_modifier = two_population_dunedain
+						has_province_modifier = two_population_elves
+						has_province_modifier = two_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 1.1 #Lower population increases the chance
+					OR = {
+						has_province_modifier = three_population_human
+						has_province_modifier = three_population_dunedain
+						has_province_modifier = three_population_elves
+						has_province_modifier = three_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.9 #Higher population reduces the chance
+					OR = {
+						has_province_modifier = four_population_human
+						has_province_modifier = four_population_dunedain
+						has_province_modifier = four_population_elves
+						has_province_modifier = four_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.8 #Higher population reduces the chance
+					OR = {
+						has_province_modifier = five_population_human
+						has_province_modifier = five_population_dunedain
+						has_province_modifier = five_population_elves
+						has_province_modifier = five_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.7 #Higher population reduces the chance
+					OR = {
+						has_province_modifier = six_population_human
+						has_province_modifier = six_population_dunedain
+						has_province_modifier = six_population_elves
+						has_province_modifier = six_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.5 #bad province modifiers decrease chance
+					OR = {
+						has_province_modifier = incompetent_rule
+						has_province_modifier = thieves_guild
+						has_province_modifier = smugglers_ring
+						has_province_modifier = highway_robber_band
+						has_province_modifier = heretic_stronghold
+						has_province_modifier = religious_tension
+						has_province_modifier = temple_corruption
+						has_province_modifier = local_death_cult
+						has_province_modifier = extra_tax
+					}
+				}
+				modifier = {
+					factor = 0 #no chance if under siege/occupied/diseased
+					OR = {
+						any_province_holding = {
+							has_siege = yes
+						}
+						any_province_holding = {
+							is_occupied = yes
+						}
+						has_disease = yes
+					}
+				}
+
+### What follows is the dynamic increase of population for the various races. ###
+### The following are still in the "Random block," if the random returns "true," the following are executed. ###
+### INCREASE FROM 1 POPULATION to 2 POPULATION ###
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 50 } #gain modifiers at 50/100/200/350/500/700 value
+						#event requires these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = one_population_human
+						NOR = { #Narrows scope to one possible modifier
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = one_population_human
+					add_province_modifier = { name = two_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 50 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = one_population_dunedain
+						NOR = { #Narrows scope to one possible modifier
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = one_population_dunedain
+					add_province_modifier = { name = two_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 50 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = one_population_elves
+						NOR = { #Narrows scope to one possible modifier
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = one_population_elves
+					add_province_modifier = { name = two_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 50 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = one_population_dwarves
+						NOR = { #Narrows scope to one possible modifier
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = one_population_dwarves
+					add_province_modifier = { name = two_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+	##### INCREASE FROM 2 POPULATION to 3 POPULATION #####
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 100 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = two_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = two_population_human
+					add_province_modifier = { name = three_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						# #check_variable = { which = population_value value = 100 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = two_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = two_population_dunedain
+					add_province_modifier = { name = three_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 100 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = two_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = two_population_elves
+					add_province_modifier = { name = three_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 100 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = two_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = two_population_dwarves
+					add_province_modifier = { name = three_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+	##### INCREASE FROM 3 POPULATION to 4 POPULATION #####
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 200 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = three_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = three_population_human
+					add_province_modifier = { name = four_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 200 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = three_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = three_population_dunedain
+					add_province_modifier = { name = four_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 200 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = three_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = three_population_elves
+					add_province_modifier = { name = four_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 200 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = three_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = three_population_dwarves
+					add_province_modifier = { name = four_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+##### INCREASE FROM 4 POPULATION to 5 POPULATION #####
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 350 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = four_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = four_population_human
+					add_province_modifier = { name = five_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 350 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = four_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = four_population_dunedain
+					add_province_modifier = { name = five_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 350 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = four_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = four_population_elves
+					add_province_modifier = { name = five_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 350 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = four_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = four_population_dwarves
+					add_province_modifier = { name = five_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+	##### INCREASE FROM 5 POPULATION to 6 POPULATION #####
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 500 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = five_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = five_population_human
+					add_province_modifier = { name = six_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 500 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = five_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = five_population_dunedain
+					add_province_modifier = { name = six_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 500 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = five_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = five_population_elves
+					add_province_modifier = { name = six_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 500 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = five_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = five_population_dwarves
+					add_province_modifier = { name = six_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+	##### INCREASE FROM 6 POPULATION to 7 POPULATION #####
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 700 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = six_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = six_population_human
+					add_province_modifier = { name = seven_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 700 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = six_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = six_population_dunedain
+					add_province_modifier = { name = seven_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 700 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = six_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = six_population_elves
+					add_province_modifier = { name = seven_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#check_variable = { which = population_value value = 700 } #gain modifiers at 50/100/200/350/500/700 value
+						#allows event if province has one of these modifiers
+						mep_has_properity_modifier = yes
+						has_province_modifier = six_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = six_population_dwarves
+					add_province_modifier = { name = seven_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.120 } }
+					break = yes
+				}
+			}
+			95 = { #95% base chance to remain at current level
+				#owner = { character_event = { id = dynamic_pop.122 } } #This sends an event notifying the player when this option is picked, used for debugging the code but feel free to uncomment it if you want.
+				break = yes
+			}
+		}
+	}
+}
+
+# character_event = { #when sieged population progress is wiped, with a major chance to drop a level of population
+	# id = dynamic_pop.102 
+
+	# hide_window = yes
+	
+	# is_triggered_only = yes	# event triggered from the "00_on_actions.txt"
+	
+	# immediate = {
+		# FROM = {
+			# location = {
+				# set_variable = { which = population_decline_value value = 0 }
+				# random = {
+				# chance = 75 #chance to lower by 1 step
+					# if = {
+						# limit = {
+							# has_province_modifier = seven_population_human
+							# has_province_modifier = seven_population_dunedain
+							# has_province_modifier = seven_population_elves
+							# has_province_modifier = seven_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_human
+
+							# add_province_modifier = six_population_human
+							# remove_province_modifier = seven_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_dunedain
+
+							# add_province_modifier = six_population_dunedain
+							# remove_province_modifier = seven_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_elves
+
+							# add_province_modifier = six_population_elves
+							# remove_province_modifier = seven_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_dwarves
+
+							# add_province_modifier = six_population_dwarves
+							# remove_province_modifier = seven_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = six_population_human
+							# has_province_modifier = six_population_dunedain
+							# has_province_modifier = six_population_elves
+							# has_province_modifier = six_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = six_population_human
+
+							# add_province_modifier = five_population_human
+							# remove_province_modifier = six_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_dunedain
+
+							# add_province_modifier = five_population_dunedain
+							# remove_province_modifier = six_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_elves
+								
+							# add_province_modifier = five_population_elves
+							# remove_province_modifier = six_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_dwarves
+								
+							# add_province_modifier = five_population_dwarves
+							# remove_province_modifier = six_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = five_population_human
+							# has_province_modifier = five_population_dunedain
+							# has_province_modifier = five_population_elves
+							# has_province_modifier = five_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = five_population_human
+
+							# add_province_modifier = four_population_human
+							# remove_province_modifier = five_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_dunedain
+
+							# add_province_modifier = four_population_dunedain
+							# remove_province_modifier = five_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_elves
+
+							# add_province_modifier = four_population_elves
+							# remove_province_modifier = five_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_dwarves
+
+							# add_province_modifier = four_population_dwarves
+							# remove_province_modifier = five_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = four_population_human
+							# has_province_modifier = four_population_dunedain
+							# has_province_modifier = four_population_elves
+							# has_province_modifier = four_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = four_population_human
+
+							# add_province_modifier = three_population_human
+							# remove_province_modifier = four_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_dunedain
+
+							# add_province_modifier = three_population_dunedain
+							# remove_province_modifier = four_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_elves
+
+							# add_province_modifier = three_population_elves
+							# remove_province_modifier = four_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_dwarves
+
+							# add_province_modifier = three_population_dwarves
+							# remove_province_modifier = four_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = three_population_human
+							# has_province_modifier = three_population_dunedain
+							# has_province_modifier = three_population_elves
+							# has_province_modifier = three_population_dwarves
+
+						# }
+						# IF = {
+							# has_province_modifier = three_population_human
+									
+							# add_province_modifier = two_population_human
+							# remove_province_modifier = three_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = three_population_dunedain
+
+							# add_province_modifier = two_population_dunedain
+							# remove_province_modifier = three_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = three_population_elves
+
+							# add_province_modifier = two_population_elves
+							# remove_province_modifier = three_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# FROM = {
+								# location = {
+									# has_province_modifier = three_population_dwarves
+								# }
+							# }
+							# add_province_modifier = two_population_dwarves
+							# remove_province_modifier = three_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = two_population_human
+							# has_province_modifier = two_population_dunedain
+							# has_province_modifier = two_population_elves
+							# has_province_modifier = two_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = two_population_human
+
+							# add_province_modifier = one_population_human
+							# remove_province_modifier = two_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_dunedain
+
+							# add_province_modifier = one_population_dunedain
+							# remove_province_modifier = two_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_elves
+
+							# add_province_modifier = one_population_elves
+							# remove_province_modifier = two_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_dwarves
+
+							# add_province_modifier = one_population_dwarves
+							# remove_province_modifier = two_population_dwarves
+							# break = yes
+						# }
+					# }
+				# }
+			# }
+		# }
+	# }
+# }
+
+# character_event = { #when looted prosperity progress is wiped, with a minor chance to drop a level
+	# id = dynamic_pop.103
+
+	# hide_window = yes
+	
+	# is_triggered_only = yes	# event triggered from the "00_on_actions.txt"
+	
+	# immediate = {
+		# FROM = {
+			# location = {
+				# set_variable = { which = population_decline_value value = 0 }
+				# random = {
+				# chance = 15 #chance to lower by 1 step
+					# if = {
+						# limit = {
+							# has_province_modifier = seven_population_human
+							# has_province_modifier = seven_population_dunedain
+							# has_province_modifier = seven_population_elves
+							# has_province_modifier = seven_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_human
+
+							# add_province_modifier = six_population_human
+							# remove_province_modifier = seven_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_dunedain
+
+							# add_province_modifier = six_population_dunedain
+							# remove_province_modifier = seven_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_elves
+
+							# add_province_modifier = six_population_elves
+							# remove_province_modifier = seven_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = seven_population_dwarves
+
+							# add_province_modifier = six_population_dwarves
+							# remove_province_modifier = seven_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = six_population_human
+							# has_province_modifier = six_population_dunedain
+							# has_province_modifier = six_population_elves
+							# has_province_modifier = six_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = six_population_human
+
+							# add_province_modifier = five_population_human
+							# remove_province_modifier = six_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_dunedain
+
+							# add_province_modifier = five_population_dunedain
+							# remove_province_modifier = six_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_elves
+								
+							# add_province_modifier = five_population_elves
+							# remove_province_modifier = six_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = six_population_dwarves
+								
+							# add_province_modifier = five_population_dwarves
+							# remove_province_modifier = six_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = five_population_human
+							# has_province_modifier = five_population_dunedain
+							# has_province_modifier = five_population_elves
+							# has_province_modifier = five_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = five_population_human
+
+							# add_province_modifier = four_population_human
+							# remove_province_modifier = five_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_dunedain
+
+							# add_province_modifier = four_population_dunedain
+							# remove_province_modifier = five_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_elves
+
+							# add_province_modifier = four_population_elves
+							# remove_province_modifier = five_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = five_population_dwarves
+
+							# add_province_modifier = four_population_dwarves
+							# remove_province_modifier = five_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = four_population_human
+							# has_province_modifier = four_population_dunedain
+							# has_province_modifier = four_population_elves
+							# has_province_modifier = four_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = four_population_human
+
+							# add_province_modifier = three_population_human
+							# remove_province_modifier = four_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_dunedain
+
+							# add_province_modifier = three_population_dunedain
+							# remove_province_modifier = four_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_elves
+
+							# add_province_modifier = three_population_elves
+							# remove_province_modifier = four_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = four_population_dwarves
+
+							# add_province_modifier = three_population_dwarves
+							# remove_province_modifier = four_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = three_population_human
+							# has_province_modifier = three_population_dunedain
+							# has_province_modifier = three_population_elves
+							# has_province_modifier = three_population_dwarves
+
+						# }
+						# IF = {
+							# has_province_modifier = three_population_human
+									
+							# add_province_modifier = two_population_human
+							# remove_province_modifier = three_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = three_population_dunedain
+
+							# add_province_modifier = two_population_dunedain
+							# remove_province_modifier = three_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = three_population_elves
+
+							# add_province_modifier = two_population_elves
+							# remove_province_modifier = three_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# FROM = {
+								# location = {
+									# has_province_modifier = three_population_dwarves
+								# }
+							# }
+							# add_province_modifier = two_population_dwarves
+							# remove_province_modifier = three_population_dwarves
+							# break = yes
+						# }
+					# }
+					# if = {
+						# limit = {
+							# has_province_modifier = two_population_human
+							# has_province_modifier = two_population_dunedain
+							# has_province_modifier = two_population_elves
+							# has_province_modifier = two_population_dwarves
+						# }
+						# IF = {
+							# has_province_modifier = two_population_human
+
+							# add_province_modifier = one_population_human
+							# remove_province_modifier = two_population_human
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_dunedain
+
+							# add_province_modifier = one_population_dunedain
+							# remove_province_modifier = two_population_dunedain
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_elves
+
+							# add_province_modifier = one_population_elves
+							# remove_province_modifier = two_population_elves
+							# break = yes
+						# }
+						# IF = {
+							# has_province_modifier = two_population_dwarves
+
+							# add_province_modifier = one_population_dwarves
+							# remove_province_modifier = two_population_dwarves
+							# break = yes
+						# }
+					# }
+				# }
+			# }
+		# }
+	# }
+# }
+
+character_event = {
+	id = dynamic_pop.104
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		has_dlc = "Reapers"
+	}
+	
+	immediate = {
+		any_realm_province = {
+			limit = {
+				owner = {
+					OR = {
+						mep_has_nondunedain_human_culture = yes
+						culture_group = culture_group_halfling
+						culture_group = culture_group_melkor
+						culture_group = culture_group_numenorean
+						mep_is_elf_culture = yes
+						culture_group = culture_group_dwarves
+						culture = culture_umaiar
+					}
+				}
+				owner = { character = ROOT }
+				#disallows event if province has these modifier
+				NOT = { mep_has_properity_modifier = yes }
+				mep_has_depopulated_modifier = yes
+				OR = {
+					has_province_modifier = seven_population_human
+					has_province_modifier = two_population_human
+					has_province_modifier = three_population_human
+					has_province_modifier = four_population_human
+					has_province_modifier = five_population_human
+					has_province_modifier = six_population_human
+					
+					has_province_modifier = seven_population_dunedain
+					has_province_modifier = two_population_dunedain
+					has_province_modifier = three_population_dunedain
+					has_province_modifier = four_population_dunedain
+					has_province_modifier = five_population_dunedain
+					has_province_modifier = six_population_dunedain
+					
+					has_province_modifier = seven_population_elves
+					has_province_modifier = two_population_elves
+					has_province_modifier = three_population_elves
+					has_province_modifier = four_population_elves
+					has_province_modifier = five_population_elves
+					has_province_modifier = six_population_elves
+					
+					has_province_modifier = seven_population_dwarves
+					has_province_modifier = two_population_dwarves
+					has_province_modifier = three_population_dwarves
+					has_province_modifier = four_population_dwarves
+					has_province_modifier = five_population_dwarves
+					has_province_modifier = six_population_dwarves
+				}
+			}
+			province_event = {
+				id = dynamic_pop.111
+			}
+		}
+	}
+}
+
+#############################################
+## This event controls population decline ###
+#############################################
+province_event = { 
+	id = dynamic_pop.111
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		random_list = {
+			20 = { #20% base chance to increase population IF YOU CHANGE THIS VALUE ADJUST THE OTHER ONE AT THE END OF THE EVENT SO THE SUM OF THE TWO = 100!
+				modifier = {
+					factor = 1.5 #good chance with the province modifier
+					has_province_modifier = depopulated_1
+				}
+				modifier = {
+					factor = 2.0 #high chance with the province modifier
+					has_province_modifier = depopulated_2
+				}
+				modifier = {
+					factor = 2.5 #very high chance with the province modifier
+					has_province_modifier = depopulated_3
+				}
+				modifier = {
+					factor = 0.5 #over 25 stewardship you reduce the chance
+					owner = {
+						stewardship = 25
+					}
+				}
+				modifier = {
+					factor = 0.25 #over 30 stewardship you reduce the chance
+					owner = {
+						stewardship = 30
+					}
+				}
+				modifier = {
+					factor = 1.1 #having under 10 stewardship slightly increases the chance
+					owner = {
+						NOT = { stewardship = 10 }
+					}
+				}
+				modifier = {
+					factor = 1.2 #having under 4 stewardship significantly increases the chance
+					owner = {
+						NOT = { stewardship = 4 }
+					}
+				}
+				modifier = {
+					factor = 1.1 #not being independent slightly increases the chance
+					owner = {
+						NOT = { independent = yes }
+					}
+				}
+				modifier = {
+					factor = 1.3 #Higher population increases the chance
+					OR = {
+						has_province_modifier = seven_population_human
+						has_province_modifier = seven_population_dunedain
+						has_province_modifier = seven_population_elves
+						has_province_modifier = seven_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 1.2 #Higher population increases the chance
+					OR = {
+						has_province_modifier = six_population_human
+						has_province_modifier = six_population_dunedain
+						has_province_modifier = six_population_elves
+						has_province_modifier = six_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 1.1 #Higher population increases the chance
+					OR = {
+						has_province_modifier = five_population_human
+						has_province_modifier = five_population_dunedain
+						has_province_modifier = five_population_elves
+						has_province_modifier = five_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.9 #Lower population reduces the chance
+					OR = {
+						has_province_modifier = four_population_human
+						has_province_modifier = four_population_dunedain
+						has_province_modifier = four_population_elves
+						has_province_modifier = four_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.8 #Lower population reduces the chance
+					OR = {
+						has_province_modifier = three_population_human
+						has_province_modifier = three_population_dunedain
+						has_province_modifier = three_population_elves
+						has_province_modifier = three_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 0.7 #Lower population reduces the chance
+					OR = {
+						has_province_modifier = two_population_human
+						has_province_modifier = two_population_dunedain
+						has_province_modifier = two_population_elves
+						has_province_modifier = two_population_dwarves
+					}
+				}
+				modifier = {
+					factor = 1.5 #bad province modifiers increase chance
+					OR = {
+						has_province_modifier = incompetent_rule
+						has_province_modifier = thieves_guild
+						has_province_modifier = smugglers_ring
+						has_province_modifier = highway_robber_band
+						has_province_modifier = heretic_stronghold
+						has_province_modifier = religious_tension
+						has_province_modifier = temple_corruption
+						has_province_modifier = local_death_cult
+						has_province_modifier = extra_tax
+					}
+				}
+				modifier = {
+					factor = 2 #very high chance if under siege/occupied/diseased
+					OR = {
+						any_province_holding = {
+							has_siege = yes
+						}
+						any_province_holding = {
+							is_occupied = yes
+						}
+						has_disease = yes
+					}
+				}
+				modifier = {
+					factor = 0 #No chance if province has been visited by steward to increase the population.
+					OR = {
+						has_province_modifier = population_increasing
+						has_province_modifier = increasing_population
+					}
+				}
+
+###What follows is the dynamic increase of population for the various races.
+### DECREASE FROM 2 POPULATION to 1 POPULATION ###
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = two_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+						
+					}
+					remove_province_modifier = two_population_human
+					add_province_modifier = { name = one_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = two_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = two_population_dunedain
+					add_province_modifier = { name = one_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = two_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = two_population_elves
+					add_province_modifier = { name = one_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = two_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = two_population_dwarves
+					add_province_modifier = { name = one_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+	##### DECREASE FROM 3 POPULATION to 2 POPULATION #####
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = three_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = three_population_human
+					add_province_modifier = { name = two_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = three_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = three_population_dunedain
+					add_province_modifier = { name = two_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = three_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = three_population_elves
+					add_province_modifier = { name = two_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = three_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = two_population_dwarves
+					add_province_modifier = { name = three_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+	##### DECREASE FROM 4 POPULATION to 3 POPULATION #####
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = four_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = four_population_human
+					add_province_modifier = { name = three_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = four_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = four_population_dunedain
+					add_province_modifier = { name = three_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = four_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = four_population_elves
+					add_province_modifier = { name = three_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = four_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = four_population_dwarves
+					add_province_modifier = { name = three_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+	##### DECREASE FROM 5 POPULATION to 4 POPULATION #####
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = five_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = six_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = five_population_human
+					add_province_modifier = { name = four_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = five_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = six_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = five_population_dunedain
+					add_province_modifier = { name = four_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = five_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = six_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = five_population_elves
+					add_province_modifier = { name = four_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = five_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = six_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = five_population_dwarves
+					add_province_modifier = { name = four_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+	##### DECREASE FROM 6 POPULATION to 5 POPULATION #####
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = six_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = seven_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = six_population_human
+					add_province_modifier = { name = five_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = six_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = seven_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = six_population_dunedain
+					add_province_modifier = { name = five_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = six_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = seven_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = six_population_elves
+					add_province_modifier = { name = five_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = six_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = seven_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = six_population_dwarves
+					add_province_modifier = { name = five_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+	##### DECREASE FROM 7 POPULATION to 6 POPULATION #####
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = seven_population_human
+						NOR = {
+							has_province_modifier = one_population_human
+							has_province_modifier = two_population_human
+							has_province_modifier = three_population_human
+							has_province_modifier = four_population_human
+							has_province_modifier = five_population_human
+							has_province_modifier = six_population_human
+							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							OR = {
+								mep_has_xhumans_culture = yes
+								culture = culture_umaiar
+							}
+						}
+					}
+					remove_province_modifier = seven_population_human
+					add_province_modifier = { name = six_population_human duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = seven_population_dunedain
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dunedain
+							has_province_modifier = two_population_dunedain
+							has_province_modifier = three_population_dunedain
+							has_province_modifier = four_population_dunedain
+							has_province_modifier = five_population_dunedain
+							has_province_modifier = six_population_dunedain
+							
+							mep_has_elves_popmod_trigger = yes							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							culture_group = culture_group_numenorean
+						}
+					}
+					remove_province_modifier = seven_population_dunedain
+					add_province_modifier = { name = six_population_dunedain duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = seven_population_elves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes
+							
+							has_province_modifier = one_population_elves
+							has_province_modifier = two_population_elves
+							has_province_modifier = three_population_elves
+							has_province_modifier = four_population_elves
+							has_province_modifier = five_population_elves
+							has_province_modifier = six_population_elves
+							
+							mep_has_dwarves_popmod_trigger = yes
+						}
+						owner = {
+							mep_is_genuine_elf = yes
+						}
+					}
+					remove_province_modifier = seven_population_elves
+					add_province_modifier = { name = six_population_elves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+				IF = {
+					limit = {
+						#allows event if province has one of these modifiers
+						mep_has_depopulated_modifier = yes
+						has_province_modifier = seven_population_dwarves
+						NOR = {
+							mep_has_xhumans_popmod_trigger = yes							
+							mep_has_dunedain_popmod_trigger = yes							
+							mep_has_elves_popmod_trigger = yes
+							
+							has_province_modifier = one_population_dwarves
+							has_province_modifier = two_population_dwarves
+							has_province_modifier = three_population_dwarves
+							has_province_modifier = four_population_dwarves
+							has_province_modifier = five_population_dwarves
+							has_province_modifier = six_population_dwarves
+						}	
+						owner = {
+							culture_group = culture_group_dwarves
+						}
+					}
+					remove_province_modifier = seven_population_dwarves
+					add_province_modifier = { name = six_population_dwarves duration = -1 }
+					owner = { character_event = { id = dynamic_pop.121 } }
+					break = yes
+				}
+			}
+			80 = { #80% base chance to remain at current level
+				#owner = { character_event = { id = dynamic_pop.122 } } #This sends an event notifying the player when this option is picked, used for debugging the code but feel free to uncomment it if you want.
+				break = yes
+			}
+		}
+	}
+}
+
+character_event = { #population increase notification
+	id = dynamic_pop.120
+	title = "EVTTITdynamic_pop.120"
+	desc = "EVTDESCdynamic_pop.120.d"
+	picture = "GFX_evt_colonisation"
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = "EVTOPTAdynamic_pop.120.a"
+		#break = yes
+	}
+}
+
+character_event = { #population increase notification
+	id = dynamic_pop.121
+	title = "EVTTITdynamic_pop.121"
+	desc = "EVTDESCdynamic_pop.121.d"
+	picture = "GFX_evt_abandoned_lands"
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes	
+	
+	option = {
+		name = "EVTOPTAdynamic_pop.121.a"
+		#
+	}
+}
+
+### DEBUGGING EVENT, COMMENT OUT BEFORE RELEASE! ###
+# character_event = { #population increase notification
+	# id = dynamic_pop.122
+	# title = "EVTTITdynamic_pop.122"
+	# desc = "EVTDESCdynamic_pop.122.d"
+	# picture = "GFX_evt_colonisation"
+	# border = GFX_event_normal_frame_economy
+	
+	# is_triggered_only = yes	
+	
+	# option = {
+		# name = "EVTOPTAdynamic_pop.122.a"
+		# #break = yes
+	# }
+# }
