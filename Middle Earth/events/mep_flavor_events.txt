@@ -16,9 +16,24 @@ character_event = {	#Various Death Starters
 
 	immediate = {
 		IF = {
-			limit = { character = 1944 }
+			limit = {
+				character = 1944
+				death_reason = death_battle
+			}
 			any_player = {
-				 narrative_event = { id = mep_flavor_events.11 }
+				IF = {
+					limit = {
+						OR = {
+							has_landed_title = e_barad_dur
+							has_landed_title = e_isengard
+							NOR = {
+								has_landed_title = k_ringbearer
+								has_landed_title = d_fellowship_aragorn
+							}
+						}
+					}
+					narrative_event = { id = mep_flavor_events.11 }
+				}
 			}
 		}
 		IF = {
@@ -76,9 +91,16 @@ narrative_event = {	#Notify Players of Boromir's Death
 	id = mep_flavor_events.11
 	title = EVTTTLmep_flavor_events.11
 	desc = {
+		text = EVTDESCmep_flavor_events.11aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
 		text = EVTDESCAmep_flavor_events.11
 		trigger = {
 			trait = good_side
+			NOT = { has_landed_title = d_fellowship_aragorn }
 		}
 	}
 	desc = {

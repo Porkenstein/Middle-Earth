@@ -974,12 +974,12 @@ can_be_chancellor_trigger = {
 						
 					}
 				}
-				OR = {
-					liege = { primary_title = { has_law = status_of_women_4 } }
-					has_game_rule = {
-						name = gender
-						value = all
-					}
+				liege = {
+					primary_title = { has_law = status_of_women_4 }
+				}
+				has_game_rule = {
+					name = gender
+					value = all
 				}
 			}
 			mep_is_adult = yes
@@ -1013,9 +1013,7 @@ can_be_marshal_trigger = {
 				AND = {
 					liege = {
 						primary_title = {
-							OR = {
-								has_law = status_of_women_3
-							}
+							has_law = status_of_women_3
 						}
 					}
 					OR = {
@@ -1031,12 +1029,12 @@ can_be_marshal_trigger = {
 						
 					}
 				}
-				OR = {
-					liege = { primary_title = { has_law = status_of_women_4 } }
-					has_game_rule = {
-						name = gender
-						value = all
-					}
+				liege = {
+					primary_title = { has_law = status_of_women_4 }
+				}
+				has_game_rule = {
+					name = gender
+					value = all
 				}
 			}
 			#OR = {
@@ -1093,12 +1091,12 @@ can_be_treasurer_trigger = {
 						
 					}
 				}
-				OR = {
-					liege = { primary_title = { has_law = status_of_women_4 } }
-					has_game_rule = {
-						name = gender
-						value = all
-					}
+				liege = {
+					primary_title = { has_law = status_of_women_4 }
+				}
+				has_game_rule = {
+					name = gender
+					value = all
 				}
 			}
 			mep_is_adult = yes
@@ -1164,12 +1162,12 @@ can_be_spymaster_trigger = {
 						
 					}
 				}
-				OR = {
-					liege = { primary_title = { has_law = status_of_women_4 } }
-					has_game_rule = {
-						name = gender
-						value = all
-					}
+				liege = {
+					primary_title = { has_law = status_of_women_4 }
+				}
+				has_game_rule = {
+					name = gender
+					value = all
 				}
 			}
 			mep_is_adult = yes
@@ -1249,85 +1247,22 @@ can_be_spiritual_trigger = {
 }
 
 can_be_councilmember_king_trigger = {
-	independent = no
-	prisoner = no
-	NOT = { trait = incapable }
-	NOT = { trait = in_hiding }
-	NOT = { has_character_modifier = resigned_in_anger }
-	AND = {
-		OR = {
-			is_female = no
-			#AND = {
-			#	OR = {
-			#		religion = cathar
-			#		religion = messalian
-			#	}
-			#	liege = { religion = ROOT }
-			#}
-			AND = {
-				liege = {
-					primary_title = {
-						OR = {
-							has_law = status_of_women_1
-							has_law = status_of_women_2
-							has_law = status_of_women_3
-						}
-					}
-				}
-				is_landed = yes
-			}
-			OR = {
-				liege = { primary_title = { has_law = status_of_women_4 } }
-				has_game_rule = {
-					name = gender
-					value = all
-				}
-			}
-		}
-		mep_is_adult = yes
+	OR = {
+		can_be_chancellor_trigger = yes
+		can_be_marshal_trigger = yes
+		can_be_treasurer_trigger = yes
+		can_be_spymaster_trigger = yes
+		can_be_spiritual_trigger = yes
 	}
 }
 
 can_be_councilmember_emperor_trigger = {
-	independent = no
-	prisoner = no
-	NOT = { trait = incapable }
-	NOT = { trait = in_hiding }
-	NOT = { has_character_modifier = resigned_in_anger }
 	OR = {
-		AND = {
-			OR = {
-				is_female = no
-				#AND = {
-				#	religion = cathar
-				#	liege = { religion = cathar }
-				#}
-				#AND = {
-				#	religion = messalian
-				#	liege = { religion = messalian }
-				#}
-				AND = {
-					liege = {
-						primary_title = {
-							OR = {
-								has_law = status_of_women_1
-								has_law = status_of_women_2
-								has_law = status_of_women_3
-							}
-						}
-					}
-					is_landed = yes
-				}
-				OR = {
-					liege = { primary_title = { has_law = status_of_women_4 } }
-					has_game_rule = {
-						name = gender
-						value = all
-					}
-				}
-			}
-			mep_is_adult = yes
-		}
+		can_be_chancellor_trigger = yes
+		can_be_marshal_trigger = yes
+		can_be_treasurer_trigger = yes
+		can_be_spymaster_trigger = yes
+		can_be_spiritual_trigger = yes
 	}
 }
 
@@ -5180,7 +5115,7 @@ china_offmap_decisions_enabled_trigger = {
 	#offmap_china = {
 	#	NOT = { has_policy = china_isolationist }
 	#	custom_tooltip = {
-	#		text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with ยงY[From.GetTitledFirstName]ยง!"
+	#		text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with งY[From.GetTitledFirstName]ง!"
 	#		NOT = { governor = { war_with = FROM } }
 	#	}
 	#	governor = {
@@ -5220,7 +5155,7 @@ china_offmap_hostile_decisions_enabled_trigger = {
 	always = no
 	#offmap_china = {
 	#	custom_tooltip = {
-	#		text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with ยงY[From.GetTitledFirstName]ยง!"
+	#		text = china_offmap_decisions_enabled_trigger_war_tt #"Is at peace with งY[From.GetTitledFirstName]ง!"
 	#		NOT = { governor = { war_with = FROM } }
 	#	}
 	#	governor = {

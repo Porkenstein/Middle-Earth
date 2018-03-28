@@ -240,6 +240,1848 @@ aldarion_reconquest = {
 	}
 }
 
+arpharazon_reconquest = {
+	name = CB_NAME_ARPHARAZON
+	war_name = WAR_NAME_ARPHARAZON
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_arpharazon
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = e_anadune 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+durin_reconquest = {
+	name = CB_NAME_DURIN
+	war_name = WAR_NAME_DURIN
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_durin
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = e_durins_folk 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+elwe_reconquest = {
+	name = CB_NAME_ELWE
+	war_name = WAR_NAME_ELWE
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_elwe 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = e_lindon 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+feanor_reconquest = {
+	name = CB_NAME_FEANOR
+	war_name = WAR_NAME_FEANOR
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_feanor 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_eregion 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+finarfin_reconquest = {
+	name = CB_NAME_FINARFIN
+	war_name = WAR_NAME_FINARFIN
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_finarfin 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_dorwinion 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+fingolfin_reconquest = {
+	name = CB_NAME_FINGOLFIN
+	war_name = WAR_NAME_FINGOLFIN
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_fingolfin 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_mithlond 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+galadhon_reconquest = {
+	name = CB_NAME_GALADHON
+	war_name = WAR_NAME_GALADHON
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_galadhon 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_dol_guldur
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+dale_reconquest = {
+	name = CB_NAME_DALE
+	war_name = WAR_NAME_DALE
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_dale 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_dale
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+
+hurin_reconquest  = {
+	name = CB_NAME_HURIN
+	war_name = WAR_NAME_HURIN
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_hurin 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_ithilien 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+imrazor_reconquest  = {
+	name = CB_NAME_IMRAZOR
+	war_name = WAR_NAME_IMRAZOR
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_imrazor 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_belfalas 
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+nowe_reconquest  = {
+	name = CB_NAME_NOWE
+	war_name = WAR_NAME_NOWE
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_nowe  
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_forlindon
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+olwe_reconquest  = {
+	name = CB_NAME_OLWE
+	war_name = WAR_NAME_OLWE
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_olwe 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_harlindon
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+oropher_reconquest  = {
+	name = CB_NAME_OROPHER
+	war_name = WAR_NAME_OROPHER
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_oropher 
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_mirkwood
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+thorondor_reconquest  = {
+	name = CB_NAME_OROPHER
+	war_name = WAR_NAME_OROPHER
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_thorondor  
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = k_cardolan
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+valandil_reconquest  = {
+	name = CB_NAME_OROPHER
+	war_name = WAR_NAME_OROPHER
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_valandil  
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = e_gondor
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+vidugavia_reconquest  = {
+	name = CB_NAME_OROPHER
+	war_name = WAR_NAME_OROPHER
+	sprite = 17
+	truce_days = 3650
+	is_permanent = yes
+	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+
+	can_use = {
+		ROOT = {
+			trait = blood_of_vidugavia  
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOR = {
+				religion_group = religion_group_periannath
+				culture_group = culture_group_wilderness
+			}
+		}
+	}
+
+	can_use_title = {
+		de_jure_liege_or_above = e_rhovanion
+	}
+	
+	is_valid = {
+		ROOT = {
+			independent = yes
+			NOT = { same_realm = FROM }
+		}
+		FROM = {
+			NOT = { religion_group = religion_group_eldar }
+			NOT = { religion = religion_mahal }
+		}
+	}
+	
+	on_success = {
+		any_attacker = {
+			limit = { character = ROOT }
+			participation_scaled_prestige = 100
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { 
+				participation_scaled_prestige = 100
+			}
+		}
+		
+		FROM = { prestige = -100 }
+	}
+
+	on_success_title = {
+		custom_tooltip = { 
+			text = tribal_invasion_succ_tip
+			hidden_tooltip = {
+				ROOT = {
+					vassalize_or_take_under_title = {
+						title = PREV
+						enemy = FROM
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				holder_scope = { character = FROM }
+			}
+			usurp_title_only = ROOT
+		}
+	}
+
+	on_fail = {
+		ROOT = { prestige = -150 }
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			ROOT = { prestige = -200 }
+		}
+		any_defender = {
+			limit = { character = FROM }
+			participation_scaled_piety = 100
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { 
+				participation_scaled_piety = 100
+				participation_scaled_prestige = 200
+			}
+		}
+	}
+
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+}
+
+
 elven_reconquest = {
 	name = CB_NAME_ELVEN
 	war_name = WAR_NAME_ELVEN
