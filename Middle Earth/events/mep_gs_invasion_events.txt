@@ -101,6 +101,22 @@ character_event = {
 }
 
 character_event = {
+	id = mep_gs_invasion_events.3
+	desc = EVTDESCmep_gs_invasion_events.3
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_gs_invasion_events.3
+		FROMFROM = {
+			any_demesne_title = {
+				grant_title_no_opinion = ROOT
+			}
+		}
+	}
+}
+
+character_event = {
 	id = mep_gs_invasion_events.10
 	hide_window = yes
 	is_triggered_only = yes
@@ -132,6 +148,9 @@ character_event = {
 		hidden_tooltip = { activate_title = { status = no title = e_goshen } }
 		e_goshen = {
 			destroy_landed_title = ROOT
+		}
+		any_player = {
+			character_event = { id = mep_gs_invasion_events.3 }
 		}
 	}
 }
