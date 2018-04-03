@@ -1,0 +1,186 @@
+namespace = mep_misc_events
+character_event = {	#Ring Used
+	id = mep_misc_events.1
+	title = EVTTTLmep_misc_events.1
+	desc = EVTDESCmep_misc_events.1
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.1
+		clear_event_target = ring_location
+	}
+}
+character_event = {	#Morgul-blade Wound
+	id = mep_misc_events.2
+	title = EVTTTLmep_misc_events.2
+	desc = EVTDESCmep_misc_events.2
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.2
+		add_character_modifier = { modifier = mod_nazgul_wound duration = -1 }
+	}
+}
+character_event = {	#Fly, You Fools
+	id = mep_misc_events.3
+	title = EVTTTLmep_misc_events.3
+	desc = EVTDESCmep_misc_events.3
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		remove_trait = onering
+		destroy_artifact = artifact_ring
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_elves
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		d_fellowship_gandalf = {
+			set_name = "Gandalf the White Pilgrim"
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		activate_title = { status = yes title = e_gondor }
+		e_gondor = {
+			gain_title = ROOT
+			copy_title_laws = e_steward_gondor
+			e_steward_gondor = {
+				gain_title = ROOT
+				any_de_jure_vassal_title = {
+					set_defacto_liege = PREVPREV
+					de_jure_liege = PREVPREV
+				}
+				c_minas_tirith = {
+					gain_title = ROOT
+				}
+				activate_title = { status = no title = e_steward_gondor }
+				destroy_landed_title = THIS
+			}
+			d_fellowship_aragorn = {
+				activate_title = { status = no title = d_fellowship_aragorn }
+				destroy_landed_title = THIS
+			}
+			d_fellowship_army = {
+				activate_title = { status = no title = d_fellowship_army }
+				destroy_landed_title = THIS
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		e_isengard = {
+			holder_scope = {
+				any_war = {
+					end_war = reverse_demand
+				}
+			}
+			activate_title = { status = no title = e_isengard }
+			destroy_landed_title = THIS
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+		k_ringbearer = {
+			holder_scope = {
+				save_event_target_as = ringbearer
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				save_event_target_as = sauron
+				any_war = {
+					end_war = reverse_demand
+				}
+			}
+			activate_title = { status = no title = e_barad_dur }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:ringbearer
+			}
+		}
+	}
+}
+character_event = {	#Sting Transfer
+	id = mep_misc_events.41
+	title = EVTTTLmep_misc_events.41
+	desc = {
+		text = EVTDESCmep_misc_events.41frodo
+		trigger = { character = 8079 }
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.41sam
+		trigger = { character = 8140 }
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.41
+		trigger = {
+			NOR = {
+				character = 8079
+				character = 8140
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		random_character = {
+			limit = {
+				has_artifact = sting
+			}
+			any_artifact = {
+				limit = {
+					has_artifact_flag = aflag_sting
+				}
+				transfer_artifact = { from = PREV to = ROOT }
+			}
+		}
+	}
+}
