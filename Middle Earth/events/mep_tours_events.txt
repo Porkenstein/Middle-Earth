@@ -31,11 +31,12 @@ character_event = {	#Where to go?
 narrative_event = {	#First Tour Target
 	id = mep_tours_events.1
 	title = EVTTTLmep_tours_events.1
+	picture = GFX_evt_minastirith
 	desc = {	#Minas Tirith
 		text = EVTDESCmep_tours_events.1gondor
+		picture = GFX_evt_minastirith
 		trigger = { has_character_flag = gondor_tour }
 	}
-	picture = GFX_evt_minastirith
 	is_triggered_only = yes
 
 	option = {	#On to Osgiliath
@@ -59,11 +60,12 @@ narrative_event = {	#First Tour Target
 narrative_event = {	#Second Tour Target
 	id = mep_tours_events.11
 	title = EVTTTLmep_tours_events.11
+	picture = GFX_evt_osgiliath
 	desc = {	#Osgiliath
 		text = EVTDESCmep_tours_events.11gondor
+		picture = GFX_evt_osgiliath
 		trigger = { has_character_flag = gondor_tour }
 	}
-	picture = GFX_evt_osgiliath
 	is_triggered_only = yes
 
 	option = {	#On to Pelargir
@@ -87,11 +89,12 @@ narrative_event = {	#Second Tour Target
 narrative_event = {	#Third Tour Target
 	id = mep_tours_events.12
 	title = EVTTTLmep_tours_events.12
+	picture = GFX_evt_pelargir
 	desc = {	#Pelargir
 		text = EVTDESCmep_tours_events.12gondor
+		picture = GFX_evt_pelargir
 		trigger = { has_character_flag = gondor_tour }
 	}
-	picture = GFX_evt_pelargir
 	is_triggered_only = yes
 
 	option = {	#On to Dol Amroth
@@ -115,11 +118,12 @@ narrative_event = {	#Third Tour Target
 narrative_event = {	#Fourth Tour Target
 	id = mep_tours_events.13
 	title = EVTTTLmep_tours_events.13
+	picture = GFX_evt_dolamroth
 	desc = {	#Dol Amroth
 		text = EVTDESCmep_tours_events.13gondor
+		picture = GFX_evt_dolamroth
 		trigger = { has_character_flag = gondor_tour }
 	}
-	picture = GFX_evt_dolamroth
 	is_triggered_only = yes
 
 	option = {	#On to Minas Morgul
@@ -143,11 +147,12 @@ narrative_event = {	#Fourth Tour Target
 narrative_event = {	#Fifth Tour Target
 	id = mep_tours_events.14
 	title = EVTTTLmep_tours_events.14
+	picture = GFX_evt_minasmorgul
 	desc = {	#Minas Morgul
 		text = EVTDESCmep_tours_events.14gondor
+		picture = GFX_evt_minasmorgul
 		trigger = { has_character_flag = gondor_tour }
 	}
-	picture = GFX_evt_minasmorgul
 	is_triggered_only = yes
 
 	option = {	#Return Home
@@ -197,14 +202,17 @@ narrative_event = {	#Return from Tour
 narrative_event = {	#Special Item
 	id = mep_tours_events.101
 	title = EVTTTLmep_tours_events.101
+	picture = GFX_evt_castle_construction
 	desc = {
 		text = EVTDESCmep_tours_events.101A
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle1
 		}
 	}
 	desc = {
 		text = EVTDESCmep_tours_events.101AB
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle1
 			has_character_flag = tour_riddle_failed
@@ -212,12 +220,14 @@ narrative_event = {	#Special Item
 	}
 	desc = {
 		text = EVTDESCmep_tours_events.101B
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle2
 		}
 	}
 	desc = {
 		text = EVTDESCmep_tours_events.101BB
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle2
 			has_character_flag = tour_riddle_failed
@@ -225,18 +235,19 @@ narrative_event = {	#Special Item
 	}
 	desc = {
 		text = EVTDESCmep_tours_events.101C
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle3
 		}
 	}
 	desc = {
 		text = EVTDESCmep_tours_events.101CB
+		picture = GFX_evt_castle_construction
 		trigger = {
 			has_character_flag = tour_riddle3
 			has_character_flag = tour_riddle_failed
 		}
 	}
-	picture = GFX_evt_castle_construction
 	is_triggered_only = yes
 
 	trigger = {
@@ -279,7 +290,7 @@ narrative_event = {	#Special Item
 		}
 		clr_character_flag = tour_riddle1
 		clr_character_flag = tour_riddle_failed
-		narrative_event = { id = mep_tours_events.1011 }
+		narrative_event = { id = mep_tours_events.102 }
 	}
 	option = {	#Tomb
 		name = EVTOPTCmep_tours_events.101
@@ -304,7 +315,7 @@ narrative_event = {	#Special Item
 		}
 		clr_character_flag = tour_riddle2
 		clr_character_flag = tour_riddle_failed
-		narrative_event = { id = mep_tours_events.1011 }
+		narrative_event = { id = mep_tours_events.102 }
 	}
 	option = {	#Dark
 		name = EVTOPTFmep_tours_events.101
@@ -361,31 +372,34 @@ narrative_event = {	#Special Item
 		}
 		clr_character_flag = tour_riddle3
 		clr_character_flag = tour_riddle_failed
-		narrative_event = { id = mep_tours_events.1011 }
+		narrative_event = { id = mep_tours_events.102 }
 	}
 }
 narrative_event = {	#Special Item
-	id = mep_tours_events.1011
-	title = EVTTTLmep_tours_events.1011
+	id = mep_tours_events.102
+	title = EVTTTLmep_tours_events.102
+	picture = GFX_evt_castle_construction
 	desc = {
-		text = EVTDESCmep_tours_events.1011A
+		text = EVTDESCmep_tours_events.102A
+		picture = GFX_evt_gondolin_blade
 		trigger = {
 			has_character_flag = special_item1
 		}
 	}
 	desc = {
-		text = EVTDESCmep_tours_events.1011B
+		text = EVTDESCmep_tours_events.102B
+		picture = GFX_evt_white_wizardstaff
 		trigger = {
 			has_character_flag = special_item2
 		}
 	}
 	desc = {
-		text = EVTDESCmep_tours_events.1011C
+		text = EVTDESCmep_tours_events.102C
+		picture = GFX_evt_westernesse_dagger
 		trigger = {
 			has_character_flag = special_item3
 		}
 	}
-	picture = GFX_evt_castle_construction
 	is_triggered_only = yes
 
 	immediate = {
@@ -397,19 +411,19 @@ narrative_event = {	#Special Item
 	}
 
 	option = {	#Receive Gondolin Blade
-		name = EVTOPTAmep_tours_events.1011
+		name = EVTOPTAmep_tours_events.102
 		trigger = { has_character_flag = special_item1 }
 		add_character_modifier = { modifier = mod_gondolin_blade duration = -1 }
 	}
 
 	option = {	#Receive White Wizard Staff
-		name = EVTOPTBmep_tours_events.1011
+		name = EVTOPTBmep_tours_events.102
 		trigger = { has_character_flag = special_item2 }
 		add_character_modifier = { modifier = mod_white_wizardstaff duration = -1 }
 	}
 
 	option = {	#Receive Westernesse Dagger
-		name = EVTOPTCmep_tours_events.1011
+		name = EVTOPTCmep_tours_events.102
 		trigger = { has_character_flag = special_item3 }
 		add_character_modifier = { modifier = mod_westernesse_dagger duration = -1 }
 	}
