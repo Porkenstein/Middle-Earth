@@ -873,13 +873,13 @@
 		}			
 	}
 	
-	# Martial
+	# Martial 1
 	10 = {
-		factor = 100
+		factor = 40
 		modifier = {
 			factor = 0
-			in_command = no
 			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
 			NOT = {
 				primary_title = {
 					OR = {
@@ -892,35 +892,146 @@
 		modifier = {
 			factor = 0
 			OR = {
-				higher_real_tier_than = duke
-				spouse = { higher_real_tier_than = duke }
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
+				AND = {
+					real_tier = duke
+					any_demesne_title = {
+						real_tier = baron
+					}
+					NOT = {
+						primary_title = {
+							OR = {
+								mercenary = yes
+								holy_order = yes
+							}
+						}
+					}
+				}
 			}
-			in_command = no
+		}
+		modifier = {
+			factor = 0
+			culture = culture_valar
+		}
+	}
+
+	# Martial 2
+	11 = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
+				}
+			}
 		}
 		modifier = {
 			factor = 0
 			OR = {
-				is_nomadic = yes
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
 				AND = {
-					liege = { is_nomadic = yes }
-					is_ruler = no
+					real_tier = duke
+					any_demesne_title = {
+						real_tier = baron
+					}
+					NOT = {
+						primary_title = {
+							OR = {
+								mercenary = yes
+								holy_order = yes
+							}
+						}
+					}
 				}
 			}
-			war = no
-			NOR = {
-				siege = { is_attacker = yes }
-				has_job_title  = job_marshal
-			}
 		}
-	}
-
-	# Ragged prison clothes
-	
-	11 = {
-		factor = 100
 		modifier = {
 			factor = 0
-			prisoner = no
+			culture = culture_valar
+		}
+	}
+	
+	# Martial 3 (fancy)
+	12 = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
+			}
+		}
+		modifier = {
+			factor = 0
+			culture = culture_valar
+		}
+	}
+	
+	# Martial 4
+	13 = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
+				AND = {
+					real_tier = duke
+					any_demesne_title = {
+						real_tier = baron
+					}
+					NOT = {
+						primary_title = {
+							OR = {
+								mercenary = yes
+								holy_order = yes
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			culture = culture_valar
 		}
 	}
 }
@@ -1544,13 +1655,13 @@
 		}		
 	}
 
-	# Martial headgear
+	# Martial headgear 1
 	10 = {
-		factor = 100
+		factor = 40
 		modifier = {
 			factor = 0
-			in_command = no
 			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
 			NOT = {
 				primary_title = {
 					OR = {
@@ -1560,28 +1671,6 @@
 				}
 			}
 		}
-		modifier = {
-			factor = 0
-			AND = {
-				trait = elf_childhood
-				trait = elf
-			}
-		}		
-		modifier = {
-			factor = 0
-			OR = {
-				trait = onering
-				trait = mouthofsauron
-			}
-		}	
-		modifier = {
-			factor = 0
-			OR = {
-				trait = staff_of_saruman
-				trait = staff_of_radagast
-				trait = staff_of_gandalf
-			}
-		}		
 		modifier = {
 			factor = 0
 			OR = {
@@ -1595,97 +1684,126 @@
 					}
 					NOT = {
 						primary_title = {
-							mercenary = yes
+							OR = {
+								mercenary = yes
+								holy_order = yes
+							}
 						}
-					}
-				}
-				AND = {
-					religion_group = christian
-					OR = {
-						AND = {
-							is_ruler = yes
-							is_theocracy = yes
-						}
-						has_job_title = job_spiritual
 					}
 				}
 			}
 		}
 	}
 
-	# Blank
+	# Martial Headgear 2
 	11 = {
-		factor = 3
+		factor = 40
 		modifier = {
 			factor = 0
-			OR = {
-				trait = staff_of_saruman
-				trait = staff_of_radagast
-				trait = staff_of_gandalf
-			}
-		}		
-		modifier = {
-			factor = 0
-			OR = {
-				real_tier = emperor
-				real_tier = king
-				real_tier = duke
-				has_minor_title = title_prince
-				spouse = { real_tier = emperor }
-				spouse = { real_tier = king }
-				spouse = { real_tier = duke }
-			}
-		}
-		modifier = {
-			factor = 0
-			AND = {
-				trait = elf_childhood
-				trait = elf
-			}
-		}
-		modifier = {
-			factor = 0
-			AND = {
-				NOT = { age = 150 }
-				trait = elf
-			}
-		}
-		modifier = {
-			factor = 0
-			AND = {
-				NOT = { has_job_title  = job_marshal }	
-				NOT = { has_job_title  = job_spiritual }	
-				NOT = { has_job_title  = job_spymaster }	
-				NOT = { has_job_title  = job_treasurer }	
-				NOT = { has_job_title  = job_chancellor }	
-				trait = elf
-			}
-		}			
-		modifier = {
-			factor = 0
-			AND = {
-				OR = {
-					real_tier = king
-					real_tier = emperor
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
 				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
 				AND = {
 					real_tier = duke
 					any_demesne_title = {
 						real_tier = baron
 					}
+					NOT = {
+						primary_title = {
+							OR = {
+								mercenary = yes
+								holy_order = yes
+							}
+						}
+					}
 				}
-				trait = elf
 			}
-		}			
+		}
+	}
+	
+	# Helmet 3
+	12 = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			OR = {
-				trait = onering
-				trait = mouthofsauron
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
 			}
-		}		
+		}
 	}
 	
+	# Helmet 4 (fancy)
+	13 = {
+		factor = 40
+		modifier = {
+			factor = 0
+			NOT = { has_job_title  = job_marshal }
+			NOT = { martial = 15 }
+			NOT = {
+				primary_title = {
+					OR = {
+						mercenary = yes
+						holy_order = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_female = yes
+				real_tier = king
+				real_tier = emperor
+			}
+		}
+	}
+	
+	# Special High-Tier helmet
+	14 = {
+		factor = 1
+		modifier = {  # orkish king helm 2
+			factor = 2
+			religion = religion_orkish
+			higher_tier_than = duke
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				lower_real_tier_than = king
+				NOT = { religion = religion_orkish }
+			}
+		}
+	
+	}
 }
 
 # p6 imprisoned
