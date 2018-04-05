@@ -50,9 +50,10 @@ narrative_event = {	#First Tour Target
 				}
 			}
 		}
-		random = {
-			chance = 5
-			narrative_event = { id = mep_tours_events.101 }
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
 		}
 		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
 	}
@@ -79,9 +80,10 @@ narrative_event = {	#Second Tour Target
 				}
 			}
 		}
-		random = {
-			chance = 5
-			narrative_event = { id = mep_tours_events.101 }
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
 		}
 		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
 	}
@@ -108,9 +110,10 @@ narrative_event = {	#Third Tour Target
 				}
 			}
 		}
-		random = {
-			chance = 5
-			narrative_event = { id = mep_tours_events.101 }
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
 		}
 		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
 	}
@@ -137,9 +140,10 @@ narrative_event = {	#Fourth Tour Target
 				}
 			}
 		}
-		random = {
-			chance = 5
-			narrative_event = { id = mep_tours_events.101 }
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
 		}
 		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
 	}
@@ -166,9 +170,10 @@ narrative_event = {	#Fifth Tour Target
 				}
 			}
 		}
-		random = {
-			chance = 5
-			narrative_event = { id = mep_tours_events.101 }
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
 		}
 		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
 	}
@@ -426,5 +431,17 @@ narrative_event = {	#Special Item
 		name = EVTOPTCmep_tours_events.102
 		trigger = { has_character_flag = special_item3 }
 		add_character_modifier = { modifier = mod_westernesse_dagger duration = -1 }
+	}
+}
+narrative_event = {	#Grave of Iron Beagle
+	id = mep_tours_events.110
+	title = EVTTTLmep_tours_events.110
+	desc = EVTDESCmep_tours_events.110
+	picture = GFX_evt_boromirsfall
+	is_triggered_only = yes
+
+	option = {	#A mighty Warrior of the Bygone Ages
+		name = EVTOPTAmep_tours_events.110
+		set_character_flag = iron_beagled
 	}
 }
