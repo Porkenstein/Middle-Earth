@@ -184,3 +184,46 @@ character_event = {	#Sting Transfer
 		}
 	}
 }
+province_event = {	#Return Land to Wilderness
+	id = mep_misc_events.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		county = {
+			create_character = {
+				random_traits = no
+				name = ""
+				dynasty = NONE
+				age = 1
+				culture = culture_wilderness
+				religion = religion_wilderness
+				trait = wildlife
+			}
+			new_character = {
+				grant_title_no_opinion = PREV
+			}
+		}
+	}
+	option = {
+		county = {
+			holder_scope = {
+				IF = {
+					limit = {
+						NOR = {
+							character = 10032
+							character = 10016
+						}
+					}
+					death = { death_reason = death_rabble }
+				}
+			}
+		}
+		duchy = {
+			destroy_landed_title = THIS
+		}
+		kingdom = {
+			destroy_landed_title = THIS
+		}
+	}
+}

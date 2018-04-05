@@ -411,6 +411,7 @@ narrative_event = {	#Frodo/Aragorn/Gandalf Arrive at Rivendell, Fellowship Forme
 		d_fellowship_aragorn = {
 			set_name = ""
 			holder_scope = {
+				set_name = ""
 				c_3106 = {	#Legolas Moved to Aragorn's Court
 					move_character = PREV
 				}
@@ -1077,6 +1078,9 @@ narrative_event = {	#The End of the Ring
 					end_war = reverse_demand
 				}
 			}
+			any_realm_province = {
+				province_event = { id = mep_misc_events.5 }
+			}
 			activate_title = { status = no title = e_barad_dur }
 			destroy_landed_title = THIS
 		}
@@ -1269,6 +1273,7 @@ narrative_event = {	#Fellowship Visit Theoden
 			has_landed_title = k_rohan
 		}
 		set_character_flag = unbeguiled
+		remove_trait = saruman_spell
 	}
 }
 narrative_event = {	#Join the War for Rohan
@@ -2170,6 +2175,13 @@ narrative_event = {	#The War for Rohan Ended
 				holder_scope = {
 					narrative_event = { id = mep_fellowship_events.32 days = 3 random = 2 }
 				}
+			}
+			e_isengard = {
+				any_realm_province = {
+					province_event = { id = mep_misc_events.5 }
+				}
+				activate_title = { status = no title = e_isengard }
+				destroy_landed_title = THIS
 			}
 		}
 	}
