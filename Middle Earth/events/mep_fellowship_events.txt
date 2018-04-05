@@ -1195,8 +1195,12 @@ narrative_event = {	#Aragorn Chases Merry and Pippin, Fangorn
 	id = mep_fellowship_events.22
 	title = EVTTTLmep_fellowship_events.22
 	desc = EVTDESCmep_fellowship_events.22
+	sound = taking_the_hobbits_to_isengard
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
+
+	immediate = {
+	}
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.22
@@ -1553,6 +1557,14 @@ narrative_event = {	#Declare War on Rohan
 	desc = EVTDESCmep_fellowship_events.41
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
+
+	immediate = {
+		k_rohan = {
+			any_war = {
+				end_war = invalid
+			}
+		}
+	}
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.41
