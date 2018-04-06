@@ -8,7 +8,6 @@ character_event = {	#Ring Used
 
 	option = {
 		name = EVTOPTAmep_misc_events.1
-		clear_event_target = ring_location
 	}
 }
 character_event = {	#Morgul-blade Wound
@@ -193,6 +192,9 @@ province_event = {	#Return Land to Wilderness
 		culture = culture_wilderness
 		religion = religion_wilderness
 		county = {
+			holder_scope = {
+				save_event_target_as = death_target
+			}
 			create_character = {
 				random_traits = no
 				name = ""
@@ -209,7 +211,7 @@ province_event = {	#Return Land to Wilderness
 	}
 	option = {
 		county = {
-			holder_scope = {
+			event_target:death_target = {
 				IF = {
 					limit = {
 						NOR = {

@@ -1080,9 +1080,15 @@ narrative_event = {	#The End of the Ring
 				any_war = {
 					end_war = reverse_demand
 				}
-			}
-			any_realm_province = {
-				province_event = { id = mep_misc_events.5 }
+				any_realm_character = {
+					limit = { is_ruler = yes }
+					any_demesne_province = {
+						province_event = { id = mep_misc_events.5 }
+					}
+				}
+				any_demesne_province = {
+					province_event = { id = mep_misc_events.5 }
+				}
 			}
 			activate_title = { status = no title = e_barad_dur }
 			destroy_landed_title = THIS
@@ -2192,8 +2198,17 @@ narrative_event = {	#The War for Rohan Ended
 				}
 			}
 			e_isengard = {
-				any_realm_province = {
-					province_event = { id = mep_misc_events.5 }
+				holder_scope = {
+					any_realm_character = {
+						limit = { is_ruler = yes }
+						any_demesne_province = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
+					any_demesne_province = {
+						province_event = { id = mep_misc_events.5 }
+					}
+					abdicate = yes
 				}
 				activate_title = { status = no title = e_isengard }
 				destroy_landed_title = THIS
