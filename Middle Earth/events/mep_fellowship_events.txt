@@ -135,8 +135,8 @@ narrative_event = {	#Merry and Pippin Join Frodo
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.113
-		c_8169 = { move_character = ROOT }
-		c_8170 = { move_character = ROOT }
+		c_8028 = { move_character = ROOT }
+		c_8041 = { move_character = ROOT }
 	}
 }
 narrative_event = {	#Black Rider Encounter
@@ -821,11 +821,11 @@ narrative_event = {	#Breaking of the Fellowship, Death of Boromir
 					c_derndingle = {
 						holder_scope = {
 							save_event_target_as = treebeard
-							c_8169 = {
+							c_8028 = {
 								move_character = event_target:treebeard
 								imprison = event_target:saruman
 							}
-							c_8170 = {
+							c_8041 = {
 								move_character = event_target:treebeard
 								imprison = event_target:saruman
 							}
@@ -1726,8 +1726,8 @@ narrative_event = {	#Reunion with Merry and Pippin
 	trigger = {
 		has_landed_title = d_fellowship_gandalf
 		has_character_flag = gandalf_the_white
-		c_8169 = { prisoner = yes }
-		c_8170 = { prisoner = yes }
+		c_8028 = { prisoner = yes }
+		c_8041 = { prisoner = yes }
 	}
 
 	mean_time_to_happen = {
@@ -1736,10 +1736,10 @@ narrative_event = {	#Reunion with Merry and Pippin
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.62
-		c_8169 = {
+		c_8028 = {
 			prisoner = no
 		}
-		c_8170 = {
+		c_8041 = {
 			prisoner = no
 		}
 		hidden_effect = {
@@ -2209,6 +2209,9 @@ narrative_event = {	#The War for Rohan Ended
 		trigger = {
 			has_landed_title = d_fellowship_aragorn
 		}
+		c_8041 = {
+			move_character = ROOT
+		}
 	}
 
 	option = {
@@ -2218,6 +2221,9 @@ narrative_event = {	#The War for Rohan Ended
 		}
 		d_fellowship_gandalf = {
 			set_preferred_capital = 422
+		}
+		c_8028 = {
+			move_character = ROOT
 		}
 		hidden_effect = {
 			e_barad_dur = {
