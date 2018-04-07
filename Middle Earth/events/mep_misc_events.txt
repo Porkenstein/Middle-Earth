@@ -170,6 +170,36 @@ character_event = {	#Sting Transfer
 
 	option = {
 		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			character = 8079
+		}
+		random_character = {
+			limit = {
+				has_artifact = sting
+			}
+			IF = {
+				limit = { 
+					trait = mithril
+				}
+				ROOT = {
+					add_trait = mithril
+				}
+				remove_trait = mithril
+			}
+			any_artifact = {
+				limit = {
+					has_artifact_flag = aflag_sting
+				}
+				transfer_artifact = { from = PREV to = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			NOT = { character = 8079 }
+		}
 		random_character = {
 			limit = {
 				has_artifact = sting
