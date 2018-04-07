@@ -1316,6 +1316,12 @@ narrative_event = {	#Join the War for Rohan
 			has_landed_title = k_rivendell
 		}
 	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.24treebeard
+		trigger = {
+			has_landed_title = c_derndingle
+		}
+	}
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
@@ -1347,6 +1353,13 @@ narrative_event = {	#Join the War for Rohan
 				}
 			}
 		}
+		hidden_effect = {
+			c_derndingle = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 }
+				}
+			}
+		}
 	}
 
 	option = {
@@ -1360,6 +1373,21 @@ narrative_event = {	#Join the War for Rohan
 		name = EVTOPTDmep_fellowship_events.24
 		trigger = {
 			has_landed_title = k_rivendell
+		}
+		k_rohan = {
+			holder_scope = {
+				save_event_target_as = rohan
+				ROOT = {
+					join_defender_wars = event_target:rohan
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEmep_fellowship_events.24
+		trigger = {
+			has_landed_title = c_derndingle
 		}
 		k_rohan = {
 			holder_scope = {

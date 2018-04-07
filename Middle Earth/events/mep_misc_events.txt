@@ -231,3 +231,42 @@ province_event = {	#Return Land to Wilderness
 		}
 	}
 }
+character_event = {	#Ent Siege of Isengard
+	id = mep_misc_events.6
+	title = EVTTTLmep_misc_events.6
+	desc = EVTDESCmep_misc_events.6
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = rohan_notthreatened
+		}
+		NOT = {
+			226 = {
+				has_province_modifier = mod_river_released
+			}
+		}
+		location = {
+			province = 226
+		}
+		culture = culture_entish
+		war = yes
+		has_landed_title = c_derndingle
+		k_rohan = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		226 = {
+			add_province_modifier = { name = mod_river_released duration = -1 }
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.6
+	}
+}
