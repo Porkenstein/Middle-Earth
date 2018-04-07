@@ -1,0 +1,2297 @@
+namespace = mep_fellowship_events
+##########################
+#	Frodo Events
+##########################
+narrative_event = {	#Frodo Finds the Ring
+	id = mep_fellowship_events.1
+	title = EVTTTLmep_fellowship_events.1
+	desc = EVTDESCmep_fellowship_events.1
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		start_date = 11361.1.1
+		NOT = { year = 11363 }
+		character = 8079
+		c_10033 = { is_alive = yes }
+		trait = onering
+		NOR = {
+			has_character_flag = told_truth
+			has_character_flag = told_lie
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.1
+		k_rivendell = {
+			holder_scope = {
+				c_8065 = {	#Bilbo Moved to Elrond's Court
+					abdicate = yes
+					move_character = PREV
+				}
+			}
+		}
+		set_character_flag = told_truth
+		narrative_event = { id = mep_fellowship_events.11 }
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.1
+		set_character_flag = told_lie
+		narrative_event = { id = mep_fellowship_events.11 }
+	}
+}
+narrative_event = {	#Gandalf responds to Frodo
+	id = mep_fellowship_events.11
+	title = EVTTTLmep_fellowship_events.11
+	desc = {
+		text = EVTDESCAmep_fellowship_events.11
+		trigger = { has_character_flag = told_truth }
+	}
+	desc = {
+		text = EVTDESCBmep_fellowship_events.11
+		trigger = { has_character_flag = told_lie }
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.11
+		narrative_event = { id = mep_fellowship_events.111 days = 2 }
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.6 }
+			}
+		}
+		hidden_effect = {
+			e_barad_dur = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.3 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Gandalf Returns
+	id = mep_fellowship_events.111
+	title = EVTTTLmep_fellowship_events.111
+	desc = EVTDESCmep_fellowship_events.111
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.111
+		IF = {
+			limit = {
+				has_game_rule = { name = wotr_lore  value = alt_canon }
+			}
+			liege = {
+				save_event_target_as = ringbearer_liege
+			}
+			current_heir = {
+				save_event_target_as = ringbearer_heir
+			}
+			activate_title = { status = yes title = k_ringbearer }
+			k_ringbearer = {
+				gain_title = ROOT
+				set_name = "Frodo and the Ring"
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { title = k_ringbearer }
+				}
+				grant_title_no_opinion = event_target:ringbearer_heir
+			}
+			event_target:ringbearer_heir = {
+				set_defacto_liege = event_target:ringbearer_liege
+			}
+			add_character_modifier = { modifier = mod_landless_income duration = -1 }
+		}
+		narrative_event = { id = mep_fellowship_events.112 }
+	}
+}
+narrative_event = {	#Sam Joins Frodo
+	id = mep_fellowship_events.112
+	title = EVTTTLmep_fellowship_events.112
+	desc = EVTDESCmep_fellowship_events.112
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.112
+		c_8140 = { move_character = ROOT }
+		narrative_event = { id = mep_fellowship_events.113 }
+	}
+}
+narrative_event = {	#Merry and Pippin Join Frodo
+	id = mep_fellowship_events.113
+	title = EVTTTLmep_fellowship_events.113
+	desc = EVTDESCmep_fellowship_events.113
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.113
+		c_8028 = { move_character = ROOT }
+		c_8041 = { move_character = ROOT }
+	}
+}
+narrative_event = {	#Black Rider Encounter
+	id = mep_fellowship_events.114
+	title = EVTTTLmep_fellowship_events.114
+	desc = EVTDESCmep_fellowship_events.114
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.114
+	}
+}
+narrative_event = {	#Frodo/Aragorn Arrives in Bree, Gandalf in Isengard
+	id = mep_fellowship_events.12
+	title = EVTTTLmep_fellowship_events.12
+	desc = {
+		text = EVTDESCmep_fellowship_events.12frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.12aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.12gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.12
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.12
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.12
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		e_isengard = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.4 }
+			}
+		}
+	}
+}
+narrative_event = {	#Frodo/Aragorn Flee Bree, Gandalf flees Isengard for Rivendell
+	id = mep_fellowship_events.121
+	title = EVTTTLmep_fellowship_events.121
+	desc = {
+		text = EVTDESCmep_fellowship_events.121frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.121aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.121gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.121
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			e_barad_dur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.1 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.121 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.121
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.122 days = 7 random = 5 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.121
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		prisoner = no
+	}
+}
+narrative_event = {	#Skirmish at Weathertop
+	id = mep_fellowship_events.122
+	title = EVTTTLmep_fellowship_events.122
+	desc = {
+		text = EVTDESCmep_fellowship_events.122frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.122aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.122
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				set_preferred_capital = 269	#Move Capital to Weathertop
+			}
+			d_fellowship_aragorn = {
+				set_preferred_capital = 269	#Move Capital to Weathertop
+			}
+			e_barad_dur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.1 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.122 }
+				}
+			}
+			e_barad_dur = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.31 days = 3 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.122
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		k_ringbearer = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.2 }
+			}
+		}
+		hidden_effect = {
+			k_rivendell = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.5 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Frodo/Aragorn/Gandalf Arrive at Rivendell, Fellowship Formed
+	id = mep_fellowship_events.13
+	title = EVTTTLmep_fellowship_events.13
+	desc = {
+		text = EVTDESCmep_fellowship_events.13frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.13aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.13gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.13elrond
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.13
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			k_rivendell = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.13 days = 1 random = 2 }
+				}
+			}
+			k_ringbearer = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.41 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.13
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.13
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		d_fellowship_gandalf = {
+			reset_coa = THIS
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fellowship_events.13
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+		k_ringbearer = {
+			set_name = ""
+			holder_scope = {
+				c_1944 = {	#Boromir Moved to Frodo's Court
+					move_character = PREV
+				}
+			}
+		}
+		d_fellowship_aragorn = {
+			set_name = ""
+			holder_scope = {
+				set_name = ""
+				c_3106 = {	#Legolas Moved to Aragorn's Court
+					move_character = PREV
+				}
+				c_4058 = {	#Gimli Moved to Aragorn's Court
+					move_character = PREV
+				}
+			}
+		}
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				set_name = ""
+				holder_scope = {
+					set_defacto_liege = k_ringbearer
+					narrative_event = { id = mep_fellowship_events.131 days = 7 random = 2 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Fellowship Choice towards Mordor
+	id = mep_fellowship_events.131
+	title = EVTTTLmep_fellowship_events.131
+	desc = {
+		text = EVTDESCmep_fellowship_events.131frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.131aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.131gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.131
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			k_ringbearer = {	#Move Capitals to Moria
+				set_preferred_capital = 285
+			}
+			d_fellowship_aragorn = {
+				set_preferred_capital = 285
+			}
+			d_fellowship_gandalf = {
+				set_preferred_capital = 285
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.132 days = 10 random = 10 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.131
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCAmep_fellowship_events.131
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.131 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.131 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCBmep_fellowship_events.131
+		trigger = {
+			ai = no
+			has_landed_title = d_fellowship_gandalf
+		}
+		set_character_flag = fly_you_fools
+		hidden_effect = {
+			character_event = { id = mep_fellowship_mt.100 }
+		}
+	}
+}
+narrative_event = {	#Doors of Durin
+	id = mep_fellowship_events.132
+	title = EVTTTLmep_fellowship_events.132
+	desc = {
+		text = EVTDESCmep_fellowship_events.132frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.132aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.132gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.132
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.133 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.132
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.132
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.132 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.132 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Skirmish of Balin's Tomb
+	id = mep_fellowship_events.133
+	title = EVTTTLmep_fellowship_events.133
+	desc = {
+		text = EVTDESCmep_fellowship_events.133frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.133aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.133gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.133
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.134 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.133
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.133
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.133 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.133 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Gandalf Faces Balrog, Frodo
+	id = mep_fellowship_events.134
+	title = EVTTTLmep_fellowship_events.134
+	desc = {
+		text = EVTDESCmep_fellowship_events.134frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.134aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.134gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.134
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.135 days = 15 random = 5 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					set_defacto_liege = THIS
+					#add_trait = away
+					narrative_event = { id = mep_fellowship_events.61 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.134
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.134
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.134 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.134 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Lothlórien
+	id = mep_fellowship_events.135
+	title = EVTTTLmep_fellowship_events.135
+	desc = {
+		text = EVTDESCmep_fellowship_events.135frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.135aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.135galadriel
+		trigger = {
+			has_landed_title = k_elves
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.135
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.135 }
+				}
+			}
+			k_elves = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.135 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.135
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		hidden_effect = {
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.136 days = 15 random = 5 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.135
+		trigger = {
+			has_landed_title = k_elves
+		}
+	}
+}
+narrative_event = {	#Breaking of the Fellowship, Death of Boromir
+	id = mep_fellowship_events.136
+	title = EVTTTLmep_fellowship_events.136
+	desc = {
+		text = EVTDESCmep_fellowship_events.136frodo
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.136aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.136
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		hidden_effect = {
+			c_1944 = {
+				death = {
+					death_reason = death_battle
+				}
+			}
+			k_ringbearer = {
+				set_preferred_capital = 677	#Move Capital to Amon Hen
+			}
+			d_fellowship_aragorn = {
+				set_preferred_capital = 677	#Move Capital to Amon Hen
+			}
+			e_isengard = {
+				holder_scope = {
+					save_event_target_as = saruman
+					c_derndingle = {
+						holder_scope = {
+							save_event_target_as = treebeard
+							c_8028 = {
+								move_character = event_target:treebeard
+								imprison = event_target:saruman
+							}
+							c_8041 = {
+								move_character = event_target:treebeard
+								imprison = event_target:saruman
+							}
+						}
+					}
+				}
+			}
+			e_barad_dur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.1 }
+				}
+			}
+			e_steward_gondor = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.71 days = 90 random = 30 }
+				}
+			}
+			k_ringbearer = {
+				set_preferred_capital = 427
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					character_event = { id = mep_fellowship_mt.3 }
+					narrative_event = { id = mep_flavor_events.11 }
+					set_defacto_liege = THIS
+				}
+				set_preferred_capital = 71
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_flavor_events.11 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.136
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.136 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Emyn Muil
+	id = mep_fellowship_events.137
+	title = EVTTTLmep_fellowship_events.137
+	desc = EVTDESCmep_fellowship_events.137
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		has_landed_title = k_ringbearer
+		k_rohan = {
+			holder_scope = {
+				has_character_flag = unbeguiled
+			}
+		}
+		NOT = {
+			c_8190 = {
+				has_character_flag = joined_frodo
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.137
+		c_8190 = {
+			move_character = ROOT
+			set_character_flag = joined_frodo
+		}
+		k_ringbearer = {
+			set_preferred_capital = 677	#Move Capital to S. Emyn Muil
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.138 days = 15 random = 10 }
+			}
+		}
+	}
+}
+narrative_event = {	#Dead Marshes
+	id = mep_fellowship_events.138
+	title = EVTTTLmep_fellowship_events.138
+	desc = EVTDESCmep_fellowship_events.138
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.138
+		k_ringbearer = {
+			set_preferred_capital = 586	#Move Capital to Dead Marshes
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.139 days = 15 random = 10 }
+			}
+		}
+	}
+}
+narrative_event = {	#Ithilien
+	id = mep_fellowship_events.139
+	title = EVTTTLmep_fellowship_events.139
+	desc = EVTDESCmep_fellowship_events.139
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.139
+		k_ringbearer = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.140 days = 15 random = 10 }
+			}
+		}
+	}
+}
+narrative_event = {	#Minas Morgul and Shelob's Lair
+	id = mep_fellowship_events.140
+	title = EVTTTLmep_fellowship_events.140
+	desc = EVTDESCmep_fellowship_events.140
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.140
+		k_ringbearer = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.141 days = 1 random = 2 }
+			}
+		}
+		hidden_effect = {
+			c_8140 = {
+				character_event = { id = mep_misc_events.41 }
+			}
+		}
+	}
+}
+narrative_event = {	#Cirith Ungol
+	id = mep_fellowship_events.141
+	title = EVTTTLmep_fellowship_events.141
+	desc = EVTDESCmep_fellowship_events.141
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.141
+		k_ringbearer = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
+			}
+		}
+	}
+}
+narrative_event = {	#Mordor
+	id = mep_fellowship_events.142
+	title = EVTTTLmep_fellowship_events.142
+	desc = EVTDESCmep_fellowship_events.142
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.142
+		k_ringbearer = {
+			set_preferred_capital = 148	#Move Capital to Mount Doom
+		}
+		set_character_flag = in_mordor
+	}
+}
+narrative_event = {	#Mount Doom
+	id = mep_fellowship_events.143
+	title = EVTTTLmep_fellowship_events.143
+	desc = EVTDESCmep_fellowship_events.143
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		has_landed_title = k_ringbearer
+		has_character_flag = in_mordor
+		has_global_flag = rohan_notthreatened
+		has_global_flag = gondor_notthreatened
+		e_gondor = {
+			has_holder = yes
+			holder_scope = {
+				e_barad_dur = {
+					holder_scope = {
+						war_with = PREVPREV
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.143
+		k_ringbearer = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.144 days = 1 random = 2 }
+			}
+		}
+		hidden_effect = {
+			e_barad_dur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.1 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.143
+		set_character_flag = frodo_held_on
+		k_ringbearer = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.144 days = 1 random = 2 }
+			}
+		}
+	}
+}
+narrative_event = {	#The End of the Ring
+	id = mep_fellowship_events.144
+	title = EVTTTLmep_fellowship_events.144
+	desc = {
+		text = EVTDESCAmep_fellowship_events.144
+		trigger = {
+			NOT = { has_character_flag = frodo_held_on }
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fellowship_events.144
+		trigger = {
+			has_character_flag = frodo_held_on
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.144
+		remove_trait = onering
+		destroy_artifact = artifact_ring
+		e_barad_dur = {
+			holder_scope = {
+				save_event_target_as = sauron
+				any_war = {
+					end_war = reverse_demand
+				}
+				any_realm_character = {
+					limit = { is_ruler = yes }
+					any_demesne_province = {
+						province_event = { id = mep_misc_events.5 }
+					}
+				}
+				any_demesne_province = {
+					province_event = { id = mep_misc_events.5 }
+				}
+			}
+			activate_title = { status = no title = e_barad_dur }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = ROOT
+			}
+		}
+		d_fellowship_gandalf = {
+			set_name = "Gandalf the White Pilgrim"
+		}
+	}
+}
+
+######################
+#	Aragorn Events
+######################
+narrative_event = {	#Aragorn Sets out to Bree
+	id = mep_fellowship_events.2
+	title = EVTTTLmep_fellowship_events.2
+	desc = EVTDESCmep_fellowship_events.2
+	picture = GFX_evt_journeybegins
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	trigger = {
+		has_game_rule = { name = wotr_lore  value = alt_canon }
+		start_date = 11361.1.1
+		NOT = { year = 11363 }
+		character = 2038
+		NOR = {
+			has_landed_title = e_gondor
+			has_landed_title = d_fellowship_aragorn
+		}
+		k_ringbearer = { has_holder = yes }
+	}
+
+	option = {	#Takes up Landless Title
+		name = EVTOPTAmep_fellowship_events.2
+		current_heir = {
+			save_event_target_as = aragornfellowship_heir
+		}
+		activate_title = { status = yes title = d_fellowship_aragorn }
+		d_fellowship_aragorn = {
+			set_name = "The Ranger"
+			gain_title = ROOT
+		}
+		any_demesne_title = {
+			limit = {
+				NOT = { title = d_fellowship_aragorn }
+			}
+			grant_title_no_opinion = event_target:aragornfellowship_heir
+		}
+		event_target:aragornfellowship_heir = {
+			set_defacto_liege = THIS
+		}
+		any_courtier = {
+			move_character = event_target:aragornfellowship_heir
+		}
+		set_defacto_liege = THIS
+		add_character_modifier = { modifier = mod_landless_income duration = -1 }
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.12 days = 30 random = 10 }
+				}
+				set_preferred_capital = 267
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.12 days = 10 random = 10 }
+				}
+				set_preferred_capital = 267
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.12 days = 20 random = 10 }
+				}
+				set_preferred_capital = 226
+			}
+		}
+	}
+}
+narrative_event = {	#Aragorn Meets Frodo
+	id = mep_fellowship_events.21
+	title = EVTTTLmep_fellowship_events.21
+	desc = EVTDESCmep_fellowship_events.21
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {	#Joins Frodo
+		name = EVTOPTAmep_fellowship_events.21
+		set_defacto_liege = k_ringbearer
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.121 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.121 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Aragorn Chases Merry and Pippin, Fangorn
+	id = mep_fellowship_events.22
+	title = EVTTTLmep_fellowship_events.22
+	desc = EVTDESCmep_fellowship_events.22
+	sound = taking_the_hobbits_to_isengard
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.22
+		narrative_event = { id = mep_fellowship_events.23 days = 15 random = 10 }
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.63 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Fellowship Visit Theoden
+	id = mep_fellowship_events.23
+	title = EVTTTLmep_fellowship_events.23
+	desc = {
+		text = EVTDESCmep_fellowship_events.23aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.23gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.23theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.23
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		hidden_effect = {
+			d_fellowship_aragorn = {
+				holder_scope = {
+					character_event = { id = mep_fellowship_mt.3 }
+				}
+				set_preferred_capital = 71
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.23 }
+				}
+				set_preferred_capital = 71
+			}
+			k_rohan = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.23 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.23
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.23
+		trigger = {
+			has_landed_title = k_rohan
+		}
+		set_character_flag = unbeguiled
+		remove_trait = saruman_spell
+	}
+}
+narrative_event = {	#Join the War for Rohan
+	id = mep_fellowship_events.24
+	title = EVTTTLmep_fellowship_events.24
+	desc = {
+		text = EVTDESCmep_fellowship_events.24aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.24gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.24theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.24elrond
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.24treebeard
+		trigger = {
+			has_landed_title = c_derndingle
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.24
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		k_rohan = {
+			holder_scope = {
+				save_event_target_as = rohan
+				ROOT = {
+					join_defender_wars = event_target:rohan
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.24
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		k_rohan = {
+			holder_scope = {
+				save_event_target_as = rohan
+				ROOT = {
+					join_defender_wars = event_target:rohan
+				}
+			}
+		}
+		hidden_effect = {
+			c_derndingle = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.24
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fellowship_events.24
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+		k_rohan = {
+			holder_scope = {
+				save_event_target_as = rohan
+				ROOT = {
+					join_defender_wars = event_target:rohan
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEmep_fellowship_events.24
+		trigger = {
+			has_landed_title = c_derndingle
+		}
+		k_rohan = {
+			holder_scope = {
+				save_event_target_as = rohan
+				ROOT = {
+					join_defender_wars = event_target:rohan
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Declare War on Mordor
+	id = mep_fellowship_events.25
+	title = EVTTTLmep_fellowship_events.25
+	desc = {
+		text = EVTDESCmep_fellowship_events.25aragorn
+		trigger = {
+			has_landed_title = e_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.25gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.25theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.25sauron
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.25
+		trigger = {
+			has_landed_title = e_gondor
+		}
+		add_claim = c_morannon
+
+		random_claim = {
+			limit = { title = c_morannon
+
+ }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		hidden_effect = {
+			k_rohan = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+			e_barad_dur = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.25
+		trigger = {
+			has_landed_title = k_rohan
+		}
+		e_gondor = {
+			holder_scope = {
+				ROOT = {
+					join_defender_wars = PREV
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.25
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		e_gondor = {
+			holder_scope = {
+				ROOT = {
+					join_defender_wars = PREV
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fellowship_events.25
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+}
+
+######################
+#	Sauron Events
+######################
+narrative_event = {	#Gollum Tortured
+	id = mep_fellowship_events.3
+	title = EVTTTLmep_fellowship_events.3
+	desc = EVTDESCmep_fellowship_events.3
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.3
+		c_8190 = { add_character_modifier = { modifier = mod_fls_tortured duration = -1 } }
+		hidden_effect = {
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.114 days = 7 random = 5 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Nazgul Defeated
+	id = mep_fellowship_events.31
+	title = EVTTTLmep_fellowship_events.31
+	desc = EVTDESCmep_fellowship_events.31
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.31
+	}
+}
+narrative_event = {	#Declare War on Gondor
+	id = mep_fellowship_events.32
+	title = EVTTTLmep_fellowship_events.32
+	desc = EVTDESCmep_fellowship_events.32
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.32
+		add_claim = c_minas_tirith
+
+
+		random_claim = {
+			limit = { title = c_minas_tirith
+
+ }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		hidden_effect = {
+			e_steward_gondor = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.72 days = 2 }
+				}
+			}
+		}
+	}
+}
+
+######################
+#	Saruman Events
+######################
+narrative_event = {	#Gandalf Captured
+	id = mep_fellowship_events.4
+	title = EVTTTLmep_fellowship_events.4
+	desc = EVTDESCmep_fellowship_events.4
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.4
+		FROM = {
+			imprison = ROOT
+		}
+		hidden_effect = {
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.21 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Declare War on Rohan
+	id = mep_fellowship_events.41
+	title = EVTTTLmep_fellowship_events.41
+	desc = EVTDESCmep_fellowship_events.41
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	immediate = {
+		k_rohan = {
+			any_war = {
+				end_war = invalid
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.41
+		add_claim = k_rohan
+		random_claim = {
+			limit = { title = k_rohan }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		hidden_effect = {
+			k_rohan = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 days = 1 }
+				}
+			}
+			k_rivendell = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 days = 2 }
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 days = 1 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.24 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+######################
+#	Elrond Events
+######################
+narrative_event = {	#Frodo Wounded, needs Elven Assistance
+	id = mep_fellowship_events.5
+	title = EVTTTLmep_fellowship_events.5
+	desc = EVTDESCmep_fellowship_events.5
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.5
+		hidden_effect = {
+			c_3106 = {	#Legolas Moved to Elrond's Court
+				abdicate = yes
+				move_character = ROOT
+			}
+			c_4058 = {	#Gimli Moved to Elrond's Court
+				abdicate = yes
+				move_character = ROOT
+			}
+			c_1944 = {	#Boromir Moved to Elrond's Court
+				abdicate = yes
+				move_character = ROOT
+			}
+			k_ringbearer = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.13 days = 25 }
+				}
+				set_preferred_capital = 234
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.13 days = 15 }
+				}
+				set_preferred_capital = 234
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.13 days = 10 }
+				}
+				set_preferred_capital = 234
+			}
+		}
+	}
+}
+
+######################
+#	Gandalf Events
+######################
+narrative_event = {	#Gandalf Learns of the Ring
+	id = mep_fellowship_events.6
+	title = EVTTTLmep_fellowship_events.6
+	desc = EVTDESCmep_fellowship_events.6
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.6
+	}
+}
+narrative_event = {	#Battle with Balrog
+	id = mep_fellowship_events.61
+	title = EVTTTLmep_fellowship_events.61
+	desc = EVTDESCmep_fellowship_events.61
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.61
+		give_nickname = "nick_the_white"
+		set_character_flag = gandalf_the_white
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				set_preferred_capital = 71
+			}
+		}
+	}
+}
+narrative_event = {	#Reunion with Merry and Pippin
+	id = mep_fellowship_events.62
+	title = EVTTTLmep_fellowship_events.62
+	desc = EVTDESCmep_fellowship_events.62
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		has_landed_title = d_fellowship_gandalf
+		has_character_flag = gandalf_the_white
+		c_8028 = { prisoner = yes }
+		c_8041 = { prisoner = yes }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.62
+		c_8028 = {
+			prisoner = no
+		}
+		c_8041 = {
+			prisoner = no
+		}
+		hidden_effect = {
+			#remove_trait = away
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.22 days = 10 random = 5 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Reunion with Aragorn
+	id = mep_fellowship_events.63
+	title = EVTTTLmep_fellowship_events.63
+	desc = {
+		text = EVTDESCmep_fellowship_events.63gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.63aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.63
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		hidden_effect = {
+			d_fellowship_aragorn= {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.63 }
+				}
+			}
+			d_fellowship_gandalf = {
+				set_preferred_capital = 71
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.63
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+}
+
+######################
+#	Denethor Events
+######################
+narrative_event = {	#Denethor Learns Boromir is dead
+	id = mep_fellowship_events.71
+	title = EVTTTLmep_fellowship_events.71
+	desc = EVTDESCmep_fellowship_events.71
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.71
+	}
+}
+narrative_event = {	#War for Gondor Started
+	id = mep_fellowship_events.72
+	title = EVTTTLmep_fellowship_events.72
+	desc = {
+		text = EVTDESCmep_fellowship_events.72denethor
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.72aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.72gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.72theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.72
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+		hidden_effect = {
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.72 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.72
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				ROOT = {
+					join_defender_wars = PREV
+				}
+			}
+		}
+		hidden_effect = {
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.72 days = 3 random = 2 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.72
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				ROOT = {
+					join_defender_wars = PREV
+				}
+			}
+		}
+		hidden_effect = {
+			k_rohan = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.72 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fellowship_events.72
+		trigger = {
+			has_landed_title = k_rohan
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				ROOT = {
+					join_defender_wars = PREV
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#The Gate Breached
+	id = mep_fellowship_events.73
+	title = EVTTTLmep_fellowship_events.73
+	desc = {
+		text = EVTDESCmep_fellowship_events.73denethor
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.73gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.73sauron
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.73
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.73
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.73
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+}
+narrative_event = {	#Osgiliath has Fallen
+	id = mep_fellowship_events.731
+	title = EVTTTLmep_fellowship_events.731
+	desc = {
+		text = EVTDESCmep_fellowship_events.731denethor
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.731gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.731sauron
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.731
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.731
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.731
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+}
+narrative_event = {	#The War for Gondor Ended
+	id = mep_fellowship_events.74
+	title = EVTTTLmep_fellowship_events.74
+	desc = {
+		text = EVTDESCmep_fellowship_events.74denethor
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.74theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.74aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.74gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.74
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.74
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.74
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		narrative_event = { id = mep_fellowship_events.25 days = 2 }
+		set_name = ""
+		hidden_effect = {
+			activate_title = { status = yes title = e_gondor }
+			e_gondor = {
+				gain_title = ROOT
+				copy_title_laws = e_steward_gondor
+				e_steward_gondor = {
+					gain_title = ROOT
+					any_de_jure_vassal_title = {
+						set_defacto_liege = PREVPREV
+						de_jure_liege = PREVPREV
+					}
+					c_minas_tirith = {
+						gain_title = ROOT
+					}
+					activate_title = { status = no title = e_steward_gondor }
+					destroy_landed_title = THIS
+				}
+				d_fellowship_aragorn = {
+					activate_title = { status = no title = d_fellowship_aragorn }
+					destroy_landed_title = THIS
+				}
+				d_fellowship_army = {
+					activate_title = { status = no title = d_fellowship_army }
+					destroy_landed_title = THIS
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fellowship_events.74
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+}
+
+######################
+#	Theoden Events
+######################
+narrative_event = {	#Theoden Retreats to Helm's Deep
+	id = mep_fellowship_events.81
+	title = EVTTTLmep_fellowship_events.81
+	desc = EVTDESCmep_fellowship_events.81
+	picture = GFX_evt_frodofindsring
+
+	trigger ={
+		has_landed_title = k_rohan
+		has_character_flag = unbeguiled
+		NOT = { has_global_flag = rohan_notthreatened }
+		d_fellowship_aragorn = {
+			has_holder = yes
+		}
+		e_isengard = {
+			has_holder = yes
+		}
+		war = no
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.81
+		c_helms_deep = {
+			grant_title_no_opinion = ROOT
+			ROOT = {
+				capital = PREV
+			}
+		}
+		e_isengard = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.41 }
+			}
+		}
+	}
+}
+narrative_event = {	#The Deeping Wall Breached
+	id = mep_fellowship_events.82
+	title = EVTTTLmep_fellowship_events.82
+	desc = {
+		text = EVTDESCmep_fellowship_events.82theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.82aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.82saruman
+		trigger = {
+			has_landed_title = e_isengard
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.82
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.82
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.82
+		trigger = {
+			has_landed_title = e_isengard
+		}
+	}
+}
+narrative_event = {	#The War for Rohan Ended
+	id = mep_fellowship_events.83
+	title = EVTTTLmep_fellowship_events.83
+	desc = {
+		text = EVTDESCmep_fellowship_events.83theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.83aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.83gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.83
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.83
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		c_8041 = {
+			move_character = ROOT
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.83
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		d_fellowship_gandalf = {
+			set_preferred_capital = 422
+		}
+		c_8028 = {
+			move_character = ROOT
+		}
+		hidden_effect = {
+			e_barad_dur = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.32 days = 3 random = 2 }
+				}
+			}
+			e_isengard = {
+				holder_scope = {
+					any_realm_character = {
+						limit = { is_ruler = yes }
+						any_demesne_province = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
+					any_demesne_province = {
+						province_event = { id = mep_misc_events.5 }
+					}
+					abdicate = yes
+				}
+				activate_title = { status = no title = e_isengard }
+				destroy_landed_title = THIS
+			}
+		}
+	}
+}
+narrative_event = {	#The Charge of the Rohirrim
+	id = mep_fellowship_events.84
+	title = EVTTTLmep_fellowship_events.84
+	desc = {
+		text = EVTDESCmep_fellowship_events.84theoden
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.84denethor
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.84gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.84
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.84
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.84
+		trigger = {
+			has_landed_title = e_steward_gondor
+		}
+	}
+}

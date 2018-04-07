@@ -1,0 +1,379 @@
+namespace = mep_fellowship_mt
+character_event = {	#The Fall of Osgiliath
+	id = mep_fellowship_mt.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		has_global_flag = rohan_notthreatened
+		NOT = {
+			has_global_flag = gondor_notthreatened
+		}
+		NOT = {
+			428 = {
+				has_province_modifier = mod_osgiliath_fallen
+			}
+		}
+		location = {
+			province = 428
+		}
+		OR = {
+			leader = { character = ROOT }
+			enemy = { character = ROOT }
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		428 = {
+			add_province_modifier = { name = mod_osgiliath_fallen duration = -1 }
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.731 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.731 }
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.731 }
+			}
+		}
+	}
+}
+character_event = {	#The Charge of Rohan
+	id = mep_fellowship_mt.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		has_global_flag = rohan_notthreatened
+		NOT = {
+			has_global_flag = gondor_notthreatened
+		}
+		has_landed_title = k_rohan
+		k_rohan = {
+			holder_scope = {
+				war = yes
+				NOT = {
+					has_character_flag = theodens_charge
+				}
+			}
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		e_steward_gondor = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.84 }
+			}
+		}
+		k_rohan = {
+			holder_scope = {
+				set_character_flag = theodens_charge
+				narrative_event = { id = mep_fellowship_events.84 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.84 }
+			}
+		}
+	}
+}
+character_event = {	#Manage the Fellowship Army
+	id = mep_fellowship_mt.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {	#Disband the Fellowship Army
+			limit = {
+				d_fellowship_army = {
+					has_holder = yes
+					has_title_flag = rohan_recruits
+					has_title_flag = gondor_recruits
+				}
+			}
+			activate_title = { status = no title = d_fellowship_army }
+			d_fellowship_army = {
+				destroy_landed_title = ROOT
+			}
+		}
+		IF = {	#Gondor Recruits
+			limit = {
+				d_fellowship_army = {
+					has_holder = yes
+					has_title_flag = rohan_recruits
+					NOT = { has_title_flag = gondor_recruits }
+				}
+			}
+			d_fellowship_army = {
+				change_title_army_size = 8
+			}
+			d_fellowship_army = {
+				change_mercenary_composition = { from = light_cavalry type = heavy_infantry change = 1000 }
+				change_mercenary_composition = { from = light_cavalry type = light_infantry change = 8000 }
+				set_title_flag = gondor_recruits
+			}
+		}
+		IF = {	#Rohan Recruits
+			limit = {
+				d_fellowship_army = {
+					has_holder = yes
+					NOT = { has_title_flag = rohan_recruits }
+				}
+			}
+			d_fellowship_army = {
+				change_title_army_size = 20
+			}
+			d_fellowship_army = {
+				change_mercenary_composition = { from = archers type = light_cavalry change = 2000 }
+				set_title_flag = rohan_recruits
+			}
+		}
+		IF = {	#Form the Fellowship Army
+			limit = {
+				d_fellowship_army = {
+					has_holder = no
+				}
+			}
+			activate_title = { status = yes title = d_fellowship_army }
+			d_fellowship_army = {
+				gain_title = ROOT
+			}
+		}
+	}
+}
+character_event = {	#The Deeping Wall Breached
+	id = mep_fellowship_mt.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = rohan_notthreatened
+		}
+		NOT = {
+			122 = {
+				has_province_modifier = mod_deeping_wall_breached
+			}
+		}
+		location = {
+			province = 122
+		}
+		OR = {
+			leader = { character = ROOT }
+			enemy = { character = ROOT }
+		}
+		k_rohan = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		122 = {
+			add_province_modifier = { name = mod_deeping_wall_breached duration = -1 }
+		}
+		k_rohan = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.82 }
+			}
+		}
+		d_fellowship_aragorn = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.82 }
+			}
+		}
+		e_isengard = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.82 }
+			}
+		}
+	}
+}
+character_event = {	#The War for Rohan Ended
+	id = mep_fellowship_mt.41
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = rohan_notthreatened
+		}
+		FROM = { has_landed_title = e_isengard }
+		has_landed_title = k_rohan
+	}
+
+	immediate = {
+		set_global_flag = rohan_notthreatened
+		k_rohan = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.83 }
+			}
+		}
+		d_fellowship_aragorn = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.83 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.83 }
+			}
+		}
+	}
+}
+character_event = {	#The Gate Breached
+	id = mep_fellowship_mt.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		has_global_flag = rohan_notthreatened
+		NOT = {
+			has_global_flag = gondor_notthreatened
+		}
+		NOT = {
+			422 = {
+				has_province_modifier = mod_gate_breached
+			}
+		}
+		location = {
+			province = 422
+		}
+		OR = {
+			leader = { character = ROOT }
+			enemy = { character = ROOT }
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		122 = {
+			add_province_modifier = { name = mod_gate_breached duration = -1 }
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.73 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.73 }
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.73 }
+			}
+		}
+	}
+}
+character_event = {	#The War for Gondor Ended
+	id = mep_fellowship_mt.51
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		has_global_flag = rohan_notthreatened
+		NOT = {
+			has_global_flag = gondor_notthreatened
+		}
+		FROM = { has_landed_title = e_barad_dur }
+		has_landed_title = e_steward_gondor
+	}
+
+	immediate = {
+		set_global_flag = gondor_notthreatened
+		e_steward_gondor = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.74 }
+			}
+		}
+		k_rohan = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.74 }
+			}
+		}
+		d_fellowship_aragorn = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.74 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.74 }
+			}
+		}
+	}
+}
+character_event = {	#Fly. You Fools!
+	id = mep_fellowship_mt.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = rohan_notthreatened
+		set_global_flag = gondor_notthreatened
+		e_steward_gondor = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		d_fellowship_aragorn = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		e_isengard = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		k_elves = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		k_rivendell = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		k_rohan = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.3 }
+			}
+		}
+	}
+}
