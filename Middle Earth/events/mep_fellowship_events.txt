@@ -1634,6 +1634,34 @@ narrative_event = {	#Declare War on Rohan
 		}
 	}
 }
+narrative_event = {	#Fallback to the Shire
+	id = mep_fellowship_events.42
+	title = EVTTTLmep_fellowship_events.42
+	desc = EVTDESCmep_fellowship_events.42
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		NOT = {
+			has_landed_title = e_isengard
+		}
+		has_global_flag = rohan_notthreatened
+		has_character_flag = shire_interference
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.42
+		k_shire = {
+			holder_scope = {
+				abdicate_to = ROOT
+				add_trait = saruman_spell
+			}
+		}
+	}
+}
 
 ######################
 #	Elrond Events
@@ -2233,6 +2261,7 @@ narrative_event = {	#The War for Rohan Ended
 					any_realm_title = {
 						limit = {
 							higher_tier_than = COUNT
+							is_landless_type_title = no
 						}
 						destroy_landed_title = THIS
 					}

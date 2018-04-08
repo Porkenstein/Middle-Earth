@@ -286,6 +286,17 @@ character_event = {	#The War for Rohan Ended
 
 	immediate = {
 		set_global_flag = rohan_notthreatened
+		c_10032 = {	#Saruman
+			IF = {
+				limit = { has_character_flag = shire_interference }
+				activate_title = { status = yes title = d_saruman }
+				d_saruman = {
+					gain_title = PREV
+					set_name = "Sharkey"
+				}
+				set_name = "Sharkey"
+			}
+		}
 		k_rohan = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.83 }
