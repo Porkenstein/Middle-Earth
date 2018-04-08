@@ -977,6 +977,7 @@ narrative_event = {	#Cirith Ungol
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.141
+		remove_trait = mithril
 		k_ringbearer = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
@@ -1250,9 +1251,6 @@ narrative_event = {	#Aragorn Chases Merry and Pippin, Fangorn
 	sound = taking_the_hobbits_to_isengard
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
-
-	immediate = {
-	}
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.22
@@ -1582,6 +1580,14 @@ narrative_event = {	#Declare War on Gondor
 	desc = EVTDESCmep_fellowship_events.32
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
+
+	immediate = {
+		e_steward_gondor = {
+			any_war = {
+				end_war = invalid
+			}
+		}
+	}
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.32
@@ -2189,6 +2195,7 @@ narrative_event = {	#Death of Theodred
 	picture = GFX_evt_frodofindsring
 
 	trigger ={
+		start_date = 11361.1.1
 		has_landed_title = k_rohan
 		trait = saruman_spell
 		NOT = { has_global_flag = rohan_notthreatened }
