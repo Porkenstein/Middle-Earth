@@ -2121,6 +2121,40 @@ narrative_event = {	#The War for Gondor Ended
 ######################
 #	Theoden Events
 ######################
+narrative_event = {	#Death of Theodred
+	id = mep_fellowship_events.8
+	title = EVTTTLmep_fellowship_events.8
+	desc = EVTDESCmep_fellowship_events.8
+	picture = GFX_evt_frodofindsring
+
+	trigger ={
+		has_landed_title = k_rohan
+		trait = saruman_spell
+		NOT = { has_global_flag = rohan_notthreatened }
+		war = no
+		any_child = {
+			is_female = no
+			is_primary_heir = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.8
+		random_child = {
+			limit = {
+				is_female = no
+				is_primary_heir = yes
+			}
+			death = {
+				death_reason = death_battle
+			}
+		}
+	}
+}
 narrative_event = {	#Theoden Retreats to Helm's Deep
 	id = mep_fellowship_events.81
 	title = EVTTTLmep_fellowship_events.81
