@@ -1644,6 +1644,7 @@ narrative_event = {	#Fallback to the Shire
 		NOT = {
 			has_landed_title = e_isengard
 		}
+		has_landed_title = d_saruman
 		has_global_flag = rohan_notthreatened
 		has_character_flag = shire_interference
 	}
@@ -1658,7 +1659,12 @@ narrative_event = {	#Fallback to the Shire
 			holder_scope = {
 				abdicate_to = ROOT
 				add_trait = saruman_spell
+				move_character = ROOT
 			}
+		}
+		d_saruman = {
+			activate_title = { status = no title = d_saruman }
+			destroy_landed_title = THIS
 		}
 	}
 }
