@@ -1080,15 +1080,17 @@ narrative_event = {	#The End of the Ring
 				any_war = {
 					end_war = reverse_demand
 				}
-				any_realm_province = {
-					province_event = { id = mep_misc_events.5 }
+				k_mordor = {
+					any_direct_de_jure_vassal_title = {
+						limit = { tier = COUNT }
+						location = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
 				}
 			}
 			activate_title = { status = no title = e_barad_dur }
 			destroy_landed_title = THIS
-		}
-		trait_nooo = {
-			remove_trait = trait_nooo
 		}
 		event_target:sauron = {
 			death = {
@@ -1098,6 +1100,50 @@ narrative_event = {	#The End of the Ring
 		}
 		d_fellowship_gandalf = {
 			set_name = "Gandalf the White Pilgrim"
+		}
+		hidden_effect = {
+			any_character = {
+				limit = { trait = trait_nooo }
+				remove_trait = trait_nooo
+			}
+			any_character = {
+				limit = { trait = nazgul }
+				death = { death_reason = death_battle }
+			}
+			k_mirkwood = {
+				holder_scope = {
+					save_event_target_as = thranduil
+				}
+				k_woodsmen_mirkwood = {
+					holder_scope = {
+						save_event_target_as = woodsmen
+					}
+				}
+				d_cell_angol = {
+					any_direct_de_jure_vassal_title= {
+						limit = { tier = COUNT }
+						location = {
+							culture = culture_woodsmen
+							religion = religion_rhovanion
+						}
+						grant_title_no_opinion = event_target:woodsmen
+					}
+				}
+			}
+			k_dol_guldur = {
+				any_direct_de_jure_vassal_title= {
+					limit = { tier = COUNT }
+					location = {
+						culture = culture_sindar
+						religion = religion_moriquendi
+					}
+				}
+				holder_scope = {
+					any_demesne_title = {
+						grant_title_no_opinion = event_target:thranduil
+					}
+				}
+			}
 		}
 	}
 }
@@ -1611,6 +1657,21 @@ narrative_event = {	#Declare War on Rohan
 			}
 		}
 		hidden_effect = {
+			k_dol_guldur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
+			k_misty_mountains = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
+			k_gundabad = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
 			k_rohan = {
 				holder_scope = {
 					narrative_event = { id = mep_fellowship_events.24 days = 1 }
