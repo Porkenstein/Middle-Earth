@@ -370,7 +370,15 @@ character_event = {	#Forces of Darkness Join War
 		trigger = {
 			FROM = { has_landed_title = e_isengard }
 		}
-		join_attacker_wars = FROM
+		add_claim = k_elves
+		random_claim = {
+			limit = { title = k_elves
+ }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
 	}
 
 	#option = {
