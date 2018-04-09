@@ -389,3 +389,83 @@ character_event = {	#Forces of Darkness Join War
 	#	join_attacker_wars = FROM
 	#}
 }
+narrative_event = {	#Dwarven Women - Dwarf
+	id = mep_misc_events.8
+	title = EVTTTLmep_misc_events.8
+	desc = EVTDESCmep_misc_events.8
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		any_spouse = {
+			is_female = yes
+		}
+		culture_group = culture_group_dwarves
+		location = {
+			culture_group = culture_group_umanyar
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.8
+		hidden_effect = {
+			location = {
+				holder_scope = {
+					narrative_event = { id = mep_misc_events.81 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Dwarven Women - Elf
+	id = mep_misc_events.81
+	title = EVTTTLmep_misc_events.81
+	desc = {
+		text = EVTDESCAmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_umanyar
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_dwarves
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_umanyar
+		}
+		FROM = {
+			narrative_event = { id = mep_misc_events.81 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_dwarves
+		}
+		FROM = {
+			narrative_event = { id = mep_misc_events.82 }
+		}
+	}
+}
+narrative_event = {	#Dwarven Women - Elf
+	id = mep_misc_events.82
+	title = EVTTTLmep_misc_events.82
+	desc = EVTDESCmep_misc_events.82
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.82
+	}
+}
