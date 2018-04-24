@@ -469,3 +469,33 @@ narrative_event = {	#Dwarven Women - Elf
 		name = EVTOPTAmep_misc_events.82
 	}
 }
+character_event = {	#An Elf and a Dwarf, a Love Story
+	id = mep_misc_events.9
+	title = EVTTTLmep_misc_events.9
+	desc = EVTDESCmep_misc_events.9
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	trigger ={
+		OR = {
+			AND = {
+				character = ROOT
+				culture_group = culture_group_amanyar
+				any_defender = {
+					culture_group = culture_group_dwarves
+				}
+			}
+			AND = {
+				character = ROOT
+				culture_group = culture_group_dwarves
+				any_defender = {
+					culture_group = culture_group_amanyar
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.9
+	}
+}
