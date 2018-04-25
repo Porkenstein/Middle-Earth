@@ -235,7 +235,7 @@ character_event = {	#Sting Transfer
 	option = {
 		name = EVTOPTAmep_misc_events.41
 		trigger = {
-			NOT = { character = 8079 }
+			character = 8140
 		}
 		random_character = {
 			limit = {
@@ -247,6 +247,24 @@ character_event = {	#Sting Transfer
 				}
 				transfer_artifact = { from = PREV to = ROOT }
 			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			NOR = {
+				character = 8079
+				character = 8140
+			}
+		}
+		add_artifact = sting
+		any_artifact = {
+			limit = {
+				has_artifact_flag = aflag_sting
+			}
+			transfer_artifact = { from = PREV to = ROOT }
+			set_artifact_original_owner = ROOT
 		}
 	}
 }
