@@ -41,6 +41,24 @@ character_event = {	#Where to go?
 		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
 	}
 
+	option = {	#Mordor, Barad-dûr
+		name = EVTOPTBmep_tours_events.0
+		#add_trait = <away>
+		set_character_flag = mordor_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			654 = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
 	option = {	#Nevermind
 		name = EVTOPTEmep_tours_events.0
 		clr_character_flag = setting_up_tour
@@ -59,6 +77,11 @@ narrative_event = {	#First Tour Target
 		text = EVTDESCmep_tours_events.1rohan
 		picture = GFX_evt_minastirith
 		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Barad-dur
+		text = EVTDESCmep_tours_events.1mordor
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = mordor_tour }
 	}
 	is_triggered_only = yes
 
@@ -99,6 +122,25 @@ narrative_event = {	#First Tour Target
 		}
 		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
 	}
+
+	option = {	#On to Black Gate
+		name = EVTOPTCmep_tours_events.1
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			691 = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
 }
 narrative_event = {	#Second Tour Target
 	id = mep_tours_events.11
@@ -113,6 +155,11 @@ narrative_event = {	#Second Tour Target
 		text = EVTDESCmep_tours_events.11rohan
 		picture = GFX_evt_osgiliath
 		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Black Gate
+		text = EVTDESCmep_tours_events.11mordor
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = mordor_tour }
 	}
 	is_triggered_only = yes
 
@@ -153,6 +200,25 @@ narrative_event = {	#Second Tour Target
 		}
 		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
 	}
+
+	option = {	#On to Isenmouthe
+		name = EVTOPTCmep_tours_events.11
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			232 = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
 }
 narrative_event = {	#Third Tour Target
 	id = mep_tours_events.12
@@ -167,6 +233,11 @@ narrative_event = {	#Third Tour Target
 		text = EVTDESCmep_tours_events.12rohan
 		picture = GFX_evt_pelargir
 		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Isenmouthe
+		text = EVTDESCmep_tours_events.12mordor
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = mordor_tour }
 	}
 	is_triggered_only = yes
 
@@ -207,6 +278,25 @@ narrative_event = {	#Third Tour Target
 		}
 		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
 	}
+
+	option = {	#On to Minas Morgul
+		name = EVTOPTCmep_tours_events.12
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			426 = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
 }
 narrative_event = {	#Fourth Tour Target
 	id = mep_tours_events.13
@@ -222,9 +312,14 @@ narrative_event = {	#Fourth Tour Target
 		picture = GFX_evt_dolamroth
 		trigger = { has_character_flag = rohan_tour }
 	}
+	desc = {	#Minas Morgul
+		text = EVTDESCmep_tours_events.13mordor
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = mordor_tour }
+	}
 	is_triggered_only = yes
 
-	option = {	#On to Minas Morgul
+	option = {	#On to Minas Ithil
 		name = EVTOPTAmep_tours_events.13
 		trigger = { has_character_flag = gondor_tour }
 		hidden_effect = {
@@ -261,6 +356,25 @@ narrative_event = {	#Fourth Tour Target
 		}
 		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
 	}
+
+	option = {	#On to Cirith Ungol
+		name = EVTOPTCmep_tours_events.13
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			149 = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
 }
 narrative_event = {	#Fifth Tour Target
 	id = mep_tours_events.14
@@ -275,6 +389,11 @@ narrative_event = {	#Fifth Tour Target
 		text = EVTDESCmep_tours_events.14rohan
 		picture = GFX_evt_minasmorgul
 		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Cirith Ungol
+		text = EVTDESCmep_tours_events.14mordor
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = mordor_tour }
 	}
 	is_triggered_only = yes
 
@@ -300,6 +419,25 @@ narrative_event = {	#Fifth Tour Target
 	option = {	#Return Home
 		name = EVTOPTBmep_tours_events.14
 		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+				holder_scope = {
+					save_event_target_as = tour_target_holder
+				}
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTCmep_tours_events.14
+		trigger = { has_character_flag = mordor_tour }
 		hidden_effect = {
 			capital_scope = {
 				save_event_target_as = tour_target
