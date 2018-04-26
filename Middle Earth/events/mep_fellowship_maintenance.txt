@@ -402,6 +402,28 @@ character_event = {	#The War for Gondor Ended
 		}
 	}
 }
+character_event = {	#The War for Erebor Ended
+	id = mep_fellowship_mt.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = five_armies_war_ended
+		}
+		FROM = { has_landed_title = k_dol_guldur }
+		has_landed_title = e_durins_folk
+	}
+
+	immediate = {
+		set_global_flag = five_armies_war_ended
+		e_durins_folk = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.125 }
+			}
+		}
+	}
+}
 character_event = {	#Fly. You Fools!
 	id = mep_fellowship_mt.100
 	hide_window = yes
