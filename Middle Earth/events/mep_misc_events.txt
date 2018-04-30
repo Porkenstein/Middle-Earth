@@ -145,43 +145,6 @@ character_event = {	#Fly, You Fools
 		}
 	}
 }
-character_event = {	#Army of the Dead
-	id = mep_misc_events.31
-	title = EVTTTLmep_misc_events.31
-	desc = EVTDESCmep_misc_events.31
-	picture = GFX_evt_journeybegins
-
-	trigger = {
-		start_date = 11361.1.1
-		has_landed_title = d_fellowship_aragorn
-		has_global_flag = rohan_notthreatened
-		NOT = { has_global_flag = gondor_notthreatened }
-		e_steward_gondor = {
-			has_holder = yes
-			holder_scope = {
-				e_barad_dur = {
-					holder_scope = {
-						war_with = PREVPREV
-					}
-				}
-			}
-		}
-		d_fellowship_aragorn = {
-			NOT = { has_title_flag = dead_army }
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {
-		name = EVTOPTAmep_misc_events.31
-		d_fellowship_aragorn = {
-			set_title_flag = dead_army
-		}
-	}
-}
 character_event = {	#Sting Transfer
 	id = mep_misc_events.41
 	title = EVTTTLmep_misc_events.41
@@ -207,36 +170,6 @@ character_event = {	#Sting Transfer
 
 	option = {
 		name = EVTOPTAmep_misc_events.41
-		trigger = {
-			character = 8079
-		}
-		random_character = {
-			limit = {
-				has_artifact = sting
-			}
-			IF = {
-				limit = { 
-					trait = mithril
-				}
-				ROOT = {
-					add_trait = mithril
-				}
-				remove_trait = mithril
-			}
-			any_artifact = {
-				limit = {
-					has_artifact_flag = aflag_sting
-				}
-				transfer_artifact = { from = PREV to = ROOT }
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTAmep_misc_events.41
-		trigger = {
-			character = 8140
-		}
 		random_character = {
 			limit = {
 				has_artifact = sting
@@ -244,46 +177,6 @@ character_event = {	#Sting Transfer
 			any_artifact = {
 				limit = {
 					has_artifact_flag = aflag_sting
-				}
-				transfer_artifact = { from = PREV to = ROOT }
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTAmep_misc_events.41
-		trigger = {
-			NOR = {
-				character = 8079
-				character = 8140
-			}
-		}
-		add_artifact = sting
-		any_artifact = {
-			limit = {
-				has_artifact_flag = aflag_sting
-			}
-			transfer_artifact = { from = PREV to = ROOT }
-			set_artifact_original_owner = ROOT
-		}
-	}
-}
-character_event = {	#Ring Transfer
-	id = mep_misc_events.42
-	title = EVTTTLmep_misc_events.42
-	desc = EVTDESCmep_misc_events.42
-	picture = GFX_evt_journeybegins
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAmep_misc_events.42
-		random_character = {
-			limit = {
-				has_artifact = artifact_ring
-			}
-			any_artifact = {
-				limit = {
-					has_artifact_flag = flag_the_one_ring
 				}
 				transfer_artifact = { from = PREV to = ROOT }
 			}
@@ -331,20 +224,10 @@ province_event = {	#Return Land to Wilderness
 			}
 		}
 		duchy = {
-			IF = {
-				limit = {
-					holder_scope = { character = event_target:death_target }
-				}
-				destroy_landed_title = THIS
-			}
+			destroy_landed_title = THIS
 		}
 		kingdom = {
-			IF = {
-				limit = {
-					holder_scope = { character = event_target:death_target }
-				}
-				destroy_landed_title = THIS
-			}
+			destroy_landed_title = THIS
 		}
 	}
 }
@@ -385,157 +268,5 @@ character_event = {	#Ent Siege of Isengard
 
 	option = {
 		name = EVTOPTAmep_misc_events.6
-	}
-}
-character_event = {	#Forces of Darkness Join War
-	id = mep_misc_events.7
-	title = EVTTTLmep_misc_events.7
-	desc = {
-		text = EVTDESCmep_misc_events.7isengard
-		trigger = {
-			FROM = { has_landed_title = e_isengard }
-		}
-	}
-	#desc = {
-	#	text = EVTDESCmep_misc_events.7mordor
-	#	trigger = {
-	#		FROM = { has_landed_title = e_barad_dur }
-	#	}
-	#}
-	picture = GFX_evt_journeybegins
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAmep_misc_events.7
-		trigger = {
-			FROM = { has_landed_title = e_isengard }
-		}
-		add_claim = k_elves
-		random_claim = {
-			limit = { title = k_elves
- }
-			reverse_war = {
-				target = ROOT
-				casus_belli = claim
-			}
-		}
-	}
-
-	#option = {
-	#	name = EVTOPTBmep_misc_events.7
-	#	trigger = {
-	#		FROM = { has_landed_title = e_barad_dur }
-	#	}
-	#	join_attacker_wars = FROM
-	#}
-}
-narrative_event = {	#Dwarven Women - Dwarf
-	id = mep_misc_events.8
-	title = EVTTTLmep_misc_events.8
-	desc = EVTDESCmep_misc_events.8
-	picture = GFX_evt_frodofindsring
-
-	trigger = {
-		any_spouse = {
-			is_female = yes
-		}
-		culture_group = culture_group_dwarves
-		location = {
-			culture_group = culture_group_umanyar
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 240
-	}
-
-	option = {
-		name = EVTOPTAmep_misc_events.8
-		hidden_effect = {
-			location = {
-				holder_scope = {
-					narrative_event = { id = mep_misc_events.81 }
-				}
-			}
-		}
-	}
-}
-narrative_event = {	#Dwarven Women - Elf
-	id = mep_misc_events.81
-	title = EVTTTLmep_misc_events.81
-	desc = {
-		text = EVTDESCAmep_misc_events.81
-		trigger = {
-			culture_group = culture_group_umanyar
-		}
-	}
-	desc = {
-		text = EVTDESCBmep_misc_events.81
-		trigger = {
-			culture_group = culture_group_dwarves
-		}
-	}
-	picture = GFX_evt_frodofindsring
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAmep_misc_events.81
-		trigger = {
-			culture_group = culture_group_umanyar
-		}
-		FROM = {
-			narrative_event = { id = mep_misc_events.81 }
-		}
-	}
-
-	option = {
-		name = EVTOPTBmep_misc_events.81
-		trigger = {
-			culture_group = culture_group_dwarves
-		}
-		FROM = {
-			narrative_event = { id = mep_misc_events.82 }
-		}
-	}
-}
-narrative_event = {	#Dwarven Women - Elf
-	id = mep_misc_events.82
-	title = EVTTTLmep_misc_events.82
-	desc = EVTDESCmep_misc_events.82
-	picture = GFX_evt_frodofindsring
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAmep_misc_events.82
-	}
-}
-character_event = {	#An Elf and a Dwarf, a Love Story
-	id = mep_misc_events.9
-	title = EVTTTLmep_misc_events.9
-	desc = EVTDESCmep_misc_events.9
-	picture = GFX_evt_frodofindsring
-	is_triggered_only = yes
-
-	trigger ={
-		OR = {
-			AND = {
-				character = ROOT
-				culture_group = culture_group_amanyar
-				any_defender = {
-					culture_group = culture_group_dwarves
-				}
-			}
-			AND = {
-				character = ROOT
-				culture_group = culture_group_dwarves
-				any_defender = {
-					culture_group = culture_group_amanyar
-				}
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTAmep_misc_events.9
 	}
 }
