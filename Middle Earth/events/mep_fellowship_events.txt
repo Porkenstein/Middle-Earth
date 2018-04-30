@@ -24,8 +24,7 @@ narrative_event = {	#Frodo Finds the Ring
 		months = 1
 	}
 
-	option = {
-		name = EVTOPTAmep_fellowship_events.1
+	immediate = {
 		k_rivendell = {
 			holder_scope = {
 				c_8065 = {	#Bilbo Moved to Elrond's Court
@@ -34,6 +33,10 @@ narrative_event = {	#Frodo Finds the Ring
 				}
 			}
 		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.1
 		set_character_flag = told_truth
 		narrative_event = { id = mep_fellowship_events.11 }
 	}
@@ -977,6 +980,7 @@ narrative_event = {	#Cirith Ungol
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.141
+		remove_trait = mithril
 		k_ringbearer = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
@@ -1080,14 +1084,13 @@ narrative_event = {	#The End of the Ring
 				any_war = {
 					end_war = reverse_demand
 				}
-				any_realm_character = {
-					limit = { is_ruler = yes }
-					any_demesne_province = {
-						province_event = { id = mep_misc_events.5 }
+				k_mordor = {
+					any_direct_de_jure_vassal_title = {
+						limit = { tier = COUNT }
+						location = {
+							province_event = { id = mep_misc_events.5 }
+						}
 					}
-				}
-				any_demesne_province = {
-					province_event = { id = mep_misc_events.5 }
 				}
 			}
 			activate_title = { status = no title = e_barad_dur }
@@ -1101,6 +1104,50 @@ narrative_event = {	#The End of the Ring
 		}
 		d_fellowship_gandalf = {
 			set_name = "Gandalf the White Pilgrim"
+		}
+		hidden_effect = {
+			any_character = {
+				limit = { trait = trait_nooo }
+				remove_trait = trait_nooo
+			}
+			any_character = {
+				limit = { trait = nazgul }
+				death = { death_reason = death_battle }
+			}
+			k_mirkwood = {
+				holder_scope = {
+					save_event_target_as = thranduil
+				}
+				k_woodsmen_mirkwood = {
+					holder_scope = {
+						save_event_target_as = woodsmen
+					}
+				}
+				d_cell_angol = {
+					any_direct_de_jure_vassal_title= {
+						limit = { tier = COUNT }
+						location = {
+							culture = culture_woodsmen
+							religion = religion_rhovanion
+						}
+						grant_title_no_opinion = event_target:woodsmen
+					}
+				}
+			}
+			k_dol_guldur = {
+				any_direct_de_jure_vassal_title= {
+					limit = { tier = COUNT }
+					location = {
+						culture = culture_sindar
+						religion = religion_moriquendi
+					}
+				}
+				holder_scope = {
+					any_demesne_title = {
+						grant_title_no_opinion = event_target:thranduil
+					}
+				}
+			}
 		}
 	}
 }
@@ -1208,9 +1255,6 @@ narrative_event = {	#Aragorn Chases Merry and Pippin, Fangorn
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
-	immediate = {
-	}
-
 	option = {
 		name = EVTOPTAmep_fellowship_events.22
 		narrative_event = { id = mep_fellowship_events.23 days = 15 random = 10 }
@@ -1311,9 +1355,9 @@ narrative_event = {	#Join the War for Rohan
 		}
 	}
 	desc = {
-		text = EVTDESCmep_fellowship_events.24elrond
+		text = EVTDESCmep_fellowship_events.24galadriel
 		trigger = {
-			has_landed_title = k_rivendell
+			has_landed_title = k_elves
 		}
 	}
 	desc = {
@@ -1372,7 +1416,7 @@ narrative_event = {	#Join the War for Rohan
 	option = {
 		name = EVTOPTDmep_fellowship_events.24
 		trigger = {
-			has_landed_title = k_rivendell
+			has_landed_title = k_elves
 		}
 		k_rohan = {
 			holder_scope = {
@@ -1540,6 +1584,19 @@ narrative_event = {	#Declare War on Gondor
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
+	immediate = {
+		any_war = {
+			end_war = invalid
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
+			}
+		}
+	}
+
 	option = {
 		name = EVTOPTAmep_fellowship_events.32
 		add_claim = c_minas_tirith
@@ -1596,9 +1653,14 @@ narrative_event = {	#Declare War on Rohan
 	is_triggered_only = yes
 
 	immediate = {
+		any_war = {
+			end_war = invalid
+		}
 		k_rohan = {
-			any_war = {
-				end_war = invalid
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
 			}
 		}
 	}
@@ -1614,12 +1676,27 @@ narrative_event = {	#Declare War on Rohan
 			}
 		}
 		hidden_effect = {
+			k_dol_guldur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
+			k_misty_mountains = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
+			k_gundabad = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.7 }
+				}
+			}
 			k_rohan = {
 				holder_scope = {
 					narrative_event = { id = mep_fellowship_events.24 days = 1 }
 				}
 			}
-			k_rivendell = {
+			k_elves = {
 				holder_scope = {
 					narrative_event = { id = mep_fellowship_events.24 days = 2 }
 				}
@@ -1634,6 +1711,40 @@ narrative_event = {	#Declare War on Rohan
 					narrative_event = { id = mep_fellowship_events.24 days = 1 }
 				}
 			}
+		}
+	}
+}
+narrative_event = {	#Fallback to the Shire
+	id = mep_fellowship_events.42
+	title = EVTTTLmep_fellowship_events.42
+	desc = EVTDESCmep_fellowship_events.42
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		NOT = {
+			has_landed_title = e_isengard
+		}
+		has_landed_title = d_saruman
+		has_global_flag = rohan_notthreatened
+		has_character_flag = shire_interference
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.42
+		k_shire = {
+			holder_scope = {
+				abdicate_to = ROOT
+				add_trait = saruman_spell
+				move_character = ROOT
+			}
+		}
+		d_saruman = {
+			activate_title = { status = no title = d_saruman }
+			destroy_landed_title = THIS
 		}
 	}
 }
@@ -2090,6 +2201,42 @@ narrative_event = {	#The War for Gondor Ended
 ######################
 #	Theoden Events
 ######################
+narrative_event = {	#Death of Theodred
+	id = mep_fellowship_events.8
+	title = EVTTTLmep_fellowship_events.8
+	desc = EVTDESCmep_fellowship_events.8
+	picture = GFX_evt_frodofindsring
+
+	trigger ={
+		start_date = 11361.1.1
+		NOT = { year = 11363 }
+		has_landed_title = k_rohan
+		trait = saruman_spell
+		NOT = { has_global_flag = rohan_notthreatened }
+		war = no
+		any_child = {
+			is_female = no
+			is_primary_heir = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.8
+		random_child = {
+			limit = {
+				is_female = no
+				is_primary_heir = yes
+			}
+			death = {
+				death_reason = death_battle
+			}
+		}
+	}
+}
 narrative_event = {	#Theoden Retreats to Helm's Deep
 	id = mep_fellowship_events.81
 	title = EVTTTLmep_fellowship_events.81
@@ -2233,16 +2380,48 @@ narrative_event = {	#The War for Rohan Ended
 			}
 			e_isengard = {
 				holder_scope = {
-					any_realm_character = {
-						limit = { is_ruler = yes }
-						any_demesne_province = {
-							province_event = { id = mep_misc_events.5 }
+					any_realm_title = {
+						limit = {
+							higher_tier_than = COUNT
+							is_landless_type_title = no
+						}
+						destroy_landed_title = THIS
+					}
+					c_derndingle = {
+						holder_scope = {
+							save_event_target_as = treebeard
+							c_orthanc = {
+								grant_title_no_opinion = PREV
+								location = {
+									culture = culture_huorn
+									religion = religion_enyd
+								}
+							}
+							c_isengard = {
+								grant_title_no_opinion = PREV
+								location = {
+									culture = culture_huorn
+									religion = religion_enyd
+								}
+							}
+							ROOT = {
+								any_demesne_title = {
+									limit = {
+										lower_tier_than = DUKE
+										is_landless_type_title = no
+									}
+									grant_title_no_opinion = event_target:treebeard
+								}
+							}
 						}
 					}
-					any_demesne_province = {
-						province_event = { id = mep_misc_events.5 }
+					any_demesne_title = {
+						limit = {
+							higher_tier_than = COUNT
+							is_landless_type_title = no
+						}
+						destroy_landed_title = THIS
 					}
-					abdicate = yes
 				}
 				activate_title = { status = no title = e_isengard }
 				destroy_landed_title = THIS

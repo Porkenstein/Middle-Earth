@@ -37,9 +37,24 @@ character_event = {	#Various Death Starters
 			}
 		}
 		IF = {
-			limit = { character = 4040 }
+			limit = {
+				character = 4040
+				death_reason = death_battle
+			}
 			any_player = {
-				 narrative_event = { id = mep_flavor_events.12 }
+				IF = {
+					limit = {
+						OR = {
+							has_landed_title = e_barad_dur
+							has_landed_title = e_isengard
+							NOR = {
+								has_landed_title = d_thorin_company
+								has_landed_title = d_fellowship_aragorn
+							}
+						}
+					}
+					 narrative_event = { id = mep_flavor_events.12 }
+				}
 			}
 		}
 	}
