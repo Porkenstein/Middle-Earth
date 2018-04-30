@@ -1,4 +1,68 @@
 namespace = mep_fellowship_mt
+character_event = {	#Assign Important Character's Traits
+	id = mep_fellowship_mt.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_game_rule = { name = wotr_lore  value = alt_canon }
+		start_date = 11361.1.1
+		NOT = { year = 11363 }
+		character = 8079
+	}
+
+	immediate = {
+		add_trait = trait_nooo	#Frodo
+		c_10033 = {	#Gandalf
+			add_trait = trait_nooo
+		}
+		c_8065 = {	#Bilbo
+			add_trait = trait_nooo
+		}
+		c_8140 = {	#Sam
+			add_trait = trait_nooo
+		}
+		c_8028 = {	#Pippin
+			add_trait = trait_nooo
+		}
+		c_8041 = {	#Merry
+			add_trait = trait_nooo
+		}
+		c_1944 = {	#Boromir
+			add_trait = trait_nooo
+		}
+		c_3106 = {	#Legolas
+			add_trait = trait_nooo
+		}
+		c_4058 = {	#Gimli
+			add_trait = trait_nooo
+		}
+		c_8190 = {	#Gollum
+			add_trait = trait_nooo
+		}
+		c_10016 = {	#Sauron
+			add_trait = trait_nooo
+		}
+		c_10032 = {	#Saruman
+			add_trait = trait_nooo
+		}
+		c_24 = {	#Theoden
+			add_trait = trait_nooo
+		}
+		c_1943 = {	#Denethor
+			add_trait = trait_nooo
+		}
+		c_3003 = {	#Elrond
+			add_trait = trait_nooo
+		}
+		c_3006 = {	#Galadriel
+			add_trait = trait_nooo
+		}
+		c_8024 = {	#Paladin
+			add_trait = trait_nooo
+		}
+	}
+}
 character_event = {	#The Fall of Osgiliath
 	id = mep_fellowship_mt.1
 	hide_window = yes
@@ -164,9 +228,8 @@ character_event = {	#The Deeping Wall Breached
 	is_triggered_only = yes
 
 	trigger ={
-		NOT = {
-			has_global_flag = rohan_notthreatened
-		}
+		start_date = 11361.1.1
+		NOT = { year = 11363 }
 		NOT = {
 			122 = {
 				has_province_modifier = mod_deeping_wall_breached
@@ -213,6 +276,7 @@ character_event = {	#The War for Rohan Ended
 	is_triggered_only = yes
 
 	trigger ={
+		start_date = 11361.1.1
 		NOT = {
 			has_global_flag = rohan_notthreatened
 		}
@@ -222,6 +286,17 @@ character_event = {	#The War for Rohan Ended
 
 	immediate = {
 		set_global_flag = rohan_notthreatened
+		c_10032 = {	#Saruman
+			IF = {
+				limit = { has_character_flag = shire_interference }
+				activate_title = { status = yes title = d_saruman }
+				d_saruman = {
+					gain_title = PREV
+					set_name = "Sharkey"
+				}
+				set_name = "Sharkey"
+			}
+		}
 		k_rohan = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.83 }
@@ -323,6 +398,28 @@ character_event = {	#The War for Gondor Ended
 		d_fellowship_gandalf = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.74 }
+			}
+		}
+	}
+}
+character_event = {	#The War for Erebor Ended
+	id = mep_fellowship_mt.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = five_armies_war_ended
+		}
+		FROM = { has_landed_title = k_dol_guldur }
+		has_landed_title = e_durins_folk
+	}
+
+	immediate = {
+		set_global_flag = five_armies_war_ended
+		e_durins_folk = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.124 }
 			}
 		}
 	}

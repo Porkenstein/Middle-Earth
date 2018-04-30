@@ -8,6 +8,8 @@ RULE_WOTR_ALT_CANON_DESC;Alternate version of the Canon events using landless ch
 ####################
 #	Modifiers
 ####################
+trait_nooo;Important Character;;;;;;;;;;;;;x
+trait_nooo_desc;This character is important to the scenario;;;;;;;;;;;;;x
 mod_fls_tortured;Tortured;;;;;;;;;;;;;x
 mod_fls_tortured_desc;This character has been broken with torture and is determined not to allow it again;;;;;;;;;;;;;x
 mod_nazgul_wound;Wound of Morgul-blade;;;;;;;;;;;;;x
@@ -32,6 +34,10 @@ d_fellowship_aragorn;The Fellowship Under Aragorn;;;;;;;;;;;;;x
 d_fellowship_aragorn_adj;The Fellowship;;;;;;;;;;;;;x
 d_fellowship_gandalf;The Fellowship Under Gandalf;;;;;;;;;;;;;x
 d_fellowship_gandalf_adj;The Fellowship;;;;;;;;;;;;;x
+c_greygandalf;Grey Gandalf;;;;;;;;;;;;;x
+c_greygandalf_adj;Grey Gandalf;;;;;;;;;;;;;x
+d_saruman;Saruman;;;;;;;;;;;;;x
+d_saruman_adj;Saruman;;;;;;;;;;;;;x
 d_fellowship_army;The Army of the Fellowship;;;;;;;;;;;;;x
 d_fellowship_army_adj;The Fellowship Army;;;;;;;;;;;;;x
 FS_RINGBEARER;Ringbearer;;;;;;;;;;;;;x
@@ -40,28 +46,30 @@ FS_ARAGORN;Ranger;;;;;;;;;;;;;x
 FS_ARAGORN_FOA;Ranger;;;;;;;;;;;;;x
 FS_GANDALF;Wizard;;;;;;;;;;;;;x
 FS_GANDALF_FOA;Wizard;;;;;;;;;;;;;x
+FS_SARUMAN;Wizard;;;;;;;;;;;;;x
+FS_SARUMAN_FOA;Wizard;;;;;;;;;;;;;x
 FS_ARMY_CAPTAIN;Commander of the Fellowship;;;;;;;;;;;;;x
 FS_ARMY_CAPTAIN_FOA;Fellowship Commander;;;;;;;;;;;;;x
 
 ##################
 #	Decisions
 ##################
-#go_on_tour;Go on a Tour;;;;;;;;;;;;;x
-#go_on_tour_desc;You can take some time to travel across the world;;;;;;;;;;;;;x
+shire_interference_dec;Shire Inteference;;;;;;;;;;;;;x
+shire_interference_dec_desc;Might be important someday...;;;;;;;;;;;;;x
 
 ################
 #	Events
 ################
 	#Frodo Finds Ring
 EVTTTLmep_fellowship_events.1;The Ring is Found;;;;;;;;;;;;;x
-EVTDESCmep_fellowship_events.1;You enter Bag End after the birthday festival of my cousin Bilbo.As you open the door, an odd ring catches your eye from the floor. After picking it up, you see Gandalf staring at you, "What have you got there?" he bellows.;;;;;;;;;;;;;x
+EVTDESCmep_fellowship_events.1;You enter Bag End after the birthday festival of my cousin Bilbo. As you open the door, an odd ring catches your eye from the floor. After picking it up, you see Gandalf staring at you, "What have you got there?" he bellows.;;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.1;Show it to Gandalf;;;;;;;;;;;;;x
 EVTOPTBmep_fellowship_events.1;Hide it in your pocket;;;;;;;;;;;;;x
-EVTTTLmep_fellowship_events.11;The Ring is Found - 2;;;;;;;;;;;;;x
+EVTTTLmep_fellowship_events.11;Keep it Secret;;;;;;;;;;;;;x
 EVTDESCAmep_fellowship_events.11;You extend your hand and slowly unfurl your grasp to show him the ring. He reaches for the ring only to recoil from it and fall silent for a time. Suddenly, he bolts to the door, shouting "Keep it safe!" before departing.;;;;;;;;;;;;;x
-EVTDESCBmep_fellowship_events.11;You slide your hand to your back pocket to hide your finde. But Gandalf grabs you and takes your hand. Only to recoil in fear and fall silent. After a time he bolts to the door, shouting "Keep it safe!" before departing.;;;;;;;;;;;;;x
+EVTDESCBmep_fellowship_events.11;You slide your hand to your back pocket to hide your find. But Gandalf grabs you and takes your hand. Only to recoil in fear and fall silent. After a time he bolts to the door, shouting "Keep it safe!" before departing.;;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.11;Wait, Gandalf!;;;;;;;;;;;;;x
-EVTTTLmep_fellowship_events.111;The Ring is Found - 3;;;;;;;;;;;;;x
+EVTTTLmep_fellowship_events.111;Outset for Bree;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.111;A worried Gandalf returns and tosses the ring into the fire. Shortly, he pulls it and places it in your hand. Strange writing appears and Gandalf grows pale. "You must go to the Prancing Pony and I to Isengard.";;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.111;Are you sure Gandalf?;;;;;;;;;;;;;x
 EVTTTLmep_fellowship_events.112;Samwise Dropping Eaves;;;;;;;;;;;;;x
@@ -188,7 +196,7 @@ EVTTTLmep_fellowship_events.24;The War for Rohan;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.24aragorn;Debate rages about how to respond to the plundering of Rohan. After a few rounds of raised Tempers, Theoden decides to withdraw to the Hornburg and the strength of the Deeping Wall to save Rohan. A decision that Gandalf greets with a scoff and frowning scowl. As the smallfolk collect provisions, you escort the ill-tempered Gandalf to the stables. There he speaks his intentions to seek aid for this foolish action, pinning his instructions with, "They will look to you for strength... The Defenses must hold.";;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.24gandalf;Rohan is in mortal danger and yet Theoden-King foolishly seeks to hide away in his keep and await slaughter rather than take the fight to the Evil of Isengard. He refuses to even wait to collect the scattered Rohirrim of the realm. You shake your head, "such foolish action," you scoff to Aragorn. As you mount Shadowfax, you look to Aragorn, "I ride now, they will look to you for strength. In 3 days, look for my coming. You must last 'til then. The Defenses must hold." Aragorn nods and you spur the White Horse out of the stable.;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.24theoden;Gandalf rides off as you lead your people, with what meager possessions they can manage, across the plains. Along the way, wargs assault the column, killing a number of your riders, people, and horses. Though thanks to Aragorn sacrifice and his companions fighting so bravely, losses were kept to a minimum and your train makes it to Helm's Deep. As you settle into defenses, arming every man and boy capable of holding a weapon, Aragorn makes a miraculous return which bolstered the morale of your men.;;;;;;;;;;;;;x
-EVTDESCmep_fellowship_events.24elrond;Long ago, an alliance formed between Elves and Man to stand against the darkness, side by side, but no longer. Now, your people flee to the sea dn the Undying Lands for safety, to leave Men to their fate. However, the Men of Rohan now face terrible odds as the forces of Isengard march towards Helm's Deep and the doom of Man. Will you flee and let the Doom fall upon Middle-Earth or will you Renew the Alliance and march to near-certain Doom and the Death of the Elves?;;;;;;;;;;;;;x
+EVTDESCmep_fellowship_events.24galadriel;Long ago, an alliance formed between Elves and Man to stand against the darkness, side by side, but no longer. Now, your people flee to the sea dn the Undying Lands for safety, to leave Men to their fate. However, the Men of Rohan now face terrible odds as the forces of Isengard march towards Helm's Deep and the doom of Man. Will you flee and let the Doom fall upon Middle-Earth or will you Renew the Alliance and march to near-certain Doom and the Death of the Elves?;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.24treebeard;You complete the hellos at the Entmoot and turn to the matters of war. After a time, you and the Ents decide the dealings of Men and so conclude the meeting. As you escort the Little Ones back tot he shire, one of them urges you South. South always felt like down hill, so you agree. dawn's light begins to break as you reach a massive clearing. Saruman has cut down a huge swath of Fangorn, killing many of your friends. This is treachery, this is WAR!!!!!;;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.24;They will hold.;;;;;;;;;;;;;x
 EVTOPTBmep_fellowship_events.24;Show them the meaning of haste.;;;;;;;;;;;;;x
@@ -219,6 +227,9 @@ EVTOPTAmep_fellowship_events.4;"You have elected the Way of PAIN!";;;;;;;;;;;;;x
 EVTTTLmep_fellowship_events.41;War on Rohan;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.41;You find Grima at the door, sometime after the loss of Dominion over Theoden. He explains that Theoden will respond to the plundering of Rohan by attacking, and failing that, will retreat to the Hornburg. 'Such a fortress will require a force never before seen, and even then it will surely break on the Deeping Wall.' But you have a plan to deal with that obstacle so command your orcs, 'March to Helm's Deep!';;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.41;Foward to War!;;;;;;;;;;;;;x
+EVTTTLmep_fellowship_events.42;Fallback to the Shire;;;;;;;;;;;;;x
+EVTDESCmep_fellowship_events.42;"Gandalf, the Fool, the Usurper, how dare he defy me and rob me of my position!" you exclaim to Grima. "He always had a special love for the Halflings and the shire." he replies *You take a Drag of Hobbitleaf as your eyes light up* T'would only be fair for you take from him something so precious. So, you send word to your agents in Hobbiton.;;;;;;;;;;;;;x
+EVTOPTAmep_fellowship_events.42;Prepare for my Arrival.;;;;;;;;;;;;;x
 EVTTTLmep_fellowship_events.5;Ring of Power Resurfaced;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.5;The winds bring word from Gandalf, the Ring of Power has once again revealed itself, in of all places in the hovel of a hobbit of the Shire. The bearer is making his way here, however the Menace knows of him.;;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.5;Return them here safely, Glorfindel.;;;;;;;;;;;;;x
@@ -271,6 +282,9 @@ EVTOPTAmep_fellowship_events.74;The White Tree Stands;;;;;;;;;;;;;x
 EVTOPTBmep_fellowship_events.74;The White Tree Blossoms;;;;;;;;;;;;;x
 EVTOPTCmep_fellowship_events.74;Men, yet, still Stand.;;;;;;;;;;;;;x
 EVTOPTDmep_fellowship_events.74;A Red Dawn Rises!;;;;;;;;;;;;;x
+EVTTTLmep_fellowship_events.8;Death of Theodred;;;;;;;;;;;;;x
+EVTDESCmep_fellowship_events.8;Grima whispers in your ear of death, treason, and betrayal. "Eomer, the Firebrand, has eyes too big, my King. I fear for your son." He would say. So when your son declares intentions of taking command of Helm's Deep, your mind is relieved. But the relief is short lived, as in a brief while word arrives that Theodred was felled in battle near Isen. Grima comes to you again, "I told you, My King, the Firebrand is behind this, send him away." You solemnly nod in agreement.;;;;;;;;;;;;;x
+EVTOPTAmep_fellowship_events.8;Gaah-Ugh;;;;;;;;;;;;;x
 EVTTTLmep_fellowship_events.81;Retreat to Helm's Deep;;;;;;;;;;;;;x
 EVTDESCmep_fellowship_events.81;Rohan burns as the Orcs of Isengard, supplemented by the treacherous mountain-men, raid far and wide. They burn and pillage every village they cross. It has grown out of control, with no safety in the realm. As your thoughts turn over the problem, they fall on the Dunlendings invasions of years pass and how the Rohirrim withstood it. So your mind clears, the Deeping wall will hold, and Rohan will stand.;;;;;;;;;;;;;x
 EVTOPTAmep_fellowship_events.81;Helm's Deep will save my People again.;;;;;;;;;;;;;x
@@ -308,11 +322,34 @@ EVTOPTAmep_misc_events.2;AHHH!!!;;;;;;;;;;;;;x
 EVTTTLmep_misc_events.3;Fly. You Fools!;;;;;;;;;;;;;x
 EVTDESCmep_misc_events.3;Gandalf stimbles upon the idea to call the Eagles for aid. Shortly the Eagle King arrived and carried the Fellowship high into the sky, past the Dead Marshes, and into the Plains of Mordor, to the Crack of Doom. There Frodo drops the Ring into the fiery pit and sees it's end. Soon enough all Middle-Earth settles into peace, free from the clutches of the Dark Lord.;;;;;;;;;;;;;x
 EVTOPTAmep_misc_events.3;That wasn't so tough.;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.31;Army of the Dead;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.31;The Path of the Dead was a treacherous one but you made it through and gained the allegiance of the Oathbreakers. Soon enough, you come to the port of Pelargir where the forces of Darkness stop you. You threaten them but they laugh, "You and what army?";;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.31;This Army!;;;;;;;;;;;;;x
 EVTTTLmep_misc_events.41;Sting Received;;;;;;;;;;;;;x
 EVTDESCmep_misc_events.41frodo;While recuperating in Rivendell, you meet Bilbo once again. As you talk, he gifts you his old dagger, Sting.;;;;;;;;;;;;;x
 EVTDESCmep_misc_events.41sam;Discovering Gollum's treachery, you race into the Tunnel to save Frodo. As you search the darkness you find Sting.;;;;;;;;;;;;;x
 EVTDESCmep_misc_events.41;While in [Root.Location.GetName] you receive Sting.;;;;;;;;;;;;;x
 EVTOPTAmep_misc_events.41;It's so light.;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.42;Ring Found;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.42;You bumble through the water in shaky attempt to find your footing. As you feel around in the murky, your hand crosses a piece of metal. You take it up and, cleaning it off, discover a dazzling golden ring.;;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.42;A Precious find.;;;;;;;;;;;;;x
 EVTTTLmep_misc_events.6;Release of the River;;;;;;;;;;;;;x
 EVTDESCmep_misc_events.6;Treachery! You and the rest of the Ents smash through the outer walls of Isengard and tear at Orthanc. So, as the defenders turn fire upon you, you command the Ents to tear down the Dam. Soon after, a great torrent pours into the walls.;;;;;;;;;;;;;x
 EVTOPTAmep_misc_events.6;Hold on little Hobbits!;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.7;Mobilization of Darkness;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.7isengard;The White Wizard has begun his march on the lands of the horsemen in the South. Now would be a good time to attack the forests of Lorien and bring the Downfall of the Elves.;;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.7;Death to the Pointy-ears!;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.8;Dwarven Women;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.8;As your party walks through the Elven forests, a group of Elves happens upon you. You've talked for a while when you show off the prized portrait of [Spouse.GetFirstName]. "Is that your brother?" The elf asks with a snarl. "That's my wife!" you shout back. "A female, how do you tell?" You bark as another elf pipes up, "I've heard Dwarf women have sparser beards." Then all the elves look at the shaven fellow in your group.;;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.8;No, no, he's male, just shaved. Sorry 'bout that lass.;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.81;Dwarven Women;;;;;;;;;;;;;x
+EVTDESCAmep_misc_events.81;You happen upon a Dwarven party while on patrol. Eventually one of them shows off a portrait. You snarl, "Is that your brother?" "That's my wife!" the dwarf snaps. You look puzzled at the picture, "A female, how do you tell?" The dwarf growls and one of your party declares, "I've heard Dwarf women have sparser beards." So you look at the beardless dwarf, then the earlier dwarf exclaims "No, no, he's male, just shaved. Sorry 'bout that lass.";;;;;;;;;;;;;x
+EVTDESCBmep_misc_events.81;"I'm not a lass." The elf declares indignantly, so you stare blankly. "Oh come on, it's easy to tell an elf is female. They wear dresses!" So you look to the most feminine of the elves. "Ok, she doesn't because of patrol, but most do." Then several of your party break out in shouts, "What about that fella in Rivendell, he wears a dress!" "No, that was a long coat, he had trousers on!" "Then how can ya tell from the back??";;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.81;I'm not a lass.;;;;;;;;;;;;;x
+EVTOPTBmep_misc_events.81;Let's just continue in silence...;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.82;Elven Women;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.82;All the dwarves stare at you for several moments, so you shout "Oh come on, it's easy to tell an elf is a woman. They wear dresses!" But then they all stare at the elf-woman of your party. "Ok, she doesn't because of patrol, but most do." Then the dwarves begin to squabble, "What about that fella in Rivendell, he wears a dress!" "No, that was a long coat, he had trousers on!" "Then how can ya tell from the back??" Until the dwarf leader declares, "Let's just continue in silence.";;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.82;Agreed...;;;;;;;;;;;;;x
+EVTTTLmep_misc_events.9;An Elf and a Dwarf, A Love Story?;;;;;;;;;;;;;x
+EVTDESCmep_misc_events.9;After the final battle, you begin surveying the field to account for the lost. Among the bodies, you find an elven woman embracing a dwarf, life long gone from both. Around the pair is several corpses of Orcs, dead of awe and arrow wounds. The oddly caring pose amidst the carnage brings questions of the relationship between the two into your mind.;;;;;;;;;;;;;x
+EVTOPTAmep_misc_events.9;Woefully, whatever was between them had to end in such tragedy;;;;;;;;;;;;;x
