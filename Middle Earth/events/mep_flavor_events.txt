@@ -266,6 +266,14 @@ narrative_event = {	#Eowyn or Arwen?
 			add_spouse = ROOT
 			add_lover = ROOT
 		}
+		c_28 = {
+			IF = {
+				limit = {
+					c_1945 = { is_alive = yes }
+				}
+				character_event = { id = mep_flavor_events.42 }
+			}
+		}
 	}
 	option = {
 		name = EVTOPTBmep_flavor_events.31	#Eowyn
@@ -344,6 +352,14 @@ narrative_event = {	#Eowyn or Arwen?
 			add_spouse = ROOT
 			add_lover = ROOT
 		}
+		c_28 = {
+			IF = {
+				limit = {
+					c_1945 = { is_alive = yes }
+				}
+				character_event = { id = mep_flavor_events.42 }
+			}
+		}
 	}
 	option = {
 		name = EVTOPTBmep_flavor_events.41	#Eowyn
@@ -358,6 +374,59 @@ narrative_event = {	#Eowyn or Arwen?
 		c_3010 = {
 			remove_trait = vow_of_cerin_amroth
 			remove_lover = ROOT
+		}
+	}
+}
+character_event = {	#Eowyn finds Solace in Faramir
+	id = mep_flavor_events.42
+	title = EVTTTLmep_flavor_events.42
+	desc = {
+		text = EVTDESCAmep_flavor_events.42
+		trigger = {
+			character = 28
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.42
+		trigger = {
+			character = 1945
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_flavor_events.42
+		trigger = {
+			character = 2038
+		}
+	}
+	picture = GFX_evt_aragornsmettle
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_flavor_events.42
+		trigger = {
+			character = 28
+		}
+		c_1945 = {
+			character_event = { id = mep_flavor_events.42 }
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.42
+		trigger = {
+			character = 1945
+		}
+		add_lover = FROM
+		add_spouse = FROM
+		c_2038 = {
+			character_event = { id = mep_flavor_events.42 }
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.42
+		trigger = {
+			character = 2038
 		}
 	}
 }
