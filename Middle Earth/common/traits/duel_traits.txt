@@ -1,0 +1,63 @@
+#Combat Ability
+noncombatant = {
+	opposites = {
+		scrapper
+		fighter
+		champion
+		legend
+	}
+}
+scrapper = {
+	opposites = {
+		noncombatant
+		fighter
+		champion
+		legend
+	}
+	combat_rating = 2
+}
+fighter = {
+	opposites = {
+		noncombatant
+		scrapper
+		champion
+		legend
+	}
+	combat_rating = 4
+}
+champion = {
+	opposites = {
+		noncombatant
+		scrapper
+		fighter
+		legend
+	}
+	combat_rating = 6
+}
+legend = {
+	opposites = {
+		noncombatant
+		scrapper
+		fighter
+		champion
+	}
+	combat_rating = 8
+}
+
+#Guard Trait
+guardsman = {
+	customizer = no
+	random = no
+	cached = yes
+
+	diplomacy = 1
+	monthly_character_prestige = 2
+	monthly_character_piety = 0.1
+	liege_opinion = 15
+	command_modifier = {
+		morale_defence = 0.2
+	}
+	combat_rating = 2
+
+	ai_ambition = -20
+}

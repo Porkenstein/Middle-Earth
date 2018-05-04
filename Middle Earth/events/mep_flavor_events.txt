@@ -171,6 +171,67 @@ narrative_event = {	#Notify Players of Thorin's Death
 		trigger = { trait = evil_side }
 	}
 }
+narrative_event = {	#Notify Players of Bilbo's Death
+	id = mep_flavor_events.13
+	title = EVTTTLmep_flavor_events.13
+	desc = {
+		text = EVTDESCAmep_flavor_events.13
+		trigger = {
+			character = 8065
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.13
+		trigger = {
+			OR = {
+				character = 4040
+				character = 10033
+			}
+		}
+	}
+	picture = GFX_evt_thorinsdeath
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.13
+		trigger = {
+			character = 8065
+		}
+		death = {
+			death_reason = death_murder
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.13
+		trigger = {
+			OR = {
+				character = 4040
+				character = 10033
+			}
+		}
+		narrative_event = { id = mep_flavor_events.131 days = 7 }
+	}
+}
+narrative_event = {	#Collapse of the Company
+	id = mep_flavor_events.131
+	title = EVTTTLmep_flavor_events.131
+	desc = EVTDESCmep_flavor_events.131
+	picture = GFX_evt_thorinsdeath
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.131
+		trigger = { has_landed_title = k_thorin_company }
+		activate_title = { status = no title = k_thorin_company }
+		k_thorin_company = {
+			destroy_landed_title = THIS
+		}
+	}
+	option = {
+		name = EVTOPTAmep_flavor_events.131
+		trigger = {
+			NOT = { has_landed_title = k_thorin_company }
+		}
+	}
+}
 
 ###########################
 #	Major Battles Flavor
@@ -266,14 +327,6 @@ narrative_event = {	#Eowyn or Arwen?
 			add_spouse = ROOT
 			add_lover = ROOT
 		}
-		c_28 = {
-			IF = {
-				limit = {
-					c_1945 = { is_alive = yes }
-				}
-				character_event = { id = mep_flavor_events.42 days = 3 }
-			}
-		}
 	}
 	option = {
 		name = EVTOPTBmep_flavor_events.31	#Eowyn
@@ -352,14 +405,6 @@ narrative_event = {	#Eowyn or Arwen?
 			add_spouse = ROOT
 			add_lover = ROOT
 		}
-		c_28 = {
-			IF = {
-				limit = {
-					c_1945 = { is_alive = yes }
-				}
-				character_event = { id = mep_flavor_events.42 days = 3 }
-			}
-		}
 	}
 	option = {
 		name = EVTOPTBmep_flavor_events.41	#Eowyn
@@ -374,59 +419,6 @@ narrative_event = {	#Eowyn or Arwen?
 		c_3010 = {
 			remove_trait = vow_of_cerin_amroth
 			remove_lover = ROOT
-		}
-	}
-}
-character_event = {	#Eowyn finds Solace in Faramir
-	id = mep_flavor_events.42
-	title = EVTTTLmep_flavor_events.42
-	desc = {
-		text = EVTDESCAmep_flavor_events.42
-		trigger = {
-			character = 28
-		}
-	}
-	desc = {
-		text = EVTDESCBmep_flavor_events.42
-		trigger = {
-			character = 1945
-		}
-	}
-	desc = {
-		text = EVTDESCCmep_flavor_events.42
-		trigger = {
-			character = 2038
-		}
-	}
-	picture = GFX_evt_aragornsmettle
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAmep_flavor_events.42
-		trigger = {
-			character = 28
-		}
-		c_1945 = {
-			character_event = { id = mep_flavor_events.42 }
-		}
-	}
-
-	option = {
-		name = EVTOPTAmep_flavor_events.42
-		trigger = {
-			character = 1945
-		}
-		add_lover = FROM
-		add_spouse = FROM
-		c_2038 = {
-			character_event = { id = mep_flavor_events.42 }
-		}
-	}
-
-	option = {
-		name = EVTOPTAmep_flavor_events.42
-		trigger = {
-			character = 2038
 		}
 	}
 }

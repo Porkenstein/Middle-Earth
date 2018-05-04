@@ -22,6 +22,84 @@ character_event = {	#Morgul-blade Wound
 		add_character_modifier = { modifier = mod_nazgul_wound duration = -1 }
 	}
 }
+character_event = {	#Spider Ambush
+	id = mep_misc_events.21
+	title = EVTTTLmep_misc_events.21
+	desc = EVTDESCmep_misc_events.21
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		in_command = yes
+		war = yes
+		NOT = {
+			culture = culture_spider
+		}
+		location = {
+			culture = culture_spider
+			owner = {
+				war_with = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.21
+		random_list = {
+			1 = {
+				troops = -0.1
+				modifier = {
+					factor = 3
+					OR = {
+						trait = grey_eminence
+						trait = brilliant_strategist
+						trait = skilled_tactician
+						trait = mastermind_theologian
+					}
+				}
+			}
+			1 = {
+				troops = -0.25
+				modifier = {
+					factor = 3
+					OR = {
+						trait = charismatic_negotiator
+						trait = tough_soldier
+						trait = scholarly_theologian
+					}
+				}
+			}
+			1 = {
+				troops = -0.5
+				modifier = {
+					factor = 3
+					OR = {
+						trait = misguided_warrior
+						trait = martial_cleric
+					}
+				}
+			}
+			1 = {
+				troops = -1
+				modifier = {
+					factor = 3
+					NOR = {
+						trait = grey_eminence
+						trait = charismatic_negotiator
+						trait = brilliant_strategist
+						trait = skilled_tactician
+						trait = tough_soldier
+						trait = misguided_warrior
+						trait = mastermind_theologian
+						trait = scholarly_theologian
+						trait = martial_cleric
+					}
+				}
+			}
+		}
+		morale = -0.25
+	}
+}
 character_event = {	#Fly, You Fools
 	id = mep_misc_events.3
 	title = EVTTTLmep_misc_events.3
