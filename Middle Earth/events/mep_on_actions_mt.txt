@@ -1,0 +1,82 @@
+namespace = mep_on_actions_mt
+character_event = {	#Old age Trait for Characters
+	id = mep_on_actions_mt.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+		}
+	}
+
+	immediate = {
+		add_trait = trait_old_age
+	}
+}
+character_event = {	#Old age Death for Characters
+	id = mep_on_actions_mt.11
+	title = EVTTTLmep_on_actions_mt.11
+	desc = EVTDESCmep_on_actions_mt.11
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		trait = trait_old_age
+		NOR = {
+			trait = immortal
+			trait = onering
+			trait = trait_nooo
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 220
+		modifier = {
+			factor = 1.2
+			real_tier = EMPEROR
+		}
+		modifier = {
+			factor = 0.9
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.8
+			trait = incapable
+		}
+		modifier = {
+			factor = 1.1
+			culture_group = culture_group_dwarves
+		}
+		modifier = {
+			factor = 0.75
+			culture_group = culture_group_numenorean
+			year = 8343
+		}
+		modifier = {
+			factor = 0.45
+			culture_group = culture_group_halfling
+		}
+	}
+
+	immediate = {
+		remove_trait = trait_old_age
+	}
+
+	option = {
+		name = EVTOPTAmep_on_actions_mt.11
+		death = yes
+	}
+}
+character_event = {	#Informed of Death
+	id = mep_on_actions_mt.12
+	title = EVTTTLmep_on_actions_mt.12
+	desc = EVTDESCmep_on_actions_mt.12
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_on_actions_mt.12
+	}
+}
