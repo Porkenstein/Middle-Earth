@@ -880,9 +880,20 @@ narrative_event = {	#End of the War
 		c_4043 = {
 			save_event_target_as = thorin_heir
 		}
-		abdicate_to = event_target:thorin_heir
-		death = {
-			death_reason = death_battle
+		k_gundabad = {
+			holder_scope = {
+				death = {
+					death_reason = death_battle
+					killer = ROOT
+				}
+				ROOT = {
+					abdicate_to = event_target:thorin_heir
+					death = {
+						death_reason = death_battle
+						killer = PREV
+					}
+				}
+			}
 		}
 		d_thorin_company = {
 			holder_scope = {
