@@ -2733,8 +2733,8 @@ is_openly_of_roots_secret_religion_trigger = {
 	religion = { target = ROOT target_type = secret }
 }
 
-has_sympathy_for_true_religion_of_prev_trigger = { 
-	always = no
+# has_sympathy_for_true_religion_of_prev_trigger = { 
+	# always = no
 #	OR = {
 #		AND = {
 #			trait = sympathy_christendom
@@ -2761,10 +2761,10 @@ has_sympathy_for_true_religion_of_prev_trigger = {
 #			PREV = { true_religion_group_indian_group_trigger = yes }
 #		}
 #	}
-}
+# }
 
-has_sympathy_for_true_religion_of_root_trigger = { 
-	always = no
+# has_sympathy_for_true_religion_of_root_trigger = { 
+	# always = no
 #	OR = {
 #		AND = {
 #			trait = sympathy_christendom
@@ -2791,7 +2791,7 @@ has_sympathy_for_true_religion_of_root_trigger = {
 #			ROOT = { true_religion_group_indian_group_trigger = yes }
 #		}
 #	}
-}
+# }
 
 ok_sr_induction_mission_target_trigger = {
 	always = no
@@ -2861,8 +2861,8 @@ has_my_liege_secret_religion_truly_trigger = {
 	secret_religion = { target = event_target:my_liege target_type = true }
 }
 
-is_in_prevs_interesting_society_trigger = {
-	always = no
+# is_in_prevs_interesting_society_trigger = {
+	# always = no
 	#OR = {
 	#	AND = {
 	#		society_member_of = secret_religious_society_catholic
@@ -3065,7 +3065,7 @@ is_in_prevs_interesting_society_trigger = {
 	#		PREV = { interested_in_society = secret_religious_society_aztec_reformed }
 	#	}
 	#}
-}
+# }
 
 shares_prevs_secret_religion_trigger = {
 	secret_religion = PREV
@@ -3103,8 +3103,8 @@ is_visible_to_self_trigger = { #For hidden modifiers
 	}
 }
 
-has_any_char_old_religion = {
-	always = no
+# has_any_char_old_religion = {
+	# always = no
 	#OR = {
 	#	AND = {
 	#		has_character_flag = character_was_catholic
@@ -3407,7 +3407,7 @@ has_any_char_old_religion = {
 	#    	}
 	#    }
 	#}
-}
+# }
 
 can_add_admin_bonus_trigger = {
 	NAND = {
@@ -3425,8 +3425,8 @@ can_be_sabotaged_trigger = {
 	}
 }
 
-has_assassins_prerequisites = {
-	always = no
+# has_assassins_prerequisites = {
+	# always = no
 	#age = 16
 	#conditional_tooltip = { #recruitment decision
 	#	trigger = { FROM = { society_member_of = the_assassins } }
@@ -3460,28 +3460,28 @@ has_assassins_prerequisites = {
 	#		value = all
 	#	}
 	#}
-}
+# }
 
 has_common_devilworship_prerequisites = {
 	always = no
-	#age = 16
-	#custom_tooltip = {
-	#	text = must_be_a_sinner_tooltip
-	#	hidden_tooltip = {
-	#		OR = {
-	#			has_impious_trait_trigger = yes
-	#			has_vice_trigger = yes
-	#			trait = drunkard
-	#			trait = possessed
-	#			trait = lunatic
-	#		}
-	#	}
-	#}
+	age = 16
+	custom_tooltip = {
+		text = must_be_a_sinner_tooltip
+		hidden_tooltip = {
+			OR = {
+				has_impious_trait_trigger = yes
+				has_vice_trigger = yes
+				trait = drunkard
+				trait = possessed
+				trait = lunatic
+			}
+		}
+	}
 }
 
 has_satanists_prerequisites = {
 	always = no
-	#has_common_devilworship_prerequisites = yes
+	has_common_devilworship_prerequisites = yes
 	#OR = {
 	#	religion_group = christian
 	#	religion_group = muslim
@@ -3492,35 +3492,35 @@ has_satanists_prerequisites = {
 	#}
 }
 
-has_trollcrafters_prerequisites = {
-	always = no
+# has_trollcrafters_prerequisites = {
+	# always = no
 	# has_common_devilworship_prerequisites = yes
 	# religion_openly_norse_or_reformed_trigger = yes
-}
+# }
 
-has_cult_of_kali_prerequisites = {
-	always = no
-	#has_common_devilworship_prerequisites = yes
-	#OR = {
-	#	religion = hindu
-	#}
-}
+# has_cult_of_kali_prerequisites = {
+	# always = no
+	# has_common_devilworship_prerequisites = yes
+	# OR = {
+		# religion = hindu
+	# }
+# }
 
-has_cold_ones_prerequisites = {
-	always = no
-	#has_common_devilworship_prerequisites = yes
-	#OR = {
-	#	religion_openly_baltic_or_reformed_trigger = yes
-	#	religion_openly_slavic_or_reformed_trigger = yes
-	#	religion_openly_finnish_or_reformed_trigger = yes
-	#}
-}
+# has_cold_ones_prerequisites = {
+	# always = no
+	# has_common_devilworship_prerequisites = yes
+	# OR = {
+		# religion_openly_baltic_or_reformed_trigger = yes
+		# religion_openly_slavic_or_reformed_trigger = yes
+		# religion_openly_finnish_or_reformed_trigger = yes
+	# }
+# }
 
-has_plaguebringers_prerequisites = {
-	always = no
-	#has_common_devilworship_prerequisites = yes
-	#religion_openly_tengri_or_reformed_trigger = yes
-}
+# has_plaguebringers_prerequisites = {
+	# always = no
+	# has_common_devilworship_prerequisites = yes
+	# religion_openly_tengri_or_reformed_trigger = yes
+# }
 
 same_society_rank_as_prev_trigger = {
 	OR = {
@@ -3586,12 +3586,12 @@ possibly_romantically_interested_in_each_other_trigger = {
 	ROOT_possibly_romantically_interested_trigger = yes
 }
 
-looting_artifact_event_religious_artifacts_trigger = {
-	FROM = {
-		any_artifact = {
-			has_artifact_flag = looted_artifact_tooltip_1
-			has_artifact_flag = religious
-		}
+# looting_artifact_event_religious_artifacts_trigger = {
+	# FROM = {
+		# any_artifact = {
+			# has_artifact_flag = looted_artifact_tooltip_1
+			# has_artifact_flag = religious
+		# }
 #		NAND = {
 #			any_artifact = {
 #				has_artifact_flag = looted_artifact_tooltip_1
@@ -3942,8 +3942,8 @@ looting_artifact_event_religious_artifacts_trigger = {
 #				ROOT = { religion_group = indian_group }
 #			}
 #		}
-	}
-}
+	# }
+# }
 
 can_be_asked_to_leave_court_trigger = {
 	NOR = {
