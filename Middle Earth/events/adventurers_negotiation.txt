@@ -57,7 +57,7 @@ character_event = {
     					port = yes
     				}
     				event_target:raiding_adventurer = { is_seafarer = no }
-    				NOT = { any_demesne_province = { port = yes } }
+    				#NOT = { any_demesne_province = { port = yes } }#Blocked/Sin it doesn't make sense
     			}
     		}
 
@@ -119,7 +119,7 @@ character_event = {
 			    					port = yes
 			    				}
 			    				event_target:raiding_adventurer = { is_seafarer = no }
-			    				NOT = { any_demesne_province = { port = yes } }
+			    				#NOT = { any_demesne_province = { port = yes } }#Blocked/Sin it doesn't make sense
 			    			}
 	    				}
 	    			}
@@ -136,7 +136,7 @@ character_event = {
 			    					port = yes
 			    				}
 			    				event_target:raiding_adventurer = { is_seafarer = no }
-			    				NOT = { any_demesne_province = { port = yes } }
+			    				#NOT = { any_demesne_province = { port = yes } }#Blocked/Sin it doesn't make sense
 			    			}
 			    		}
 
@@ -955,11 +955,10 @@ letter_event = {
         }
     }
 
-    #Decline
-    option = {
-        name = EVTOPTD_ADV_5
-        custom_tooltip = { text = EVTOPTD_ADV_3_TT }
-		
+	#Decline
+	option = {
+	 	name = EVTOPTD_ADV_5
+		custom_tooltip = { text = EVTOPTD_ADV_3_TT }
 		trigger = {
 			event_target:adventurer_target = {
 				NOT = {
@@ -967,100 +966,94 @@ letter_event = {
 				}
 			}
 		}
+		#Adventurer declares war
+		ai_chance = {
+			factor = 50
+			modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 1000 } factor = 1.3 }
+ 			modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 2500 } factor = 1.3 }
+			modifier = { trait = brave factor = 2 }
+			modifier = { trait = wroth factor = 1.5 }
+			modifier = { trait = ambitious factor = 1.5 }
+			modifier = { event_target:raiding_adventurer = { NOT = { has_character_flag = haggle_price } } factor = 5 }
+			modifier = { event_target:selling_province = { holder_scope = { character = ROOT } } factor = 1.5 }
+		}
+		raiding_adventurer_war_declaration_effect = yes
+	}
 
-        #Adventurer declares war
-    	raiding_adventurer_war_declaration_effect = yes
-
-    	ai_chance = {
-        	factor = 50
-        	modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 1000 } factor = 1.3 }
-        	modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 2500 } factor = 1.3 }
-        	modifier = { trait = brave factor = 2 }
-        	modifier = { trait = wroth factor = 1.5 }
-        	modifier = { trait = ambitious factor = 1.5 }
-        	modifier = { event_target:raiding_adventurer = { NOT = { has_character_flag = haggle_price } } factor = 5 }
-        	modifier = { event_target:selling_province = { holder_scope = { character = ROOT } } factor = 1.5 }
-        }
-    }
-	
 	#Decline - peaceful
-    option = {
-        name = EVTOPTE_ADV_5
-        custom_tooltip = { text = EVTOPTE_ADV_3_TT }
-		
+	option = {
+		name = EVTOPTE_ADV_5
+		custom_tooltip = { text = EVTOPTE_ADV_3_TT }
 		trigger = {
 			event_target:adventurer_target = {
 				has_character_flag = peaceful_negotiation
 			}
 		}
-		
+		ai_chance = {
+			factor = 50
+			modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 1000 } factor = 1.3 }
+			modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 2500 } factor = 1.3 }
+			modifier = { trait = brave factor = 2 }
+			modifier = { trait = wroth factor = 1.5 }
+			modifier = { trait = ambitious factor = 1.5 }
+			modifier = { event_target:raiding_adventurer = { NOT = { has_character_flag = haggle_price } } factor = 5 }
+			modifier = { event_target:selling_province = { holder_scope = { character = ROOT } } factor = 1.5 }
+		}
 		clr_character_flag = peaceful_negotiation
+	}
 
-    	ai_chance = {
-        	factor = 50
-        	modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 1000 } factor = 1.3 }
-        	modifier = { realm_levy_diff = { who = event_target:raiding_adventurer value = 2500 } factor = 1.3 }
-        	modifier = { trait = brave factor = 2 }
-        	modifier = { trait = wroth factor = 1.5 }
-        	modifier = { trait = ambitious factor = 1.5 }
-        	modifier = { event_target:raiding_adventurer = { NOT = { has_character_flag = haggle_price } } factor = 5 }
-        	modifier = { event_target:selling_province = { holder_scope = { character = ROOT } } factor = 1.5 }
-        }
-    }
-
-    after = {
-    	hidden_effect = {
-	    	clr_character_flag = adventurer_unsafe_duchy_war
+	after = {
+		hidden_effect = {
+			clr_character_flag = adventurer_unsafe_duchy_war
 			clr_character_flag = adventurer_safe_duchy_war
 			clr_character_flag = negotiating_with_adventurer
 			event_target:raiding_adventurer = { clr_character_flag = haggle_price }
-    	}
-    }
+		}
+	}
 }
 
 #Change religion etc. of settled adventurer
 character_event = {
-    id = ADV.20
-    hide_window = yes
-    is_triggered_only = yes
-    trigger = {
-    	NOT = { liege = { religion = ROOT } }
-    }
+	id = ADV.20
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { liege = { religion = ROOT } }
+	}
 
-    immediate = { 
-    	random_list = {
-    		80 = {
-    			modifier = { trait = cynical factor = 5 }
-    			modifier = { trait = content factor = 5 }
-    			modifier = { trait = craven factor = 5 }
-    			liege = {
+	immediate = { 
+		random_list = {
+			80 = {
+				modifier = { trait = cynical factor = 5 }
+				modifier = { trait = content factor = 5 }
+				modifier = { trait = craven factor = 5 }
+				liege = {
 					ROOT = { religion = PREV }
-					character_event = { id = ADV.21 days = 7 }
+					letter_event = { id = ADV.21 days = 7 }
 				}
-    			any_courtier = {
-    				limit = { is_landed = no }
-    				religion = ROOT
-    			}
-    		}
-    		20 = {
-    			modifier = { trait = zealous factor = 5 }
-    			#Does not convert
-    		}
-    	}
-    }
+    				any_courtier = {
+					limit = { is_landed = no }
+					religion = ROOT
+				}
+			}
+			20 = {
+				modifier = { trait = zealous factor = 5 }
+				#Does not convert
+			}
+		}
+	}
 }
 
 letter_event = { # Religion flip notification event
-    id = ADV.21
-    desc = EVTDESC_ADV_21
-	
-    is_triggered_only = yes
-	
-	option = {     
-        name = EXCELLENT
-    }
-}
+	id = ADV.21
+	desc = EVTDESC_ADV_21
 
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+	}
+}
 
 #Testing event for adventurer negotiation
 #character_event = {
