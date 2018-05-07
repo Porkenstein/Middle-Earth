@@ -5770,11 +5770,11 @@ character_event = { #Announcement
         clr_quest = quest_order_of_sauron_demonic_impregnation
 		if = {
 			limit = { FROM = { is_female = yes } }
-			sound_effect = devil_worshippers_impregnation_courtier_female
+			sound_effect = devil_worshippers_impregnation_courtier_female_01
 		}
 		if = {
 			limit = { FROM = { is_female = no } }
-			sound_effect = devil_worshippers_impregnation_courtier_male
+			sound_effect = devil_worshippers_impregnation_courtier_male_01
 		}
         add_society_currency_massive_effect = yes
     }
@@ -6579,7 +6579,7 @@ character_event = {
 		
 		hidden_effect = {
 			clr_character_flag = desecration_violent
-			sound_effect = devil_worshippers_desecrate_temple
+			sound_effect = devil_worshippers_desecrate_temple_01
 			random = {
 				chance = 50
 				minor_soul_corruption_effect = yes
@@ -6614,7 +6614,7 @@ character_event = {
 		
 		hidden_effect = {
 			clr_character_flag = desecration_violent
-			sound_effect = devil_worshippers_desecrate_temple
+			sound_effect = devil_worshippers_desecrate_temple_01
 			clr_character_flag = desecration_in_progress
 			random = {
 				chance = 50
@@ -7012,11 +7012,11 @@ character_event = {
 			clr_quest = quest_order_of_sauron_demonic_possession
 			if = {
 				limit = { FROM = { is_female = yes } }
-				sound_effect = devil_worshippers_demonic_possession_female
+				sound_effect = devil_worshippers_demonic_possession_female_01
 			}
 			if = {
 				limit = { FROM = { is_female = no } }
-				sound_effect = devil_worshippers_demonic_possession_male
+				sound_effect = devil_worshippers_demonic_possession_male_01
 			}
 			add_society_currency_medium_effect = yes
 		}
@@ -10518,34 +10518,34 @@ character_event = {
 }
 
 # Province: notify lieges of heresy
-province_event = {
-	id = MNM.20050
-	hide_window = yes
+# province_event = {
+	# id = MNM.20050
+	# hide_window = yes
 	
-	is_triggered_only = yes
+	# is_triggered_only = yes
 	
-	immediate = {
-		owner = {
-			top_liege = {
-				if = {
-					limit = {
-						NOT = { character = PREV }
-					}
-					character_event = { id = 39400 days = 2 }
-				}
-				any_vassal = {
-					limit = {
-						OR = {
-							is_parent_religion = ROOT
-							religion = ROOT
-						}
-					}
-					character_event = { id = 39400 days = 2 }
-				}
-			}
-		}
-	}
-}
+	# immediate = {
+		# owner = {
+			# top_liege = {
+				# if = {
+					# limit = {
+						# NOT = { character = PREV }
+					# }
+					# character_event = { id = 39400 days = 2 }
+				# }
+				# any_vassal = {
+					# limit = {
+						# OR = {
+							# is_parent_religion = ROOT
+							# religion = ROOT
+						# }
+					# }
+					# character_event = { id = 39400 days = 2 }
+				# }
+			# }
+		# }
+	# }
+# }
 
 # Agitation - Rivalry aftermath bounce
 character_event = {
@@ -11180,7 +11180,7 @@ character_event = {
 					trait = incapable # I have become incapable
 					AND = {
 						is_devil_worshiper_trigger = no
-						NOT = { society_member_of = the_assassins }
+						# NOT = { society_member_of = the_assassins }
 					}
 				}
 			}
@@ -11237,7 +11237,7 @@ character_event = {
 			limit = {
 				FROMFROM = {
 					OR = {
-						trait = on_hajj
+						# trait = on_hajj
 						is_inaccessible_trigger = yes
 						trait = on_pilgrimage
 					}

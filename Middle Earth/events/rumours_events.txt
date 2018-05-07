@@ -496,50 +496,50 @@ character_event = {
 }
 
 #People think I am homosexual! A Churchman denounces you
-character_event = {
-	id = 69006
-	desc = EVTDESC69006
-	picture = GFX_evt_whispers
+# character_event = {
+	# id = 69006
+	# desc = EVTDESC69006
+	# picture = GFX_evt_whispers
 	
-	only_rulers = yes
-	only_men = yes
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	has_character_flag = suspected_sodomite
-	religion_group = christian
+	# only_rulers = yes
+	# only_men = yes
+	# min_age = 16
+	# capable_only = yes
+	# prisoner = no
+	# has_character_flag = suspected_sodomite
+	# religion_group = christian
 	
-	trigger = {
-		OR = {
-			NOT = {
-				martial = 2
-			}
-			trait = craven
-			trait = poet
-			trait = gardener
-		}
-		NOT = {
-			num_of_children = 1
-		}
-		NOT = {
-			trait = homosexual
-		}
-		NOT = { is_inaccessible_trigger = yes }
-	}
+	# trigger = {
+		# OR = {
+			# NOT = {
+				# martial = 2
+			# }
+			# trait = craven
+			# trait = poet
+			# trait = gardener
+		# }
+		# NOT = {
+			# num_of_children = 1
+		# }
+		# NOT = {
+			# trait = homosexual
+		# }
+		# NOT = { is_inaccessible_trigger = yes }
+	# }
 	
-	mean_time_to_happen = {
-		months = 60
-	}
+	# mean_time_to_happen = {
+		# months = 60
+	# }
 	
-	option = {
-		name = EVTOPTA69006
-		piety = -10
-	}
-	option = {
-		name = EVTOPTB69006
-		prestige = -10
-	}
-}
+	# option = {
+		# name = EVTOPTA69006
+		# piety = -10
+	# }
+	# option = {
+		# name = EVTOPTB69006
+		# prestige = -10
+	# }
+# }
 
 #People think I am homosexual! Self-doubts
 character_event = {
@@ -582,49 +582,49 @@ character_event = {
 }
 
 #People think I am homosexual! An Imam denounces you
-character_event = {
-	id = 69008
-	desc = EVTDESC69006
-	picture = GFX_evt_whispers
+# character_event = {
+	# id = 69008
+	# desc = EVTDESC69006
+	# picture = GFX_evt_whispers
 	
-	only_rulers = yes
-	only_men = yes
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	religion_group = muslim
-	has_character_flag = suspected_sodomite
+	# only_rulers = yes
+	# only_men = yes
+	# min_age = 16
+	# capable_only = yes
+	# prisoner = no
+	# religion_group = muslim
+	# has_character_flag = suspected_sodomite
 	
-	trigger = {
-		OR = {
-			NOT = {
-				martial = 2
-			}
-			trait = craven
-			trait = poet
-			trait = gardener
-		}
-		NOT = {
-			num_of_children = 1
-		}
-		NOT = {
-			trait = homosexual
-		}
-	}
+	# trigger = {
+		# OR = {
+			# NOT = {
+				# martial = 2
+			# }
+			# trait = craven
+			# trait = poet
+			# trait = gardener
+		# }
+		# NOT = {
+			# num_of_children = 1
+		# }
+		# NOT = {
+			# trait = homosexual
+		# }
+	# }
 	
-	mean_time_to_happen = {
-		months = 60
-	}
+	# mean_time_to_happen = {
+		# months = 60
+	# }
 	
-	option = {
-		name = EVTOPTA69006
-		piety = -10
-	}
-	option = {
-		name = EVTOPTB69006
-		prestige = -10
-	}
-}
+	# option = {
+		# name = EVTOPTA69006
+		# piety = -10
+	# }
+	# option = {
+		# name = EVTOPTB69006
+		# prestige = -10
+	# }
+# }
 
 ### Incest ### 
 
@@ -643,10 +643,10 @@ character_event = {
 	trigger = {
 		intrigue = 10
 		is_ruler = no
-		NOT = {
-			religion_group = muslim
-			religion_group = zoroastrian_group
-		}
+		# NOT = {
+			# religion_group = muslim
+			# religion_group = zoroastrian_group
+		# }
 		NOT = {
 			has_character_flag = rumour_spreader
 		}
@@ -1275,24 +1275,30 @@ character_event = {
 	option = {
 		name = EVTOPTB69016 #Ignore the child
 		clr_character_flag = suspected_of_incest
+		# if = {
+			# limit = {
+				# religion = catholic
+			# }
+			# random = {
+				# chance = 25
+				# character_event = {
+					# id = 69017
+					# days = 7
+					# tooltip = EVTTOOLTIP69017
+				# }
+			# }
+		# }
+		# if = {
+			# limit = {
+				# NOT = {
+					# religion = catholic
+				# }
+			# }
+			# piety = -10
+		# }
 		if = {
 			limit = {
-				religion = catholic
-			}
-			random = {
-				chance = 25
-				character_event = {
-					id = 69017
-					days = 7
-					tooltip = EVTTOOLTIP69017
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOT = {
-					religion = catholic
-				}
+				any_religion_trigger = yes
 			}
 			piety = -10
 		}
@@ -3536,7 +3542,7 @@ character_event = {
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
+	# religion_group = christian
 	
 	is_triggered_only = yes
 	
