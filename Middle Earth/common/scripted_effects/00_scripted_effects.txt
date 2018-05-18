@@ -1436,8 +1436,10 @@ add_maimed_trait_effect = {
 	}
 	if = {
 		limit = {
-			has_dlc = "Reapers"
-			NOT = { trait = severely_injured }
+			AND = {
+				has_dlc = "Reapers"
+				NOT = { trait = severely_injured }
+			}
 		}
 		add_trait = severely_injured
 		hidden_tooltip = {
@@ -2349,21 +2351,28 @@ jailor_torture_effect = {
 	
 	random_list = {
 		80 = {
+				if = {
+					limit = { trait = stressed }
+					health = -0.25
+				}
 				add_trait = stressed
 			}
 		10 = {
 			if = {
-				limit = {
-					NOR = {
-						trait = craven
-						# trait = berserker
-					}
-				}
+				limit = { OR = { trait = craven #trait = berserker } }
+				health = -0.5
+			}
+			if = {
+				limit = { NOR = { trait = craven #trait = berserker } }
 				add_trait = craven
 			}
 		}
 		5 = {
-				add_trait = lunatic
+			if = {
+				limit = { trait = lunatic }
+				health = -1.0
+			}
+			add_trait = lunatic
 		}
 		5 = {
 			#nothing
@@ -4264,6 +4273,11 @@ major_soul_corruption_effect = {
 				}
 			}
 		}
+		random = {
+			chance = 2
+			set_character_flag = has_it_coming
+			character_event = { id = MNM.7854 days = 30 random = 50 } #Demon hunters come after you...
+		}
 	}
 }
 
@@ -4797,10 +4811,10 @@ join_from_devil_worshiper_society_effect = {
 	FROM = {
 		if = {
 			limit = {
-				society_member_of = order_of_sauron
+				society_member_of = the_satanists
 			}
 			ROOT = {
-				join_society = order_of_sauron
+				join_society = the_satanists
 			}
 		}
 	}
@@ -12442,7 +12456,7 @@ add_prevs_secret_religion_trait_effect = {
 # }
 
 increase_visibility_effect = {
-	custom_tooltip = { text = debug_vis }
+	#custom_tooltip = { text = debug_vis }
 	hidden_effect = {
 		change_variable = { which = visibility_value value = 5 } 
 		if = {
@@ -12492,7 +12506,7 @@ increase_visibility_effect = {
 }
 
 increase_visibility_minor_effect = {
-	custom_tooltip = { text = debug_vis }
+	#custom_tooltip = { text = debug_vis }
 	hidden_effect = {
 		change_variable = { which = visibility_value value = 2 } 
 		if = {
@@ -14325,6 +14339,7 @@ clean_up_after_leaving_society_effect = {
 		clr_character_flag = 3264_deceitful_flag
 		clr_character_flag = 3264_publish_flag
 		clr_character_flag = 3264_depressed_flag
+		clr_character_flag = 3264_deceitful_flag
 		clr_character_flag = 4202_visit_monastery_flag
 		clr_character_flag = 4202_hire_someone_flag
 		clr_character_flag = 4202_send_my_own_samples_flag
@@ -16776,4 +16791,58 @@ add_chinese_artifact_effect = { #Used in event JD.15016 (possible to use elsewhe
 #			save_event_target_as = chinese_artifact
 #		}
 #	}
+}
+
+remove_opinions_with_prison_reason_effect = {
+	#Removes the specified opinion about "who" (PREV), from current scope
+	#NOTE: If you add a new opinion with "prison_reason" to the game, add it here, too!
+	remove_opinion = { modifier = opinion_dishonorable who = PREV }
+	remove_opinion = { modifier = opinion_traitor who = PREV }
+	remove_opinion = { modifier = opinion_rebel_traitor who = PREV }
+	remove_opinion = { modifier = opinion_regicide_traitor who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_spouse who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_child who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_parent who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_sibling who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_vassal who = PREV }
+	remove_opinion = { modifier = attempted_murder_of_spouse_vassal who = PREV }
+	remove_opinion = { modifier = attempted_murder who = PREV }
+	remove_opinion = { modifier = opinion_spouse_slayer who = PREV }
+	remove_opinion = { modifier = opinion_murder_attempt who = PREV }
+	remove_opinion = { modifier = opinion_killed_close_kin who = PREV }
+	remove_opinion = { modifier = opinion_killed_father who = PREV }
+	remove_opinion = { modifier = opinion_hajj_attempt_murder who = PREV }
+	remove_opinion = { modifier = opinion_fatwa_target who = PREV }
+	remove_opinion = { modifier = opinion_refused_order who = PREV }
+	remove_opinion = { modifier = opinion_castrated_me who = PREV }
+	remove_opinion = { modifier = opinion_blinded_me who = PREV }
+	remove_opinion = { modifier = opinion_castrated_family who = PREV }
+	remove_opinion = { modifier = opinion_castrated_close_kin who = PREV }
+	remove_opinion = { modifier = opinion_blinded_family who = PREV }
+	remove_opinion = { modifier = opinion_blinded_close_kin who = PREV }
+	remove_opinion = { modifier = opinion_witch who = PREV }
+	remove_opinion = { modifier = opinion_takfir who = PREV }
+	remove_opinion = { modifier = opinion_attempted_abduction who = PREV }
+	remove_opinion = { modifier = opinion_unfaithful_wife who = PREV }
+	remove_opinion = { modifier = opinion_unfaithful_husband_crime who = PREV }
+	remove_opinion = { modifier = opinion_cuckolded who = PREV }
+	remove_opinion = { modifier = opinion_killed_lover who = PREV }
+	remove_opinion = { modifier = opinion_charge_heresiarch who = PREV }
+	remove_opinion = { modifier = opinion_charge_infidel who = PREV }
+	remove_opinion = { modifier = opinion_charge_deviant who = PREV }
+	remove_opinion = { modifier = opinion_charge_illegitimate who = PREV }
+	remove_opinion = { modifier = opinion_charge_cultist who = PREV }
+	remove_opinion = { modifier = opinion_charge_dw who = PREV }
+	remove_opinion = { modifier = opinion_charge_traitor who = PREV }
+	remove_opinion = { modifier = opinion_charge_slanderer who = PREV }
+	remove_opinion = { modifier = abuse_of_office who = PREV }
+	remove_opinion = { modifier = opinion_tortured_me who = PREV }
+	remove_opinion = { modifier = opinion_tortured_family who = PREV }
+	remove_opinion = { modifier = opinion_tortured_close_kin who = PREV }
+	remove_opinion = { modifier = opinion_mutilated_me who = PREV }
+	remove_opinion = { modifier = opinion_mutilated_family who = PREV }
+	remove_opinion = { modifier = opinion_mutilated_close_kin who = PREV }
+	remove_opinion = { modifier = opinion_thief who = PREV }
+	remove_opinion = { modifier = opinion_outlawed_society who = PREV }
+	remove_opinion = { modifier = opinion_accused_apostate who = PREV }
 }

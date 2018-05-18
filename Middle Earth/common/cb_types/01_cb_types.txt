@@ -461,10 +461,6 @@ force_vassalization = { # New2
 		}
 	}
 	
-	on_add = {
-
-	}
-	
 	is_valid = {
 		FROM = {
 			is_landed = yes
@@ -580,6 +576,12 @@ great_realm_conflict = { # New3
 					name = jade_dragon_cbs
 					value = off
 				}
+			}
+		}
+		FROM = {
+			relative_power = {
+				who = ROOT
+				power = 0.95
 			}
 		}
 	}
@@ -1071,12 +1073,15 @@ hostages_cb = { # New5
 	
 	on_success = {
 		ROOT = {
+			show_scope_change = no
 			prestige = 250
 		}
 		FROM = {
+			show_scope_change = no
 			prestige = -250
 		}
 		FROM = {
+			show_scope_change = no
 			save_event_target_as = character_kidnapper
 			transfer_scaled_wealth = {
 				to = ROOT
@@ -1159,31 +1164,39 @@ hostages_cb = { # New5
 					years = 100
 				}
 			}
-			random_realm_character = {
-				limit = {
-					NOT = {
-						character = PREV
+			custom_tooltip = {
+				text = hostages_random_imprisonment_tt
+				hidden_effect = {
+					random_realm_character = {
+						limit = {
+							NOT = {
+								character = PREV
+							}
+							prisoner = no
+							ai = yes
+							is_close_relative = PREV
+						}
+						imprison = ROOT
 					}
-					prisoner = no
-					ai = yes
-					is_close_relative = PREV
 				}
-				imprison = ROOT
 			}
 		}
 	}
 
 	on_fail = {
-		ROOT = { 
+		ROOT = {
+			show_scope_change = no
 			prestige = -250
 		}
 		FROM = { 
+			show_scope_change = no
 			prestige = 250
 		}
 	}
 
 	on_reverse_demand = {
 		ROOT = {
+			show_scope_change = no
 			transfer_scaled_wealth = {
 				to = FROM
 				value = 3.0
@@ -1191,6 +1204,7 @@ hostages_cb = { # New5
 			prestige = -250
 		}
 		FROM = { 
+			show_scope_change = no
 			prestige = 250
 		}
 	}

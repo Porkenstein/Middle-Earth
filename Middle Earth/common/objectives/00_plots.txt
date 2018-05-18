@@ -24,7 +24,7 @@ plot_gain_title = {
 		independent = no
 		is_landed = yes
 		primary_title = { higher_tier_than = BARON }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = imbecile }
 		OR = {
 			crownlaw_title = {
@@ -297,7 +297,7 @@ plot_gain_vassal_title = {
 			higher_tier_than = COUNT
 			temporary = no
 		}
-		is_incapable = no
+		NOT = { trait = incapable }
 		# NOT = { has_landed_title = e_china_west_governor }
 		
 		OR = {
@@ -660,8 +660,7 @@ plot_kill_character = {
 	potential = {
 		prisoner = no
 		age = 16
-		is_incapable = no
-		
+		NOT = { trait = incapable }
 		NOT = {
 			AND = {
 				ai = yes
@@ -974,6 +973,12 @@ plot_kill_character = {
 			}		
 		}
 		modifier = {
+			factor = 0
+			ROOT = {
+				is_pilgrim = yes
+			}
+		}
+		modifier = {
 			factor = 1.5
 			NOT = { their_opinion = { who = FROM value = -25 } }
 		}
@@ -1092,7 +1097,7 @@ plot_kill_spouse = {
 		prisoner = no
 		age = 16
 		is_married = yes
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = {
 			AND = {
 				ai = yes
@@ -1150,7 +1155,7 @@ plot_kill_spouse = {
 					any_heir_title = {
 						holder = ROOT
 					}
-					is_incapable = no
+		NOT = { trait = incapable }
 					their_opinion = { who = FROM value = 75 }
 				}
 			}
@@ -1620,7 +1625,7 @@ plot_gain_liege_title = {
 		is_landed = yes
 		independent = no
 		mercenary = no
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = imbecile }
 		liege = {
 			NOT = { is_father = ROOT }
@@ -1837,7 +1842,7 @@ plot_gain_fellow_vassal_title = {
 		}
 		is_landed = yes
 		independent = no
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = imbecile }
 	}
 	
@@ -2046,7 +2051,7 @@ plot_seize_trade_post = {
 		is_merchant_republic = no
 		prisoner = no
 		age = 16
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = imbecile }
 	}
 	

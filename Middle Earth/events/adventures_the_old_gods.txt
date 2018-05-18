@@ -19,6 +19,7 @@ character_event = {
 	hide_window = yes # Only fires for unplayable landless characters
 	
 	min_age = 16
+	max_age = 50
 	capable_only = yes
 	prisoner = no
 	
@@ -247,6 +248,10 @@ character_event = {
 		set_character_flag = do_not_disturb
 		
 		character_event = { id = TOG.1215 days = 730 }
+	}
+	
+	option = {
+		name = OK
 	}
 }
 
@@ -732,7 +737,7 @@ character_event = {
 #			log = "TOG.1202: [Root.GetBestName] starts claim adventure for [This.GetName]"
 			
 			holder_scope = {
-				reverse_war = {
+				reverse_unsafe_war = {
 					target = ROOT
 					casus_belli = claim
 					thirdparty_title = PREV
@@ -743,6 +748,10 @@ character_event = {
 				}
 			}
 		}
+	}
+	
+	option = {
+		name = OK
 	}
 }
 

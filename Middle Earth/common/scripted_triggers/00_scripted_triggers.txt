@@ -6,7 +6,6 @@
 #has_benevolent_trait_trigger		Has a benevolent trait.
 #is_benevolent_trigger				Has a benevolent trait and not any evil traits.
 #has_pleasant_trait_trigger			Has a pleasant personality trait. 
-#has_pleasant_trait_trigger			Has a pleasant personality trait. 
 #has_pleasant_personality_trigger	Has a pleasant personality trait and not any unpleasant personality traits.
 #has_pious_trait_trigger			Has a piety trait.
 #is_pious_trigger					Has a piety trait and not any impious traits.
@@ -1013,7 +1012,9 @@ can_be_marshal_trigger = {
 				AND = {
 					liege = {
 						primary_title = {
-							has_law = status_of_women_3
+							OR = {
+								has_law = status_of_women_3
+							}
 						}
 					}
 					OR = {
@@ -1029,12 +1030,12 @@ can_be_marshal_trigger = {
 						
 					}
 				}
-				liege = {
-					primary_title = { has_law = status_of_women_4 }
-				}
-				has_game_rule = {
-					name = gender
-					value = all
+				OR = {
+					liege = { primary_title = { has_law = status_of_women_4 } }
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
 			#OR = {
@@ -1091,12 +1092,12 @@ can_be_treasurer_trigger = {
 						
 					}
 				}
-				liege = {
-					primary_title = { has_law = status_of_women_4 }
-				}
-				has_game_rule = {
-					name = gender
-					value = all
+				OR = {
+					liege = { primary_title = { has_law = status_of_women_4 } }
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
 			mep_is_adult = yes
@@ -1162,12 +1163,12 @@ can_be_spymaster_trigger = {
 						
 					}
 				}
-				liege = {
-					primary_title = { has_law = status_of_women_4 }
-				}
-				has_game_rule = {
-					name = gender
-					value = all
+				OR = {
+					liege = { primary_title = { has_law = status_of_women_4 } }
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
 			mep_is_adult = yes
@@ -1191,7 +1192,7 @@ can_be_spiritual_trigger = {
 	NOT = { has_character_modifier = resigned_in_anger }
 
 	liege = {
-		religion_group = ROOT
+		religion = ROOT
 	}
 	OR = {
 		AND = {
@@ -2478,8 +2479,9 @@ is_ill_trigger = {
 is_devil_worshiper_trigger = {
 	custom_tooltip = {
 		text = IS_DEVIL_WORSHIPPER_TRIGGER
-		always = no
-		society_member_of = order_of_sauron
+		OR = {
+			society_member_of = the_satanists
+		}
 	}
 }
 
@@ -3457,7 +3459,6 @@ can_be_sabotaged_trigger = {
 # }
 
 has_common_devilworship_prerequisites = {
-	always = no
 	age = 16
 	custom_tooltip = {
 		text = must_be_a_sinner_tooltip
@@ -3473,9 +3474,9 @@ has_common_devilworship_prerequisites = {
 	}
 }
 
-has_order_of_sauron_prerequisites = {
-	always = no
+has_satanists_prerequisites = {
 	has_common_devilworship_prerequisites = yes
+	religion_group = religion_group_melkor
 }
 
 # has_trollcrafters_prerequisites = {
@@ -5738,5 +5739,13 @@ the_hunt_for_an_artifact_has_made_enough_progress_trigger = {
 			event_target:relic_ruler = { check_variable = { which = relic_score value = 20 } } #40 } } old value
 			event_target:relic_ruler = { has_character_modifier = relic_rumor_major } 
 		}
+	}
+}
+
+is_inaccessible_or_incapable_trigger = {
+	OR = {  
+		is_inaccessible_trigger = yes
+		trait = incapable
+		prisoner = yes
 	}
 }

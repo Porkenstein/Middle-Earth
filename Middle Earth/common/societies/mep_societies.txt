@@ -272,7 +272,7 @@ heren_isseon = {
 
 
 ###DEVIL WORSHIPERS###
-order_of_sauron = {
+the_satanists = {
 	primary_attribute = intrigue
 	is_secret = yes
 	criminal = yes
@@ -306,7 +306,7 @@ order_of_sauron = {
 			NAND = {
 				ai = yes
 				is_society_rank_full = { 
-					society = order_of_sauron
+					society = the_satanists
 					rank = 1
 				}
 			}
@@ -327,7 +327,7 @@ order_of_sauron = {
 		age = 16
 		OR = {
 			religion_group = religion_group_melkor
-			society_member_of = order_of_sauron
+			society_member_of = the_satanists
 		}
 	}
 
@@ -353,16 +353,16 @@ order_of_sauron = {
 		modifier = { 
 			is_visible = {
 				OR = {
-					society_member_of = order_of_sauron
+					society_member_of = the_satanists
 					FROM = { is_society_discovered = yes }
 				}
 			}
 			intrigue = 1
 		}
 		decisions = {
-			order_of_sauron_summon_familiar #Available Power: Summon Familiar
-			order_of_sauron_tainted_touch #Available Power: Curse people with disease
-			order_of_sauron_demonic_possession #Available Power: Possess someone to make fanatically loyal
+			devil_worshipers_summon_familiar #Available Power: Summon Familiar
+			the_devil_worshipers_tainted_touch #Available Power: Curse people with disease
+			devil_worshipers_demonic_possession #Available Power: Possess someone to make fanatically loyal
 			#Available Power: Abduction plot
 			#unlock new options in Seduction and Spy On?
 		}
@@ -377,16 +377,16 @@ order_of_sauron = {
 		modifier = {
 			is_visible = {
 				OR = {
-					society_member_of = order_of_sauron
+					society_member_of = the_satanists
 					FROM = { is_society_discovered = yes }
 				}
 			}
 			intrigue = 2
 		}
 		decisions = {
-			order_of_sauron_dark_divorce #Available Power: Dark Divorce
-			order_of_sauron_dark_healing #Available Power: Demonic Healing. Sacrifice a prisoner to heal a random illness or maiming.
-			order_of_sauron_invite_disciple_of_devil #Available Decision: Invite a witch to court
+			devil_worshipers_dark_divorce #Available Power: Dark Divorce
+			devil_worshipers_dark_healing #Available Power: Demonic Healing. Sacrifice a prisoner to heal a random illness or maiming.
+			devil_worshipers_invite_disciple_of_devil #Available Decision: Invite a witch to court
 			#Available Power: Love Potion
 		}
 		
@@ -400,7 +400,7 @@ order_of_sauron = {
 		modifier = { 
 			is_visible = {
 				OR = {
-					society_member_of = order_of_sauron
+					society_member_of = the_satanists
 					FROM = { is_society_discovered = yes }
 				}
 			}
@@ -408,8 +408,8 @@ order_of_sauron = {
 		}
 		decisions = {
 			
-			order_of_sauron_prolong_life #Available Power: Prolong Life
-			order_of_sauron_demonic_impregnation #Available power: Unholy Impregnation
+			DW_prolong_life #Available Power: Prolong Life
+			DW_demonic_impregnation #Available power: Unholy Impregnation
 		}
 		obedience_tooltip = obedience_tooltip #this can be unique per rank/society 
 		obedient = {
@@ -430,7 +430,7 @@ order_of_sauron = {
 	}
 
 	monthly_currency_gain = {
-		name = currency_name_order_of_sauron
+		name = currency_name_the_satanists
     
 		per_attribute = {
 			name = intrigue
@@ -580,9 +580,7 @@ order_of_sauron = {
 			}
 			ai = yes
 			controls_religion = no
-			AND = {
-				true_religion_group_religion_group_melkor_trigger = yes
-			}
+			true_religion_group_religion_group_melkor_trigger = yes
 			OR = {
 				has_impious_trait_trigger = yes
 				has_vice_trigger = yes
@@ -592,7 +590,7 @@ order_of_sauron = {
 			}
 			age = 16
 			is_in_society = no
-			# NOT = { higher_tier_than = DUKE }
+			NOT = { higher_tier_than = DUKE }
 			NOR = {
 				mercenary = yes
 				holy_order = yes
