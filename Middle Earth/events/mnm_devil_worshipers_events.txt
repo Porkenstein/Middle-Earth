@@ -79,14 +79,14 @@ character_event = {
 
 	immediate = {
 		if = {
-			limit = { NOT = { event_target:order_of_sauron_recruiter = { always = yes } } }
-			FROMFROM = { save_event_target_as = order_of_sauron_recruiter }
+			limit = { NOT = { event_target:satanists_recruiter = { always = yes } } }
+			FROMFROM = { save_event_target_as = satanists_recruiter }
 		}
-		save_event_target_as = order_of_sauron_recruit
+		save_event_target_as = satanists_recruit
 	}
 
 	fail_trigger_effect = {
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 	}
 
 	#Approving of heretics
@@ -106,12 +106,12 @@ character_event = {
 		custom_tooltip = { text = EVTOPTA_7001_TT }
 
 		reverse_opinion = {
-			who = event_target:order_of_sauron_recruiter
+			who = event_target:satanists_recruiter
 			modifier = opinion_agreed_with_opinion
 			years = 5
 		}
 
-		set_character_flag = approves_of_evil
+		set_character_flag = approves_of_satanism
 
 		hidden_effect = { 
 			character_event = { id = MNM.6999 days = 3 } 
@@ -170,17 +170,17 @@ character_event = {
 		custom_tooltip = { text = EVTOPTB_7001_TT }
 
 		reverse_opinion = {
-			who = event_target:order_of_sauron_recruiter
+			who = event_target:satanists_recruiter
 			modifier = opinion_disagreed_with_opinion
 			years = 5
 		}
 
-		set_character_flag = disapproves_of_evil
+		set_character_flag = disapproves_of_satanism
 
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 
 		hidden_effect = { 
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.7002 days = 15 } 
 			} 
 		}
@@ -211,18 +211,18 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
+				event_target:satanists_recruiter = {
 					is_alive = yes
 					is_devil_worshiper_trigger = yes
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.7002 }
 			}
 			break = yes
@@ -244,18 +244,18 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
+				event_target:satanists_recruiter = {
 					is_alive = yes
 					is_devil_worshiper_trigger = yes
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.7004 }
 			}
 			break = yes
@@ -277,18 +277,18 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
+				event_target:satanists_recruiter = {
 					is_alive = yes
 					is_devil_worshiper_trigger = yes
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.7007 }
 			}
 			break = yes
@@ -310,18 +310,18 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
+				event_target:satanists_recruiter = {
 					is_alive = yes
 					is_devil_worshiper_trigger = yes
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.7006 }
 			}
 			break = yes
@@ -335,11 +335,11 @@ character_event = { # event notifying recruitee that "Something must've gone wro
 	id = MNM.6995
 	desc = {
 		text = EVTDESCA_MNM_6995
-		trigger = { NOT = { has_character_flag = order_of_sauron_recruitment_end_unable } }
+		trigger = { NOT = { has_character_flag = dw_recruitment_end_unable } }
 	}
 	desc = {
 		text = EVTDESCB_MNM_6995
-		trigger = { has_character_flag = order_of_sauron_recruitment_end_unable }
+		trigger = { has_character_flag = dw_recruitment_end_unable }
 		picture = GFX_evt_into_the_dungeon
 	}
 	picture = GFX_evt_state_diplomacy
@@ -351,15 +351,15 @@ character_event = { # event notifying recruitee that "Something must've gone wro
 	option = {
 		name = {
 			text = EVTOPTA_MNM_6995
-			trigger = { NOT = { has_character_flag = order_of_sauron_recruitment_end_unable } }
+			trigger = { NOT = { has_character_flag = dw_recruitment_end_unable } }
 		}
 		name = {
 			text = EVTOPTB_MNM_6995
-			trigger = { has_character_flag = order_of_sauron_recruitment_end_unable }
+			trigger = { has_character_flag = dw_recruitment_end_unable }
 		}
 		custom_tooltip = { text = EVTTOOLTIP_MNM_6995 }
-		clr_character_flag = being_recruited_by_the_order_of_sauron
-		clr_character_flag = order_of_sauron_recruitment_end_unable
+		clr_character_flag = being_recruited_by_the_satanists
+		clr_character_flag = dw_recruitment_end_unable
 	}
 }
 
@@ -370,11 +370,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 
 	desc = {
-		trigger = { FROM = { has_character_flag = approves_of_evil } } #They seemed kinda fine with it
+		trigger = { FROM = { has_character_flag = approves_of_satanism } } #They seemed kinda fine with it
 		text = EVTDESC_MNM_7002_A
 	}
 	desc = {
-		trigger = { FROM = { has_character_flag = disapproves_of_evil } } #They seemed kinda hesitant to the whole thing
+		trigger = { FROM = { has_character_flag = disapproves_of_satanism } } #They seemed kinda hesitant to the whole thing
 		text = EVTDESC_MNM_7002_B
 	}
 
@@ -382,14 +382,14 @@ character_event = {
 
 	#Continue recruitment-attempt
 	option = {
-		trigger = { FROM = { has_character_flag = approves_of_evil } }
+		trigger = { FROM = { has_character_flag = approves_of_satanism } }
 		name = EVTOPTA_7002
 		custom_tooltip = { text = EVTOPTA_7002_TT }
 
 		hidden_effect = {
 			FROM = {
 				character_event = { id = MNM.7003 }
-				clr_character_flag = approves_of_evil
+				clr_character_flag = approves_of_satanism
 			}
 		}
 		ai_chance = { factor = 100 }
@@ -397,19 +397,19 @@ character_event = {
 
 	#Too risky - Recruitment attempt ends
 	option = {
-		trigger = { FROM = { has_character_flag = approves_of_evil } }
+		trigger = { FROM = { has_character_flag = approves_of_satanism } }
 		name = EVTOPTB_7002
 		custom_tooltip = { text = EVTOPTB_7002_TT }
-		hidden_effect = { FROM = { clr_character_flag = approves_of_evil } }
+		hidden_effect = { FROM = { clr_character_flag = approves_of_satanism } }
 		ai_chance = { factor = 0 }
 	}
 
 	# The recruit refuses to question their god - Recruitment attempt ends
 	option = {
-		trigger = { FROM = { has_character_flag = disapproves_of_evil } }
+		trigger = { FROM = { has_character_flag = disapproves_of_satanism } }
 		name = EVTOPTC_7002
 		custom_tooltip = { text = EVTOPTB_7002_TT }
-		hidden_effect = { FROM = { clr_character_flag = disapproves_of_evil } }
+		hidden_effect = { FROM = { clr_character_flag = disapproves_of_satanism } }
 	}
 }
 
@@ -424,9 +424,9 @@ character_event = {
 
 	immediate = {
 		if = { 
-			limit = { NOT = { event_target:order_of_sauron_recruit = { always = yes } } }
-			FROMFROM = { save_event_target_as = order_of_sauron_recruiter }
-			save_event_target_as = order_of_sauron_recruit
+			limit = { NOT = { event_target:satanists_recruit = { always = yes } } }
+			FROMFROM = { save_event_target_as = satanists_recruiter }
+			save_event_target_as = satanists_recruit
 		}
 	}
 
@@ -444,7 +444,7 @@ character_event = {
 		}
 		
 		reverse_opinion = {
-			who = event_target:order_of_sauron_recruiter
+			who = event_target:satanists_recruiter
 			modifier = opinion_open_minded
 			years = 5
 		}
@@ -522,14 +522,14 @@ character_event = {
 		custom_tooltip = { text = EVTOPTB_7003_TT }
 
 		reverse_opinion = {
-			who = event_target:order_of_sauron_recruiter
+			who = event_target:satanists_recruiter
 			modifier = opinion_narrow_minded
 			years = 5
 		}
 
 		set_character_flag = unwilling_to_join
 		
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 
 
 		
@@ -620,11 +620,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 
 	desc = {
-		trigger = { event_target:order_of_sauron_recruiter = { society_member_of = order_of_sauron } } # Recruiter reveals symbol on their arm
+		trigger = { event_target:satanists_recruiter = { society_member_of = the_satanists } } # Recruiter reveals symbol on their arm
 		text = EVTDESC_MNM_7005
 	}
 	desc = {
-		trigger = { event_target:order_of_sauron_recruiter = { NOT = { society_member_of = order_of_sauron } } } 
+		trigger = { event_target:satanists_recruiter = { NOT = { society_member_of = the_satanists } } } 
 		text = EVTDESC_MNM_7005_ALT
 	}
 
@@ -701,7 +701,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_7005
 		custom_tooltip = { text = EVTOPTB_7005_TT }
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 
 		hidden_effect = { character_event = { id = MNM.6996 days = 1 } } # turn down the satanists
 
@@ -737,9 +737,9 @@ character_event = {
 		random_society_member = {
 			limit = {
 				society_rank >= 3
-				same_society_as = event_target:order_of_sauron_recruiter
+				same_society_as = event_target:satanists_recruiter
 			}
-			save_event_target_as = order_of_sauron_inductor 
+			save_event_target_as = satanists_inductor 
 		}
 	}
 
@@ -777,11 +777,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 
 	desc = {
-		trigger = { event_target:order_of_sauron_recruiter = { society_member_of = order_of_sauron } } 
+		trigger = { event_target:satanists_recruiter = { society_member_of = the_satanists } } 
 		text = EVTDESC_MNM_7009_A
 	}
 	desc = {
-		trigger = { event_target:order_of_sauron_recruiter = { NOT = { society_member_of = order_of_sauron } } } 
+		trigger = { event_target:satanists_recruiter = { NOT = { society_member_of = the_satanists } } } 
 		text = EVTDESC_MNM_7009_ALT
 	}
 
@@ -792,9 +792,11 @@ character_event = {
 	trigger = {
 		NOR = {
 			prisoner = yes
-			event_target:order_of_sauron_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+			event_target:satanists_recruiter = {
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -804,18 +806,20 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 } #notify broken chain
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+				event_target:satanists_recruiter = {
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.6995 } #notify broken chain
 			}
 			break = yes
@@ -895,11 +899,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 
 	desc = {
-		trigger = { event_target:order_of_sauron_inductor = { society_member_of = order_of_sauron } } # Recruiter reveals pentagram on their arm
+		trigger = { event_target:satanists_inductor = { society_member_of = the_satanists } } # Recruiter reveals pentagram on their arm
 		text = EVTDESC_MNM_7010_A
 	}
 	desc = {
-		trigger = { event_target:order_of_sauron_inductor = { NOT = { society_member_of = order_of_sauron } } } 
+		trigger = { event_target:satanists_inductor = { NOT = { society_member_of = the_satanists } } } 
 		text = EVTDESC_MNM_7010_ALT
 	}
 
@@ -910,9 +914,11 @@ character_event = {
 	trigger = {
 		NOR = {
 			prisoner = yes
-			event_target:order_of_sauron_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+			event_target:satanists_recruiter = {
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -922,18 +928,20 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 } #notify broken chain
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+				event_target:satanists_recruiter = {
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.6995 } #notify broken chain
 			}
 			break = yes
@@ -944,11 +952,11 @@ character_event = {
 	option = {
 		name = EVTOPTA_7010
 		if = {
-			limit = { event_target:order_of_sauron_inductor = { society_member_of = order_of_sauron } }
+			limit = { event_target:satanists_inductor = { society_member_of = the_satanists } }
 			custom_tooltip = { text = EVTOPTA_7010_TT_1 }
 		}
 		if = {
-			limit = { event_target:order_of_sauron_inductor = { NOT = { society_member_of = order_of_sauron } } }
+			limit = { event_target:satanists_inductor = { NOT = { society_member_of = the_satanists } } }
 			custom_tooltip = { text = EVTOPTA_7010_TT_1_ALT }
 		}
 
@@ -973,8 +981,8 @@ character_event = {
 			FROM = { character_event = { id = MNM.7020 days = 60 random = 20 } } #Fail 
 
 			if = {
-				limit = { event_target:order_of_sauron_recruiter = { always = yes } }
-				event_target:order_of_sauron_recruiter = { 
+				limit = { event_target:satanists_recruiter = { always = yes } }
+				event_target:satanists_recruiter = { 
 					set_character_flag = recruitment_fail
 					character_event = { id = MNM.7021 } #Tell original recruiter what happened (if there is one) OR grand master of cult?
 				}
@@ -995,18 +1003,18 @@ character_event = {
 
 	immediate = {
 		if = { 
-			limit = { NOT = { event_target:order_of_sauron_inductor = { always = yes } } }
+			limit = { NOT = { event_target:satanists_inductor = { always = yes } } }
 
 			random_society_member = {
 				limit = {
 					society_rank >= 3
-					same_society_as = event_target:order_of_sauron_recruiter
+					same_society_as = event_target:satanists_recruiter
 					prisoner = no
 				}
-				save_event_target_as = order_of_sauron_inductor 
+				save_event_target_as = satanists_inductor 
 			}
 		}
-		event_target:order_of_sauron_inductor = { 
+		event_target:satanists_inductor = { 
 			set_character_flag = event_MNM_7014
 			character_event = { id = MNM.7013 }
 		}
@@ -1050,9 +1058,11 @@ letter_event = {
 	trigger = {
 		NOR = {
 			prisoner = yes
-			event_target:order_of_sauron_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+			event_target:satanists_recruiter = {
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1062,18 +1072,21 @@ letter_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6995 } #notify broken chain
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_recruiter = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+				event_target:satanists_recruiter = {
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+						prisoner = yes
+					}
 				}
 			}
-			event_target:order_of_sauron_recruiter = { 
+			event_target:satanists_recruiter = { 
 				character_event = { id = MNM.6995 } #notify broken chain
 			}
 			break = yes
@@ -1085,26 +1098,26 @@ letter_event = {
 		custom_tooltip = { text = EVTOPTA_7014_TT }
 
 		hidden_effect = {
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				clr_character_flag = event_MNM_7014
 			}
 			if = {
 				limit = {
 					prefers_men_trigger = yes
-					has_character_flag = being_recruited_by_the_order_of_sauron
+					has_character_flag = being_recruited_by_the_satanists
 					any_society_member = {
-						society_member_of = order_of_sauron
+						society_member_of = the_satanists
 						is_female = no
 						is_attractive_trigger = yes
 					}
 				}
 				random_society_member = {
 					limit = {
-						society_member_of = order_of_sauron
+						society_member_of = the_satanists
 						is_female = no
 						is_attractive_trigger = yes
 					}
-					save_event_target_as = order_of_sauron_inductor
+					save_event_target_as = satanists_inductor
 					set_character_flag = event_MNM_7015
 					character_event = { id = MNM.7013 }
 					break = yes
@@ -1114,20 +1127,20 @@ letter_event = {
 			if = {
 				limit = {
 					prefers_men_trigger = no
-					has_character_flag = being_recruited_by_the_order_of_sauron
+					has_character_flag = being_recruited_by_the_satanists
 					any_society_member = {
-						society_member_of = order_of_sauron
+						society_member_of = the_satanists
 						is_female = yes
 						is_attractive_trigger = yes
 					}
 				}
 				random_society_member = {
 					limit = {
-						society_member_of = order_of_sauron
+						society_member_of = the_satanists
 						is_female = yes
 						is_attractive_trigger = yes
 					}
-					save_event_target_as = order_of_sauron_inductor
+					save_event_target_as = satanists_inductor
 					set_character_flag = event_MNM_7015
 					character_event = { id = MNM.7013 }
 					break = yes
@@ -1155,12 +1168,12 @@ letter_event = {
 					remove_trait = chaste
 					add_trait = lustful
 					add_trait = fair
-					save_event_target_as = order_of_sauron_inductor
+					save_event_target_as = satanists_inductor
 					set_character_flag = event_MNM_7015
 					ROOT = {
 						trigger_switch = {
 							on_trigger = has_character_flag
-							being_recruited_by_the_order_of_sauron = { PREV = { join_society = order_of_sauron } }
+							being_recruited_by_the_satanists = { PREV = { join_society = the_satanists } }
 							}
 					}
 					character_event = { id = MNM.7013 }
@@ -1187,12 +1200,12 @@ letter_event = {
 					remove_trait = chaste
 					add_trait = lustful
 					add_trait = fair
-					save_event_target_as = order_of_sauron_inductor
+					save_event_target_as = satanists_inductor
 					set_character_flag = event_MNM_7015
 					ROOT = {
 						trigger_switch = {
 							on_trigger = has_character_flag
-							being_recruited_by_the_order_of_sauron = { PREV = { join_society = order_of_sauron } }
+							being_recruited_by_the_satanists = { PREV = { join_society = the_satanists } }
 							}
 					}
 					character_event = { id = MNM.7013 }
@@ -1219,11 +1232,11 @@ character_event = {
 	border = GFX_event_normal_frame_intrigue
 
 	desc = {
-		trigger = { event_target:order_of_sauron_inductor = { society_member_of = order_of_sauron } } 
+		trigger = { event_target:satanists_inductor = { society_member_of = the_satanists } } 
 		text = EVTDESC_MNM_7015
 	}
 	desc = {
-		trigger = { event_target:order_of_sauron_inductor = { NOT = { society_member_of = order_of_sauron } } } 
+		trigger = { event_target:satanists_inductor = { NOT = { society_member_of = the_satanists } } } 
 		text = EVTDESC_MNM_7015_ALT
 	}
 
@@ -1232,9 +1245,11 @@ character_event = {
 	trigger = {
 		NOR = {
 			prisoner = yes
-			event_target:order_of_sauron_inductor = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+			event_target:satanists_inductor = {
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1244,18 +1259,20 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 } #notify broken chain
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+				event_target:satanists_inductor = {
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				character_event = { id = MNM.6993 } #notify broken chain
 			}
 			break = yes
@@ -1283,15 +1300,15 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = { is_alive = yes }
+				event_target:satanists_inductor = { is_alive = yes }
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				clr_character_flag = event_MNM_7015
 				set_character_flag = event_MNM_7016
 				character_event = { id = MNM.7013 }
@@ -1314,15 +1331,15 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = { is_alive = yes }
+				event_target:satanists_inductor = { is_alive = yes }
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				clr_character_flag = event_MNM_7017
 				set_character_flag = event_MNM_7018
 				character_event = { id = MNM.7013 } 
@@ -1345,15 +1362,15 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = { is_alive = yes }
+				event_target:satanists_inductor = { is_alive = yes }
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				clr_character_flag = event_MNM_7017
 				set_character_flag = event_MNM_7019
 				character_event = { id = MNM.7013 } 
@@ -1377,15 +1394,15 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 }
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = { is_alive = yes }
+				event_target:satanists_inductor = { is_alive = yes }
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				clr_character_flag = event_MNM_7016
 				set_character_flag = event_MNM_7017
 				character_event = { id = MNM.7013 } 
@@ -1401,11 +1418,11 @@ character_event = {
 	id = MNM.6993
 	desc = {
 		text = EVTDESCA_MNM_6993
-		trigger = { NOT = { has_character_flag = order_of_sauron_recruitment_end_unable } }
+		trigger = { NOT = { has_character_flag = dw_recruitment_end_unable } }
 	}
 	desc = {
 		text = EVTDESCB_MNM_6993
-		trigger = { has_character_flag = order_of_sauron_recruitment_end_unable }
+		trigger = { has_character_flag = dw_recruitment_end_unable }
 		picture = GFX_evt_into_the_dungeon
 	}
 	picture = GFX_evt_dark_prayer
@@ -1417,15 +1434,15 @@ character_event = {
 	option = {
 		name = {
 			text = EVTOPTA_MNM_6993
-			trigger = { NOT = { has_character_flag = order_of_sauron_recruitment_end_unable } }
+			trigger = { NOT = { has_character_flag = dw_recruitment_end_unable } }
 		}
 		name = {
 			text = EVTOPTB_MNM_6993
-			trigger = { has_character_flag = order_of_sauron_recruitment_end_unable }
+			trigger = { has_character_flag = dw_recruitment_end_unable }
 		}
 		custom_tooltip = { text = EVTTOOLTIP_MNM_6993 }
-		clr_character_flag = being_recruited_by_the_order_of_sauron
-		clr_character_flag = order_of_sauron_recruitment_end_unable
+		clr_character_flag = being_recruited_by_the_satanists
+		clr_character_flag = dw_recruitment_end_unable
 	}
 }
 
@@ -1441,9 +1458,11 @@ character_event = {
 	trigger = {
 		NOR = {
 			prisoner = yes
-			event_target:order_of_sauron_inductor = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+			event_target:satanists_inductor = {
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1453,18 +1472,20 @@ character_event = {
 			limit = {
 				prisoner = yes
 			}
-			set_character_flag = order_of_sauron_recruitment_end_unable
+			set_character_flag = dw_recruitment_end_unable
 			character_event = { id = MNM.6993 } #notify broken chain
 			break = yes
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_inductor = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+				event_target:satanists_inductor = {
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
-			event_target:order_of_sauron_inductor = { 
+			event_target:satanists_inductor = { 
 				character_event = { id = MNM.6993 } #notify broken chain
 			}
 			break = yes
@@ -1607,15 +1628,15 @@ character_event = {
 		#If original recruiter is still around, find Grand Master and have them send word of success to that original recruiter
 		hidden_effect = {
 			if = {
-				limit = { event_target:order_of_sauron_recruiter = { always = yes } }
-				event_target:order_of_sauron_recruiter = { set_character_flag = recruitment_success }
+				limit = { event_target:satanists_recruiter = { always = yes } }
+				event_target:satanists_recruiter = { set_character_flag = recruitment_success }
 
-				if = { limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
+				if = { limit = { has_character_flag = being_recruited_by_the_satanists }
 					random_society_member = {
 						limit = {
 							society_rank = {
 								rank == 4
-								society = order_of_sauron
+								society = the_satanists
 							}
 						}
 						save_event_target_as = grand_master
@@ -1630,8 +1651,8 @@ character_event = {
 		name = EVTOPTA_7018 # I wish you'd found me sooner
 
 		if = {
-			limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
-			join_society = order_of_sauron
+			limit = { has_character_flag = being_recruited_by_the_satanists }
+			join_society = the_satanists
 		}
 
 		if = { 
@@ -1639,11 +1660,11 @@ character_event = {
 		}
 
 		opinion = {
-			who = event_target:order_of_sauron_inductor
+			who = event_target:satanists_inductor
 			modifier = opinion_budding_romance
 		}
 
-		event_target:order_of_sauron_inductor = {
+		event_target:satanists_inductor = {
 			opinion = {
 				who = ROOT
 				modifier = opinion_budding_friendship
@@ -1651,18 +1672,18 @@ character_event = {
 		}
 
 		hidden_effect = {
-			clr_character_flag = being_recruited_by_the_order_of_sauron
+			clr_character_flag = being_recruited_by_the_satanists
 		}
 	}
 	option = {
 		name = EVTOPTB_7018 # this was a necessary evil
 
 		if = {
-			limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
-			join_society = order_of_sauron
+			limit = { has_character_flag = being_recruited_by_the_satanists }
+			join_society = the_satanists
 		}
 
-		event_target:order_of_sauron_inductor = {
+		event_target:satanists_inductor = {
 			opinion = {
 				who = ROOT
 				modifier = opinion_very_disappointed
@@ -1671,14 +1692,14 @@ character_event = {
 
 		hidden_effect = {
 			if = {
-				limit = { event_target:order_of_sauron_recruiter = { always = yes } }
-				event_target:order_of_sauron_recruiter = { set_character_flag = recruitment_success } #notify original recruiter
-				if = { limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
+				limit = { event_target:satanists_recruiter = { always = yes } }
+				event_target:satanists_recruiter = { set_character_flag = recruitment_success } #notify original recruiter
+				if = { limit = { has_character_flag = being_recruited_by_the_satanists }
 					random_society_member = {
 						limit = {
 							society_rank = {
 								rank == 4
-								society = order_of_sauron
+								society = the_satanists
 							}
 						}
 						save_event_target_as = grand_master
@@ -1686,7 +1707,7 @@ character_event = {
 				}
 				event_target:grand_master = { character_event = { id = MNM.7021 } }
 			}
-			clr_character_flag = being_recruited_by_the_order_of_sauron
+			clr_character_flag = being_recruited_by_the_satanists
 		}
 	}
 }
@@ -1716,15 +1737,15 @@ character_event = {
 		#If original recruiter is still around, find Grand Master and have them send word of failure to that original recruiter
 		hidden_effect = {
 			if = {
-				limit = { event_target:order_of_sauron_recruiter = { always = yes } }
-				event_target:order_of_sauron_recruiter = { set_character_flag = recruitment_fail }
+				limit = { event_target:satanists_recruiter = { always = yes } }
+				event_target:satanists_recruiter = { set_character_flag = recruitment_fail }
 				
-				if = { limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
+				if = { limit = { has_character_flag = being_recruited_by_the_satanists }
 					random_society_member = {
 						limit = {
 							society_rank = {
 								rank == 4
-								society = order_of_sauron
+								society = the_satanists
 							}
 						}
 						save_event_target_as = grand_master
@@ -1734,7 +1755,7 @@ character_event = {
 			}
 		}
 
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 	}
 
 	#Escape successfully
@@ -1781,7 +1802,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_7020
 		custom_tooltip = { text = EVTOPTA_7020_TT}
-		clr_character_flag = being_recruited_by_the_order_of_sauron
+		clr_character_flag = being_recruited_by_the_satanists
 	}
 }
 
@@ -1792,7 +1813,7 @@ character_event = {
 
 	is_triggered_only = yes
 
-	immediate = { event_target:order_of_sauron_recruiter = { letter_event = { id = MNM.7022 days = 5 } } }
+	immediate = { event_target:satanists_recruiter = { letter_event = { id = MNM.7022 days = 5 } } }
 }
 
 #Outcome of recruitment for the original recruiter (if there is one)
@@ -1844,16 +1865,16 @@ character_event = {
 					AND = {
 						is_in_society = no
 						OR = {
-							has_character_flag = being_recruited_by_the_order_of_sauron
+							has_character_flag = being_recruited_by_the_satanists
 						}
 					}
 				}
-				if = { limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
+				if = { limit = { has_character_flag = being_recruited_by_the_satanists }
 					random_society_member = {
 						limit = {
 							society_rank = {
 								rank == 4
-								society = order_of_sauron
+								society = the_satanists
 							}
 						}
 						save_event_target_as = grand_master
@@ -1862,8 +1883,8 @@ character_event = {
 				event_target:grand_master = { character_event = { id = MNM.7031 } }
 			}
 			#Devil Worshipers
-			clr_character_flag = approves_of_evil
-			clr_character_flag = disapproves_of_evil
+			clr_character_flag = approves_of_satanism
+			clr_character_flag = disapproves_of_satanism
 			clr_character_flag = has_ill_lover_loc
 			clr_character_flag = has_ill_spouse_loc
 			clr_character_flag = has_ill_child_loc
@@ -1895,7 +1916,7 @@ character_event = {
 letter_event = {
 	id = MNM.7032
 	desc = {
-		trigger = { FROM = { society_member_of = order_of_sauron } }
+		trigger = { FROM = { society_member_of = the_satanists } }
 		text = EVTDESC_MNM_7032_A
 	}
 	border = GFX_event_letter_frame_intrigue
@@ -1905,12 +1926,12 @@ letter_event = {
 	option = {
 		name = EVTOPTA_7032 #I will join
 		if = {
-			limit = { has_character_flag = being_recruited_by_the_order_of_sauron }
-			join_society = order_of_sauron
+			limit = { has_character_flag = being_recruited_by_the_satanists }
+			join_society = the_satanists
 		}
 
 		hidden_effect = {
-			clr_character_flag = being_recruited_by_the_order_of_sauron
+			clr_character_flag = being_recruited_by_the_satanists
 		}
 	}
 
@@ -1923,7 +1944,7 @@ letter_event = {
 			}
 		}
 		hidden_effect = {
-			clr_character_flag = being_recruited_by_the_order_of_sauron
+			clr_character_flag = being_recruited_by_the_satanists
 		}
 		ai_chance = { factor = 0 }
 	}
@@ -2649,7 +2670,7 @@ character_event = {
 			AND = { 
 				has_society_currency_minor_trigger = yes
 				NAND = {
-					has_quest = quest_order_of_sauron_corrupt_priest
+					has_quest = quest_devil_worshipers_corrupt_priest
 					quest_target = { character = event_target:corrupt_priest_target }
 				}
 			}
@@ -3019,7 +3040,7 @@ character_event = {
 				if = {
 					limit = {
 						NAND = {
-							has_quest = quest_order_of_sauron_corrupt_priest
+							has_quest = quest_devil_worshipers_corrupt_priest
 							quest_target = { character = event_target:corrupt_priest_target }
 						}
 					}
@@ -3028,10 +3049,10 @@ character_event = {
 				#If quest holder, clear quest and reward
 				if = {
 					limit = { 
-						has_quest = quest_order_of_sauron_corrupt_priest
+						has_quest = quest_devil_worshipers_corrupt_priest
 						quest_target = { character = event_target:corrupt_priest_target }
 					} 
-					clr_quest = quest_order_of_sauron_corrupt_priest
+					clr_quest = quest_devil_worshipers_corrupt_priest
 					sound_effect = devil_worshippers_corrupt_priest
 		
 					if = {
@@ -3136,9 +3157,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				has_quest = quest_order_of_sauron_corrupt_priest
+				has_quest = quest_devil_worshipers_corrupt_priest
 			}
-			clr_quest = { id = quest_order_of_sauron_corrupt_priest failure = yes } 
+			clr_quest = { id = quest_devil_worshipers_corrupt_priest failure = yes } 
 		}	
 	}
 }
@@ -3273,7 +3294,7 @@ character_event = {
 			AND = { 
 				has_society_currency_minor_trigger = yes
 				NAND = {
-					has_quest = quest_order_of_sauron_corrupt_priest
+					has_quest = quest_devil_worshipers_corrupt_priest
 					quest_target = { character = event_target:corrupt_priest_target }
 				}
 			}
@@ -3626,7 +3647,7 @@ character_event = {
 				if = {
 					limit = {
 						NAND = { 
-							has_quest = quest_order_of_sauron_corrupt_priest
+							has_quest = quest_devil_worshipers_corrupt_priest
 							quest_target = { character = event_target:corrupt_priest_target }
 						}
 					}
@@ -3635,10 +3656,10 @@ character_event = {
 				#If quest holder, clear quest and reward
 				if = {
 					limit = {
-						has_quest = quest_order_of_sauron_corrupt_priest
+						has_quest = quest_devil_worshipers_corrupt_priest
 						quest_target = { character = event_target:corrupt_priest_target }
 					} 
-					clr_quest = quest_order_of_sauron_corrupt_priest
+					clr_quest = quest_devil_worshipers_corrupt_priest
 					sound_effect = devil_worshippers_corrupt_priest
 		
 					if = {
@@ -4420,8 +4441,8 @@ character_event = {
 				leave_society = yes
 			}
 			if = {
-				limit = { ROOT = { society_member_of = order_of_sauron } }
-				join_society = order_of_sauron
+				limit = { ROOT = { society_member_of = the_satanists } }
+				join_society = the_satanists
 			}
 		}
 		
@@ -5701,17 +5722,17 @@ character_event = { #demonic impregnation
 		custom_tooltip = { text = EVTOPTA_MNM_7507_TOOLTIP }
 		hidden_effect = {
 			if = {
-				limit = { has_quest = quest_order_of_sauron_demonic_impregnation }
+				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
 				FROM = {
 					set_quest_target = {
-						id = quest_order_of_sauron_demonic_impregnation
+						id = quest_the_devil_worshipers_demonic_impregnation
 						holder = ROOT
 					}
 				}
 			}
 			FROM = {
 				impregnate = 0
-				set_character_flag = order_of_sauron_unholy_mother
+				set_character_flag = DW_unholy_mother
 			}
 		}
 	}
@@ -5724,20 +5745,29 @@ character_event = { #birth
 	
 	trigger = {
 		mother = {
-			has_character_flag = order_of_sauron_unholy_mother
+			has_character_flag = DW_unholy_mother
 		}
 	}
 	
 	immediate = {
-		random_list = {
-			50 = { set_character_flag = demon_child }
-			50 = { set_character_flag = demon_child_fake }
+		set_character_flag = demon_child_non_pagan
+		set_global_flag = demon_child_born
+		add_character_modifier = {
+			name = demon_child_non_pagan
+			hidden = yes
+			days = -1
 		}
+		remove_trait = sickly
+		character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
+		#random_list = {
+		#	50 = { set_character_flag = demon_child_non_pagan }
+		#	50 = { set_character_flag = demon_child_fake }
+		#}
 		mother = { 
-			clr_character_flag = order_of_sauron_unholy_mother 
+			clr_character_flag = DW_unholy_mother 
 			save_event_target_as = unholy_mother
 			any_quester_targeting_this = {
-				limit = { has_quest = quest_order_of_sauron_demonic_impregnation }
+				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
 				character_event = { id = MNM.7511 days = 10 }
 			}
 		}	
@@ -5750,7 +5780,7 @@ character_event = { #Announcement
     border = GFX_event_normal_frame_intrigue
 
     trigger = { 
-    	has_quest = quest_order_of_sauron_demonic_impregnation
+    	has_quest = quest_the_devil_worshipers_demonic_impregnation
     }
     
     desc = {
@@ -5767,14 +5797,14 @@ character_event = { #Announcement
     option = { 
         name = EVTOPTA_MNM_7511
            
-        clr_quest = quest_order_of_sauron_demonic_impregnation
+        clr_quest = quest_the_devil_worshipers_demonic_impregnation
 		if = {
 			limit = { FROM = { is_female = yes } }
-			sound_effect = devil_worshippers_impregnation_courtier_female_01
+			sound_effect = devil_worshippers_impregnation_courtier_female
 		}
 		if = {
 			limit = { FROM = { is_female = no } }
-			sound_effect = devil_worshippers_impregnation_courtier_male_01
+			sound_effect = devil_worshippers_impregnation_courtier_male
 		}
         add_society_currency_massive_effect = yes
     }
@@ -6035,7 +6065,7 @@ society_quest_event = {
 					holder_scope = { NOT = { character = ROOT } }
 					holder_scope = { NOT = { same_society_as = ROOT } }
 				}
-				save_event_target_as = order_of_sauron_desecration_target
+				save_event_target_as = dw_desecration_target
 			}
 		}
 
@@ -6054,18 +6084,18 @@ society_quest_event = {
 					holder_scope = { religion = ROOT }
 					holder_scope = { NOT = { same_society_as = ROOT } }
 				}
-				save_event_target_as = order_of_sauron_desecration_target
+				save_event_target_as = dw_desecration_target
 			}
 		}
 	}
 
-	quest_target = event_target:order_of_sauron_desecration_target
+	quest_target = event_target:dw_desecration_target
 
 	option = {
 		name = ACCEPT
-		event_target:order_of_sauron_desecration_target = {
+		event_target:dw_desecration_target = {
 			set_quest_target = {
-				id = quest_order_of_sauron_desecrate_temple
+				id = quest_devil_worshipers_desecrate_temple
 				holder = ROOT
 			}
 		}
@@ -6096,7 +6126,7 @@ character_event = {
 		FROM = {
 			is_quest_target_of = ROOT
 		}
-		has_quest = quest_order_of_sauron_desecrate_temple
+		has_quest = quest_devil_worshipers_desecrate_temple
 		prisoner = no
 		NOT = { is_inaccessible_trigger = yes }
 		NOT = { trait = incapable }
@@ -6105,7 +6135,7 @@ character_event = {
 	desc = EVTDESC_MNM_7111
 
 	immediate = {
-		FROM = { save_event_target_as =  order_of_sauron_desecration_target}
+		FROM = { save_event_target_as =  dw_desecration_target}
 		set_character_flag = desecration_in_progress
 	}
 
@@ -6141,7 +6171,7 @@ character_event = {
 			limit = {
 				is_quest_target_of = ROOT
 			}
-			save_event_target_as =  order_of_sauron_desecration_target
+			save_event_target_as =  dw_desecration_target
 		}
 	}
 
@@ -6163,11 +6193,11 @@ character_event = {
 
 	trigger = {
 		is_devil_worshiper_trigger = yes
-		has_quest = quest_order_of_sauron_desecrate_temple
+		has_quest = quest_devil_worshipers_desecrate_temple
 	}
 
 	immediate = {
-		event_target:order_of_sauron_desecration_target = {
+		event_target:dw_desecration_target = {
 			holder_scope = {
 				if = {
 					limit = { is_abroad = no }
@@ -6237,7 +6267,7 @@ character_event = {
 		}
 		tooltip_info = martial
 		name = EVTOPT_MNM_7113_MARTIAL
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		event_target:desecration_holder = {
 			if = {
 				death = {
@@ -6257,7 +6287,7 @@ character_event = {
 		}
 		tooltip_info = intrigue
 		name = EVTOPT_MNM_7113_INTRIGUE
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		event_target:desecration_holder = {
 			death = {
 				death_reason = death_sacrificed
@@ -6323,7 +6353,7 @@ character_event = {
 
 	trigger = {
 		is_devil_worshiper_trigger = yes
-		has_quest = quest_order_of_sauron_desecrate_temple
+		has_quest = quest_devil_worshipers_desecrate_temple
 	}
 
 	desc = {
@@ -6374,7 +6404,7 @@ character_event = {
 		name = EVTOPTB_MNM_7114
 		
 		clr_quest = {
-			id = quest_order_of_sauron_desecrate_temple
+			id = quest_devil_worshipers_desecrate_temple
 			failure = yes
 		}
 
@@ -6397,12 +6427,12 @@ character_event = {
 
 	trigger = {
 		is_devil_worshiper_trigger = yes
-		has_quest = quest_order_of_sauron_desecrate_temple
+		has_quest = quest_devil_worshipers_desecrate_temple
 	}
 
 	desc = {
 		trigger = {
-			event_target:order_of_sauron_desecration_target = {
+			event_target:dw_desecration_target = {
 				is_rich_holding = no
 			}
 		}
@@ -6411,7 +6441,7 @@ character_event = {
 
 	desc = {
 		trigger = {
-			event_target:order_of_sauron_desecration_target = {
+			event_target:dw_desecration_target = {
 				is_rich_holding = yes
 				is_richer_holding = no
 			}
@@ -6422,7 +6452,7 @@ character_event = {
 
 	desc = {
 		trigger = {
-			event_target:order_of_sauron_desecration_target = {
+			event_target:dw_desecration_target = {
 				is_rich_holding = yes
 				is_richer_holding = yes
 			}
@@ -6438,10 +6468,10 @@ character_event = {
 		}
 		name = EVTOPT_MNM_7116_STEWARDSHIP
 		tooltip_info = stewardship
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = no
 					is_richer_holding = no
 				}
@@ -6452,7 +6482,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = yes
 					is_richer_holding = no
 				}
@@ -6463,7 +6493,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = yes
 					is_richer_holding = yes
 				}
@@ -6482,7 +6512,7 @@ character_event = {
 		}
 		tooltip_info = learning
 		name = EVTOPT_MNM_7116_LEARNING
-		add_society_currency_major_effect = yes
+		add_society_currency_medium_effect = yes
 		character_event = { id = MNM.7117 days = 4 }
 	}
 	option = {
@@ -6490,7 +6520,7 @@ character_event = {
 
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = no
 					is_richer_holding = no
 				}
@@ -6501,7 +6531,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = yes
 					is_richer_holding = no
 				}
@@ -6512,7 +6542,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				event_target:order_of_sauron_desecration_target = {
+				event_target:dw_desecration_target = {
 					is_rich_holding = yes
 					is_richer_holding = yes
 				}
@@ -6528,7 +6558,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_MNM_7116
 
-		add_society_currency_minor_effect = yes
+		add_society_currency_trivial_effect = yes
 
 		character_event = { id = MNM.7117 days = 4 }
 	}
@@ -6544,7 +6574,7 @@ character_event = {
 
 	trigger = {
 		is_devil_worshiper_trigger = yes
-		has_quest = quest_order_of_sauron_desecrate_temple
+		has_quest = quest_devil_worshipers_desecrate_temple
 	}
 
 	desc = {
@@ -6561,10 +6591,10 @@ character_event = {
 		trigger = { has_character_flag = desecration_violent }
 		name = EVTOPT_MNM_7117_VIOLENT
 		
-		clr_quest = quest_order_of_sauron_desecrate_temple
-		add_society_currency_medium_effect = yes
+		clr_quest = quest_devil_worshipers_desecrate_temple
+		add_society_currency_minor_effect = yes
 		
-		event_target:order_of_sauron_desecration_target = {
+		event_target:dw_desecration_target = {
 			add_holding_modifier = {
 				name = desecrated_temple
 				years = 5
@@ -6579,7 +6609,7 @@ character_event = {
 		
 		hidden_effect = {
 			clr_character_flag = desecration_violent
-			sound_effect = devil_worshippers_desecrate_temple_01
+			sound_effect = devil_worshippers_desecrate_temple
 			random = {
 				chance = 50
 				minor_soul_corruption_effect = yes
@@ -6595,10 +6625,10 @@ character_event = {
 		trigger = { has_character_flag = desecration_plotting }
 		name = EVTOPT_MNM_7117_PLOTTING
 
-		clr_quest = quest_order_of_sauron_desecrate_temple
+		clr_quest = quest_devil_worshipers_desecrate_temple
 		add_society_currency_medium_effect = yes
 
-		event_target:order_of_sauron_desecration_target = {
+		event_target:dw_desecration_target = {
 			add_holding_modifier = {
 				name = desecrated_temple
 				years = 5
@@ -6614,7 +6644,7 @@ character_event = {
 		
 		hidden_effect = {
 			clr_character_flag = desecration_violent
-			sound_effect = devil_worshippers_desecrate_temple_01
+			sound_effect = devil_worshippers_desecrate_temple
 			clr_character_flag = desecration_in_progress
 			random = {
 				chance = 50
@@ -6718,7 +6748,7 @@ society_quest_event = {
 		}
 		event_target:corrupt_priest_mission_target = {
 			set_quest_target = {
-				id = quest_order_of_sauron_corrupt_priest
+				id = quest_devil_worshipers_corrupt_priest
 				holder = ROOT
 			}
 		}
@@ -6772,19 +6802,19 @@ society_quest_event = {
 
 		if = {
 			limit = { has_character_flag = sacrifice_ruler }
-			set_quest = quest_order_of_sauron_sacrifice_ruler	
+			set_quest = quest_the_devil_worshipers_sacrifice_ruler	
 		}
 		if = {
 			limit = { has_character_flag = sacrifice_holy_person }
-			set_quest = quest_order_of_sauron_sacrifice_holy_person
+			set_quest = quest_the_devil_worshipers_sacrifice_holy_person
 		}
 		if = {
 			limit = { has_character_flag = sacrifice_virgin }
-			set_quest = quest_order_of_sauron_sacrifice_virgin
+			set_quest = quest_the_devil_worshipers_sacrifice_virgin
 		}
 		if = {
 			limit = { has_character_flag = sacrifice_dwarf }
-			set_quest = quest_order_of_sauron_sacrifice_dwarf
+			set_quest = quest_the_devil_worshipers_sacrifice_dwarf
 		}
 	}
 
@@ -6832,7 +6862,7 @@ society_quest_event = {
 
 	option = {
 		name = ACCEPT 
-		set_quest = quest_order_of_sauron_demonic_impregnation
+		set_quest = quest_the_devil_worshipers_demonic_impregnation
 	}
 
 	option = {
@@ -6895,7 +6925,7 @@ society_quest_event = {
 		
 		event_target:demonic_possession_mission_target = {
 			set_quest_target = {
-				id = quest_order_of_sauron_demonic_possession
+				id = quest_the_devil_worshipers_demonic_possession
 				holder = ROOT
 			}
 		}
@@ -7006,17 +7036,17 @@ character_event = {
 		#If quest holder, clear quest and reward
 		if = {
 			limit = {
-				has_quest = quest_order_of_sauron_demonic_possession
+				has_quest = quest_the_devil_worshipers_demonic_possession
 				quest_target = { character = event_target:possess_courtier_target }
 			} 
-			clr_quest = quest_order_of_sauron_demonic_possession
+			clr_quest = quest_the_devil_worshipers_demonic_possession
 			if = {
 				limit = { FROM = { is_female = yes } }
-				sound_effect = devil_worshippers_demonic_possession_female_01
+				sound_effect = devil_worshippers_demonic_possession_female
 			}
 			if = {
 				limit = { FROM = { is_female = no } }
-				sound_effect = devil_worshippers_demonic_possession_male_01
+				sound_effect = devil_worshippers_demonic_possession_male
 			}
 			add_society_currency_medium_effect = yes
 		}
@@ -7054,11 +7084,11 @@ character_event = {
 		custom_tooltip = { text = EVTOPTA_MNM_7844_TOOLTIP }
 		if = {
 			limit = {
-				has_quest = quest_order_of_sauron_demonic_possession
+				has_quest = quest_the_devil_worshipers_demonic_possession
 				quest_target = { character = FROM }
 			}
 			clr_quest = {
-				id = quest_order_of_sauron_demonic_possession
+				id = quest_the_devil_worshipers_demonic_possession
 				failure = yes
 			}
 		}
@@ -7086,11 +7116,11 @@ character_event = {
 		custom_tooltip = { text = EVTOPTA_MNM_7845_TOOLTIP }
 		if = {
 			limit = {
-				has_quest = quest_order_of_sauron_demonic_possession
+				has_quest = quest_the_devil_worshipers_demonic_possession
 				quest_target = { character = FROM }
 			}
 			clr_quest = {
-				id = quest_order_of_sauron_demonic_possession
+				id = quest_the_devil_worshipers_demonic_possession
 				failure = yes
 			}
 		}
@@ -8022,7 +8052,7 @@ character_event = {
 		text = EVTDESC_MNM_20014
 		picture = GFX_evt_stone_church
 		trigger = {
-			society_member_of = order_of_sauron
+			society_member_of = the_satanists
 		}
 	}
 
@@ -9815,8 +9845,7 @@ narrative_event = {
 					duration = -1
 				}
 			}
-			
-			if = {
+			else_if = {
 				limit = { has_character_modifier = suspected_witch }
 				remove_character_modifier = suspected_witch
 				add_character_modifier = {
@@ -11705,10 +11734,11 @@ character_event = {
 
     trigger = {
 	    has_dlc = "Mystics"
-    	is_devil_worshiper_trigger = yes
+    	#is_devil_worshiper_trigger = yes
     	OR = {
    			has_character_modifier = known_satanist
    			has_character_flag = was_ratted_out_by_fellow_member
+			has_character_flag = has_it_coming
     	}
     }
 	
@@ -11725,6 +11755,10 @@ character_event = {
 		modifier = {
 			factor = 2
 			independent = yes
+		}
+		modifier = {
+			factor = 2
+			is_devil_worshiper_trigger = yes
 		}
 	}
 	
@@ -11891,6 +11925,7 @@ character_event = {
     }
     after = {
 		character_event = { id = MNM.7855 }
+		clr_character_flag = has_it_coming
     }
 }
 
@@ -11906,7 +11941,6 @@ character_event = {
 
     trigger = {
     	has_dlc = "Mystics"
-    	is_devil_worshiper_trigger = yes
     	OR = {
    			has_character_modifier = known_satanist
    			has_character_flag = was_ratted_out_by_fellow_member
