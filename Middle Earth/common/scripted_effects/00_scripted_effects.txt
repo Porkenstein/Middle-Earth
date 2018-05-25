@@ -2219,12 +2219,7 @@ prisoner_mutilate_effect = {
 	random = {
 		chance = 20
 		if = {
-				limit = {
-					NOR = {
-						trait = craven
-						# trait = berserker
-					}
-				}
+				limit = { NOT = { trait = craven  } }
 				add_trait = craven
 				hidden_tooltip = { character_event = { id = 38257 } }
 			}
@@ -2267,12 +2262,7 @@ prisoner_mutilate_effect = {
 jailor_mutilate_effect = {
 	
 	if = {
-		limit = {
-			NOR = {
-				trait = craven
-				# trait = berserker
-			}
-		}
+				limit = { NOT = { trait = craven  } }
 		random = {
 			chance = 20
 			add_trait = craven
@@ -2323,12 +2313,7 @@ prisoner_torture_effect = {
 		}
 		10 = {
 			if = {
-				limit = {
-					NOR = {
-						trait = craven
-						# trait = berserker
-					}
-				}
+				limit = { NOT = { trait = craven  } }
 				add_trait = craven
 				hidden_tooltip = { character_event = { id = 38257 } }
 			}
@@ -2359,11 +2344,11 @@ jailor_torture_effect = {
 			}
 		10 = {
 			if = {
-				limit = { OR = { trait = craven #trait = berserker } }
+				limit = { NOT = { trait = craven  } }
 				health = -0.5
 			}
 			if = {
-				limit = { NOR = { trait = craven #trait = berserker } }
+				limit = { NOT = { trait = craven  } }
 				add_trait = craven
 			}
 		}
