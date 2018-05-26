@@ -1,0 +1,6072 @@
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+
+CHANGELOG 'Extraits' du Mini-Mod "Historical Deaths" For MEP, a Mod of CK2.
+
+!!!!! by Spartaneros !!!!!
+
+££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+***** TO READ  *****					***** TO READ  *****					***** TO READ  *****
+
+
+ - Sorry for my english, I use REVERSO ! ^^  : 
+
+ - This work was made on the old version of the mod MEP
+
+ - Below, you can see the modifications which I made, file by file.
+ 
+ - I began to work on the Third Age but when I understood the size of the task, I decided to begin with 
+   the First and Second Age at first.
+ 
+ - I have to add some of the deaths ""history"" to characters who died in the corresponding dates.
+
+ - If you do not agree with one of my modifications do not hesitate to speak to me about it, I am available.
+
+ - I have to meet a problem with this character: Huinen (ID=3406), he "refuses" to die in a desired way. 
+I added him the line "depressed" to explain its death which remains "natural" whatever I was able to make ... .
+
+ - !!! Please, look and use ONLY the parts "death" of the characters, because I have make other personal modifications 
+ on certain characters. !!!
+
+ - 1) Problem with this character  : Gorgol , (ID=11139) It was specified that he was killed by Beren 4822 but Beren died 4816.
+Then for the moment, I took the freedom to make him die against Tuor ( ID=15206) in 4822 as indicated, To avoid an imbalance.
+
+  2) But I have already prepared the modifications to change it and make it die as the history wants him in Dorthonion, 
+	probably in the battle of Dagor Bragollach against Beren (Beren in 23 years at this moment, it corresponds). 
+I would need your authorization for it, because it will be necessary to add one or two characters for not that the son 
+	of Gorgol reaches an age of 925 years.
+	
+ - If I was not understandable with my English of REVERSO please tell it to me, thank you ! :).
+
+ 
+***** TO READ *****					***** TO READ  *****					***** TO READ  *****
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+'Extraits' du Mini-Mod "Historical Deaths" de Spartaneros :
+
+§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+
+
+
+
+!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!	!!!!!
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "9000-10000 Northmen" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+
+_______________________________________________________________________
+
+Girion, tué par Smaug, ajout de mort ! 
+
+ID = 9900 (girion de dale )
+
+	11113.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10068
+		}
+	} # Slain by Smaug
+}
+
+_________________________________________________________
+
+10320 !!! liste des tués par Scatha :  1
+
+ID = 9027 , 9070 , 9046 
+
+	10320.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
+}
+
+___________________________________________________________
+
+10276 !!! liste des tués par Scatha :  2
+
+ID = 9026 , 9045
+
+	10276.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
+}
+
+_________________________________________________________
+
+10285 !!!  tués par scatha : 3
+
+ID = 9106
+
+	10285.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
+}
+
+___________________________________________________________________________
+
+
+tué en bataille contre wainrider Tokhataman .
+
+Marhari :   ID =  9024
+
+	10199.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 5092
+		}
+	} # Slain by wainriders
+}
+
+__________________________________________________________________________
+
+************************************
+******************************
+
+fichier "9000-10000 Northmen" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "3001-4000 Elvish" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+____________________________________________________________________________________
+
+changement de DNA et PROPERTIES pour elrond :  ( exemple pris sur elros, le jumeau ressemblera au jumeau. )
+
+3003 = {
+	name = "Elrond"
+	dynasty = 3002
+	dna = "dkamg0moaa0"
+  	properties = "cd0iefbe00b"
+	
+
+________________________________________________________________________________________________
+
+	- changement de nom en ajout 'Roi' et 'de Doriath' et changement de mort, 
+	- ajout du trait 'brave' et du ' nauglamir ' et 'barahir' (l'anneau) 
+	- changement de DNA et PROPERTIES pour Dior aranael :  ( exemple pris sur elros )
+	-changement de mort. 
+		
+		
+3116 = {
+	name = "Roi Dior Aranel Eluchíl de Doriath"
+	dynasty = 3002
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+
+	add_trait = half_elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = brave
+	add_trait = legendary_warrior
+	add_trait = nauglamir
+	add_trait = barahir
+
+	father = 15165
+	mother = 3115
+
+	dna = "dkamg0moaa0"
+  	properties = "cd0iefbe00b"
+
+	4782.1.1 = {
+		birth = "4782.1.1"
+	}
+	4804.1.1 = {
+		add_spouse = 3125
+	}
+	4819.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3239
+		}
+	} #Slain in the Sack of Doriath
+}
+
+___________________________________________________
+
+
+changement de mort : (femme de Dior ) 
+
+3125 = {
+	name = "Nimloth"
+	dynasty = 3003
+	female = yes
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+	add_trait = elf
+	add_trait = fair
+	father = 3124
+	3322.1.1 = {
+		birth = "3322.1.1"
+	}
+	4819.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3239
+		}
+	} #Slain in the Sack of Doriath
+}
+
+______________________________________________________________________________________________
+
+ajout de mort en duel contre sauron pour Gil-Galad : 
+
+ID = 3139
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} #Slain in duel by sauron
+}
+
+___________________________________________________________________________________
+
+		
+	ID = 3248	= Celebrimbor
+	
+	changement de type de mort 
+	
+		6599.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} #Slain sauron
+}
+
+---------
+
+ID = 3410 = Istiel, FILLE ? de Celebrimbor  , changement mort et de sexe ! (0_0) 
+
+3410 = {
+	name = "Istiel"
+	female=yes
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	add_trait = elf
+	add_trait = fair
+	add_trait = fashionable
+	add_trait = quick
+	add_trait = temperate
+	add_trait = diligent
+	father = 3248
+	mother = 3409
+	4780.1.1 = {
+		birth = "4780.1.1"
+	}
+	6599.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10016
+		} #Slain by sauron
+	} 
+}
+
+----------
+
+Femme de Celebrimbor : ajout de mort executée par sauron : 
+
+3409 = {
+	name = "Astariel"
+	female = yes
+	dynasty = 3004
+etccccccccccccccccc
+
+	6599.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10016
+		}
+	} #Slain sauron in the war of elve
+}
+
+__________________________________________________________________________
+
+
+pour Telufinwë nos amborn "fils de feanor" : Le supprimer car il est le même personnage qu'Amras déjà présent , il 
+s'agit du même personnage avec deux noms différents juste. 
+
+SUPPRIMER PUREMENT ET SIMPLEMENT CE PERSONNAGE enlever sa ligne de code.
+
+3246 = {									
+	name = "Telufinwë Umbarto"
+	dynasty = 3054
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+		ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+______________________________________________________________________________
+		
+
+Elros , tar minyatur ajout du trait anneau de barahir :   ( CE PERSONNAGE SERRA DE NOUVEAU MODIFIER !!! )
+
+3004 = {
+	name = "Elros"
+	dynasty = 3002
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	add_trait = barahir
+		
+____________________________________________________________________________________
+
+		
+- changement de nom à cet endroit et année :  977.1.1 (Elu Thingol)
+- changement de mort aussi , assassiné par le seigneur nain de nogrod :  4241 (assassin ) 
+- vérifier autres modifs .
+
+3056 = {
+	name = "Elwë Singollo"
+	dynasty = 3012
+	religion = "religion_moriquendi"
+	culture = "culture_nelyar"
+
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = midas_touched
+	add_trait = inspiring_leader
+	add_trait = legendary_warrior
+	
+	father = 3016
+	mother = 3017
+
+  	dna = "dhamg0bgfa0"
+  	properties = "jm0aefbe00b"
+
+	95.1.1 = {
+		birth = "95.1.1"
+	}
+	527.1.1 = {
+		culture = "culture_teleri"
+		dynasty = 3009
+		add_trait = light_valinor
+	}
+	977.1.1 = {
+		name = "Roi Elu Thingol de Doriath"
+		culture = "culture_sindar"
+		give_nickname = nick_greymantle
+		add_trait = nauglamir
+		add_spouse = 10017
+	} #Elwë marries Melian and establishes Doriath
+	4814.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 4241
+		} #Slain by dwarf nogrod
+	} 
+}
+
+___________________________________________________________________________________
+
+
+ajout du trait nauglamir que beren récuppéra pour elle. et changement date de mort ( comme beren , 1 an + tard ) 
+
+3115 = {
+	name = "Lúthien Tinúviel"
+	dynasty = 3009
+	female = yes
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+
+	disallow_random_traits = yes
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = great_elf
+	add_trait=nauglamir
+
+	father = 3056
+	mother = 10017
+
+  	dna = "bmhaj0mgac0"
+  	properties = "jf0eekbe00b"
+
+	1437.1.1 = {
+		birth = "1437.1.1"
+	}
+	4816.1.1 = {
+		death = "4816.1.1"
+	} #on Tol Galen
+}
+
+_______________________________________________________________________________________
+
+Earendil, remplacer le trait silmaril par le nauglamir : 
+
+3001 = {
+	name = "Eärendil"
+	dynasty = 3001
+
+ICI : 
+
+	}
+	4854.1.1 = {
+		add_trait = sailed_west
+		add_trait = nauglamir
+		add_trait = vingilot
+		remove_trait = half_elf
+		add_trait = elf
+		employer = 10001
+	}
+}
+
+___________________________________________________________________________________
+
+changement de mort tué par sauron et changement de prénom à cette date : 4312
+
+3146 = {
+	name = "Artafinde Findaráto" ## Finrod Felagund
+	dynasty = 3004
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+ICI : 
+	
+	4312.1.1 = {
+		name = "Roi Finrod Felagund de Nargothrond"
+		remove_trait = sailed_west
+	}
+	4777.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} #Slain by sauron in Tol-in-Gaurhoth
+}
+
+-------------------
+
+frère du précédent :  ajout de mort en bataille contre glaurung, et changement de prénom à cette date : 
+ajout du trait NAUGLAMIR aussi. 
+
+3148 = {
+	name = "Artanáro Artaresto" ## Orodreth
+	dynasty = 3004
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	disallow_random_traits = yes
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = sailed_west
+	add_trait = charismatic_negotiator
+	add_trait = just
+	add_trait = kind
+	add_trait = legendary_warrior
+	add_trait = light_valinor
+	add_trait = nauglamir
+	
+	father = 3145
+	mother = 3143
+
+  	dna = "ajame0jgac0"
+  	properties = "jb0eehbe00b"
+
+	2539.1.1 = {
+		birth = "2539.1.1"
+	}
+	3497.1.1 = {
+		add_spouse = 3149
+	}
+	4312.1.1 = {
+		name = "Roi Orodreth de Nargothrond"
+		remove_trait = sailed_west
+	}
+	4807.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10066
+		}
+	} #Slain in battle by glaurung
+}
+
+-------------------
+
+fille du précédent : Finduilas  , morte assassinée par Glaurung 
+
+3150 = { 
+	name = "Findëúlëa"  ## Finduilas
+	female = yes
+	dynasty = 3004
+
+	LA : 
+	
+	4808.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10066
+		} #Slain by orc of glaurung
+	} 
+}
+
+_______________________________________________________________________________________________
+
+Changement de mort pour mort dans LA BATAILLE contre morgoth des larmes innombrables (Nirnaeth Arnoediad)
+pour  les ID SUIVANT :   
+
+Elfe : 	3138 .
+
+	4784.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Nirnaeth Arnoediad vs morgoth
+}
+
+_______________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort DANS LA BATAILLE de Dagor Bragollach ( la flamme subite ) pour 
+les ID SUIVANT :
+					
+Elfe :  3066 , 3078 , 3082 , 3084 , 3088 , 3089 , 3111 , 3114 , 3152 , 3156 , 3175 , 3198 ,
+			3206 , 3207 , 3224 , 3319 , 3320 ,  VERIFIER L'HISTOIRE DE CES ID !!!!!! 
+
+			
+	4767.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth battle
+}
+
+_____________________________________________________________________________
+
+
+Celegorm nos Feanor !!!
+changement de mort pour tué par Dior et changement de nom en 4282 pour 'Co-Roi d'Himlad'
+
+3241 = {
+	name = "Turcafinwë Tyelcormo" ## Celegorm
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	etc..............
+	
+	4282.1.1 = {
+		name = "Co-Roi Celegorm d'Himlad"
+		remove_trait = sailed_west
+		add_trait = oath_of_feanor		
+	}
+	4818.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3116
+		}
+	} #Slain Dior in the Sack of Doriath
+}
+
+
+__________________
+
+Caranthir  Nos Feanor ! 
+changement de mort pour tué par Dior et CHANGEMENT de nom en 4282 pour 'ROI de Thargelion'
+
+3242 = {
+	name = "Morifinwë Carnistir" ## Caranthir
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	etc . . . . .  . . . . .  . . . 
+	
+	4282.1.1 = {
+		name = "Roi Caranthir de Thargelion"
+		remove_trait = sailed_west
+		add_trait = oath_of_feanor		
+	}
+	4818.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3116
+		}
+	} #Slain Dior in the Sack of Doriath
+}
+
+_________________
+
+Curufin nos Feanor !!!
+ !!! changement de mort pour tué par Dior et CHANGEMENT de nom en 4282 pour 	name = "Co-Roi Curufin d'Himlad" !!!!
+
+3243 = {
+	name = "Curufinwë Atarincë" ## Curufin
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	etc .....       .........         ..........      ........
+
+	4282.1.1 = {
+		name = "Co-Roi Curufin d'Himlad"
+		remove_trait = sailed_west
+		add_trait = oath_of_feanor
+		add_trait = angrist		
+	}
+	4818.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3116
+		}
+	} #Slain Dior in the Sack of Doriath
+}
+
+_____________
+
+Amrod nos Feanor !!!
+
+ !!! changement de mort pour tué en BATAILLE contre Earendil  et CHANGEMENT de nom en 
+ 4282 pour 	" Co-Roi Amrod de Beleriand Oriental " 
+
+3244 = {
+	name = "Pityafinwë Ambarussa" ## Amrod
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	
+ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC ETC
+	
+	4282.1.1 = {
+		name = "Co-Roi Amrod de Beleriand Oriental"
+		remove_trait = sailed_west
+		add_trait = oath_of_feanor		
+	}
+	4850.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3001
+		}
+	} #slain earendil in sirion
+}
+
+_____________
+
+Amras nos Feanor !!!
+ !!! changement de mort pour tué en BATAILLE contre Earendil  et CHANGEMENT de nom en 
+ 4282 pour 	" Co-Roi Amrod de Beleriand Oriental " 
+ 
+ 3245 = {
+	name = "Otsëafinwë Russandol"## Amras
+	dynasty = 3007
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC !!!	
+
+	4282.1.1 = {
+		name = "Co-Roi Amras de Beleriand Oriental"
+		remove_trait = sailed_west
+		add_trait = oath_of_feanor		
+	}
+	4850.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3001
+		}
+	} #slain earendil in sirion
+}
+___________________________________________________________________________________________________________________________
+
+changement de type de mort ! 
+
+3112 = {
+	name = "Saeros"
+	dynasty = 3038
+	religion = "religion_moriquendi"
+	culture = "culture_laegrim"
+	father = 3110
+	mother = 3111
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	3162.1.1 = {
+		birth = "3162.1.1"
+	}
+	4796.1.1 = {
+		death = {
+			death_reason = death_accident
+			killer = 15203
+		}
+	} # killed by Túrin out of anger
+}
+
+__________________________________________________________________________________
+
+changement de mort !!! en bataille au  1er sac de Menegroth
+
+3181 = {
+	name = "Mablung"
+	dynasty = 3022
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = nauglamir
+	add_trait = skilled_tactician
+	add_trait = inspiring_leader
+	add_trait = legendary_warrior
+	father = 3066
+	mother = 3077
+	1802.1.1 = {
+		birth = "1802.1.1"
+	}
+	4815.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 4241
+		}
+	} Slain by dwarf in the Sack of Menegroth
+}
+
+_____________________________________________________________________________
+
+ajout du titre 'Haut-Roi' et de  'd'Alqualondë'
+
+3070 = {
+	name = "Olwë"
+	dynasty = 3012
+	religion = "religion_moriquendi"
+	culture = "culture_nelyar"
+
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+
+	father = 3016
+	mother = 3017
+
+  	dna = "dhmmg0lgfa0"
+  	properties = "jl0aefbe00b"
+
+	195.1.1 = {
+		birth = "195.1.1"
+	}
+	527.1.1 = {
+		culture = "culture_teleri"
+		dynasty = 3013
+	}
+	968.1.1 = {
+		culture = "culture_falmari"
+		name = "Haut-Roi Olue d'Alqualondë"
+		add_trait = sailed_west
+		add_trait = light_valinor
+		employer = 10001
+	} #Olwë and the greater part of the Teleri arrive in Valinor
+	1073.1.1 = {
+		add_spouse = 3080
+	}
+}
+
+________________________________________________________________________
+
+Ajout de titre 'Co-Roi' et de de Dorthonion en 4312 et de la mort in Dagor Bragollach morgoth battle en 4767
+
+3151 = {
+	name = "Angaráto" ## Angrod
+	dynasty = 3004
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	.......
+	
+	4312.1.1 = {
+		name = "Co-Roi Angrod de Dorthonion"
+		remove_trait = sailed_west
+	}
+	4767.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth battle
+}
+
+___________
+
+le frère , Ajout de titre 'Co-Roi' et de de Dorthonion en 4312
+ et de la mort in Dagor Bragollach morgoth battle en 4767
+
+3155 = {
+	name = "Ambaráto Aicanáro"  ## Aegnor 
+	dynasty = 3004
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+
+	4312.1.1 = {
+		name = "Co-Roi Aegnor de Dorthonion"
+		remove_trait = sailed_west
+	}
+	4767.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth battle
+}
+
+______________________________________________________________________________________________________________________
+
+mort en bataille contre glaurung : 
+
+3160 = {
+	name = "Gwindor"
+	dynasty = 3035
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = sailed_west
+	add_trait = light_valinor
+	father = 3156
+	mother = 3157
+	3593.1.1 = {
+		birth = "3593.1.1"
+	}
+	4312.1.1 = {
+		remove_trait = sailed_west
+	}
+	4807.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10066
+		}
+	} #Battle of Tumhalad by Glaurung
+}
+
+__________________________________________________________________________________
+
+changement de mort , ajout du titre de Roi et d'Ossiriand !
+
+3167 = {
+	name = "Roi Denethor d'Ossiriand"
+	dynasty = 3021
+	religion = "religion_moriquendi"
+	culture = "culture_nandor"
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = legendary_warrior
+	father = 3063
+	mother = 3092
+	977.1.1 = {
+		birth = "977.1.1"
+	}
+	2893.1.1 = {
+		culture = "culture_laegrim"
+	}
+	4283.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} # slain Morgoth in the First Battle at Amon Ereb
+}
+
+______________________________________________________________________________________
+
+changement de mort. 
+
+3077 = {
+	name = "Mellas"
+	female = yes
+	dynasty = 3012
+	religion = "religion_moriquendi"
+	culture = "culture_nelyar"
+	add_trait = elf
+	add_trait = fair
+	father = 3034
+	mother = 3035
+	255.1.1 = {
+		birth = "255.1.1"
+	}
+	527.1.1 = {
+		culture = "culture_teleri"
+		dynasty = 3021
+	}
+	977.1.1 = {
+		culture = "culture_sindar"
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 15272
+		}
+	} #Mithrim is taken by the Easterlings of Brodda
+}
+
+_____________________________________________________________________________
+
+Haut-Roi Fingon 
+
+changement de mort, tué par Gothmog !  ajout du titre 
+
+3131 = {
+	name = "Findecáno" ## Fingon 
+	dynasty = 3005
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+etccccccccccccccccc
+	
+	4784.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10025
+		}
+	} #Slain by Gothmog in the Nirnaeth Arnoediad vs morgoth
+}
+
+__________________________________________________________________________
+
+changement de mort pour éxécuté par Morgoth et ajout des traits : blinded et maimed
+
+3158 = {
+	name = "Gelmir"
+	dynasty = 3035
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = sailed_west
+	add_trait = light_valinor
+	add_trait = blinded
+	add_trait = maimed
+	father = 3156
+	mother = 3157
+	3430.1.1 = {
+		birth = "3430.1.1"
+	}
+	4312.1.1 = {
+		remove_trait = sailed_west
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10015
+		}
+	} #Slain before in the Nirnaeth Arnoediad vs morgoth
+}
+
+_________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour tué par sauron en BATAILLE  ! par sauron à son retour en mordor pour les ID suivant : 
+
+3057 ,  3058  , 3163 , 3108 , 
+
+	5902.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Sauron makes Mordor his home and slays the Elves living in Nurn
+}
+
+___________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! EXECUTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour tué par sauron en EXECUTER ! par sauron à son retour en mordor pour les ID suivant : 
+
+3095 , 3164 , 3076 , 3109 , 
+
+	5902.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10016 # Sauron
+		}
+	} #Sauron makes Mordor his home and slays the Elves living in Nurn
+}
+
+
+___________________________________________________________________________________
+
+changement de dynastie EN année 527 ! ( 99995 , name="Nos Falawë"	)  pour les ID suivant :   
+
+3085 , 3083
+
+	527.1.1 = {
+		culture = "culture_vanyar"
+		dynasty = 99995
+		
+-----------------
+
+pour lui aussi, frère des deux autres,  plus ajout de mort :
+
+3061 = {
+	name = "Falawë"
+	dynasty = 3010
+	religion = "religion_moriquendi"
+	culture = "culture_minyar"
+	add_trait = elf
+	add_trait = fair
+	add_trait = strong
+	add_trait = at_east
+	father = 3018
+	mother = 3019
+	125.1.1 = {
+		birth = "125.1.1"
+	}
+	527.1.1 = {
+		culture = "culture_avari"
+		dynasty = 99995
+	}
+	680.1.1 = {
+		add_spouse = 3090
+	}
+	4662.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
+}
+
+_____________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!
+
+changement de mort pour tué par des Balrogs en BATAILLE ! par un Balrogs pour les ID suivant  : 
+
+3063 , 3092  .
+
+	4785.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10026 # Hellmog
+		}
+	} #Slain on Caras Galadhon by Balrogs of Hellmog in pursuit of the Host of Súlwë
+}
+
+---------------
+
+!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!
+
+changement mort tué en bataille ! 
+
+idem que au-dessus mais avec le balrog Goroth pour les ID suivant : 
+
+3211 , 3217 .
+
+	4785.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 50052 # Goroth
+		}
+	} #Slain on Caras Galadhon by Balrogs of Goroth in pursuit of the Host of Súlwë
+}
+___________________________________________________________________________________
+
+changement de mort en 1149 pour mort en accident. 
+
+3091 = {
+	name = "Míriel" #Serindë
+	female = yes
+	dynasty = 3011
+	religion = "religion_moriquendi"
+	culture = "culture_tatyar"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	}
+	1149.1.1 = {
+		death = {
+			death_reason = death_accident
+			killer = 0
+		}
+	} # killed when feanor born
+}
+
+___________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour mort en BATAILLE contre feanor ! les ID suivant : 
+
+3067 , 3141 , 3142 , 
+
+	4270.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3238 # Feanor
+		}
+	} #First Kin-slaying by feanor vs teleri
+}
+
+________________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort tué par olue dans la BATAILLE entre feanor et les teleri pour les ID suivant : 
+
+3195 , 3096 .
+
+
+	4270.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3070 # Olue
+		}
+	} #First Kin-slaying by olue vs noldor
+}
+
+________________________________________________________________________________________________
+
+
+Feanor, changement de mort pour tué par Gothmog à la première bataille amon ereb 
+
+
+3238 = {
+	name = "Curufinwë Fëanáro" ## Fëanor
+	dynasty = 3006
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4283.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10025 # Gothmog
+		}
+	} #slain by gothmog in the First Battle at Amon Ereb
+}
+
+___________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour mort en BATAILLE contre feanor ! les ID suivant : 
+
+3069 , 3110 , 3552 .
+
+	4283.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain by Orcs on Amon Ereb in the First Battle of Beleriand
+}
+
+___________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ACCIDENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+4294 mort : changement de mort pour mort par ACCIDENT en 4294  traversant l'Helcaraxë ! pour les ID suivant : 
+
+3094 , 3097 , 3233 , 3130 , 3135
+
+	4294.1.1 = {
+		death = {
+			death_reason = death_accident
+			killer = 0
+		}
+	} #Perished while crossing the Helcaraxë
+}
+___________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour mort en BATAILLE contre MORGOTH ! les ID suivant : 
+
+3060 , 3061 , 3100 . 
+
+	4662.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
+}
+ _______________________________________________________________________________________________________
+ 
+ Changement de mort pour ce personnage, femme, morte lors de la prise de Minas-Tirith (1er Age ) !
+ 
+ 3149 = {
+	name = "Findëúlëalós"
+	female = yes
+	dynasty = 3028
+	religion = "religion_moriquendi"
+	culture = "culture_falmari"
+	add_trait = elf
+	add_trait = fair
+	add_trait = sailed_west
+	add_trait = light_valinor
+	father = 3067
+	mother = 3083
+	2635.1.1 = {
+		birth = "2635.1.1"
+	}
+	4312.1.1 = {
+		name = "Finduiloth"
+		remove_trait = sailed_west
+	}
+	4769.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Fall of Minas Tirith
+}
+
+
+___________________________________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour mort en BATAILLE contre MORGOTH Slain in the sack of Brithombar ! pour les ID suivant :  
+
+3086 , 3234 , 3235 , 
+
+	4785.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain in the sack of Brithombar
+}
+ _______________________________________________________________________________________________________
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de mort pour mort en BATAILLE contre NAUGLADUR roi de Nogrod au 1er sac de Menegroth. pour les ID suivant : 
+ 
+ 3119 , 3120 , 3121 , 3124 , 3126 .
+ 
+ 	4815.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 4241
+		}
+	} Slain by dwarfs in the Sack of Menegroth
+}
+
+______________________________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+changement de mort pour mort en BATAILLE contre MORGOTH Slain in the Gondolin FALL  ! pour les ID suivant :  
+
+3196 , 3197, 3228 , 3229 , 3321 , 3081 , 3093 .
+
+	4822.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain in the Fall of Gondolin
+}
+
+______________________________________________________________________________________________________________________
+
+en 4312 ajout de "de Gondolin" à son nom , ajout de mort en 4822 !!! à la chute de Gondolin
+
+3132 = {
+	name = "Turucáno" ## Turgon
+	dynasty = 3005
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4312.1.1 = {
+		name = "Turgon de Gondolin"
+		remove_trait = sailed_west
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain in the Fall of Gondolin
+}
+
+______________________________________________________________________________________________________________________
+
+changement de mort pour tué en duel contre le Balrog !! Lungorthin !! à la chute de gondolin
+
+3199 = {
+	name = "Rog"
+	dynasty = 3024
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+		give_nickname = "nick_the_strong"
+	
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 50056 # Lungorthin
+		}
+	} #Slain in the Fall of Gondolin by Lungorthin
+}
+__________________________________________________________________________________________________________________________
+
+changement de mort pour tué en duel contre le Balrog GOTHMOG à la chute de gondolin
+
+3226 = {
+    name = "Ectelëion"
+    dynasty = 3039
+    religion = "religion_moriquendi"
+    culture = "culture_noldor"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10025 # Gothmog
+		}
+	} #Slain in the Fall of Gondolin by Gothmog
+}
+
+_________________________________________________________________________________________________________________________
+
+changement de mort pour mort contre le balrog Lungorthin ! 
+
+3194 = {
+	name = "Duilin"
+	dynasty = 3035
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 50056 # Lungorthin
+		}
+	} #Slain in the Fall of Gondolin by Lungorthin
+}
+
+______________________________________________________________________________________________________________________
+
+changement de mort pour tué par Tuor et ajout du surnom " traitre " --> 	give_nickname = "nick_the_traitor" 
+
+3140 = {
+	name = "Lómion" ## Maeglin
+	dynasty = 3036
+	religion = "religion_moriquendi"
+	culture = "culture_avari"
+	
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	add_trait = duelist
+	add_trait = great_elf
+	give_nickname = "nick_the_traitor"
+	
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15206
+		}
+	} #Fall of Gondolin slain by tuor
+}
+
+______________________________________________________________________________________________________________________________
+
+changement de mort pour tué à Gondolin et ajout du surnom "traitre" --> 	give_nickname = "nick_the_traitor" 
+
+3200 = {
+	name = "Salgant"
+	dynasty = 3024
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	give_nickname = "nick_the_traitor"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4822.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain in the Fall of Gondolin
+}
+
+__________________________________________________________________________________________________________________________
+
+Changement de mort pour ce personnage mort contre maedhros lors de l'attaque du Sirion contre earendil. 
+
+3227 = {
+    name = "Aicambalotsë"
+    dynasty = 3039
+    religion = "religion_moriquendi"
+    culture = "culture_noldor"
+    add_trait = elf
+    add_trait = fair
+    add_trait = strong
+    add_trait = sailed_west
+    add_trait = legendary_warrior
+	add_trait = light_valinor
+    father = 3319
+    3455.1.1 = {
+        birth = "3455.1.1"
+    }
+    4312.1.1 = {
+        name = "Egalmoth"
+        remove_trait = sailed_west
+    }
+	4850.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3239 # Maedhros
+		}
+	} #Slain in the Kinslaying of Sirion
+}
+
+__________________________________________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+6595 !!! changement de mort pour mort en BATAILLE contre SAURON #Slain in the War of the Elves and Sauron ! 
+pour les ID suivant :  
+
+3103 , 3113 , 3153 , 3159 , 3166 , 3176 , 
+
+	6595.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the War of the Elves and Sauron
+}
+
+__________________________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+65966666 !!! changement de mort pour mort en BATAILLE contre SAURON #Slain in the War of the Elves and Sauron ! 
+pour les ID suivant :  
+
+3500 , 3530 , 3545 , 3554 , 3168 .
+
+	6596.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the War of the Elves and Sauron
+}
+
+__________________________________________________________________________________________________________________
+
+mort en 8341 Ultime Alliance siege mordor. 
+
+3502 = {
+	name = "Ithilbor"
+	dynasty = 3072
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	8341.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # killed during the seige or Mordor
+}
+
+____________________________________________________________________________________________
+
+Mort en 8342 Ultime alliance siege de Barad Dur ! 
+
+3154 = {
+	name = "Hallas"
+	dynasty = 3004
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	8342.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the Siege of Barad-dûr
+}
+
+_____________________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+8336 !!! changement de mort pour mort en BATAILLE contre SAURON # Died at Dagorlad  !!!  
+pour les ID suivant :    bataille de dagorlad 
+
+3517 , 3538 , 3550 , 3555 , 3102 , 3107 , 3123 .
+
+	8336.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died at Dagorlad
+}
+
+________________________________________________________________________________________________________________________
+
+changement de mort pour mort en bataille contre morgoth.
+
+3134 = {
+	name = "Aracáno"
+	dynasty = 3005
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4312.1.1 = {
+		name = "Argon"
+		remove_trait = sailed_west
+		death = {
+			death_reason = death_battle
+			killer = 10015 # Morgoth
+		}
+	} #Slain in the Battle of the Lammoth
+}
+
+________________________________________________________________________________________________________
+
+ajout de mort pour MISSING : 
+
+
+3400 = {
+	name = "Gwachaedir"
+	dynasty = 3067
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+	add_trait = elf
+	3548.1.1 = {
+		birth = "3548.1.1"
+	}
+	4900.1.1 = {
+		death = { death_reason = death_missing }
+	} 
+}
+
+________________________________________________________________________
+
+ajout de mort missing :
+
+3401 = {
+	name = "Ithilbor"
+	dynasty = 3067
+	religion = "religion_moriquendi"
+	culture = "culture_sindar"
+	add_trait = elf	
+	father = 3400
+	4152.1.1 = {
+		birth = "4152.1.1"
+	}
+	9587.1.1 = {
+		death = { death_reason = death_missing }
+	} 
+}
+
+________________________________________________________________________
+
+ajout de mort assassiné par sauron avec son mari . 
+
+3407 = {
+	name = "Anoril"
+	female = yes
+	religion = "religion_moriquendi"
+	culture = "culture_silvan"
+	add_trait = elf	
+	add_trait = fair
+	add_trait = elusive_shadow
+	add_trait = genius
+	add_trait = deceitful
+	8350.1.1 = {
+		birth = "8350.1.1"
+	}
+	9500.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10016
+		} #Possessed by the Necromancer to kill Huinen, but manages to overcome his possession, and both are killed by his Orcs
+	} 
+}
+
+------------------
+( DAAAAANNNNNNNNNNGGGGGGGGGGGGGGGGGGGGGEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR MANIP DE FONCTIONNE PAS EN COURS !!!! ) 
+son maris : IDEM ajout de mort assassiné par sauron . ( mort naturelle au final mais ajout du trait "depression" )
+
+3406 = {
+	name = "Huinen"
+	dynasty = 3014
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	add_trait = elf	
+	add_trait = fair
+	add_trait = elusive_shadow
+	add_trait = genius
+	add_trait = deceitful
+	add_trait = depressed
+	add_trait = sailed_west
+	father = 3068
+	mother = 3087
+	2250.1.1 = {
+		birth = "2250.1.1"
+	}
+	4312.1.1 = {
+		remove_trait = sailed_west
+		add_trait = light_valinor
+	}
+	9495.1.1 = { add_spouse = 3407 } #The Necromancer sends Anoril to discover secrets from Huinen, but she falls in love with him instead
+	}
+	9500.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10016
+		} #Killed by the Necromancer along with his wife
+	} 
+
+
+
+************************************
+******************************
+
+fichier "3001-4000 Elvish" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "12001-13000 Numenorean" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+
+_____________________________________________________
+
+chagenment dynastie
+
+12063 = {
+	name = "Húrowen" #House of Eldalondë
+	dynasty = 12009
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12190
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	5502.1.1 = {
+		birth = "5502.1.1"
+	}
+	5903.1.1 = {
+		death = "5903.1.1"
+	}
+}
+
+______________________________________________________________________
+
+ajout de dynastie et de père et mere ! 
+
+12134 = {
+	name = "Amanya" #Line of Eldalondë
+	dynasty = 12001
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = prince_numenor
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12044
+	mother = 50000
+	8023.1.1 = {
+		birth = "8023.1.1"
+	}
+ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+_________________________________________________________________________________________________
+
+	
+enlever une épouse et mettre la seconde à la place de la première dans les date : 7602 
+	
+12111 = {
+	name = "Incandur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12109
+	mother = 50043
+	7522.1.1 = {
+		birth = "7522.1.1"
+	}
+	7602.1.1 = {
+		add_spouse = 12113
+	}
+	7837.1.1 = {
+		death = "7837.1.1"
+	}
+}
+
+______________________________________________________________________________________________________________________
+
+changement de date de naissance : 
+	
+12113 = {
+	name = "Tariel"
+	dynasty = 12001
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12038
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = fair
+	7580.1.1 = {
+		birth = "7580.1.1"
+	}
+	7833.1.1 = {
+		death = "7833.1.1"
+	}
+}
+
+___________________________________________________________________________________
+	
+changement de mère : 12113 au lieu de 12112 
+	
+12049 = {
+	name = "Edhelwen"
+	dynasty = 12003
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12111
+	mother = 12113
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = prince_numenor	
+	7607.1.1 = {
+		birth = "7607.1.1"
+	}
+	7801.1.1 = {
+		name = "Nimrunilith"
+		culture = "culture_adunaic"
+	}
+	7802.1.1 = {
+		death = "7802.1.1"
+	}
+}
+
+---------------
+
+IDEM : changement de mère : 12113 au lieu de 12112 pour eux : 
+
+12114 = {
+	name = "Eärendur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12111
+	mother = 12113
+	7622.1.1 = {
+		birth = "7622.1.1"
+	}
+	7684.1.1 = {
+		add_spouse = 50032
+	}
+	7902.1.1 = {
+		death = "7902.1.1"
+	}
+}
+
+12115 = {
+	name = "Ilumírë"
+	dynasty = 12003
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12111
+	mother = 12113
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = fair
+	7672.1.1 = {
+		birth = "7672.1.1"
+	}
+	7700.1.1 = {
+		death = "7700.1.1"
+	}
+}
+
+12116 = {
+	name = "Lindórië"
+	dynasty = 12003
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12111
+	mother = 12113
+	7742.1.1 = {
+		birth = "7742.1.1"
+	}
+	8013.1.1 = {
+		death = "8013.1.1"
+	}
+}
+______________________________________________________________________________________________
+
+changement de femme : 12186
+
+12085 = {
+	name = "Anardur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12083
+	mother = 12084
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = prince_numenor	
+	5685.1.1 = {
+		birth = "5685.1.1"
+	}
+	5830.1.1 = {
+		add_spouse = 12186
+	}
+	6078.1.1 = {
+		death = "6078.1.1"
+	}
+}
+
+------------------
+
+changement de mère et de femme  :
+
+12087 = {
+	name = "Astandil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12085
+	mother = 12186
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	5834.1.1 = {
+		birth = "5834.1.1"
+	}
+	5953.1.1 = {
+		add_spouse = 12158
+	}
+	6224.1.1 = {
+		death = "6224.1.1"
+	}
+}
+
+____________________________________________________________________
+
+ajout de dynastie !
+
+12194 = {
+	name = "Níniel"
+	dynasty = 12003
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12192
+	mother = 12193
+	5444.1.1 = {
+		birth = "5444.1.1"
+	}
+	5863.1.1 = {
+		death = "5863.1.1"
+	}
+}
+
+____________________________________________________________________
+
+changement de mère et de femme  : 
+
+12089 = {
+	name = "Lauremacil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12087
+	mother = 12158
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	5997.1.1 = {
+		birth = "5997.1.1"
+	}
+	6117.1.1 = {
+		add_spouse = 12022
+	}
+	6379.1.1 = {
+		death = "6379.1.1"
+	}
+}
+
+----------------
+
+changement de mèrere : 
+
+12091 = {
+	name = "Elecar"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12089
+	mother = 12022
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	6205.1.1 = {
+		birth = "6205.1.1"
+	}
+	6318.1.1 = {
+		add_spouse = 12092
+	}
+	6580.1.1 = {
+		death = "6580.1.1"
+	}
+}
+
+____________________________________________________________________
+
+changement épouse et mère :
+
+12118 = {
+	name = "Silmardil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12114
+	mother = 50032
+	7695.1.1 = {
+		birth = "7695.1.1"
+	}
+	7780.1.1 = {
+		add_spouse = 50030
+	}
+	7942.1.1 = {
+		death = "7942.1.1"
+	}
+}
+
+---------------------------
+
+changement mère : 
+
+12120 = {
+	name = "Númendil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	father = 12118
+	mother = 50030
+	7782.1.1 = {
+		birth = "7782.1.1"
+	}
+	7891.1.1 = {
+		add_spouse = 12121
+	}
+	7967.1.1 = {
+		death = "7967.1.1"
+	}
+}
+
+____________________________________________________________________
+
+changement de femme : 
+
+12114 = {
+	name = "Eärendur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12111
+	mother = 12113
+	7622.1.1 = {
+		birth = "7622.1.1"
+	}
+	7684.1.1 = {
+		add_spouse = 50032
+	}
+	7902.1.1 = {
+		death = "7902.1.1"
+	}
+}
+
+____________________________________________________________________
+
+changement épouse : 
+
+12103 = {
+	name = "Mírendil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12101
+	mother = 12102
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	7012.1.1 = {
+		birth = "7012.1.1"
+	}
+	7143.1.1 = {
+		add_spouse = 50033
+	}
+	7394.1.1 = {
+		death = "7394.1.1"
+	}
+}
+
+-----------------------------
+
+changement de mère :
+
+12105 = {
+	name = "Nárendur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12103
+	mother = 50033
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	7170.1.1 = {
+		birth = "7170.1.1"
+	}
+	7284.1.1 = {
+		add_spouse = 12106
+	}
+	7542.1.1 = {
+		death = "7542.1.1"
+	}
+}
+
+____________________________________________________________
+
+changement épouse :
+
+12097 = {
+	name = "Anárion"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12093
+	mother = 12095
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	6517.1.1 = {
+		birth = "6517.1.1"
+	}
+	6624.1.1 = {
+		add_spouse = 50041
+	}
+	6886.1.1 = {
+		death = "6886.1.1"
+	}
+}
+
+------------------
+
+changement mère :
+
+12099 = {
+	name = "Elendur"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	add_trait = prince_numenor
+	father = 12097
+	mother = 50041
+	6685.1.1 = {
+		birth = "6685.1.1"
+	}
+	6794.1.1 = {
+		add_spouse = 12100
+	}
+	7051.1.1 = {
+		death = "7051.1.1"
+	}
+}
+
+____________________________________________________________
+
+changement d'épouse : 
+
+12109 = {
+	name = "Olórendil"
+	dynasty = 12003
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = elf_friend
+	father = 12107
+	mother = 12108
+	7412.1.1 = {
+		birth = "7412.1.1"
+	}
+	7519.1.1 = {
+		add_spouse = 50043
+	}
+	7783.1.1 = {
+		death = "7783.1.1"
+	}
+}
+
+____________________________________________________________________
+
+ajout épouse
+
+12044 = {
+	name = "Inziladûn"
+	dynasty = 12001
+	religion = "religion_numenorean"
+	culture = "culture_adunaic"
+	father = 12043
+	mother = 12055
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = prince_numenor
+	add_trait = dreamer
+	add_trait = scholar
+	add_trait = honorable
+	add_trait = perceptive
+	7937.1.1 = {
+		birth = "7937.1.1"
+	}
+	8016.1.1 = {
+		add_spouse = 50000
+	}
+	8079.1.1 = {
+		name = "Palantir"
+		culture = "culture_numenorean"
+		add_trait = good_side
+		add_trait = depressed
+	}
+	8157.1.1 = {
+		death = "8157.1.1"
+	}
+}
+
+-----------------------------
+
+ajout de mere et de mort --> chute de numenor, punition des valars
+
+12046 = {
+	name = "Míriel"
+	dynasty = 12001
+	female = yes
+	religion = "religion_numenorean"
+	culture = "culture_adunaic"
+	father = 12044
+	mother = 50000
+	disallow_random_traits = yes
+	add_trait = good_side
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = prince_numenor
+	add_trait = fair
+	add_trait = elf_friend
+	add_trait = honorable
+	8019.1.1 = {
+		birth = "8019.1.1"
+	}
+	8157.1.1 = {
+		name = "Zimraphel"
+		effect = {
+			add_rival = 12047	#Ar Pharazon married me by force and took my throne!
+		}
+		add_trait = depressed
+		add_trait = celibate
+	}
+	8221.1.1 = {
+		name = "Míriel"
+	}
+	8221.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10001
+		} #Slain by Iluvatar At request of Manwe
+	} 
+}	
+
+________________________________________________________________________________________________________________
+
+ajout de mort en duel contre sauron pour elendil : 
+
+ID = 12135
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} #Slain in duel by sauron
+}
+
+----------------------------
+
+mort en bataille contre sauron pour anarion : 
+
+ID : 12137
+
+	8342.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain in siege of barad dur
+}
+
+___________________________________________________________________
+
+ajout du trait ringbearer2 pour isildur et d'une mort en bataille  contre orcs de gundabad 
+
+ID = 12136
+
+
+	8343.1.1 = {
+		dynasty = 2001
+		add_trait = ringbearer2
+	}
+	8345.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 11006
+		}
+	} #Slain orcs gundabad
+}
+
+-------------------------
+
+fils d'isildur mort en bataille contre les orcs avec leur père.
+
+ID = 12140 , 12139 , 12138 ( les fils d'isildur ) :   Mort contre orcs de gundabad .
+
+	8345.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 11006
+		}
+	} #Slain orcs gundabad
+}
+
+___________________________________________________________________________________
+
+
+vorondur , demi-frere de Palantir ami des elfes : changement date de naissance
+
+12078 = {
+	name = "Vorondur"
+	dynasty = 2002
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12077
+	mother = 12046
+	add_trait = numenorean
+	add_trait = blood_of_numenor	
+	8157.1.1 = {
+		birth = "8157.1.1"
+	}
+	8317.1.1 = {
+		add_spouse = 12550
+	}
+	8363.1.1 = {
+		culture = "culture_arnorian"
+		religion = "religion_dunedain"	
+		dynasty = 2002
+	}
+	8558.1.1 = {
+		death = "8558.1.1"
+	}
+}
+
+--------------------
+
+père de vorondur (au dessus) tué en duel par ar pharazon pour miriel 
+
+12077 = {
+	name = "Súlicar"
+	dynasty = 12002
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	father = 12075
+	mother = 12076
+	add_trait = numenorean
+	add_trait = blood_of_numenor	
+	8018.1.1 = {
+		birth = "8018.1.1"
+	}
+	8157.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 12047
+		} #Slain ar pharazon for miriel
+	} 
+}
+
+__________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!
+
+
+8343 !!! changement de mort pour mort en BATAILLE contre SAURON 	#Slain in the Last Alliance  !!!  
+pour les ID suivant :    
+
+, 12126 .
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the Last Alliance
+}
+
+_________________________________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BYE BYE NUMENOR :(   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+8221 !!! changement de mort pour mort EXECUTER par MANWE = FALL OF NUMENOR !!!  pour les ID suivant :    
+
+12047 , 12377 , 12253 , 12254 , 12255 , 12276 , 12277 , 12340 , 12341 , 12404 , 12405 , 12432 , 12296 , 12298 .  
+
+	8221.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10001
+		} #Slain by Iluvatar At request of Manwe
+	} 
+}	
+
+_______________________________________________________________________________________________________
+
+changement de mort !! 
+
+12353 = {
+	name = "Námondur"
+	dynasty = 108
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	father = 12352
+	8119.1.1 = {
+		birth = "8119.1.1"
+	}
+	8221.1.1 = {
+	culture = "culture_gondorian" 
+	}	
+	8337.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died in siege of mordor
+}
+
+___________________________________________________________________________________
+
+changement de mort en 8338 à l'ultime alliance pour ces ID : 
+
+12410 , 12416 .
+
+	8338.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died in siege of mordor
+}
+____________________________________________________________________________________________
+
+changement de mort . 
+
+12026 = {
+	name = "Isilmo"
+	dynasty = 12001
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	add_trait = prince_numenor	
+	father = 12024
+	6234.1.1 = {
+		birth = "6234.1.1"
+	}
+	6599.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+__________________________________________________________________
+
+changement de mort :
+
+12324 = {
+	name = "Amandur"
+	dynasty = 12008
+	religion = "religion_numenorean"
+	culture = "culture_numenorean"
+	add_trait = numenorean
+	add_trait = blood_of_numenor
+	father = 12323
+	6284.1.1 = {
+		birth = "6284.1.1"
+	}
+	6649.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+________________________________________________________________________
+
+
+
+************************************
+******************************
+
+fichier "12001-13000 Numenorean" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "15001-16000 Edain" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+changement dynastie
+
+15202 = {
+	name="Haldir" #son of Dírhavel
+	dynasty=12009
+	religion="religion_edain"
+	culture="culture_maradin"
+	father=15194
+	mother=15200
+	4849.1.1={
+			birth="4849.1.1"
+	}
+	4902.1.1 = {
+		dynasty=12009
+		culture="culture_numenorean"
+		religion="religion_numenorean"
+	}
+	5282.1.1={
+			death="5282.1.1"
+	}
+}
+
+___________________________________________________________________________________
+
+changement date de mort ( 1 an plus tard ) et du trait barahir (l'anneau) :
+
+15165 = {
+	name="Beren" #Erchamion, son of Barahir
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait = strong
+	add_trait = brave
+	add_trait = barahir
+	father=15134
+	mother=15135
+	4744.1.1={
+			birth="4744.1.1"
+	}
+	4778.1.1={
+			add_spouse=3115
+	}
+	4816.1.1={
+			death="4816.1.1"
+	} #on Tol Galen
+}
+
+______________________________________________________________________________________________________
+
+Hurin Thalion pere de Turin Turambar :  Ajout du trait nauglamir !!! et mort par suicide.
+ajout du titre 'Seigneur' et  "de Dor-lómin"
+
+15189 = {
+	name="Seigneur Húrin Thalion de Dor-lómin" #son of Galdor
+	dynasty=15006
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait= dragon_helm
+	add_trait = nauglamir
+	father=15187
+	mother=15232
+	4751.1.1={
+			birth="4751.1.1"
+	}
+	4774.1.1={
+			add_spouse=15169
+	}
+	4813.1.1 = {
+		death = { death_reason = death_suicide }
+	}
+}
+
+____________________________________________________________________________________________________
+
+
+Turin turambar : ajout de mort par suicide 
+
+15203 = {
+	name="Túrin Turambar" #son of Húrin
+	dynasty=15006
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=strong
+	add_trait=gurthang
+	add_trait=dragon_helm
+	father=15189
+	mother=15169
+	4776.1.1={
+			birth="4776.1.1"
+	}
+	4810.1.1={
+			add_spouse=15205
+	}
+	4811.1.1 = {
+		death = { death_reason = death_suicide }
+	}
+}
+
+-----------------
+
+la soeur-épouse de celui-ci : Nienor , ajout de mort par suicide et du trait 'pregnant'
+
+
+15205 = {
+	name="Niënor" #daughter of Húrin
+	dynasty=15006
+	female=yes
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=fair
+	add_trait=pregnant
+	father=15189
+	mother=15169
+	4785.1.1={
+			birth="4785.1.1"
+	}
+	4808.1.1={
+			name="Níenel"
+	}
+	4810.1.1={
+			name="Niënor Níenel"
+		death = { death_reason = death_suicide }
+	}
+	4811.1.1 = {
+		death = { death_reason = death_suicide }
+	}
+}
+
+__________________________________________________________________________________________________________________
+
+
+Changement de type de mort pour la soeur de Turin : 
+
+15204 = {
+	name="Urwen Lalaith" #daughter of Húrin
+	dynasty=15006
+	female=yes
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=fair
+	father=15189
+	mother=15169
+	4778.1.1={
+			birth="4778.1.1"
+	}
+	4781.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10015
+		} #Slain by morgoth plague
+	} 
+}
+
+_____________________________________________________________________________________________
+
+- changement de mort tué par morgoth :
+- et des 3 trtaits : brave , autoritaire et tacticien talentueux.
+- et ajout de 'Chef' et de 'l'Ascar' dans son name.
+
+15224 = {
+	name="Chef Haldad de l'Ascar" #Haldad
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	add_trait=skilled_tactician
+	add_trait=authoritative
+	add_trait=brave
+	4626.1.1={
+			birth="4626.1.1"
+	}
+	4687.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by orcs of morgoth
+}
+
+---------------------
+
+fils du précédent : même changement de mort. :
+ajout du trait : soldat endurci
+
+15226 = {
+	name="Haldar" #son of Haldad
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	add_trait=tough_soldier
+	add_trait=twin
+	father=15224
+	4653.1.1={
+			birth="4653.1.1"
+	}
+	4687.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by orcs of morgoth in Thargelion
+}
+
+------------------------------
+
+la fameuse Dame Haleth qui donna son nom au peuple d'Haleth
+ajout du trait 'skilled_tactician' et 'strong' et du titre 'Dame-Seigneuriale' et 'de Brethil' dans son name. 
+
+15225 = {
+	name="Dame-Seigneuriale Haleth de Brethil" #daughter of Haldad
+	dynasty=15007
+	female=yes
+	religion="religion_edain"
+	culture="culture_haladin"
+	add_trait=skilled_tactician
+	add_trait=twin
+	add_trait=strong
+	add_trait=fair
+	father=15224
+	4653.1.1={
+			birth="4653.1.1"
+	}
+	4732.1.1={
+			death="4732.1.1"
+	}
+}
+
+----------------------------------
+
+neveu d'Haleth , premier 'of Haleth' , ajout à son name le titre de Seigneur et de Brethil
+
+15228 = {
+	name="Seigneur Haldan de Brethil" #son of Haldar
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15226
+	4678.1.1={
+			birth="4678.1.1"
+	}
+	4696.1.1={
+			add_spouse=15123
+			dynasty=15008
+	}
+	4763.1.1={
+			death="4763.1.1"
+	}
+}
+
+
+---------------------------
+
+fils d'haldan, ajout à son name du titre de Seigneur et de  Brethil:
+
+15229 = {
+	name="Seigneur Halmir de Brethil" #son of Haldan
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15228
+	mother=15123
+	4702.1.1={
+			birth="4702.1.1"
+	}
+	4783.1.1={
+			death="4783.1.1"
+	}
+}
+
+----------------------------
+
+fils d'halmir,  ajout du titre de 'Seigneur' et de Brethil au name  et ajout de mort à la bataille des larmes innombrables
+Nirnaeth Arnoediad :
+
+15230 = {
+	name="Seigneur Haldir de Brethil" #son of Halmir
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15229
+	4726.1.1={
+			birth="4726.1.1"
+	}
+	4748.1.1={
+			add_spouse=15186
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Nirnaeth Arnoediad
+}
+
+-------------------------------------
+
+ changement de mort en bataille contre morgoth et ajout du titre 'Seigneur' et de Brethil :
+
+15240 = {
+	name="Seigneur Handir de Brethil" #son of Haldir
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15230
+	mother=15186
+	4753.1.1={
+			birth="4753.1.1"
+	}
+	4775.1.1={
+			add_spouse=15144
+	}
+	4807.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Battle of the Crossing of the Teiglin vs morgoth
+}
+
+___________________________________________________________________________________________________
+
+Brandir le boiteux, changement de mort, tué par Turin Turambar et ajout du titre 'Seigneur' et de Brethil
+
+15243 = {
+	name="Seigneur Brandir de Brethil" #son of Handir
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15240
+	mother=15144
+	4777.1.1={
+			birth="4777.1.1"
+	}
+	4789.1.1={
+			add_trait=maimed
+			give_nickname = nick_the_lame
+	} #Wounded as a child
+	4811.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15203
+		}
+	} #Slain by Turin Turambar
+}
+_______________________________________________________________________________________
+
+changement de mort pour lui et ajout du titre de 'Seigneur' et de Brethil : 
+
+15247 = {
+	name="Seigneur Hardang de Brethil" #son of Hundad
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15242
+	4782.1.1={
+			birth="4782.1.1"
+	}
+	4813.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 15189
+		}
+	} #Slain in the revolt of people Haleth by Hurin
+}
+
+ _____________________________________________________________________________________________
+ 
+ ajout du titre 'Seigneur' et d'Estolad  au prénom pour les ID suivant :  15111 , 15112 , 15114 , 
+ ex :  	name="Seigneur Bëor d'Estolad"
+ 
+15111 = {
+	name="Balan" #Bëor the Old
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	4574.1.1={
+			birth="4574.1.1"
+	}
+	4623.1.1={
+			name="Seigneur Bëor d'Estolad"
+	}
+	4650.1.1={
+			give_nickname = nick_the_old
+	}
+	4667.1.1={
+			death="4667.1.1"
+	}
+}
+
+__________________________________________________________________________
+
+ !!!!!!   ajout du titre 'Seigneur' et "de Ladros"  au prénom pour les ID suivant : 
+
+ 15117 , 15122 , 15132 , 15134 !!!!!!
+ 
+ ex :  	name="Seigneur Boromir de Ladros" #son of Boron
+
+15117 = {
+	name="Seigneur Boromir de Ladros" #son of Boron
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	father=15114
+	4650.1.1={
+			birth="4650.1.1"
+	}
+	4744.1.1={
+			death="4744.1.1"
+	}
+}
+
+____________________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort dans LA BATAILLE contre morgoth des larmes innombrables (Nirnaeth Arnoediad)
+pour  les ID SUIVANT :   
+
+Homme :	15166 , 15231 , 15242 , 15192 , 15190 , 15238 , 15236 , 15260 , 15261 , 15210 , 15213 , 
+
+	4784.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Nirnaeth Arnoediad vs morgoth
+}
+
+__________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+(voir pour les faire mourir au combat en fait ? ) 
+Changement de mort pour mort ASSASSINER par morgoth apres la bataille de Dagor Bragollach ( la flamme subite ) pour 
+les ID SUIVANT : 15140 , 15130 , 15133 , 15160 , 15123 , 
+
+	4767.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth murderer
+}
+
+__________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ASSASSINER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+(voir pour les faire mourir au combat en fait ? ) 
+Changement de mort pour mort ASSASSINER par morgoth apres la bataille des larmes innombrables (Nirnaeth Arnoediad)
+les ID SUIVANT :  
+
+ 15186 , 15241 , 15232 , 15191 , 15170 , 
+
+	4784.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10015
+		}
+	} #Slain after in the Nirnaeth Arnoediad by morgoth
+}
+
+_____________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort DANS LA BATAILLE de Dagor Bragollach ( la flamme subite ) pour 
+les ID SUIVANT :
+
+Homme : 15129 , 15128 , 15139 , 15145 , 15136 , 15150 , 15155 , 15158 , 15126 , 15141 , 15132 , 15185 ,
+					15188 , 15235 , 15181 , 15212 , vérifier hisotire des ID  !
+					
+
+	4767.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth battle
+}
+
+_____________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort dans la BATAILLE DE LA BANDE de hors la loi de Barahir contre SAURON ! pour
+les ID SUIVANT : 15153 , 15154 , 15151 , 15152 , 15156 , 15157 , 15159 , 15163 , 15164
+
+	4772.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain by sauron in barahir band in Tarn Aeluin
+}
+
+______________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort dans la BATAILLE contre Maedhros 'Kinslaying of Sirion' (territoire de Earendil)
+les ID SUIVANT : 15197 , 15193 , 15215 , 15251 , 15252 , 15253 , 
+
+
+	4850.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3239
+		}
+	} #Slain Maedhros in the Kinslaying of Sirion
+}
+______________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!   BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+Changement de mort pour mort dans la BATAILLE 111 contre Sauron ! 
+les ID SUIVANT : 15168 , 15250 , 
+
+
+	4832.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+______________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!
+
+Changement de mort pour mort dans la BATAILLE 222 contre Sauron ! 
+les ID SUIVANT : 15172 , 15244 , 15274 , 
+
+
+	4847.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+______________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort dans LA BATAILLE contre BRODDA menée par Turin pour venger le peuple d'Hador de 
+l'opression des Easterling ! 
+
+pour  les ID SUIVANT :   15182 , 15214 , 15275 , 
+
+
+	4807.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 15272
+		}
+	} #Slain Brodda in hador revolt vs easterling
+}
+
+_______________________________________________________________________________________________
+
+changement de mort, tuée par morgoth : 
+
+15161 = {
+	name="Bailwen" #daughter of Bailor, first wife of Brodda
+	dynasty=15004
+	female=yes
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait=fair
+	father=15145
+	mother=15160
+	4764.1.1={
+			birth="4764.1.1"
+	}
+	4783.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10015
+		}
+	} #Slain morgoth murderer
+}
+
+_____________________________________________________________________________________________
+
+changement mort : entre duel contre turin turambar. 
+(assassin d'une femme de la maison de marach ci-dessous)
+
+15220 = {
+	name="Forweg" #First Gaurwaith Leader
+	religion="religion_edain"
+	culture="culture_maradin"
+	4746.1.1={
+			birth="4746.1.1"
+	}
+	4799.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15203
+		}
+	} #Slain by turin turambar 
+}
+
+__________________________________________________________________________________
+
+changement de mort pour assassiné par Forweg. (au-dessus)
+
+15184 = {
+	name="Elmwen" #daughter of Hudor, wife of Gundor
+	dynasty=15005
+	female=yes
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=fair
+	father=15181
+	mother=15131
+	4733.1.1={
+			birth="4733.1.1"
+	}
+	4796.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 15220
+		}
+	} #Slain by forweg 
+}
+
+__________________________________________________________________________________
+
+changement de mort, tué par des orcs de sauron , ajout du trait "great_bowman"
+
+15195 = {
+	name="Andróg" #son of Anborn
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait=great_bowman
+	father=15158
+	4757.1.1={
+			birth="4757.1.1"
+	}
+	4778.1.1={
+			add_spouse=15196
+	}
+	4801.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain morgoth ambushed by Orcs in Amon Rûdh
+}
+
+___________________________________________________________________________________________________
+
+changement de mort pour mort dans la guerre de la grande colere : valar war 
+
+15198 = {
+	name="Cúarthol" #son of Andvír
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	father=15197
+	4812.1.1={
+			birth="4812.1.1"
+	}
+	4882.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} # slain morgoth in valar war
+}
+
+___________________________________________________________________________________________________
+
+changement mort, tué par sauron apres torture pour faire trahir gorlim 
+ajout du surnom le traitre : give_nickname = "nick_the_traitor"
+
+15142 = {
+	name="Gorlim" #the Unhappy, son of Angrim
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	give_nickname = "nick_the_traitor"
+	father=15141
+	4722.1.1={
+			birth="4722.1.1"
+	}
+	4745.1.1={
+			add_spouse=15140
+	}
+	4772.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10016
+		}
+	} # tortured by Sauron in Tol-in-Gaurhoth
+}
+
+_______________________________________________________________________________________________________
+
+changement de mort pour tué en bataille contre sauron :
+
+15137 = {
+	name="Baramir" #son of Barlad
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	father=15126
+	4732.1.1={
+			birth="4732.1.1"
+	}
+	4789.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} # slain sauron
+}
+
+__________
+
+pareil pour le fils : changement mort tué par sauron 
+
+15138 = {
+	name="Barador" #son of Baramir
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	father=15137
+	4753.1.1={
+			birth="4753.1.1"
+	}
+	4775.1.1={
+			add_spouse=15143
+	}
+	4808.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} # slain sauron
+}
+
+________
+
+le petit-fils, tué en combat singulier contre sauron pour l'honneur : 
+
+15171 = {
+	name="Barten" #son of Barador
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	father=15138
+	mother=15143
+	4777.1.1={
+			birth="4777.1.1"
+	}
+	4809.1.1={
+			add_spouse=15211
+	}
+	4813.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} # slain sauron
+}
+
+___________________________________________________________________________________________________
+
+changement mort, tué en combat contre sauron, ajout du trait 'barahir' (l'anneau) :
+
+15134 = {
+	name="Seigneur Barahir" #son of Bregor
+	dynasty=15004
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait = barahir
+	father=15122
+	4714.1.1={
+			birth="4714.1.1"
+	}
+	4742.1.1={
+			add_spouse=15135
+	}
+	4772.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10016
+		}
+	} #Slain by sauron in barahir band in Tarn Aeluin
+}
+
+_______________________________________________________________________________________________________
+
+changement de name pour eux : 'seigneur'   et   'de dor lomin' 
+
+15185 = {
+	name="Seigneur Hador Lórindol de Dor-lómin" #son of Hathol
+	dynasty=15005
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait= dragon_helm
+	father=15180
+	4702.1.1={
+			birth="4702.1.1"
+	}
+	4726.1.1={
+			dynasty=15006
+			add_spouse=15125
+	}
+	4767.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Dagor Bragollach morgoth battle
+}
+
+________
+
+pareil pour le name et ajout du trait tall surnom 'the tall'
+
+15187 = {
+	name="Seigneur Galdor de Dor-lómin" #son of Hador
+	dynasty=15006
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait= tall
+	add_trait= dragon_helm
+	give_nickname = nick_the_tall
+	father=15185
+	mother=15125
+	4729.1.1={
+			birth="4729.1.1"
+	}
+	4748.1.1={
+			add_spouse=15232
+	}
+	4774.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #slain by morgoth in Barad Eithel battle
+}
+
+_________________________________________________________________
+
+changement de mort pour pedant le guerre des valars   :
+
+15194 = {
+	name="Dírhavel" #son of Gondomir
+	dynasty=15006
+	religion="religion_edain"
+	culture="culture_maradin"
+	father=15193
+	mother=15215
+	4812.1.1={
+			birth="4812.1.1"
+	}
+	4838.1.1={
+			add_spouse=15200
+	}
+	4887.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #slain by morgoth in battle of valar
+}
+
+__________________________________________________________________________
+
+assassinée par morgoth pendant la guerre des valars (de la grande colère)  :
+
+15200 = {
+	name="Andwen" #daughter of Andvír, wife of Dírhavel
+	dynasty=15004
+	female=yes
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait=fair
+	father=15197
+	4816.1.1={
+			birth="4816.1.1"
+	}
+	4891.1.1 = {
+		death = {
+			death_reason = death_murder
+			killer = 10015
+		}
+	} #slain by morgoth in battle of valar
+}
+
+___________________________________________________________________________________________________
+
+changement mort , tué par glaurung aux cotés de Turin Turambar lors de sa chasse au dragon.
+
+15248 = {
+	name="Hunthor" #son of Agathor
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15236
+	mother=15239
+	4780.1.1={
+			birth="4780.1.1"
+	}
+	4807.1.1={
+			add_spouse=15250
+	}
+	4811.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 10066
+		}
+	} #Slain in hunt of Turin vs Glaurung
+}
+
+______________________________________________________________________________
+
+ajout du titre 'Seigneur' et de Brethil à son name et changement de mort pour mort par ACCIDENT contre Hurin. . 
+
+15249 = {
+	name="Seigneur Manthor" #son of Agathor
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15236
+	mother=15239
+	4781.1.1={
+			birth="4781.1.1"
+	}
+	4812.1.1={
+			add_spouse=15250
+	}
+	4813.1.1 = {
+		death = {
+			death_reason = death_accident
+			killer = 15189
+		}
+	} #Slain by accident by Hurin
+}
+
+__________________________________________________________________________________________________________
+
+tué par morgoth pendant la guerre des valars : 
+
+15254 = {
+	name="Mandad" #son of Mandir
+	dynasty=15007
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15253
+	4830.1.1={
+			birth="4830.1.1"
+	}
+	4895.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #slain by morgoth in battle of valar
+}
+
+_____________________________________________________________________________________________
+
+- Bor le fidele, il est moche mais : ajout des traits 'skilled_tactician', 'strong' , 'imposing'
+- ETTTTT d'une MORT en bataille de Nirnaeth Arnoediad en 4784 et pas 4780 !!!!!!
+- ajout de lignes DNA et PROPERTIES  qui appartiennent à Dior Eluchil ! Il n'en a plus besoin  vu qu'il a ceux 
+d'elros maintenant. !!!! ajout du titre 'Chef' !
+
+
+15258 = {
+	name="Chef Bór" #son of Ulbor
+	dynasty=15009
+	dna = "bmhaj0mgac0"
+  	properties = "ja0eefbe00b"
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	add_trait=skilled_tactician
+	add_trait=strong
+	add_trait=imposing
+	add_trait=brave
+	give_nickname = nick_the_faithful
+	father=15257
+	4702.1.1={
+			birth="4702.1.1"
+	}
+	4743.1.1={
+			add_spouse=15259
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Nirnaeth Arnoediad vs morgoth
+}
+
+___________
+
+le père de Bor, ajout de lignes DNA et PROPERTIES  qui appartiennent à ELROND à la base ! elrond 
+à maintenant ceux d'elros !!!! ajout du titre 'Chef'
+
+15257 = {
+	name="Chef Ulbor" #Ulbor
+	dynasty=15009
+	dna = "dlame0miaa0"
+ 	properties = "uh0cgbbe00b"
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	4681.1.1={
+			birth="4681.1.1"
+	}
+	4757.1.1={
+			death="4757.1.1"
+	}
+}
+
+______________________________________________________________________________________________________________________
+
+ajout de mort dans la bataille des valars : 
+
+15265 = {
+	name="Borowen" #daughter of Borchíl, wife of Belegor
+	dynasty=15009
+	female=yes
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	add_trait=fair
+	father=15263
+	mother=15172
+	4836.1.1={
+			birth="4836.1.1"
+	}
+	4898.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth in valar war
+}
+
+________
+
+mort en bataille des valars : changement date de mort.
+
+15245 = {
+	name="Belegor" #son of Belethor
+	dynasty=15008
+	religion="religion_edain"
+	culture="culture_haladin"
+	father=15244
+	mother=15274
+	4833.1.1={
+			birth="4833.1.1"
+	}
+	4856.1.1={
+			add_spouse=15265
+	}
+	4899.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth in valar war
+}
+
+________________________________________________________________________
+
+pareil mort bataille des valars et changement date de mort.
+
+15256 = {
+	name="Elflás" #daughter of Aghûr, wife of Borréd
+	dynasty=15001
+	female=yes
+	religion="religion_edain"
+	culture="culture_haladin"
+	add_trait=fair
+	father=15252
+	mother=15251
+	4830.1.1={
+			birth="4830.1.1"
+	}
+	4899.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth in valar war
+}
+
+
+________________________________________________________________________
+
+changement de mort : tué par son mari pour lui épargné " le mauvais souffle " de morgoth . 
+
+15196 = {
+	name="Amwen" #daughter of Hudor, wife of Andróg
+	dynasty=15005
+	female=yes
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=fair
+	father=15181
+	mother=15131
+	4755.1.1={
+			birth="4755.1.1"
+	}
+	4781.1.1 = {
+		death = {
+			death_reason = death_accident
+			killer = 15195
+		}
+	} #killed by her husband Andróg to spare her the agony of the Evil Breath
+}
+
+
+_____________________________
+
+ajout du titre 'Chef' et d'Estolad : 
+
+15173 = {
+	name="Chef Marach d'Estolad" #Marach
+	dynasty=15005
+	religion="religion_edain"
+	culture="culture_maradin"
+	4594.1.1={
+			birth="4594.1.1"
+	}
+	4688.1.1={
+			death="4688.1.1"
+	}
+}
+
+____
+
+pareil ajout de 'Chef' et d'Ered Wethrin pour le premier name et le seconde en 4634 !  :
+
+15174 = {
+	name="Chef Malach d'Ered Wethrin" #son of Marach
+	dynasty=15005
+	religion="religion_edain"
+	culture="culture_maradin"
+	father=15173
+	4619.1.1={
+			birth="4619.1.1"
+	}
+	4634.1.1={
+			name="Chef Malach Aradan d'Ered Wethrin"
+	}
+	4650.1.1={
+			add_spouse=15175
+	}
+	4710.1.1={
+			death="4710.1.1"
+	}
+}
+
+__________
+
+pareil ajout de 'Chef' et d'Ered Wethrin : 
+
+15178 = {
+	name="Chef Magor d'Ered Wethrin" #son of Malach
+	dynasty=15005
+	religion="religion_edain"
+	culture="culture_maradin"
+	father=15174
+	mother=15175
+	4653.1.1={
+			birth="4653.1.1"
+	}
+	4724.1.1={
+			death="4724.1.1"
+	}
+}
+
+
+______
+
+ajout de 'Chef' et d'Ered Wethrin : 
+
+15180 = {
+	name="Chef Hathol d'Ered Wethrin" #son of Magor
+	dynasty=15005
+	religion="religion_edain"
+	culture="culture_maradin"
+	father=15178
+	4677.1.1={
+			birth="4677.1.1"
+	}
+	4735.1.1={
+			death="4735.1.1"
+	}
+}
+
+___________________________________________________________________________________________________________________________
+
+changement de mort tué en bataille contre glaurung, déplacement du nickname nick_the_black . 
+ajout du titre 'Chef'
+
+15268 = {
+	name="Chef Ulfang" #son of Ulbor
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	give_nickname = nick_the_black
+	father=15257
+	4702.1.1={
+			birth="4702.1.1"
+	}
+	4780.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10066
+		}
+	} #slain by Orcs of Glaurung in Maglor's Gap
+}
+
+_______
+
+changement de mort en bataille de Nirnaeth Arnoediad contre Maglor ! déplacement du surnom : nick_the_accursed !
+
+15269 = {
+	name="Chef Uldor" #son of Ulfang
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	give_nickname = nick_the_accursed	
+	father=15268
+	4747.1.1={
+			birth="4747.1.1"
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3240
+		}
+	} #Slain in the Nirnaeth Arnoediad vs Maglor 
+}
+
+___________
+
+changement de mort en bataille de Nirnaeth Arnoediad vs Borlad of Bor ! 
+
+15270 = {
+	name="Ulfast" #son of Ulfang
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15268
+	4751.1.1={
+			birth="4751.1.1"
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15260
+		}
+	} #Slain in the Nirnaeth Arnoediad vs Borlad
+}
+
+_____________
+
+changement de mort en bataille de Nirnaeth Arnoediad vs BORLACH of Bor ! 
+
+15271 = {
+	name="Ulwarth" #son of Ulfang
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15268
+	4761.1.1={
+			birth="4761.1.1"
+	}
+	4784.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15261
+		}
+	} #Slain in the Nirnaeth Arnoediad vs Borlad
+}
+
+________________________________________________________________________________________________
+
+changement de mort en bataille by Túrin in hador revolt vs easterling. ajout du titre 'Chef' et d'Hithlum
+
+15272 = {
+	name="Chef Brodda d'Hithlum" #son of Uldor
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15269
+	4765.1.1={
+			birth="4765.1.1"
+	}
+	4782.1.1={
+			add_spouse=15161
+	}
+	4789.1.1={
+			add_spouse=15168
+	}
+	4807.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15203
+		}
+	} #Slain by Túrin in hador revolt vs easterling
+}
+____________________________________
+
+changement de mort en duel contre Borthand du peuple de Bor ! et ajout du titre de 'Chef' et d'Hithlum
+
+15273 = {
+	name="Chef Lorgan d'Hithlum" #son of Brodda
+	dynasty=15010
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15272
+	mother=15161
+	4783.1.1={
+			birth="4783.1.1"
+	}
+	4800.1.1={
+			add_spouse=15183
+	}
+	4813.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15262
+		}
+	} #Slain by Borthand of Bor people
+}
+
+_____________________________________________
+
+changement de mort pour éxécutée par son propre mari : 
+
+15183 = {
+	name="Sadroniel" #daughter of Sador, wife of Lorgan
+	dynasty=15005
+	female=yes
+	religion="religion_edain"
+	culture="culture_maradin"
+	add_trait=fair
+	father=15182
+	4779.1.1={
+			birth="4779.1.1"
+	}
+	4813.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 15273
+		}
+	} #Slain Lorgan his husband
+}
+
+_____________________________________________________________________________
+
+changement de mort pour ce perso, tué par Sauron , ajout du titre 'Chef' en 4807
+
+15262 = {
+	name="Borthand" #son of Bór
+	dynasty=15009
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15258
+	mother=15259
+	4767.1.1={
+			birth="4767.1.1"
+	}
+	4807.1.1={
+			name="Chef Borthand Amrog"
+	}
+	4808.1.1={
+			add_spouse=15168
+	}
+	4832.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+___________________________________________________________________________________
+
+changement de mort pour ce perso, tué par Sauron , ajout du titre 'Chef' 
+
+15263 = {
+	name="Chef Borchíl" #son of Borthand
+	dynasty=15009
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15262
+	mother=15168
+	4812.1.1={
+			birth="4812.1.1"
+	}
+	4832.1.1={
+			add_spouse=15172
+	}
+	4847.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+__________________________________________________________________________________
+
+changement de mort et de date de mort pour ce perso, tué par Morgoth in valar war, ajout du titre 'Chef' 
+
+15264 = {
+	name="Chef Borréd" #son of Borchíl
+	dynasty=15009
+	religion="religion_easterling"
+	culture="culture_baradhrim"
+	father=15263
+	mother=15172
+	4834.1.1={
+			birth="4834.1.1"
+	}
+	4872.1.1={
+			add_spouse=15256
+	}
+	4899.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth in valar war
+}
+
+______________________________________________________________________________
+
+changement de mort ! 
+
+15012 = {
+	name="Tîghân"
+	dynasty=15001
+	religion="religion_druedain"
+	culture="culture_druedain"
+	father=15011
+	6308.1.1={
+			birth="6308.1.1"
+	}
+	6595.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+____________________________________________________________________
+
+changement de mort ! .
+
+15143 = {
+	name="Nelwen" #daughter of Gorlim, wife of Barador
+	dynasty=15004
+	female=yes
+	religion="religion_edain"
+	culture="culture_beodin"
+	add_trait=fair
+	father=15142
+	mother=15140
+	4755.1.1={
+			birth="4755.1.1"
+	}
+	4819.1.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 10015
+		}
+	} #Slain Morgoth
+}
+
+_____________________________________________________________________________________________
+
+
+
+************************************
+******************************
+
+fichier "15001-16000 Edain" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "1001-2000 Gondorian" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+ajout de père !
+
+1300 = {
+	name="Caramir"
+    dynasty=111
+	religion="religion_dunedain"
+	culture="culture_gondorian"
+	add_trait=blood_of_numenor
+	father=50001
+	mother=26023
+	8322.1.1={
+		birth="8322.1.1"
+	}
+	8370.1.1={
+		add_spouse=1298
+	}
+	8525.1.1={
+		death="8525.1.1"
+	}
+}
+
+_____________________________________________________________
+
+************************************
+******************************
+
+fichier "1001-2000 Gondorian" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "10001-11000 Ainur Other" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+- changement de prénom en bas en 10323 et en 4899 ? etc ? (vérifier autres modifs )
+- changement de mort pour tué par Gandalf ! ( NE PAS AJOUTER SA MORT CAR ELLE EST BUGUER ! comme le pere de tauriel ) 
+- lui laisser son nom d'Hallmog mais en nom de famille lui donner " Fléau de Durin " (in game)
+
+
+10026 = {
+	name = "Haldavelca"
+	religion = "religion_eruhini"
+	culture = "culture_balrog"
+	dynasty = 24009
+	add_trait = maiar
+	add_trait = balrog
+	6.1.1 = {
+		birth = "6.1.1"
+	}
+	33.1.1 = {
+		add_trait =  evil_side
+		religion = "religion_umaiar"
+	} #Haldavelca is corrupted by Melkor
+	57.1.1 = {
+
+		name = "Hallmog"
+	} #The Balrogs recieve their hröa
+	4899.1.1 = {
+		name = "Hallmog"
+		effect = {
+		set_character_flag = moriabalrog
+		}		
+		employer = 10007
+	} #The Balrog hides under Khazad-dûm in fear of the coming of the Valar in the War of Wrath
+	10323.1.1 = {
+	name = "Hallmog"
+		add_trait = brilliant_strategist
+		add_trait = wroth
+		add_trait = cruel
+		add_trait = aggressive_leader
+	} #The Balrog is awoken from its slumber by the Dwarves of Khazad-dûm and slays Durin VI
+	11362.1.25 = {
+		death = {
+			death_reason = death_duel
+			killer = 10033
+		}
+	} #Dúrin's Bane is slain by Gandalf in Moria
+}
+
+_____________________________________________________________
+
+mort des dragons : 
+
+ID = 10070    		Helegraug
+
+tué dans une bataille contre les elfes sindar, changement de la date pour 10933 (+1 ) 
+
+	10933.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3104
+		}
+	} #Slain sindar thranduil
+}
+
+----------------------------------------
+
+Smaug :  ID = 10068 
+
+	11284.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 9905
+		}
+	} # Slain Bard
+}
+
+----------------------------------------
+
+Scatha   ID = 10069
+
+	10343.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 9029
+		}
+	} # Slain by Fram
+}
+
+_______________________________________________________________________
+
+
+ajout de pere et mere : et du trait twin
+
+10038 = {
+	name = "Nielíqui"
+	female = yes
+	dynasty = 10013
+	religion = "religion_eruhini"
+	culture = "culture_maiar"
+	add_trait = maiar
+	add_trait = twin
+	add_trait = fair
+	father=10011
+	mother=10012
+	70.1.1 = {
+		birth = "70.1.1"
+		employer = 10001
+	}
+}
+
+---------------------
+
+ajout de pere et mere et du trait twin et changement de date de naissance
+
+10017 = {
+	name = "Melyanna"
+	female = yes
+	dynasty = 10013
+	religion = "religion_eruhini"
+	culture = "culture_maiar"
+	add_trait = maiar
+	add_trait = twin
+	add_trait = genius
+	add_trait = fair
+	father=10011
+	mother=10012
+	70.1.1 = {
+		birth = "70.1.1"
+	}
+	977.1.1 = {
+		name = "Melian"
+		employer = 10001
+	} #Elwë weds Melian in Nan Elmoth
+}
+
+__________________________________
+
+ajout de pere et du trait perceptive  ( il s'agit dans les scénario tardif de la femme de Tom Bombadil ) 
+
+10044 = {
+	name = "Sírëiel" #River-daughter
+	female = yes
+	dynasty = 10017
+	religion = "religion_eruhini"
+	culture = "culture_maiar"
+
+	disallow_random_traits = yes
+	add_trait = maiar
+	add_trait = kind
+	add_trait = nature_lover
+	add_trait = gardener
+	add_trait = fair
+	add_trait = perceptive
+	father = 10005
+	mother = 10043
+	1942.1.1 = {
+		birth = "1942.1.1"
+	}
+	9944.1.1 = {
+		name = "Goldberry"
+	} #Hobbits enter the Shire
+}
+___________________________________________________
+
+ID : 10016   = SAURON  
+
+-remplacer nécromancer par Nécromancien et changement de dynastie remplacer  " 0 "  par  " 99997 "  :
+- ajout en 6502 du trait lesser_ring
+ 
+	9343.1.1 = {
+		name = "Nécromancien"
+		dynasty = 99997
+		
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC	EN 6502 : 
+		
+			6502.1.1 = {
+		add_trait = onering
+		add_trait = lesser_ring
+		
+_________________________________________________________________
+
+changement de mort , tué par Earendil : 
+
+10067 = {
+	name = "Ancalagon" ## the Black
+	dynasty = 10028
+
+	
+	4899.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3001
+		}
+	} #Slain Earendil
+}
+
+______________________________________________________________________________________________
+
+Glaurung pere des dragons , ajout de mort : tué en duel contre turin turambar : 
+ajoiut du trait 'nauglamir' aussi car il pris un temps le tresor de nargothrond
+
+10066 = {
+	name = "Glaurung" ## the Father of the Dragons
+	dynasty = 10028
+	religion = "religion_dragons"
+	culture = "culture_dragons"
+	disallow_random_traits = yes
+	4500.1.1 = {
+		birth = "4500.1.1"
+		add_trait = uruloke
+		add_trait = envious
+		add_trait = zealous
+		add_trait = cruel
+		add_trait = proud
+		add_trait = deceitful
+		add_trait = nauglamir
+		add_trait = brilliant_strategist
+		effect = {
+			give_nickname = nick_father_dragons
+		}
+	}
+	4811.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15203
+		}
+	} #Slain by turin turambar
+}
+
+_________________________________________________________________________________________________________
+
+
+UNGOLIANT changement de mort pour tuée en DUEL par EARENDIL !!! ajout de père et changement date de naissance et autres,
+voir les dates et comparer !!!  FILLE DE MORGOTH  ajout des traits tall et strong ( ajout de maiar in game si 
+il apparait pas )    MAIAAAAAAAAAAARR 
+
+10018 = {
+	name = "Virilomë"
+	female = yes
+	dynasty = 10014
+	religion = "religion_eruhini"
+	culture = "culture_spider"
+	add_trait=tall
+	add_trait=strong
+	father=10015
+	10.1.1 = {
+		birth = "10.1.1"
+	}
+	30.1.1 = {
+		add_trait =  evil_side
+		religion = "religion_umaiar"
+	} #Virilomë is corrupted by Melkor
+	54.1.1 = {
+		name = "Ungoliant"
+		add_trait = spider
+	} #Virilomë takes the form of a Great Spider
+	4853.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3001
+		}
+	} #Ungoliant is slain by Eärendil
+}
+
+_________________________________________________________________________________________________
+
+
+changement de nom : Shelob pour Arachne (en Français) ajout du trait tall 
+
+10046 = {
+	name = "Ungoliel"
+	female = yes
+	religion = "religion_spider"
+	culture = "culture_spider"
+	mother = 10018
+	dynasty = 19012
+	4274.1.1 = {
+		birth = "4274.1.1"
+	}
+	5002.1.1 = {
+	add_trait = spider
+	add_trait = tall
+	add_trait = intricate_webweaver	
+	add_trait = gluttonous
+	add_trait = patient
+	add_trait = deceitful
+	add_trait = cruel
+	name = "Arachne"
+	}
+	11362.3.25 = {
+		death = "11362.3.25"
+	} #Arachne succums to her wounds inflicted by Sam Gamgee
+}
+
+_________________________________________________________________________________________________________
+
+
+le Prince des Balrog : Gothmog , changement de mort pour tué par Ecthelin en DUEL  
+
+10025 = {
+	name = "Vallavelca"
+	dynasty = 10018
+	religion = "religion_eruhini"
+	culture = "culture_balrog"
+
+	ETCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+	
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3226 # Ecthelion
+		}
+	} #Slain in the Fall of Gondolin by Ecthelion
+}
+
+___________________________________________________________________________________________________
+
+************************************
+******************************
+
+fichier "10001-11000 Ainur Other" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "4001 - 5000 Dwarves" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+
+LES DEUX père et fils tués en bataille contre le balrog de la moria :
+
+
+4008 = {
+	name="Durin" #VI
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=dragon_slayer
+	add_trait=durin_reincarnation	
+	father=4101
+	10074.1.1 = {
+		birth="10074.1.1"
+	}
+	10225.1.1 = {
+		add_trait=heir_of_durin
+		add_trait=durin_ring
+	}		
+	10323.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10026
+		}
+	} #Slain the balrog of moria
+}
+
+4009 = {
+	name="Náin" #I
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=great_axeman
+	father=4008
+	10175.1.1 = {
+		birth="10175.1.1"
+	}
+	10323.1.1 = {
+		add_trait=heir_of_durin
+		add_trait=durin_ring
+	}		
+	10324.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10026
+		}
+	} #Slain the balrog of moria
+}
+
+_____________________________________________________________
+
+
+ajout d'épouse pour thorin :
+
+4011 = {
+	name="Thorin" #I
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=dragon_slayer
+	father=4010
+	10378.1.1 = {
+		birth="10378.1.1"
+	}
+	10470.1.1 = {
+		add_spouse = 50029
+	}
+	10533.1.1 = {
+		add_trait=heir_of_durin
+		add_trait=durin_ring
+	}		
+	10632.1.1 = {
+		death="10632.1.1"
+	}
+}
+
+------------
+
+ajout mère  :
+
+4012 = {
+	name="Glóin" #I
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	father=4011
+	mother=50029
+	10479.1.1 = {
+		birth="10479.1.1"
+	}
+	10632.1.1 = {
+		add_trait=heir_of_durin
+		add_trait=durin_ring
+	}		
+	10728.1.1 = {
+		death="10728.1.1"
+	}
+}
+
+--------------
+
+ajout mère :
+
+4013 = {
+	name="Vóin"
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	father=4011
+	mother=50029
+	10498.1.1 = {
+		birth="10498.1.1"
+	}
+	10755.1.1 = {
+		death="10755.1.1"
+	}
+}
+
+___________________________________________________________________________
+
+BATAILLE !!!!   : 
+
+Dain Ier et son fils cadet et autres membre de la famille meurrent contre un dragon : 
+
+même mort pour tous ceux la :  même date de mort donc copier coller juste :
+
+ID = 4017 ,  4018 ,  4019  ,  4021 , 4022 , 4024
+
+	10932.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10070
+		}
+	} # Slain by a Cold-drake in Gabildûm
+}
+_____________________________________________________________________
+
+BATAILLE !!! 
+
+liste des tués par smaug : 
+
+ID = 4027 , 4028 , 4029  
+
+	11113.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10068
+		}
+	} # Slain by Smaug
+}
+
+__________________________________________________________________________
+
+ajout de mort, tué par scatha : autres 
+
+ID = 4314
+
+	10281.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
+}
+_________________________________________________________________
+	
+ajout / modification de traits et changement de mort : en duel contre beren
+	
+4241 = {
+	name="Naugladur"
+	dynasty=4003
+	religion="religion_mahal"
+	culture="culture_firebeard"
+	
+	add_trait=dwarven
+	add_trait=ambitious
+	add_trait=zealous
+	add_trait=proud
+	add_trait=brave
+	add_trait=elusive_shadow
+	add_trait=great_axeman
+	add_trait=nauglamir
+	
+	father=4003
+	4361.1.1 = {
+		birth="4361.1.1"
+	}
+	4815.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15165
+		}
+	} #Slain Beren
+}
+
+__________________________________________________________________________________
+
+Le nain Mîm : changement de date de mort et de mort, ajout du trait 'nauglamir'
+
+4502 = {
+	name="Mîm"
+	dynasty=4013
+	religion="religion_mahal"
+	culture="culture_petty_dwarves"
+	
+	add_trait=dwarven
+	add_trait = nauglamir
+	father = 4501
+	
+	4521.1.1 = {
+		birth="4521.1.1"
+	}
+	4812.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15189
+		}
+	} #Slain by Hurin thalion
+}
+
+________________________________________________________________________________________________________
+
+changement de mort, tué par androg. 
+
+4504 = {
+	name="Khîm" ## Son of Mîm
+	dynasty=4013
+	religion="religion_mahal"
+	culture="culture_petty_dwarves"
+	
+	add_trait=dwarven
+	father = 4502
+	
+	4660.1.1 = {
+		birth="4660.1.1"
+	}
+	4798.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15195
+		}
+	} # slain androg in the House of Ransom
+}
+
+_________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!
+
+
+8343 !!! changement de mort pour mort en BATAILLE contre SAURON 	#Slain in the Last Alliance  !!!  
+pour les ID suivant :    
+
+ , 4091 . ( Durin IV )
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the Last Alliance
+}
+
+_________________________________________________________________________________________________
+
+changement de mort . 
+
+4331 = {
+	name="Álar"
+	dynasty=4006
+	religion="religion_mahal"
+	culture="culture_stonefoot"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=great_axeman
+	father=4006
+	3578.1.1 = {
+		birth="3578.1.1"
+	}
+	4892.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by Morgoth
+}
+
+__________________________________________________________________
+
+Durin Ier, Changement de mort . 
+
+4001 = {
+	name="Durin"
+	dynasty=4001
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=dragon_slayer
+	479.1.1 = {
+		birth="479.1.1"
+	}
+	3000.1.1 = {
+		give_nickname = nick_the_deathless
+	}
+	4892.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Morgoth besiges Khazad-dum
+}
+
+_____________________________________________________________________
+
+changement de mort . 
+
+4006 = {
+	name="Lóni"
+	dynasty=4006
+	religion="religion_mahal"
+	culture="culture_stonefoot"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=great_axeman
+	488.1.1 = {
+		birth="488.1.1"
+	}
+	4892.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Morgoth besiges Khazad-dum, Lóni comes to Durin's aid
+}
+
+____________________________________________________________________________________________
+
+changement de mort . 
+
+4195 = {
+	name="Bodruith"
+	dynasty=4002
+	religion="religion_mahal"
+	culture="culture_broadbeam"	
+	add_trait=dwarven	
+	father=4194
+	4361.1.1 = {
+		birth="4361.1.1"
+	}
+	4899.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by Morgoth
+}
+
+__________________________________________________________________
+
+changement de mort :
+
+4242 = {
+	name="Nórthri"
+	dynasty=4003
+	religion="religion_mahal"
+	culture="culture_firebeard"	
+	add_trait=dwarven	
+	father=4241
+	4629.1.1 = {
+		birth="4629.1.1"
+	}
+	4899.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by Morgoth
+}
+
+______________________________________________________________________
+
+changement de mort . 
+
+4406 = {
+	name="Morór"
+	dynasty=4011
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	father=4405
+	6344.1.1 = {
+		birth="6344.1.1"
+	}
+	6639.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+______________________________________________________________________________________
+
+changement de mort . 
+
+4452 = {
+	name="Fangluin"
+	dynasty=4012
+	religion="religion_mahal"
+	culture="culture_firebeard"
+	
+	add_trait=dwarven
+	add_trait=zealous
+	add_trait=proud
+	# add_trait=cynical
+	add_trait=charismatic_negotiator
+	add_trait=cruel
+	
+	father=4450
+	4543.1.1 = {
+		birth="4543.1.1"
+	}
+	4825.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth
+}
+
+___________________________________________________________________________________
+
+changement de mort . 
+
+4285 = {
+	name="Afwald"
+	dynasty=4004
+	religion="religion_mahal"
+	culture="culture_ironfist"
+	add_trait=dwarven
+	add_trait=trained_dwarf
+	father=4004
+	4457.1.1 = {
+		birth="4457.1.1"
+	}
+	4816.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth
+}
+
+__________________________________________________________________________
+
+changement de mort : 
+
+4451 = {
+	name="Fandur"
+	dynasty=4012
+	religion="religion_mahal"
+	culture="culture_firebeard"
+	
+	add_trait=dwarven
+	
+	father=4450
+	4553.1.1 = {
+		birth="4553.1.1"
+	}
+	4812.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain Morgoth
+}
+
+__________________________________________________________________
+
+changement de mort .
+
+4505 = {
+	name="Ibun" ## Son of Mîm
+	dynasty=4013
+	religion="religion_mahal"
+	culture="culture_petty_dwarves"
+	
+	add_trait=dwarven
+	father = 4502
+	
+	4657.1.1 = {
+		birth="4657.1.1"
+	}
+	4810.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} ## Died before Mîm by sauron maybe
+}
+_______________________________________________________________________________
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+4784 !!! changement de mort pour mort en BATAILLE (Nirnaeth Arnoediad) contre MORGOTH  
+#Slain in the Nirnaeth Arnoediad vs morgoth
+pour les ID suivant :    
+
+ 4002 , 4003 , 4193 . 
+
+	4784.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain in the Nirnaeth Arnoediad vs morgoth
+}
+
+_______________________________________________________________________________________________________
+
+changement de mort : 
+
+4007 = {
+	name="Nîr"
+	dynasty=4007
+	religion="religion_mahal"
+	culture="culture_blacklock"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=trained_dwarf
+	488.1.1 = {
+		birth="488.1.1"
+	}
+	4779.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} # Slain by a raiding Orc party in Angmar
+}
+
+___________________________________________________________________________________________________________
+
+changement de mort . 
+
+4005 = {
+	name="Lit"
+	dynasty=4005
+	religion="religion_mahal"
+	culture="culture_stiffbeard"
+	add_trait=dwarven
+	add_trait=strong
+	add_trait=great_axeman
+	add_trait=at_east
+	488.1.1 = {
+		birth="488.1.1"
+	}
+	4662.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10015
+		}
+	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
+}
+
+_________________________________________________________________________________________________________
+
+
+
+
+************************************
+******************************
+
+fichier "4001 - 5000 Dwarves" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "13001-14000 black numenorean" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+changement date de naissance , de prénom en 11295 = Bouche de Sauron et de dynastie à en 11295 aussi. 
+
+## The Mouth of Sauron ##
+
+13107 = {
+	name="Agânbênzigûr" ## The Mouth of Sauron ##
+	dynasty=13007
+	religion="religion_black_numenorean"
+	culture="culture_black_numenorean"
+
+	add_trait=blood_of_numenor
+	add_trait=cruel
+	add_trait=cynical
+	add_trait=proud
+	add_trait=envious
+	add_trait=impaler
+	add_trait=elusive_shadow
+	add_trait=mouthofsauon
+
+	father=13106
+
+	11244.1.1={
+		birth="11244.1.1"
+		effect = {
+			set_character_flag=mouthofsauron
+		}
+	}
+	11295.1.1={
+		name="Bouche de Sauron"
+		dynasty=13007
+		effect = { 
+			give_minor_title = title_lieutenantofbaraddur
+		}
+	} ## Agânbênzigûr enter Mordor after Thorongil defeats Umbar, and loses his name.
+	11362.5.1={
+		death="11362.5.1"
+	} ## Killed during the Battle of the Morannon
+}
+
+_________________________________________________________________________________________________________
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!!!!!
+
+
+8343 !!! changement de mort pour mort en BATAILLE contre ELENDIL  	#Slain in the Last Alliance  !!!  
+pour les ID suivant :    
+
+  13032 , 13049 .
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 12135 # Elendil 
+		}
+	} #Slain in the Last Alliance
+}
+
+
+_____________________________________________________________
+
+
+
+************************************
+******************************
+
+fichier "13001-14000 black numenorean" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "20001 - 21000 Fall of Arnor placeholders" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+_______________________________________________________
+
+
+ajout de mère :
+
+
+20032 = {
+	name="Binír"
+	dynasty=4009
+	religion="religion_mahal"
+	culture="culture_longbeard"
+	add_trait=dwarven
+	add_trait=trained_dwarf
+	father=20031
+	mother=20030
+	8558.1.1 = {
+		birth="8558.1.1"
+	}
+	8904.1.1 = {
+		death="8904.1.1"
+	}
+}
+
+_____________________________________________________________
+
+tués par scatha : autres 
+
+ID = 20045 
+
+	10338.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
+}
+
+_________________________________________________
+
+
+************************************
+******************************
+
+fichier "20001 - 21000 Fall of Arnor placeholders" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "23001 - 24000 Last Alliance placeholders" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!
+
+8336 !!! changement de mort pour mort en BATAILLE contre SAURON # Died at Dagorlad  !!!  
+pour les ID suivant :    bataille de dagorlad 
+
+ 23070 .
+
+	8336.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died at Dagorlad
+}
+
+
+______________________________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! BATAILLE !!!!!!!!!!!!!!!!!!!
+
+
+8343 !!! changement de mort pour mort en BATAILLE contre SAURON 	#Slain in the Last Alliance  !!!  
+pour les ID suivant :    
+
+23010 , 23011 , 23016 , 23017 , 23022 , 23023 .
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} #Slain in the Last Alliance
+}
+
+
+_________________________________________________________________________________________________________________
+
+
+8345 !!! changement de mort pour mort en BATAILLE contre les orcs avec Isildur !!!   pour les ID suivant :    
+
+23063 , 23064 , 23065 .
+
+	8345.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 11006
+		}
+	} #Slain orcs gundabad
+}
+
+__________________________________________________________________________________________________________
+
+************************************
+******************************
+
+fichier "23001 - 24000 Last Alliance placeholders" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "26001-27000 Andrasting LA" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+
+_______________________________________________________________________________________________________
+
+changement de mort . 
+
+26018 = {
+	name="Nabar"
+	dynasty=26001
+	religion="religion_haldadian"
+	culture="culture_andrasting"
+	father=26017
+	8264.1.1={
+		birth=yes
+	}
+	8341.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died in siege of mordor
+}
+
+__________________________________________________________________________________
+
+changement mort. 
+
+26019 = {
+	name="Leheren"
+	dynasty=26001
+	religion="religion_haldadian"
+	culture="culture_andrasting"
+	father=26017
+	8267.1.1={
+		birth=yes
+	}
+	8342.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died in siege of mordor
+}
+
+__________________________________________________________________
+
+
+
+
+************************************
+******************************
+
+fichier "26001-27000 Andrasting LA" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "24001 - 25000 Second Age Characters" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+________________________________________________________________________________
+
+changement de mort !!!! 
+
+24123 = {
+	name="Arvirarg"
+	dynasty=24003
+	religion="religion_haldadian"
+	culture="culture_eredrim"
+	father=24122
+	8259.1.1={
+			birth="8259.1.1"
+	}	
+	8342.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016 # Sauron
+		}
+	} # Died in siege of mordor
+}
+
+__________________________________________________________________________________
+
+
+
+mort tué par le nouveau Haut roi des Haradrim après l'ultime allaince 
+
+24124 = {
+	name="Corr"
+	dynasty=24003
+	religion="religion_haldadian"
+	culture="culture_eredrim"
+	father=24123
+	8316.1.1={
+			birth="8316.1.1"
+	}	
+ 	8344.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 13033 # Arzagar
+		}
+	} #Slain after ultime alliance by Arzagar
+}
+
+________________________________________________________________________________________________
+
+changement de mort. 
+
+24029 = {
+	name="Istros"
+	dynasty=24001
+	religion="religion_haldadian"
+	culture="culture_ishmalogim"
+	father=24028
+	6495.1.1={
+		birth="6495.1.1"
+	}
+	6596.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+_________________________________________________________________________________
+
+changment de mort :
+
+24030 = {
+	name="Adontalkes"
+	dynasty=24001
+	religion="religion_haldadian"
+	culture="culture_ishmalogim"
+	father=24029
+	6553.1.1={
+		birth="6553.1.1"
+	}
+	6650.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+______________________________________________________________________________
+
+
+
+
+************************************
+******************************
+
+fichier "24001 - 25000 Second Age Characters" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "6001-7000 Haradrim" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+________________________________________________________________________________
+
+!!!! BATAILLE !!!  
+
+IDEEEM  Mort tué à l'ultime alliance aussi mais contre Gil-galad là ! 
+
+ID =  6461 .  
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3139 # Gil Galad 
+		}
+	} #Slain in the Last Alliance
+}
+
+___________________________________________________________________________________________
+
+mort tué en bataille par Isildur  !  .
+
+6578 = {
+	name="Gondar"
+	dynasty=6059
+	religion="religion_southron"
+	culture="culture_far_haradrim"
+	father=6577
+	8248.1.1={
+		birth="8248.1.1"
+	}
+	8344.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 12136 # Isildur
+		}
+	} #Slain after ultime alliance by isildur
+}
+
+________________________________________________________________________________________________
+
+
+************************************
+******************************
+
+fichier "6001-7000 Haradrim" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "17001-18000 Houses of Bor and Ulfang - Easterlings" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+________________________________________________________________________________
+
+!!!! BATAILLE !!!  
+
+IDEEEM  Mort tué à l'ultime alliance aussi mais contre Gil-galad là ! 
+
+ID =  17140
+
+	8343.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3139 # Gil Galad 
+		}
+	} #Slain in the Last Alliance
+}
+
+
+
+__________________________________________________________________________________
+
+
+************************************
+******************************
+
+fichier "17001-18000 Houses of Bor and Ulfang - Easterlings" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "7001-8000 - Dunlending-bree" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+________________________________________________________________________________
+
+changement de mort . 
+
+7081 = {
+	name="Mapatacos"
+	dynasty=7005
+	religion="religion_haldadian"
+	culture="culture_calending"
+	father=7080
+	6500.1.1={
+			birth="6500.1.1"
+	}			
+	6595.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+__________________________________________________________________________________
+
+changement de mort ! 
+
+7170 = {
+	name="Gibahardus"
+	dynasty=7006
+	religion="religion_rhovanion"
+	culture="culture_northmen"
+	father=7169
+	6500.1.1={
+			birth="6500.1.1"
+	}			
+	6595.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+___________________________________________________________________________
+
+changement de mort . 
+
+7237 = {
+	name="Blathmac"
+	dynasty=7007
+	religion="religion_haldadian"
+	culture="culture_dunlending"
+	father=7236
+	6500.1.1={
+			birth="6500.1.1"
+	}			
+	6595.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+_______________________________________________________________________________________________________________
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  BATAILLE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Changement de mort pour mort DANS LA BATAILLE contre SAURON à l'époque de la guerre contre les elfes. 
+Pour les ID SUIVANT :
+					
+7171 , 7082 , 7238 . 
+
+			
+	6648.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10016
+		}
+	} #Slain Sauron
+}
+
+___________________________________________________________________________________________________________________
+
+************************************
+******************************
+
+fichier "7001-8000 - Dunlending-bree" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+--------------------------------------
+------------------------------------
+
+fichier "11001 - 12000 Orcs Goblins Uruks" : DEBUT
+
+-----------------------------------
+---------------------------------------
+
+________________________________________________________________________________
+
+changement de mort .
+
+11302 = {
+	name="Balcmeg"
+	dynasty=11028
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=strong
+	add_trait=great_orc
+	4210.1.1={
+	birth="4210.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15206
+		}
+	} ## Died at the Fall of Gondolin, killed by Tuor
+}
+
+___________________________________________________________________________
+
+changement de mort .
+
+11136 = {
+	name="Lug"
+	dynasty=11029
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=strong
+	add_trait=great_orc
+	4340.1.1={
+	birth="4340.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15206
+		}
+	} ## Died at the Fall of Gondolin, killed by Tuor
+}
+
+__________________________________________________________________________________
+
+changement de mort. 
+
+11137 = {
+	name="Othrod"
+	dynasty=11030
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=strong
+	add_trait=great_orc
+	4388.1.1={
+	birth="4388.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15206
+		}
+	} ## Died at the Fall of Gondolin, killed by Tuor
+}
+
+________________________________________________________________________
+
+changement de mort :
+
+11138 = {
+	name="Orcobal"
+	dynasty=11031
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=strong
+	add_trait=great_orc
+	4284.1.1={
+	birth="4284.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3226
+		}
+	} ## Died at the Fall of Gondolin, killed by Ecthelion
+}
+
+___________________________________________________________________________________
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  MODIF ANNULER NE PAS AJOUTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+changement de TYPE et de DATE de mort !  ( car l'ancienne date le faisait mourir contre beren en 4822 alors que 
+											Beren est mort en 4816 , le fils de Gorgol (ID=11167 né en 4820 
+											naitra en 4760 pour éviter les bugs . )
+
+11139 = {
+	name="Gorgol"
+	dynasty=11032
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=great_orc
+	4489.1.1={
+	birth="4489.1.1"
+	}
+	4767.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15165
+		}
+	} ## Killed by Beren Erchamion in Dorthonion in Dagor Bragollach
+}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  MODIF ANNULER NE PAS AJOUTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+--------
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  MODIF ANNULER NE PAS AJOUTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+fils du précèdent , changement date de naissance pour éviter les bugs vu que la date de mort de son père a changée. 
+(avant 4820 , après 4760 )
+
+11167 = {
+	name="Gorgash"
+	dynasty=11032
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	father=11139
+	4760.1.1={
+	birth="4760.1.1"
+	}
+	5685.1.1={
+	death="5685.1.1"
+	}
+}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  MODIF ANNULER NE PAS AJOUTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+________________________________________________________________________________________________________________
+
+§§§ ATTENTION §§§ 
+Le même Gorgol que ci-dessus mais avec les modifs temporaire pour éviter un déséquilibre : 
+TUER PAR TUOR en duel, à la date indiquée. 
+
+11139 = {
+	name="Gorgol"
+	dynasty=11032
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=great_orc
+	4489.1.1={
+	birth="4489.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 15206
+		}
+	} ## Killed by Beren Erchamion in Dorthonion IMPOSSIBLE so Tuor for the moment
+}
+
+______________________________________________________________________________________________________________________
+
+changement de mort . 
+
+11141 = {
+	name="Bolg"
+	dynasty=11033
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=great_orc
+	father=11140
+	4730.1.1={
+	birth="4730.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3132
+		}
+	} ## Killed during the Fall of Gondolin
+}
+
+____________________________________________________________
+
+changement de mort . 
+
+11187 = {
+	name="Orczag"
+	dynasty=11031
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=strong
+	father=11138
+	4555.1.1={
+	birth="4555.1.1"
+	}
+	4822.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 3132
+		}
+	} ## Killed during the Fall of Gondolin
+}
+
+________________________________________________________________________________
+
+changement de mort. 
+
+11140 = {
+	name="Boldog"
+	dynasty=11033
+	religion="religion_orkish"
+	culture="culture_orkish" 
+	add_trait=orc
+	add_trait=great_orc
+	4512.1.1={
+	birth="4512.1.1"
+	}
+	4807.1.1 = {
+		death = {
+			death_reason = death_duel
+			killer = 3056
+		}
+	} ## Killed by Elu Thingol in Doriath
+}
+
+______________________________________________________________________________
+
+
+
+************************************
+******************************
+
+fichier "11001 - 12000 Orcs Goblins Uruks" : FINNNNNNNN
+
+**********************************
+***************************************
+
+
+
+
+
+
+
+
+
+***************************************
+
+DATES IMPORTANTES MEMO !!! 
+
+******************************************
+
+
+ utiliser ces dates sur les Edains, les Elfe et les Nains, pour trouver ceux ayant participer aux batailles
+ et y étant mort  : 
+
+( pour trouver de smorts, utilisé les mots  Slain / died / dead / etcccc . ) 
+ 
+Eok / H - 4270 = flotte des Navires Teleri bruler par Feanor et premier massacre d'elfe contre elfes ! (bataille vs feanor)
+ 
+Eok / Hok / Nok - 4283  prenmière bataille en beleriand à Amon Ereb contre morgoth 
+ 
+Eok / Hok / Nok - 4293 / 4294 = Franchissement des Noldor de Helcaraxë ( la bande de glace qui reliait jadis L'Ouest à L'est.( mort par accident ) 
+ 
+Eok / Hok / Nok - 4312 =  the Battle of the Lammoth contre Morgoth , cause la mort d'Argon  (le seul touché) ! 
+ 
+Eok / Hok / Nok - 4662 =  Bataille contre Morgoth attacking the Council of the East in the Dagor Iármael
+ 
+Eok / Hok / Nok - 4767 Dagor Bragollach  =  Bataille de la Flamme Subite
+ 
+Eok / Hok / Nok - 4769 = Chute de Minas-Tirith !   #Fall of Minas Tirith  (1er Age)   ( UN SEUL PERSONNAGE DE CONCERNER )
+ 
+Eok / Hok / Nok - 4772 = bataile contre les orcs de morgoth et mort des compagnons de Barahir suite à la trahison de Gorlim 
+  
+Eok / Hok / Nok - 4784  BATAILLE DES LARMES INNOMBRABLES !!!!!!!   =   Nirnaeth Arnoediad
+ 
+Eok / Hok / Nok - 4785 Bataille ou des balrogs tue des elfes ( les balrogs serront Goroth et Hellmog  ) 
+ 
+Eok / Hok / Nok - 4785 AUSSI :  Pillage du port de Cirdan de :  Brithombar bataille contre Morgoth .
+ 
+Eok / Hok / Nok - 4807 Bataille révolte Peuple Hador contre les Easterling :(Turin vs Brodda)
+
+Eok / Hok / Nok - 4807 = Battle of Tumhalad ( glaurung leader ) 
+ 
+Eok / Hok / Nok - 4815 = 1er Sac de Menegroth  !    ( l'elfe Mablung à Porté le Nauglamir ) (bataille contre les Nain de Nogrod
+
+Eok / Hok / Nok - 4818 / 4819 = Sac de Doriath (2ème sac de Menegroth) !!!!  Pillage du Royaume de doriath :( (contre Maedhros )
+
+Eok / Hok / Nok - 4822 : chute de gondolin !! Contre Morgoth ? gothmog ?( un elfe nos quilwe est tué par un balrog --> Goroth.)(mort gothmog)
+
+Eok / Hok / Nok - 4850 =  BATAILLE contre Maedhros 'Kinslaying of Sirion'  bataille que déclenche Maedhros Nos feanor pour réucpérer un
+Silmaril à Earendil sur les terres de celui-ci ! 
+
+Eok / Hok / Nok- entre 4858-4899-4900 !!!!!!! DATES DE LA GUERRE DE LA GRANDE COLERE POUR AJOUTER ET RECONNAITRE LES MORTS
+ DE CETTE BATAILLE !!!!!!!!!   545 - 587 1A la bataille
+ 
+Eok / Hok / Nok - 5902 : Sauron return en Mordor et tue les elfes de Nurn ? 
+
+Eok / Hok / Nok - 6595 / 6596 / 6599 ? = mort dans la lutte des elfes contre Sauron !!! 
+
+Eok / Hok / Nok - 6595 / 6650 ? = Période des Guerres entre Sauron et les Elfes et leurs alliés avant l'intervention de Numenor. 
+
+Eok / Hok / Nok - 8221 = mort de l'île de Numenor et de ses habitants ! ! ! ! !  ( mort executé par Manwe )
+
+Eok / Hok / Nok - 8336  = mort à la bataille de dagorlad de l'ultime alliance
+
+Eok / H / Nok - 8341 Mort à la bataille de barad dur ultime alliance   killed during the seige or Mordor  (en 8341 un seul perso concerné)
+Eok / H / Nok - 8342    IDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEMM
+Eok / Hok / Nok - 8343   IDEEEEEEEEEEEEEEMMMM
+
+Eok / Hok / Nok. - 8345 = Mort embuscade Isildur.
+ ---------------------------------------------------
+
+

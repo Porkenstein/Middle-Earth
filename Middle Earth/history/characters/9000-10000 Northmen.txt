@@ -15,8 +15,11 @@
 		add_trait=necklace_of_girion
 	}
 	11113.1.1 = {
-		death="11113.1.1"
-	} # Slain by Smaug in Dale
+		death = {
+			death_reason = death_battle
+			killer = 10068
+		}
+	} # Slain by Smaug
 }
 9901 = {
 	name="Bain"
@@ -98,6 +101,9 @@
 		add_trait=necklace_of_girion
 		add_trait=fortune_builder
 	}
+	11284.11.11={
+		remove_trait=necklace_of_girion
+		}
 	11286.1.1={
 		add_spouse=9273
 	}
@@ -338,6 +344,9 @@
 	9969.1.1={
 		birth="9969.1.1"
 	}
+	10003.1.1={
+		add_spouse=1297
+	}
 	10056.1.1={
 		death="10056.1.1"
 	}
@@ -348,6 +357,7 @@
 	religion="religion_rhovanion"
 	culture="culture_northmen"
 	father=9020
+	mother=1297
 	10007.1.1={
 		birth="10007.1.1"
 	}
@@ -390,9 +400,12 @@
 	10113.1.1={
 		birth="10113.1.1"
 	}
-	10199.1.1={
-		death="10199.1.1"
-	} ## Killed by the Wainriders
+	10199.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 5092
+		}
+	} # Slain by wainriders
 }
 9025 = {
 	name="Marhwini" ## First Lord of the Eothed ##
@@ -424,9 +437,12 @@
 	10199.1.1={
 		culture ="culture_eotheod"
 	}	
-	10276.1.1={
-		death="10276.1.1"
-	}
+	10276.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9027 = {
 	name="Feohtan"
@@ -438,9 +454,12 @@
 	10227.1.1={
 		birth="10227.1.1"
 	}	
-	10320.1.1={
-		death="10320.1.1"
-	}
+	10320.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9028 = {
 	name="Frumgar"
@@ -694,9 +713,12 @@
 	10189.1.1={
 		birth="10189.1.1"
 	}
-	10276.1.1={
-		death="10276.1.1"
-	}
+	10276.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9046 = {
 	name="Fulkabairhts"
@@ -707,9 +729,12 @@
 	10227.1.1={
 		birth="10227.1.1"
 	}	
-	10320.1.1={
-		death="10320.1.1"
-	}
+	10320.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9047 = {
 	name="Luitwulf"
@@ -1009,9 +1034,12 @@
 	10234.1.1={
 		birth="10234.1.1"
 	}	
-	10320.1.1={
-		death="10320.1.1"
-	}
+	10320.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9071 = {
 	name="Dagaric"
@@ -1485,9 +1513,12 @@
 	10202.1.1={
 		birth="10202.1.1"
 	}
-	10285.1.1={
-		death="10285.1.1"
-	}
+	10285.1.1 = {
+		death = {
+			death_reason = death_battle
+			killer = 10069
+		}
+	} # Slain by Scatha
 }
 9107 = {
 	name="Gerleib"
@@ -3966,10 +3997,10 @@
 # least one additional ruler, pre-dating everyone else in this file
 9300 = {
 	name="Frumareiks"
-	dynasty = 902
+	dynasty = 923
 	religion = religion_rhovanion
 	culture = culture_northmen
-
+	father = 20047
 	9282.1.1={
 		birth=yes
 	}
@@ -3980,7 +4011,8 @@
 
 9301 = {
 	name="Baldemar"
-	dynasty = 902
+	dynasty = 923
+
 	religion = religion_rhovanion
 	culture = culture_northmen
 	father = 9300
