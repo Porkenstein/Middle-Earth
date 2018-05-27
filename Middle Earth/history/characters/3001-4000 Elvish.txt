@@ -1,14 +1,16 @@
+# Death dates added only to fulfill code - tsf4
+
 3001 = {
 	name = "Eärendil"
 	dynasty = 3001
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 
-	add_trait = half_elf
-	add_trait = tall
-	add_trait = strong
-	add_trait = charismatic_negotiator
-	add_trait = legendary_warrior
+	trait = half_elf
+	trait = tall
+	trait = strong
+	trait = charismatic_negotiator
+	trait = legendary_warrior
 
 	father = 15206
 	mother = 3136
@@ -21,15 +23,18 @@
 	}
 	4837.1.1 = {
 		add_spouse = 3002
-		add_trait = elessar
+		trait = elessar
 	}
 	4854.1.1 = {
-		add_trait = sailed_west
-		add_trait = nauglamir
-		add_trait = vingilot
+		trait = sailed_west
+		trait = silmaril
+		trait = vingilot
 		remove_trait = half_elf
-		add_trait = elf
+		trait = elf
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -39,37 +44,40 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3116
 	mother = 3125
 	4815.1.1 = {
 		birth = "4815.1.1"
 	}
 	4854.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
 3003 = {
 	name = "Elrond"
 	dynasty = 3002
-	dna = "dkamg0moaa0"
-  	properties = "cd0iefbe00b"
+  	dna = "dlame0miaa0"
+ 	properties = "uh0cgbbe00b"
 	
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 	disallow_random_traits = yes
-	add_trait = grey_eminence
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = quick
-	add_trait = perceptive
-	add_trait = healer_master
-	add_trait = great_elf
+	trait = grey_eminence
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = quick
+	trait = perceptive
+	trait = healer_master
+	trait = great_elf
 	
 	father = 3001
 	mother = 3002
@@ -94,23 +102,26 @@
 			}
 		}	
 	8343.1.1 = {
-		add_trait = vilya
+		trait = vilya
 		effect = { set_character_flag = ringbearer }
 	} #Elrond recieves Vilya from the body of Gil-galad
 	8452.1.1 = {
 		add_spouse = 3007
 	}
 	10806.1.1 = {
-		add_trait = white_council
+		trait = white_council
 		effect =  {
 			add_friend =  10033 #Gandalf
 		}
 	} #The White Council is formed
 	11364.1.1 = {
 		remove_trait = white_council
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = "10001"
 	} #The Ring-bearers sail into the West
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3004 = {
@@ -119,23 +130,22 @@
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = brilliant_strategist
-	add_trait = dragon_helm
-	add_trait = barahir
-	add_trait = legendary_warrior
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = brilliant_strategist
+	trait = dragon_helm
+	trait = legendary_warrior
 
 	father = 3001
 	mother = 3002
 
-	martial = 21
-	diplomacy = 19
-	intrigue = 12
-	stewardship = 18
-	learning = 17
+	martial = 2
+	diplomacy = 7
+	intrigue = 8
+	stewardship = 10
+	learning = 10
 
   	dna = "dkamg0moaa0"
   	properties = "cd0iefbe00b"
@@ -147,7 +157,7 @@
 		culture = "culture_numenorean"
 		religion = "religion_numenorean"
 		remove_trait = elf
-		add_trait = blood_of_numenor
+		trait = blood_of_numenor
 		add_spouse = 15266
 		dynasty = 12001
 	}
@@ -172,16 +182,17 @@
 	learning = 12
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = charismatic_negotiator
-	add_trait = experimenter
-	add_trait = just
-	add_trait = humble
-	add_trait = great_elf
-	add_trait = good_side
-	add_trait = unyielding_leader
+	trait = blood_of_galadhon
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = charismatic_negotiator
+	trait = experimenter
+	trait = just
+	trait = humble
+	trait = great_elf
+	trait = good_side
+	trait = unyielding_leader
 
 	father = 3119
 	mother = 3121
@@ -199,6 +210,9 @@
 			add_friend =  3003 #Elrond
 		}
 	} 
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3006 = {
@@ -209,23 +223,24 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = gardener
-	add_trait = fortune_builder
-	add_trait = perceptive
-	add_trait = fea_strong
-	add_trait = tall
-	add_trait = strong
-	add_trait = poet
-	add_trait = scholar
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = gardener
+	trait = fortune_builder
+	trait = perceptive
+	trait = fea_strong
+	trait = tall
+	trait = strong
+	trait = poet
+	trait = scholar
+	trait = light_valinor
 
 	father = 3145
 	mother = 3143
 
-  	dna = "bmlcc0lagc0"
-  	properties = "si0of"
+  	dna = "cgmcdejcgcc"
+  	properties = "ai0afc00000000"
 
 	3009.1.1 = {
 		birth = "3009.1.1"
@@ -236,32 +251,32 @@
 	4364.1.1 = {
 		name = "Galadriel"
 		remove_trait = sailed_west
-		add_trait = healer_master
-		add_trait = ambitious
-		add_trait = master_craftsman # made Phile of Galadriel using light of Silmaril
+		trait = healer_master
+		trait = ambitious
+		trait = master_craftsman # made Phile of Galadriel using light of Silmaril
 	}
 	4364.1.1 = {
-		add_trait = elessar
+		trait = elessar
 	} #The second Elessar forged by Celebrimbor and given to Galadriel
 	4387.1.1 = {
 		add_spouse = 3005
 	}
 	6596.1.1 = {
-		add_trait = nenya
-		add_trait = mirror_of_galadriel
+		trait = nenya
+		trait = mirror_of_galadriel
 		effect = {
 			set_character_flag = ringbearer
 		}
 	} #Celebrimbor delivers the Ring Nenya to Galadriel
 	8443.1.1 = {
 		remove_trait = elessar
-		add_trait = elven_infertility
+		trait = elven_infertility
 	} #Galadriel gives the Elessar to Celebrían
 	9343.1.1 = {
-		add_trait = elessar
+		trait = elessar
 	} #Gandalf brings the Elessar of Eärendil from Valinor and delivers it to Galadriel
 	10806.1.1 = {
-		add_trait = white_council
+		trait = white_council
 		effect =  {
 		add_friend =  10033 #Gandalf
 		add_friend =  3065 #Cirdan
@@ -272,42 +287,47 @@
 	11361.2.16 = {
 		remove_trait = elessar
 		remove_trait = ambitious
-		add_trait = humble
+		trait = humble
 	} #Galadriel delivers the Elessar of Eärendil to Aragorn
 	11364.1.1 = {
 		remove_trait = white_council
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = "10001"
 	} #The Ring-bearers sail into the West
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3007 = {
 	name = "Celebrían"
 	dynasty = 3003
+	dna = "aaaffsdbfcl"
+	properties = "aa00gc"
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-
-	add_trait = elf
-	add_trait = fair
+	
+	trait = elf
+	trait = fair
 
 	father = 3005
 	mother = 3006
-
-  	dna = "bmhlc0iafc0"
-  	properties = "si0ofobe"
 
 	5602.1.1 = {
 		birth = "5602.1.1"
 	}
 	8443.1.1 = {
-		add_trait = elessar
+		trait = elessar
 	} #Galadriel gives the Elessar to Celebrían
 	10853.1.1 = {
 		remove_trait = elessar
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} #Celebrían gives the Elessar to Arwen before she sails West
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3008 = {
@@ -320,13 +340,13 @@
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = skilled_tactician
-	add_trait = cavalry_leader
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = skilled_tactician
+	trait = cavalry_leader
+	trait = great_elf
 
 	father = 3003
 	mother = 3007
@@ -340,6 +360,9 @@
 	8473.1.1 = {
 		birth = "8473.1.1"
 	}
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3009 = {
@@ -352,13 +375,13 @@
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = skilled_tactician
-	add_trait = light_foot_leader
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = skilled_tactician
+	trait = light_foot_leader
+	trait = great_elf
 
 	father = 3003
 	mother = 3007
@@ -372,6 +395,9 @@
 	8473.1.1 = {
 		birth = "8473.1.1"
 	}
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3010 = {
@@ -379,21 +405,21 @@
 	dynasty = 3002
 	female = yes
 
-	dna = "cmack0ahaa0"
-	properties = "mh0egibe00b"
+	dna = "bgmgarjjafr"
+	properties = "0f0dfd00000000"
 
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = honest
-	add_trait = patient
-	add_trait = charitable
-	add_trait = brave
-	add_trait = charismatic_negotiator
-	add_trait = great_healer
+	trait = elf
+	trait = fair
+	trait = honest
+	trait = patient
+	trait = charitable
+	trait = brave
+	trait = charismatic_negotiator
+	trait = great_healer
 
 	father = 3003
 	mother = 3007
@@ -411,11 +437,11 @@
 		}
 	}
 	10853.1.1 = {
-		add_trait = elessar
+		trait = elessar
 	} #Celebrían gives the Elessar to Arwen before she sails West
 	11323.1.1 = {
 		
-		add_trait = vow_of_cerin_amroth
+		trait = vow_of_cerin_amroth
 	
 	}
 	11485.1.1 = {
@@ -430,14 +456,17 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.1 = {
 		birth = "75.1.1"
 	}
 	93.1.1 = {
 		add_spouse = 3013
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -447,11 +476,14 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.1 = {
 		birth = "75.1.1"	
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -460,14 +492,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.2 = {
 		birth = "75.1.2"
 	}
 	93.1.1 = {
 		add_spouse = 3015
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -477,11 +512,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.2 = {
 		birth = "75.1.2"		
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -490,14 +528,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.3 = {
 		birth = "75.1.3"
 	}
 	93.1.1 = {
 		add_spouse = 3017		
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -507,11 +548,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.1.3 = {
 		birth = "75.1.3"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -520,14 +564,17 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3019
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -537,11 +584,14 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -550,14 +600,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3021
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -567,11 +620,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -580,14 +636,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3023
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -597,11 +656,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -610,14 +672,17 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3025
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -627,11 +692,14 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -640,14 +708,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3027
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -657,11 +728,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -670,14 +744,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3029
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -687,11 +764,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -699,14 +779,17 @@
 	name = "Cainen"
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3031
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -715,11 +798,14 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -728,14 +814,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3033
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -745,11 +834,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -758,14 +850,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3035
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -775,11 +870,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -788,14 +886,17 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3037
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -805,11 +906,14 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -818,14 +922,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3039
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -835,11 +942,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -848,14 +958,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3041
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -865,11 +978,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -877,14 +993,17 @@
 	name = "Enen"
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3043
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -893,11 +1012,14 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -906,14 +1028,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3045
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -923,11 +1048,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -936,14 +1064,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3047
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -953,11 +1084,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -966,14 +1100,17 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3049
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -983,11 +1120,14 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -996,14 +1136,17 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3051
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1013,11 +1156,14 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1026,14 +1172,17 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
 	}
 	93.1.1 = {
 		add_spouse = 3053
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1043,11 +1192,14 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	75.2.1 = {
 		birth = "75.2.1"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1058,10 +1210,10 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = great_elf
 	father = 3012
 	mother = 3013
 	95.1.1 = {
@@ -1070,11 +1222,14 @@
 	527.1.1 = {
 		culture = "culture_vanyar"
 		dynasty = 3008
-		add_trait = sailed_west		
+		trait = sailed_west		
 		employer = 10001
 	}
 	795.1.1 = {
 		add_spouse = 3085
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1085,14 +1240,14 @@
 	culture = "culture_tatyar"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = just
-	add_trait = kind
-	add_trait = midas_touched
-	add_trait = inspiring_leader
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = just
+	trait = kind
+	trait = midas_touched
+	trait = inspiring_leader
+	trait = great_elf
 
 	father = 3014
 	mother = 3015
@@ -1112,8 +1267,8 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3006
-		add_trait = light_valinor
-		add_trait = sailed_west		
+		trait = light_valinor
+		trait = sailed_west		
 		employer = 10001
 	}
 	795.1.1 = {
@@ -1136,12 +1291,13 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = midas_touched
-	add_trait = inspiring_leader
-	add_trait = legendary_warrior
+	trait = blood_of_elwe
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = midas_touched
+	trait = inspiring_leader
+	trait = legendary_warrior
 	
 	father = 3016
 	mother = 3017
@@ -1155,21 +1311,18 @@
 	527.1.1 = {
 		culture = "culture_teleri"
 		dynasty = 3009
-		add_trait = light_valinor
+		trait = light_valinor
 	}
 	977.1.1 = {
-		name = "Roi Elu Thingol de Doriath"
+		name = "Elu Thingol"
 		culture = "culture_sindar"
 		give_nickname = nick_greymantle
-		add_trait = nauglamir
+		trait = nauglamir
 		add_spouse = 10017
 	} #Elwë marries Melian and establishes Doriath
 	4814.1.1 = {
-		death = {
-			death_reason = death_murder
-			killer = 4241
-		} #Slain by dwarf nogrod
-	} 
+		death = { death_reason = death_murder }
+	} #Slain by the Dwarves of Nogrod
 }
 
 3057 = {
@@ -1177,9 +1330,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3032
 	mother = 3033
 	105.1.1 = {
@@ -1193,10 +1346,7 @@
 		add_spouse = 3076
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_murder }
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -1205,9 +1355,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3034
 	mother = 3035
 	105.1.1 = {
@@ -1221,10 +1371,7 @@
 		add_spouse = 3095
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_murder }
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -1233,9 +1380,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3026
 	mother = 3027
 	115.1.1 = {
@@ -1244,12 +1391,15 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3023
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	1054.1.1 = {
 		add_spouse = 3101
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1258,10 +1408,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = at_east
 	father = 3028
 	mother = 3029
 	125.1.1 = {
@@ -1275,10 +1425,7 @@
 		add_spouse = 3074
 	}
 	4662.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
 }
 
@@ -1287,10 +1434,10 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = at_east
 	father = 3018
 	mother = 3019
 	125.1.1 = {
@@ -1298,16 +1445,13 @@
 	}
 	527.1.1 = {
 		culture = "culture_avari"
-		dynasty = 99995
+		dynasty = 3025
 	}
 	680.1.1 = {
 		add_spouse = 3090
 	}
 	4662.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
+		death = { death_reason = death_battle }
 	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
 }
 
@@ -1316,10 +1460,10 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = at_east
 	father = 3020
 	mother = 3021
 	125.1.1 = {
@@ -1334,14 +1478,17 @@
 		add_spouse = 3214
 	}
 	1725.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		remove_trait = at_east
-		add_trait = light_valinor
+		trait = light_valinor
 	} # Taken to Valinor by Oromë
 	3928.1.1 = {
 		remove_trait = sailed_west
-		add_trait = at_east
+		trait = at_east
 	} # Taken back to Endor by Oromë
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3063 = {
@@ -1349,9 +1496,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3022
 	mother = 3023
 	135.1.1 = {
@@ -1369,11 +1516,8 @@
 		add_spouse = 3092
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10026 # Hellmog
-		}
-	} #Slain on Caras Galadhon by Balrogs of Hellmog in pursuit of the Host of Súlwë
+		death = { death_reason = death_battle }
+	} #Slain on Caras Galadhon by Balrogs in pursuit of the Host of Súlwë
 }
 
 3064 = {
@@ -1381,9 +1525,9 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3024
 	mother = 3025
 	135.1.1 = {
@@ -1392,12 +1536,15 @@
 	527.1.1 = {
 		culture = "culture_vanyar"
 		dynasty = 3027
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	910.1.1 = {
 		add_spouse = 3075
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1408,15 +1555,16 @@
 	culture = "culture_nelyar"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = charitable
-	add_trait = experimenter
-	add_trait = perceptive
-	add_trait = charismatic_negotiator
-	add_trait = ship_builder
-	add_trait = beard_elf
+	trait = blood_of_nowe
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = charitable
+	trait = experimenter
+	trait = perceptive
+	trait = charismatic_negotiator
+	trait = ship_builder
+	trait = beard_elf
 
 	father = 3028
 	mother = 3029
@@ -1447,16 +1595,16 @@
 		add_spouse = 3086
 	}
 	6596.1.1 = {
-		add_trait = narya
+		trait = narya
 	} #Celebrimbor delivers the Ring Narya to Círdan
 	9343.1.1 = {
 		remove_trait = narya
-		add_trait = beard_elf
+		trait = beard_elf
 	} #Círdan gifts Narya to Olórin
 	10806.1.1 = {
-		add_trait = white_council
-		add_trait = marriedforever
-		# add_trait = palantir_elostirion
+		trait = white_council
+		trait = marriedforever
+		# trait = palantir_elostirion
 		effect =  {
 			add_friend =  3006 #Galadriel
 			add_friend =  10033 #Gandalf
@@ -1465,7 +1613,10 @@
 		}
 	} #The White Council is formed	
 	11366.1.1  = {
-		add_trait = narya
+		trait = narya
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1474,9 +1625,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3026
 	mother = 3027
 	155.1.1 = {
@@ -1490,11 +1641,8 @@
 		add_spouse = 3077
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3067 = {
@@ -1502,9 +1650,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3040
 	mother = 3041
 	165.1.1 = {
@@ -1516,18 +1664,15 @@
 	}
 	968.1.1 = {
 		culture = "culture_falmari"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 	} #Olwë and the greater part of the Teleri arrive in Valinor
 	1341.1.1 = {
 		add_spouse = 3083
 	}
 	4270.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3238 # Feanor
-		}
-	} #First Kin-slaying by feanor vs teleri
+		death = { death_reason = death_battle }
+	} #First Kin-slaying
 }
 
 3068 = {
@@ -1535,9 +1680,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3026
 	mother = 3027
 	175.1.1 = {
@@ -1546,8 +1691,8 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3014
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	804.1.1 = {
@@ -1556,6 +1701,9 @@
 	1006.1.1 = {
 		add_spouse = 3087
 	}
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3069 = {
@@ -1563,12 +1711,13 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3034
 	mother = 3035
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = great_elf
 	175.1.1 = {
 		birth = "175.1.1"
 	}
@@ -1583,10 +1732,7 @@
 		add_spouse = 3088
 	}
 	4283.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain by Orcs on Amon Ereb in the First Battle of Beleriand
 }
 
@@ -1596,9 +1742,10 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 
 	father = 3016
 	mother = 3017
@@ -1615,13 +1762,16 @@
 	}
 	968.1.1 = {
 		culture = "culture_falmari"
-		name = "Haut-Roi Olue d'Alqualondë"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		name = "Olue"
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	} #Olwë and the greater part of the Teleri arrive in Valinor
 	1073.1.1 = {
 		add_spouse = 3080
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1630,9 +1780,9 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3018
 	mother = 3019
 	195.1.1 = {
@@ -1641,9 +1791,12 @@
 	527.1.1 = {
 		culture = "culture_vanyar"
 		dynasty = 3030
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1652,9 +1805,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3026
 	mother = 3027
 	215.1.1 = {
@@ -1663,12 +1816,15 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3024
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	1044.1.1 = {
 		add_spouse = 3203
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1677,9 +1833,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3044
 	mother = 3045
 	225.1.1 = {
@@ -1688,9 +1844,12 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3031
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1700,9 +1859,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = at_east
 	father = 3022
 	mother = 3023
 	235.1.1 = {
@@ -1712,6 +1872,9 @@
 		culture = "culture_avari"
 		dynasty = 3021
 	}
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3075 = {
@@ -1720,8 +1883,8 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3012
 	mother = 3013
 	245.1.1 = {
@@ -1730,9 +1893,12 @@
 	527.1.1 = {
 		culture = "culture_vanyar"
 		dynasty = 3008
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1742,8 +1908,8 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3014
 	mother = 3015
 	245.1.1 = {
@@ -1754,10 +1920,7 @@
 		dynasty = 3006
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_murder }
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -1767,8 +1930,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3034
 	mother = 3035
 	255.1.1 = {
@@ -1782,11 +1946,8 @@
 		culture = "culture_sindar"
 	}
 	4784.1.1 = {
-		death = {
-			death_reason = death_murder
-			killer = 15272
-		}
-	} #Mithrim is taken by the Easterlings of Brodda
+		death = { death_reason = death_murder }
+	} #Mithrim is taken by the Easterlings
 }
 
 3078 = {
@@ -1794,9 +1955,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3040
 	mother = 3041
 	265.1.1 = {
@@ -1813,11 +1975,8 @@
 		add_spouse = 3084
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3079 = {
@@ -1825,9 +1984,9 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3024
 	mother = 3025
 	275.1.1 = {
@@ -1836,9 +1995,12 @@
 	527.1.1 = {
 		culture = "culture_vanyar"
 		dynasty = 3033
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1848,8 +2010,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3028
 	mother = 3029
 	275.1.1 = {
@@ -1861,10 +2024,13 @@
 	}
 	968.1.1 = {
 		culture = "culture_falmari"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	} #Olwë and the greater part of the Teleri arrive in Valinor
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3081 = {
@@ -1872,9 +2038,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3046
 	mother = 3047
 	285.1.1 = {
@@ -1891,10 +2058,7 @@
 		add_spouse = 3084
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Fall of Gondolin
 }
 
@@ -1903,9 +2067,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3016
 	mother = 3017
 	295.1.1 = {
@@ -1923,11 +2088,8 @@
 		add_spouse = 3089
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3083 = {
@@ -1936,8 +2098,8 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3018
 	mother = 3019
 	295.1.1 = {
@@ -1945,10 +2107,13 @@
 	}
 	527.1.1 = {
 		culture = "culture_vanyar"
-		dynasty = 99995
-		add_trait = sailed_west
-		add_trait = light_valinor
+		dynasty = 3025
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -1958,8 +2123,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3046
 	mother = 3047
 	305.1.1 = {
@@ -1973,11 +2139,8 @@
 		culture = "culture_sindar"
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3085 = {
@@ -1986,8 +2149,8 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3018
 	mother = 3019
 	315.1.1 = {
@@ -1995,10 +2158,13 @@
 	}
 	527.1.1 = {
 		culture = "culture_vanyar"
-		dynasty = 99995
-		add_trait = sailed_west
-		add_trait = light_valinor
+		dynasty = 3025
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -2008,8 +2174,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3034
 	mother = 3035
 	315.1.1 = {
@@ -2022,10 +2189,7 @@
 		culture = "culture_sindar"
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the sack of Brithombar
 }
 
@@ -2035,9 +2199,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3032
 	mother = 3033
 	335.1.1 = {
@@ -2046,9 +2210,12 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3016
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -2058,9 +2225,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3016
 	mother = 3017
 	335.1.1 = {
@@ -2074,11 +2242,8 @@
 		culture = "culture_sindar"
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3089 = {
@@ -2087,8 +2252,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3028
 	mother = 3029
 	345.1.1 = {
@@ -2102,11 +2268,8 @@
 		culture = "culture_sindar"
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3090 = {
@@ -2115,9 +2278,9 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	father = 3036
 	mother = 3037
 	375.1.1 = {
@@ -2125,6 +2288,9 @@
 	}
 	527.1.1 = {
 		culture = "culture_avari"
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -2135,9 +2301,9 @@
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = great_elf
 
 	father = 3020
 	mother = 3021
@@ -2151,16 +2317,16 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3020
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	1149.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
-	} # killed when feanor born
+		death = "1149.1.1"
+	}
+	#4283.1.1 = {
+	#	birth = "4283.1.1"
+	#}
 }
 
 3092 = {
@@ -2169,8 +2335,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3046
 	mother = 3047
 	385.1.1 = {
@@ -2184,11 +2351,8 @@
 		culture = "culture_nandor"
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10026 # Hellmog
-		}
-	} #Slain on Caras Galadhon by Balrogs of Hellmog in pursuit of the Host of Súlwë
+		death = { death_reason = death_murder }
+	} #Slain on Caras Galadhon by Balrogs in pursuit of the Host of Súlwë
 }
 
 3093 = {
@@ -2197,8 +2361,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3022
 	mother = 3023
 	395.1.1 = {
@@ -2212,11 +2377,8 @@
 		culture = "culture_sindar"
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the Fall of Gondolin roaming the Echoriath
+		death = "4822.1.1"
+	} #Died roaming the Echoriath
 }
 
 3094 = {
@@ -2224,9 +2386,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3032
 	mother = 3033
 	405.1.1 = {
@@ -2235,18 +2397,15 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3035
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	1207.1.1 = {
 		add_spouse = 3097
 	}
 	4294.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
+		death = "4294.1.1"
 	} #Died crossing the Helcaraxë
 }
 
@@ -2256,8 +2415,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3028
 	mother = 3029
 	475.1.1 = {
@@ -2268,10 +2428,7 @@
 		dynasty = 3025
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_murder }
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -2280,9 +2437,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3032
 	mother = 3033
 	475.1.1 = {
@@ -2291,19 +2448,16 @@
 	527.1.1 = {
 		culture = "culture_noldor"
 		dynasty = 3036
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	2415.1.1 = {
 		add_spouse = 3233
 	}
 	4270.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3070 # Olue
-		}
-	} #First Kin-slaying by olue vs noldor
+		death = { death_reason = death_battle }
+	} #First Kin-slaying
 }
 
 3097 = {
@@ -2312,9 +2466,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3038
 	mother = 3039
 	485.1.1 = {
@@ -2322,15 +2476,12 @@
 	}
 	527.1.1 = {
 		culture = "culture_noldor"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
 	}
 	4294.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
+		death = "4294.1.1"
 	} #Died crossing the Helcaraxë
 }
 
@@ -2340,10 +2491,10 @@
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = cruel
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = cruel
 
 
 	father = 3032
@@ -2379,9 +2530,9 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	father = 3012
 	mother = 3013
 	185.1.1 = {
@@ -2391,6 +2542,9 @@
 		culture = "culture_avari"
 		dynasty = 3008
 	}
+	16000.1.1 = {
+		death = "16000.1.1" 
+	}
 }
 
 3100 = {
@@ -2398,10 +2552,10 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = at_east
 	father = 3014
 	mother = 3015
 	145.1.1 = {
@@ -2416,10 +2570,7 @@
 		add_spouse = 3099
 	}
 	4662.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain by the Armies of Morgoth attacking the Council of the East in the Dagor Iármael
 }
 
@@ -2429,8 +2580,8 @@
 	dynasty = 3010
 	religion = "religion_moriquendi"
 	culture = "culture_minyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3048
 	mother = 3049
 	245.1.1 = {
@@ -2438,9 +2589,12 @@
 	}
 	527.1.1 = {
 		culture = "culture_vanyar"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001
+	}
+	16000.1.1 = {
+		death = "16000.1.1" 
 	}
 }
 
@@ -2449,9 +2603,10 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3052
 	mother = 3053
 	105.1.1 = {
@@ -2465,10 +2620,7 @@
 		add_spouse = 3109
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_murder }
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -2477,8 +2629,9 @@
 	dynasty = 3012
 	religion = "religion_moriquendi"
 	culture = "culture_nelyar"
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_olwe
+	trait = elf
+	trait = fair
 	father = 3040
 	mother = 3041
 	female = yes
@@ -2490,10 +2643,7 @@
 		dynasty = 3032
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016 # Sauron
-		}
+		death = "5902.1.1"
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -2508,12 +2658,13 @@
 	properties = "jl0eggbe00b"
 	father = 3069
 	mother = 3088
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = authoritative
-	add_trait = skilled_tactician
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = authoritative
+	trait = skilled_tactician
+	trait = great_elf
 	2874.1.1 = {
 		birth = "2874.1.1"
 	}
@@ -2521,11 +2672,8 @@
 		add_spouse = 3103
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = "8336.1.1"
+	} # died at Dagorlad
 }
 3103 = {
 	name = "Neniel"
@@ -2535,17 +2683,15 @@
 	culture = "culture_sindar"
 	father = 3065
 	mother = 3086
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_nowe
+	trait = elf
+	trait = fair
 	3009.1.1 = {
 		birth = "3009.1.1"
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = "6595.1.1"
+	}
 }
 3104 = {
 	name = "Thranduil"
@@ -2553,13 +2699,14 @@
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
 
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = authoritative	
-	add_trait = skilled_tactician
-	add_trait = experimenter
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = authoritative	
+	trait = skilled_tactician
+	trait = experimenter
+	trait = great_elf
 
 	dna = "cdhdk0khga0"
 	properties = "jb0becbe00b"
@@ -2579,9 +2726,6 @@
 	8307.1.1 = {
 		add_spouse = 3105
 	}
-	11284.11.11={
-		add_trait=necklace_of_girion
-	}
 }
 3105 = {
 	name = "Eirien"
@@ -2589,9 +2733,9 @@
 	dynasty = 3022
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = twin
+	trait = elf
+	trait = fair
+	trait = twin
 	father = 3066
 	mother = 3077
 	4367.1.1 = {
@@ -2605,14 +2749,15 @@
 	culture = "culture_sindar"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = agile
-	add_trait = skilled_tactician
-	add_trait = trusting
-	add_trait = proud
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = agile
+	trait = skilled_tactician
+	trait = trusting
+	trait = proud
+	trait = great_elf
 
 	dna = "clhde0chga0"
 	properties = "jf0eebbe00b"
@@ -2633,7 +2778,7 @@
 		}
 	}
 	11484.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	}
 }
@@ -2644,10 +2789,11 @@
 	culture = "culture_sindar"
 	father = 3069
 	mother = 3088
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = great_elf
 	3114.1.1 = {
 		birth = "3114.1.1"
 	}
@@ -2655,11 +2801,8 @@
 		add_spouse = 3113
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = { death_reason = death_battle }
+	} # died at Dagorlad
 }
 3250 = {
 	name = "Amroth"
@@ -2668,16 +2811,17 @@
 	culture = "culture_sindar"
 	father = 3107
 	mother = 3113
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = great_elf
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = great_elf
 	4347.1.1 = {
 		birth = "4347.1.1"
 		effect = {
 			set_character_flag = amroth
 		}
-		add_trait = love_amroth
+		trait = love_amroth
 	}
 	10323.1.1 = {
 		add_spouse = 3172
@@ -2697,9 +2841,9 @@
 	culture = "culture_avari"
 	father = 3108
 	mother = 3109
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	1073.1.1 = {
 		birth = "1073.1.1"
 	}
@@ -2710,11 +2854,8 @@
 		add_spouse = 3111
 	}
 	4283.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain by Orcs on Amon Ereb in the First Battle of Beleriand
+		death = { death_reason = death_battle }
+	} # slain in the First Battle at Amon Ereb
 }
 
 3111 = {
@@ -2723,19 +2864,16 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3082
 	mother = 3089
 	2012.1.1 = {
 		birth = "2012.1.1"
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3112 = {
@@ -2745,15 +2883,16 @@
 	culture = "culture_laegrim"
 	father = 3110
 	mother = 3111
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	3162.1.1 = {
 		birth = "3162.1.1"
 	}
 	4796.1.1 = {
+		death = "4796.1.1"
 		death = {
-			death_reason = death_accident
+			death_reason = death_murder
 			killer = 15203
 		}
 	} # killed by Túrin out of anger
@@ -2767,17 +2906,14 @@
 	culture = "culture_laegrim"
 	father = 3110
 	mother = 3111
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	3545.1.1 = {
 		birth = "3545.1.1"
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = "6595.1.1"
+	}
 }
 
 3114 = {
@@ -2788,17 +2924,14 @@
 	culture = "culture_laegrim"
 	father = 3110
 	mother = 3111
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	3880.1.1 = {
 		birth = "3880.1.1"
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 # Line of Elwë
@@ -2811,11 +2944,11 @@
 	culture = "culture_sindar"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = great_elf
-	add_trait=nauglamir
+	trait = blood_of_elwe
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = great_elf
 
 	father = 3056
 	mother = 10017
@@ -2826,30 +2959,27 @@
 	1437.1.1 = {
 		birth = "1437.1.1"
 	}
-	4816.1.1 = {
-		death = "4816.1.1"
+	4815.1.1 = {
+		death = "4815.1.1"
 	} #on Tol Galen
 }
 
 3116 = {
-	name = "Roi Dior Aranel Eluchíl de Doriath"
+	name = "Dior Aranel Eluchíl"
 	dynasty = 3002
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
 
-	add_trait = half_elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = brave
-	add_trait = legendary_warrior
-	add_trait = nauglamir
-	add_trait = barahir
+	trait = half_elf
+	trait = fair
+	trait = strong
+	trait = legendary_warrior
 
 	father = 15165
 	mother = 3115
 
-	dna = "dkamg0moaa0"
-  	properties = "cd0iefbe00b"
+  	dna = "bmhaj0mgac0"
+  	properties = "ja0eefbe00b"
 
 	4782.1.1 = {
 		birth = "4782.1.1"
@@ -2858,11 +2988,8 @@
 		add_spouse = 3125
 	}
 	4819.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3239
-		}
-	} #Slain in the Sack of Doriath
+		death = { death_reason = death_battle }
+	} #slain in the Sack of Doriath
 }
 
 3117 = {
@@ -2870,10 +2997,10 @@
 	dynasty = 3002
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = half_elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
+	trait = half_elf
+	trait = fair
+	trait = strong
+	trait = twin
 	father = 3116
 	mother = 3125
 	4807.1.1 = {
@@ -2883,7 +3010,7 @@
 		add_spouse = 3184
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}	
 }
 
@@ -2892,10 +3019,10 @@
 	dynasty = 3002
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = half_elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
+	trait = half_elf
+	trait = fair
+	trait = strong
+	trait = twin
 	father = 3116
 	mother = 3125
 	4807.1.1 = {
@@ -2905,7 +3032,7 @@
 		add_spouse = 3185
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}		
 }
 
@@ -2916,9 +3043,10 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_galadhon
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3082
 	mother = 3089
 	1054.1.1 = {
@@ -2928,12 +3056,9 @@
 		add_spouse = 3121
 		dynasty = 3003
 	}
- 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarfs in the Sack of Menegroth
+	4815.1.1 = {
+		death = "4815.1.1"
+	} #Slain in the Sack of Menegroth
 }
 
 3120 = {
@@ -2941,9 +3066,9 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3082
 	mother = 3089
 	1149.1.1 = {
@@ -2951,8 +3076,8 @@
 	}
 	1533.1.1 = {
 		religion = "religion_moriquendi"
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 	} # Taken to Valinor by Oromë
 	1629.1.1 = {
 		add_spouse = 3126
@@ -2960,12 +3085,9 @@
 	4312.1.1 = {
 		remove_trait = sailed_west
 	}
- 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarfs in the Sack of Menegroth
+	4815.1.1 = {
+		death = { death_reason = death_battle }
+	} #Slain in the Sack of Menegroth
 }
 
 3121 = {
@@ -2974,19 +3096,16 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3063
 	mother = 3092
 	1102.1.1 = {
 		birth = "1102.1.1"
 	}
- 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarfs in the Sack of Menegroth
+	4815.1.1 = {
+		death = "4815.1.1"
+	} #Slain in the Sack of Menegroth
 }
 
 3122 = {
@@ -2994,16 +3113,18 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3119
 	mother = 3121
+	trait = blood_of_galadhon
+
 	1418.1.1 = {
 		birth = "1418.1.1"
 	}
 	4777.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}	
 }
 
@@ -3012,9 +3133,10 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_galadhon
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3119
 	mother = 3121
 	1935.1.1 = {
@@ -3024,11 +3146,8 @@
 		add_spouse = 3176
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = { death_reason = death_battle }
+	} # died at Dagorlad
 }
 
 3124 = {
@@ -3036,20 +3155,18 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = blood_of_galadhon
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3119
 	mother = 3121
 	2874.1.1 = {
 		birth = "2874.1.1"
 	}
- 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarfs in the Sack of Menegroth
+	4815.1.1 = {
+		death = "4815.1.1"
+	} #Slain in the Sack of Menegroth
 }
 
 3125 = {
@@ -3058,18 +3175,15 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3124
 	3322.1.1 = {
 		birth = "3322.1.1"
 	}
-	4819.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3239
-		}
-	} #Slain in the Sack of Doriath
+	4818.1.1 = {
+		death = "4818.1.1"
+	} #slain in the Sack of Doriath
 }
 
 # House of Mahtan (Urunwë)
@@ -3080,10 +3194,10 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3068
 	mother = 3087
 	1294.1.1 = {
@@ -3092,12 +3206,9 @@
 	4312.1.1 = {
 		remove_trait = sailed_west
 	}
- 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarfs in the Sack of Menegroth
+	4815.1.1 = {
+		death = "4815.1.1"
+	} #Slain in the Sack of Menegroth
 }
 
 3127 = {
@@ -3106,10 +3217,10 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3068
 	mother = 3087
 	1198.1.1 = {
@@ -3123,11 +3234,11 @@
 	dynasty = 3014
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3068
 	mother = 3087
 	1550.1.1 = {
@@ -3144,10 +3255,10 @@
 	dynasty = 3027
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3064
 	mother = 3075
 	1064.1.1 = {
@@ -3165,17 +3276,18 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = perceptive
-	add_trait = proud
-	add_trait = brilliant_strategist
-	add_trait = tall
-	add_trait = imposing
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = perceptive
+	trait = proud
+	trait = brilliant_strategist
+	trait = tall
+	trait = imposing
+	trait = legendary_warrior
+	trait = light_valinor
 
 	father = 3055
 	mother = 3128
@@ -3214,19 +3326,16 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3073
 	1533.1.1 = {
 		birth = "1533.1.1"
 	}
-	4294.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
+	4293.1.1 = {
+		death = "4293.1.1"
 	} #Perished while crossing the Helcaraxë
 }
 
@@ -3237,17 +3346,18 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = proud
-	add_trait = brilliant_strategist	
-	add_trait = brave
-	add_trait = organizer
-	add_trait = inspiring_leader
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = proud
+	trait = brilliant_strategist	
+	trait = brave
+	trait = organizer
+	trait = inspiring_leader
+	trait = legendary_warrior
+	trait = light_valinor
 
 	father = 3129
 	mother = 3130
@@ -3272,11 +3382,8 @@
 		remove_trait = sailed_west
 	}
 	4784.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10025
-		}
-	} #Slain by Gothmog in the Nirnaeth Arnoediad vs morgoth
+		death = { death_reason = death_battle }
+	} #Slain in the Nirnaeth Arnoediad
 }
 
 3132 = {
@@ -3286,18 +3393,19 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = proud
-	add_trait = brilliant_strategist	
-	add_trait = brave
-	add_trait = patient
-	add_trait = defensive_leader
-	add_trait = staff_of_doom
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = proud
+	trait = brilliant_strategist	
+	trait = brave
+	trait = patient
+	trait = defensive_leader
+	trait = staff_of_doom
+	trait = legendary_warrior
+	trait = light_valinor
 
 	father = 3129
 	mother = 3130
@@ -3318,14 +3426,11 @@
 		add_spouse = 3135
 	}
 	4312.1.1 = {
-		name = "Turgon de Gondolin"
+		name = "Turgon"
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Fall of Gondolin
 }
 
@@ -3337,14 +3442,15 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = hunter
-	add_trait = tall
-	add_trait = elusive_shadow
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = hunter
+	trait = tall
+	trait = elusive_shadow
+	trait = legendary_warrior
+	trait = light_valinor
 
 	father = 3129
 	mother = 3130
@@ -3374,15 +3480,16 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = brilliant_strategist
-	add_trait = imposing
-	add_trait = inspiring_leader
-	add_trait = great_elf
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = brilliant_strategist
+	trait = imposing
+	trait = inspiring_leader
+	trait = great_elf
+	trait = light_valinor
 
 	father = 3129
 	mother = 3130
@@ -3392,10 +3499,7 @@
 	4312.1.1 = {
 		name = "Argon"
 		remove_trait = sailed_west
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Battle of the Lammoth
 }
 
@@ -3405,19 +3509,16 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3079
 	2434.1.1 = {
 		birth = "2434.1.1"
 	}
-	4294.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
+	4293.1.1 = {
+		death = "4293.1.1"
 	} #Perished while crossing the Helcaraxë
 }
 
@@ -3428,14 +3529,15 @@
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = fashionable
-	add_trait = kind
-	add_trait = honorable
-	add_trait = light_valinor
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = fashionable
+	trait = kind
+	trait = honorable
+	trait = light_valinor
 
 	father = 3132
 	mother = 3135
@@ -3451,7 +3553,7 @@
 		remove_trait = sailed_west
 	}
 	4837.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001	
 	} #sailed to Valinor with her husband Tuor
 }
@@ -3462,10 +3564,10 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3137
 	2252.1.1 = {
 		birth = "2252.1.1"
@@ -3474,11 +3576,8 @@
 		remove_trait = sailed_west
 	}
 	4784.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Nirnaeth Arnoediad vs morgoth
+		death = { death_reason = death_battle }
+	} #Slain in the Nirnaeth Arnoediad
 }
 
 3139 = {
@@ -3488,14 +3587,15 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = imposing
-	add_trait = patient
-	add_trait = inspiring_leader	
-	add_trait = brilliant_strategist
-	add_trait = legendary_warrior
+	trait = blood_of_fingolfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = imposing
+	trait = patient
+	trait = inspiring_leader	
+	trait = brilliant_strategist
+	trait = legendary_warrior
 	
 	father = 3131
 	mother = 3138
@@ -3518,7 +3618,7 @@
 	}
 	8343.1.1 = {
 		death = {
-			death_reason = death_duel
+			death_reason = death_battle
 			killer = 10016
 		}
 	} #Slain in the Last Alliance
@@ -3531,15 +3631,14 @@
 	culture = "culture_avari"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = cruel
-	add_trait = selfish
-	add_trait = intricate_webweaver
-	add_trait = duelist
-	add_trait = great_elf
-	give_nickname = "nick_the_traitor"
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = cruel
+	trait = selfish
+	trait = intricate_webweaver
+	trait = duelist
+	trait = great_elf
 	
 	father = 3098
 	mother = 3133
@@ -3561,7 +3660,7 @@
 			death_reason = death_duel
 			killer = 15206
 		}
-	} #Fall of Gondolin slain by tuor
+	} #Fall of Gondolin
 }
 
 # Line of Olwë
@@ -3571,22 +3670,19 @@
 	dynasty = 3013
 	religion = "religion_moriquendi"
 	culture = "culture_falmari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3070
 	mother = 3080
 	1629.1.1 = {
 		birth = "1629.1.1"
 	}
 	4270.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3238 # Feanor
-		}
-	} #First Kin-slaying by feanor vs teleri
+		death = { death_reason = death_battle }
+	} #First Kin-slaying
 }
 
 3142 = {
@@ -3594,22 +3690,19 @@
 	dynasty = 3013
 	religion = "religion_moriquendi"
 	culture = "culture_falmari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3070
 	mother = 3080
 	1820.1.1 = {
 		birth = "1820.1.1"
 	}
 	4270.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3238 # Feanor
-		}
-	} #First Kin-slaying by feanor vs teleri
+		death = { death_reason = death_battle }
+	} #First Kin-slaying
 }
 
 3143 = {
@@ -3618,10 +3711,10 @@
 	dynasty = 3013
 	religion = "religion_moriquendi"
 	culture = "culture_falmari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3070
 	mother = 3080
 	1916.1.1 = {
@@ -3640,17 +3733,18 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = just
-	add_trait = patient
-	add_trait = charitable
-	add_trait = kind
-	add_trait = grey_eminence
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = just
+	trait = patient
+	trait = charitable
+	trait = kind
+	trait = grey_eminence
+	trait = legendary_warrior
+	trait = light_valinor
 
 	father = 3055
 	mother = 3128
@@ -3678,17 +3772,18 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = kind
-	add_trait = just
-	add_trait = charitable
-	add_trait = scholar
-	add_trait = grey_eminence
-	add_trait = nauglamir
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = kind
+	trait = just
+	trait = charitable
+	trait = scholar
+	trait = grey_eminence
+	trait = nauglamir
+	trait = legendary_warrior
+	trait = light_valinor
 	
 	father = 3145
 	mother = 3143
@@ -3703,15 +3798,12 @@
 		add_spouse = 3147
 	}
 	4312.1.1 = {
-		name = "Roi Finrod Felagund de Nargothrond"
+		name = "Finrod Felagund"
 		remove_trait = sailed_west
 	}
 	4777.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10016
-		}
-	} #Slain by sauron in Tol-in-Gaurhoth
+		death = "4777.1.1"
+	} #Slain in Tol-in-Gaurhoth
 }
 
 3147 = {
@@ -3720,10 +3812,10 @@
 	dynasty = 3008
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3210
 	mother = 3212
 	2491.1.1 = {
@@ -3739,16 +3831,16 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = just
-	add_trait = kind
-	add_trait = legendary_warrior
-	add_trait = light_valinor
-	add_trait = nauglamir
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = just
+	trait = kind
+	trait = legendary_warrior
+	trait = light_valinor
 	
 	father = 3145
 	mother = 3143
@@ -3763,15 +3855,12 @@
 		add_spouse = 3149
 	}
 	4312.1.1 = {
-		name = "Roi Orodreth de Nargothrond"
+		name = "Orodreth"
 		remove_trait = sailed_west
 	}
 	4807.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10066
-		}
-	} #Slain in battle by glaurung
+		death = { death_reason = death_battle }
+	} #Battle of Tumhalad
 }
 
 3149 = {
@@ -3780,10 +3869,10 @@
 	dynasty = 3028
 	religion = "religion_moriquendi"
 	culture = "culture_falmari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3067
 	mother = 3083
 	2635.1.1 = {
@@ -3794,10 +3883,7 @@
 		remove_trait = sailed_west
 	}
 	4769.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = "4769.1.1"
 	} #Fall of Minas Tirith
 }
 
@@ -3809,13 +3895,14 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = just
-	add_trait = kind
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = just
+	trait = kind
+	trait = light_valinor
 	
 	father = 3148
 	mother = 3149
@@ -3831,11 +3918,8 @@
 		remove_trait = sailed_west
 	}
 	4808.1.1 = {
-		death = {
-			death_reason = death_murder
-			killer = 10066
-		} #Slain by orc of glaurung
-	} 
+		death = { death_reason = death_murder }
+	} #Slain by Orcs in the Eaves of Brethil
 }
 
 3151 = {
@@ -3845,16 +3929,17 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = skilled_tactician
-	add_trait = imposing
-	add_trait = defensive_leader
-	add_trait = patient
-	add_trait = great_elf
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = skilled_tactician
+	trait = imposing
+	trait = defensive_leader
+	trait = patient
+	trait = great_elf
+	trait = light_valinor
 	
 	father = 3145
 	mother = 3143
@@ -3869,15 +3954,12 @@
 		add_spouse = 3152
 	}
 	4312.1.1 = {
-		name = "Co-Roi Angrod de Dorthonion"
+		name = "Angrod"
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3152 = {
@@ -3886,10 +3968,10 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3194
 	2970.1.1 = {
 		birth = "2970.1.1"
@@ -3899,11 +3981,8 @@
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3153 = {
@@ -3911,11 +3990,12 @@
 	dynasty = 3004
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3151
 	mother = 3152
 	4244.1.1 = {
@@ -3929,10 +4009,7 @@
 		add_spouse = 3159
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the War of the Elves and Sauron
 }
 
@@ -3941,9 +4018,10 @@
 	dynasty = 3004
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3153
 	mother = 3159
 	4780.1.1 = {
@@ -3953,10 +4031,7 @@
 		add_spouse = 3169
 	}
 	8342.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Siege of Barad-dûr
 }
 
@@ -3967,18 +4042,19 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = skilled_tactician
-	add_trait = imposing
-	add_trait = defensive_leader
-	add_trait = authoritative
-	add_trait = inspiring_leader
-	add_trait = duelist
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = skilled_tactician
+	trait = imposing
+	trait = defensive_leader
+	trait = authoritative
+	trait = inspiring_leader
+	trait = duelist
+	trait = legendary_warrior
+	trait = light_valinor
 	
 	father = 3145
 	mother = 3143
@@ -3990,15 +4066,12 @@
 		birth = "2951.1.1"
 	}
 	4312.1.1 = {
-		name = "Co-Roi Aegnor de Dorthonion"
+		name = "Aegnor"
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 # Line of Quilwë
@@ -4008,11 +4081,11 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3094
 	mother = 3097
 	2280.1.1 = {
@@ -4025,11 +4098,8 @@
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3157 = {
@@ -4038,10 +4108,10 @@
 	dynasty = 3028
 	religion = "religion_moriquendi"
 	culture = "culture_falmari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3067
 	mother = 3083
 	2318.1.1 = {
@@ -4051,7 +4121,7 @@
 		remove_trait = sailed_west
 	}
 	4902.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001	
 	}
 }
@@ -4061,13 +4131,11 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
-	add_trait = blinded
-	add_trait = maimed
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3156
 	mother = 3157
 	3430.1.1 = {
@@ -4077,11 +4145,8 @@
 		remove_trait = sailed_west
 	}
 	4784.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10015
-		}
-	} #Slain in the Nirnaeth Arnoediad vs morgoth
+		death = { death_reason = death_battle }
+	} #Slain in the Nirnaeth Arnoediad
 }
 
 3159 = {
@@ -4090,10 +4155,10 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3158
 	4264.1.1 = {
 		birth = "4264.1.1"
@@ -4103,10 +4168,7 @@
 		remove_trait = sailed_west
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the War of the Elves and Sauron
 }
 
@@ -4115,11 +4177,11 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3156
 	mother = 3157
 	3593.1.1 = {
@@ -4129,11 +4191,8 @@
 		remove_trait = sailed_west
 	}
 	4807.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10066
-		}
-	} #Battle of Tumhalad by Glaurung
+		death = { death_reason = death_battle }
+	} #Battle of Tumhalad
 }
 
 3161 = {
@@ -4142,16 +4201,16 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = mastermind_theologian
+	trait = elf
+	trait = fair
+	trait = mastermind_theologian
 	father = 3156
 	mother = 3157
 	4366.1.1 = {
 		birth = "4366.1.1"
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 	9106.1.1 = {
 		remove_trait = at_east
@@ -4164,15 +4223,15 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3156
 	mother = 3157
 	4387.1.1 = {
 		birth = "4387.1.1"
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4183,9 +4242,9 @@
 	dynasty = 3017
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3058
 	mother = 3095
 	3948.1.1 = {
@@ -4195,10 +4254,7 @@
 		add_spouse = 3164
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = "5902.1.1"
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -4208,18 +4264,15 @@
 	dynasty = 3016
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3057
 	mother = 3076
 	4226.1.1 = {
 		birth = "4226.1.1"
 	}
 	5902.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016 # Sauron
-		}
+		death = "5902.1.1"
 	} #Sauron makes Mordor his home and slays the Elves living in Nurn
 }
 
@@ -4228,16 +4281,16 @@
 	dynasty = 3017
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3163
 	mother = 3164
 	4785.1.1 = {
 		birth = "4785.1.1"
 	}
 	5902.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4247,32 +4300,29 @@
 	dynasty = 3017
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3163
 	mother = 3164
 	4800.1.1 = {
 		birth = "4800.1.1"
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the War of the Elves and Sauron
 }
 
 # Line of Lenwë
 
 3167 = {
-	name = "Roi Denethor d'Ossiriand"
+	name = "Denethor"
 	dynasty = 3021
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = legendary_warrior
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = legendary_warrior
 	father = 3063
 	mother = 3092
 	977.1.1 = {
@@ -4282,11 +4332,8 @@
 		culture = "culture_laegrim"
 	}
 	4283.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} # slain Morgoth in the First Battle at Amon Ereb
+		death = { death_reason = death_battle }
+	} # slain in the First Battle at Amon Ereb
 }
 
 3168 = {
@@ -4294,10 +4341,10 @@
 	dynasty = 3021
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = great_elf
 	father = 3063
 	mother = 3092
 	3354.1.1 = {
@@ -4310,10 +4357,7 @@
 		add_spouse = 3166
 	}
 	6596.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the War of the Elves and Sauron
 }
 
@@ -4323,8 +4367,8 @@
 	dynasty = 3021
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3168
 	mother = 3166
 	6002.1.1 = {
@@ -4341,8 +4385,9 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
 	father = 3154
 	mother = 3169
 	8152.1.1 = {
@@ -4362,8 +4407,9 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
 	father = 3154
 	mother = 3169
 	8202.1.1 = {
@@ -4380,8 +4426,9 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
 	father = 3154
 	mother = 3169
 	8252.1.1 = {
@@ -4398,8 +4445,8 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3063
 	mother = 3092
 	4418.1.1 = {
@@ -4424,8 +4471,9 @@
 	culture = "culture_sindar"
 	father = 3107
 	mother = 3113
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_oropher
+	trait = elf
+	trait = fair
 	6580.1.1 = {
 		birth = "6580.1.1"
 	}
@@ -4440,16 +4488,16 @@
 	culture = "culture_sindar"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = hunter
-	add_trait = duelist
-	add_trait = skilled_tactician
-	add_trait = kind
-	add_trait = just
-	add_trait = anglachel
-	add_trait = legendary_warrior
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = hunter
+	trait = duelist
+	trait = skilled_tactician
+	trait = kind
+	trait = just
+	trait = anglachel
+	trait = legendary_warrior
 	
 	father = 3078
 	mother = 3084
@@ -4473,9 +4521,9 @@
 	dynasty = 3032
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3078
 	mother = 3084
 	1830.1.1 = {
@@ -4485,11 +4533,8 @@
 		add_spouse = 3114
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3176 = {
@@ -4498,18 +4543,15 @@
 	dynasty = 3032
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3078
 	mother = 3084
 	2166.1.1 = {
 		birth = "2166.1.1"
 	}
 	6595.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the War of the Elves and Sauron
 }
 
@@ -4518,9 +4560,9 @@
 	dynasty = 3032
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3175
 	mother = 3114
 	4357.1.1 = {
@@ -4530,7 +4572,7 @@
 		add_spouse = 3179
 	}
 	9106.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	}
 }
@@ -4540,9 +4582,9 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3081
 	mother = 3084
 	1974.1.1 = {
@@ -4552,7 +4594,7 @@
 		add_spouse = 3183
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4562,8 +4604,8 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3081
 	mother = 3084
 	4372.1.1 = {
@@ -4577,9 +4619,9 @@
 	dynasty = 3032
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3177
 	mother = 3179
 	8454.1.1 = {
@@ -4594,24 +4636,20 @@
 	dynasty = 3022
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = nauglamir
-	add_trait = skilled_tactician
-	add_trait = inspiring_leader
-	add_trait = legendary_warrior
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = skilled_tactician
+	trait = inspiring_leader
+	trait = legendary_warrior
 	father = 3066
 	mother = 3077
 	1802.1.1 = {
 		birth = "1802.1.1"
 	}
 	4815.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 4241
-		}
-	} Slain by dwarf in the Sack of Menegroth
+		death = "4815.1.1"
+	} #Slain in the Sack of Menegroth
 }
 
 3182 = {
@@ -4619,9 +4657,9 @@
 	dynasty = 3022
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3066
 	mother = 3077
 	1964.1.1 = {
@@ -4635,16 +4673,16 @@
 	dynasty = 3022
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = twin
+	trait = elf
+	trait = fair
+	trait = twin
 	father = 3066
 	mother = 3077
 	4367.1.1 = {
 		birth = "4367.1.1"
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4654,17 +4692,17 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
 	father = 3178
 	mother = 3183
 	4853.1.1 = {
 		birth = "4853.1.1"
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4674,17 +4712,17 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
 	father = 3178
 	mother = 3183
 	4853.1.1 = {
 		birth = "4853.1.1"
 	}
 	4890.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -4694,9 +4732,9 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	father = 3178
 	mother = 3183
 	5277.1.1 = {
@@ -4711,9 +4749,9 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3123
 	mother = 3176
 	5942.1.1 = {
@@ -4732,9 +4770,9 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3123
 	mother = 3176
 	6152.1.1 = {
@@ -4754,13 +4792,13 @@
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
 	
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = skilled_tactician
-	add_trait = defensive_leader
-	add_trait = patient
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = skilled_tactician
+	trait = defensive_leader
+	trait = patient
+	trait = great_elf
 	
 	father = 3187
 	mother = 3170
@@ -4775,12 +4813,12 @@
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
 	
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = skilled_tactician
-	add_trait = defensive_leader
-	add_trait = great_elf
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = skilled_tactician
+	trait = defensive_leader
+	trait = great_elf
 	
 	father = 3187
 	mother = 3170
@@ -4794,9 +4832,9 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3187
 	mother = 3170
 	9443.1.1 = {
@@ -4809,9 +4847,9 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3188
 	mother = 3171
 	9493.1.1 = {
@@ -4828,9 +4866,9 @@
 	dynasty = 3003
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3188
 	mother = 3171
 	10343.1.1 = {
@@ -4845,12 +4883,12 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = legendary_warrior
+	trait = light_valinor
 	father = 3094
 	mother = 3097
 	2112.1.1 = {
@@ -4860,11 +4898,8 @@
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 50056 # Lungorthin
-		}
-	} #Slain in the Fall of Gondolin by Lungorthin
+		death = { death_reason = death_battle }
+	} #Slain in the Fall of Gondolin
 }
 
 3195 = {
@@ -4872,22 +4907,19 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3094
 	mother = 3097
 	2180.1.1 = {
 		birth = "2180.1.1"
 	}
 	4270.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3070 # Olue
-		}
-	} #First Kin-slaying by olue vs noldor
+		death = { death_reason = death_battle }
+	} #First Kin-slaying
 }
 
 3196 = {
@@ -4895,12 +4927,12 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = legendary_warrior
+	trait = light_valinor
 	father = 3094
 	mother = 3097
 	2854.1.1 = {
@@ -4910,10 +4942,7 @@
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Fall of Gondolin
 }
 
@@ -4922,12 +4951,12 @@
 	dynasty = 3035
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = legendary_warrior
+	trait = light_valinor
 	father = 3094
 	mother = 3097
 	3219.1.1 = {
@@ -4937,10 +4966,7 @@
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Fall of Gondolin
 }
 
@@ -4949,11 +4975,11 @@
 	dynasty = 3024
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3072
 	mother = 3203
 	2092.1.1 = {
@@ -4963,11 +4989,8 @@
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3199 = {
@@ -4975,12 +4998,11 @@
 	dynasty = 3024
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
-	give_nickname = "nick_the_strong"
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3198
 	2537.1.1 = {
 		birth = "2537.1.1"
@@ -4989,11 +5011,8 @@
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 50056 # Lungorthin
-		}
-	} #Slain in the Fall of Gondolin by Lungorthin
+		death = { death_reason = death_battle }
+	} #Slain in the Fall of Gondolin
 }
 
 3200 = {
@@ -5001,12 +5020,11 @@
 	dynasty = 3024
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
-	give_nickname = "nick_the_traitor"
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3198
 	2906.1.1 = {
 		birth = "2906.1.1"
@@ -5015,10 +5033,7 @@
 		remove_trait = sailed_west
 	}
 	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
+		death = { death_reason = death_battle }
 	} #Slain in the Fall of Gondolin
 }
 
@@ -5027,9 +5042,9 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3050
 	mother = 3051
 	240.1.1 = {
@@ -5039,8 +5054,8 @@
 		religion = "religion_moriquendi"
 		culture = "culture_noldor"
 		dynasty = 3039
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001	
 	}
 	987.1.1 = {
@@ -5054,8 +5069,8 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3044
 	mother = 3045
 	259.1.1 = {
@@ -5065,8 +5080,8 @@
 		religion = "religion_moriquendi"
 		culture = "culture_noldor"
 		dynasty = 3031
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001	
 	}
 }
@@ -5077,8 +5092,8 @@
 	dynasty = 3011
 	religion = "religion_moriquendi"
 	culture = "culture_tatyar"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	father = 3050
 	mother = 3051
 	364.1.1 = {
@@ -5088,8 +5103,8 @@
 		religion = "religion_moriquendi"
 		culture = "culture_noldor"
 		dynasty = 3039
-		add_trait = sailed_west
-		add_trait = light_valinor
+		trait = sailed_west
+		trait = light_valinor
 		employer = 10001	
 	}
 }
@@ -5101,11 +5116,11 @@
 	dynasty = 3023
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3059
 	mother = 3101
 	1293.1.1 = {
@@ -5123,10 +5138,10 @@
 	dynasty = 3006
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3055
 	mother = 3128
 	1322.1.1 = {
@@ -5140,11 +5155,11 @@
 	dynasty = 3023
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3204
 	mother = 3205
 	1964.1.1 = {
@@ -5155,11 +5170,8 @@
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3207 = {
@@ -5167,12 +5179,12 @@
 	dynasty = 3023
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = great_elf
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = great_elf
+	trait = light_valinor
 	father = 3204
 	mother = 3205
 	2204.1.1 = {
@@ -5183,11 +5195,8 @@
 		remove_trait = sailed_west
 	}
 	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+		death = { death_reason = death_battle }
+	} #Slain in the Dagor Bragollach
 }
 
 3208 = {
@@ -5197,20 +5206,20 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = perceptive
-	add_trait = ambidextrous
-	add_trait = imposing
-	add_trait = cavalry_leader
-	add_trait = duelist
-	add_trait = brilliant_strategist
-	add_trait = inspiring_leader
-	add_trait = light_valinor
-	add_trait = tall
-	add_trait = legendary_warrior
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = perceptive
+	trait = ambidextrous
+	trait = imposing
+	trait = cavalry_leader
+	trait = duelist
+	trait = brilliant_strategist
+	trait = inspiring_leader
+	trait = light_valinor
+	trait = tall
+	trait = legendary_warrior
 	
 	father = 3206
 
@@ -5232,7 +5241,7 @@
 	4312.1.1 = {
 		name = "Glorfindel"
 		remove_trait = sailed_west
-		add_trait = fea_strong
+		trait = fea_strong
 	}
 	8343.1.1 = {
 		employer = 3003
@@ -5247,15 +5256,15 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = perceptive
-	add_trait = mystic
-	add_trait = poet
-	add_trait = chaste
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = perceptive
+	trait = mystic
+	trait = poet
+	trait = chaste
+	trait = light_valinor
 	
 	father = 3207
 
@@ -5287,11 +5296,11 @@
 	dynasty = 3008
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3054
 	mother = 3085
 	862.1.1 = {
@@ -5309,11 +5318,11 @@
 	dynasty = 3008
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3054
 	mother = 3085
 	1869.1.1 = {
@@ -5323,11 +5332,8 @@
 		remove_trait = sailed_west
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 50052 # Goroth
-		}
-	} #Slain on Caras Galadhon by Balrogs of Goroth in pursuit of the Host of Súlwë
+		death = "4785.1.1"
+	} #Slain on Caras Galadhon by Balrogs in pursuit of the Host of Súlwë
 }
 
 3212 = {
@@ -5336,10 +5342,10 @@
 	dynasty = 3030
 	religion = "religion_moriquendi"
 	culture = "culture_vanyar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3071
 	930.1.1 = {
 		birth = "930.1.1"
@@ -5352,10 +5358,11 @@
 	dynasty = 3004
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
 	father = 3146
 	mother = 3147
 	4275.1.1 = {
@@ -5370,9 +5377,9 @@
 	dynasty = 3025
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = at_east
 	father = 3060
 	mother = 3074
 	1150.1.1 = {
@@ -5380,13 +5387,13 @@
 	}
 	1725.1.1 = {
 		religion = "religion_moriquendi"
-		add_trait = sailed_west
+		trait = sailed_west
 		remove_trait = at_east
-		add_trait = light_valinor
+		trait = light_valinor
 	} # Taken to Valinor by Oromë
 	3928.1.1 = {
 		remove_trait = sailed_west
-		add_trait = at_east
+		trait = at_east
 	} # Taken back to Endor by Oromë
 }
 
@@ -5395,11 +5402,11 @@
 	dynasty = 3020
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3062
 	mother = 3214
 	female = yes
@@ -5408,7 +5415,7 @@
 	}
 	3928.1.1 = {
 		remove_trait = sailed_west
-		add_trait = at_east
+		trait = at_east
 	} # Taken back to Endor by Oromë
 }
 
@@ -5418,10 +5425,10 @@
 	dynasty = 3020
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3062
 	mother = 3214
 	3018.1.1 = {
@@ -5431,7 +5438,7 @@
 		remove_trait = sailed_west
 	} # Taken back to Endor by Oromë
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -5440,11 +5447,11 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3120
 	mother = 3126
 	1772.1.1 = {
@@ -5457,11 +5464,8 @@
 		remove_trait = sailed_west
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 50052 # Goroth
-		}
-	} #Slain on Caras Galadhon by Balrogs of Goroth in pursuit of the Host of Súlwë
+		death = "4785.1.1"
+	} #Slain on Caras Galadhon by Balrogs in pursuit of the Host of Súlwë
 }
 
 3218 = {
@@ -5469,11 +5473,11 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3217
 	mother = 3211
 	2300.1.1 = {
@@ -5486,7 +5490,7 @@
 		add_spouse = 3216
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -5496,10 +5500,10 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3217
 	mother = 3211
 	3066.1.1 = {
@@ -5509,7 +5513,7 @@
 		remove_trait = sailed_west
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 }
 
@@ -5518,16 +5522,16 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3218
 	mother = 3216
 	4366.1.1 = {
 		birth = "4366.1.1"
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 	5012.1.1 = {
 		add_spouse = 3161
@@ -5543,16 +5547,16 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3218
 	mother = 3216
 	4387.1.1 = {
 		birth = "4387.1.1"
 	}
 	4787.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 	5017.1.1 = {
 		add_spouse = 3162
@@ -5565,10 +5569,10 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = light_valinor
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = light_valinor
+	trait = strong
 	father = 3218
 	mother = 3216
 	4424.1.1 = {
@@ -5581,11 +5585,11 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = at_east
 	father = 3331
 	mother = 3162
 	5413.1.1 = {
@@ -5599,11 +5603,11 @@
 	dynasty = 3019
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = twin
-	add_trait = at_east
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = twin
+	trait = at_east
 	father = 3331
 	mother = 3162
 	5413.1.1 = {
@@ -5618,11 +5622,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3201
     mother = 3202
     1835.1.1 = {
@@ -5639,11 +5643,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3201
     mother = 3202
     2175.1.1 = {
@@ -5652,12 +5656,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+    4767.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Dagor Bragollach
 }
 
 3225 = {
@@ -5666,10 +5667,10 @@
     religion = "religion_moriquendi"
     culture = "culture_noldor"
 
-    add_trait = elf
-    add_trait = fair
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = sailed_west
+	trait = light_valinor
 
     female = yes
 
@@ -5687,11 +5688,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3223
     mother = 3225
     2462.1.1 = {
@@ -5700,12 +5701,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+    4767.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Dagor Bragollach
 }
 
 3320 = {
@@ -5713,11 +5711,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3223
     mother = 3225
     2697.1.1 = {
@@ -5726,12 +5724,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4767.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015
-		}
-	} #Slain in the Dagor Bragollach morgoth battle
+    4767.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Dagor Bragollach
 }
 
 3226 = {
@@ -5739,12 +5734,12 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-    add_trait = legendary_warrior
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+    trait = legendary_warrior
+	trait = light_valinor
     father = 3319
     3198.1.1 = {
         birth = "3198.1.1"
@@ -5753,12 +5748,9 @@
         name = "Ecthelion"
         remove_trait = sailed_west
     }
-	4822.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10025 # Gothmog
-		}
-	} #Slain in the Fall of Gondolin by Gothmog
+    4822.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Fall of Gondolin
 }
 
 3227 = {
@@ -5766,12 +5758,12 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-    add_trait = legendary_warrior
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+    trait = legendary_warrior
+	trait = light_valinor
     father = 3319
     3455.1.1 = {
         birth = "3455.1.1"
@@ -5780,12 +5772,9 @@
         name = "Egalmoth"
         remove_trait = sailed_west
     }
-	4850.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3239 # Maedhros
-		}
-	} #Slain in the Kinslaying of Sirion
+    4850.1.1 = {
+		death = { death_reason = death_battle }
+    } #Slain in the Kinslaying of Sirion
 }
 
 3228 = {
@@ -5793,11 +5782,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3224
     3720.1.1 = {
         birth = "3720.1.1"
@@ -5805,12 +5794,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the Fall of Gondolin
+    4822.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Fall of Gondolin
 }
 
 3229 = {
@@ -5818,12 +5804,12 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-    add_trait = legendary_warrior
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+    trait = legendary_warrior
+	trait = light_valinor
     father = 3224
     2975.1.1 = {
         birth = "2975.1.1"
@@ -5831,12 +5817,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the Fall of Gondolin
+    4822.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Fall of Gondolin
 }
 
 3321 = {
@@ -5844,11 +5827,11 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
-    add_trait = sailed_west
-	add_trait = light_valinor
+    trait = elf
+    trait = fair
+    trait = strong
+    trait = sailed_west
+	trait = light_valinor
     father = 3224
     3159.1.1 = {
         birth = "3159.1.1"
@@ -5856,12 +5839,9 @@
     4312.1.1 = {
         remove_trait = sailed_west
     }
-	4822.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the Fall of Gondolin
+    4822.1.1 = {
+        death = { death_reason = death_battle }
+    } #Slain in the Fall of Gondolin
 }
 
 3230 = {
@@ -5871,14 +5851,14 @@
     culture = "culture_noldor"
 
 	disallow_random_traits = yes
-    add_trait = elf
-    add_trait = fair
-    add_trait = intricate_webweaver
-    add_trait = just
-    add_trait = patient
-    add_trait = honest
-    add_trait = organizer
-    add_trait = trained_elf
+    trait = elf
+    trait = fair
+    trait = intricate_webweaver
+    trait = just
+    trait = patient
+    trait = honest
+    trait = organizer
+    trait = trained_elf
 
     martial = 5
     diplomacy = 7
@@ -5899,9 +5879,9 @@
     dynasty = 3039
     religion = "religion_moriquendi"
     culture = "culture_noldor"
-    add_trait = elf
-    add_trait = fair
-    add_trait = strong
+    trait = elf
+    trait = fair
+    trait = strong
     father = 3230
     8543.1.1 = {
         birth = "8543.1.1"
@@ -5915,13 +5895,13 @@
     culture = "culture_noldor"
 
 	disallow_random_traits = yes
-    add_trait = elf
-    add_trait = fair
-    add_trait = charismatic_negotiator
-    add_trait = patient
-    add_trait = just
-    add_trait = perceptive
-    add_trait = trained_elf
+    trait = elf
+    trait = fair
+    trait = charismatic_negotiator
+    trait = patient
+    trait = just
+    trait = perceptive
+    trait = trained_elf
 
     father = 3320
 
@@ -5947,20 +5927,17 @@
 	dynasty = 3006
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3055
 	mother = 3128
 	1437.1.1 = {
 		birth = "1437.1.1"
 	}
 	4294.1.1 = {
-		death = {
-			death_reason = death_accident
-			killer = 0
-		}
+		death = "4294.1.1"
 	} #Died crossing the Helcaraxë
 }
 
@@ -5969,11 +5946,11 @@
 	dynasty = 3036
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
 	father = 3096
 	mother = 3233
 	3066.1.1 = {
@@ -5986,11 +5963,8 @@
 		add_spouse = 3235
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the sack of Brithombar
+		death = "4785.1.1"
+	}
 }
 
 3235 = {
@@ -6001,17 +5975,15 @@
 	culture = "culture_sindar"
 	father = 3065
 	mother = 3086
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_nowe
+	trait = elf
+	trait = fair
 	4025.1.1 = {
 		birth = "4025.1.1"
 	}
 	4785.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain in the sack of Brithombar
+		death = "4785.1.1"
+	}
 }
 
 3236 = {
@@ -6022,8 +5994,9 @@
 	culture = "culture_sindar"
 	father = 3065
 	mother = 3086
-	add_trait = elf
-	add_trait = fair
+	trait = blood_of_nowe
+	trait = elf
+	trait = fair
 	4450.1.1 = {
 		birth = "4450.1.1"
 	}
@@ -6034,16 +6007,16 @@
 	dynasty = 3036
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	father = 3234
 	mother = 3235
 	4347.1.1 = {
 		birth = "4347.1.1"
 	}
 	4837.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001	
 	} #sailed to Valinor with Tuor
 }
@@ -6057,16 +6030,17 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = proud
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = midas_touched		
-	add_trait = imposing
-	add_trait = legendary_craftman
-	add_trait = genius
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = proud
+	trait = strong
+	trait = sailed_west
+	trait = midas_touched		
+	trait = imposing
+	trait = legendary_craftman
+	trait = genius
+	trait = legendary_warrior
+	trait = light_valinor
 
 	martial = 12
 	diplomacy = 11
@@ -6090,16 +6064,13 @@
 	4282.1.1 = {
 		name = "Fëanor"
 		remove_trait = sailed_west
-		add_trait = ambitious
-		add_trait = zealous
-		add_trait = oath_of_feanor
+		trait = ambitious
+		trait = zealous
+		trait = oath_of_feanor
 	}
 	4283.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10025 # Gothmog
-		}
-	} #slain by gothmog in the First Battle at Amon Ereb
+		death = "4283.1.1"
+	} #Slain by Balrogs
 }
 
 3239 = {
@@ -6108,13 +6079,14 @@
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
 	
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = skilled_tactician
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = skilled_tactician
+	trait = legendary_warrior
+	trait = light_valinor
 
 	martial = 13
 	diplomacy = 8
@@ -6134,14 +6106,14 @@
 	4282.1.1 = {
 		name = "Maedhros"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4850.1.1 = {
-		add_trait = kinslayer
-		add_trait = cruel		
+		trait = kinslayer
+		trait = cruel		
 	}
 	4901.1.1 = {
-		add_trait = at_east
+		trait = at_east
 	}
 	4902.1.1 = {
 		death = { death_reason = death_suicide }
@@ -6155,16 +6127,17 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = patient
-	add_trait = poet
-	add_trait = chaste
-	add_trait = legendary_musician
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = patient
+	trait = poet
+	trait = chaste
+	trait = legendary_musician
+	trait = light_valinor
 
 	martial = 17
 	diplomacy = 10
@@ -6184,10 +6157,10 @@
 	4282.1.1 = {
 		name = "Maglor"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4850.1.1 = {
-		add_trait = kinslayer	
+		trait = kinslayer	
 	}	
 	6202.1.1 = {
 		add_spouse = 3220
@@ -6204,15 +6177,16 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = hunter
-	add_trait = imposing
-	add_trait = charismatic_negotiator
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = hunter
+	trait = imposing
+	trait = charismatic_negotiator
+	trait = legendary_warrior
+	trait = light_valinor
 
 	martial = 14
 	diplomacy = 5
@@ -6230,16 +6204,13 @@
 		birth = "2424.1.1"
 	}
 	4282.1.1 = {
-		name = "Co-Roi Celegorm d'Himlad"
+		name = "Celegorm"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4818.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 3116
-		}
-	} #Slain Dior in the Sack of Doriath
+		death = { death_reason = death_battle }
+	} #slain in the Sack of Doriath
 }
 
 3242 = {
@@ -6249,17 +6220,18 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = cruel
-	add_trait = kinslayer
-	add_trait = imposing
-	add_trait = skilled_tactician
-	add_trait = envious
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = cruel
+	trait = kinslayer
+	trait = imposing
+	trait = skilled_tactician
+	trait = envious
+	trait = legendary_warrior
+	trait = light_valinor
 	
 	father = 3238
 	mother = 3127
@@ -6277,16 +6249,13 @@
 		birth = "2491.1.1"
 	}
 	4282.1.1 = {
-		name = "Roi Caranthir de Thargelion"
+		name = "Caranthir"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4818.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 3116
-		}
-	} #Slain Dior in the Sack of Doriath
+		death = { death_reason = death_battle }
+	} #slain in the Sack of Doriath
 }
 
 3243 = {
@@ -6296,16 +6265,17 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = proud
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = midas_touched		
-	add_trait = imposing	
-	add_trait = envious
-	add_trait = perceptive
-	add_trait = legendary_warrior
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = proud
+	trait = strong
+	trait = sailed_west
+	trait = midas_touched		
+	trait = imposing	
+	trait = envious
+	trait = perceptive
+	trait = legendary_warrior
+	trait = light_valinor
 
 	martial = 7
 	diplomacy = 11
@@ -6326,17 +6296,14 @@
 		add_spouse = 3247
 	}
 	4282.1.1 = {
-		name = "Co-Roi Curufin d'Himlad"
+		name = "Curufin"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor
-		add_trait = angrist		
+		trait = oath_of_feanor
+		trait = angrist		
 	}
 	4818.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 3116
-		}
-	} #Slain Dior in the Sack of Doriath
+		death = { death_reason = death_battle }
+	} #slain in the Sack of Doriath
 }
 
 3244 = {
@@ -6346,17 +6313,18 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = patient
-	add_trait = poet
-	add_trait = chaste
-	add_trait = perceptive
-	add_trait = legendary_warrior
-	add_trait = twin
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = patient
+	trait = poet
+	trait = chaste
+	trait = perceptive
+	trait = legendary_warrior
+	trait = twin
+	trait = light_valinor
 
 	martial = 16
 	diplomacy = 5
@@ -6374,16 +6342,13 @@
 		birth = "2779.1.1"
 	}
 	4282.1.1 = {
-		name = "Co-Roi Amrod de Beleriand Oriental"
+		name = "Amrod"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4850.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3001
-		}
-	} #slain earendil in sirion
+		death = { death_reason = death_battle }
+	} #Slain in the Kinslaying of Sirion
 }
 
 3245 = {
@@ -6393,16 +6358,17 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = sailed_west
-	add_trait = charismatic_negotiator
-	add_trait = patient
-	add_trait = poet
-	add_trait = chaste
-	add_trait = perceptive
-	add_trait = legendary_warrior
-	add_trait = twin
-	add_trait = light_valinor
+	trait = blood_of_feanor
+	trait = elf
+	trait = sailed_west
+	trait = charismatic_negotiator
+	trait = patient
+	trait = poet
+	trait = chaste
+	trait = perceptive
+	trait = legendary_warrior
+	trait = twin
+	trait = light_valinor
 
 	martial = 16
 	diplomacy = 5
@@ -6420,16 +6386,36 @@
 		birth = "2779.1.1"
 	}
 	4282.1.1 = {
-		name = "Co-Roi Amras de Beleriand Oriental"
+		name = "Amras"
 		remove_trait = sailed_west
-		add_trait = oath_of_feanor		
+		trait = oath_of_feanor		
 	}
 	4850.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 3001
-		}
-	} #slain earendil in sirion
+		death = { death_reason = death_battle }
+	} #Slain in the Kinslaying of Sirion
+}
+
+3246 = {
+	name = "Telufinwë Umbarto"
+	dynasty = 3054
+	religion = "religion_moriquendi"
+	culture = "culture_noldor"
+	
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = sailed_west
+	trait = light_valinor
+
+	father = 3238
+	mother = 3127
+	
+	4207.1.1 = {
+		birth = "4207.1.1"
+	}
+	4283.1.1 = {
+			death = "4283.1.1"
+	} #Slain burning of ships at Losgar
 }
 
 3247 = {
@@ -6438,16 +6424,16 @@
 	dynasty = 3024
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = sailed_west
-	add_trait = light_valinor
+	trait = elf
+	trait = fair
+	trait = sailed_west
+	trait = light_valinor
 	father = 3198
 	2587.1.1 = {
 		birth = "2587.1.1"
 	}
 	4312.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001	
 	}
 }
@@ -6459,19 +6445,20 @@
 	culture = "culture_noldor"
 
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = kind
-	add_trait = quick
-	add_trait = strong
-	add_trait = sailed_west
-	add_trait = midas_touched		
-	add_trait = imposing	
-	add_trait = charitable
-	add_trait = perceptive
-	add_trait = light_valinor
-	add_trait = legendary_craftman
-	add_trait = gwaith_i_mirdain
-	add_trait = great_elf	
+	trait = blood_of_feanor
+	trait = elf
+	trait = kind
+	trait = quick
+	trait = strong
+	trait = sailed_west
+	trait = midas_touched		
+	trait = imposing	
+	trait = charitable
+	trait = perceptive
+	trait = light_valinor
+	trait = legendary_craftman
+	trait = gwaith_i_mirdain
+	trait = great_elf	
 	
 	father = 3243
 	mother = 3247
@@ -6491,17 +6478,14 @@
 	4282.1.1 = {
 		name = "Celebrimbor"
 		remove_trait = sailed_west
-		add_trait = light_valinor
+		trait = light_valinor
 	}
 	4765.1.1 = {
 		add_spouse = 3409
 	}
 	6599.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10016
-		}
-	} #Slain sauron
+		death = { death_reason = death_battle }
+	} #Slain in the War of the Elves and Sauron
 }
 
 3249 = {
@@ -6511,15 +6495,15 @@
 	culture = "culture_noldor"
 	
 	disallow_random_traits = yes
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
-	add_trait = charismatic_negotiator
-	add_trait = poet
-	add_trait = chaste
-	add_trait = kind
-	add_trait = charitable
-	add_trait = craftsman
+	trait = elf
+	trait = fair
+	trait = strong
+	trait = charismatic_negotiator
+	trait = poet
+	trait = chaste
+	trait = kind
+	trait = charitable
+	trait = craftsman
 
   	dna = "cjafe0ifac0"
   	properties = "tc0eeebe00b"
@@ -6546,7 +6530,7 @@
 	dynasty = 3040
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	7864.1.1 = {
 		birth = "7864.1.1"
 	}
@@ -6559,7 +6543,7 @@
 	dynasty = 3040
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3251
 	8347.1.1 = {
 		birth = "8347.1.1"
@@ -6573,7 +6557,7 @@
 	dynasty = 3040	
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3252
 	9432.1.1 = {
 		birth = "9432.1.1"
@@ -6587,7 +6571,7 @@
 	dynasty = 3040
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3252
 	9524.1.1 = {
 		birth = "9524.1.1"
@@ -6604,7 +6588,7 @@
 	dynasty = 3041
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8014.1.1 = {
 		birth = "8014.1.1"
 	}
@@ -6617,7 +6601,7 @@
 	dynasty = 3041
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3255
 	8978.1.1 = {
 		birth = "8978.1.1"
@@ -6631,7 +6615,7 @@
 	dynasty = 3041
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3255
 	9432.1.1 = {
 		birth = "9432.1.1"
@@ -6648,7 +6632,7 @@
 	dynasty = 3042
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6589.1.1 = {
 		birth = "6589.1.1"
 	}
@@ -6661,8 +6645,8 @@
 	dynasty = 3042
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = composer
+	trait = elf
+	trait = composer
 	father = 3258
 	8547.1.1 = {
 		birth = "8547.1.1"
@@ -6676,8 +6660,8 @@
 	dynasty = 3042
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = skilled_craftsman
+	trait = elf
+	trait = skilled_craftsman
 	father = 3258
 	8978.1.1 = {
 		birth = "8978.1.1"
@@ -6691,8 +6675,8 @@
 	dynasty = 3042
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = composer
+	trait = elf
+	trait = composer
 	father = 3260
 	female = yes
 	9987.1.1 = {
@@ -6710,7 +6694,7 @@
 	dynasty = 3043
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8150.1.1 = {
 		birth = "8150.1.1"
 	}
@@ -6723,7 +6707,7 @@
 	dynasty = 3043
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3262
 	9240.1.1 = {
 		birth = "9240.1.1"
@@ -6737,7 +6721,7 @@
 	dynasty = 3043
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3262
 	female = yes
 	10300.1.1 = {
@@ -6755,7 +6739,7 @@
 	dynasty = 3044
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	6550.1.1 = {
 		birth = "6550.1.1"
 	}
@@ -6768,7 +6752,7 @@
 	dynasty = 3044
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3265
 	9104.1.1 = {
 		birth = "9104.1.1"
@@ -6782,7 +6766,7 @@
 	dynasty = 3044
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3266
 	female = yes
 	11335.1.1 = {
@@ -6800,7 +6784,7 @@
 	dynasty = 3045
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6589.1.1 = {
 		birth = "6589.1.1"
 	}
@@ -6813,8 +6797,8 @@
 	dynasty = 3045
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = craftsman
+	trait = elf
+	trait = craftsman
 	father = 3268
 	8547.1.1 = {
 		birth = "8547.1.1"
@@ -6828,8 +6812,8 @@
 	dynasty = 3045
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = craftsman
+	trait = elf
+	trait = craftsman
 	father = 3268
 	8978.1.1 = {
 		birth = "8978.1.1"
@@ -6843,7 +6827,7 @@
 	dynasty = 3045
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	father = 3270
 	female = yes
 	11342.1.1 = {
@@ -6858,8 +6842,8 @@
 	dynasty = 3045
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = skilled_craftsman
+	trait = elf
+	trait = skilled_craftsman
 	father = 3269
 	10342.1.1 = {
 		birth = "10342.1.1"
@@ -6876,7 +6860,7 @@
 	dynasty = 3046
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	7850.1.1 = {
 		birth = "7850.1.1"
 	}
@@ -6889,7 +6873,7 @@
 	dynasty = 3046
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3273
 	9000.1.1 = {
 		birth = "9000.1.1"
@@ -6903,7 +6887,7 @@
 	dynasty = 3046
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3274
 	10855.1.1 = {
 		birth = "10855.1.1"
@@ -6920,7 +6904,7 @@
 	dynasty = 3047
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8220.1.1 = {
 		birth = "8220.1.1"
 	}
@@ -6933,7 +6917,7 @@
 	dynasty = 3047
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3276
 	8750.1.1 = {
 		birth = "8750.1.1"
@@ -6947,7 +6931,7 @@
 	dynasty = 3047
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3277
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -6964,7 +6948,7 @@
 	dynasty = 3048
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8750.1.1 = {
 		birth = "8750.1.1"
 	}
@@ -6977,7 +6961,7 @@
 	dynasty = 3048
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	father = 3279
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -6993,7 +6977,7 @@
 	dynasty = 3049
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8750.1.1 = {
 		birth = "8750.1.1"
 	}
@@ -7006,8 +6990,8 @@
 	dynasty = 3049
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = twin	
+	trait = elf
+	trait = twin	
 	father = 3281
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -7021,8 +7005,8 @@
 	dynasty = 3049
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = twin
+	trait = elf
+	trait = twin
 	father = 3281
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -7039,7 +7023,7 @@
 	dynasty = 3050
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	8750.1.1 = {
 		birth = "8750.1.1"
 	}
@@ -7052,7 +7036,7 @@
 	dynasty = 3050
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3284
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -7070,7 +7054,7 @@
 	dynasty = 3051
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6750.1.1 = {
 		birth = "6750.1.1"
 	}
@@ -7083,7 +7067,7 @@
 	dynasty = 3051
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3286
 	8245.1.1 = {
 		birth = "8245.1.1"
@@ -7102,7 +7086,7 @@
 	dynasty = 3052
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6750.1.1 = {
 		birth = "6750.1.1"
 	}
@@ -7115,7 +7099,7 @@
 	dynasty = 3052
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3288
 	7946.1.1 = {
 		birth = "7946.1.1"
@@ -7134,7 +7118,7 @@
 	dynasty = 3053
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	6750.1.1 = {
 		birth = "6750.1.1"
 	}
@@ -7147,7 +7131,7 @@
 	dynasty = 3053
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3290
 	8245.1.1 = {
 		birth = "8245.1.1"
@@ -7164,7 +7148,7 @@
 	dynasty = 3054
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	7250.1.1 = {
 		birth = "7250.1.1"
 	}
@@ -7177,7 +7161,7 @@
 	dynasty = 3054
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3292
 	8245.1.1 = {
 		birth = "8245.1.1"
@@ -7194,7 +7178,7 @@
 	dynasty = 3055
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6550.1.1 = {
 		birth = "6550.1.1"
 	}
@@ -7207,7 +7191,7 @@
 	dynasty = 3055
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3294
 	8745.1.1 = {
 		birth = "8745.1.1"
@@ -7224,7 +7208,7 @@
 	dynasty = 3056
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	6550.1.1 = {
 		birth = "6550.1.1"
 	}
@@ -7237,7 +7221,7 @@
 	dynasty = 3056
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3296
 	8745.1.1 = {
 		birth = "8745.1.1"
@@ -7251,7 +7235,7 @@
 	dynasty = 3056
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3297
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -7268,7 +7252,7 @@
 	dynasty = 3057
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	6550.1.1 = {
 		birth = "6550.1.1"
 	}
@@ -7281,7 +7265,7 @@
 	dynasty = 3057
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3299
 	8745.1.1 = {
 		birth = "8745.1.1"
@@ -7295,7 +7279,7 @@
 	dynasty = 3057
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3300
 	9245.1.1 = {
 		birth = "9245.1.1"
@@ -7312,7 +7296,7 @@
 	dynasty = 3058
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	5789.1.1 = {
 		birth = "5789.1.1"
 	}
@@ -7325,7 +7309,7 @@
 	dynasty = 3058
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3302
 	7745.1.1 = {
 		birth = "7745.1.1"
@@ -7339,7 +7323,7 @@
 	dynasty = 3058
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3303
 	9547.1.1 = {
 		birth = "9547.1.1"
@@ -7356,7 +7340,7 @@
 	dynasty = 3059
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
+	trait = elf
 	7589.1.1 = {
 		birth = "7589.1.1"
 	}
@@ -7369,7 +7353,7 @@
 	dynasty = 3059
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3305
 	7745.1.1 = {
 		birth = "7745.1.1"
@@ -7383,7 +7367,7 @@
 	dynasty = 3059
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
+	trait = elf	
 	father = 3306
 	9547.1.1 = {
 		birth = "9547.1.1"
@@ -7400,7 +7384,7 @@
 	dynasty = 3060
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	7589.1.1 = {
 		birth = "7589.1.1"
 	}
@@ -7413,7 +7397,7 @@
 	dynasty = 3060
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3308
 	7745.1.1 = {
 		birth = "7745.1.1"
@@ -7427,7 +7411,7 @@
 	dynasty = 3060
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3308
 	9547.1.1 = {
 		birth = "9547.1.1"
@@ -7445,7 +7429,7 @@
 	dynasty = 3061
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	6548.1.1 = {
 		birth = "6548.1.1"
 	}
@@ -7455,7 +7439,7 @@
 	dynasty = 3062
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	7594.1.1 = {
 		birth = "7594.1.1"
 	}
@@ -7465,7 +7449,7 @@
 	dynasty = 3063
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	7138.1.1 = {
 		birth = "7138.1.1"
 	}
@@ -7475,7 +7459,7 @@
 	dynasty = 3064
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	6815.1.1 = {
 		birth = "6815.1.1"
 	}
@@ -7485,7 +7469,8 @@
 	dynasty = 3065
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = blood_of_nowe
+	trait = elf	
 	6742.1.1 = {
 		birth = "6742.1.1"
 	}
@@ -7495,7 +7480,7 @@
 	dynasty = 3066
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	6742.1.1 = {
 		birth = "6742.1.1"
 	}
@@ -7508,7 +7493,7 @@
 	dynasty = 3061
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	father = 3311
 	8547.1.1 = {
 		birth = "8547.1.1"
@@ -7519,7 +7504,7 @@
 	dynasty = 3061
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf	
+	trait = elf	
 	female = yes
 	father = 3311
 	9254.1.1 = {
@@ -7535,34 +7520,34 @@
 	dynasty = 3067
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
+	trait = elf
 	3548.1.1 = {
 		birth = "3548.1.1"
 	}
 	4900.1.1 = {
-		death = { death_reason = death_missing }
-	} 
+		death = "4900.1.1"
+	}	
 }
 3401 = {
 	name = "Ithilbor"
 	dynasty = 3067
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3400
 	4152.1.1 = {
 		birth = "4152.1.1"
 	}
 	9587.1.1 = {
-		death = { death_reason = death_missing }
-	} 
+		death = "9587.1.1"
+	}	
 }
 3402 = {
 	name = "Elmagil"
 	dynasty = 3067
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf	
+	trait = elf	
 	father = 3401
 	7584.1.1 = {
 		birth = "7584.1.1"
@@ -7584,11 +7569,11 @@
   	properties = "gd0ced0000000"
 
 
-	add_trait = elf	
-	add_trait = fair
-	add_trait = agile
-	add_trait = proud
-	add_trait = skilled_tactician
+	trait = elf	
+	trait = fair
+	trait = agile
+	trait = proud
+	trait = skilled_tactician
 	father = 3406
 	mother = 3407
 
@@ -7596,7 +7581,7 @@
 		birth = "9497.6.5"
 	}
 	9500.1.1 = {
-		add_trait = trained_elf
+		trait = trained_elf
 		employer = 3104
 		effect =  {
 			add_friend = 3106
@@ -7610,7 +7595,7 @@
 	}
 	11284.11.10 = { employer = 3403 } #Thranduil gives her the keys to Ceber Fanuin, where she can grieve the death of Kili
 	11480.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	}
 }
@@ -7621,11 +7606,11 @@
 	dynasty = 3021
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = trained_elf
-	add_trait = agile
-	add_trait = intricate_webweaver
-	add_trait = quick
+	trait = elf
+	trait = trained_elf
+	trait = agile
+	trait = intricate_webweaver
+	trait = quick
 	father = 3168
 	mother = 3166
 	6500.1.1 = {
@@ -7639,11 +7624,11 @@
 	dynasty = 3034
 	religion = "religion_moriquendi"
 	culture = "culture_sindar"
-	add_trait = elf
-	add_trait = fair
-	add_trait = trained_elf
-	add_trait = skilled_tactician
-	add_trait = duelist
+	trait = elf
+	trait = fair
+	trait = trained_elf
+	trait = skilled_tactician
+	trait = duelist
 	father = 3081
 	mother = 3084
 	3348.1.1 = {
@@ -7656,13 +7641,12 @@
 	dynasty = 3014
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf	
-	add_trait = fair
-	add_trait = elusive_shadow
-	add_trait = genius
-	add_trait = deceitful
-	add_trait = depressed
-	add_trait = sailed_west
+	trait = elf	
+	trait = fair
+	trait = elusive_shadow
+	trait = genius
+	trait = deceitful
+	trait = sailed_west
 	father = 3068
 	mother = 3087
 	2250.1.1 = {
@@ -7670,37 +7654,25 @@
 	}
 	4312.1.1 = {
 		remove_trait = sailed_west
-		add_trait = light_valinor
+		trait = light_valinor
 	}
-	9495.1.1 = {
-		add_spouse = 3407
-	} #The Necromancer sends Anoril to discover secrets from Huinen, but she falls in love with him instead
-	9500.1.1 = {
-		death = {
-			death_reason = death_murder
-			killer = 10016
-		} #Killed by the Necromancer along with his wife
-	} 
+	9495.1.1 = { add_spouse = 3407 } #The Necromancer sends Anoril to discover secrets from Huinen, but she falls in love with him instead
+	9500.1.1 = { death = yes } #Killed by the Necromancer along with his wife
 }
 3407 = {
 	name = "Anoril"
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf	
-	add_trait = fair
-	add_trait = elusive_shadow
-	add_trait = genius
-	add_trait = deceitful
+	trait = elf	
+	trait = fair
+	trait = elusive_shadow
+	trait = genius
+	trait = deceitful
 	8350.1.1 = {
 		birth = "8350.1.1"
 	}
-	9500.1.1 = {
-		death = {
-			death_reason = death_murder
-			killer = 10016
-		} #Possessed by the Necromancer to kill Huinen, but manages to overcome his possession, and both are killed by his Orcs
-	} 
+	9500.1.1 = { death = yes } #Possessed by the Necromancer to kill Huinen, but manages to overcome his possession, and both are killed by his Orcs
 }
 3408 = {
 	name = "Narmirë"
@@ -7708,10 +7680,10 @@
 	dynasty = 3021
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
-	add_trait = agile
-	add_trait = fashionable
+	trait = elf
+	trait = fair
+	trait = agile
+	trait = fashionable
 	father = 3404
 	9800.1.1 = {
 		birth = yes
@@ -7726,13 +7698,14 @@
 	dynasty = 3004
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = fashionable
-	add_trait = sailed_west
-	add_trait = temperate
-	add_trait = diligent
-	add_trait = charitable
+trait = blood_of_finarfin
+	trait = elf
+	trait = fair
+	trait = fashionable
+	trait = sailed_west
+	trait = temperate
+	trait = diligent
+	trait = charitable
 	father = 3151
 	mother = 3152
 	
@@ -7745,39 +7718,32 @@
 	4312.1.1 = {
 		name = "Astoriel"
 		remove_trait = sailed_west
-		add_trait = light_valinor
+		trait = light_valinor
 	}
 	6599.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016
-		}
-	} #Slain sauron in the war of elve
+		death = "6599.1.1"
+	} #Slain in the War of the Elves and Sauron
 }
 
 3410 = {
 	name = "Istiel"
-	female=yes
 	dynasty = 3007
 	religion = "religion_moriquendi"
 	culture = "culture_noldor"
-	add_trait = elf
-	add_trait = fair
-	add_trait = fashionable
-	add_trait = quick
-	add_trait = temperate
-	add_trait = diligent
+	trait = elf
+	trait = fair
+	trait = fashionable
+	trait = quick
+	trait = temperate
+	trait = diligent
 	father = 3248
 	mother = 3409
 	4780.1.1 = {
 		birth = "4780.1.1"
 	}
 	6599.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10016
-		} #Slain by sauron
-	} 
+		death = "6599.1.1"
+	} #Slain in the War of the Elves and Sauron
 }
 
 
@@ -7788,8 +7754,8 @@
 	dynasty = 3068
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = strong
+	trait = elf
+	trait = strong
 	4780.1.1 = {
 		birth = "4780.1.1"
 	}
@@ -7800,8 +7766,8 @@
 	dynasty = 3069
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = just
+	trait = elf
+	trait = just
 	4342.1.1 = {
 		birth = yes
 	}
@@ -7813,8 +7779,8 @@
 	dynasty = 3070
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = fair
+	trait = elf
+	trait = fair
 	4238.1.1 = {
 		birth = yes
 	}
@@ -7826,8 +7792,8 @@
 	dynasty = 3071
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = proud
+	trait = elf
+	trait = proud
 	4517.1.1 = {
 		birth = yes
 	}
@@ -7838,7 +7804,7 @@
 	dynasty = 3071
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
+	trait = elf
 	4120.1.1 = {
 		birth = yes
 	}
@@ -7849,7 +7815,7 @@
 	dynasty = 3071
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
+	trait = elf
 	3947.1.1 = {
 		birth = yes
 	}
@@ -7861,8 +7827,8 @@
 	dynasty = 3071
 	religion = "religion_moriquendi"
 	culture = "culture_silvan"
-	add_trait = elf
-	add_trait = proud
+	trait = elf
+	trait = proud
 	4390.1.1 = {
 		birth = yes
 	}
@@ -7875,8 +7841,8 @@
 	dynasty = 3072
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = diligent
+	trait = elf
+	trait = diligent
 	2472.1.1 = {
 		birth = yes
 	}
@@ -7884,11 +7850,8 @@
 		add_spouse = 3501
 	}
 	6596.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = { death_reason = death_battle }
+	} # killed in the War of the Elves and Sauron
 }
 # wife of the above
 3501 = {
@@ -7896,12 +7859,12 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_avari"
-	add_trait = elf
+	trait = elf
 	2733.1.1 = {
 		birth = yes
 	}
 	6601.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} # Left after her husband was killed
 }
@@ -7913,9 +7876,9 @@
 	culture = "culture_nandor"
 	father = 3500
 	mother = 3501
-	add_trait = elf
-	add_trait = fair
-	add_trait = strong
+	trait = elf
+	trait = fair
+	trait = strong
 	4176.1.1 = {
 		birth = yes
 	}
@@ -7923,10 +7886,7 @@
 		add_spouse = 3503
 	}
 	8341.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} # killed during the seige or Mordor
 }
 # afterwards, c_wester_north_lorien went to Galadriel (her base to gain the support she needed to replace Amroth when he died).
@@ -7936,8 +7896,8 @@
 	female = yes
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = quick
+	trait = elf
+	trait = quick
 	4012.1.1 = {
 		birth = yes
 	}
@@ -7950,10 +7910,10 @@
 	culture = "culture_nandor"
 	father = 3500
 	mother = 3501
-	add_trait = elf
-	add_trait = great_healer
-	add_trait = skilled_composer
-	add_trait = gregarious
+	trait = elf
+	trait = great_healer
+	trait = skilled_composer
+	trait = gregarious
 
 	3992.1.1 = {
 		birth = yes
@@ -7967,14 +7927,14 @@
 	name = "Olonwë"
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
-	add_trait = elf
-	add_trait = patient
-	add_trait = defensive_leader
-	add_trait = kind
-	add_trait = tall
-	add_trait = humble
-	add_trait = midas_touched
-	add_trait = stubborn
+	trait = elf
+	trait = patient
+	trait = defensive_leader
+	trait = kind
+	trait = tall
+	trait = humble
+	trait = midas_touched
+	trait = stubborn
 	
 	diplomacy = 6
 	martial = 7
@@ -8000,10 +7960,10 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
 	
-	add_trait = elf
-	add_trait = diligent
-	add_trait = erudite
-	add_trait = imposing
+	trait = elf
+	trait = diligent
+	trait = erudite
+	trait = imposing
 	
 	1876.1.1 = {
 		birth = yes
@@ -8015,7 +7975,7 @@
 		culture = culture_silvan
 	}
 	7206.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} # Left after her husband was killed
 }
@@ -8024,11 +7984,11 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
 	
-	add_trait = elf
-	add_trait = strong
-	add_trait = fea_weak
-	add_trait = calm_voice
-	add_trait = intricate_webweaver
+	trait = elf
+	trait = strong
+	trait = fea_weak
+	trait = calm_voice
+	trait = intricate_webweaver
 	
 	1742.1.1 = {
 		birth = yes
@@ -8047,8 +8007,8 @@
 	father = 3516
 	mother = 3515
 	
-	add_trait = elf
-	add_trait = genius
+	trait = elf
+	trait = genius
 	
 	4162.1.1 = {
 		birth = yes
@@ -8062,10 +8022,7 @@
 		culture = culture_silvan
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
+		death = { death_reason = death_battle }
 	} # Died at Dagorlad
 }
 
@@ -8078,9 +8035,9 @@
 	father = 3516
 	mother = 3515
 	
-	add_trait = elf
-	add_trait = lustful
-	add_trait = charitable
+	trait = elf
+	trait = lustful
+	trait = charitable
 	
 	4420.1.1 = {
 		birth = yes
@@ -8098,8 +8055,8 @@
 	father = 3516
 	mother = 3515
 	
-	add_trait = elf
-	add_trait = quick
+	trait = elf
+	trait = quick
 	
 	5161.1.1 = {
 		birth = yes
@@ -8109,7 +8066,7 @@
 		culture = culture_silvan
 	}
 	7206.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} # Left with his Mother
 }
@@ -8123,8 +8080,8 @@
 	father = 3517
 	mother = 3504
 	
-	add_trait = elf
-	add_trait = kind
+	trait = elf
+	trait = kind
 	
 	6719.1.1 = {
 		birth = yes
@@ -8144,11 +8101,11 @@
 	intrigue = 7
 	learning = 4
 	
-	add_trait = elf
-	add_trait = deceitful
-	add_trait = elusive_shadow
-	add_trait = poet_2
-	add_trait = content
+	trait = elf
+	trait = deceitful
+	trait = elusive_shadow
+	trait = poet_2
+	trait = content
 	
 	7110.1.1 = {
 		birth = yes
@@ -8168,9 +8125,9 @@
 	intrigue = 6
 	learning = 5
 	
-	add_trait = elf
-	add_trait = just
-	add_trait = fea_strong
+	trait = elf
+	trait = just
+	trait = fea_strong
 	
 	437.1.1 = {
 		birth = yes
@@ -8179,11 +8136,8 @@
 		culture = culture_nandor
 	}
 	6596.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = { death_reason = death_battle }
+	} # killed in the War of the Elves and Sauron
 }
 
 # b_athmadhul (city)
@@ -8192,8 +8146,8 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
 	
-	add_trait = elf
-	add_trait = pacifist_elf
+	trait = elf
+	trait = pacifist_elf
 	
 	2494.1.1 = {
 		birth = yes
@@ -8202,7 +8156,7 @@
 		add_spouse = 3536
 	}
 	8329.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} # unhappy about war
 }
@@ -8213,7 +8167,7 @@
 	religion = "religion_moriquendi"
 	culture = "culture_laegrim"  # refugee from Ossiriland
 
-	add_trait = elf
+	trait = elf
 	
 	3176.1.1 = {
 		birth = yes
@@ -8222,7 +8176,7 @@
 		culture = culture_nandor
 	}	
 	8329.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	}
 } 
@@ -8234,16 +8188,16 @@
 	father = 3535
 	mother = 3536
 	
-	add_trait = elf
-	add_trait = temperate
-	add_trait = pacifist_elf
-	add_trait = nature_lover
+	trait = elf
+	trait = temperate
+	trait = pacifist_elf
+	trait = nature_lover
 	
 	5843.1.1 = {
 		birth = yes
 	}
 	8329.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} # unhappy about war
 }
@@ -8254,18 +8208,15 @@
 	father = 3535
 	mother = 3536
 	
-	add_trait = elf
+	trait = elf
 
 	6420.1.1 = {
 		birth = yes
 	}
 
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = { death_reason = death_battle }
+	} # died at Dagorlad
 }
 
 3539 = {
@@ -8275,9 +8226,9 @@
 	father = 3535
 	mother = 3536
 	
-	add_trait = elf
-	add_trait = slow
-	add_trait = herbalist
+	trait = elf
+	trait = slow
+	trait = herbalist
 
 	7348.1.1 = {
 		birth = yes
@@ -8289,7 +8240,7 @@
 		add_spouse = 3180 # Líanna (Sindar)
 	}
 	11370.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	}
 }
@@ -8300,9 +8251,9 @@
 	father = 3539
 	mother = 3180
 	
-	add_trait = elf
-	add_trait = slow
-	add_trait = herbalist
+	trait = elf
+	trait = slow
+	trait = herbalist
 
 	9997.1.1 = {
 		birth = yes
@@ -8315,7 +8266,7 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
 	
-	add_trait = elf
+	trait = elf
 	
 	2745.1.1 = {
 		birth = yes
@@ -8324,11 +8275,8 @@
 		add_spouse = 3553
 	}
 	6596.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = { death_reason = death_battle }
+	} # killed in the War of the Elves and Sauron
 }
 3546 = {
 	name = "Beren"
@@ -8337,7 +8285,7 @@
 	father = 3545
 	mother = 3553
 	
-	add_trait = elf
+	trait = elf
 	
 	5964.1.1 = {
 		birth = yes
@@ -8359,29 +8307,27 @@
 	intrigue = 1
 	learning = 1
 	
-	add_trait = elf
-	add_trait = fea_strong
-	add_trait = hedonist
-	add_trait = proud
+	trait = elf
+	trait = fea_strong
+	trait = hedonist
+	trait = proud
 
 	
 	1571.1.1 = {
 		birth = yes
 	}
 	2361.1.1 = {
-		add_trait = brilliant_strategist
-		add_trait = great_elf
-		add_trait = inspiring_leader
+		trait = brilliant_strategist
+		trait = great_elf
+		trait = inspiring_leader
 	}
 	2964.1.1 = {
 		add_spouse = 3551
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = { death_reason = death_battle }
+	} # died at Dagorlad
+
 }
 3551 = {
 	name = "Yuncariel"
@@ -8389,7 +8335,7 @@
 	religion = "religion_moriquendi"
 	culture = "culture_nandor"
 	
-	add_trait = elf
+	trait = elf
 	
 	1760.1.1 = {
 		birth = yes
@@ -8406,8 +8352,8 @@
 	father = 3550
 	mother = 3551
 	
-	add_trait = elf
-	add_trait = stubborn
+	trait = elf
+	trait = stubborn
 
 	3264.1.1 = {
 		birth = yes
@@ -8417,11 +8363,8 @@
 		employer = 3167		
 	}  # leaves home and moves to Ossiriland
 	4283.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10015 # Morgoth
-		}
-	} #Slain by Orcs on Amon Ereb in the First Battle of Beleriand
+		death = { death_reason = death_battle }
+	} # slain in the First Battle at Amon Ereb
 }
 3553 = {
 	name = "Alariel"
@@ -8431,13 +8374,13 @@
 	father = 3550
 	mother = 3551
 	
-	add_trait = elf
+	trait = elf
 
 	3659.1.1 = {
 		birth = yes
 	}
 	6610.1.1 = {
-		add_trait = sailed_west
+		trait = sailed_west
 		employer = 10001
 	} 
 
@@ -8450,17 +8393,15 @@
 	father = 3550
 	mother = 3551
 	
-	add_trait = elf
+	trait = elf
 
 	4003.1.1 = {
 		birth = yes
 	}
 	6596.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the War of the Elves and Sauron
+		death = { death_reason = death_battle }
+	} # killed in the War of the Elves and Sauron
+
 }
 
 3555 = {
@@ -8470,7 +8411,7 @@
 	father = 3550
 	mother = 3551
 	
-	add_trait = elf
+	trait = elf
 
 	4593.1.1 = {
 		birth = yes
@@ -8482,11 +8423,9 @@
 		culture = culture_silvan
 	}
 	8336.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = { death_reason = death_battle }
+	} # died at Dagorlad
+
 }
 
 3556 = {
@@ -8497,9 +8436,9 @@
 	father = 3550
 	mother = 3551
 	
-	add_trait = elf
-	add_trait = fair
-	add_trait = homosexual
+	trait = elf
+	trait = fair
+	trait = homosexual
 
 	5103.1.1 = {
 		birth = yes
@@ -8515,7 +8454,7 @@
 	culture = "culture_nandor"
 	female = yes
 	
-	add_trait = elf
+	trait = elf
 
 	4610.1.1 = {
 		birth = yes
@@ -8536,7 +8475,7 @@
 	father = 3555
 	mother = 3557
 	
-	add_trait = elf
+	trait = elf
 
 	7103.1.1 = {
 		birth = yes
@@ -8546,6 +8485,5 @@
 
 # b_echad_andestel
 # b_nimrodeliant
-
 
 

@@ -575,11 +575,8 @@
 		birth = "6234.1.1"
 	}
 	6599.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016
-		}
-	} #Slain Sauron
+		death = "6599.1.1"
+	}
 }
 
 12027 = {
@@ -954,9 +951,6 @@
 	7937.1.1 = {
 		birth = "7937.1.1"
 	}
-	8016.1.1 = {
-		add_spouse = 50000
-	}
 	8079.1.1 = {
 		name = "Palantir"
 		culture = "culture_numenorean"
@@ -997,7 +991,6 @@
 	religion = "religion_numenorean"
 	culture = "culture_adunaic"
 	father = 12044
-	mother = 50000
 	disallow_random_traits = yes
 	add_trait = good_side
 	add_trait = numenorean
@@ -1020,13 +1013,10 @@
 	8221.1.1 = {
 		name = "Míriel"
 	}
-	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+	8229.1.1 = {
+		death = "8221.1.1"
+	}
+}
 
 12047 = {
 	name = "Calion"
@@ -1069,18 +1059,16 @@
 	#Ar-Pharazon is corrupted by Sauron to openly worship Morgoth	
 	8168.1.1 = {
 		add_trait = evil_side
+		add_trait = blood_of_arpharazon 
 		effect = {
 			add_friend = 10016 # Sauron
 			add_rival =  10001 # Manwë
 		}
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 #Branch of Gimilzagar
 
@@ -1115,7 +1103,8 @@
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12111
-	mother = 12113
+	mother = 12112
+	add_trait = blood_of_valandil 
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = prince_numenor	
@@ -1395,7 +1384,7 @@
 
 12063 = {
 	name = "Húrowen" #House of Eldalondë
-	dynasty = 12009
+	dynasty = 12002
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
@@ -1557,12 +1546,13 @@
 
 12072 = {
 	name = "Esteliel" #Line of Andúnië
-	dynasty = 12003
+	
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12101
 	mother = 12102
+	add_trait = blood_of_valandil 
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = prince_numenor
@@ -1658,25 +1648,22 @@
 	8018.1.1 = {
 		birth = "8018.1.1"
 	}
-	8157.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 12047
-		} #Slain ar pharazon for miriel
-	} 
+	8355.1.1 = {
+		death = "8355.1.1"
+	}
 }
 
 12078 = {
 	name = "Vorondur"
-	dynasty = 2002
+	dynasty = 12002
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12077
 	mother = 12046
 	add_trait = numenorean
 	add_trait = blood_of_numenor	
-	8157.1.1 = {
-		birth = "8157.1.1"
+	8228.1.1 = {
+		birth = "8228.1.1"
 	}
 	8317.1.1 = {
 		add_spouse = 12550
@@ -1696,6 +1683,7 @@
 12079 = {
 	name = "Elendur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 15267
@@ -1713,6 +1701,7 @@
 12080 = {
 	name = "Elemmacil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12079
@@ -1730,6 +1719,7 @@
 12081 = {
 	name = "Elenalcar"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12080
@@ -1749,6 +1739,7 @@
 12082 = {
 	name = "Elatan"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12081
@@ -1770,6 +1761,7 @@
 12083 = {
 	name = "Valandil" #First Lord of Andúnië
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12082
@@ -1810,6 +1802,7 @@
 12085 = {
 	name = "Anardur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12083
@@ -1821,7 +1814,7 @@
 		birth = "5685.1.1"
 	}
 	5830.1.1 = {
-		add_spouse = 12186
+		add_spouse = 12086
 	}
 	6078.1.1 = {
 		death = "6078.1.1"
@@ -1846,10 +1839,11 @@
 12087 = {
 	name = "Astandil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12085
-	mother = 12186
+	mother = 12086
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
@@ -1858,7 +1852,7 @@
 		birth = "5834.1.1"
 	}
 	5953.1.1 = {
-		add_spouse = 12158
+		add_spouse = 12088
 	}
 	6224.1.1 = {
 		death = "6224.1.1"
@@ -1883,10 +1877,11 @@
 12089 = {
 	name = "Lauremacil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12087
-	mother = 12158
+	mother = 12088
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
@@ -1895,7 +1890,7 @@
 		birth = "5997.1.1"
 	}
 	6117.1.1 = {
-		add_spouse = 12022
+		add_spouse = 12090
 	}
 	6379.1.1 = {
 		death = "6379.1.1"
@@ -1920,10 +1915,11 @@
 12091 = {
 	name = "Elecar"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12089
-	mother = 12022
+	mother = 12090
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
@@ -1956,6 +1952,7 @@
 12093 = {
 	name = "Isildur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12091
@@ -2036,6 +2033,7 @@
 12097 = {
 	name = "Anárion"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12093
@@ -2048,7 +2046,7 @@
 		birth = "6517.1.1"
 	}
 	6624.1.1 = {
-		add_spouse = 50041
+		add_spouse = 12098
 	}
 	6886.1.1 = {
 		death = "6886.1.1"
@@ -2073,6 +2071,7 @@
 12099 = {
 	name = "Elendur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2080,7 +2079,7 @@
 	add_trait = elf_friend
 	add_trait = prince_numenor
 	father = 12097
-	mother = 50041
+	mother = 12098
 	6685.1.1 = {
 		birth = "6685.1.1"
 	}
@@ -2110,6 +2109,7 @@
 12101 = {
 	name = "Vëandur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12099
@@ -2148,6 +2148,7 @@
 12103 = {
 	name = "Mírendil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12101
@@ -2160,7 +2161,7 @@
 		birth = "7012.1.1"
 	}
 	7143.1.1 = {
-		add_spouse = 50033
+		add_spouse = 12104
 	}
 	7394.1.1 = {
 		death = "7394.1.1"
@@ -2185,10 +2186,11 @@
 12105 = {
 	name = "Nárendur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12103
-	mother = 50033
+	mother = 12104
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
@@ -2221,6 +2223,7 @@
 12107 = {
 	name = "Elentur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2260,6 +2263,7 @@
 12109 = {
 	name = "Olórendil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2271,7 +2275,7 @@
 		birth = "7412.1.1"
 	}
 	7519.1.1 = {
-		add_spouse = 50043
+		add_spouse = 12110
 	}
 	7783.1.1 = {
 		death = "7783.1.1"
@@ -2296,17 +2300,21 @@
 12111 = {
 	name = "Incandur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
 	father = 12109
-	mother = 50043
+	mother = 12110
 	7522.1.1 = {
 		birth = "7522.1.1"
 	}
 	7602.1.1 = {
+		add_spouse = 12112
+	}
+	7621.1.1 = {
 		add_spouse = 12113
 	}
 	7837.1.1 = {
@@ -2339,8 +2347,8 @@
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = fair
-	7580.1.1 = {
-		birth = "7580.1.1"
+	7605.1.1 = {
+		birth = "7605.1.1"
 	}
 	7833.1.1 = {
 		death = "7833.1.1"
@@ -2350,18 +2358,19 @@
 12114 = {
 	name = "Eärendur"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
 	father = 12111
-	mother = 12113
+	mother = 12112
 	7622.1.1 = {
 		birth = "7622.1.1"
 	}
 	7684.1.1 = {
-		add_spouse = 50032
+		add_spouse = 12117
 	}
 	7902.1.1 = {
 		death = "7902.1.1"
@@ -2371,11 +2380,12 @@
 12115 = {
 	name = "Ilumírë"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12111
-	mother = 12113
+	mother = 12112
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
@@ -2391,6 +2401,7 @@
 12116 = {
 	name = "Lindórië"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
@@ -2425,18 +2436,19 @@
 12118 = {
 	name = "Silmardil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
 	father = 12114
-	mother = 50032
+	mother = 12117
 	7695.1.1 = {
 		birth = "7695.1.1"
 	}
 	7780.1.1 = {
-		add_spouse = 50030
+		add_spouse = 12119
 	}
 	7942.1.1 = {
 		death = "7942.1.1"
@@ -2461,6 +2473,7 @@
 12120 = {
 	name = "Númendil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2468,7 +2481,7 @@
 	add_trait = elf_friend
 	add_trait = prince_numenor
 	father = 12118
-	mother = 50030
+	mother = 12119
 	7782.1.1 = {
 		birth = "7782.1.1"
 	}
@@ -2498,6 +2511,7 @@
 12122 = {
 	name = "Amandil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = prince_numenor
@@ -2546,6 +2560,7 @@
 12124 = {
 	name = "Elentir"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2585,6 +2600,7 @@
 12126 = {
 	name = "Electelë"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2599,11 +2615,8 @@
 		add_spouse = 12127
 	}
 	8343.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} #Slain in the Last Alliance
+		death = "8343.1.1"
+	}
 }
 
 12127 = {
@@ -2625,6 +2638,7 @@
 	name = "Elerya"
 	female = yes
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2647,6 +2661,7 @@
 12129 = {
 	name = "Ecthelion"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	add_trait = numenorean
@@ -2671,6 +2686,7 @@
 	name = "Erestel"
 	female = yes
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	culture = "culture_arnorian"
 	religion = "religion_dunedain"
 	add_trait = blood_of_numenor
@@ -2687,7 +2703,6 @@
 
 12134 = {
 	name = "Amanya" #Line of Eldalondë
-	dynasty = 12001
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
@@ -2695,8 +2710,6 @@
 	add_trait = numenorean
 	add_trait = blood_of_numenor
 	add_trait = elf_friend
-	father = 12044
-	mother = 50000
 	8023.1.1 = {
 		birth = "8023.1.1"
 	}
@@ -2723,6 +2736,7 @@
 12135 = {
 	name = "Elendil"
 	dynasty = 12003
+	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	disallow_random_traits = yes
@@ -2776,11 +2790,8 @@
 		}		
 	}
 	8343.1.1 = {
-		death = {
-			death_reason = death_duel
-			killer = 10016
-		}
-	} #Slain sauron
+		death = "8343.1.1"
+	}
 }
 
 12136 = {
@@ -2789,6 +2800,7 @@
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor
 	add_trait = numenorean
 	add_trait = blood_of_numenor
@@ -2822,7 +2834,7 @@
 		# add_trait=palantir_osgiliath
 		add_trait=blood_of_isildur		
 		effect = {
-			give_minor_title  = title_co_ruler
+			# give_minor_title  = title_co_ruler
 			add_friend = 3139 #Gil-Galad		
 			add_friend = 3065 #Cirdan
 			add_friend = 3005 #Celeborn
@@ -2842,14 +2854,10 @@
 	}
 	8343.1.1 = {
 		dynasty = 2001
-		add_trait = ringbearer2
 	}
 	8345.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 11006
-		}
-	} #Slain orcs gundabad
+		death = "8345.1.1"
+	}
 }
 
 12137 = {
@@ -2859,6 +2867,7 @@
 	culture = "culture_numenorean"
 
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor
 	add_trait = numenorean
 	add_trait = blood_of_numenor
@@ -2889,7 +2898,7 @@
 		# add_trait = palantir
 		add_trait = blood_of_anarion
 		effect = {
-			give_minor_title  = title_co_ruler
+			# give_minor_title  = title_co_ruler
 			add_friend= 3139 #Gil-Galad
 			add_friend= 3065 #Cirdan
 			add_friend= 3005 #Celeborn
@@ -2904,13 +2913,9 @@
 		}
 	}
 	8342.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016
-		}
-	} #Slain the sauron
+		death = "8342.1.1"
+	}
 }
-
 
 12138 = {
 	name = "Elendur"
@@ -2919,6 +2924,7 @@
 	culture = "culture_numenorean"
 
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor	
 	add_trait = numenorean
 	add_trait = blood_of_numenor	
@@ -2959,11 +2965,8 @@
 		dynasty = 2001
 	}
 	8345.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 11006
-		}
-	} #Slain orcs gundabad
+		death = "8345.1.1"
+	}
 }
 
 12139 = {
@@ -2972,6 +2975,7 @@
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor	
 	add_trait = numenorean
 	add_trait = blood_of_numenor
@@ -3009,11 +3013,8 @@
 		dynasty = 2001
 	}
 	8345.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 11006
-		}
-	} #Slain orcs gundabad
+		death = "8345.1.1"
+	}
 }
 
 12140 = {
@@ -3023,6 +3024,7 @@
 	culture = "culture_numenorean"
 
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor	
 	add_trait = numenorean
 	add_trait = brave
@@ -3058,11 +3060,8 @@
 		dynasty = 2001
 	}
 	8345.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 11006
-		}
-	} #Slain orcs gundabad
+		death = "8345.1.1"
+	}
 }
 
 12141 = {
@@ -3161,6 +3160,7 @@
 	culture = "culture_numenorean"
 
 	disallow_random_traits = yes
+	add_trait = blood_of_valandil 
 	add_trait = prince_numenor	
 	add_trait = numenorean
 	add_trait = blood_of_numenor	
@@ -4255,12 +4255,9 @@
 		birth = "8041.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 ## Line of Lamedon ##
 
@@ -4690,7 +4687,6 @@
 
 12194 = {
 	name = "Níniel"
-	dynasty = 12001
 	female = yes
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
@@ -5773,12 +5769,9 @@
 		birth = "8024.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 12254 = {
 	name = "Bêlnithil"
 	dynasty = 12005
@@ -5792,12 +5785,9 @@
 		birth = "8100.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 12255 = {
 	name = "Sakalbâr"
 	dynasty = 12005
@@ -5810,11 +5800,8 @@
 		birth = "8095.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
+		death = "8221.1.1"
+	}
 }
 
 # Lords of Eldalondë
@@ -6173,12 +6160,9 @@
 		birth = "8010.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 12277 = {
 	name = "Inziladûn"
@@ -6192,12 +6176,9 @@
 		birth = "8077.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 ## Line of Ohtar ##
 12278 = {
@@ -6354,11 +6335,8 @@
 		birth = "6284.1.1"
 	}
 	6649.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016
-		}
-	} #Slain Sauron
+		death = "6649.1.1"
+	}
 }
 
 12325 = {
@@ -6633,12 +6611,9 @@
 		birth = "8023.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 12341 = {
 	name = "Sapazîr"
@@ -6652,12 +6627,9 @@
 		birth = "8097.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 
 
@@ -6860,11 +6832,8 @@
 	culture = "culture_gondorian" 
 	}	
 	8337.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died at Dagorlad
+		death = "8337.1.1"
+	}
 }
 
 ## Lords of Orrostar ##
@@ -7221,12 +7190,9 @@
 		birth = "8025.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 12405 = {
 	name = "Nimruzîr"
@@ -7240,12 +7206,9 @@
 		birth = "8116.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 
 
 
@@ -7335,11 +7298,8 @@
 		religion = "religion_dunedain"
 	}		
 	8338.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died in siege of mordor
+		death = "8338.1.1"
+	}
 }
 
 12411 = {
@@ -7444,11 +7404,8 @@
 		birth = "8097.1.1"
 	}
 	8338.1.1 = {
-		death = {
-			death_reason = death_battle
-			killer = 10016 # Sauron
-		}
-	} # Died in siege of mordor
+		death = "8338.1.1"
+	}
 }
 
 12417 = {
@@ -7845,12 +7802,9 @@
 		birth = "8005.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 12433 = {
 	name = "Azrubêl"
 	dynasty = 13002
@@ -8348,10 +8302,10 @@
 	add_trait = blood_of_numenor
 	father = 12293
 	7921.1.1 = {
-		birth = "7917.1.1"
+		birth = "7921.1.1"
 	}
 	8140.1.1 = {
-		death = "8135.1.1"
+		death = "8140.1.1"
 	}
 }
 12296 = {
@@ -8365,12 +8319,9 @@
 		birth = "8001.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
-}	
+		death = "8221.1.1"
+	}
+}
 12297 = {
 	name = "Avalôizîr"
 	dynasty = 13001
@@ -8399,11 +8350,8 @@
 		birth = "8147.1.1"
 	}
 	8221.1.1 = {
-		death = {
-			death_reason = death_execution
-			killer = 10001
-		} #Slain by Iluvatar At request of Manwe
-	} 
+		death = "8221.1.1"
+	}
 }
 12299 = {
 	name = "Azarkarbû"
