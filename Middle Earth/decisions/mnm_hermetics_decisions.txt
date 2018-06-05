@@ -1,6 +1,6 @@
 ###########################################
 #
-# Hermetics decisions for Monks and Mystics
+# heren_isseon decisions for Monks and Mystics
 #
 ###########################################
 
@@ -117,7 +117,7 @@ targeted_decisions = {
 		}
 	}
 
-	hermetics_perform_scrying = {
+	heren_isseon_perform_scrying = {
 		is_in_society = yes
 		
 		filter = self
@@ -133,7 +133,7 @@ targeted_decisions = {
 		allow = {
 			has_society_currency_minor_trigger = yes
 			custom_tooltip = {
-				text = hermetics_scrying_cooldown_tooltip
+				text = heren_isseon_scrying_cooldown_tooltip
 				has_an_omen_modifier_trigger = no
 				#NOT = { has_character_modifier = scrying_cooldown }
 			}
@@ -179,7 +179,7 @@ targeted_decisions = {
 		}
 	}
 
-	hermetics_make_horoscope = {
+	heren_isseon_make_horoscope = {
 		is_in_society = yes
 		
 		ai_target_filter = court
@@ -197,7 +197,7 @@ targeted_decisions = {
 		allow = {
     		is_adult = no
 			custom_tooltip = {
-				text = hermetics_horoscope_cooldown_tooltip
+				text = heren_isseon_horoscope_cooldown_tooltip
 				NOT = { has_character_modifier = horoscope_cooldown }
 			}
 			FROM = { has_society_currency_medium_trigger = yes }
@@ -311,7 +311,7 @@ targeted_decisions = {
 	}
 
 	#Power: write Magnum Opus
-	hermetics_write_magnum_opus = {
+	heren_isseon_write_magnum_opus = {
 		is_in_society = yes
 		
 		filter = self
@@ -327,12 +327,12 @@ targeted_decisions = {
 		allow = {
 			FROM = {
 				custom_tooltip = {
-					text = hermetics_wrote_magnum_opus_cd_tooltip
+					text = heren_isseon_wrote_magnum_opus_cd_tooltip
 					NOT = { has_character_flag = wrote_magnum_opus }
 				}
 				has_society_currency_major_trigger = yes
 				custom_tooltip = {
-					text = hermetics_wrote_magnum_opus_duplicate
+					text = heren_isseon_wrote_magnum_opus_duplicate
 					OR = {
     					NOR = {
     						has_artifact = magnum_opus_theurgy_ritual_1
@@ -480,7 +480,7 @@ targeted_decisions = {
 }
 
 society_decisions = {
-	hermetics_acquire_ingredients_decision = {
+	heren_isseon_acquire_ingredients_decision = {
 		potential = {
 			society_member_of = heren_isseon
 		}
@@ -505,7 +505,7 @@ society_decisions = {
 				hidden_trigger = {
 					any_courtier_or_vassal = {
 						liege = { character = ROOT }
-						has_minor_title = title_hermetics_apprentice
+						has_minor_title = title_heren_isseon_apprentice
 					}
 				}
 			}
@@ -551,7 +551,7 @@ society_decisions = {
 	}
 
 	#Write a Theory Paper
-	hermetics_write_theory_paper = {
+	heren_isseon_write_theory_paper = {
 		potential = {
 			society_member_of = heren_isseon
 		}

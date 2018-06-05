@@ -174,11 +174,11 @@ character_event = {
     		}
     		40 = { #Apprentice
     			trigger = {
-    				any_courtier_or_vassal = { has_minor_title =  title_hermetics_apprentice prisoner = no }
+    				any_courtier_or_vassal = { has_minor_title =  title_heren_isseon_apprentice prisoner = no }
 					society_member_of = hermetics
     			}
     			random_courtier_or_vassal = {
-    				limit = { has_minor_title =  title_hermetics_apprentice }
+    				limit = { has_minor_title =  title_heren_isseon_apprentice }
     				save_event_target_as = hermetic_collaborator
     			}
     		}
@@ -190,7 +190,7 @@ character_event = {
 
     		20 = { #Find an apprentice
     			trigger = {
-    				NOT = { any_courtier_or_vassal = { has_minor_title =  title_hermetics_apprentice } }
+    				NOT = { any_courtier_or_vassal = { has_minor_title =  title_heren_isseon_apprentice } }
     				ai = no
     			}
     			event_target:hermetic_collaborator = { character_event = { id = MNM.1404 days = 7 random = 7 } }
@@ -493,7 +493,7 @@ character_event = {
 				AND = { #Both master and apprentice have acceptable learning
 					learning = 12
 					any_courtier_or_vassal = {
-						has_minor_title = title_hermetics_apprentice
+						has_minor_title = title_heren_isseon_apprentice
 						learning = 12
 					}
 				}
@@ -540,7 +540,7 @@ character_event = {
 				AND = { #Both have good learning
 					learning = 15
 					any_courtier_or_vassal = {
-						has_minor_title = title_hermetics_apprentice
+						has_minor_title = title_heren_isseon_apprentice
 						learning = 15
 					}
 				}
@@ -1395,7 +1395,7 @@ society_quest_event = {
 		text = EVTDESC_MNM_1121
 		trigger = { 
 			event_target:hermetic_collaborator = {
-				NOT = { has_minor_title = title_hermetics_apprentice }
+				NOT = { has_minor_title = title_heren_isseon_apprentice }
 			}
 		}
 	}
@@ -1403,7 +1403,7 @@ society_quest_event = {
 		text = EVTDESC_MNM_1121_apprentice
 		trigger = { 
 			event_target:hermetic_collaborator = {
-				has_minor_title = title_hermetics_apprentice
+				has_minor_title = title_heren_isseon_apprentice
 			}
 		}
 	}
@@ -1648,7 +1648,7 @@ character_event = {
     option = { 
         name = EVTOPTA_MNM_1408
 
- 		FROM = { give_minor_title = title_hermetics_apprentice }
+ 		FROM = { give_minor_title = title_heren_isseon_apprentice }
 
  		clr_quest = quest_heren_isseon_find_apprentice
 		sound_effect = hermetic_society_perform_experiment_01
@@ -11781,7 +11781,7 @@ character_event = {
 		# Find apprentice
 		random_courtier_or_vassal = {
 			limit = {
-				has_minor_title = title_hermetics_apprentice
+				has_minor_title = title_heren_isseon_apprentice
 			}
 			save_event_target_as = gathering_companion
 			ROOT = { set_character_flag = apprentice_hermetic_gathering }
@@ -12800,7 +12800,7 @@ character_event = {
     		is_alive = yes
     		society_member_of = heren_isseon
     	}
-    	has_minor_title = title_hermetics_apprentice
+    	has_minor_title = title_heren_isseon_apprentice
 
     }
     immediate = { FROMFROM = { character_event = { id = MNM.1414 } } }
@@ -12822,7 +12822,7 @@ character_event = {
 
         FROM = { 
         	set_character_flag = completed_apprenticeship 
-        	remove_title = title_hermetics_apprentice
+        	remove_title = title_heren_isseon_apprentice
         	change_learning = 2
         }
     }
@@ -12839,7 +12839,7 @@ character_event = {
 
     trigger = {
     	society_member_of = heren_isseon
-    	has_minor_title = title_hermetics_apprentice
+    	has_minor_title = title_heren_isseon_apprentice
 		NOR = {
 			death_no_trace_trigger = yes
 			death_in_china_trigger = yes
@@ -15094,9 +15094,9 @@ character_event = {
 	immediate = {
 		any_courtier_or_vassal = {
 			limit = {
-				has_minor_title = title_hermetics_apprentice
+				has_minor_title = title_heren_isseon_apprentice
 			}
-			remove_title = title_hermetics_apprentice
+			remove_title = title_heren_isseon_apprentice
 		}
 	}
 }
