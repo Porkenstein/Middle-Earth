@@ -10,7 +10,7 @@
 #	retire_effect: fires when a title is lost due to the character stepping down
 #	death_effect: fires when a title is lost due to the character dying
 #	The other fields are all character modifiers.
-
+ 
 job_chancellor = {
 	is_chancellor = yes
 	is_voter = yes
@@ -65,10 +65,13 @@ job_chancellor = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
-	}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
 		if = {
 			limit = { has_character_flag = relic_hunter }
 			character_event = { id = MNM.9034 }
@@ -81,6 +84,7 @@ job_chancellor = {
 		}
 	}
 	
+	action = action_statecraft
 	action = action_improve_relations
 	action = action_fabricate_claims
 	action = action_clan_sentiment # Replaces Fabricate Claims for Nomads
@@ -160,10 +164,13 @@ job_marshal = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
-	}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
 		if = {
 			limit = { has_character_flag = relic_hunter }
 			character_event = { id = MNM.9034 }
@@ -176,12 +183,13 @@ job_marshal = {
 		}
 	}
 	
+	action = action_organize_army
 	action = action_assist_arrest
 	action = action_train_troops
 	action = action_train_troops_nomadic
 	action = action_advance_mil_tech
 	action = action_organize_raid # Replaces action_advance_mil_tech for Tribes
-
+	
 	lift_fow = yes
 }
 
@@ -248,10 +256,13 @@ job_treasurer = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
-	}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
 		if = {
 			limit = { has_character_flag = relic_hunter }
 			character_event = { id = MNM.9034 }
@@ -264,6 +275,7 @@ job_treasurer = {
 		}
 	}
 	
+	action = action_administer_realm
 	action = action_squeeze_peasants
 	action = action_collect_tribute # Replaces action_squeeze_peasants for Nomads
 	action = action_settle_tribe # Replaces action_squeeze_peasants for Tribes
@@ -337,10 +349,13 @@ job_spymaster = {
 						has_character_flag = swapping_councillors
 					}
 				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
 			}
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
-	}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
 		if = {
 			limit = { has_character_flag = relic_hunter }
 			character_event = { id = MNM.9034 }
@@ -387,14 +402,6 @@ job_spiritual = {
 		}
 		mep_never_councillor_trigger = yes
 	}
-	gain_effect = {
-	}
-	lose_effect = {
-		opinion = { who = FROM modifier = opinion_fired_from_council }
-		opinion = { who = FROM modifier = opinion_recently_fired }
-	}
-	retire_effect = {
-	}
 	dismiss_trigger = {
 		FROM = {
 			# OR = {
@@ -422,12 +429,41 @@ job_spiritual = {
 			}
 		}
 	}
+	gain_effect = {
+	}
+	lose_effect = {
+		if = {
+			limit = {
+				FROM = {
+					NOT = {
+						has_character_flag = swapping_councillors
+					}
+				}
+
+				NOT = { trait = incapable }
+				NOT = { trait = sick_incapable }
+			}
+			opinion = { who = FROM modifier = opinion_fired_from_council }
+			opinion = { who = FROM modifier = opinion_recently_fired }
+		}
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
+	}
+	retire_effect = {
+		if = {
+			limit = { has_character_flag = relic_hunter }
+			character_event = { id = MNM.9034 }
+		}
+	}
 	
 	action = action_heal_troops
 	action = action_search_artefacts
 	action = action_claim_artefacts
 	# action = action_charity
+	action = action_advance_cul_tech
 	action = action_build_zeal # Tribal replacement for 'action_advance_cul_tech'
-
+	
 	lift_fow = yes
 }

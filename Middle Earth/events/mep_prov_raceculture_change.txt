@@ -35,7 +35,7 @@ province_event = {
 		# settlement spreads from nearby provinces...
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			# NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			ROOT = {
 				owner = {
@@ -102,20 +102,20 @@ province_event = {
 			}
 		}
 		# poplevel encouragement
-		modifier = {
-			factor = 0.5
-			any_neighbor_province = {
-				mep_high_pop_trigger = yes
-				ROOT = {
-					owner = { culture = PREVPREV }
-				}
-				owner = {
-					ROOT = {
-						owner = { culture = PREVPREV }
-					}
-				}
-			}
-		}
+		# modifier = {
+			# factor = 0.5
+			# any_neighbor_province = {
+				# mep_high_pop_trigger = yes
+				# ROOT = {
+					# owner = { culture = PREVPREV }
+				# }
+				# owner = {
+					# ROOT = {
+						# owner = { culture = PREVPREV }
+					# }
+				# }
+			# }
+		# }
 		# Modifiers that are just like the ones for provice culture change...
 		modifier = {
 			factor = 1.5
@@ -176,9 +176,9 @@ province_event = {
 	trigger = {
 		# The right province...
 		NOT = { mep_wilderness_province_trigger = yes }
-		NOT = { has_province_modifier = population_increasing }
+		# NOT = { has_province_modifier = population_increasing }
 		NOT = { has_province_modifier = sending_colonists }
-		mep_low_pop_trigger = yes  # only level 1 or 2 pop...
+		# mep_low_pop_trigger = yes  # only level 1 or 2 pop...
 		# owner stuff...
 		owner = {
 			top_liege = {
@@ -192,7 +192,7 @@ province_event = {
 		# settlement spreads from nearby provinces...
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			# NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			ROOT = {
 				owner = {
@@ -260,20 +260,20 @@ province_event = {
 			}
 		}
 		# poplevel encouragement
-		modifier = {
-			factor = 0.5
-			any_neighbor_province = {
-				mep_high_pop_trigger = yes
-				ROOT = {
-					owner = { culture = PREVPREV }
-				}
-				owner = {
-					ROOT = {
-						owner = { culture = PREVPREV }
-					}
-				}
-			}
-		}
+		# modifier = {
+			# factor = 0.5
+			# any_neighbor_province = {
+				# mep_high_pop_trigger = yes
+				# ROOT = {
+					# owner = { culture = PREVPREV }
+				# }
+				# owner = {
+					# ROOT = {
+						# owner = { culture = PREVPREV }
+					# }
+				# }
+			# }
+		# }
 		# Modifiers that are just like the ones for provice culture change...
 		modifier = {
 			factor = 1.5
@@ -321,7 +321,7 @@ province_event = {
 				religion = PREV
 			}
 		}
-		mep_popmod_remove_effect = yes
+		# mep_popmod_remove_effect = yes
 	}
 }
 
@@ -357,7 +357,7 @@ province_event = {
 		# culture influenced by neighboring province...
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			# NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			OR = {
 				culture = culture_arnorian_middlemen
@@ -380,7 +380,7 @@ province_event = {
 		modifier = {
 			factor = 0.5
 			any_neighbor_province = {
-				mep_high_pop_trigger = yes
+				# mep_high_pop_trigger = yes
 				NOT = { mep_being_purged_trigger = yes }
 				OR = {
 					culture = culture_arnorian_middlemen
@@ -397,10 +397,10 @@ province_event = {
 			}
 		}
 		# poplevel discouragement
-		modifier = {
-			factor = 2
-			mep_high_pop_trigger = yes
-		}
+		# modifier = {
+			# factor = 2
+			# mep_high_pop_trigger = yes
+		# }
 		# The vanilla modifiers follow
 		modifier = {
 			factor = 1.5
@@ -481,7 +481,7 @@ province_event = {
 		# culture influenced by neighboring province...
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			# NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			OR = {
 				culture = culture_gondorian_middlemen
@@ -502,7 +502,7 @@ province_event = {
 		modifier = {
 			factor = 0.5
 			any_neighbor_province = {
-				mep_high_pop_trigger = yes
+				# mep_high_pop_trigger = yes
 				NOT = { mep_being_purged_trigger = yes }
 				OR = {
 					culture = culture_gondorian_middlemen
@@ -517,10 +517,10 @@ province_event = {
 			}
 		}
 		# poplevel discouragement
-		modifier = {
-			factor = 2
-			mep_high_pop_trigger = yes
-		}
+		# modifier = {
+			# factor = 2
+			# mep_high_pop_trigger = yes
+		# }
 		# The vanilla modifiers follow
 		modifier = {
 			factor = 1.5
@@ -603,7 +603,7 @@ province_event = {
 		# culture influenced by neighboring province...
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			# NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			OR = {
 				culture = culture_umbareans
@@ -626,7 +626,7 @@ province_event = {
 		modifier = {
 			factor = 0.5
 			any_neighbor_province = {
-				mep_high_pop_trigger = yes
+				# mep_high_pop_trigger = yes
 				NOT = { mep_being_purged_trigger = yes }
 				OR = {
 					culture = culture_umbareans
@@ -643,10 +643,10 @@ province_event = {
 			}
 		}
 		# poplevel discouragement
-		modifier = {
-			factor = 2
-			mep_high_pop_trigger = yes
-		}
+		# modifier = {
+			# factor = 2
+			# mep_high_pop_trigger = yes
+		# }
 		# The vanilla modifiers follow
 		modifier = {
 			factor = 1.5

@@ -70,7 +70,7 @@ character_event = {
 				NOT = { has_province_modifier = being_purged_ofevil }
 			}
 			hidden_tooltip = {
-				remove_province_modifier = population_increasing
+				# remove_province_modifier = population_increasing
 				mep_stop_colonisation_effect = yes
 				set_variable = { which = mep_provincepurge_special   value = 0 }
 			}
@@ -125,8 +125,8 @@ character_event = {
 				culture = culture_longbeard
 				religion = religion_mahal
 				hidden_tooltip = {
-					mep_human_popmod_remove_effect = yes
-					add_province_modifier = { name = two_population_dwarves duration = -1 }
+					# mep_human_popmod_remove_effect = yes
+					# add_province_modifier = { name = two_population_dwarves duration = -1 }
 					set_variable = { which = mep_provincepurge_special  value = 0 }
 					province_event = { id = dwarfconq.26 days = 1 }
 				}
@@ -136,7 +136,7 @@ character_event = {
 				limit = {
 					NOT = { is_variable_equal = { which = mep_provincepurge_special  value = 1 } }
 				}
-				mep_human_popmod_remove_effect = yes				
+				# mep_human_popmod_remove_effect = yes				
 				if = {
 					limit = { terrain = mountain }
 					culture = culture_mountains
@@ -214,7 +214,7 @@ character_event = {
 				NOT = { has_province_modifier = being_purged_ofgood }
 			}
 			hidden_tooltip = {
-				remove_province_modifier = population_increasing
+				# remove_province_modifier = population_increasing
 				mep_stop_colonisation_effect = yes
 				set_province_flag = mep_purge_delay
 			}
@@ -227,7 +227,7 @@ character_event = {
 						culture_half_orc = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  2 } } }
 						culture_urukhai  = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  3 } } }
 						culture_goblin   = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  4 } } }
-						culture_kul_uruk = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  5 } } }
+						# culture_kul_uruk = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  5 } } }
 						culture_troll    = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  6 } } }
 						culture_spider   = { PREV = { set_variable = { which = mepvar_evilpurge_culture value =  7 } } }
 					}
@@ -286,7 +286,7 @@ character_event = {
 				county = { is_occupied = no }
 			}
 			hidden_tooltip = {
-				mep_popmod_remove_effect = yes
+				# mep_popmod_remove_effect = yes
 			}
 			religion = religion_orkish
 			if = {
@@ -384,7 +384,7 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				remove_province_modifier = population_increasing
+				# remove_province_modifier = population_increasing
 				mep_stop_colonisation_effect = yes
 				set_province_flag = mep_purge_delay
 			}
@@ -433,7 +433,7 @@ character_event = {
 				NOT = { check_variable = { which = mepvar_evilpurge_culture value = 2 } }
 			}
 			hidden_tooltip = {
-				mep_popmod_remove_effect = yes
+				# mep_popmod_remove_effect = yes
 			}
 			religion = religion_orkish
 			culture = culture_orkish
