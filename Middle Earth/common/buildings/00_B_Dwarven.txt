@@ -1,7 +1,7 @@
 castle = {
 	#Dwarven Fortifications
 	ca_dwarvenfortifications_1 = {
-		desc = ca_dwarvenfortifications_1_desc
+		desc = ca_dwarvenfortifications_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
 		not_if_x_exists = { ca_lonely_mountain }
 		potential = {
@@ -24,11 +24,11 @@ castle = {
 		garrison_size = 0.03
 		ai_creation_factor = 90
 		
-		extra_tech_building_start = 1.0
+		extra_tech_building_start = 0.5
 	}
 	ca_dwarvenfortifications_2 = {
-		desc = ca_dwarvenfortifications_1_desc
-		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
 		potential = {
 		    FROM = {
 				NOR = {
@@ -50,14 +50,13 @@ castle = {
 		garrison_size = 0.06
 		ai_creation_factor = 89
 		
-		extra_tech_building_start = 10 # Should not be pre-built automatically
+		extra_tech_building_start = 1
 	}
 	ca_dwarvenfortifications_3 = {
-		desc = ca_dwarvenfortifications_1_desc
-		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
 		potential = {
-		has_global_flag = building
-		    FROM = {
+			FROM = {
 				NOR = {
 				culture_group = culture_group_melkor
 				AND = {
@@ -77,13 +76,12 @@ castle = {
 		garrison_size = 0.09
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		extra_tech_building_start = 1.5
 	}
 	ca_dwarvenfortifications_4 = {
-		desc = ca_dwarvenfortifications_1_desc
-		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
 		potential = {
-		has_global_flag = building
 		    FROM = {
 				NOR = {
 				culture_group = culture_group_melkor
@@ -104,13 +102,12 @@ castle = {
 		garrison_size = 0.12
 		ai_creation_factor = 87
 
-		extra_tech_building_start = 1.2
+		extra_tech_building_start = 2
 	}
 	ca_dwarvenfortifications_5 = {
-		desc = ca_dwarvenfortifications_1_desc
-		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 7 }
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
 		potential = {
-		has_global_flag = building
 		    FROM = {
 				NOR = {
 				culture_group = culture_group_melkor
@@ -131,11 +128,10 @@ castle = {
 		garrison_size = 0.15
 		ai_creation_factor = 86
 
-		extra_tech_building_start = 1.2
+		extra_tech_building_start = 2.5
 	}
 	ca_dwarvenfortifications_6 = {
 		potential = {
-		has_global_flag = building
 		    FROM = {
 				NOR = {
 				culture_group = culture_group_melkor
@@ -149,8 +145,8 @@ castle = {
 			    culture_group = culture_group_dwarves
 			}
 		}
-		desc = ca_dwarvenfortifications_1_desc
-		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
 		upgrades_from = ca_dwarvenfortifications_5
 		gold_cost = 800
 		build_time = 1460 #4y
@@ -158,7 +154,33 @@ castle = {
 		garrison_size = 0.18
 		ai_creation_factor = 86
 	
-		extra_tech_building_start = 10.0
+		extra_tech_building_start = 3
+	}
+	ca_dwarvenfortifications_7 = {
+		potential = {
+		    FROM = {
+				NOR = {
+				culture_group = culture_group_melkor
+				AND = {
+				    culture = culture_maiar
+					trait = evil_side
+				    }
+				}
+			}
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+		desc = ca_dwarvenfortifications_desc
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
+		upgrades_from = ca_dwarvenfortifications_6
+		gold_cost = 1100
+		build_time = 1460 #4y
+		fort_level = 2.5
+		garrison_size = 0.21
+		ai_creation_factor = 86
+	
+		extra_tech_building_start = 3.5
 	}
 
 	#Keeps, gives levy and garrison size
