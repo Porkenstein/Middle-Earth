@@ -2,6 +2,9 @@
 true_religion_religion_umaiar_trigger = {
 	true_religion = religion_umaiar
 }
+true_religion_religion_wight_trigger = {
+	true_religion = religion_wight
+}
 
 true_religion_group_religion_group_melkor_trigger = {
 	true_religion_group = religion_group_melkor
@@ -13,6 +16,10 @@ is_in_prevs_interesting_society_trigger = {
 			society_member_of = secret_religious_society_religion_umaiar
 			PREV = { interested_in_society = secret_religious_society_religion_umaiar }
 		}
+		AND = {
+			society_member_of = secret_religious_society_religion_wight
+			PREV = { interested_in_society = secret_religious_society_religion_wight }
+		}
 	}
 }
 
@@ -22,6 +29,12 @@ has_any_char_old_religion = {
 			has_character_flag = character_was_religion_umaiar
 	    	any_character = {
 	    		religion = religion_umaiar
+	    	}
+	    }
+		AND = {
+			has_character_flag = character_was_religion_wight
+	    	any_character = {
+	    		religion = religion_wight
 	    	}
 	    }
 	}
@@ -38,6 +51,13 @@ looting_artifact_event_religious_artifacts_trigger = {
 				has_artifact_flag = looted_artifact_tooltip_1
 				has_artifact_flag = religion_umaiar
 				ROOT = { religion = religion_umaiar }
+			}
+		}
+		NAND = {
+			any_artifact = {
+				has_artifact_flag = looted_artifact_tooltip_1
+				has_artifact_flag = religion_wight
+				ROOT = { religion = religion_wight }
 			}
 		}
 	}

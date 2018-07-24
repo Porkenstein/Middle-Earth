@@ -10,7 +10,7 @@ secretly_religion_umaiar = {
 	}
 	
 	opposites = {
-		### other religions here
+		secretly_religion_wight
 	}
 
 	is_visible = {
@@ -20,6 +20,37 @@ secretly_religion_umaiar = {
 			AND = {
 				is_close_relative = FROM
 				trait = secretly_religion_umaiar
+			}
+		}
+	}
+
+	same_opinion = 15
+	
+	random = no
+	customizer = no
+	ai_zeal = -50
+}
+
+#Wight
+secretly_religion_wight = {
+
+	potential = {
+		NOT = {
+			religion = religion_wight
+		}
+	}
+	
+	opposites = {
+		secretly_religion_umaiar
+	}
+
+	is_visible = {
+		OR = {
+			character = FROM
+			society_member_of = secret_religious_society_religion_wight
+			AND = {
+				is_close_relative = FROM
+				trait = secretly_religion_wight
 			}
 		}
 	}
