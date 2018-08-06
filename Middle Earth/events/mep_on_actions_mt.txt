@@ -97,3 +97,59 @@ character_event = {	#Informed of Death
 		name = EVTOPTAmep_on_actions_mt.12
 	}
 }
+character_event = {	#Bloodlines Startup
+	id = mep_on_actions_mt.13
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = {
+			has_bloodline_trigger = yes
+		}
+	}
+
+	immediate = {
+		grant_bloodline_effect = yes
+		any_child_even_if_dead = {
+			character_event = { id = mep_on_actions_mt.13 }
+		}
+	}
+}
+character_event = {	#Bloodlines On Birth
+	id = mep_on_actions_mt.131
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			real_father_even_if_dead = {
+				has_bloodline_trigger = yes
+			}
+			mother_even_if_dead = {
+				has_bloodline_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		grant_bloodline_effect = yes
+	}
+}
+character_event = {	#Bloodlines - Has Secret
+	id = mep_on_actions_mt.132
+	hide_window = yes
+
+	trigger = {
+		has_hidden_bloodline_trigger = yes
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	immediate = {
+		c_10033 = {
+			character_event = { id = mep_bloodlines_events.0 }
+		}
+	}
+}

@@ -1739,7 +1739,6 @@
 12082 = {
 	name = "Elatan"
 	dynasty = 12003
-	add_trait = blood_of_valandil 
 	religion = "religion_numenorean"
 	culture = "culture_numenorean"
 	father = 12081
@@ -1749,6 +1748,12 @@
 	add_trait = prince_numenor	
 	5415.1.1 = {
 		birth = "5415.1.1"
+		add_trait = blood_of_valandil 
+		effect = {
+			any_child_even_if_dead = {
+				character_event = { id = mep_on_actions_mt.13 }
+			}
+		}
 	}
 	5523.1.1 = {
 		add_spouse = 12014
@@ -1772,6 +1777,12 @@
 	add_trait = prince_numenor	
 	5532.1.1 = {
 		birth = "5532.1.1"
+		add_trait = blood_of_valandil
+		effect = {
+			any_child_even_if_dead = {
+				character_event = { id = mep_on_actions_mt.13 }
+			}
+		}
 	}
 	5664.1.1 = {
 		add_spouse = 12084
@@ -2834,6 +2845,9 @@
 		# add_trait=palantir_osgiliath
 		add_trait=blood_of_isildur		
 		effect = {
+			any_child_even_if_dead = {
+				character_event = { id = mep_on_actions_mt.13 }
+			}
 			give_minor_title  = title_co_ruler
 			add_friend = 3139 #Gil-Galad		
 			add_friend = 3065 #Cirdan
@@ -2898,6 +2912,9 @@
 		# add_trait = palantir
 		add_trait = blood_of_anarion
 		effect = {
+			any_child_even_if_dead = {
+				character_event = { id = mep_on_actions_mt.13 }
+			}
 			give_minor_title  = title_co_ruler
 			add_friend= 3139 #Gil-Galad
 			add_friend= 3065 #Cirdan
