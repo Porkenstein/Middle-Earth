@@ -164,60 +164,115 @@ character_event = {	#Manage the Fellowship Army
 	is_triggered_only = yes
 
 	immediate = {
-		IF = {	#Disband the Fellowship Army
-			limit = {
-				d_fellowship_army = {
-					has_holder = yes
-					has_title_flag = rohan_recruits
-					has_title_flag = gondor_recruits
-				}
-			}
-			activate_title = { status = no title = d_fellowship_army }
-			d_fellowship_army = {
-				destroy_landed_title = ROOT
-			}
-		}
 		IF = {	#Gondor Recruits
 			limit = {
-				d_fellowship_army = {
+				d_fellowship_aragorn = {
 					has_holder = yes
 					has_title_flag = rohan_recruits
 					NOT = { has_title_flag = gondor_recruits }
 				}
 			}
-			d_fellowship_army = {
-				change_title_army_size = 8
+			spawn_unit = {
+				owner = ROOT
+				province = 1
+				home = 1
+				troops = {
+					archers = { 1000 1000 }
+					heavy_infantry = { 800 800 }
+					knights = { 100 100 }
+				}
+				earmark = fellowship_army
+				attrition = 0.5
+				reinforcing = no
+				maintenance_multiplier = 0
+				disband_on_peace = yes
 			}
-			d_fellowship_army = {
-				change_mercenary_composition = { from = light_cavalry type = heavy_infantry change = 1000 }
-				change_mercenary_composition = { from = light_cavalry type = light_infantry change = 8000 }
+			d_fellowship_aragorn = {
 				set_title_flag = gondor_recruits
 			}
 		}
 		IF = {	#Rohan Recruits
 			limit = {
-				d_fellowship_army = {
+				d_fellowship_aragorn = {
 					has_holder = yes
 					NOT = { has_title_flag = rohan_recruits }
 				}
 			}
-			d_fellowship_army = {
-				change_title_army_size = 20
+			spawn_unit = {
+				owner = ROOT
+				province = 122
+				home = 122
+				troops = {
+					archers = { 800 800 }
+					light_cavalry = { 600 600 }
+				}
+				earmark = fellowship_army
+				attrition = 0.5
+				reinforcing = no
+				maintenance_multiplier = 0
+				disband_on_peace = yes
 			}
-			d_fellowship_army = {
-				change_mercenary_composition = { from = archers type = light_cavalry change = 2000 }
+			d_fellowship_aragorn = {
 				set_title_flag = rohan_recruits
 			}
 		}
-		IF = {	#Form the Fellowship Army
+	}
+}
+character_event = {	#Manage the Fellowship Army
+	id = mep_fellowship_mt.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {	#Gondor Recruits
 			limit = {
-				d_fellowship_army = {
-					has_holder = no
+				d_fellowship_gandalf = {
+					has_holder = yes
+					has_title_flag = rohan_recruits
+					NOT = { has_title_flag = gondor_recruits }
 				}
 			}
-			activate_title = { status = yes title = d_fellowship_army }
-			d_fellowship_army = {
-				gain_title = ROOT
+			spawn_unit = {
+				owner = ROOT
+				province = 1
+				home = 1
+				troops = {
+					archers = { 800 800 }
+					heavy_infantry = { 200 200 }
+				}
+				earmark = gandalf_army
+				attrition = 0.5
+				reinforcing = no
+				maintenance_multiplier = 0
+				disband_on_peace = yes
+			}
+			d_fellowship_gandalf = {
+				set_title_flag = gondor_recruits
+			}
+		}
+		IF = {	#Rohan Recruits
+			limit = {
+				d_fellowship_gandalf = {
+					has_holder = yes
+					NOT = { has_title_flag = rohan_recruits }
+				}
+			}
+			spawn_unit = {
+				owner = ROOT
+				province = 122
+				home = 122
+				troops = {
+					archers = { 300 300 }
+					light_cavalry = { 200 200 }
+				}
+				earmark = gandalf_army
+				attrition = 0.5
+				reinforcing = no
+				maintenance_multiplier = 0
+				disband_on_peace = yes
+			}
+			d_fellowship_gandalf = {
+				set_title_flag = rohan_recruits
 			}
 		}
 	}

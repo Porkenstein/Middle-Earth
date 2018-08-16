@@ -112,8 +112,8 @@ narrative_event = {	#Gandalf Returns
 				set_defacto_liege = event_target:ringbearer_liege
 			}
 			add_character_modifier = { modifier = mod_landless_income duration = -1 }
+			narrative_event = { id = mep_fellowship_events.112 }
 		}
-		narrative_event = { id = mep_fellowship_events.112 }
 	}
 }
 narrative_event = {	#Sam Joins Frodo
@@ -851,7 +851,6 @@ narrative_event = {	#Breaking of the Fellowship, Death of Boromir
 			}
 			d_fellowship_aragorn = {
 				holder_scope = {
-					#character_event = { id = mep_fellowship_mt.3 }
 					narrative_event = { id = mep_flavor_events.11 }
 					set_defacto_liege = THIS
 				}
@@ -1078,6 +1077,7 @@ narrative_event = {	#The End of the Ring
 		name = EVTOPTAmep_fellowship_events.144
 		remove_trait = onering
 		destroy_artifact = artifact_ring
+		narrative_event = { id = mep_fellowship_events.145 days = 7 random = 7 }
 		e_barad_dur = {
 			holder_scope = {
 				save_event_target_as = sauron
@@ -1148,6 +1148,37 @@ narrative_event = {	#The End of the Ring
 					}
 				}
 			}
+		}
+	}
+}
+narrative_event = {	#Return to Hobbiton
+	id = mep_fellowship_events.145
+	title = EVTTTLmep_fellowship_events.145
+	desc = EVTDESCmep_fellowship_events.145
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.145
+		c_hobbiton = {
+			holder_scope = {
+				grant_title_no_opinion = ROOT
+				k_ringbearer = {
+					activate_title = { status = no title = k_ringbearer }
+					destroy_landed_title = THIS
+				}
+				set_defacto_liege = THIS
+			}
+		}
+		add_claim = k_shire
+		random_claim = {
+			limit = { title = k_shire }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		hidden_effect = {
+			wealth = 120
 		}
 	}
 }
@@ -1298,9 +1329,6 @@ narrative_event = {	#Fellowship Visit Theoden
 		}
 		hidden_effect = {
 			d_fellowship_aragorn = {
-				#holder_scope = {
-					#character_event = { id = mep_fellowship_mt.3 }
-				#}
 				set_preferred_capital = 71
 			}
 			d_fellowship_gandalf = {
@@ -1382,6 +1410,7 @@ narrative_event = {	#Join the War for Rohan
 				}
 			}
 		}
+		character_event = { id = mep_fellowship_mt.3 }
 	}
 
 	option = {
@@ -1397,6 +1426,7 @@ narrative_event = {	#Join the War for Rohan
 				}
 			}
 		}
+		character_event = { id = mep_fellowship_mt.31 }
 		hidden_effect = {
 			c_derndingle = {
 				holder_scope = {
@@ -1976,6 +2006,7 @@ narrative_event = {	#War for Gondor Started
 				}
 			}
 		}
+		character_event = { id = mep_fellowship_mt.31 }
 		hidden_effect = {
 			d_fellowship_aragorn = {
 				holder_scope = {
@@ -1997,6 +2028,7 @@ narrative_event = {	#War for Gondor Started
 				}
 			}
 		}
+		character_event = { id = mep_fellowship_mt.3 }
 		hidden_effect = {
 			k_rohan = {
 				holder_scope = {
