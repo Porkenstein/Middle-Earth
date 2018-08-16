@@ -1082,7 +1082,7 @@ narrative_event = {	#The End of the Ring
 			holder_scope = {
 				save_event_target_as = sauron
 				any_war = {
-					end_war = reverse_demand
+					end_war = invalid
 				}
 				k_mordor = {
 					any_direct_de_jure_vassal_title = {
@@ -1160,15 +1160,13 @@ narrative_event = {	#Return to Hobbiton
 	option = {
 		name = EVTOPTAmep_fellowship_events.145
 		c_hobbiton = {
-			holder_scope = {
-				grant_title_no_opinion = ROOT
-				k_ringbearer = {
-					activate_title = { status = no title = k_ringbearer }
-					destroy_landed_title = THIS
-				}
-				set_defacto_liege = THIS
+			grant_title_no_opinion = ROOT
+			k_ringbearer = {
+				activate_title = { status = no title = k_ringbearer }
+				destroy_landed_title = THIS
 			}
 		}
+		set_defacto_liege = THIS
 		add_claim = k_shire
 		random_claim = {
 			limit = { title = k_shire }
@@ -1178,7 +1176,20 @@ narrative_event = {	#Return to Hobbiton
 			}
 		}
 		hidden_effect = {
-			wealth = 120
+			spawn_unit = {
+				owner = ROOT
+				province = 1
+				home = 1
+				troops = {
+					archers = { 600 600 }
+					heavy_infantry = { 300 300 }
+				}
+				earmark = hobbit_army
+				attrition = 0.5
+				reinforcing = no
+				maintenance_multiplier = 0
+				disband_on_peace = yes
+			}
 		}
 	}
 }
@@ -2176,6 +2187,12 @@ narrative_event = {	#The War for Gondor Ended
 		name = EVTOPTAmep_fellowship_events.74
 		trigger = {
 			has_landed_title = e_steward_gondor
+		}
+		c_1943 = {	#Denethor
+			remove_trait = trait_nooo
+			death = {
+				death_reason = death_suicide
+			}
 		}
 	}
 
