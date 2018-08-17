@@ -1166,29 +1166,38 @@ narrative_event = {	#Return to Hobbiton
 				destroy_landed_title = THIS
 			}
 		}
-		set_defacto_liege = THIS
-		add_claim = k_shire
-		random_claim = {
-			limit = { title = k_shire }
-			reverse_war = {
-				target = ROOT
-				casus_belli = claim
-			}
-		}
-		hidden_effect = {
-			spawn_unit = {
-				owner = ROOT
-				province = 1
-				home = 1
-				troops = {
-					archers = { 600 600 }
-					heavy_infantry = { 300 300 }
+		IF = {
+			limit = {
+				k_shire = {
+					has_title_flag = shire_interference
 				}
-				earmark = hobbit_army
-				attrition = 0.5
-				reinforcing = no
-				maintenance_multiplier = 0
-				disband_on_peace = yes
+			}
+			set_defacto_liege = THIS
+			add_claim = k_shire
+			random_claim = {
+				limit = { title = k_shire }
+				reverse_war = {
+					target = ROOT
+					casus_belli = claim
+				}
+			}
+			hidden_effect = {
+				capital_scope = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							archers = { 200 200 }
+							light_infantry = { 300 300 }
+						}
+						earmark = hobbit_army
+						attrition = 0.5
+						reinforcing = no
+						maintenance_multiplier = 0
+						disband_on_peace = yes
+					}
+				}
 			}
 		}
 	}
@@ -1772,6 +1781,12 @@ narrative_event = {	#Fallback to the Shire
 
 	mean_time_to_happen = {
 		months = 4
+		modifier = {
+			factor = 0.01
+			e_gondor = {
+				has_holder = yes
+			}
+		}
 	}
 
 	option = {
@@ -1782,6 +1797,7 @@ narrative_event = {	#Fallback to the Shire
 				add_trait = saruman_spell
 				move_character = ROOT
 			}
+			set_title_flag = shire_interference
 		}
 		d_saruman = {
 			activate_title = { status = no title = d_saruman }
