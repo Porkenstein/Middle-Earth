@@ -462,7 +462,7 @@ character_event = {	#The War for Erebor Ended
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger ={
+	trigger = {
 		NOT = {
 			has_global_flag = five_armies_war_ended
 		}
@@ -476,6 +476,23 @@ character_event = {	#The War for Erebor Ended
 			holder_scope = {
 				narrative_event = { id = mep_fvarmy_events.123 }
 			}
+		}
+	}
+}
+character_event = {	#End War for Shire 
+	id = mep_fellowship_mt.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_demesne_title = {
+			has_title_flag = shire_interference
+		}
+	}
+
+	immediate = {
+		FROM = {
+			character_event = { id = mep_fellowship_events.146 }
 		}
 	}
 }

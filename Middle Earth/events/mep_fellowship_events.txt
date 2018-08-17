@@ -1202,6 +1202,38 @@ narrative_event = {	#Return to Hobbiton
 		}
 	}
 }
+narrative_event = {	#Cleansing of the Shire
+	id = mep_fellowship_events.146
+	title = EVTTTLmep_fellowship_events.146
+	desc = EVTDESCmep_fellowship_events.146
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			any_demesne_title = {
+				grant_title_no_opinion = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.146
+		k_shire = {
+			clr_title_flag = shire_interference
+		}
+		c_149 = {
+			FROM = {
+				death = {
+					death_reason = death_murder
+					killer = PREV
+				}
+			}
+			death = {
+				death_reason = death_battle
+			}
+		}
+	}
+}
 
 ######################
 #	Aragorn Events
