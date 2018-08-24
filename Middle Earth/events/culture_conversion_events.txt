@@ -56,7 +56,7 @@ province_event = {
 
 		any_neighbor_province = {
 			has_owner = yes
-			NOT = { mep_low_pop_trigger = yes }
+			#NOT = { mep_low_pop_trigger = yes }
 			NOT = { mep_being_purged_trigger = yes }
 			ROOT = {
 				owner = {
@@ -113,25 +113,25 @@ province_event = {
 			culture_group = culture_group_numenorean
 		}
 		# poplevel encouragement
-		modifier = {
-			factor = 0.5
-			any_neighbor_province = {
-				mep_high_pop_trigger = yes
-				ROOT = {
-					owner = { culture = PREVPREV }
-				}
-				owner = {
-					ROOT = {
-						owner = { culture = PREVPREV }
-					}
-				}
-			}
-		}
+		# modifier = {
+			# factor = 0.5
+			# any_neighbor_province = {
+				# mep_high_pop_trigger = yes
+				# ROOT = {
+					# owner = { culture = PREVPREV }
+				# }
+				# owner = {
+					# ROOT = {
+						# owner = { culture = PREVPREV }
+					# }
+				# }
+			# }
+		# }
 		# poplevel discouragement
-		modifier = {
-			factor = 2
-			mep_high_pop_trigger = yes
-		}
+		# modifier = {
+			# factor = 2
+			# mep_high_pop_trigger = yes
+		# }
 		# The vanilla modifiers follow
 		modifier = {
 			factor = 1.5
