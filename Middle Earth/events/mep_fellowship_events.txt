@@ -1870,29 +1870,32 @@ narrative_event = {	#The War for Rohan Ended - Evil Win
 			has_landed_title = e_isengard
 		}
 		c_149 = {
-			save_event_target_as = grima
-			c_28 = {
-				IF = {
-					limit = { is_alive = yes }
-					event_target:grima = {
-						remove_spouse = yes
-					}
-					opinion = { modifier = opinion_forced_consort who = event_target:grima }
+			IF = {
+				limit = { is_alive = yes }
+				save_event_target_as = grima
+				c_28 = {
 					IF = {
-						limit = { is_married = yes }
-						remove_spouse = yes
+						limit = { is_alive = yes }
+						event_target:grima = {
+							remove_spouse = yes
+						}
+						opinion = { modifier = opinion_forced_consort who = event_target:grima }
+						IF = {
+							limit = { is_married = yes }
+							remove_spouse = yes
+						}
+						add_spouse = event_target:grima
 					}
-					add_spouse = event_target:grima
 				}
+				FROM = {
+					any_demesne_title = { grant_title_no_opinion = event_target:grima }
+				}
+				k_rohan = {
+					grant_title_no_opinion = event_target:grima
+					de_jure_liege = e_isengard
+				}
+				set_defacto_liege = ROOT
 			}
-			set_defacto_liege = ROOT
-		}
-		FROM = {
-			any_demesne_title = { grant_title_no_opinion = event_target:grima }
-		}
-		k_rohan = {
-			grant_title_no_opinion = event_target:grima
-			de_jure_liege = e_isengard
 		}
 	}
 
