@@ -7,6 +7,7 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
     					OR = {
     						has_character_flag = character_was_religion_umaiar
 							has_character_flag = character_was_religion_wight
+							has_character_flag = character_was_religion_olog
     					}
     				}
     				religion = religion_umaiar
@@ -26,6 +27,7 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
     					OR = {
     						has_character_flag = character_was_religion_umaiar
 							has_character_flag = character_was_religion_wight
+							has_character_flag = character_was_religion_olog
     					}
     				}
     				religion = religion_wight
@@ -35,6 +37,26 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
     	}
     	set_secret_religion = religion_wight
     	clr_character_flag = character_was_religion_wight
+		break = yes
+    }
+	if = {
+    	limit = {
+    		OR = {
+    			AND = {
+    				NOT = {
+    					OR = {
+    						has_character_flag = character_was_religion_umaiar
+							has_character_flag = character_was_religion_wight
+							has_character_flag = character_was_religion_olog
+    					}
+    				}
+    				religion = religion_olog
+    			}
+    			has_character_flag = character_was_religion_olog
+			}
+    	}
+    	set_secret_religion = religion_olog
+    	clr_character_flag = character_was_religion_olog
 		break = yes
     }
 }
@@ -48,11 +70,16 @@ add_religion_char_flag_effect = {
     	limit = { religion = religion_wight }
     	set_character_flag = character_was_religion_wight
     }
+	if = {
+    	limit = { religion = religion_olog }
+    	set_character_flag = character_was_religion_olog
+    }
 }
 
 clr_religion_char_flag_effect = {
     clr_character_flag = character_was_religion_umaiar
 	clr_character_flag = character_was_religion_wight
+	clr_character_flag = character_was_religion_olog
 }
 
 event_target_old_religion_from_flag_effect = {
@@ -65,6 +92,12 @@ event_target_old_religion_from_flag_effect = {
 	if = {
     	limit = { has_character_flag = character_was_religion_wight }
     	religion_wight = {
+    		save_event_target_as = old_religion
+    	}
+    }
+	if = {
+    	limit = { has_character_flag = character_was_religion_olog }
+    	religion_olog = {
     		save_event_target_as = old_religion
     	}
     }
@@ -92,6 +125,17 @@ flip_secret_religious_community_provinces = {
 					}
 					religion = religion_wight
 					remove_province_modifier = secret_religion_wight_community
+				}
+			}
+		}
+		secret_religious_society_religion_olog = {
+			ROOT = {
+				any_demesne_province = {
+					limit = {
+						has_province_modifier = secret_religion_olog_community
+					}
+					religion = religion_olog
+					remove_province_modifier = secret_religion_olog_community
 				}
 			}
 		}

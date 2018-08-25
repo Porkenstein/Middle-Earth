@@ -4424,7 +4424,10 @@ blessing_of_mammon = {
 	icon = 77
 	stewardship = 3
 	is_visible = {
-		society_member_of = secret_religious_society_yazidi
+		OR = {
+			is_visible_to_self_trigger = yes
+			same_society_as = FROM
+		}
 	}
 }
 

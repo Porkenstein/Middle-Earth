@@ -11,6 +11,7 @@ secretly_religion_umaiar = {
 	
 	opposites = {
 		secretly_religion_wight
+		secretly_religion_olog
 	}
 
 	is_visible = {
@@ -42,6 +43,7 @@ secretly_religion_wight = {
 	
 	opposites = {
 		secretly_religion_umaiar
+		secretly_religion_olog
 	}
 
 	is_visible = {
@@ -51,6 +53,38 @@ secretly_religion_wight = {
 			AND = {
 				is_close_relative = FROM
 				trait = secretly_religion_wight
+			}
+		}
+	}
+
+	same_opinion = 15
+	
+	random = no
+	customizer = no
+	ai_zeal = -50
+}
+
+#Olog
+secretly_religion_olog = {
+
+	potential = {
+		NOT = {
+			religion = religion_olog
+		}
+	}
+	
+	opposites = {
+		secretly_religion_umaiar
+		secretly_religion_wight
+	}
+
+	is_visible = {
+		OR = {
+			character = FROM
+			society_member_of = secret_religious_society_religion_olog
+			AND = {
+				is_close_relative = FROM
+				trait = secretly_religion_olog
 			}
 		}
 	}
