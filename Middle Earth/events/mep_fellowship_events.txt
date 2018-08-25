@@ -1872,6 +1872,20 @@ narrative_event = {	#The War for Rohan Ended - Evil Win
 				any_demesne_title = { grant_title_no_opinion = event_target:grima }
 			}
 			k_rohan = { grant_title_no_opinion = event_target:grima }
+			c_28 = {
+				IF = {
+					limit = { is_alive = yes }
+					event_target:grima = {
+						remove_spouse = yes
+					}
+					add_opinion = { modifier = opinion_forced_consort who = event_target:grima }
+					IF = {
+						limit = { is_married = yes }
+						remove_spouse = yes
+					}
+					add_spouse = event_target:grima
+				}
+			}
 		}
 	}
 
