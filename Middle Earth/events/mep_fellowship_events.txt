@@ -1923,6 +1923,19 @@ narrative_event = {	#The War for Rohan Ended - Evil Win
 					}
 				}
 			}
+			c_fangorn = {
+				holder_scope = {
+					any_demesne_title = { grant_title_no_opinion = event_target:fangorn_heir }
+					death = {
+						death_reason = death_execution
+						killer = ROOT
+					}
+				}
+			}
+			k_fangorn = {
+				de_jure_liege = e_isengard
+				set_defacto_liege = ROOT
+			}
 		}
 		IF = {
 			limit = {
@@ -1948,6 +1961,19 @@ narrative_event = {	#The War for Rohan Ended - Evil Win
 							killer = ROOT
 						}
 					}
+				}
+				c_fangorn = {
+					holder_scope = {
+						any_demesne_title = { grant_title_no_opinion = event_target:fangorn_heir }
+						death = {
+							death_reason = death_execution
+							killer = ROOT
+						}
+					}
+				}
+				k_fangorn = {
+					de_jure_liege = e_isengard
+					set_defacto_liege = ROOT
 				}
 			}
 		}
