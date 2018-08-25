@@ -1837,6 +1837,64 @@ narrative_event = {	#Fallback to the Shire
 		}
 	}
 }
+narrative_event = {	#The War for Rohan Ended - Evil Win
+	id = mep_fellowship_events.43
+	title = EVTTTLmep_fellowship_events.43
+	desc = {
+		text = EVTDESCmep_fellowship_events.43saruman
+		trigger = {
+			has_landed_title = e_isengard
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.43aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.43gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.43
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		c_149 = {
+			save_event_target_as = grima
+			FROM = {
+				any_demesne_title = { grant_title_no_opinion = event_target:grima }
+			}
+			k_rohan = { grant_title_no_opinion = event_target:grima }
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.43
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		d_fellowship_aragorn = {
+			set_preferred_capital = 422
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.43
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		d_fellowship_gandalf = {
+			set_preferred_capital = 422
+		}
+	}
+}
 
 ######################
 #	Elrond Events

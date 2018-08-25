@@ -325,15 +325,16 @@ character_event = {	#The Deeping Wall Breached
 		}
 	}
 }
-character_event = {	#The War for Rohan Ended
+character_event = {	#The War for Rohan Ended - Allied Win
 	id = mep_fellowship_mt.41
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger ={
 		start_date = 11361.1.1
-		NOT = {
+		NOR = {
 			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
 		}
 		FROM = { has_landed_title = e_isengard }
 		has_landed_title = k_rohan
@@ -366,6 +367,28 @@ character_event = {	#The War for Rohan Ended
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.83 }
 			}
+		}
+	}
+}
+character_event = {	#The War for Rohan Ended - Darkness Win
+	id = mep_fellowship_mt.42
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		start_date = 11361.1.1
+		NOR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
+		FROM = { has_landed_title = e_isengard }
+		has_landed_title = k_rohan
+	}
+
+	immediate = {
+		set_global_flag = rohan_conquered
+		FROM = {
+			character_event = { id = mep_fellowship_events.43 }
 		}
 	}
 }
