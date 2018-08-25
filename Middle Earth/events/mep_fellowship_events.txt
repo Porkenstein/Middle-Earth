@@ -1155,6 +1155,7 @@ narrative_event = {	#Return to Hobbiton
 	id = mep_fellowship_events.145
 	title = EVTTTLmep_fellowship_events.145
 	desc = EVTDESCmep_fellowship_events.145
+	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
 	option = {
@@ -1183,19 +1184,20 @@ narrative_event = {	#Return to Hobbiton
 			}
 			hidden_effect = {
 				capital_scope = {
-					spawn_unit = {
-						owner = ROOT
-						province = PREV
-						home = PREV
-						troops = {
-							archers = { 200 200 }
-							light_infantry = { 1300 1300 }
+					holder_scope = {
+						spawn_unit = {
+							owner = ROOT
+							province = PREV
+							home = PREV
+							troops = {
+								archers = { 200 200 }
+								light_infantry = { 1300 1300 }
+							}
+							earmark = hobbit_army
+							attrition = 0.5
+							maintenance_multiplier = 0
+							disband_on_peace = yes
 						}
-						earmark = hobbit_army
-						attrition = 0.5
-						reinforcing = no
-						maintenance_multiplier = 0
-						disband_on_peace = yes
 					}
 				}
 			}
@@ -1206,6 +1208,7 @@ narrative_event = {	#Cleansing of the Shire
 	id = mep_fellowship_events.146
 	title = EVTTTLmep_fellowship_events.146
 	desc = EVTDESCmep_fellowship_events.146
+	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
 	immediate = {
@@ -1881,7 +1884,7 @@ narrative_event = {	#The War for Rohan Ended - Evil Win
 					event_target:grima = {
 						remove_spouse = yes
 					}
-					add_opinion = { modifier = opinion_forced_consort who = event_target:grima }
+					opinion = { modifier = opinion_forced_consort who = event_target:grima }
 					IF = {
 						limit = { is_married = yes }
 						remove_spouse = yes

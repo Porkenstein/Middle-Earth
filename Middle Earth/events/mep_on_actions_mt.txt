@@ -153,3 +153,18 @@ character_event = {	#Bloodlines - Has Secret
 		}
 	}
 }
+character_event = {	#Has Ring - Choose to Destroy
+	id = mep_on_actions_mt.14
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		FROM = {
+			artifact = artifact_ring
+		}
+	}
+
+	immediate = {
+		character_event = { id = mep_onering_events.0 }
+	}
+}
