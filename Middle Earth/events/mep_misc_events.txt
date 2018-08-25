@@ -426,6 +426,29 @@ province_event = {	#Return Land to Wilderness
 		}
 	}
 }
+province_event = {	#Urukhai Province
+	id = mep_misc_events.51
+	title = EVTTTLmep_misc_events.51
+	desc = EVTDESCmep_misc_events.51
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		NOT = { religion = religion_orkish }
+		NOT = { culture = culture_urukhai }
+		kingdom = { title = k_fangorn }
+		empire = { title = e_isengard }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.51
+		religion = religion_orkish
+		culture = culture_urukhai
+	}
+}
 character_event = {	#Ent Siege of Isengard
 	id = mep_misc_events.6
 	title = EVTTTLmep_misc_events.6
@@ -490,8 +513,7 @@ character_event = {	#Forces of Darkness Join War
 		}
 		add_claim = k_elves
 		random_claim = {
-			limit = { title = k_elves
- }
+			limit = { title = k_elves }
 			reverse_war = {
 				target = ROOT
 				casus_belli = claim
