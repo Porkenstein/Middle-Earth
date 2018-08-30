@@ -368,6 +368,46 @@ character_event = {	#Ring Transfer
 		}
 	}
 }
+character_event = {	#Forge Anduril
+	id = mep_misc_events.43
+	title = EVTTTLmep_misc_events.43
+	desc = {
+		text = EVTDESCmep_misc_events.43aragorn
+		trigger = {
+			NOT = { character = 2038 }
+		}
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.43
+		trigger = {
+			NOT = { character = 2038 }
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		has_artifact = narsil_broken
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.43
+		trigger = {
+			character = 2038
+		}
+		destroy_artifact = narsil_broken
+		add_artifact = anduril
+	}
+
+	option = {
+		name = EVTOPTBmep_misc_events.43
+		trigger = {
+			NOT = { character = 2038 }
+		}
+		destroy_artifact = narsil_broken
+		add_artifact = anduril
+	}
+}
 province_event = {	#Return Land to Wilderness
 	id = mep_misc_events.5
 	hide_window = yes
