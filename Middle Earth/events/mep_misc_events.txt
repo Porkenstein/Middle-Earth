@@ -68,6 +68,7 @@ character_event = {	#Ringbearer Captured
 			}
 		}
 		set_defacto_liege = FROM
+		prisoner = no
 		add_claim = k_shire
 		random_claim = {
 			limit = { title = k_shire }
@@ -78,6 +79,25 @@ character_event = {	#Ringbearer Captured
 		}
 		e_barad_dur = {
 			holder_scope = { id = mep_misc_events.12 }
+		}
+		hidden_effect = {
+			capital_scope = {
+				holder_scope = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							archers = { 200 200 }
+							light_infantry = { 1300 1300 }
+						}
+						earmark = hobbit_army
+						attrition = 0.5
+						maintenance_multiplier = 0
+						disband_on_peace = yes
+					}
+				}
+			}
 		}
 	}
 
