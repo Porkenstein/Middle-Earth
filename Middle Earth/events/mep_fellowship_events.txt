@@ -943,9 +943,35 @@ narrative_event = {	#Ithilien
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.139
+		trigger = {
+			e_isengard = { has_holder = no }
+		}
 		k_ringbearer = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.140 days = 15 random = 10 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.139
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+		random = {
+			chance = 10
+			e_barad_dur = {
+				holder_scope = {
+					reverse_imprison = ROOT
+				}
+			}
+		}
+		k_ringbearer = {
+			holder_scope = {
+				IF = {
+					limit = { prisoner = no }
+					narrative_event = { id = mep_fellowship_events.140 days = 15 random = 10 }
+				}
 			}
 		}
 	}
@@ -959,9 +985,40 @@ narrative_event = {	#Minas Morgul and Shelob's Lair
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.140
+		trigger = {
+			e_isengard = { has_holder = no }
+		}
 		k_ringbearer = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.141 days = 1 random = 2 }
+			}
+		}
+		hidden_effect = {
+			c_8140 = {
+				character_event = { id = mep_misc_events.41 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.140
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+		random = {
+			chance = 10
+			e_barad_dur = {
+				holder_scope = {
+					reverse_imprison = ROOT
+				}
+			}
+		}
+		k_ringbearer = {
+			holder_scope = {
+				IF = {
+					limit = { prisoner = no }
+					narrative_event = { id = mep_fellowship_events.141 days = 1 random = 2 }
+				}
 			}
 		}
 		hidden_effect = {
@@ -980,10 +1037,37 @@ narrative_event = {	#Cirith Ungol
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.141
+		trigger = {
+			e_isengard = { has_holder = no }
+		}
 		remove_trait = mithril
 		k_ringbearer = {
 			holder_scope = {
 				narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.141
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+		remove_trait = mithril
+		random = {
+			chance = 10
+			e_barad_dur = {
+				holder_scope = {
+					reverse_imprison = ROOT
+				}
+			}
+		}
+		k_ringbearer = {
+			holder_scope = {
+				IF = {
+					limit = { prisoner = no }
+					narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
+				}
 			}
 		}
 	}
@@ -997,10 +1081,31 @@ narrative_event = {	#Mordor
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.142
+		trigger = {
+			e_isengard = { has_holder = no }
+		}
 		k_ringbearer = {
 			set_preferred_capital = 148	#Move Capital to Mount Doom
 		}
 		set_character_flag = in_mordor
+	}
+	option = {
+		name = EVTOPTAmep_fellowship_events.142
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+		random = {
+			chance = 10
+			e_barad_dur = {
+				holder_scope = {
+					reverse_imprison = ROOT
+				}
+			}
+		}
+		set_character_flag = in_mordor
+		k_ringbearer = {
+			set_preferred_capital = 148	#Move Capital to Mount Doom
+		}
 	}
 }
 narrative_event = {	#Mount Doom
@@ -1012,7 +1117,11 @@ narrative_event = {	#Mount Doom
 	trigger = {
 		has_landed_title = k_ringbearer
 		has_character_flag = in_mordor
-		has_global_flag = rohan_notthreatened
+		prisoner = no
+		OR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
 		has_global_flag = gondor_notthreatened
 		e_gondor = {
 			has_holder = yes
@@ -1666,7 +1775,18 @@ narrative_event = {	#Nazgul Defeated
 narrative_event = {	#Declare War on Gondor
 	id = mep_fellowship_events.32
 	title = EVTTTLmep_fellowship_events.32
-	desc = EVTDESCmep_fellowship_events.32
+	desc = {
+		text = EVTDESCAmep_fellowship_events.32
+		trigger = {
+			e_isengard = { has_holder = no }
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fellowship_events.32
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+	}
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
@@ -1686,15 +1806,21 @@ narrative_event = {	#Declare War on Gondor
 	option = {
 		name = EVTOPTAmep_fellowship_events.32
 		add_claim = c_minas_tirith
-
-
 		random_claim = {
-			limit = { title = c_minas_tirith
-
- }
+			limit = { title = c_minas_tirith }
 			reverse_war = {
 				target = ROOT
 				casus_belli = claim
+			}
+		}
+		IF = {
+			limit = {
+				e_isengard = { has_holder = yes }
+			}
+			e_isengard = {
+				holder_scope = {
+					join_attacker_wars = ROOT
+				}
 			}
 		}
 		hidden_effect = {
@@ -2621,7 +2747,7 @@ narrative_event = {	#The Deeping Wall Breached
 		}
 	}
 }
-narrative_event = {	#The War for Rohan Ended
+narrative_event = {	#The War for Rohan Ended - Allied Win
 	id = mep_fellowship_events.83
 	title = EVTTTLmep_fellowship_events.83
 	desc = {
