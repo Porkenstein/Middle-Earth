@@ -10,6 +10,102 @@ character_event = {	#Ring Used
 		name = EVTOPTAmep_misc_events.1
 	}
 }
+character_event = {	#Ringbearer Captured
+	id = mep_misc_events.11
+	title = EVTTTLmep_misc_events.11
+	desc = {
+		text = EVTDESCAmep_misc_events.11
+		trigger = {
+			NOT = { has_landed_title = k_ringbearer }
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_misc_events.11
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { has_landed_title = e_barad_dur }
+		has_artifact = artifact_ring
+	}
+
+	option = {	#The Ring is lost!
+		name = EVTOPTAmep_misc_events.11
+		trigger = {
+			NOT = { has_landed_title = k_ringbearer }
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+	}
+
+	option = {	#I can hear Him, my Master...
+		name = EVTOPTBmep_misc_events.11
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+		religion = religion_wight
+		culture = culture_wight
+		set_graphical_culture = wraithgfx
+		c_hobbiton = {
+			grant_title_no_opinion = ROOT
+			k_ringbearer = {
+				activate_title = { status = no title = k_ringbearer }
+				destroy_landed_title = THIS
+			}
+		}
+		set_defacto_liege = FROM
+		add_claim = k_shire
+		random_claim = {
+			limit = { title = k_shire }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		e_barad_dur = {
+			holder_scope = { id = mep_misc_events.12 }
+		}
+	}
+
+	option = {	#Sam will Save Me
+		name = EVTOPTCmep_misc_events.11
+		trigger = {
+			has_landed_title = k_ringbearer
+			ai = no
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+	}
+}
+character_event = {	#Informed, Ringbearer Captured
+	id = mep_misc_events.12
+	title = EVTTTLmep_misc_events.12
+	desc = EVTDESCmep_misc_events.12
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.12
+	}
+}
 character_event = {	#Morgul-blade Wound
 	id = mep_misc_events.2
 	title = EVTTTLmep_misc_events.2
