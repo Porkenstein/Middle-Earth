@@ -518,6 +518,46 @@ character_event = {	#The War for Gondor Ended - Darkness Win
 
 	}
 }
+character_event = {	#End Saruman's War - Saruman Wins
+	id = mep_fellowship_mt.53
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = gondor_conquered
+		NOR = {
+			has_global_flag = saruman_holds_ring
+			has_global_flag = saruman_crushed
+		}
+		FROM = { has_landed_title = e_isengard }
+		has_landed_title = e_barad_dur
+	}
+
+	immediate = {
+		set_global_flag = saruman_holds_ring
+		narrative_event = { id = mep_fellowship_events.35 }
+	}
+}
+character_event = {	#End Saruman's War - Sauron Wins
+	id = mep_fellowship_mt.54
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = gondor_conquered
+		NOR = {
+			has_global_flag = saruman_holds_ring
+			has_global_flag = saruman_crushed
+		}
+		FROM = { has_landed_title = e_isengard }
+		has_landed_title = e_barad_dur
+	}
+
+	immediate = {
+		set_global_flag = saruman_crushed
+		narrative_event = { id = mep_fellowship_events.35 }
+	}
+}
 character_event = {	#The War for Erebor Ended
 	id = mep_fellowship_mt.6
 	hide_window = yes

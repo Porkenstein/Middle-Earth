@@ -1879,10 +1879,6 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 				gain_title = ROOT
 			}
 		}
-		k_ithilien = {
-			de_jure_liege = e_barad_dur
-			gain_title = ROOT
-		}
 		d_north_ithilduin = {
 			holder_scope = {
 				c_east_osgiliath = {
@@ -1890,6 +1886,13 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 				}
 				c_west_osgiliath = {
 					gain_title = PREV
+				}
+				k_ithilien = {
+					de_jure_liege = e_barad_dur
+					gain_title = PREV
+					holder_scope = {
+						set_defacto_liege = ROOT
+					}
 				}
 			}
 		}
@@ -2090,6 +2093,235 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 		}
 		d_fellowship_gandalf = {
 			set_preferred_capital = 18
+		}
+	}
+}
+narrative_event = {	#Declare Last War for Middle-Earth
+	id = mep_fellowship_events.34
+	title = EVTTTLmep_fellowship_events.34
+	desc = EVTDESCmep_fellowship_events.34
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		OR = {
+			has_landed_title = e_barad_dur
+			AND = {
+				has_global_flag = saruman_holds_ring
+				has_landed_title = e_isengard
+			}
+		}
+		has_global_flag = gondor_conquered
+		OR = {
+			e_reunited_kingdom = { has_holder = yes }
+			e_steward_gondor = { has_holder = yes }
+		}
+		OR = {
+			war = no
+			war_with  = e_reunited_kingdom
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		any_war = {
+			end_war = invalid
+		}
+		e_reunited_kingdom = {
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
+			}
+		}
+		k_elves = {
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
+			}
+		}
+		k_mirkwood = {
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.34
+		add_claim = e_reunited_kingdom
+		IF = {
+			limit = {
+				k_elves = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+			}
+			add_claim = k_elves
+		}
+		IF = {
+			limit = {
+				k_mirkwood = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+			}
+			add_claim = k_mirkwood
+		}
+		random_claim = {
+			limit = { title = e_reunited_kingdom }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		random_claim = {
+			limit = { title = k_elves }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		random_claim = {
+			limit = { title = k_mirkwood }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+	}
+}
+narrative_event = {	#Saruman's War Ended
+	id = mep_fellowship_events.35
+	title = EVTTTLmep_fellowship_events.35
+	desc = EVTDESCmep_fellowship_events.35
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.35
+		trigger = {
+			has_global_flag = saruman_holds_ring
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = FROM to = ROOT }
+		}
+		e_isengard = {
+			e_barad_dur = {
+				holder_scope = {
+					save_event_target_as = loser
+				}
+				gain_title = ROOT
+				any_de_jure_vassal_title = {
+					set_defacto_liege = PREVPREV
+					de_jure_liege = PREVPREV
+				}
+				c_minas_tirith = {
+					gain_title = ROOT
+				}
+				activate_title = { status = no title = e_barad_dur }
+				destroy_landed_title = THIS
+				event_target:loser = {
+					death = {
+						death_reason = death_execution
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.35
+		trigger = {
+			has_global_flag = saruman_holds_ring
+			ai = no
+		}
+		e_isengard = {
+			e_barad_dur = {
+				any_de_jure_vassal_title = {
+					set_defacto_liege = THIS
+					de_jure_liege = 0
+				}
+				holder_scope = {
+					save_event_target_as = sauron
+					any_war = {
+						end_war = invalid
+					}
+					k_mordor = {
+						any_direct_de_jure_vassal_title = {
+							limit = { tier = COUNT }
+							location = {
+								province_event = { id = mep_misc_events.5 }
+							}
+						}
+					}
+				}
+				activate_title = { status = no title = e_barad_dur }
+				destroy_landed_title = THIS
+			}
+			any_de_jure_vassal_title = {
+				set_defacto_liege = THIS
+				de_jure_liege = 0
+			}
+			k_isengard = {
+				grant_title_no_opinion = ROOT
+				e_isengard = {
+					activate_title = { status = no title = e_isengard }
+					destroy_landed_title = THIS
+				}
+				set_defacto_liege = THIS
+				de_jure_liege = 0
+			}
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			destroy_artifact = yes
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.35
+		trigger = {
+			has_global_flag = saruman_crushed
+		}
+		e_barad_dur = {
+			e_isengard = {
+				holder_scope = {
+					save_event_target_as = loser
+				}
+				gain_title = ROOT
+				any_de_jure_vassal_title = {
+					set_defacto_liege = PREVPREV
+					de_jure_liege = PREVPREV
+				}
+				activate_title = { status = no title = e_isengard }
+				destroy_landed_title = THIS
+				event_target:loser = {
+					death = {
+						death_reason = death_execution
+					}
+				}
+			}
 		}
 	}
 }
@@ -2331,6 +2563,7 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 			}
 			k_fangorn = {
 				de_jure_liege = e_isengard
+				grant_title_no_opinion = event_target:fangorn_heir
 			}
 			set_defacto_liege = ROOT
 		}
@@ -2379,6 +2612,7 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 				}
 				k_fangorn = {
 					de_jure_liege = e_isengard
+					grant_title_no_opinion = event_target:fangorn_heir
 				}
 				set_defacto_liege = ROOT
 			}
@@ -2689,7 +2923,8 @@ narrative_event = {	#War for Gondor Started
 		hidden_effect = {
 			d_north_ithilduin = {
 				holder_scope = {
-					c_faerdur = { gain_title = PREV }
+					save_event_target_as = witchking
+					c_faerdur = { grant_title_no_opinion = event_target:witchking }
 				}
 			}
 			d_fellowship_aragorn = {
