@@ -1882,6 +1882,18 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 		k_ithilien = {
 			de_jure_liege = e_barad_dur
 			gain_title = ROOT
+			c_east_osgiliath = {
+				gain_title = ROOT
+			}
+			c_west_osgiliath = {
+				gain_title = ROOT
+			}
+		}
+		d_tawar_in_druedain = {
+			gain_title = ROOT
+			c_pelennor = {
+				gain_title = ROOT
+			}
 		}
 		hidden_effect = {
 			e_isengard = {
@@ -1925,6 +1937,12 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 			destroy_landed_title = THIS
 		}
 		k_rohan = {
+			de_jure_liege = e_barad_dur
+			holder_scope = {
+				set_defacto_liege = FROM
+			}
+		}
+		k_fangorn = {
 			de_jure_liege = e_barad_dur
 			holder_scope = {
 				set_defacto_liege = FROM
@@ -2011,7 +2029,8 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 				has_global_flag = rohan_conquered
 			}
 		}
-		e_gondor = {
+		e_reunited_kingdom = {
+			activate_title = { status = yes title = e_reunited_kingdom }
 			gain_title = ROOT
 			e_steward_gondor = {
 				holder_scope = {
@@ -2664,6 +2683,11 @@ narrative_event = {	#War for Gondor Started
 		}
 		character_event = { id = mep_fellowship_mt.31 }
 		hidden_effect = {
+			d_north_ithilduin = {
+				holder_scope = {
+					c_faerdur = { gain_title = PREV }
+				}
+			}
 			d_fellowship_aragorn = {
 				holder_scope = {
 					narrative_event = { id = mep_fellowship_events.72 days = 3 random = 2 }
