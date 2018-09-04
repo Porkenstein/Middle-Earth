@@ -1832,6 +1832,244 @@ narrative_event = {	#Declare War for Gondor
 		}
 	}
 }
+narrative_event = {	#The War for Gondor Ended - Darkness Win
+	id = mep_fellowship_events.33
+	title = EVTTTLmep_fellowship_events.33
+	desc = {
+		text = EVTDESCmep_fellowship_events.33sauron
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.33saruman
+		trigger = {
+			has_landed_title = e_isengard
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.33aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.33gandalf
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.33
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+		k_ringbearer = {
+			holder_scope = {
+				imprison = ROOT
+			}
+		}
+		k_anorien = {
+			de_jure_liege = e_barad_dur
+			gain_title = ROOT
+			c_minas_tirith = {
+				gain_title = ROOT
+			}
+		}
+		k_ithilien = {
+			de_jure_liege = e_barad_dur
+			gain_title = ROOT
+		}
+		hidden_effect = {
+			e_isengard = {
+				IF = {
+					limit = { has_holder = yes }
+					holder_scope = {
+						narrative_event = { id = mep_fellowship_events.33 days = 1 }
+					}
+				}
+			}
+			d_fellowship_aragorn = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.33 }
+				}
+			}
+		}
+	}
+
+	option = {	#My Master, Sauron
+		name = EVTOPTBmep_fellowship_events.33
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				relative_power = { who = FROM power = 0.75 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { relative_power = { who = FROM power = 0.5 } }
+			}
+		}
+		e_isengard = {
+			k_isengard = {
+				grant_title_no_opinion = ROOT
+				de_jure_liege = e_barad_dur
+			}
+			activate_title = { status = no title = e_isengard }
+			destroy_landed_title = THIS
+		}
+		k_rohan = {
+			de_jure_liege = e_barad_dur
+			holder_scope = {
+				set_defacto_liege = FROM
+			}
+		}
+		set_defacto_liege = FROM
+	}
+
+	option = {	#Now is the Time
+		name = EVTOPTCmep_fellowship_events.33 
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 0.75 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { relative_power = { who = FROM power = 0.5 } }
+			}
+		}
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		add_claim = e_barad_dur
+		random_claim = {
+			limit = { title = e_barad_dur }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+	}
+
+	option = {	#Strength of Man is Spent
+		name = EVTOPTDmep_fellowship_events.33
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.1
+				has_global_flag = rohan_notthreatened
+			}
+		}
+		prisoner = FROM
+		k_belfalas = {
+			holder_scope = {
+				save_event_target_as = gondors_hope
+			}
+		}
+		e_steward_gondor = {
+			holder_scope = {
+				save_event_target_as = denethor
+			}
+			gain_title = event_target:gondors_hope
+			event_target:denethor = {
+				death = {
+					death_reason = death_suicide
+				}
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.33 }
+			}
+		}
+	}
+
+	option = {	#There is still Strength Left
+		name = EVTOPTEmep_fellowship_events.33
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = rohan_conquered
+			}
+		}
+		e_gondor = {
+			gain_title = ROOT
+			e_steward_gondor = {
+				holder_scope = {
+					save_event_target_as = denethor
+				}
+				gain_title = ROOT
+				any_de_jure_vassal_title = {
+					set_defacto_liege = PREVPREV
+					de_jure_liege = PREVPREV
+				}
+				d_pelargir = {
+					gain_title = ROOT
+				}
+				c_pelargir = {
+					gain_title = ROOT
+				}
+				d_fellowship_aragorn = {
+					activate_title = { status = no title = d_fellowship_aragorn }
+					destroy_landed_title = THIS
+				}
+				activate_title = { status = no title = e_steward_gondor }
+				destroy_landed_title = THIS
+				event_target:denethor = {
+					death = {
+						death_reason = death_suicide
+					}
+				}
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.33 }
+			}
+		}
+	}
+
+	option = {	#Strength of Man is Spent
+		name = EVTOPTFmep_fellowship_events.33
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+			e_gondor = { has_holder = no }
+		}
+		d_fellowship_gandalf = {
+			set_preferred_capital = 656
+		}
+	}
+
+	option = {	#There is still Strength Left
+		name = EVTOPTGmep_fellowship_events.33
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+			e_gondor = { has_holder = yes }
+		}
+		d_fellowship_gandalf = {
+			set_preferred_capital = 18
+		}
+	}
+}
 
 ######################
 #	Saruman Events
@@ -2126,7 +2364,25 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 			d_fellowship_aragorn = {
 				holder_scope = {
 					save_event_target_as = aragorn
-					narrative_event = { id = mep_fellowship_events.43 days = 1 }
+					random_list = {
+						1 = {
+							c_3106 = {	#Legolas Dies to Save Aragorn
+								death = {
+									death_reason = death_battle
+								}
+								save_event_target_as = sacrifice
+							}
+						}
+						4 = {
+							c_4058 = {	#Gimli Dies to Save Aragorn
+								death = {
+									death_reason = death_battle
+								}
+								save_event_target_as = sacrifice
+							}
+						}
+					}
+					narrative_event = { id = mep_fellowship_events.43 }
 				}
 			}
 			d_fellowship_gandalf = {

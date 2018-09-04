@@ -72,9 +72,13 @@ character_event = {	#The Fall of Osgiliath
 	is_triggered_only = yes
 
 	trigger ={
-		has_global_flag = rohan_notthreatened
-		NOT = {
+		OR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
+		NOR = {
 			has_global_flag = gondor_notthreatened
+			has_global_flag = gondor_conquered
 		}
 		NOT = {
 			428 = {
@@ -123,8 +127,9 @@ character_event = {	#The Charge of Rohan
 
 	trigger ={
 		has_global_flag = rohan_notthreatened
-		NOT = {
+		NOR = {
 			has_global_flag = gondor_notthreatened
+			has_global_flag = gondor_conquered
 		}
 		has_landed_title = k_rohan
 		k_rohan = {
@@ -397,9 +402,13 @@ character_event = {	#The Gate Breached
 	is_triggered_only = yes
 
 	trigger ={
-		has_global_flag = rohan_notthreatened
-		NOT = {
+		OR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
+		NOR = {
 			has_global_flag = gondor_notthreatened
+			has_global_flag = gondor_conquered
 		}
 		NOT = {
 			422 = {
@@ -441,15 +450,19 @@ character_event = {	#The Gate Breached
 		}
 	}
 }
-character_event = {	#The War for Gondor Ended
+character_event = {	#The War for Gondor Ended - Allied Win
 	id = mep_fellowship_mt.51
 	hide_window = yes
 	is_triggered_only = yes
 
 	trigger ={
-		has_global_flag = rohan_notthreatened
-		NOT = {
+		OR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
+		NOR = {
 			has_global_flag = gondor_notthreatened
+			has_global_flag = gondor_conquered
 		}
 		FROM = { has_landed_title = e_barad_dur }
 		has_landed_title = e_steward_gondor
@@ -477,6 +490,32 @@ character_event = {	#The War for Gondor Ended
 				narrative_event = { id = mep_fellowship_events.74 }
 			}
 		}
+	}
+}
+character_event = {	#The War for Gondor Ended - Darkness Win
+	id = mep_fellowship_mt.52
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger ={
+		OR = {
+			has_global_flag = rohan_notthreatened
+			has_global_flag = rohan_conquered
+		}
+		NOR = {
+			has_global_flag = gondor_notthreatened
+			has_global_flag = gondor_conquered
+		}
+		FROM = { has_landed_title = e_barad_dur }
+		has_landed_title = e_steward_gondor
+	}
+
+	immediate = {
+		set_global_flag = gondor_conquered
+		FROM = {
+			narrative_event = { id = mep_fellowship_events.33 }
+		}
+
 	}
 }
 character_event = {	#The War for Erebor Ended
