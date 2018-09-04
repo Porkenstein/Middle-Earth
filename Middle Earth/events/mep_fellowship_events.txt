@@ -2203,7 +2203,18 @@ narrative_event = {	#Declare Last War for Middle-Earth
 narrative_event = {	#Saruman's War Ended
 	id = mep_fellowship_events.35
 	title = EVTTTLmep_fellowship_events.35
-	desc = EVTDESCmep_fellowship_events.35
+	desc = {
+		text = EVTDESCmep_fellowship_events.35saruman
+		trigger = {
+			has_global_flag = saruman_holds_ring
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.35sauron
+		trigger = {
+			has_global_flag = saruman_crushed
+		}
+	}
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
