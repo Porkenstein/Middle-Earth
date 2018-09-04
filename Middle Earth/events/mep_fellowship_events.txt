@@ -2078,7 +2078,7 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 		name = EVTOPTFmep_fellowship_events.33
 		trigger = {
 			has_landed_title = d_fellowship_gandalf
-			e_gondor = { has_holder = no }
+			e_reunited_kingdom = { has_holder = no }
 		}
 		d_fellowship_gandalf = {
 			set_preferred_capital = 656
@@ -2089,7 +2089,7 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 		name = EVTOPTGmep_fellowship_events.33
 		trigger = {
 			has_landed_title = d_fellowship_gandalf
-			e_gondor = { has_holder = yes }
+			e_reunited_kingdom = { has_holder = yes }
 		}
 		d_fellowship_gandalf = {
 			set_preferred_capital = 18
@@ -2117,7 +2117,16 @@ narrative_event = {	#Declare Last War for Middle-Earth
 		}
 		OR = {
 			war = no
-			war_with  = e_reunited_kingdom
+			e_reunited_kingdom = {
+				holder_scope = {
+					war_with  = ROOT
+				}
+			}
+			e_steward_gondor = {
+				holder_scope = {
+					war_with  = ROOT
+				}
+			}
 		}
 	}
 
