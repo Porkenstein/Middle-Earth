@@ -33,6 +33,11 @@ character_event = {	#Ringbearer Captured
 			}
 			transfer_artifact = { from = ROOT to = FROM }
 		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
+		}
 	}
 
 	option = {	#I can hear Him, my Master...
@@ -69,7 +74,9 @@ character_event = {	#Ringbearer Captured
 			}
 		}
 		e_barad_dur = {
-			holder_scope = { id = mep_misc_events.12 }
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
 		}
 		hidden_effect = {
 			capital_scope = {
@@ -103,6 +110,11 @@ character_event = {	#Ringbearer Captured
 				has_artifact_flag = flag_the_one_ring
 			}
 			transfer_artifact = { from = ROOT to = FROM }
+		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
 		}
 	}
 }
@@ -608,15 +620,121 @@ character_event = {	#Journey West
 	}
 
 	option = {
-		name = EVTOPTAmep_misc_events.6
+		name = EVTOPTAmep_misc_events.52
 		trigger = {
 			is_ruler = yes
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 5
+				has_global_flag = gondor_notthreatened
+			}
 		}
 		set_character_flag = refused_journey
 	}
 
 	option = {
-		name = EVTOPTBmep_misc_events.6
+		name = EVTOPTBmep_misc_events.52
+		trigger = {
+			is_ruler = yes
+			independent = yes
+		}
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.5
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = gondor_notthreatened
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = rohan_conquered
+			}
+			modifier = {
+				factor = 3
+				has_global_flag = gondor_conquered
+			}
+		}
+		any_demesne_title = {
+			limit = {
+				higher_tier_than = COUNT
+			}
+			destroy_landed_title = THIS
+		}
+		create_random_soldier = {
+			age = 30
+			culture = culture_woodsmen
+			religion = religion_rhovanion
+		}
+		new_character = {
+			save_event_target_as = elf_heir
+		}
+		any_demesne_title = {
+			grant_title_no_opinion = event_target:elf_heir
+		}
+		death = {
+			death_reason = death_journey_west
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_misc_events.52
+		trigger = {
+			is_ruler = yes
+			independent = no
+		}
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.5
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = gondor_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				liege = {
+					has_character_flag = refused_journey
+				}
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = rohan_conquered
+			}
+			modifier = {
+				factor = 3
+				has_global_flag = gondor_conquered
+			}
+		}
+		liege = {
+			save_event_target_as = elf_liege
+		}
+		any_demesne_title = {
+			limit = {
+				higher_tier_than = COUNT
+			}
+			destroy_landed_title = THIS
+		}
+		any_demesne_title = {
+			grant_title_no_opinion = event_target:elf_liege
+		}
+		death = {
+			death_reason = death_journey_west
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_misc_events.52
 		trigger = {
 			is_ruler = no
 		}
