@@ -91,6 +91,10 @@ character_event = {
 
 	option = {
 		name = EVTOPTA_mep_bloodlines_events.1
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
 		IF = {
 			limit = { trait = hidden_blood_of_aldarion }
 			remove_trait = hidden_blood_of_aldarion
@@ -180,6 +184,26 @@ character_event = {
 			limit = { trait = hidden_blood_of_vidugavia }
 			remove_trait = hidden_blood_of_vidugavia
 			add_trait = blood_of_vidugavia
+		}
+	}
+}
+character_event = {
+	id = mep_bloodlines_events.2
+	hide_window = yes
+
+	trigger = {
+		has_revealed_bloodline_trigger = yes
+		NOT = { has_character_modifier = noble_bloodline }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
 		}
 	}
 }
