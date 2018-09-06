@@ -66,6 +66,40 @@ character_event = {	#Old age Death for Characters
 
 	trigger = {
 		trait = trait_old_age
+		OR = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = flag_lesser_ring
+				}
+			}
+			AND = {
+				culture_group = culture_group_numenorean
+				age = 300
+			}
+			AND = {
+				culture_group = culture_group_halfling
+				age = 600
+			}
+			AND = {
+				culture_group_dwarves
+				age = 450
+			}
+			NOR = {
+				culture_group = culture_group_quendi
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_moriquendi
+			}
+		}
+		OR = {
+			NOR = {
+				culture_group = culture_group_quendi
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_moriquendi
+			}
+			age = 4000
+		}
 		NOT = {
 			dont_kill_trigger = yes
 		}
@@ -97,6 +131,12 @@ character_event = {	#Old age Death for Characters
 		modifier = {
 			factor = 1.1
 			culture_group = culture_group_dwarves
+		}
+		modifier = {
+			factor = 2
+			any_artifact = {
+				has_artifact_flag = flag_lesser_ring
+			}
 		}
 		modifier = {
 			factor = 0.75
