@@ -1635,6 +1635,48 @@ grant_bloodline_effect = {
 					}
 					add_trait = hidden_blood_of_oropher
 				}
+				#Amdir
+				IF = {
+					limit = {
+						OR = {
+							real_father_even_if_dead = {
+								trait = blood_of_amdir
+							}
+							mother_even_if_dead = {
+								trait = blood_of_amdir
+							}
+						}
+					}
+					add_trait = blood_of_amdir
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_amdir }
+						OR = {
+							real_father_even_if_dead = {
+								trait = fake_blood_of_amdir
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_amdir
+							}
+						}
+					}
+					add_trait = fake_blood_of_amdir
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_amdir }
+						OR = {
+							real_father_even_if_dead = {
+								trait = hidden_blood_of_amdir
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_amdir
+							}
+						}
+					}
+					add_trait = hidden_blood_of_amdir
+				}
 				#Thorondor
 				IF = {
 					limit = {
@@ -2333,6 +2375,44 @@ grant_bloodline_effect = {
 						}
 					}
 					add_trait = hidden_blood_of_oropher
+				}
+				#Amdir
+				IF = {
+					limit = {
+						mother_even_if_dead = {
+							trait = blood_of_amdir
+						}
+					}
+					add_trait = blood_of_amdir
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_amdir }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_amdir
+								trait = fake_blood_of_amdir
+							}
+						}
+					}
+					add_trait = fake_blood_of_amdir
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_amdir }
+						OR = {
+							real_father_even_if_dead = {
+								trait = blood_of_amdir
+							}
+							real_father_even_if_dead = {
+								trait = hidden_blood_of_amdir
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_amdir
+							}
+						}
+					}
+					add_trait = hidden_blood_of_amdir
 				}
 				#Thorondor
 				IF = {
