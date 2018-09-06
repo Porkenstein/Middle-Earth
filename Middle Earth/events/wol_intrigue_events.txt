@@ -380,18 +380,18 @@ character_event = {
 		
 		repeat_event = { id = WoL.2060 days = 40 random = 40 } # Fire again with no scope changes
 		
-		if = {
-			limit = {
-				FROMFROM = {
-					OR = {
-						trait = on_hajj
-						is_inaccessible_trigger = yes
-						trait = on_pilgrimage
-					}
-				}
-			}
-			break = yes
-		}
+		# if = {
+			# limit = {
+				# FROMFROM = {
+					# OR = {
+						# trait = on_hajj
+						# is_inaccessible_trigger = yes
+						# trait = on_pilgrimage
+					# }
+				# }
+			# }
+			# break = yes
+		# }
 		
 		random_list = {
 			20000 = { # Nothing happens
@@ -699,7 +699,7 @@ character_event = {
 							trait = hedonist
 							trait = drunkard
 							trait = impaler
-							trait = decadent
+							# trait = decadent
 							trait = bastard
 							trait = inbred
 							trait = dwarf
@@ -1047,21 +1047,21 @@ character_event = {
 			#	set_character_flag = charge_heretic
 			#	break = yes
 			#}
-			if = {
-				limit = {
-					FROMFROMFROM = {
-						OR = {
-							NOT = { liege = { religion_group = PREV } }
-							AND = {
-								NOT = { liege = { religion = PREV } }
-								religion_group = pagan_group
-							}
-						}
-					}
-				}
-				set_character_flag = charge_infidel
-				break = yes
-			}
+			# if = {
+				# limit = {
+					# FROMFROMFROM = {
+						# OR = {
+							# NOT = { liege = { religion_group = PREV } }
+							# AND = {
+								# NOT = { liege = { religion = PREV } }
+								# religion_group = pagan_group
+							# }
+						# }
+					# }
+				# }
+				# set_character_flag = charge_infidel
+				# break = yes
+			# }
 			if = {
 				limit = {
 					FROMFROMFROM = {

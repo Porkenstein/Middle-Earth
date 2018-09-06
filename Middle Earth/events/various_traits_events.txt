@@ -878,7 +878,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -929,7 +928,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -987,7 +985,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -1049,7 +1046,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -1084,7 +1080,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -1287,7 +1282,6 @@ character_event = {
 	
 	min_age = 16
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 	
@@ -1389,7 +1383,6 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
 	war = no
 	
 	is_triggered_only = yes
@@ -1451,7 +1444,6 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 
@@ -1496,7 +1488,6 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 
@@ -1517,41 +1508,7 @@ character_event = {
 	}
 }
 
-#Falling asleep in church
-character_event = {
-	id = 65043
-	desc = EVTDESC65043	
-	picture = GFX_evt_drunk
-	
-	capable_only = yes
-	only_rulers = yes
-	prisoner = no
-	religion_group = christian
-	
-	is_triggered_only = yes
-
-	trigger = {
-		trait = drunkard
-		in_command = no
-	}
-	
-	weight_multiplier = {
-		factor = 1
-	}
-	
-	option = {
-		name = EVTOPTA65043	#Keep Sleeping.
-		piety = -10
-		add_character_modifier = {
-			name = slept_in_church
-			duration = -1
-		}
-	}
-	option = {
-		name = EVTOPTB65043	#Apologise to the priest
-		prestige = -10
-	}
-}
+#Falling asleep in church - removed from MEP
 
 #Embarass yourself infront of your children
 character_event = {
@@ -1607,7 +1564,6 @@ character_event = {
 	
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
 	is_married = yes
 	
 	is_triggered_only = yes
@@ -1790,10 +1746,6 @@ character_event = {
 				trait = diligent
 			}
 		}
-		modifier = {
-			factor = 10
-			has_ambition = obj_buddhist_stop_drinking
-		}
 	}
 	
 	option = {
@@ -1947,7 +1899,6 @@ character_event = {
 	min_age = 50
 	capable_only = yes
 	prisoner = no
-	religion_group = christian
 	
 	is_triggered_only = yes
 
@@ -4620,7 +4571,6 @@ character_event = {
 	option = {
 		name = EVTOPTA65150 #Admission of fatness
 		trigger = {
-			NOT = { has_ambition = obj_buddhist_temperance_food }
 		}
 		random_list = {
 			50 = {
@@ -4640,18 +4590,6 @@ character_event = {
 						id = 65151 #Notify Remove Gluttonous
 					}
 				}
-			}
-		}
-	}
-	option = {
-		name = EVTOPTA65155 #Admission of fatness - Buddhist ambition
-		trigger = {
-			has_ambition = obj_buddhist_temperance_food
-		}
-		remove_trait = gluttonous
-		hidden_tooltip = {
-			character_event = {
-				id = 65151 #Notify Remove Gluttonous
 			}
 		}
 	}
@@ -4764,107 +4702,8 @@ character_event = {
 	}
 }
 
-#Falling asleep in the mosque
-character_event = {
-	id = 65165
-	desc = EVTDESC65165	
-	picture = GFX_evt_drunk
-	
-	capable_only = yes
-	only_rulers = yes
-	prisoner = no
-	religion_group = muslim
-	
-	is_triggered_only = yes
+#Falling asleep in the mosque - removed for MEP
 
-	trigger = {
-		trait = drunkard
-		in_command = no
-	}
-	
-	weight_multiplier = {
-		factor = 1
-	}
-	
-	option = {
-		name = EVTOPTA65165	#Keep Sleeping.
-		piety = -10
-		add_character_modifier = {
-			name = slept_in_church
-			duration = -1
-		}
-	}
-	option = {
-		name = EVTOPTB65165	#Apologise to the imam
-		prestige = -10
-	}
-}
+### Stressed Muslim: Learning ### - removed for MEP
 
-### Stressed Muslim: Learning ###
-character_event = {
-	id = 65166
-	desc = EVTDESC65166
-	picture = GFX_evt_jerusalem_captured_muslims
-	
-	only_men = yes
-	capable_only = yes
-	only_rulers = yes
-	prisoner = no
-	religion_group = muslim
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		trait = stressed
-		learning = 2
-		NOT = {
-			learning = 10
-		}
-		job_spiritual = {
-			learning = 10
-		}
-	}
-	
-	weight_multiplier = {
-		factor = 1
-	}
-	
-	option = {
-		name = EVTOPTA65009
-		random = {
-			chance = 25
-			
-			change_learning = -1
-			remove_trait = stressed
-		}
-		job_spiritual = {
-			opinion = {
-				modifier = trusting_pos
-				who = ROOT
-				years = 5
-			}
-			character_event = {
-				id = 65167
-				tooltip = EVTTOOLTIP65010
-			}
-		}
-	}
-	option = {
-		name = EVTOPTB65009
-		piety = -5
-	}
-}
-
-#Spiritual gets +learning and relation
-character_event = {
-	id = 65167
-	desc = EVTDESC65167
-	picture = GFX_evt_jerusalem_captured_muslims
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA65010
-		change_learning = 1
-	}
-}
+#Spiritual gets +learning and relation - removed for MEP

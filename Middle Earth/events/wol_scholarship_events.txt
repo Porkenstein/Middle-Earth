@@ -141,10 +141,7 @@ character_event = {
 		military_techpoints = 30
 		if = {
 			limit = {
-				OR = {
-					religion_group = christian
-					religion_group = muslim
-				}
+				religion_group = edain # not sure it fits, but will do for now
 			}
 			if = {
 				limit = {
@@ -255,9 +252,9 @@ character_event = {
 						is_adult = yes
 						trait = zealous
 						at_location = ROOT
-						NOT = { religion = zun_pagan }
-						NOT = { religion = zun_pagan_reformed }
-						NOT = { religion = buddhist }
+						# NOT = { religion = zun_pagan }
+						# NOT = { religion = zun_pagan_reformed }
+						# NOT = { religion = buddhist }
 						OR = {
 							mother = { character = ROOT }
 							father = { character = ROOT }
@@ -280,9 +277,9 @@ character_event = {
 				is_adult = yes
 				trait = zealous
 				at_location = ROOT
-				NOT = { religion = zun_pagan }
-				NOT = { religion = zun_pagan_reformed }
-				NOT = { religion = buddhist }
+				# NOT = { religion = zun_pagan }
+				# NOT = { religion = zun_pagan_reformed }
+				# NOT = { religion = buddhist }
 				OR = {
 					mother = { character = ROOT }
 					father = { character = ROOT }
@@ -476,7 +473,7 @@ character_event = {
 			limit = {
 				religion_head = { is_alive = yes }
 				religion_head = { ai = yes }
-				NOT = { religion = zun_pagan_reformed }
+				# NOT = { religion = zun_pagan_reformed }
 			}
 			religion_head = {
 				character_event = { id = WoL.6151 } # Religious head opines

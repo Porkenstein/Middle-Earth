@@ -3299,18 +3299,26 @@ character_event = {
 		if = {
 			limit = {
 				FROM = {
-					has_character_flag = add_sympathy_christendom
+					has_character_flag = add_sympathy_mepelves
 				}
 			}
-			tooltip = { FROM = { remove_trait = curious add_trait = sympathy_christendom } }
+			tooltip = { FROM = { remove_trait = curious add_trait = elf_friend } }
 		}
 		if = {
 			limit = {
 				FROM = {
-					has_character_flag = add_sympathy_islam
+					has_character_flag = add_sympathy_mepdwarves
 				}
 			}
-			tooltip = { FROM = { remove_trait = curious add_trait = sympathy_islam } }
+			tooltip = { FROM = { remove_trait = curious add_trait = dwarf_friend } }
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_character_flag = add_sympathy_mephobbits
+				}
+			}
+			tooltip = { FROM = { remove_trait = curious add_trait = hobbit_friend } }
 		}
 		if = {
 			limit = {
@@ -3463,19 +3471,19 @@ character_event = {
 		}
 		remove_trait = curious
 		if = {
-			limit = { has_character_flag = add_sympathy_christendom }
-			add_trait = sympathy_christendom
-			clr_character_flag = add_sympathy_christendom
+			limit = { has_character_flag = add_sympathy_mepelves }
+			add_trait = elf_friend
+			clr_character_flag = add_sympathy_mepelves
 		}
 		if = {
-			limit = { has_character_flag = add_sympathy_islam }
-			add_trait = sympathy_islam
-			clr_character_flag = add_sympathy_islam
+			limit = { has_character_flag = add_sympathy_mepdwarves }
+			add_trait = dwarf_friend
+			clr_character_flag = add_sympathy_mepdwarves
 		}
 		if = {
-			limit = { has_character_flag = add_sympathy_pagans }
-			add_trait = sympathy_pagans
-			clr_character_flag = add_sympathy_pagans
+			limit = { has_character_flag = add_sympathy_mephobbits }
+			add_trait = hobbit_friend
+			clr_character_flag = add_sympathy_mephobbits
 		}
 		clr_character_flag = curious_sympathy_religion
 	}

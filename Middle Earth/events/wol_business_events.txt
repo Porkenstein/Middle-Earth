@@ -63,10 +63,7 @@ character_event = {
 		if = {
 			limit = {
 				capital_scope = {
-					OR = {
-						region = world_steppe
-						region = world_persia
-					}
+					region = world_south
 				}
 			}
 			character_event = { id = WoL.10103 }
@@ -654,7 +651,7 @@ character_event = {
 				NOT = { mep_dont_do_horses = yes }
 				NOR = {
 					culture_group = culture_group_forodwaith
-					religion_group = religion_southron
+					religion_group = religion_group_hildor
 					culture = culture_far_haradrim
 				}
 			}
@@ -662,7 +659,7 @@ character_event = {
 		name = { # A dozen of sturdy camels
 			text = EVTOPTA_WOL_10114_CAMELS
 			trigger = {
-				religion_group = religion_southron
+				religion_group = religion_group_hildor
 				NOT = { culture = culture_far_haradrim }
 			}
 		}
@@ -1396,11 +1393,7 @@ province_event = {
 	immediate = {
 		if = {
 			limit = {
-				OR = {
-					region = world_steppe
-					region = world_persia
-					region = world_himalayas
-				}
+				region = world_south
 			}
 			province_event = { id = WoL.10130 }
 			break = yes
