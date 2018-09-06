@@ -26,10 +26,6 @@ character_event = {	#Old age Trait for Characters
 			culture_group = culture_group_dwarves
 			culture_group = culture_group_numenorean
 			culture_group = culture_group_halfling
-			culture_group = culture_group_quendi
-			culture_group = culture_group_amanyar
-			culture_group = culture_group_umanyar
-			culture_group = culture_group_moriquendi
 		}
 	}
 
@@ -40,66 +36,11 @@ character_event = {	#Old age Trait for Characters
 character_event = {	#Old age Death for Characters
 	id = mep_on_actions_mt.11
 	title = EVTTTLmep_on_actions_mt.11
-	desc = {
-		text = EVTDESCAmep_on_actions_mt.11
-		trigger = {
-			NOR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCBmep_on_actions_mt.11
-		trigger = {
-			OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-	}
+	desc = EVTDESCmep_on_actions_mt.11
 	picture = GFX_evt_journeybegins
 
 	trigger = {
 		trait = trait_old_age
-		OR = {
-			NOT = {
-				any_artifact = {
-					has_artifact_flag = flag_lesser_ring
-				}
-			}
-			AND = {
-				culture_group = culture_group_numenorean
-				age = 300
-			}
-			AND = {
-				culture_group = culture_group_halfling
-				age = 600
-			}
-			AND = {
-				culture_group_dwarves
-				age = 450
-			}
-			OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-		OR = {
-			NOR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-			age = 4000
-		}
 		NOT = {
 			dont_kill_trigger = yes
 		}
@@ -112,15 +53,6 @@ character_event = {	#Old age Death for Characters
 			real_tier = EMPEROR
 		}
 		modifier = {
-			factor = 55
-			OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-		modifier = {
 			factor = 0.9
 			trait = maimed
 		}
@@ -131,12 +63,6 @@ character_event = {	#Old age Death for Characters
 		modifier = {
 			factor = 1.1
 			culture_group = culture_group_dwarves
-		}
-		modifier = {
-			factor = 2
-			any_artifact = {
-				has_artifact_flag = flag_lesser_ring
-			}
 		}
 		modifier = {
 			factor = 0.75
@@ -155,48 +81,13 @@ character_event = {	#Old age Death for Characters
 
 	option = {
 		name = EVTOPTAmep_on_actions_mt.11
-		IF = {
-			limit = {
-				OR = {
-					culture_group = culture_group_quendi
-					culture_group = culture_group_amanyar
-					culture_group = culture_group_umanyar
-					culture_group = culture_group_moriquendi
-				}
-			}
-			death = {
-				death_reason = death_journey_west
-			}
-			break = yes
-		}
 		death = yes
 	}
 }
 character_event = {	#Informed of Death
 	id = mep_on_actions_mt.12
 	title = EVTTTLmep_on_actions_mt.12
-	desc = {
-		text = EVTDESCAmep_on_actions_mt.12
-		trigger = {
-			NOR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-	}
-	desc = {
-		text = EVTDESCBmep_on_actions_mt.12
-		trigger = {
-			OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-	}
+	desc = EVTDESCmep_on_actions_mt.12
 	picture = GFX_evt_journeybegins
 	is_triggered_only = yes
 
@@ -273,5 +164,26 @@ character_event = {	#Has Ring - Choose to Destroy
 
 	immediate = {
 		character_event = { id = mep_onering_events.0 }
+	}
+}
+character_event = {	#Set Orcs to Open
+	id = mep_on_actions_mt.15
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = e_rebels
+	}
+
+	immediate = {
+		any_character = {
+			limit = {
+				is_ruler = yes
+				government = orc_government
+			}
+			primary_title = {
+				succession = open_elective
+			}
+		}
 	}
 }
