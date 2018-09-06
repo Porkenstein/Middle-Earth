@@ -1,0 +1,30 @@
+namespace = steward_prince_events
+character_event = {
+	id = steward_prince_events.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = e_rebels
+	}
+
+	immediate = {
+		any_character = {
+			limit = {
+				has_minor_title = title_prince
+			}
+			set_character_flag = title_prince
+			remove_title = title_prince
+		}
+	}
+
+	option = {
+		any_character = {
+			limit = {
+				has_character_flag = title_prince
+			}
+			give_minor_title = title_prince
+			clr_character_flag = title_prince
+		}
+	}
+}
