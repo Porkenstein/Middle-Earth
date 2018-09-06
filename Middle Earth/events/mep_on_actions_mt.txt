@@ -40,7 +40,28 @@ character_event = {	#Old age Trait for Characters
 character_event = {	#Old age Death for Characters
 	id = mep_on_actions_mt.11
 	title = EVTTTLmep_on_actions_mt.11
-	desc = EVTDESCmep_on_actions_mt.11
+	desc = {
+		text = EVTDESCAmep_on_actions_mt.11
+		trigger = {
+			NOR = {
+				culture_group = culture_group_quendi
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_moriquendi
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_on_actions_mt.11
+		trigger = {
+			OR = {
+				culture_group = culture_group_quendi
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_moriquendi
+			}
+		}
+	}
 	picture = GFX_evt_journeybegins
 
 	trigger = {
@@ -141,26 +162,6 @@ character_event = {	#Informed of Death
 
 	option = {
 		name = EVTOPTAmep_on_actions_mt.12
-		trigger = {
-			NOR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTBmep_on_actions_mt.12
-		trigger = {
-			OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
-			}
-		}
 	}
 }
 character_event = {	#Bloodlines Startup
