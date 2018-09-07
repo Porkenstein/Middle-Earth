@@ -2276,6 +2276,40 @@ narrative_event = {	#Last War, Informer
 			}
 		}
 	}
+
+	option = {	#YOLO
+		name = EVTOPTABmep_fellowship_events.341
+		trigger = {
+			has_landed_title = e_reunited_kingdom
+			ai = no
+		}
+		k_elves = {
+			IF = {
+				limit = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.341 days = 1 }
+				}
+			}
+		}
+		k_mirkwood = {
+			IF = {
+				limit = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.341 days = 1 }
+				}
+			}
+		}
+	}
 	option = {	#Join Last War
 		name = EVTOPTBmep_fellowship_events.341
 		trigger = {
