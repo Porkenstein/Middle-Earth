@@ -636,7 +636,10 @@ character_event = {	#Journey West
 			}
 			modifier = {
 				factor = 5
-				has_global_flag = gondor_notthreatened
+			}
+			modifier = {
+				factor = 2
+				e_reunited_kingdom = { has_holder = yes }
 			}
 			modifier = {
 				factor = 0
@@ -666,6 +669,13 @@ character_event = {	#Journey West
 			modifier = {
 				factor = 2
 				has_global_flag = rohan_conquered
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_global_flag = k_elves
+					has_global_flag = k_mirkwood
+				}
 			}
 			modifier = {
 				factor = 3
