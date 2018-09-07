@@ -3474,141 +3474,185 @@ e_gondor = {
 		}
 	}
 }
+
+e_the_far_north = {
+	color={ 88 130 129 }
+	color2={ 255 255 255 }
 	
-k_angmar = {
-	color={ 130 88 129 }
-	color2={ 125 125 142 }
+	title = "KING"
+	title_female = "QUEEN"
+	title_prefix = "KING_OF"
 	
-	capital = 624 #Carn Dum
-	religion_angmarim = 100 # Crusade target weight
-	
-	culture_arnorian = "Angarth"
-	culture_gondorian = "Angarth"
-	culture_black_numenorean = "Angarth"
-	culture_dunedain = "Angarth"
-	culture_numenorean = "Angarth"
-	culture_adunaic = "Angarth"
-	culture_minyar = "Angarth"
-	culture_tatyar = "Angarth"
-	culture_nelyar = "Angarth"
-	culture_teleri = "Angarth"
-	culture_noldor = "Angarth"
-	culture_vanyar = "Angarth"
-	culture_falmari = "Angarth"
-# not going to bother with first age only umanyar
-	culture_sindar = "Angarth"
-	culture_silvan = "Angarth"
-	culture_falathrim = "Angarth"
-	culture_avari = "Angarth"	
-	
-	d_nan_angmar = {
-		color={ 102 35 32 }
-		color2={ 125 125 142 }
-			
-		capital = 619 # Litash
-			
-		c_litash = {
-			color={ 108 71 71 }
-			color2={ 125 125 142 }
-			holy_site = religion_angmarim
-		
-			b_barad_gularan = {
-			}
-			b_minas_agar = {
-			}
-			b_minas_angos = {
-			}
-			b_minas_caul = {
-			}
-			b_minas_maur = {
-			}
-			b_minas_nir = {
-			}
-			b_minas_gularan = {
-			}
-		}
-		c_panth_gurehil = {
-			color={ 140 58 152 }
-			color2={ 125 125 142 }
-		
-			b_parth_gurthil = {
-			}
-            b_rastalann = {
-			}
-            b_osgeril = {
-			}
-            b_veterk = {
-			}
-		}
-		c_shedun = {
-			color={ 215 78 78 }
-			color2={ 125 125 142 }
-		
-			b_duvuinen = {
-			}
-			b_gram = {
-			}
-			b_maethad = {
-			}
-			b_shedros = {
-			}
-			b_graetdur = {
-			}
-		}
-		c_morkai = {
-			color={ 120 24 24 }
-			color2={ 125 125 142 }
-		
-			b_dolroth = {
-			}
-			b_morkai = {
-			}
-			b_krusle_lannan = {
-			}
-			b_ongbishuk = {
-			}
-			b_morkathin = {
-			}
-		}
-		c_angsiril = {
-			color={ 158 140 120 }
-			color2={ 125 125 142 }
-		
-			b_urugarth = {
-			}
-			b_angsiril = {
-			}
-			b_ankraz = {
-			}
-			b_barad_gor = {
-			}
-			b_tarathil = {
-			}
-		}
-		c_cangash = {
-			color={ 153 28 28 }
-			color2={ 125 125 142 }
-			holy_site = religion_angmarim
-			holy_site = religion_lossoth
-		
-			b_cangash = {
-			
-			}
-			b_shedun = {
-			}
-			b_koskas = {
-			}
-			b_atalar = {
-			}
-			b_cangram = {
-			}
+	# Evil chars have the e_angmar to form if they want an empire tier title
+	allow = { 
+		NOR = {
+			culture = culture_wight
+			culture = culture_orkish
+			religion = religion_wight
+			religion = religion_orkish
 		}
 	}
-	d_carn_dum = {
-		color={ 154 66 66 }
+	
+	capital = 624 #Carn Dum
+	
+	k_angmar = {
+		color={ 130 88 129 }
 		color2={ 125 125 142 }
+	
+		capital = 624 #Carn Dum
+		
+		religion_angmarim = 100 # Crusade target weight
+	
+		culture_arnorian = "Angarth"
+		culture_gondorian = "Angarth"
+		culture_black_numenorean = "Angarth"
+		culture_dunedain = "Angarth"
+		culture_numenorean = "Angarth"
+		culture_adunaic = "Angarth"
+		culture_minyar = "Angarth"
+		culture_tatyar = "Angarth"
+		culture_nelyar = "Angarth"
+		culture_teleri = "Angarth"
+		culture_noldor = "Angarth"
+		culture_vanyar = "Angarth"
+		culture_falmari = "Angarth"
+# 		not going to bother with first age only umanyar
+		culture_sindar = "Angarth"
+		culture_silvan = "Angarth"
+		culture_falathrim = "Angarth"
+		culture_avari = "Angarth"	
+	
+		d_nan_angmar = {
+			color={ 102 35 32 }
+			color2={ 125 125 142 }
 			
-		capital = 624 # Carn Dûm
+			capital = 619 # Litash
+			
+			c_litash = {
+				color={ 108 71 71 }
+				color2={ 125 125 142 }
+				
+				holy_site = religion_angmarim
+		
+				b_barad_gularan = {
+				}
+				b_minas_agar = {
+				}
+				b_minas_angos = {
+				}
+				b_minas_caul = {
+				}
+				b_minas_maur = {
+				}
+				b_minas_nir = {
+				}
+				b_minas_gularan = {
+				}
+			}
+			c_panth_gurehil = {
+				color={ 140 58 152 }
+				color2={ 125 125 142 }
+		
+				b_parth_gurthil = {
+				}
+				b_rastalann = {
+				}
+				b_osgeril = {
+				}
+				b_veterk = {
+				}
+				b_panth_gurehil = {
+				}
+				b_panth_gurehil2 = {
+				}
+				b_panth_gurehil3 = {
+				}
+			}
+			c_shedun = {
+				color={ 215 78 78 }
+				color2={ 125 125 142 }
+		
+				b_duvuinen = {
+				}
+				b_gram = {
+				}
+				b_maethad = {
+				}
+				b_shedros = {
+				}
+				b_graetdur = {
+				}
+				b_shedun2 = {
+				}
+				b_shedun3 = {
+				}
+			}
+			c_morkai = {
+				color={ 120 24 24 }
+				color2={ 125 125 142 }
+		
+				b_dolroth = {
+				}
+				b_morkai = {
+				}
+				b_krusle_lannan = {
+				}
+				b_ongbishuk = {
+				}
+				b_morkathin = {
+				}
+				b_morkai2 = {
+				}
+				b_morkai3 = {
+				}
+			}
+			c_angsiril = {
+				color={ 158 140 120 }
+				color2={ 125 125 142 }
+		
+				b_urugarth = {
+				}
+				b_angsiril = {
+				}
+				b_ankraz = {
+				}
+				b_barad_gor = {
+				}
+				b_tarathil = {
+				}
+				b_angsiril2 = {
+				}
+				b_angsiril3 = {
+				}
+			}
+			c_cangash = {
+				color={ 153 28 28 }
+				color2={ 125 125 142 }
+				
+				holy_site = religion_angmarim
+				holy_site = religion_lossoth
+		
+				b_cangash = {
+				}
+				b_shedun = {
+				}
+				b_koskas = {
+				}
+				b_atalar = {
+				}
+				b_cangram = {
+				}
+				b_cangash2 = {
+				}
+				b_cangash3 = {
+				}
+			}
+		}
+		d_carn_dum = {
+			color={ 154 66 66 }
+			color2={ 125 125 142 }
+			
+			capital = 624 # Carn Dûm
 		
 		    culture_hillmen = "Blacbeorg"
 			culture_arnorian = "Caras Iphant"
@@ -3624,41 +3668,21 @@ k_angmar = {
 		    culture_noldor = "Caras Iphant"
 		    culture_vanyar = "Caras Iphant"
 		    culture_falmari = "Caras Iphant"
-# not going to bother with first age only umanyar
+# 			not going to bother with first age only umanyar
 			culture_sindar = "Caras Iphant"
 			culture_silvan = "Caras Iphant"
 			culture_falathrim = "Caras Iphant"
 			culture_avari = "Caras Iphant"
 			
-		c_carn_dum = {
-			color={ 144 144 144 }
-			color2={ 125 125 142 }
-			holy_site = religion_black_numenorean
-			holy_site = religion_wight
-			holy_site = religion_olog
-			holy_site = religion_angmarim
+			c_carn_dum = {
+				color={ 144 144 144 }
+				color2={ 125 125 142 }
+				
+				holy_site = religion_black_numenorean
+				holy_site = religion_wight
+				holy_site = religion_olog
+				holy_site = religion_angmarim
 		
-		    culture_hillmen = "Blacbeorg"
-			culture_arnorian = "Caras Iphant"
-			culture_gondorian = "Caras Iphant"
-			culture_black_numenorean = "Caras Iphant"
-			culture_dunedain = "Caras Iphant"
-			culture_numenorean = "Caras Iphant"
-			culture_adunaic = "Caras Iphant"
-			culture_minyar = "Caras Iphant"
-			culture_tatyar = "Caras Iphant"
-			culture_nelyar = "Caras Iphant"
-			culture_teleri = "Caras Iphant"
-		    culture_noldor = "Caras Iphant"
-		    culture_vanyar = "Caras Iphant"
-		    culture_falmari = "Caras Iphant"
-# not going to bother with first age only umanyar
-			culture_sindar = "Caras Iphant"
-			culture_silvan = "Caras Iphant"
-			culture_falathrim = "Caras Iphant"
-			culture_avari = "Caras Iphant"	
-			
-			b_carn_dum = {
 				culture_hillmen = "Blacbeorg"
 				culture_arnorian = "Caras Iphant"
 				culture_gondorian = "Caras Iphant"
@@ -3673,220 +3697,240 @@ k_angmar = {
 				culture_noldor = "Caras Iphant"
 				culture_vanyar = "Caras Iphant"
 				culture_falmari = "Caras Iphant"
-# not going to bother with first age only umanyar
+# 				not going to bother with first age only umanyar
 				culture_sindar = "Caras Iphant"
 				culture_silvan = "Caras Iphant"
 				culture_falathrim = "Caras Iphant"
-				culture_avari = "Caras Iphant"
-	
+				culture_avari = "Caras Iphant"	
+			
+				b_carn_dum = {
+					culture_hillmen = "Blacbeorg"
+					culture_arnorian = "Caras Iphant"
+					culture_gondorian = "Caras Iphant"
+					culture_black_numenorean = "Caras Iphant"
+					culture_dunedain = "Caras Iphant"
+					culture_numenorean = "Caras Iphant"
+					culture_adunaic = "Caras Iphant"
+					culture_minyar = "Caras Iphant"
+					culture_tatyar = "Caras Iphant"
+					culture_nelyar = "Caras Iphant"
+					culture_teleri = "Caras Iphant"
+					culture_noldor = "Caras Iphant"
+					culture_vanyar = "Caras Iphant"
+					culture_falmari = "Caras Iphant"
+# 					not going to bother with first age only umanyar
+					culture_sindar = "Caras Iphant"
+					culture_silvan = "Caras Iphant"
+					culture_falathrim = "Caras Iphant"
+					culture_avari = "Caras Iphant"
+				}
+				b_tarmunn_sursa = {
+				}
+				b_duvardain = {
+				}
+				b_barad_durgul = {
+				}
+				b_barashal = {
+				}
+				b_urugart = {
+				}
+				b_lugdun = {
+				}
 			}
-			b_tarmunn_sursa = {
-			}
-			b_duvardain = {
-			}
-			b_barad_durgul = {
-			}
-			b_barashal = {
-			}
-			b_urugart = {
-			}
-			b_lugdun = {
-			}
-		}
-		c_angsul = {
-			color={ 91 82 82 }
-			color2={ 125 125 142 }
+			c_angsul = {
+				color={ 91 82 82 }
+				color2={ 125 125 142 }
 		
-			b_angsul = {
+				b_angsul = {
+				}
+				b_buhr_azel = {
+				}
+				b_carach_ang = {
+				}
+				b_grezny = {
+				}
+				b_paraldas = {
+				}
 			}
-			b_buhr_azel = {
-			}
-			b_carach_ang = {
-			}
-			b_grezny = {
-			}
-			b_paraldas = {
+			c_monts_of_angmar = {
+				color={ 159 137 137 }
+				color2={ 125 125 142 }
+			
+				b_gath_forthnir = {
+				}
+				b_bail_catharnakh = {
+				}
+				b_bail_dilas = {
+				}
+				b_grundaist = {
+				}
+				b_rhunendin = {
+				}
 			}
 		}
-		c_monts_of_angmar = {
-			color={ 159 137 137 }
+		d_gorothlad = {
+			color={ 190 152 148 }
 			color2={ 125 125 142 }
 			
-			b_gath_forthnir = {
-			}
-			b_bail_catharnakh = {
-			}
-			b_bail_dilas = {
-			}
-			b_grundaist = {
-			}
-			b_rhunendin = {
-			}
-		}
-	}
-	d_gorothlad = {
-		color={ 190 152 148 }
-		color2={ 125 125 142 }
+			capital = 633 # Aughaire
 			
-		capital = 633 # Aughaire
-			
-		c_ravda = {
-			color={ 170 39 39 }
-			color2={ 125 125 142 }
+			c_ravda = {
+				color={ 170 39 39 }
+				color2={ 125 125 142 }
 		 
-			b_tyrn_lhuig = {
+				b_tyrn_lhuig = {
+				}
+				b_bail_boglakh = {
+				}
+				b_grishbalt = {
+				}
+				b_rammas_deluon = {
+				}
+				b_mor_maudhul = {
+				}
 			}
-			b_bail_boglakh = {
-			}
-			b_grishbalt = {
-			}
-			b_rammas_deluon = {
-			}
-			b_mor_maudhul = {
-			}
-		}
-		c_kuska = {
-			color={ 80 46 43 }
-			color2={ 125 125 142 }
+			c_kuska = {
+				color={ 80 46 43 }
+				color2={ 125 125 142 }
 		
-			b_bail_grundail  = {
+				b_bail_grundail  = {
+				}
+				b_bar_gorog = {
+				}
+				b_fervar = {
+				}
+				b_gurthlin = {
+				}
+				b_gwambar = {
+				}
 			}
-			b_bar_gorog = {
-			}
-			b_fervar = {
-			}
-			b_gurthlin = {
-			}
-			b_gwambar = {
-			}
-		}
-		c_gorothlad = {
-			color={ 170 99 39 }
-			color2={ 125 125 142 }
+			c_gorothlad = {
+				color={ 170 99 39 }
+				color2={ 125 125 142 }
 		
-			b_gabilshathur = {
+				b_gabilshathur = {
+				}
+				b_donnvail = {
+				}
+				b_dun_covad = {
+				}
+				b_fasach = {
+				}
 			}
-			b_donnvail = {
-			}
-			b_dun_covad = {
-			}
-			b_fasach = {
-			}
-		}
-		c_maethad = {
-			color={ 116 145 173 }
-			color2={ 125 125 142 }
+			c_maethad = {
+				color={ 116 145 173 }
+				color2={ 125 125 142 }
 			
-			b_fail_a_khro = {
+				b_fail_a_khro = {
+				}
+				b_burzum_pushdug = {
+				}
+				b_morfil = {
+				}
+				b_nad_nathair = {
+				}
+				b_tor_gailvin = {
+				}
 			}
-			b_burzum_pushdug = {
-			}
-			b_morfil = {
-			}
-			b_nad_nathair = {
-			}
-			b_tor_gailvin = {
-			}
-		}
-		c_imlad_balchorth = {
-			color={ 143 99 90 }
-			color2={ 125 125 142 }
+			c_imlad_balchorth = {
+				color={ 143 99 90 }
+				color2={ 125 125 142 }
 		
-			b_ram_duath = {
+				b_ram_duath = {
+				}
+				b_lehma-koti = {
+				}
+				b_duvaire = {
+				}
+				b_frith-vaile = {
+				}
+				b_skathmur = {
+				}	
+				b_rimpurod= {
+				}	
 			}
-			b_lehma-koti = {
-			}
-			b_duvaire = {
-			}
-			b_frith-vaile = {
-			}
-			b_skathmur = {
-			}	
-			b_rimpurod= {
-			}	
-		}
-		c_aughaire = {
-			color={ 149 186 85 }
-			color2={ 255 255 255 }
-			holy_site = religion_angmarim
-			holy_site = religion_lossoth
+			c_aughaire = {
+				color={ 149 186 85 }
+				color2={ 255 255 255 }
+				holy_site = religion_angmarim
+				holy_site = religion_lossoth
 		
-			b_aughaire = {
+				b_aughaire = {
 			
-			}
-			b_buth_luikh = {
-			}
-			b_buth_sankhas = {
-			}
-			b_rostelion = {
-			}
-			b_akan_methes = {
-			}
-			b_arnalain = {
+				}
+				b_buth_luikh = {
+				}
+				b_buth_sankhas = {
+				}
+				b_rostelion = {
+				}
+				b_akan_methes = {
+				}
+				b_arnalain = {
+				}
 			}
 		}
 	}
-}
 	
-k_forochel = {	
-	color={ 123 165 186 }
-	color2={ 125 125 142 }
-	culture_lossoth = "Lossoth"
-	capital = 667 #Jarannit
-	
-	culture = culture_lossoth
-	
-	d_forochel = {
+	k_forochel = {	
 		color={ 123 165 186 }
 		color2={ 125 125 142 }
 		culture_lossoth = "Lossoth"
 		capital = 667 #Jarannit
-			
-		c_jarannit = {
-			color={ 170 39 39 }
+	
+		culture = culture_lossoth
+	
+		d_forochel = {
+			color={ 123 165 186 }
 			color2={ 125 125 142 }
-			holy_site = religion_lossoth
+			culture_lossoth = "Lossoth"
+			capital = 667 #Jarannit
 			
-			b_suri_kyla = {
+			c_jarannit = {
+				color={ 170 39 39 }
+				color2={ 125 125 142 }
+				holy_site = religion_lossoth
 			
-			}
-			b_lodge_of_suri_kyla = {
-			}
-			b_reodh_fuil = {
-			}
-			b_ironspan = {
-			}
-		}
-		c_taurorthon = {
-			color={ 179 152 227 }
-			color2={ 125 125 142 }
-			holy_site = religion_lossoth
+				b_suri_kyla = {
 			
-			b_kauppa_kohta = {
+				}
+				b_lodge_of_suri_kyla = {
+				}
+				b_reodh_fuil = {
+				}
+				b_ironspan = {
+				}
+			}
+			c_taurorthon = {
+				color={ 179 152 227 }
+				color2={ 125 125 142 }
+				holy_site = religion_lossoth
+			
+				b_kauppa_kohta = {
 
+				}
+				b_hammastus = {
+				}
+				b_korkea = {
+				}
+				b_thiskdah = {
+				}
 			}
-			b_hammastus = {
-			}
-			b_korkea = {
-			}
-			b_thiskdah = {
-			}
-		}
-		c_talvi_muri = {
-			color={ 114 203 160 }
-			color2={ 125 125 142 }
-			holy_site = religion_lossoth
+			c_talvi_muri = {
+				color={ 114 203 160 }
+				color2={ 125 125 142 }
+				holy_site = religion_lossoth
 			
-			b_kuru_leiri = {
+				b_kuru_leiri = {
+				}
+				b_hilje = {
+				}
+				b_jotunstath = {
+				}
+				b_norbuskal = {
+				}
 			}
-			b_hilje = {
-			}
-			b_jotunstath = {
-			}
-			b_norbuskal = {
-			}
-		}
-		c_forlindon_top_east_bottom = {
+			c_forlindon_top_east_bottom = {
 				color={ 163 74 96 }
 				color2={ 255 255 255 }
 			
@@ -3899,9 +3943,9 @@ k_forochel = {
                 b_hyljka = {
 				}	
 			}
+		}
 	}
 }
-
 
 e_arnor = {
 	color={ 125 96 142 }
