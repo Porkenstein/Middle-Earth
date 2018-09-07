@@ -558,6 +558,88 @@ character_event = {	#End Saruman's War - Sauron Wins
 		narrative_event = { id = mep_fellowship_events.35 }
 	}
 }
+character_event = {	#End Last War - Sauron Wins
+	id = mep_fellowship_mt.55
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = last_war_started
+		NOR = {
+			has_global_flag = last_war_darkness
+			has_global_flag = last_war_allied
+		}
+		FROM = {
+			OR = {
+				has_landed_title = e_barad_dur
+				has_landed_title = e_isengard
+			}
+		}
+		OR = {
+			has_landed_title = e_reunited_kingdom
+			has_landed_title = e_steward_gondor
+		}
+	}
+
+	immediate = {
+		set_global_flag = last_war_darkness
+		FROM = {
+			narrative_event = { id = mep_fellowship_events.36 }
+		}
+		narrative_event = { id = mep_fellowship_events.36 }
+		k_elves = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.36 }
+			}
+		}
+		k_mirkwood = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.36 }
+			}
+		}
+	}
+}
+character_event = {	#End Last War - Allied Wins
+	id = mep_fellowship_mt.56
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = last_war_started
+		NOR = {
+			has_global_flag = last_war_darkness
+			has_global_flag = last_war_allied
+		}
+		FROM = {
+			OR = {
+				has_landed_title = e_barad_dur
+				has_landed_title = e_isengard
+			}
+		}
+		OR = {
+			has_landed_title = e_reunited_kingdom
+			has_landed_title = e_steward_gondor
+		}
+	}
+
+	immediate = {
+		set_global_flag = last_war_allied
+		FROM = {
+			narrative_event = { id = mep_fellowship_events.37 }
+		}
+		narrative_event = { id = mep_fellowship_events.37 }
+		k_elves = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.37 }
+			}
+		}
+		k_mirkwood = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.37 }
+			}
+		}
+	}
+}
 character_event = {	#The War for Erebor Ended
 	id = mep_fellowship_mt.6
 	hide_window = yes

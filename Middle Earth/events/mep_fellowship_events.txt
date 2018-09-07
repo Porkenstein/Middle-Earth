@@ -2151,6 +2151,13 @@ narrative_event = {	#Declare Last War for Middle-Earth
 				}
 			}
 		}
+		e_steward_gondor = {
+			holder_scope = {
+				any_war = {
+					end_war = invalid
+				}
+			}
+		}
 		k_elves = {
 			holder_scope = {
 				any_war = {
@@ -2165,33 +2172,16 @@ narrative_event = {	#Declare Last War for Middle-Earth
 				}
 			}
 		}
+		set_global_flag = last_war_started
 	}
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.34
+		trigger = {
+			has_landed_title = e_barad_dur
+			e_reunited_kingdom = { has_holder = yes }
+		}
 		add_claim = e_reunited_kingdom
-		IF = {
-			limit = {
-				k_elves = {
-					has_holder = yes
-					holder_scope = {
-						independent = yes
-					}
-				}
-			}
-			add_claim = k_elves
-		}
-		IF = {
-			limit = {
-				k_mirkwood = {
-					has_holder = yes
-					holder_scope = {
-						independent = yes
-					}
-				}
-			}
-			add_claim = k_mirkwood
-		}
 		random_claim = {
 			limit = { title = e_reunited_kingdom }
 			reverse_war = {
@@ -2199,20 +2189,115 @@ narrative_event = {	#Declare Last War for Middle-Earth
 				casus_belli = claim
 			}
 		}
+		e_reunited_kingdom = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.341 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.34
+		trigger = {
+			has_landed_title = e_barad_dur
+			e_reunited_kingdom = { has_holder = no }
+		}
+		add_claim = e_steward_gondor
 		random_claim = {
-			limit = { title = k_elves }
+			limit = { title = e_steward_gondor }
 			reverse_war = {
 				target = ROOT
 				casus_belli = claim
 			}
 		}
-		random_claim = {
-			limit = { title = k_mirkwood }
-			reverse_war = {
-				target = ROOT
-				casus_belli = claim
+		e_steward_gondor = {
+			holder_scope = {
+				narrative_event = { id = mep_fellowship_events.341 }
 			}
 		}
+	}
+}
+narrative_event = {	#Last War, Informer
+	id = mep_fellowship_events.341
+	title = EVTTTLmep_fellowship_events.341
+	desc = {
+		text = EVTDESCAmep_fellowship_events.341
+		trigger = {
+			OR = {
+				has_landed_title = e_reunited_kingdom
+				has_landed_title = e_steward_gondor
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fellowship_events.341
+		trigger = {
+			OR = {
+				has_landed_title = k_elves 
+				has_landed_title = k_mirkwood
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.341
+		trigger = {
+			OR = {
+				has_landed_title = e_reunited_kingdom
+				has_landed_title = e_steward_gondor
+			}
+		}
+		k_elves = {
+			IF = {
+				limit = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.341 days = 1 }
+				}
+			}
+		}
+		k_mirkwood = {
+			IF = {
+				limit = {
+					has_holder = yes
+					holder_scope = {
+						independent = yes
+					}
+				}
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.341 days = 1 }
+				}
+			}
+		}
+	}
+	option = {	#Join Last War
+		name = EVTOPTBmep_fellowship_events.341
+		trigger = {
+			OR = {
+				has_landed_title = k_elves 
+				has_landed_title = k_mirkwood
+			}
+		}
+		join_defender_wars = FROM
+	}
+	option = {	#Abandon Middle Earth
+		name = EVTOPTCmep_fellowship_events.341
+		trigger = {
+			OR = {
+				has_landed_title = k_elves 
+				has_landed_title = k_mirkwood
+			}
+		}
+		any_realm_character = {
+			character_event = { id = mep_misc_events.52 }
+		}
+		character_event = { id = mep_misc_events.52 }
 	}
 }
 narrative_event = {	#Saruman's War Ended
@@ -2347,6 +2432,432 @@ narrative_event = {	#Saruman's War Ended
 						death_reason = death_execution
 					}
 				}
+			}
+		}
+	}
+}
+narrative_event = {	#Last War Ended - Darkness Win 
+	id = mep_fellowship_events.36
+	title = EVTTTLmep_fellowship_events.36
+	desc = {
+		text = EVTDESCmep_fellowship_events.36darkness
+		trigger = {
+			OR = {
+				has_landed_title = e_barad_dur
+				has_landed_title = e_isengard
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.36allied
+		trigger = {
+			OR = {
+				has_landed_title = e_reunited_kingdom
+				has_landed_title = e_steward_gondor
+				has_landed_title = k_elves
+				has_landed_title = k_mirkwood
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.36
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+		k_elves = {
+			IF = {
+				limit = {
+					has_holder = yes
+				}
+				holder_scope = {
+					IF = {
+						limit = {
+							independent = yes
+						}
+						save_event_target_as = elf_ruler
+						any_realm_character = {
+								character_event = { id = mep_misc_events.52 }
+						}
+						character_event = { id = mep_misc_events.52 }
+					}
+				}
+			}
+		}
+		k_mirkwood = {
+			IF = {
+				limit = {
+					has_holder = yes
+				}
+				holder_scope = {
+					IF = {
+						limit = {
+							independent = yes
+						}
+						save_event_target_as = elf_ruler
+						any_realm_character = {
+								character_event = { id = mep_misc_events.52 }
+						}
+						character_event = { id = mep_misc_events.52 }
+					}
+				}
+			}
+		}
+		e_barad_dur = {
+			e_reunited_kingdom = {
+				IF = {
+					limit = {
+						has_holder = yes
+					}
+					holder_scope = {
+						save_event_target_as = last_hope
+						death = {
+							death_reason = death_execution
+						}
+					}
+					any_de_jure_vassal_title = {
+						set_defacto_liege = PREVPREV
+						de_jure_liege = PREVPREV
+					}
+					activate_title = { status = no title = e_reunited_kingdom }
+					destroy_landed_title = THIS
+				}
+			}
+			e_steward_gondor = {
+				IF = {
+					limit = {
+						has_holder = yes
+					}
+					holder_scope = {
+						death = {
+							death_reason = death_execution
+						}
+					}
+					any_de_jure_vassal_title = {
+						set_defacto_liege = PREVPREV
+						de_jure_liege = PREVPREV
+					}
+					activate_title = { status = no title = e_steward_gondor }
+					destroy_landed_title = THIS
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.36
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		k_elves = {
+			IF = {
+				limit = {
+					has_holder = yes
+				}
+				holder_scope = {
+					IF = {
+						limit = {
+							independent = yes
+						}
+						save_event_target_as = elf_ruler
+						any_realm_character = {
+								character_event = { id = mep_misc_events.52 }
+						}
+						character_event = { id = mep_misc_events.52 }
+					}
+				}
+			}
+		}
+		k_mirkwood = {
+			IF = {
+				limit = {
+					has_holder = yes
+				}
+				holder_scope = {
+					IF = {
+						limit = {
+							independent = yes
+						}
+						save_event_target_as = elf_ruler
+						any_realm_character = {
+								character_event = { id = mep_misc_events.52 }
+						}
+						character_event = { id = mep_misc_events.52 }
+					}
+				}
+			}
+		}
+		e_isengard = {
+			e_reunited_kingdom = {
+				IF = {
+					limit = {
+						has_holder = yes
+					}
+					holder_scope = {
+						save_event_target_as = last_hope
+						death = {
+							death_reason = death_execution
+						}
+					}
+					any_de_jure_vassal_title = {
+						set_defacto_liege = PREVPREV
+						de_jure_liege = PREVPREV
+					}
+					activate_title = { status = no title = e_reunited_kingdom }
+					destroy_landed_title = THIS
+				}
+			}
+			e_steward_gondor = {
+				IF = {
+					limit = {
+						has_holder = yes
+					}
+					holder_scope = {
+						death = {
+							death_reason = death_execution
+						}
+					}
+					any_de_jure_vassal_title = {
+						set_defacto_liege = PREVPREV
+						de_jure_liege = PREVPREV
+					}
+					activate_title = { status = no title = e_steward_gondor }
+					destroy_landed_title = THIS
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.36
+		trigger = {
+			OR = {
+				has_landed_title = e_reunited_kingdom
+				has_landed_title = e_steward_gondor
+				has_landed_title = k_elves
+				has_landed_title = k_mirkwood
+			}
+		}
+	}
+}
+narrative_event = {	#Last War Ended - Allied Win 
+	id = mep_fellowship_events.37
+	title = EVTTTLmep_fellowship_events.37
+	desc = {
+		text = EVTDESCmep_fellowship_events.37darkness
+		trigger = {
+			OR = {
+				has_landed_title = e_barad_dur
+				has_landed_title = e_isengard
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCmep_fellowship_events.37allied
+		trigger = {
+			OR = {
+				has_landed_title = e_reunited_kingdom
+				has_landed_title = e_steward_gondor
+				has_landed_title = k_elves
+				has_landed_title = k_mirkwood
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.37
+		trigger = {
+			e_barad_dur = { has_holder = yes }
+		}
+		e_barad_dur = {
+			holder_scope = {
+				save_event_target_as = sauron
+				remove_trait = onering
+				destroy_artifact = artifact_ring
+				any_war = {
+					end_war = invalid
+				}
+				k_mordor = {
+					any_direct_de_jure_vassal_title = {
+						limit = { tier = COUNT }
+						location = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
+				}
+			}
+			any_de_jure_vassal_title = {
+				set_defacto_liege = THIS
+				de_jure_liege = 0
+			}
+			activate_title = { status = no title = e_barad_dur }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = ROOT
+			}
+		}
+		d_fellowship_gandalf = {
+			set_name = "Gandalf the White Pilgrim"
+		}
+		hidden_effect = {
+			any_character = {
+				limit = { trait = trait_nooo }
+				remove_trait = trait_nooo
+			}
+			any_character = {
+				limit = { trait = nazgul }
+				death = { death_reason = death_battle }
+			}
+			k_elves = {
+				IF = {
+					limit = { has_holder = yes }
+					holder_scope = {
+						save_event_target_as = celeborn
+					}
+					k_woodsmen_mirkwood = {
+						holder_scope = {
+							save_event_target_as = woodsmen
+						}
+					}
+					d_cell_angol = {
+						any_direct_de_jure_vassal_title= {
+							limit = { tier = COUNT }
+							location = {
+								culture = culture_woodsmen
+								religion = religion_rhovanion
+							}
+							grant_title_no_opinion = event_target:woodsmen
+						}
+					}
+				}
+				k_dol_guldur = {
+					any_direct_de_jure_vassal_title= {
+						limit = { tier = COUNT }
+						location = {
+							culture = culture_sindar
+							religion = religion_moriquendi
+						}
+					}
+					holder_scope = {
+						any_demesne_title = {
+							grant_title_no_opinion = event_target:celeborn
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fellowship_events.37
+		trigger = {
+			e_isengard = { has_holder = yes }
+		}
+		e_isengard = {
+			holder_scope = {
+				save_event_target_as = sauron
+				remove_trait = onering
+				destroy_artifact = artifact_ring
+				any_war = {
+					end_war = invalid
+				}
+				k_mordor = {
+					any_direct_de_jure_vassal_title = {
+						limit = { tier = COUNT }
+						location = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
+				}
+			}
+			any_de_jure_vassal_title = {
+				set_defacto_liege = THIS
+				de_jure_liege = 0
+			}
+			activate_title = { status = no title = e_isengard }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = ROOT
+			}
+		}
+		d_fellowship_gandalf = {
+			set_name = "Gandalf the White Pilgrim"
+		}
+		hidden_effect = {
+			any_character = {
+				limit = { trait = trait_nooo }
+				remove_trait = trait_nooo
+			}
+			any_character = {
+				limit = { trait = nazgul }
+				death = { death_reason = death_battle }
+			}
+			k_elves = {
+				IF = {
+					limit = { has_holder = yes }
+					holder_scope = {
+						save_event_target_as = celeborn
+					}
+					k_woodsmen_mirkwood = {
+						holder_scope = {
+							save_event_target_as = woodsmen
+						}
+					}
+					d_cell_angol = {
+						any_direct_de_jure_vassal_title= {
+							limit = { tier = COUNT }
+							location = {
+								culture = culture_woodsmen
+								religion = religion_rhovanion
+							}
+							grant_title_no_opinion = event_target:woodsmen
+						}
+					}
+				}
+				k_dol_guldur = {
+					any_direct_de_jure_vassal_title= {
+						limit = { tier = COUNT }
+						location = {
+							culture = culture_sindar
+							religion = religion_moriquendi
+						}
+					}
+					holder_scope = {
+						any_demesne_title = {
+							grant_title_no_opinion = event_target:celeborn
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fellowship_events.37
+		trigger = {
+			OR = {
+				has_landed_title = k_elves
+				has_landed_title = k_mirkwood
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fellowship_events.37
+		trigger = {
+			OR = {
+				has_landed_title = e_barad_dur
+				has_landed_title = e_isengard
 			}
 		}
 	}
