@@ -35,7 +35,10 @@ character_event = {	#Send Event to Rebel
 		set_character_flag = orc_ruler
 		any_courtier = {
 			limit = {
-				has_character_flag = orc_ruler
+				OR = {
+					has_character_modifier = strongest_orc
+					has_character_flag = orc_ruler
+				}
 			}
 			remove_character_modifier  = strongest_orc
 		}
@@ -702,8 +705,28 @@ character_event = {	#Decide Strongest
 				}
 			}
 		}
+			event_target:orc_ruler = {
+				any_courtier = {
+					limit = {
+						has_character_modifier  = strongest_orc
+					}
+					save_event_target_as = orc_heir
+				}
+				character_event = { id =  }
+			}
+		
 	}
 }
+character_event = {	#Strongest is Heir
+	id = mep_inherit_events.11
+	title = EVTTTLmep_inherit_events.11
+	desc = EVTDESCmep_inherit_events.11
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_inherit_events.11
+	}
 character_event = {	#Orc Heir
 	id = mep_inherit_events.2
 	is_triggered_only = yes
