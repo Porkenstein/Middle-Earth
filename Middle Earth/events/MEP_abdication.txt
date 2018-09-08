@@ -263,20 +263,26 @@ character_event = {
 			}
 		## Narsil (Shards)##
 		if = {
-				limit = { trait = narsil }
+				limit = { has_artifact = narsil_broken }
 				if = { 
 					limit = { 
 						is_ruler = yes
 						current_heir = { 
 							is_alive = yes  
-							NOT = { trait = narsil } 
+							NOT = { has_artifact = narsil_broken } 
 						}
 					}
 					current_heir = {
-						add_trait = narsil
-						character_event = { id = 250289 }					
+						PREV = {
+							any_artifact = {
+								limit = { has_artifact = narsil_broken } 
+								transfer_artifact = {
+									from = PREV
+									to = PREVPREV
+								}
+							}
+						}
 					}
-					remove_trait = narsil
 				}
 			}	
 		## Glamdring ##
