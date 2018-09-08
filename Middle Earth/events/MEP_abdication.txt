@@ -71,58 +71,55 @@ character_event = {
 		}
 		## Narya ##	
 		if = {
-				limit = { trait = narya }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = {  
-							is_alive = yes  
-							NOT = { trait = narya } 
-						}
+			limit = { has_artifact = narya }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = {  
+						is_alive = yes  
+						NOT = { has_artifact = narya } 
 					}
-					current_heir = {
-						add_trait = narya 
-						character_event = { id = 250279 }
-					}
-					remove_trait = narya
 				}
+				current_heir = {
+					effect = { add_artifact = narya }
+					character_event = { id = 250279 }
+				}
+			}
 		}
 		## Nenya ##	
 		if = {
-			limit = { trait = nenya }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = nenya } 
-						}
+			limit = { has_artifact = nenya }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = {  
+						is_alive = yes  
+						NOT = { has_artifact = nenya } 
 					}
-					current_heir = {
-						add_trait = nenya 
-						character_event = { id = 250298 }
-					}
-					remove_trait = nenya
+				}
+				current_heir = {
+					effect = { add_artifact = nenya }
+					character_event = { id = 250298 }
 				}
 			}
+		}
 		## Vilya ##	
 		if = {
-				limit = { trait = vilya }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = vilya } 
-						}
+			limit = { has_artifact = vilya }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = {  
+						is_alive = yes  
+						NOT = { has_artifact = vilya } 
 					}
-					current_heir = {
-						add_trait = vilya 
-						character_event = { id = 250299 }
-					}
-					remove_trait = vilya
+				}
+				current_heir = {
+					effect = { add_artifact = vilya }
+					character_event = { id = 250299 }
 				}
 			}
+		}
 		## Ring of Barahir ##
 		if = {
 			limit = { trait = barahir }
