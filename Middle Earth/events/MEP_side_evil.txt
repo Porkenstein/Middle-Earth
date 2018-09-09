@@ -16,7 +16,6 @@ character_event = {
 		religion_group = religion_group_hildor	
 		NOT = { culture = culture_nurnim }
 		NOT = { trait = evil_side }
-		NOT = { trait = good_side }
 		NOT = { has_character_flag = evilsidestartup }
 		NOT = { has_global_flag = saurondefeated }
 		# also, Sauron should be ruling over mordor (tweak...)
@@ -62,7 +61,6 @@ character_event = {
 		name = "EVTOPTAevilside.2"				  
 		ROOT = { religion = religion_black_numenorean }
 		remove_trait = evil_side
-		add_trait = good_side
 	}
 	option = {
 		trigger = {
@@ -70,8 +68,7 @@ character_event = {
 		}
 		name = "EVTOPTAevilside.2"				  
 		ROOT = { religion = religion_southron }
-		remove_trait = evil_side
-		add_trait = good_side				  
+		remove_trait = evil_side			  
 	}
 	option = {
 		trigger = {
@@ -79,7 +76,6 @@ character_event = {
 		}
 		name = "EVTOPTAevilside.2"				
 		remove_trait = evil_side
-		add_trait = good_side
 	}
 	option = {
 		trigger = {
@@ -93,7 +89,6 @@ character_event = {
 		}
 		name = "EVTOPTAevilside.2"				  
 		remove_trait = evil_side
-		add_trait = good_side
 	}
 	option = {
 		trigger = {
@@ -101,7 +96,6 @@ character_event = {
 		}
 		name = "EVTOPTAevilside.2"				  
 		remove_trait = evil_side
-		add_trait = good_side
 	}
 	option = {
 		trigger = {
@@ -109,7 +103,6 @@ character_event = {
 		}
 		name = "EVTOPTAevilside.2"				  
 		remove_trait = evil_side
-		add_trait = good_side
 	}
 	option = {
 		name = "EVTOPTBevilside.2"	
@@ -202,7 +195,6 @@ character_event = {
 			limit = {
 				primary_title = { higher_tier_than = count } 
 				NOR = {
-					trait = good_side
 					has_character_flag = sidechosen
 					religion_group = religion_group_eldar
 					religion_group = religion_group_eruhini
@@ -223,7 +215,6 @@ character_event = {
 					limit = {
 						primary_title = { higher_real_tier_than = count } 
 						NOR = {
-							trait = good_side
 							has_character_flag = sidechosen
 							religion_group = religion_group_eldar
 							religion_group = religion_group_eruhini
@@ -239,7 +230,6 @@ character_event = {
 					limit = {
 						NOT = { trait = evil_side }
 						NOR = {
-							trait = good_side
 							has_character_flag = sidechosen
 							religion_group = religion_group_eldar
 							religion_group = religion_group_eruhini
@@ -259,7 +249,6 @@ character_event = {
 									de_facto_liege = PREVPREVPREV # excluding capital baony holders who belong to someone else
 									NOT = { trait = evil_side } # just in case
 									NOR = {
-										trait = good_side
 										has_character_flag = sidechosen
 										religion_group = religion_group_eldar
 										religion_group = religion_group_eruhini
@@ -280,7 +269,6 @@ character_event = {
 				limit = {
 					NOT = { trait = evil_side }
 					NOR = {
-						trait = good_side
 						has_character_flag = sidechosen
 						religion_group = religion_group_eldar
 						religion_group = religion_group_eruhini
@@ -299,7 +287,6 @@ character_event = {
 								de_facto_liege = ROOT
 								NOT = { trait = evil_side }
 								NOR = {
-									trait = good_side
 									has_character_flag = sidechosen
 									religion_group = religion_group_eldar
 									religion_group = religion_group_eruhini
@@ -331,7 +318,6 @@ character_event = {
 		OR = {
 			# has an evil_side vassal not already marked as a criminal
 			any_vassal = {
-				trait = good_side
 				prisoner = no
 				NOT = {
 					reverse_has_opinion_modifier = {
@@ -342,7 +328,6 @@ character_event = {
 			}
 			# has an evil_side courtier not already marked as a criminal
 			any_courtier = {
-				trait = good_side
 				prisoner = no
 				NOT = {
 					reverse_has_opinion_modifier = {
@@ -361,7 +346,6 @@ character_event = {
 		name = EVTOPTAevilside.7
 		any_vassal = {
 			limit = {
-				trait = good_side
 				prisoner = no
 				NOT = {
 					reverse_has_opinion_modifier = {
@@ -379,7 +363,6 @@ character_event = {
 		}
 		any_courtier = {
 			limit = {
-				trait = good_side
 				prisoner = no
 				NOT = {
 					reverse_has_opinion_modifier = {
