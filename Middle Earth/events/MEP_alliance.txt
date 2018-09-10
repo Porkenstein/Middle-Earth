@@ -26,12 +26,12 @@ character_event = {
 		d_dunedain_of_north = {
 			has_holder = yes
 			holder_scope = {
-				NOT = { trait = evil_side }
+				NOT = { mep_is_evil_side_trigger = yes }
 			}
 		}
 		is_primary_war_defender = yes
 		NOT = { has_character_flag = called_for_aid }
-		NOT = { trait = evil_side }
+		NOT = { mep_is_evil_side_trigger = yes }
 		NOT = { has_character_flag = refused_for_aid }
 	}
 			
@@ -84,7 +84,7 @@ character_event = {
 	option = {
         name = EVTOPTAalliancesystem.2
 		trigger = {
-			NOT = { trait = evil_side }
+			NOT = { mep_is_evil_side_trigger = yes }
 			NOT = { trait = incapable }
 			is_adult = yes
 			prisoner = no
@@ -176,7 +176,7 @@ character_event = {
 		is_primary_war_defender = yes
 		NOT = { has_character_flag = called_for_aid }
 		NOT = { has_character_flag = refused_for_aid }
-		NOT = { trait = evil_side }
+		NOT = { mep_is_evil_side_trigger = yes }
 	}
 	
 	mean_time_to_happen = {
@@ -221,7 +221,7 @@ character_event = {
 	option = {
         name = EVTOPTAalliancesystem.6
 		trigger = {
-			NOT = { trait = evil_side }
+			NOT = { mep_is_evil_side_trigger = yes }
 			NOT = { trait = incapable }
 			is_adult = yes
 			prisoner = no
@@ -288,7 +288,7 @@ character_event = {
 		is_primary_war_defender = yes
 		NOT = { has_character_flag = called_for_aid }
 		NOT = { has_character_flag = refused_for_aid }
-		NOT = { trait = evil_side }
+		NOT = { mep_is_evil_side_trigger = yes }
 	}
 	
 	mean_time_to_happen = {
@@ -340,7 +340,7 @@ character_event = {
         name = EVTOPTAalliancesystem.9
 		trigger = {
 			ai = no
-			NOT = { trait = evil_side }
+			NOT = { mep_is_evil_side_trigger = yes }
 		}
 		ROOT = {
 			join_defender_wars = FROM
@@ -400,7 +400,7 @@ character_event = {
 		}
 		is_primary_war_defender = yes
 		NOT = { has_character_flag = called_for_aid }
-		NOT = { trait = evil_side }
+		NOT = { mep_is_evil_side_trigger = yes }
 		NOT = { has_character_flag = refused_for_aid }
 	}
 			
@@ -455,7 +455,7 @@ character_event = {
 	option = {
         name = EVTOPTAalliancesystem.11
 		trigger = {
-			NOT = { trait = evil_side }
+			NOT = { mep_is_evil_side_trigger = yes }
 			NOT = { trait = incapable }
 			is_adult = yes
 			prisoner = no
@@ -764,7 +764,7 @@ character_event = { ## Sauron is alerted
 		}
 		any_playable_ruler = {
 			limit = {
-				trait = evil_side
+				mep_is_evil_side_trigger = yes
 				independent = yes
 			}
 			character_event = { id = alliancesystem.28 days = 10 }
