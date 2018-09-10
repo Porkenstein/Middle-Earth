@@ -142,7 +142,6 @@ mep_is_very_nice_trigger = {
 				culture = culture_entish
 				religion_group = religion_group_eldar   # Elves								
 			}
-			NOT = { trait = evil_side}
 		}
 	}
 }
@@ -151,7 +150,7 @@ mep_is_very_nice_trigger = {
 # Dont't do nice things, because evil or wilderness
 mep_dont_do_nice_trigger = {
 	OR = {
-		trait = evil_side
+		mep_is_evil_side_trigger = yes
 		AND = {
 			OR = {
 				religion_group = religion_group_melkor
@@ -440,7 +439,7 @@ mep_pick_good_side_trigger = {
 		culture = culture_eagles
 	}
 	NOR = {
-		trait = evil_side 
+		mep_is_evil_side_trigger = yes
 		has_character_flag = sidechosen
 		has_landed_title  = d_mornaugrim
 		culture = culture_adunaic
@@ -519,14 +518,14 @@ mep_will_purge_evil = {
 	NOR = {
 		culture_group = culture_group_melkor
 		culture = culture_umaiar
-		trait = evil_side
+		mep_is_evil_side_trigger = yes
 		AND = {
 			independent = no
 			any_liege = {
 				OR = {
 					culture_group = culture_group_melkor
 					culture = culture_umaiar
-					trait = evil_side
+					mep_is_evil_side_trigger = yes
 				}
 			}
 			
@@ -537,7 +536,7 @@ mep_will_purge_evil = {
 				OR = {
 					culture_group = culture_group_melkor
 					culture = culture_umaiar
-					trait = evil_side
+					mep_is_evil_side_trigger = yes
 				}
 			}
 		}
@@ -547,7 +546,6 @@ mep_will_purge_evil = {
 mep_will_purge_good = {
 	mep_is_evil_side_trigger = yes
 	NOT = { has_character_flag = very_tolerant_of_good }
-	
 	# independent, or no good side lieges
 	OR = {
 		independent = yes
@@ -565,7 +563,7 @@ mep_will_purge_good = {
 }
 
 mep_is_evil_overlord = {
-	trait = evil_side
+	mep_is_evil_side_trigger = yes
 	OR = {
 		religion = religion_umaiar
 		culture = culture_istari
@@ -578,7 +576,7 @@ mep_is_evil_overlord = {
 }
 
 mep_eligible_for_heren_isseon = {
-	NOT = { trait = evil_side }
+	NOT = { mep_is_evil_side_trigger = yes }
 	NOT = { culture = culture_druedain } 
 	OR = {
 		religion_group = religion_group_periannath
@@ -1108,194 +1106,6 @@ mep_being_purged_trigger = {
 	}
 }
 
-#mep_pop_always_evil_purge_culture = yes
-#holder_scope = {
-#	NAND = {
-#		trait = evil_side
-#		religion = PREV
-#	}
-#}
-
-
-#--------------------------------------------------------------------------------------------
-## provinces for dynamic population stuff
-
-# mep_has_dunedain_popmod_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_dunedain
-		# has_province_modifier = two_population_dunedain
-		# has_province_modifier = three_population_dunedain
-		# has_province_modifier = four_population_dunedain
-		# has_province_modifier = five_population_dunedain
-		# has_province_modifier = six_population_dunedain
-		# has_province_modifier = seven_population_dunedain
-	# }
-# }
-
-# mep_dunedian_popmod_increasable_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_dunedain
-		# has_province_modifier = two_population_dunedain
-		# has_province_modifier = three_population_dunedain
-		# has_province_modifier = four_population_dunedain
-		# has_province_modifier = five_population_dunedain
-		# has_province_modifier = six_population_dunedain
-	# }
-# }
-
-# mep_has_elves_popmod_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_elves
-		# has_province_modifier = two_population_elves
-		# has_province_modifier = three_population_elves
-		# has_province_modifier = four_population_elves
-		# has_province_modifier = five_population_elves
-		# has_province_modifier = six_population_elves
-		# has_province_modifier = seven_population_elves
-	# }
-# }
-
-# mep_elves_popmod_increasable_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_elves
-		# has_province_modifier = two_population_elves
-		# has_province_modifier = three_population_elves
-		# has_province_modifier = four_population_elves
-		# has_province_modifier = five_population_elves
-		# has_province_modifier = six_population_elves
-	# }
-# }
-
-# mep_has_dwarves_popmod_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_dwarves
-		# has_province_modifier = two_population_dwarves
-		# has_province_modifier = three_population_dwarves
-		# has_province_modifier = four_population_dwarves
-		# has_province_modifier = five_population_dwarves
-		# has_province_modifier = six_population_dwarves
-		# has_province_modifier = seven_population_dwarves
-	# }
-# }
-
-# mep_dwarves_popmod_increasable_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_dwarves
-		# has_province_modifier = two_population_dwarves
-		# has_province_modifier = three_population_dwarves
-		# has_province_modifier = four_population_dwarves
-		# has_province_modifier = five_population_dwarves
-		# has_province_modifier = six_population_dwarves
-	# }
-# }
-
-# mep_has_xhumans_popmod_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_human
-		# has_province_modifier = two_population_human
-		# has_province_modifier = three_population_human
-		# has_province_modifier = four_population_human
-		# has_province_modifier = five_population_human
-		# has_province_modifier = six_population_human
-		# has_province_modifier = seven_population_human
-	# }
-# }
-# mep_xhumans_popmod_increasable_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_human
-		# has_province_modifier = two_population_human
-		# has_province_modifier = three_population_human
-		# has_province_modifier = four_population_human
-		# has_province_modifier = five_population_human
-		# has_province_modifier = six_population_human
-		# has_province_modifier = seven_population_human
-	# }
-# }
-
-# mep_has_xhumans_culture = {
-	# OR = {
-		# mep_has_nondunedain_human_culture = yes
-		# culture_group = culture_group_halfling
-		# AND = {
-			# culture_group = culture_group_melkor
-			# NOT = {
-				# culture = culture_balrog
-				# culture = culture_wight
-				# culture = culture_dragons
-			# }
-		# }
-	# }
-	
-# }
-
-# mep_has_popmod_trigger = {
-	# OR = {
-		# mep_has_dunedain_popmod_trigger = yes
-		# mep_has_elves_popmod_trigger = yes
-		# mep_has_dwarves_popmod_trigger = yes
-		# mep_has_xhumans_popmod_trigger = yes
-	# }
-# }
-
-# mep_has_popmod_culture = {
-	# OR = {
-		# culture_group = culture_group_numenorean
-		# mep_is_province_elven_trigger = yes
-		# culture_group = culture_group_dwarves	
-		# mep_has_xhumans_culture = yes
-	# }
-# }
-
-# mep_has_increasable_popmod_trigger = {
-	# OR = {
-		# mep_dunedian_popmod_increasable_trigger = yes
-		# mep_elves_popmod_increasable_trigger = yes
-		# mep_dwarves_popmod_increasable_trigger = yes
-		# mep_xhumans_popmod_increasable_trigger = yes
-	# }
-# }
-
-# mep_has_depopulated_modifier = {
-	# OR = {
-		# has_province_modifier = depopulated_1
-		# has_province_modifier = depopulated_2
-		# has_province_modifier = depopulated_3
-	# }
-# }
-
-# mep_has_properity_modifier = {
-	# OR = {
-		# has_province_modifier = prosperity_modifier_1
-		# has_province_modifier = prosperity_modifier_2
-		# has_province_modifier = prosperity_modifier_3
-	# }
-# }
-
-# mep_high_pop_trigger = {
-	# OR = {
-		# has_province_modifier = six_population_dunedain
-		# has_province_modifier = seven_population_dunedain
-		# has_province_modifier = six_population_elves
-		# has_province_modifier = seven_population_elves
-		# has_province_modifier = six_population_dwarves
-		# has_province_modifier = seven_population_dwarves
-		# has_province_modifier = six_population_human
-		# has_province_modifier = seven_population_human
-	# }
-# }
-
-# mep_low_pop_trigger = {
-	# OR = {
-		# has_province_modifier = one_population_dunedain
-		# has_province_modifier = two_population_dunedain
-		# has_province_modifier = one_population_elves
-		# has_province_modifier = two_population_elves
-		# has_province_modifier = one_population_dwarves
-		# has_province_modifier = two_population_dwarves
-		# has_province_modifier = one_population_human
-		# has_province_modifier = two_population_human
-	# }
-# }
 #-----------------------------------------------------------
 # province CB shorteners
 mep_province_owned_by_root = {
@@ -1520,7 +1330,7 @@ mep_temp_muslim_standin_trigger = {
 
 # those who can get 'nice' feudalism (reducing conflict). 
 mep_canhave_nice_feudalism = {
-	NOT = { trait = evil_side }
+	NOT = { mep_is_evil_side_trigger = yes }
 	OR = {
 		religion_group = religion_group_eldar
 		religion_group = religion_group_enyd
