@@ -6018,101 +6018,6 @@ character_event = {
 					add_trait = elf_brooch 
 				}
 			}
-		}	
-	## the Crown of Herumor ##	
-	# if = {
-			limit = { trait = crown_herumor }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = crown_herumor } 
-					}
-				}
-				current_heir = {
-					add_trait = crown_herumor 
-				}
-				add_trait = dead_target
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = crown_herumor  } }
-							add_trait = crown_herumor 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = crown_herumor } }		
-				}
-				spouse = { add_trait = crown_herumor  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = crown_herumor } }
-				}
-				liege = { add_trait = crown_herumor  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = crown_herumor } }
-					add_trait = crown_herumor 
-				}
-			}
 		}
 	if = {
 			limit = { trait = isildur_throne }
@@ -6703,6 +6608,7 @@ character_event = {
 					add_trait = dead_target
 			}			
 		}
+	}
 }
 
 # Coppied from Vanilla (JamesFox, 2017/04/21)

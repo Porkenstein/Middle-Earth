@@ -850,7 +850,7 @@ character_event = {
 					set_character_flag = mep_lastalliance_combatant
 					break = yes
 				}
-				if = {  # AmdÃ­r or Amroth or ??
+				if = {  # Amdír or Amroth or ??
 					limit = { has_landed_title = k_elves }
 					save_event_target_as = mep_lastalliance_good_combatant2
 					set_character_flag = mep_lastalliance_combatant
@@ -1147,7 +1147,7 @@ character_event = {
 	
 	immediate = {
 		# find a province to spawn troops
-		# Barad-dÃ»r (if not under siege)
+		# Barad-dûr (if not under siege)
 		if = {
 			limit = {
 				c_barad_dur = {
@@ -1185,7 +1185,7 @@ character_event = {
 			}
 			break = yes
 		}
-		# Barad-dÃ»r (if all is under siege)
+		# Barad-dûr (if all is under siege)
 		c_barad_dur = {
 			location = {
 				save_event_target_as = mep_lastalliance_evilspawnprov
@@ -1203,7 +1203,6 @@ character_event = {
 			religion = religion_olog
 			culture = culture_troll
 			trait = orc # for trolls as well
-			trait = evil_side
 			trait = heavy_infantry_leader
 			trait = brilliant_strategist
 			female = no
@@ -1233,7 +1232,6 @@ character_event = {
 			culture = culture_orkish
 			trait = orc
 			trait = great_orc
-			trait = evil_side
 			trait = mountain_terrain_leader
 			trait = brilliant_strategist
 			female = no
@@ -1265,7 +1263,6 @@ character_event = {
 			culture = culture_orkish
 			trait = orc
 			trait = great_orc
-			trait = evil_side
 			trait = organizer
 			trait = brilliant_strategist
 			female = no
@@ -1297,7 +1294,6 @@ character_event = {
 			culture = culture_orkish
 			trait = orc
 			trait = great_orc
-			trait = evil_side
 			trait = aggressive_leader
 			trait = brilliant_strategist
 			female = no
@@ -1330,7 +1326,6 @@ character_event = {
 			culture = culture_orkish
 			trait = orc
 			trait = great_orc
-			trait = evil_side
 			trait = siege_leader
 			trait = brilliant_strategist
 			female = no
@@ -1820,62 +1815,7 @@ character_event = {
 		
 	}
 }
-#------------------------------------
-# Event 63 : What to do with the ring?
-character_event = {
-	id = lastalliance.63
-	title = EVTTITlastalliance.63
-	desc = EVTDESClastalliance.63
-	picture = GFX_evt_ring_craft
-	
-	is_triggered_only = yes
-	
-	# Keep the Ring (Elendil)
-	option = {
-		name = EVTOPTAlastalliance.63
-		trigger = { character = 12135 }
-		ai_chance = { factor = 0.3 }
-		event_target:mep_lastalliance_evil_combatant = {
-			mep_transfer_onering_to_root = yes
-			character_event = { id = lastalliance.64 }
-		}
-		
-	}
-	
-	# Keep the Ring (Not-Elendil)
-	option = {
-		name = EVTOPTBlastalliance.63
-		trigger = { NOT = {character = 12135 } }
-		ai_chance = { factor = 2 }
-		event_target:mep_lastalliance_evil_combatant = {
-			mep_transfer_onering_to_root = yes
-			character_event = { id = lastalliance.64 }
-		}
-		
-	}
-	
-	# Destroy the Ring
-	option = {
-		name = EVTOPTClastalliance.63
-		ai_chance = { factor = 1 }
-		destroy_artifact = artifact_ring
-		add_trait = ringbearer1
-		event_target:mep_lastalliance_evil_combatant = {
-			death = { death_reason = death_destroyed_alongside_one_ring  killer = PREV }
-		}
-		hidden_tooltip = {
-			any_character = {
-				limit = { trait = nazgul }
-				character_event = { id = frodo.18  days = 2}
-			}
-		}
-		any_independent_ruler = {
-			narrative_event = { id = lastalliance.67  days = 7 }
-		}
-		
-	}
-}
-#------------------------------------
+#-------------------------------------
 # Event 64 : What to do with Sauron if the ring is not destroyed
 character_event = {
 	id = lastalliance.64

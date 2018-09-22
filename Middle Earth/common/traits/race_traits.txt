@@ -104,7 +104,6 @@ elf_friend = {
 ruler_designer_cost = 0
 	potential = {
 		NOT = { religion_group = religion_group_eldar }
-		NOT = { trait = evil_side }
 		NOT = { trait = zealous } # aka 'Racist'
 		NOT = { mep_evil_religion = yes }
 	}
@@ -194,7 +193,6 @@ dwarf_friend = {
 ruler_designer_cost = 0
 	potential = {
 		NOT = { religion_group = religion_group_khazad }
-		NOT = { trait = evil_side }
 		NOT = { trait = zealous } # aka 'Racist'
 		NOT = { mep_evil_religion = yes }
 	}
@@ -1228,7 +1226,6 @@ hobbit_friend = {
 ruler_designer_cost = 0
 	potential = {
 		NOT = { religion_group = religion_group_periannath }
-		NOT = { trait = evil_side }
 		NOT = { trait = zealous } # aka 'Racist'
 		NOT = { mep_evil_religion = yes }
 	}
@@ -1397,13 +1394,8 @@ worship_balrog = {
 ruler_designer_cost = 0
 	potential = {
 		OR = {
-			trait = evil_side
-			AND = {
-				OR = {
-					religion_group = religion_group_melkor
-					religion_group = religion_group_ungoliant
-				}
-			}
+			religion_group = religion_group_melkor
+			religion_group = religion_group_ungoliant
 		}
 		NOR = {
 			culture = culture_balrog
