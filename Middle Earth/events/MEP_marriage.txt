@@ -580,14 +580,36 @@ character_event = {
 		else_if = {
 			limit = { NOT = { trait = elven_blood } }
 			if = {
-				limit = { age = 65 }
+				limit = {
+					OR = {
+						AND = {
+							is_female = yes
+							age = 50
+						}
+						AND = {
+							is_female = no
+							age = 70
+						}
+					}
+				}
 				character_event = { id = mepmarriage.14 }
 			}
 		}
 		# Elven Blood (and no other Númenorean traits }
 		else = {
 			if = {
-				limit = { age = 85 }
+				limit = {
+					OR = {
+						AND = {
+							is_female = yes
+							age = 65
+						}
+						AND = {
+							is_female = no
+							age = 85
+						}
+					}
+				}
 				character_event = { id = mepmarriage.14 }
 			}
 		}
