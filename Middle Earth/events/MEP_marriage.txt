@@ -487,131 +487,22 @@ character_event = {
 
 	option = {# option for Elven/Númenorean blood
 		trigger = {
-			OR = {
-				culture_group = culture_group_numenorean
-				trait = elven_blood
-			}
+			mep_is_human_trigger = yes
 		}
-		# High/Pure Blood Númenorean (this generally assumes death age corresponds to something like 85)
-		if = {
+		IF = {
 			limit = {
 				OR = {
-					trait = blood_of_numenor
-					trait = prince_numenor
-					trait = blood_of_isildur # ??
-					trait = blood_of_anarion # ??
-				}
-			}
-			# Max menopause: 215 (early Númenorean )
-			if = {
-				limit = { age = 215 }
-				character_event = { id = mepmarriage.14 }
-			}
-			# decline part 1
-			else_if = {
-				limit = {
-					year = 7300
-					age = 200
-				}
-				random = {
-					chance = 90
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-			# decline part 2
-			else_if = {
-				limit = {
-					year = 7600
-					age = 165
-				}
-				random = {
-					chance = 92
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-			# late 2nd age 
-			else_if = {
-				limit = {
-					year = 7900
-					age = 140
-				}
-				random = {
-					chance = 94
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-			# Into the 3rd age : 125
-			else_if = {
-				limit = {
-					year = 9100
-					age = 125
-				}
-				random = {
-					chance = 95
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-			# mid 3rd age
-			else_if = {
-				limit = {
-					year = 9750
-					age = 105
-				}
-				random = {
-					chance = 95
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-			# later 3rd age : 90 (Children and grandchildren of Aragorn are excluded, if pureblooded)
-			else_if = {
-				limit = {
-					year = 10400
-					age = 90
-					NOT = { is_child_of = 2038 }
-					NOT = { is_grandchild_of = 2038 }
-				}
-				random = {
-					chance = 95
-					character_event = { id = mepmarriage.14 }
-				}
-			}
-		}
-		# 'Medium Blood'
-		else_if = {
-			limit = { NOT = { trait = elven_blood } }
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_female = yes
-							age = 50
-						}
-						AND = {
-							is_female = no
-							age = 70
-						}
+					AND = {
+						is_female = yes
+						age = 65
+					}
+					AND = {
+						is_female = no
+						age = 85
 					}
 				}
-				character_event = { id = mepmarriage.14 }
 			}
-		}
-		# Elven Blood (and no other Númenorean traits }
-		else = {
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_female = yes
-							age = 65
-						}
-						AND = {
-							is_female = no
-							age = 85
-						}
-					}
-				}
-				character_event = { id = mepmarriage.14 }
-			}
+			character_event = { id = mepmarriage.14 }
 		}
 	}
 
@@ -620,20 +511,8 @@ character_event = {
 		trigger = {
 			religion_group = religion_group_periannath
 		}
-		if = {
+		IF = {
 			limit = { age = 50 }
-			mep_addinfertile = yes
-		}
-	}
-
-	option = {# Option for Other Humans
-		trigger = {
-			mep_is_human_trigger = yes
-			NOT = { culture_group = culture_group_numenorean }
-			NOT = { trait = elven_blood }
-		}
-		if = {
-			limit = { age = 45 }
 			mep_addinfertile = yes
 		}
 	}
