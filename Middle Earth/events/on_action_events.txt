@@ -5831,194 +5831,194 @@ character_event = {
 		}	
 	## A Dwarf Jewel ##	
 	if = {
-			limit = { trait = dwarf_jewel }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = dwarf_jewel } 
-					}
+		limit = { has_artifact = dwarf_jewel }
+		if = { 
+			limit = { 
+				is_ruler = yes
+				current_heir = { 
+					dynasty = ROOT 
+					is_alive = yes  
+					NOT = { has_artifact = dwarf_jewel } 
 				}
-				current_heir = {
-					add_trait = dwarf_jewel 
-				}
-				add_trait = dead_target
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = dwarf_jewel  } }
-							add_trait = dwarf_jewel 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
+			current_heir = {
+				add_artifact = dwarf_jewel 
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel
-					ROOT = { add_trait = dead_target }
-				}	
+			add_trait = dead_target
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } is_patrician = yes }
+			family_palace = {
+				current_heir = { 
+					if = {
+						limit = { NOT = { has_artifact = dwarf_jewel  } }
+						add_artifact = dwarf_jewel 
+						ROOT = { add_trait = dead_target }
+					}	
+				}					
+			}				
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = dwarf_jewel } }		
-				}
-				spouse = { add_trait = dwarf_jewel  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = dwarf_jewel } }
-				}
-				liege = { add_trait = dwarf_jewel  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = dwarf_jewel } }
-					add_trait = dwarf_jewel 
-				}
-			}
 		}	
-	## An Elvish Brooch ##	
-	if = {
-			limit = { trait = elf_brooch }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = elf_brooch } 
-					}
-				}
-				current_heir = {
-					add_trait = elf_brooch 
-				}
-				add_trait = dead_target
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = elf_brooch  } }
-							add_trait = elf_brooch 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch
-					ROOT = { add_trait = dead_target }
-				}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_sibling = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = elf_brooch } }		
-				}
-				spouse = { add_trait = elf_brooch  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = elf_brooch } }
-				}
-				liege = { add_trait = elf_brooch  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = elf_brooch } }
-					add_trait = elf_brooch 
-				}
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_dynasty_member = {
+				limit = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel
+				ROOT = { add_trait = dead_target }
 			}
 		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }
+				spouse = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }		
+			}
+			spouse = { add_artifact = dwarf_jewel  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+				liege = { NOT = { character = ROOT } NOT = { has_artifact = dwarf_jewel } }
+			}
+			liege = { add_artifact = dwarf_jewel  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+			}
+			random_vassal = { 
+				limit = { NOT = { has_artifact = dwarf_jewel } }
+				add_artifact = dwarf_jewel 
+			}
+		}
+	}	
+	## An Elvish Brooch ##	
+	if = {
+		limit = { has_artifact = elf_brooch }
+		if = { 
+			limit = { 
+				is_ruler = yes
+				current_heir = { 
+					dynasty = ROOT 
+					is_alive = yes  
+					NOT = { has_artifact = elf_brooch } 
+				}
+			}
+			current_heir = {
+				add_artifact = elf_brooch 
+			}
+			add_trait = dead_target
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } is_patrician = yes }
+			family_palace = {
+				current_heir = { 
+					if = {
+						limit = { NOT = { has_artifact = elf_brooch  } }
+						add_artifact = elf_brooch 
+						ROOT = { add_trait = dead_target }
+					}	
+				}					
+			}				
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch
+				ROOT = { add_trait = dead_target }
+			}	
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_sibling = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch
+				ROOT = { add_trait = dead_target }
+			}	
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_dynasty_member = {
+				limit = { is_alive = yes NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_alive = yes NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }
+				spouse = { is_alive = yes NOT = { has_artifact = elf_brooch } }		
+			}
+			spouse = { add_artifact = elf_brooch  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+				liege = { NOT = { character = ROOT } NOT = { has_artifact = elf_brooch } }
+			}
+			liege = { add_artifact = elf_brooch  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+			}
+			random_vassal = { 
+				limit = { NOT = { has_artifact = elf_brooch } }
+				add_artifact = elf_brooch 
+			}
+		}
+	}
 	if = {
 			limit = { trait = isildur_throne }
 			if = { 

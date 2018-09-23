@@ -753,72 +753,52 @@ character_event = {
 			}	
 		## A Dwarf Jewel ##	
 		if = {
-				limit = { trait = dwarf_jewel }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = dwarf_jewel } 
+			limit = { has_artifact = dwarf_jewel }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = dwarf_jewel } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_dwarf_jewel } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = dwarf_jewel 
-					}
-					remove_trait = dwarf_jewel
-				}
-			}	
+				} 
+			}
+		}
 		## An Elvish Brooch ##	
 		if = {
-				limit = { trait = elf_brooch }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = elf_brooch } 
+			limit = { has_artifact = elf_brooch }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = elf_brooch } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_elf_brooch } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = elf_brooch 
-					}
-					remove_trait = elf_brooch
-				}
-			}	
-		## the Crown of Herumor ##	
-		# if = {
-				# limit = { trait = crown_herumor }
-				# if = { 
-					# limit = { 
-						# is_ruler = yes
-						# current_heir = { 
-							# is_alive = yes  
-							# NOT = { trait = crown_herumor } 
-						# }
-					# }
-					# current_heir = {
-						# add_trait = crown_herumor 
-					# }
-					# remove_trait = crown_herumor
-				# }
-			# }	
-		## the Seal of Herumor ##	
-		# if = {
-				# limit = { trait = seal_herumor }
-				# if = { 
-					# limit = { 
-						# is_ruler = yes
-						# current_heir = { 
-							# is_alive = yes  
-							# NOT = { trait = seal_herumor } 
-						# }
-					# }
-					# current_heir = {
-						# add_trait = seal_herumor 
-					# }
-					# remove_trait = seal_herumor
-				# }
-			# }	
+				} 
+			}
+		}
 		## the Throne of Isildur ##	
 		if = {
 				limit = { trait = isildur_throne }
