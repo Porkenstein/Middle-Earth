@@ -12,7 +12,7 @@ letter_event = {
 
 	is_triggered_only = yes
 
-	desc = "A"
+	#desc = "A"
 }
 
 character_event = {
@@ -20,7 +20,7 @@ character_event = {
 
 	is_triggered_only = yes
 
-	desc = "B"
+	#desc = "B"
 }
 
 # Killer discovered after murder - consequences.
@@ -46,19 +46,12 @@ character_event = {
 			limit = { NOT = { has_character_modifier = known_murderer } }
 			add_character_modifier = {
 				name = known_murderer
-				duration = -1
+				years = 50
 			}
 		}
 		
-		if = {
-			limit = {
-				NOT = { trait = kinslayer }
-				event_target:target_victim = {
-					dynasty = ROOT
-				}
-			}
-			add_trait = kinslayer
-		}
+		event_target:target_victim = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		
 		event_target:target_victim = {
 			any_liege = {
@@ -440,7 +433,7 @@ character_event = {
 						opinion = {
 							who = PREV
 							modifier = opinion_unfaithful_husband
-							months = 120
+								years = 10
 						}
 						opinion = {
 							who = PREVPREV
@@ -479,6 +472,8 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = adultery_discovered }
+					is_alive = yes
+					is_dying = no
 				}
 				ROOT = { save_event_target_as = target_adulterer }
 				character_event = { id = 20 }
@@ -498,6 +493,7 @@ character_event = {
 	id = 150
 	desc = "EVTDESC150"
 	picture = "GFX_evt_burning_house"
+	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes 
 	
@@ -516,8 +512,9 @@ character_event = {
 
 character_event = {
 	id = 40000
-	desc = "EVTDESC40000"
-	picture = "GFX_evt_burning_house"
+	desc = EVTDESC40000
+	picture = GFX_evt_burning_house
+	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes 
 	
@@ -535,6 +532,7 @@ character_event = {
 	id = 151
 	desc = "EVTDESC151"
 	picture = "GFX_evt_into_the_dungeon"
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes 
 	
@@ -560,6 +558,7 @@ character_event = {
 	id = 40001
 	desc = "EVTDESC40001"
 	picture = "GFX_evt_into_the_dungeon"
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes 
 	
@@ -573,6 +572,7 @@ character_event = {
 	id = 152	
 	desc = "EVTDESC152"
 	picture = GFX_evt_burning_house
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes 
 	
@@ -599,6 +599,7 @@ character_event = {
 	id = 40002
 	desc = "EVTDESC40002"
 	picture = GFX_evt_burning_house
+	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes 
 	
@@ -635,12 +636,8 @@ character_event = {
 	
 	immediate = {
 		FROM = {
-			if = {
-				limit = { 
-					dynasty = ROOT 
-				}
-				add_trait = kinslayer
-			}
+			ROOT = { save_event_target_as = kinslayer_target }
+			add_kinslayer_trait_effect = yes
 			if = {
 				limit = { 
 					any_spouse = { character = ROOT }
@@ -1778,20 +1775,6 @@ diploresponse_event = {
 	trigger = {
 		ai = no
 	}
-	
-	#immediate = { # TODO
-	#	if = {
-	#		limit = {
-	#			has_dlc = "Zeus"
-	#			new_character = {
-	#				NOT = { has_focus = focus_ch_heritage }
-	#			}
-	#		}
-	#		new_character = {
-	#			set_focus = focus_ch_heritage
-	#		}
-	#	}
-	#}
 
 	option = {
 		name = "OK"
@@ -2178,7 +2161,6 @@ diploresponse_event = {
 	is_triggered_only = yes
 	major = no
 	is_hostile = yes
-	sound = wardeclared
 
 	trigger = {
 		ai = no
@@ -2211,7 +2193,6 @@ diploresponse_event = {
 	is_triggered_only = yes
 	major = no
 	is_hostile = yes
-	sound = wardeclared
 
 	trigger = {
 		ai = no
@@ -3506,9 +3487,6 @@ character_event = {
 			}
 			clr_character_flag = do_not_disturb
 		}
-	}
-	
-	option = {
 	}
 }
 
