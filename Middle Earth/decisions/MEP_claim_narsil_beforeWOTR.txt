@@ -41,23 +41,15 @@ decisions = {
 	########## Claim victory against Angmar ###########
 	claim_victory_vs_witchking = {
 		potential = {
-			#ai = no #why?
 			OR = {
 				has_landed_title = e_arnor
 				has_landed_title = k_arthedain
 				has_landed_title = k_cardolan
 				has_landed_title = k_rhudaur
 			}
-			OR = {
-				trait = blood_of_isildur
-				trait = blood_of_anarion
-			}
-			#age = 16
-			#war = no
-			#prisoner = no
-			#NOT = { trait = incapable }
+			trait = blood_of_isildur
 			NOT = { trait = angmardacil }
-			#any_playable_ruler = {
+			#any_playable_ruler = { # this doesnt work
 			#	has_artifact = nazgul_ring
 			#	has_landed_title = e_angmar
 			#}
@@ -78,11 +70,14 @@ decisions = {
 				completely_controls = k_rhudaur
 			}
 			e_angmar = { 
-				holder_scope = { 
-					NOT = {
-						has_landed_title = k_arthedain
-						has_landed_title = k_cardolan
-						has_landed_title = k_rhudaur
+				OR = {
+					has_holder = no
+					holder_scope = { 
+						NOT = {
+							has_landed_title = k_arthedain
+							has_landed_title = k_cardolan
+							has_landed_title = k_rhudaur
+						}
 					}
 				}
 			}
