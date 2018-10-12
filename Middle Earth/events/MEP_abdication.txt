@@ -736,21 +736,28 @@ character_event = {
 			}	
 		## An Elvish Necklace ##	
 		if = {
-				limit = { trait = elf_necklace }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = elf_necklace } 
+			limit = { has_artifact = elf_necklace }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = elf_necklace } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_elf_necklace } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = elf_necklace 
-					}
-					remove_trait = elf_necklace
-				}
-			}	
+				} 
+			}
+		}	
 		## A Dwarf Jewel ##	
 		if = {
 			limit = { has_artifact = dwarf_jewel }

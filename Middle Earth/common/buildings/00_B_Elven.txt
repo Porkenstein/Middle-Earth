@@ -1101,25 +1101,35 @@ castle = {
     	potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
 		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
+		}
 		
-	        extra_tech_building_start = 1.2		
+	    extra_tech_building_start = 1.2		
 	}
 	ca_elven_forge2 = {
 		desc = ca_elven_forge_desc
@@ -1150,21 +1160,30 @@ castle = {
     	potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+			    }
+			}
 		}
 		
 	    extra_tech_building_start = 10 # Should not be pre-built automatically		
@@ -1196,26 +1215,33 @@ castle = {
 		ai_creation_factor = 109
 		add_number_to_name = no
     	potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				}
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+			    }
 			}
 			has_game_started = yes
 		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+			    }
+			}
+		}
 		
-	        extra_tech_building_start = 1.2		
+	    extra_tech_building_start = 1.2		
 	}
 	ca_healing = {
 		desc = ca_healing_desc
@@ -1228,22 +1254,32 @@ castle = {
     	potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		disease_defence = 0.15
 	}
@@ -1255,22 +1291,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		prerequisites = { ca_Ewall_2 }
 		gold_cost = 200
@@ -1288,22 +1334,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etraining_grounds_1
 		gold_cost = 250
@@ -1321,22 +1377,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etraining_grounds_2
 		gold_cost = 300
@@ -1352,25 +1418,34 @@ castle = {
 		desc = ca_Etraining_grounds_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etraining_grounds_3
 		gold_cost = 300
@@ -1386,25 +1461,34 @@ castle = {
 		desc = ca_Etraining_grounds_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etraining_grounds_4
 		gold_cost = 400
@@ -1420,25 +1504,34 @@ castle = {
 		desc = ca_Etraining_grounds_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etraining_grounds_5
 		gold_cost = 600
@@ -1458,22 +1551,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1489,22 +1592,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		prerequisites = { ca_Ewall_1 }
 		upgrades_from = ca_Etown_1
@@ -1522,22 +1635,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		prerequisites = { ca_Ewall_2 }
 		upgrades_from = ca_Etown_2
@@ -1553,25 +1676,34 @@ castle = {
 		desc = ca_Etown_4_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etown_3
 		gold_cost = 300
@@ -1586,25 +1718,34 @@ castle = {
 		desc = ca_Etown_4_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etown_4
 		gold_cost = 400
@@ -1619,25 +1760,34 @@ castle = {
 		desc = ca_Etown_5_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Etown_5
 		gold_cost = 600
@@ -1656,22 +1806,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1688,22 +1848,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Eshipyard_1
 		gold_cost = 175
@@ -1721,22 +1891,32 @@ castle = {
 		potential = {
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Eshipyard_2
 		gold_cost = 250
@@ -1752,25 +1932,34 @@ castle = {
 		port = yes
 		trigger = { TECH_NAVAL = 5 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Eshipyard_3
 		gold_cost = 350
@@ -1785,25 +1974,34 @@ castle = {
 		port = yes
 		trigger = { TECH_NAVAL = 7 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Eshipyard_4
 		gold_cost = 500
@@ -1818,25 +2016,34 @@ castle = {
 		port = yes
 		trigger = { TECH_NAVAL = 8 }
 		potential = {
-		
 		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
 			    OR = {
-				culture_group = culture_group_quendi
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_moriquendi
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+			    }
+			}
 		}
 		upgrades_from = ca_Eshipyard_5
 		gold_cost = 800
@@ -1851,19 +2058,24 @@ castle = {
     ca_avari_traditions = {
 		desc = ca_avari_traditions_desc
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0 
@@ -1888,19 +2100,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1914,19 +2131,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		prerequisites = { ca_Ewall_1 }
 		upgrades_from = ca_avari_warriors_1
@@ -1942,20 +2164,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_warriors_2
 		gold_cost = 250
@@ -1970,20 +2196,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_warriors_3
 		gold_cost = 350
@@ -1998,20 +2228,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_warriors_4
 		gold_cost = 500
@@ -2026,20 +2260,24 @@ castle = {
 		desc = ca_avari_warriors_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_warriors_5
 		gold_cost = 800
@@ -2056,19 +2294,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -2083,20 +2326,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		prerequisites = { ca_Ewall_1 }
 		upgrades_from = ca_avariwindwalkers_1
@@ -2113,20 +2360,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		prerequisites = { ca_Ewall_2 }
 		upgrades_from = ca_avariwindwalkers_2
@@ -2143,20 +2394,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avariwindwalkers_3
 		gold_cost = 350
@@ -2172,20 +2427,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avariwindwalkers_4
 		gold_cost = 500
@@ -2202,20 +2461,24 @@ castle = {
 		desc = ca_avariwindwalkers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avariwindwalkers_5
 		gold_cost = 800
@@ -2234,19 +2497,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -2260,19 +2528,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		prerequisites = { ca_Ewall_1 }
 		upgrades_from = ca_avari_stable_1
@@ -2288,20 +2561,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		prerequisites = { ca_Ewall_2 }
 		upgrades_from = ca_avari_stable_2
@@ -2317,20 +2594,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_stable_3
 		gold_cost = 350
@@ -2346,20 +2627,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_stable_4
 		gold_cost = 500
@@ -2375,20 +2660,24 @@ castle = {
 		desc = ca_avari_stable_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_avari
+			    culture = culture_avari
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_avari
+			}
 		}
 		upgrades_from = ca_avari_stable_5
 		gold_cost = 800
@@ -2405,23 +2694,32 @@ castle = {
     ca_silvan_traditions = {
 		desc = ca_silvan_traditions_desc
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			culture = culture_silvan
-			culture = culture_nandor
-			culture = culture_laegrim
+				OR = {
+					culture = culture_silvan
+					culture = culture_nandor
+					culture = culture_laegrim
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture = culture_silvan
+					culture = culture_nandor
+					culture = culture_laegrim
+			    }
+			}
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0 
@@ -2446,23 +2744,32 @@ castle = {
 		desc = ca_silvan_archers_1_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			culture = culture_silvan
-			culture = culture_nandor
-			culture = culture_laegrim
+				OR = {
+					culture = culture_silvan
+					culture = culture_nandor
+					culture = culture_laegrim
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture = culture_silvan
+					culture = culture_nandor
+					culture = culture_laegrim
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
