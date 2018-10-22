@@ -1520,7 +1520,24 @@ castle = {
 	}
 	ca_corsairs_3 = { #Corsairs of Umbar#
 		desc = ca_corsairs_desc
-		port = yes
+		potential = {
+			port = yes
+			ROOT = {
+				OR = {
+					culture = culture_black_numenorean
+					culture = culture_umbareans
+			    }
+			}
+			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture = culture_black_numenorean
+					culture = culture_umbareans
+			    }
+			}
+		}
 		upgrades_from = ca_corsairs_2
 		gold_cost = 300
 		build_time = 1230
@@ -1529,20 +1546,27 @@ castle = {
 		archers = 30
 		galleys = 3
 		ai_creation_factor = 86
-        potential = {
-			
-			ROOT = {
-			OR = {
-				culture = culture_black_numenorean
-				culture = culture_umbareans
-				}
-		    }
-			has_game_started = yes
-        }
 	}	
 	ca_corsairs_4 = { #Corsairs of Umbar#
 		desc = ca_corsairs_desc
-		port = yes
+		potential = {
+			port = yes
+			ROOT = {
+				OR = {
+					culture = culture_black_numenorean
+					culture = culture_umbareans
+			    }
+			}
+			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture = culture_black_numenorean
+					culture = culture_umbareans
+			    }
+			}
+		}
 		upgrades_from = ca_corsairs_3
 		gold_cost = 450
 		build_time = 1700
@@ -1551,20 +1575,21 @@ castle = {
 		archers = 30
 		galleys = 3
 		ai_creation_factor = 86
-        potential = {
-			
-			ROOT = {
-			OR = {
-				culture = culture_black_numenorean
-				culture = culture_umbareans
-				}
-		    }
-			has_game_started = yes
-        }
 	}	
 
 	ca_bnpalace = {
 		desc = ca_bnpalace_desc
+		potential = {
+			ROOT = {
+				culture = culture_black_numenorean
+			}
+			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture = culture_black_numenorean
+			}
+		}
 		gold_cost = 300
 		build_time = 547
 		heavy_infantry = 50
@@ -1575,12 +1600,5 @@ castle = {
 		tax_income = 2
 		ai_creation_factor = 109
 		add_number_to_name = no
-    		potential = {
-       			
-				ROOT = {
-					culture = culture_black_numenorean
-				}
-				has_game_started = yes
-    		}
 	}
 }
