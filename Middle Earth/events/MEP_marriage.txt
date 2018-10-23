@@ -483,6 +483,59 @@ character_event = {
 		is_alive = yes
 	}
 
+	option = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_children = yes
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = {
+						any_child = {
+							is_female = yes
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					has_children = yes
+				}
+				modifier = {
+					factor = 2
+					num_of_children = 2
+				}
+				modifier = {
+					factor = 10
+					num_of_children = 3
+				}
+				character_event = {
+					id = mepmarriage.131
+				}
+			}
+			1 = {
+			}
+		}
+	}
+}
+character_event = {
+	id = mepmarriage.131
+	hide_window = yes
+	min_age = 45
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { mep_is_immortal_race_trigger = yes }
+		NOT = { religion_group = religion_group_wilderness }
+		NOT = { religion_group = religion_group_khazad }
+		NOT = { trait = not_fertile }
+		NOT = { trait = dunedain_infertility }
+		is_alive = yes
+	}
+
 	option = {# option for Elven/Númenorean blood
 		trigger = {
 			mep_is_human_trigger = yes
