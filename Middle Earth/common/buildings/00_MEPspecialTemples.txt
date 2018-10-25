@@ -2,19 +2,6 @@
 ### Temple Buildings COPIED to NUMENOREANcity and DWARVENcity -should become obsolete-###
 temple = {	
 	
-	tp_temple_to_city = { # Building allowing conversion to cities
-		desc = tp_temple_to_city_desc
-		gold_cost = 1
-		build_time = 1	
-		ai_creation_factor = 200		
-        potential = {
-            NOT = {
-				FROMFROM = { title = b_tomb_of_elendil }
-				FROMFROM = { title = b_meneltarma }
-			}
-		}
-	}
-	
 	tp_elendil_tomb = { ### The Tomb of Elendil
 		desc = tp_elendil_tomb_desc
 		gold_cost = 850
@@ -26,6 +13,7 @@ temple = {
         potential = {
             FROMFROM = { title = b_tomb_of_elendil }
 			culture_group = culture_group_numenorean
+			has_game_started = yes
         }
 	}	
 	
@@ -46,6 +34,7 @@ temple = {
 				culture = culture_rohirrim
 				culture = culture_eotheod
 			}
+			has_game_started = yes
         }
 	}	
 
@@ -59,6 +48,7 @@ temple = {
 		liege_prestige = 0.5			
         potential = {
             FROMFROM = { title = b_meneltarma }
+			has_game_started = yes
         }
 	}	
 	
