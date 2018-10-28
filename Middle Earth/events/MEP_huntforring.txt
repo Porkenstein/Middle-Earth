@@ -20,13 +20,13 @@ character_event = {
 			10 = {
 				if = {
 					limit = {
-						NOT = { trait = lesser_ring }
+						NOT = { has_artifact = lesser_ring }
 					}
 					narrative_event = { id = lesserrings.1 days = 365 } ## They found a lesser ring
 				}
 				if = {
 					limit = {
-						trait = lesser_ring
+						has_artifact = lesser_ring
 					}
 					character_event = { id = huntforring.2 days = 365 } ## Nothing
 				}				
@@ -671,7 +671,7 @@ character_event = {
 			trait = ent
 		}
 		age = 1
-		NOT = { trait = lesser_ring }
+		NOT = { has_artifact = lesser_ring }
 	}
 	
 	mean_time_to_happen = {
