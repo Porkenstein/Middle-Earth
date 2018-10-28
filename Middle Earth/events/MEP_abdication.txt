@@ -630,21 +630,25 @@ character_event = {
 			}	
 		## Lesser Ring ##	
 		if = {
-				limit = { trait = lesser_ring }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = lesser_ring } 
+			limit = { has_artifact = lesser_ring }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { is_alive = yes }
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_lesser_ring } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = lesser_ring 
-					}
-					remove_trait = lesser_ring 
 				}
-			}	
+			}
+		}	
 		## A Spear forged in Erebor ##	
 		if = {
 			limit = { has_artifact = erebor_spear }
@@ -719,21 +723,28 @@ character_event = {
 			}	
 		## A Dwarven Necklace ##	
 		if = {
-				limit = { trait = dwarf_necklace }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = dwarf_necklace } 
+			limit = { has_artifact = dwarf_necklace }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = dwarf_necklace } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_dwarf_necklace } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = dwarf_necklace 
-					}
-					remove_trait = dwarf_necklace
-				}
-			}	
+				} 
+			}
+		}		
 		## An Elvish Necklace ##	
 		if = {
 			limit = { has_artifact = elf_necklace }
