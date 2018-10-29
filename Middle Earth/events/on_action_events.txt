@@ -5524,99 +5524,99 @@ character_event = {
 		}	
 	## A Dwarven Ring ##	
 	if = {
-			limit = { trait = dwarf_ring }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = dwarf_ring } 
-					}
+		limit = { has_artifact = dwarf_ring }
+		if = { 
+			limit = { 
+				is_ruler = yes
+				current_heir = { 
+					dynasty = ROOT 
+					is_alive = yes  
+					NOT = { has_artifact = dwarf_ring } 
 				}
-				current_heir = {
-					add_trait = dwarf_ring 
-				}
-				add_trait = dead_target
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = dwarf_ring  } }
-							add_trait = dwarf_ring 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
+			current_heir = {
+				add_artifact = dwarf_ring 
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring
-					ROOT = { add_trait = dead_target }
-				}	
+			add_trait = dead_target
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } is_patrician = yes }
+			family_palace = {
+				current_heir = { 
+					if = {
+						limit = { NOT = { has_artifact = dwarf_ring  } }
+						add_artifact = dwarf_ring 
+						ROOT = { add_trait = dead_target }
+					}	
+				}					
+			}				
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = dwarf_ring } }		
-				}
-				spouse = { add_trait = dwarf_ring  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = dwarf_ring } }
-				}
-				liege = { add_trait = dwarf_ring  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = dwarf_ring } }
-					add_trait = dwarf_ring 
-				}
-			}
 		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_sibling = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring
+				ROOT = { add_trait = dead_target }
+			}	
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_dynasty_member = {
+				limit = { is_alive = yes NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_alive = yes NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }
+				spouse = { is_alive = yes NOT = { has_artifact = dwarf_ring } }		
+			}
+			spouse = { add_artifact = dwarf_ring  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+				liege = { NOT = { character = ROOT } NOT = { has_artifact = dwarf_ring } }
+			}
+			liege = { add_artifact = dwarf_ring  }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+			}
+			random_vassal = { 
+				limit = { NOT = { has_artifact = dwarf_ring } }
+				add_artifact = dwarf_ring 
+			}
+		}
+	}	
 	## A Dwarven Necklace ##	
 	if = {
 		limit = { has_artifact = dwarf_necklace }
