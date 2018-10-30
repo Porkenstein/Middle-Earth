@@ -205,20 +205,20 @@ dynasty_decisions = {
 		from_potential = {
 			ai = no
 			is_ruler = yes
-			trait = durin_ring
+			has_artifact = durin_ring
 		}
 		potential = {
 			is_child_of = FROM
-			NOT = { trait = durin_ring }
+			NOT = { has_artifact = durin_ring }
 		}
 		allow = {
 			FROM = { war = no }
 			FROM = { NOT = { trait = incapable } }
-			FROM = { trait = durin_ring }
+			FROM = { has_artifact = durin_ring }
 		}			
 		effect = {
-			FROM = { remove_trait = durin_ring }
-			add_trait = durin_ring
+			FROM = { destroy_artifact = durin_ring }
+			add_artifact = durin_ring
 		}
 		ai_will_do = {
 			factor = 0

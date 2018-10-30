@@ -39,20 +39,26 @@ character_event = {
 	
 		## Steward Sceptre ##
 		if = {
-			limit = { trait = stewardscept }
+			limit = { has_artifact = stewardscept }
 			if = { 
 				limit = { 
 					is_ruler = yes
 					current_heir = { 
 						is_alive = yes  
-						NOT = { trait = stewardscept } 
+						NOT = { has_artifact = stewardscept } 
 					}
 				}
 				current_heir = {
-					add_trait = stewardscept 
-					character_event = { id = 250277 }
-				}
-				remove_trait = stewardscept 
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_stewardscept } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
+						}
+					}
+				} 
 			}
 		}
 		## The One Ring ##	
@@ -689,38 +695,52 @@ character_event = {
 			}		
 		## The Durin Ring ##	
 		if = {
-				limit = { trait = durin_ring }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = {  
-							is_alive = yes  
-							NOT = { trait = durin_ring } 
+			limit = { has_artifact = durin_ring }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = durin_ring } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_durin_ring } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = durin_ring 
-					}
-					remove_trait = durin_ring
-				}
-			}	
+				} 
+			}
+		}	
 		## A Dwarven Ring ##	
 		if = {
-				limit = { trait = dwarf_ring }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = dwarf_ring } 
+			limit = { has_artifact = dwarf_ring }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = dwarf_ring } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_dwarf_ring } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = dwarf_ring 
-					}
-					remove_trait = dwarf_ring
-				}
-			}	
+				} 
+			}
+		}	
 		## A Dwarven Necklace ##	
 		if = {
 			limit = { has_artifact = dwarf_necklace }
