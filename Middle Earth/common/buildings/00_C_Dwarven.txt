@@ -1156,19 +1156,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1181,20 +1186,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_1 }
 		upgrades_from = ct_ironfistveterans_1
@@ -1209,20 +1218,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_2 }
 		upgrades_from = ct_ironfistveterans_2
@@ -1237,20 +1250,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		upgrades_from = ct_ironfistveterans_3
 		gold_cost = 300
@@ -1264,20 +1281,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		upgrades_from = ct_ironfistveterans_4
 		gold_cost = 500
@@ -1291,20 +1312,24 @@ city = {
 		desc = ct_ironfistveterans_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			culture = culture_ironfist
+				culture = culture_ironfist
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				culture = culture_ironfist
+			}
 		}
 		upgrades_from = ct_ironfistveterans_5
 		gold_cost = 800
@@ -1319,23 +1344,32 @@ city = {
     ct_bfdwarf_traditions = {
 		desc = ct_bfdwarf_traditions_desc
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
 		gold_cost = 10
@@ -1358,23 +1392,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1388,24 +1431,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_1 }
 		upgrades_from = ct_bfdwarf_barracks_1
@@ -1421,24 +1472,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_bfdwarf_barracks_2
 		gold_cost = 200
@@ -1453,24 +1512,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_bfdwarf_barracks_3
 		gold_cost = 300
@@ -1485,24 +1552,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_bfdwarf_barracks_4
 		gold_cost = 500
@@ -1517,24 +1592,32 @@ city = {
 		desc = ct_bfdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_bfdwarf_barracks_5
 		gold_cost = 800
@@ -1551,23 +1634,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1581,24 +1673,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_1 }
 		upgrades_from = ct_eriadorrangers_1
@@ -1614,24 +1714,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_2 }
 		upgrades_from = ct_eriadorrangers_2
@@ -1647,24 +1755,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_eriadorrangers_3
 		gold_cost = 300
@@ -1679,24 +1795,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_eriadorrangers_4
 		gold_cost = 500
@@ -1711,24 +1835,32 @@ city = {
 		desc = ct_eriadorrangers_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_firebeard
-				culture = culture_broadbeam
-				culture = culture_petty_dwarves
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_firebeard
+					culture = culture_broadbeam
+					culture = culture_petty_dwarves
+			    }
+			}
 		}
 		upgrades_from = ct_eriadorrangers_5
 		gold_cost = 900
@@ -1744,23 +1876,32 @@ city = {
     ct_sbsdwarf_traditions = {
 		desc = ct_sbsdwarf_traditions_desc
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
 		gold_cost = 10
@@ -1785,23 +1926,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -1815,24 +1965,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_1 }
 		upgrades_from = ct_sbsdwarf_barracks_1
@@ -1848,24 +2006,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbsdwarf_barracks_2
 		gold_cost = 200
@@ -1880,24 +2046,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 6 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbsdwarf_barracks_3
 		gold_cost = 300
@@ -1912,24 +2086,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbsdwarf_barracks_4
 		gold_cost = 500
@@ -1944,24 +2126,32 @@ city = {
 		desc = ct_sbsdwarf_barracks_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
 		potential = {
-		
-			FROM = {
+		    FROM = {
 				NOR = {
-				culture_group = culture_group_melkor
-				AND = {
-				    culture = culture_maiar
-					mep_is_evil_side_trigger = yes
+					culture_group = culture_group_melkor
+					AND = {
+						culture = culture_maiar
+						mep_is_evil_side_trigger = yes
 				    }
 				}
 			}
 			ROOT = {
-			OR = {
-			    culture = culture_stonefoot
-				culture = culture_blacklock
-				culture = culture_stiffbeard
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbsdwarf_barracks_5
 		gold_cost = 800
@@ -1979,7 +2169,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
 		potential = {
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -1997,6 +2187,15 @@ city = {
 			}
 			has_game_started = yes
 		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
+		}
 		gold_cost = 90
 		build_time = 365
 		heavy_infantry = 45
@@ -2008,8 +2207,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		potential = {
-			
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -2026,6 +2224,15 @@ city = {
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_1 }
 		upgrades_from = ct_sbs_dwarf_heavyinf_1
@@ -2040,8 +2247,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		potential = {
-			
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -2058,6 +2264,15 @@ city = {
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		prerequisites = { ct_dwarvenfortifications_2 }
 		upgrades_from = ct_sbs_dwarf_heavyinf_2
@@ -2072,8 +2287,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
 		potential = {
-			
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -2090,6 +2304,15 @@ city = {
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbs_dwarf_heavyinf_3
 		gold_cost = 350
@@ -2103,8 +2326,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
 		potential = {
-			
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -2121,6 +2343,15 @@ city = {
 			    }
 			}
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
 		}
 		upgrades_from = ct_sbs_dwarf_heavyinf_4
 		gold_cost = 500
@@ -2134,8 +2365,7 @@ city = {
 		desc = ct_sbs_dwarf_heavyinf_1_desc
 		trigger = { TECH_CITY_CONSTRUCTION = 9 }
 		potential = {
-			
-			FROM = {
+		    FROM = {
 				NOR = {
 					culture_group = culture_group_melkor
 					AND = {
@@ -2153,6 +2383,15 @@ city = {
 			}
 			has_game_started = yes
 		}
+		is_active_trigger = {
+			ROOT = {
+				OR = {
+					culture = culture_stonefoot
+					culture = culture_blacklock
+					culture = culture_stiffbeard
+			    }
+			}
+		}
 		upgrades_from = ct_sbs_dwarf_heavyinf_5
 		gold_cost = 800
 		build_time = 2190
@@ -2161,8 +2400,4 @@ city = {
 
 		extra_tech_building_start = 1.2
 	}
-	
-	
-	
-	
 }

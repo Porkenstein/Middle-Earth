@@ -4865,42 +4865,42 @@ character_event = {
 				ROOT = { add_trait = dead_target }
 			}
 		}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = horngondor } }
-					add_trait = horngondor
-					character_event = { id = 250287 }
-					ROOT = { add_trait = dead_target }
-				}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_alive = yes NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor
+				character_event = { id = 250287 }
+				ROOT = { add_trait = dead_target }
 			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = horngondor } }		
-				}
-				spouse = { add_trait = horngondor character_event = { id = 250287 } }
-				add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }
+				spouse = { is_alive = yes NOT = { has_artifact = horngondor } }		
 			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = horngondor } }
-				}
-				liege = { add_trait = horngondor character_event = { id = 250287 } }
-				add_trait = dead_target
+			spouse = { add_artifact = horngondor character_event = { id = 250287 } }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+				liege = { NOT = { character = ROOT } NOT = { has_artifact = horngondor } }
 			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = horngondor } }
-					add_trait = horngondor 
-					character_event = { id = 250287 }
-				}
+			liege = { add_artifact = horngondor character_event = { id = 250287 } }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
 			}
-		}	
+			random_vassal = { 
+				limit = { NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor 
+				character_event = { id = 250287 }
+			}
+		}
+	}	
 	## Narsil Elendil ##
 	if = {
 			limit = { has_artifact = narsil_elendil }

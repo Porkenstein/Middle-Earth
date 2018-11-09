@@ -206,22 +206,29 @@ character_event = {
 			}	
 		## Scepter of annuminas ##
 		if = {
-				limit = { trait = annuminas }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = annuminas } 
+			limit = { has_artifact = annuminas }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = annuminas } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_annuminas } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = annuminas 
-						character_event = { id = 250286 }
-					}
-					remove_trait = annuminas 
+					character_event = { id = 250286 }
 				}
-			}	
+			}
+		}	
 		## The Horn of Gondor ##
 		if = {
 			limit = { has_artifact = horngondor }
