@@ -105,20 +105,20 @@ dynasty_decisions = {
 		from_potential = {
 			ai = no
 			is_ruler = yes
-			trait = arkenstone
+			has_artifact = arkenstone
 		}
 		potential = {
 			is_child_of = FROM
-			NOT = { trait = arkenstone }
+			NOT = { has_artifact = arkenstone }
 		}
 		allow = {
 			FROM = { war = no }
 			FROM = { NOT = { trait = incapable } }
-			FROM = { trait = arkenstone }
+			FROM = { has_artifact = arkenstone }
 		}			
 		effect = {
-			FROM = { remove_trait = arkenstone }
-			add_trait = arkenstone
+			FROM = { destroy_artifact = arkenstone }
+			add_artifact = arkenstone
 		}
 		ai_will_do = {
 			factor = 0
