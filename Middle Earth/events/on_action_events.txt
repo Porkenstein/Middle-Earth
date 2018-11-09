@@ -4800,71 +4800,71 @@ character_event = {
 		}	
 	## The Horn of Gondor ##
 	if = {
-			limit = { trait = horngondor }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = horngondor } 
-					}
+		limit = { has_artifact = horngondor }
+		if = { 
+			limit = { 
+				is_ruler = yes
+				current_heir = { 
+					dynasty = ROOT 
+					is_alive = yes  
+					NOT = { has_artifact = horngondor } 
 				}
-				current_heir = {
-					add_trait = horngondor
-					character_event = { id = 250287 }
-				}
-				add_trait = dead_target
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = horngondor  } }
-							add_trait = horngondor 
-							character_event = { id = 250287 }
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
+			current_heir = {
+				add_artifact = horngondor
+				character_event = { id = 250287 }
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = horngondor } }
-					add_trait = horngondor
-					character_event = { id = 250287 }
-					ROOT = { add_trait = dead_target }
-				}	
+			add_trait = dead_target
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } is_patrician = yes }
+			family_palace = {
+				current_heir = { 
+					if = {
+						limit = { NOT = { has_artifact = horngondor  } }
+						add_artifact = horngondor 
+						character_event = { id = 250287 }
+						ROOT = { add_trait = dead_target }
+					}	
+				}					
+			}				
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor
+				character_event = { id = 250287 }
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = horngondor } }
-					add_trait = horngondor
-					character_event = { id = 250287 }
-					ROOT = { add_trait = dead_target }
-				}	
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_sibling = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor
+				character_event = { id = 250287 }
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = horngondor } }
-					add_trait = horngondor
-					character_event = { id = 250287 }
-					ROOT = { add_trait = dead_target }
-				}
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_dynasty_member = {
+				limit = { is_alive = yes NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor
+				character_event = { id = 250287 }
+				ROOT = { add_trait = dead_target }
 			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = horngondor } }
-					add_trait = horngondor
-					character_event = { id = 250287 }
-					ROOT = { add_trait = dead_target }
-				}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = horngondor } }
+				add_artifact = horngondor
+				character_event = { id = 250287 }
+				ROOT = { add_trait = dead_target }
 			}
+		}
 			if = {
 				limit = { NOT = { trait = dead_target } }
 				random_child = {

@@ -224,22 +224,28 @@ character_event = {
 			}	
 		## The Horn of Gondor ##
 		if = {
-				limit = { trait = horngondor }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = horngondor } 
+			limit = { has_artifact = horngondor }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = horngondor } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_horngondor } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = horngondor
-						character_event = { id = 250287 }
-					}
-					remove_trait = horngondor
 				}
-			}	
+			}
+		}	
 		## Anduril ##
 		if = {
 				limit = { has_artifact = anduril }
