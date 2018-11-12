@@ -146,40 +146,54 @@ character_event = {
 			}	
 		## The Elessar ##
 		if = {
-				limit = { trait = elessar }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = elessar } 
-						}
+			limit = { has_artifact = elessar }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = elessar } 
 					}
-					current_heir = {
-						add_trait = elessar 
-						character_event = { id = 250283 }
-					}
-					remove_trait = elessar
 				}
-			}	
-		## The Arkenstone ##
-		if = {
-				limit = { trait = arkenstone }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = arkenstone } 
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_elessar } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
 						}
 					}
-					current_heir = {
-						add_trait = arkenstone
-						character_event = { id = 250301 }
-					}
-					remove_trait = arkenstone
+					character_event = { id = 250286 }
 				}
 			}
+		}	
+		## The Arkenstone ##
+		if = {
+			limit = { has_artifact = arkenstone }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = { 
+						is_alive = yes  
+						NOT = { has_artifact = arkenstone } 
+					}
+				}
+				current_heir = {
+					PREV = {
+						any_artifact = {
+							limit = { has_artifact_flag = flag_arkenstone } 
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
+						}
+					}
+					character_event = { id = 250286 }
+				}
+			}
+		}	
 		## Generic Palantir ##
 		if = {
 				limit = { has_artifact = artifact_palantir_anor }

@@ -4,26 +4,21 @@ city = {
 		desc = ct_BNwalltower_1_desc
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
 		potential = {
-		    FROM = {
-				NOT = {
-				    OR = {
-				culture_group = culture_group_onodrim
-				culture_group = culture_group_moriquendi
-				culture_group = culture_group_umanyar
-				culture_group = culture_group_amanyar
-				culture_group = culture_group_quendi
-				culture_group = culture_group_dwarves
-				culture_group = culture_group_halfling
-				culture = culture_arnorian
-				culture = culture_dunedain
-				culture = culture_gondorian
-				culture = culture_numenorean
-				    }
-				}
+			ROOT = {
+				OR = {
+					culture = culture_black_numenorean
+					culture = culture_adunaic
+			    }
 			}
-			NOT = { mep_being_purged_trigger = yes }
-			mep_is_black_numenorean_culture = yes
 			has_game_started = yes
+		}
+		is_active_trigger = {
+			ROOT = {
+			    OR = {
+					culture = culture_black_numenorean
+					culture = culture_adunaic
+			    }
+			}
 		}
 		gold_cost = 50
 		build_time = 182
