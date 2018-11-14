@@ -45,6 +45,12 @@ claim = {
 
 	infamy_modifier = 0.85
 	
+	sort_priority = 1000
+	
+	can_use_gui = {
+		check_if_crusader_trigger = yes
+	}
+
 	can_use_title = {
 		# No muslim female claimants, left here in case middle-earth has analogs
 		#OR = {
@@ -55,6 +61,10 @@ claim = {
 			NOT = { culture_group = culture_group_wilderness }
 		}
 		OR = {
+			ROOT = { is_female = yes }
+			NOT = { ROOT = { has_religion_feature = religion_matriarchal } } 
+		}
+		OR = {
 			FROM = {
 				has_landed_title = PREV
 			}
@@ -62,6 +72,20 @@ claim = {
 				is_liege_or_above = FROM
 			}
 		}
+		
+		ROOT = {
+			OR = {
+				is_ruler = no
+				primary_title = {
+					OR = {
+						is_primary_type_title = no # Static Mercs, the Pope, Holy Orders, etc
+						higher_tier_than = PREVPREV
+						tier = PREVPREV
+					}
+				}
+			}
+		}
+		
 		OR = { 
 			ROOT = { has_strong_claim = PREV }
 			ROOT = { has_character_flag = claimant_adventurer  }
@@ -71,8 +95,27 @@ claim = {
 					is_pretender = yes # Checks vs ROOT character
 					holder_scope = { has_regent = yes }
 					AND = {
-						ROOT = { is_female = no }
-						holder_scope ={ is_female = yes }
+						ROOT = { 
+							OR = { 
+								is_female = no 
+								has_law = status_of_women_4
+								has_religion_feature = religion_matriarchal
+								has_religion_feature = religion_equal
+								has_religion_feature = religion_feature_bon
+							} 
+						}
+						holder_scope = { 
+							AND = { 
+								is_female = yes 
+								NOR = { 
+									has_religion_feature = religion_matriarchal
+									has_religion_feature = religion_equal
+									has_religion_feature = religion_feature_bon
+									has_law = status_of_women_4 
+									has_game_rule = { name = gender value = all } 
+								} 
+							} 
+						}
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -93,7 +136,6 @@ claim = {
 	}
 
 	on_success_title = {
-	
 		hidden_tooltip = {
 			ROOT = {
 				clr_character_flag = claimant_adventurer
@@ -121,6 +163,7 @@ claim = {
 		}
 		
 		ROOT = {
+			show_scope_change = no
 			participation_scaled_prestige = 100
 		}
 		any_attacker = {
@@ -129,12 +172,21 @@ claim = {
 		}
 		
 		FROM = {
+			show_scope_change = no
 			prestige = -100
+		}
+
+		hidden_tooltip = {
+			check_war_effect = yes
+			FROM = {
+				landless_pope_effect = yes
+			}
 		}
 	}
 
 	on_fail_title = {
 		ROOT = {
+			show_scope_change = no
 			prestige = -100
 			hidden_tooltip = {
 				disband_event_forces = yes
@@ -142,6 +194,7 @@ claim = {
 			}
 		}
 		FROM = {
+			show_scope_change = no
 			participation_scaled_prestige = 100
 		}
 		any_defender = {
@@ -152,6 +205,7 @@ claim = {
 
 	on_reverse_demand = {
 		ROOT = {
+			show_scope_change = no
 			prestige = -150
 			transfer_scaled_wealth = {
 				to = FROM
@@ -165,6 +219,7 @@ claim = {
 			ROOT = { imprison = FROM }
 		}
 		FROM = {
+			show_scope_change = no
 			participation_scaled_prestige = 150
 		}
 		any_defender = {
@@ -174,10 +229,11 @@ claim = {
 	}
 
 	on_reverse_demand_title = {
-		any_claim = {
-			remove_claim = ROOT
-		}
-		ROOT = {			
+		#any_claim = { #Does not work.
+			#remove_claim = ROOT
+		#}
+		ROOT = { show_scope_change = no remove_claim = PREV }
+		ROOT = {
 			hidden_tooltip = {
 				disband_event_forces = yes
 				clr_character_flag = claimant_adventurer
@@ -198,6 +254,7 @@ claim = {
 			}
 			end_war = invalid
 		}
+
 	}
 
 	attacker_ai_victory_worth = {
@@ -215,28 +272,6 @@ claim = {
 	defender_ai_defeat_worth = {
 		factor = 100
 	}
-	
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			ROOT = {
-				opinion = { who = FROM value = 25 }
-			}
-		}
-		modifier = {
-			factor = 0.5
-			ROOT = {
-				opinion = { who = FROM value = 0 }
-			}
-		}		
-		modifier = {
-			factor = 0.5
-			ROOT = {
-				opinion = { who = FROM value = -25 }
-			}
-		}
-	}
 }
 
 # 1
@@ -253,11 +288,17 @@ other_claim = {
 	allowed_to_target_tributaries = no
 
 	infamy_modifier = 0.5
+	
+	sort_priority = 900
 
 	can_use = {
 		ROOT = {
 			mercenary = no
 		}
+	}
+
+	can_use_gui = {
+		check_if_crusader_trigger = yes
 	}
 
 	can_use_title = {
@@ -270,6 +311,13 @@ other_claim = {
 		#	}
 		#}
 		OR = {
+			ROOT = { is_female = yes }
+			AND = {
+				NOT = { ROOT = { has_religion_feature = religion_matriarchal } }
+				NOT = { succ_law_title = { has_law = enatic_succession } }
+			}
+		}
+		OR = {
 			FROM = {
 				has_landed_title = PREV
 			}
@@ -277,9 +325,22 @@ other_claim = {
 				is_liege_or_above = FROM
 			}
 		}
+		
+		ROOT = {
+			OR = {
+				is_ruler = no
+				primary_title = {
+					OR = {
+						is_primary_type_title = no # Static Mercs, the Pope, Holy Orders, etc
+						higher_tier_than = PREVPREV
+						tier = PREVPREV
+					}
+				}
+			}
+		}
+		
 		FROM = {
 			NOT = { culture_group = culture_group_wilderness }
-		}
 
 		NOT = {
 			any_war = { # when used in title scope, checks all wars for that title
@@ -297,8 +358,8 @@ other_claim = {
 					is_pretender = yes # Checks vs ROOT character
 					holder_scope = { has_regent = yes }
 					AND = {
-						ROOT = { is_female = no }
-						holder_scope = { is_female = yes }
+						ROOT = { OR = { is_female = no  has_law = status_of_women_4 } }
+						holder_scope ={ AND = { is_female = yes NOR = { has_law = status_of_women_4 has_game_rule = { name = gender value = all } } } }
 					}
 					is_contested = yes # Is already being contested in some form of Claim or Succession War
 				}
@@ -345,6 +406,7 @@ other_claim = {
 			}
 		}
 		ROOT = {
+			show_scope_change = no
 			participation_scaled_prestige = 100
 		}
 		any_attacker = {
@@ -352,6 +414,7 @@ other_claim = {
 			hidden_tooltip = { participation_scaled_prestige = 100 }
 		}
 		FROM = {
+			show_scope_change = no
 			prestige = -100
 		}
 	}
@@ -404,7 +467,34 @@ other_claim = {
 			usurp_title_plus_barony_if_unlanded = { target = ROOT type = claim }
 			
 			hidden_tooltip = {
-			
+				ROOT = { 
+					any_child =  { 
+						limit = { 
+							is_ruler = no 
+							is_married = no 
+							prisoner = no 
+							is_adult = no
+							is_within_diplo_range = ROOT 
+						} 
+						move_character = ROOT 
+					}
+					any_spouse =  { 
+						limit = { 
+							is_ruler = no 
+							prisoner = no 
+							is_within_diplo_range = ROOT 
+						} 
+						move_character = ROOT 
+					}
+					any_consort =  { 
+						limit = { 
+							is_ruler = no 
+							prisoner = no 
+							is_within_diplo_range = ROOT 
+						} 
+						move_character = ROOT 
+					}
+				}
 				# If we were erroneously vassalized, break free
 				if = {
 					limit = {
@@ -423,9 +513,10 @@ other_claim = {
 				# try and vassalize, but only conditionally
 				if = {
 					limit = {
-						NOT = {
-							holder_scope = {
+						holder_scope = {
+							NOR = {
 								is_liege_or_above = FROMFROM
+								character = FROMFROM
 							}
 						}
 						OR = {
@@ -500,15 +591,19 @@ other_claim = {
 
 	on_fail_title = {
 		ROOT = {
+			show_scope_change = no
 			prestige = -100
 		}
 		FROM = {
+			show_scope_change = no
 			FROM = {
+				show_scope_change = no
 				prestige = -100
 			}
 		}
 		
 		FROM = {
+			show_scope_change = no
 			participation_scaled_prestige = 100
 		}
 		any_defender = {
@@ -524,10 +619,12 @@ other_claim = {
 			value = 4.0
 		}
 		ROOT = {
+			show_scope_change = no
 			prestige = -150
 			imprison = FROM
 		}
 		FROM = {
+			show_scope_change = no
 			participation_scaled_prestige = 150
 		}
 		any_defender = {
@@ -537,9 +634,7 @@ other_claim = {
 	}
 
 	on_reverse_demand_title = {
-		any_claim = {
-			remove_claim = PREV
-		}
+		ROOT = { show_scope_change = no remove_claim = PREV }
 	}
 
 	attacker_ai_victory_worth = {
