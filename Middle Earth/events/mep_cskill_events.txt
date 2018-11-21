@@ -6,10 +6,9 @@ character_event = {#Combat Skills
 
 	trigger = {
 		OR = {
-			trait = noncombatant
-			trait = scrapper
-			trait = fighter
-			trait = champion
+			trait = novice_fighter
+			trait = adept_fighter
+			trait = skilled_fighter
 			NOT = { has_combat_prowess_trigger = yes }
 		}
 	}
@@ -19,19 +18,15 @@ character_event = {#Combat Skills
 			chance = 100
 			modifier = {
 				factor = 0.01
-				trait = champion
+				trait = skilled_fighter
 			}
 			modifier = {
 				factor = 0.05
-				trait = fighter
+				trait = adept_fighter
 			}
 			modifier = {
 				factor = 0.10
-				trait = scrapper
-			}
-			modifier = {
-				factor = 0.75
-				trait = noncombatant
+				trait = novice_fighter
 			}
 			character_event = { id = mep_cskill_events.1 }
 		}
@@ -45,28 +40,23 @@ character_event = {#Improved Skill
 
 	immediate = {
 		IF = {
-			limit = { trait = champion }
-			remove_trait = champion
-			add_trait = legend
+			limit = { trait = skilled_fighter }
+			remove_trait = skilled_fighter
+			add_trait = master_fighter
 		}
 		IF = {
-			limit = { trait = fighter }
-			remove_trait = fighter
-			add_trait = champion
+			limit = { trait = adept_fighter }
+			remove_trait = adept_fighter
+			add_trait = skilled_fighter
 		}
 		IF = {
-			limit = { trait = scrapper }
-			remove_trait = scrapper
-			add_trait = fighter
-		}
-		IF = {
-			limit = { trait = noncombatant }
-			remove_trait = noncombatant
-			add_trait = scrapper
+			limit = { trait = novice_fighter }
+			remove_trait = novice_fighter
+			add_trait = adept_fighter
 		}
 		IF = {
 			limit = { NOT = { has_combat_prowess_trigger = yes } }
-			add_trait = noncombatant
+			add_trait = novice_fighter
 		}
 	}
 
