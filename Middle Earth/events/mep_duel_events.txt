@@ -223,44 +223,119 @@ character_event = {#Decide Duels
 	picture = GFX_evt_castle_construction
 	is_triggered_only = yes
 
+	immediate = {
+		event_target:dueler1 = {
+			set_variable = {
+				which = current_combat_rating
+				value = 0
+			}
+			export_to_variable = {
+				who = THIS
+				which = current_combat_rating
+				value = combat_rating
+			}
+		}
+		event_target:dueler2 = {
+			set_variable = {
+				which = current_combat_rating
+				value = 0
+			}
+			export_to_variable = {
+				who = THIS
+				which = current_combat_rating
+				value = combat_rating
+			}
+		}
+	}
+
 	option = {
 		name = EVTOPTAmep_duel_events.1 # Dueler 1 Wins
 		ai_chance = {
 			factor = 0.5
 			modifier = {
-				factor = 2
-				event_target:dueler1 = {
-					trait = scrapper
+				factor = 0.1
+				NOT = {
+					event_target:dueler1 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
 				}
 			}
 			modifier = {
-				factor = 4
+				factor = 0.1
 				event_target:dueler1 = {
-					trait = fighter
+					check_variable = { which = current_combat_rating value = -100 }
 				}
 			}
 			modifier = {
-				factor = 6
+				factor = 0.1
 				event_target:dueler1 = {
-					trait = champion
+					check_variable = { which = current_combat_rating value = -1 }
 				}
 			}
 			modifier = {
-				factor = 8
+				factor = 1.1
 				event_target:dueler1 = {
-					trait = legend
+					check_variable = { which = current_combat_rating value = 0 }
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.1
 				event_target:dueler1 = {
-					trait = brave
+					check_variable = { which = current_combat_rating value = 1 }
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.1
 				event_target:dueler1 = {
-					trait = guardsman
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 10 }
 				}
 			}
 			modifier = {
@@ -345,45 +420,89 @@ character_event = {#Decide Duels
 		ai_chance = {
 			factor = 0.5
 			modifier = {
-				factor = 2
-				event_target:dueler2 = {
-					trait = scrapper
+				factor = 0.1
+				NOT = {
+					event_target:dueler2 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
 				}
 			}
 			modifier = {
-				factor = 4
+				factor = 0.1
 				event_target:dueler2 = {
-					trait = fighter
+					check_variable = { which = current_combat_rating value = -100 }
 				}
 			}
 			modifier = {
-				factor = 6
+				factor = 0.1
 				event_target:dueler2 = {
-					trait = champion
+					check_variable = { which = current_combat_rating value = -1 }
 				}
 			}
 			modifier = {
-				factor = 8
+				factor = 1.1
 				event_target:dueler2 = {
-					trait = legend
+					check_variable = { which = current_combat_rating value = 0 }
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.1
 				event_target:dueler2 = {
-					trait = brave
+					check_variable = { which = current_combat_rating value = 1 }
 				}
 			}
 			modifier = {
-				factor = 0.75
+				factor = 1.1
 				event_target:dueler2 = {
-					trait = pregnant
+					check_variable = { which = current_combat_rating value = 2 }
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.1
 				event_target:dueler2 = {
-					trait = guardsman
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 10 }
 				}
 			}
 		}
