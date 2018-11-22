@@ -997,8 +997,15 @@ mep_transfer_onering_to_root = {
 	}
 }
 grant_bloodline_effect = {
+	real_father_even_if_dead = {
+		save_event_target_as = no_easy_way
+	}
 			IF = {
-				limit = { is_father_real_father = yes }
+				limit = {
+					father_event_if_dead = {
+						character = event_target:no_easy_way
+					}
+				}
 				#Aldarion
 				IF = {
 					limit = {
@@ -1799,7 +1806,13 @@ grant_bloodline_effect = {
 				}
 			}
 			IF = {
-				limit = { is_father_real_father = no }
+				limit = {
+					NOT = {
+						father_even_if_dead = {
+							character = event_target:no_easy_way
+						}
+					}
+				}
 				#Aldarion
 				IF = {
 					limit = {
