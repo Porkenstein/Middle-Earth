@@ -18,39 +18,27 @@ tuberculosis = { # Consumption
 			92 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
 						hospital_level = 2
-					}
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			8 = {
@@ -276,39 +264,27 @@ typhoid_fever = { # Slow Fever
 			92 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			8 = {
@@ -329,6 +305,7 @@ typhoid_fever = { # Slow Fever
 				NOR = {
 					mep_cant_get_disease_trigger = yes
 					has_disease_trigger = yes
+					trait = has_typhoid_fever
 					trait = horse
 					trait = cat
 					
@@ -531,39 +508,27 @@ typhus = { # Camp Fever
 			92 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			8 = {
@@ -584,10 +549,12 @@ typhus = { # Camp Fever
 				NOR = {
 					mep_cant_get_disease_trigger = yes
 					has_disease_trigger = yes
+					has_character_flag = immune_typhus
+					has_character_flag = got_typhus
+					trait = has_typhus
 					trait = horse
 					trait = cat
-					trait = has_typhus
-					has_character_flag = immune_typhus
+					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
 					has_character_flag = got_smallpox
@@ -786,39 +753,27 @@ bubonic_plague = {
 			10 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			90 = {
@@ -840,9 +795,10 @@ bubonic_plague = {
 					has_character_flag = immune_bubonic_plague
 					mep_cant_get_disease_trigger = yes
 					has_disease_trigger = yes
+					has_character_flag = got_bubonic_plague
+					trait = has_bubonic_plague
 					trait = horse
 					trait = cat
-					trait = has_bubonic_plague
 				}
 			}
 			random_list = {
@@ -929,6 +885,7 @@ bubonic_plague = {
 	timeperiod = {	# Dynamic plague outbreak
 		start_date = 9978.1.1
 		end_date = 10000.1.1	
+		months = 0
 		
 		outbreak_chance = 0.01
 		
@@ -953,6 +910,7 @@ bubonic_plague = {
 	timeperiod = {	# Dynamic plague outbreak, take 2 (late game)
 		start_date = 9978.1.1
 		end_date = 10000.1.1	
+		months = 0
 		
 		outbreak_chance = 0.01
 		
@@ -976,6 +934,7 @@ bubonic_plague = {
 	timeperiod = {	# Delayed Dynamic plague outbreak
 		start_date = 9978.1.1
 		end_date = 10000.1.1	
+		months = 0
 		
 		outbreak_chance = 0.01
 		
@@ -1000,6 +959,7 @@ bubonic_plague = {
 	timeperiod = {	# Dynamic historical plague
 		start_date = 9978.1.1
 		end_date = 10000.1.1	
+		months = 0
 
 		can_outbreak = {
 			NOT = { has_global_flag = black_death_happened }
@@ -1103,39 +1063,27 @@ measles = {
 			95 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			5 = {
@@ -1361,39 +1309,27 @@ small_pox = {
 			92 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			8 = {
@@ -1619,39 +1555,27 @@ syphilis = {
 			90 = {
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 1
-					}
+					hospital_level = 1
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 2
-					}
+					hospital_level = 2
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 3
-					}
+					hospital_level = 3
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 4
-					}
+					hospital_level = 4
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 5
-					}
+					hospital_level = 5
 				}
 				modifier = {
 					factor = 1.1
-					location = {
-						hospital_level = 6
-					}
+					hospital_level = 6
 				}
 			}
 			10 = {
@@ -1872,11 +1796,11 @@ dancing_plague = {
 				age = 12
 				NOR = {
 					mep_cant_get_disease_trigger = yes
-					trait = horse
-					trait = cat
 					has_character_flag = immune_dancing_plague
 					has_character_flag = got_dancing_plague
 					trait = dancing_plague
+					trait = horse
+					trait = cat
 					trait = incapable
 				}
 			}			
