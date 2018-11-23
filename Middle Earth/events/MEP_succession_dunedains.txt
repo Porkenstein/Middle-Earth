@@ -17,34 +17,43 @@ narrative_event = {
 	option = {
 		name = "EVTOPTArulegondor.4" ## Yes!
 		dynasty = 2001
-		any_child = {
-			dynasty = 2001
-		}
-		any_child = {
-			any_child = {
-				dynasty = 2001
+		IF = {
+			limit = {
+				trait = blood_of_valandil
 			}
+			add_trait = blood_of_isildur
+			remove_trait = blood_of_valandil
 		}
-		any_child={
-			any_child = {
-				any_child = {
-					dynasty = 2001
-				}
-			}
-		}
-		any_child = {
-			any_child = {
-				any_child = {
-					any_child = {
-						dynasty = 2001
-					}
-				}
+		any_child_even_if_dead = {
+			character_event = {
+				id = rulegondor.41
 			}
 		}
 	}
 	option = {
 		name = "EVTOPTBrulegondor.4" ## No!
 		trigger = { ai = no }
+	}
+}
+narrative_event = {
+	id = rulegondor.41
+	is_triggered_only = yes	
+	hide_window = yes
+
+	immediate = {
+		dynasty = 2001
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_isildur
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = rulegondor.41
+			}
+		}
 	}
 }
 
@@ -66,33 +75,42 @@ narrative_event = {
 	option = {
 		name = "EVTOPTArulegondor.0" ## Yes!
 		dynasty = 102
-		any_child = {
-			dynasty = 102
-		}
-		any_child = {
-			any_child = {
-				dynasty = 102
+		IF = {
+			limit = {
+				trait = blood_of_valandil
 			}
+			add_trait = blood_of_anarion
+			remove_trait = blood_of_valandil
 		}
-		any_child = {
-			any_child = {
-				any_child = {
-					dynasty = 102
-				}
-			}
-		}
-		any_child = {
-			any_child = {
-				any_child = {
-					any_child = {
-						dynasty = 102
-					}
-				}
+		any_child_even_if_dead = {
+			character_event = {
+				id = rulegondor.51
 			}
 		}
 	}
 	option = {
 		name = "EVTOPTBrulegondor.0" ## No!
 		trigger = { ai = no }
+	}
+}
+narrative_event = {
+	id = rulegondor.51
+	is_triggered_only = yes	
+	hide_window = yes
+
+	immediate = {
+		dynasty = 102
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_anarion
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = rulegondor.51
+			}
+		}
 	}
 }
