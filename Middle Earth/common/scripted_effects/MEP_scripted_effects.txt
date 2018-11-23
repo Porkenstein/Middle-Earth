@@ -1003,6 +1003,423 @@ grant_bloodline_effect = {
 						character = event_target:no_easy_way
 					}
 				}
+				#Isildur
+				IF = {
+					limit = {
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_isildur
+							}
+							mother_even_if_dead = {
+								trait = blood_of_isildur
+							}
+						}
+					}
+					add_trait = blood_of_isildur
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_isildur }
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_isildur
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_isildur
+							}
+						}
+					}
+					add_trait = fake_blood_of_isildur
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_isildur }
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_isildur
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_isildur
+							}
+						}
+					}
+					add_trait = hidden_blood_of_isildur
+				}
+				#Anarion
+				IF = {
+					limit = {
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_anarion
+							}
+							mother_even_if_dead = {
+								trait = blood_of_anarion
+							}
+						}
+					}
+					add_trait = blood_of_anarion
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_anarion }
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_anarion
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_anarion
+							}
+						}
+					}
+					add_trait = fake_blood_of_anarion
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_anarion }
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_anarion
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_anarion
+							}
+						}
+					}
+					add_trait = hidden_blood_of_anarion
+				}
+				#Valandil
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_valandil
+							}
+							mother_even_if_dead = {
+								trait = blood_of_valandil
+							}
+						}
+					}
+					add_trait = blood_of_valandil
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_valandil
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_valandil
+							}
+						}
+					}
+					add_trait = fake_blood_of_valandil
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_valandil
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_valandil
+							}
+						}
+					}
+					add_trait = hidden_blood_of_valandil
+				}
+				#Imrazor
+				IF = {
+					limit = {
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_imrazor
+							}
+							mother_even_if_dead = {
+								trait = blood_of_imrazor
+							}
+						}
+					}
+					add_trait = blood_of_imrazor
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_imrazor }
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_imrazor
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_imrazor
+							}
+						}
+					}
+					add_trait = fake_blood_of_imrazor
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_imrazor }
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_imrazor
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_imrazor
+							}
+						}
+					}
+					add_trait = hidden_blood_of_imrazor
+				}
+				#Hurin
+				IF = {
+					limit = {
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_hurin
+							}
+							mother_even_if_dead = {
+								trait = blood_of_hurin
+							}
+						}
+					}
+					add_trait = blood_of_hurin
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_hurin }
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_hurin
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_hurin
+							}
+						}
+					}
+					add_trait = fake_blood_of_hurin
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_hurin }
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_hurin
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_hurin
+							}
+						}
+					}
+					add_trait = hidden_blood_of_hurin
+				}
+				#Arpharazon
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_arpharazon
+							}
+							mother_even_if_dead = {
+								trait = blood_of_arpharazon
+							}
+						}
+					}
+					add_trait = blood_of_arpharazon
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_arpharazon
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_arpharazon
+							}
+						}
+					}
+					add_trait = fake_blood_of_arpharazon
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_arpharazon
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_arpharazon
+							}
+						}
+					}
+					add_trait = hidden_blood_of_arpharazon
+				}
+				#Elwe
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_elwe
+							}
+							mother_even_if_dead = {
+								trait = blood_of_elwe
+							}
+						}
+					}
+					add_trait = blood_of_elwe
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_elwe
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_elwe
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_elwe
+							}
+						}
+					}
+					add_trait = fake_blood_of_elwe
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_elwe
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_elwe
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_elwe
+							}
+						}
+					}
+					add_trait = hidden_blood_of_elwe
+				}
+				#Fingolfin
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_fingolfin
+							}
+							mother_even_if_dead = {
+								trait = blood_of_fingolfin
+							}
+						}
+					}
+					add_trait = blood_of_fingolfin
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_fingolfin
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = fake_blood_of_fingolfin
+							}
+							mother_even_if_dead = {
+								trait = fake_blood_of_fingolfin
+							}
+						}
+					}
+					add_trait = fake_blood_of_fingolfin
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_fingolfin
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_fingolfin
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_fingolfin
+							}
+						}
+					}
+					add_trait = hidden_blood_of_fingolfin
+				}
 				#Aldarion
 				IF = {
 					limit = {
@@ -1086,90 +1503,6 @@ grant_bloodline_effect = {
 						}
 					}
 					add_trait = hidden_blood_of_durin
-				}
-				#Arpharazon
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_arpharazon
-							}
-							mother_even_if_dead = {
-								trait = blood_of_arpharazon
-							}
-						}
-					}
-					add_trait = blood_of_arpharazon
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_arpharazon }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_arpharazon
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_arpharazon
-							}
-						}
-					}
-					add_trait = fake_blood_of_arpharazon
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_arpharazon }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_arpharazon
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_arpharazon
-							}
-						}
-					}
-					add_trait = hidden_blood_of_arpharazon
-				}
-				#Elwe
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_elwe
-							}
-							mother_even_if_dead = {
-								trait = blood_of_elwe
-							}
-						}
-					}
-					add_trait = blood_of_elwe
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_elwe }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_elwe
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_elwe
-							}
-						}
-					}
-					add_trait = fake_blood_of_elwe
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_elwe }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_elwe
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_elwe
-							}
-						}
-					}
-					add_trait = hidden_blood_of_elwe
 				}
 				#Feanor
 				IF = {
@@ -1255,48 +1588,6 @@ grant_bloodline_effect = {
 					}
 					add_trait = hidden_blood_of_finarfin
 				}
-				#Fingolfin
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_fingolfin
-							}
-							mother_even_if_dead = {
-								trait = blood_of_fingolfin
-							}
-						}
-					}
-					add_trait = blood_of_fingolfin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_fingolfin }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_fingolfin
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_fingolfin
-							}
-						}
-					}
-					add_trait = fake_blood_of_fingolfin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_fingolfin }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_fingolfin
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_fingolfin
-							}
-						}
-					}
-					add_trait = hidden_blood_of_fingolfin
-				}
 				#Galadhon
 				IF = {
 					limit = {
@@ -1380,132 +1671,6 @@ grant_bloodline_effect = {
 						}
 					}
 					add_trait = hidden_blood_of_dale
-				}
-				#Hurin
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_hurin
-							}
-							mother_even_if_dead = {
-								trait = blood_of_hurin
-							}
-						}
-					}
-					add_trait = blood_of_hurin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_hurin }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_hurin
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_hurin
-							}
-						}
-					}
-					add_trait = fake_blood_of_hurin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_hurin }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_hurin
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_hurin
-							}
-						}
-					}
-					add_trait = hidden_blood_of_hurin
-				}
-				#Imrazor
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_imrazor
-							}
-							mother_even_if_dead = {
-								trait = blood_of_imrazor
-							}
-						}
-					}
-					add_trait = blood_of_imrazor
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_imrazor }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_imrazor
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_imrazor
-							}
-						}
-					}
-					add_trait = fake_blood_of_imrazor
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_imrazor }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_imrazor
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_imrazor
-							}
-						}
-					}
-					add_trait = hidden_blood_of_imrazor
-				}
-				#Isildur
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_isildur
-							}
-							mother_even_if_dead = {
-								trait = blood_of_isildur
-							}
-						}
-					}
-					add_trait = blood_of_isildur
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_isildur }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_isildur
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_isildur
-							}
-						}
-					}
-					add_trait = fake_blood_of_isildur
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_isildur }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_isildur
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_isildur
-							}
-						}
-					}
-					add_trait = hidden_blood_of_isildur
 				}
 				#Nowe
 				IF = {
@@ -1717,48 +1882,6 @@ grant_bloodline_effect = {
 					}
 					add_trait = hidden_blood_of_thorondor
 				}
-				#Valandil
-				IF = {
-					limit = {
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_valandil
-							}
-							mother_even_if_dead = {
-								trait = blood_of_valandil
-							}
-						}
-					}
-					add_trait = blood_of_valandil
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_valandil }
-						OR = {
-							true_father_even_if_dead = {
-								trait = fake_blood_of_valandil
-							}
-							mother_even_if_dead = {
-								trait = fake_blood_of_valandil
-							}
-						}
-					}
-					add_trait = fake_blood_of_valandil
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_valandil }
-						OR = {
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_valandil
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_valandil
-							}
-						}
-					}
-					add_trait = hidden_blood_of_valandil
-				}
 				#Vidugavia
 				IF = {
 					limit = {
@@ -1809,6 +1932,394 @@ grant_bloodline_effect = {
 							character = event_target:no_easy_way
 						}
 					}
+				}
+				#Isildur
+				IF = {
+					limit = {
+						mother_even_if_dead = {
+							trait = blood_of_isildur
+						}
+					}
+					add_trait = blood_of_isildur
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_isildur }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_isildur
+								trait = fake_blood_of_isildur
+							}
+						}
+					}
+					add_trait = fake_blood_of_isildur
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_isildur }
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_isildur
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_isildur
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_isildur
+							}
+						}
+					}
+					add_trait = hidden_blood_of_isildur
+				}
+				#Anarion
+				IF = {
+					limit = {
+						mother_even_if_dead = {
+							trait = blood_of_anarion
+						}
+					}
+					add_trait = blood_of_anarion
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_anarion }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_anarion
+								trait = fake_blood_of_anarion
+							}
+						}
+					}
+					add_trait = fake_blood_of_anarion
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_anarion }
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_anarion
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_anarion
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_anarion
+							}
+						}
+					}
+					add_trait = hidden_blood_of_anarion
+				}
+				#Valandil
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+						}
+						mother_even_if_dead = {
+							trait = blood_of_valandil
+						}
+					}
+					add_trait = blood_of_valandil
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_valandil
+								trait = fake_blood_of_valandil
+							}
+						}
+					}
+					add_trait = fake_blood_of_valandil
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_valandil
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_valandil
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_valandil
+							}
+						}
+					}
+					add_trait = hidden_blood_of_valandil
+				}
+				#Hurin
+				IF = {
+					limit = {
+						mother_even_if_dead = {
+							trait = blood_of_hurin
+						}
+					}
+					add_trait = blood_of_hurin
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_hurin }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_hurin
+								trait = fake_blood_of_hurin
+							}
+						}
+					}
+					add_trait = fake_blood_of_hurin
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_hurin }
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_hurin
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_hurin
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_hurin
+							}
+						}
+					}
+					add_trait = hidden_blood_of_hurin
+				}
+				#Imrazor
+				IF = {
+					limit = {
+						mother_even_if_dead = {
+							trait = blood_of_imrazor
+						}
+					}
+					add_trait = blood_of_imrazor
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_imrazor }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_imrazor
+								trait = fake_blood_of_imrazor
+							}
+						}
+					}
+					add_trait = fake_blood_of_imrazor
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_imrazor }
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_imrazor
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_imrazor
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_imrazor
+							}
+						}
+					}
+					add_trait = hidden_blood_of_imrazor
+				}
+				#Arpharazon
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						mother_even_if_dead = {
+							trait = blood_of_arpharazon
+						}
+					}
+					add_trait = blood_of_arpharazon
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_arpharazon
+								trait = fake_blood_of_arpharazon
+							}
+						}
+					}
+					add_trait = fake_blood_of_arpharazon
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_arpharazon
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_arpharazon
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_arpharazon
+							}
+						}
+					}
+					add_trait = hidden_blood_of_arpharazon
+				}
+				#Elwe
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						mother_even_if_dead = {
+							trait = blood_of_elwe
+						}
+					}
+					add_trait = blood_of_elwe
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_elwe
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						NOT = { trait = blood_of_elwe }
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_elwe
+								trait = fake_blood_of_elwe
+							}
+						}
+					}
+					add_trait = fake_blood_of_elwe
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_elwe
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_elwe
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_elwe
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_elwe
+							}
+						}
+					}
+					add_trait = hidden_blood_of_elwe
+				}
+				#Fingolfin
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_elwe
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						mother_even_if_dead = {
+							trait = blood_of_fingolfin
+						}
+					}
+					add_trait = blood_of_fingolfin
+				}
+				IF = {
+					limit = {
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_fingolfin
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						father_even_if_dead = {
+							OR = {
+								trait = blood_of_fingolfin
+								trait = fake_blood_of_fingolfin
+							}
+						}
+					}
+					add_trait = fake_blood_of_fingolfin
+				}
+				IF = {
+					limit = {
+						NOT = { trait = blood_of_fingolfin }
+						NOR = {
+							trait = blood_of_anarion
+							trait = blood_of_arpharazon
+							trait = blood_of_fingolfin
+							trait = blood_of_hurin
+							trait = blood_of_imrazor
+							trait = blood_of_isildur
+							trait = blood_of_valandil
+						}
+						OR = {
+							true_father_even_if_dead = {
+								trait = blood_of_fingolfin
+							}
+							true_father_even_if_dead = {
+								trait = hidden_blood_of_fingolfin
+							}
+							mother_even_if_dead = {
+								trait = hidden_blood_of_fingolfin
+							}
+						}
+					}
+					add_trait = hidden_blood_of_fingolfin
 				}
 				#Aldarion
 				IF = {
@@ -1885,82 +2396,6 @@ grant_bloodline_effect = {
 						}
 					}
 					add_trait = hidden_blood_of_durin
-				}
-				#Arpharazon
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_arpharazon
-						}
-					}
-					add_trait = blood_of_arpharazon
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_arpharazon }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_arpharazon
-								trait = fake_blood_of_arpharazon
-							}
-						}
-					}
-					add_trait = fake_blood_of_arpharazon
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_arpharazon }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_arpharazon
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_arpharazon
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_arpharazon
-							}
-						}
-					}
-					add_trait = hidden_blood_of_arpharazon
-				}
-				#Elwe
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_elwe
-						}
-					}
-					add_trait = blood_of_elwe
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_elwe }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_elwe
-								trait = fake_blood_of_elwe
-							}
-						}
-					}
-					add_trait = fake_blood_of_elwe
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_elwe }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_elwe
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_elwe
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_elwe
-							}
-						}
-					}
-					add_trait = hidden_blood_of_elwe
 				}
 				#Feanor
 				IF = {
@@ -2152,120 +2587,6 @@ grant_bloodline_effect = {
 					}
 					add_trait = hidden_blood_of_dale
 				}
-				#Hurin
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_hurin
-						}
-					}
-					add_trait = blood_of_hurin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_hurin }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_hurin
-								trait = fake_blood_of_hurin
-							}
-						}
-					}
-					add_trait = fake_blood_of_hurin
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_hurin }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_hurin
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_hurin
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_hurin
-							}
-						}
-					}
-					add_trait = hidden_blood_of_hurin
-				}
-				#Imrazor
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_imrazor
-						}
-					}
-					add_trait = blood_of_imrazor
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_imrazor }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_imrazor
-								trait = fake_blood_of_imrazor
-							}
-						}
-					}
-					add_trait = fake_blood_of_imrazor
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_imrazor }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_imrazor
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_imrazor
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_imrazor
-							}
-						}
-					}
-					add_trait = hidden_blood_of_imrazor
-				}
-				#Isildur
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_isildur
-						}
-					}
-					add_trait = blood_of_isildur
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_isildur }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_isildur
-								trait = fake_blood_of_isildur
-							}
-						}
-					}
-					add_trait = fake_blood_of_isildur
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_isildur }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_isildur
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_isildur
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_isildur
-							}
-						}
-					}
-					add_trait = hidden_blood_of_isildur
-				}
 				#Nowe
 				IF = {
 					limit = {
@@ -2455,44 +2776,6 @@ grant_bloodline_effect = {
 						}
 					}
 					add_trait = hidden_blood_of_thorondor
-				}
-				#Valandil
-				IF = {
-					limit = {
-						mother_even_if_dead = {
-							trait = blood_of_valandil
-						}
-					}
-					add_trait = blood_of_valandil
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_valandil }
-						father_even_if_dead = {
-							OR = {
-								trait = blood_of_valandil
-								trait = fake_blood_of_valandil
-							}
-						}
-					}
-					add_trait = fake_blood_of_valandil
-				}
-				IF = {
-					limit = {
-						NOT = { trait = blood_of_valandil }
-						OR = {
-							true_father_even_if_dead = {
-								trait = blood_of_valandil
-							}
-							true_father_even_if_dead = {
-								trait = hidden_blood_of_valandil
-							}
-							mother_even_if_dead = {
-								trait = hidden_blood_of_valandil
-							}
-						}
-					}
-					add_trait = hidden_blood_of_valandil
 				}
 				#Vidugavia
 				IF = {
