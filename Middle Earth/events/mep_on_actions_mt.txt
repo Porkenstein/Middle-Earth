@@ -23,6 +23,9 @@ character_event = {	#Old age Trait for Characters
 
 	trigger = {
 		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
 			culture_group = culture_group_dwarves
 			culture_group = culture_group_numenorean
 			culture_group = culture_group_halfling
@@ -63,6 +66,14 @@ character_event = {	#Old age Death for Characters
 		modifier = {
 			factor = 0.8
 			trait = incapable
+		}
+		modifier = {
+			factor = 15
+			OR = {
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+			}
 		}
 		modifier = {
 			factor = 1.1
