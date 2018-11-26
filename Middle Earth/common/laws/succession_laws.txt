@@ -144,6 +144,41 @@ succession_laws = {
 			always = no
 		}			
 	}
+	succ_eldership = {
+		dynasty_opinion = 5
+	
+		potential = {
+			holder_scope = {
+				OR = {
+					is_tribal = yes
+					has_religion_feature = religion_beatification
+					has_religion_feature = religion_feature_baltic
+					has_religion_feature = religion_feature_west_african
+				}
+			}
+			holder_scope = {
+				has_dlc = "Holy Fury"
+				is_nomadic = no
+				OR = {
+					independent = yes
+					NOT = {
+						any_liege = {
+							holy_order = yes
+						}
+					}
+				}
+				NOR = { 
+					mep_temp_muslim_standin_trigger = yes
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
+				}
+				is_merchant_republic = no
+				is_patrician = no
+				OR = {
+					independent = yes
+					NOT = {
+						any_demesne_title = {
+							is_vice_royalty = yes
 						}
 					}
 				}
@@ -165,7 +200,15 @@ succession_laws = {
 		allow = {
 			conditional_tooltip = {
 				trigger = {
-					has_dlc = "Conclave"
+					has_dlc = "Holy Fury"
+				}
+				holder_scope = {
+					OR = {
+						is_tribal = yes
+						has_religion_feature = religion_beatification
+						has_religion_feature = religion_feature_baltic
+						has_religion_feature = religion_feature_west_african
+					}
 				}
 				custom_tooltip = {
 					text = forced_elective_tt
@@ -173,15 +216,21 @@ succession_laws = {
 						NAND = { 
 							has_law = succession_voting_power_1
 							has_law = succ_feudal_elective
-						}
 					}
 				}
 			}
+			holder_scope = {
+				show_scope_change = no
+				in_revolt = no
+			}
 		}
 		effect = {
-			succession = elective_gavelkind
+			succession = {
+				base_type = tanistry
+				voting_rules = eldership_rules
+			}
+			elective_voting_rules = eldership_rules
 		}
-
 	}
 	
 	succ_seniority = {
@@ -258,34 +307,34 @@ succession_laws = {
 				trigger = {
 					NOT = { has_dlc = "Conclave" }
 				}
-			OR = {
-				hidden_tooltip = {
-					has_crown_law_title = no
-				}
-				holder_scope = {
+				OR = {
+					hidden_tooltip = {
+						has_crown_law_title = no
+					}
+					holder_scope = {
 						show_scope_change = no
-					is_patrician = yes 
-					OR = {
-						is_merchant_republic = no
-						PREV = {
-							is_primary_holder_title = no
-						}
-						NOT = {
-							in_revolt = yes
-							succ_law_title = {
-								title = PREVPREV
+						is_patrician = yes 
+						OR = {
+							is_merchant_republic = no
+							PREV = {
+								is_primary_holder_title = no
+							}
+							NOT = {
+								in_revolt = yes
+								succ_law_title = {
+									title = PREVPREV
+								}
 							}
 						}
 					}
-				}
-				crownlaw_title = {
-					OR = {
-						has_law = crown_authority_2
-						has_law = crown_authority_3
-						has_law = crown_authority_4
+					crownlaw_title = {
+						OR = {
+							has_law = crown_authority_2
+							has_law = crown_authority_3
+							has_law = crown_authority_4
+						}
 					}
 				}
-			}
 			}
 			custom_tooltip = {
 				text = not_forced_tt
@@ -372,6 +421,7 @@ succession_laws = {
 							is_vice_royalty = yes
 						}
 					}
+					AND = {
 						holder_scope = {
 							show_scope_change = no
 							primary_title = {
@@ -382,6 +432,7 @@ succession_laws = {
 								}
 							}
 						}
+					}
 				}
 			}
 			conditional_tooltip = {
@@ -456,7 +507,11 @@ succession_laws = {
 				}
 				is_merchant_republic = no
 				is_patrician = no
-				NOT = { mep_prim_humans_culture_notbree = yes }
+				
+				OR = {
+					NOT = { mep_prim_humans_culture_notbree = yes }
+					has_law = succession_voting_power_1
+					has_law = succ_feudal_elective # Keep it even if you revoke Full Council Authority
 				OR = {
 					independent = yes
 					NOT = {
@@ -473,7 +528,11 @@ succession_laws = {
 			}
 			is_primary_type_title = no
 			NOT = { tier = baron }
-			holder_scope = { is_feudal = yes }
+			holder_scope = {
+				OR = {
+					is_feudal = yes
+					has_law = succession_voting_power_1
+					has_law = succ_feudal_elective # Keep it even if you revoke Full Council Authority
 		}
 		allow = {
 			custom_tooltip = {
@@ -484,8 +543,12 @@ succession_laws = {
 			}
 		}
 		effect = {
-			succession = feudal_elective
+			succession = {
+				base_type = feudal_elective
+				voting_rules = feudal_elective
+			}
 		}
+	}
 
 	}
 	
@@ -495,7 +558,6 @@ succession_laws = {
 		dynasty_opinion = 5
 		vassal_opinion = 5
 		potential = {
-			always = no
 			holder_scope = {
 				OR = {
 					independent = yes
@@ -508,7 +570,12 @@ succession_laws = {
 				NOT = { mep_temp_muslim_standin_trigger = yes }
 				is_merchant_republic = no
 				is_patrician = no
-				culture = culture_balrog
+				OR = {
+					culture = culture_balrog
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_tanistry
+					}
+				}
 				OR = {
 					independent = yes
 					NOT = {
@@ -526,8 +593,13 @@ succession_laws = {
 			is_primary_type_title = no
 			NOT = { tier = baron }
 			OR = {
-				holder_scope = { 
-					culture = culture_balrog
+				holder_scope = {
+					OR = {
+						culture = culture_balrog
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_tanistry
+						}
+					}
 				}
 				AND = {
 					tier = baron
@@ -563,9 +635,11 @@ succession_laws = {
 			}
 		}
 		effect = {
-			succession = tanistry
+			succession = {
+				base_type = tanistry
+				voting_rules = tanistry
+			}
 		}
-
 	}
 	
 	succ_ultimogeniture = {
