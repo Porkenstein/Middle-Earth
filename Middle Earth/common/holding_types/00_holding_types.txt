@@ -22,10 +22,6 @@ trade_post = {
 		NOT = { religion_group = religion_group_ungoliant }
 		NOT = { religion_group = religion_group_enyd }
 		mep_tp_compatible_align = yes
-		custom_tooltip = {
-			text = TT_MEP_NO_PURGE
-			NOT = { mep_being_purged_trigger = yes }
-		}
 		conditional_tooltip = {
 			trigger = {
 				OR = {
@@ -37,13 +33,16 @@ trade_post = {
 					trade_route = harad_trade_road
 				}
 				OR = {
-					FROM = { is_patrician = no }
+					FROM = {
+						is_patrician = no
+					}
 					AND = {
 						port = no
-						FROM = { is_patrician = yes }
+						FROM = {
+							is_patrician = yes
+						}
 					}
 				}
-			}
 			OR = {
 				north_south_road_trade_post_trigger = yes
 				south_road_trade_post_trigger = yes
