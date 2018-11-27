@@ -114,6 +114,7 @@ succession_laws = {
 				holder_scope = { is_tribal = yes }
 			}
 			is_primary_type_title = no
+		}
 		allow = {
 			conditional_tooltip = {
 				trigger = {
@@ -139,9 +140,6 @@ succession_laws = {
 				base_type = elective_gavelkind
 				voting_rules = elective_gavelkind
 			}
-		}
-		revoke_allowed = {
-			always = no
 		}			
 	}
 	succ_eldership = {
@@ -216,6 +214,7 @@ succession_laws = {
 						NAND = { 
 							has_law = succession_voting_power_1
 							has_law = succ_feudal_elective
+						}
 					}
 				}
 			}
@@ -512,6 +511,7 @@ succession_laws = {
 					NOT = { mep_prim_humans_culture_notbree = yes }
 					has_law = succession_voting_power_1
 					has_law = succ_feudal_elective # Keep it even if you revoke Full Council Authority
+				}
 				OR = {
 					independent = yes
 					NOT = {
@@ -533,6 +533,8 @@ succession_laws = {
 					is_feudal = yes
 					has_law = succession_voting_power_1
 					has_law = succ_feudal_elective # Keep it even if you revoke Full Council Authority
+				}
+			}
 		}
 		allow = {
 			custom_tooltip = {
@@ -548,8 +550,6 @@ succession_laws = {
 				voting_rules = feudal_elective
 			}
 		}
-	}
-
 	}
 	
 	succ_tanistry = {
