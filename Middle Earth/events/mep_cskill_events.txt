@@ -9,6 +9,9 @@ character_event = {#Combat Skills
 			trait = novice_fighter
 			trait = adept_fighter
 			trait = skilled_fighter
+			trait = bowman
+			trait = skilled_bowman
+			trait = great_bowman
 			NOT = { has_combat_prowess_trigger = yes }
 		}
 	}
@@ -27,6 +30,18 @@ character_event = {#Combat Skills
 			modifier = {
 				factor = 0.10
 				trait = novice_fighter
+			}
+			modifier = {
+				factor = 0.01
+				trait = great_bowman
+			}
+			modifier = {
+				factor = 0.05
+				trait = skilled_bowman
+			}
+			modifier = {
+				factor = 0.10
+				trait = bowman
 			}
 			character_event = { id = mep_cskill_events.1 }
 		}
@@ -55,8 +70,30 @@ character_event = {#Improved Skill
 			add_trait = adept_fighter
 		}
 		IF = {
+			limit = { trait = great_bowman }
+			remove_trait = great_bowman
+			add_trait = master_bowman
+		}
+		IF = {
+			limit = { trait = skilled_bowman }
+			remove_trait = skilled_bowman
+			add_trait = great_bowman
+		}
+		IF = {
+			limit = { trait = bowman }
+			remove_trait = bowman
+			add_trait = skilled_bowman
+		}
+		IF = {
 			limit = { NOT = { has_combat_prowess_trigger = yes } }
-			add_trait = novice_fighter
+			random_list = {
+				1 = {
+					add_trait = novice_fighter
+				}
+				1 = {
+					add_trait = bowman
+				}
+			}
 		}
 	}
 
