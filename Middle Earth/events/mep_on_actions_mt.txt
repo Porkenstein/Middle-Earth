@@ -124,403 +124,1148 @@ character_event = {	#Informed of Death
 	}
 }
 
-character_event = {	#Bloodlines Startup
+character_event = {	#Prestige Dynasties Startup
 	id = mep_on_actions_mt.121
 	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
-		has_landed_title = c_minas_tirith
+		OR = {
+			mother_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+			father_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+		}
 	}
 
 	immediate = {
-		c_1900 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_1913 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_2278 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_2586 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3004 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3056 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3065 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3070 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3102 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3119 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3129 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3145 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_3238 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_4001 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_9009 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_9900 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_12082 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_12083 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_12136 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-		c_12137 = {
-			IF = {
-				limit = {
-					is_alive = yes
-				}
-				add_character_modifier = {
-					modifier = noble_bloodline
-					duration = -1
-				}
-			}
-			any_child_even_if_dead = {
-				character_event = {
-					id = mep_on_actions_mt.13
-				}
-			}
-		}
-	}
-}
-
-character_event = {	#Bloodlines Startup
-	id = mep_on_actions_mt.13
-	is_triggered_only = yes
-	hide_window = yes
-
-	option = {
-		true_father_even_if_dead = {
-			save_event_target_as = no_easy_way
-		}
-		IF = {
+		IF = { #	Eorl
 			limit = {
-				is_alive = yes
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+					father_even_if_dead = {
+						dynasty = 5
+					}
+				}
 			}
 			add_character_modifier = {
 				modifier = noble_bloodline
 				duration = -1
 			}
+			add_trait = blood_of_eorl
 		}
-		grant_bloodline_effect = yes
-		clear_event_target = no_easy_way
-		any_child_even_if_dead = {
-			character_event = { id = mep_on_actions_mt.13 }
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+					father_even_if_dead = {
+						dynasty = 100
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+					father_even_if_dead = {
+						dynasty = 101
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+					father_even_if_dead = {
+						dynasty = 102
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+					father_even_if_dead = {
+						dynasty = 174
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+					father_even_if_dead = {
+						dynasty = 935
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+					father_even_if_dead = {
+						dynasty = 936
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+					father_even_if_dead = {
+						dynasty = 2001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+					father_even_if_dead = {
+						dynasty = 2004
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+					father_even_if_dead = {
+						dynasty = 3002
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+					father_even_if_dead = {
+						dynasty = 3004
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+					father_even_if_dead = {
+						dynasty = 3005
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+					father_even_if_dead = {
+						dynasty = 3006
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+					father_even_if_dead = {
+						dynasty = 3007
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+					father_even_if_dead = {
+						dynasty = 3009
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+					father_even_if_dead = {
+						dynasty = 3010
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+					father_even_if_dead = {
+						dynasty = 3013
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+					father_even_if_dead = {
+						dynasty = 4001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+					father_even_if_dead = {
+						dynasty = 12001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+					father_even_if_dead = {
+						dynasty = 12003
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_valandil
 		}
 	}
 }
-character_event = {	#Bloodlines On Birth
-	id = mep_on_actions_mt.131
+character_event = {	#Prestige Dynasties - Birth Dynastic
+	id = mep_on_actions_mt.122
 	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
+		has_game_rule = {
+			name = prestige_dynasties
+			value = dynastic
+		}
 		OR = {
-			real_father_even_if_dead = {
-				has_bloodline_trigger = yes
-			}
 			mother_even_if_dead = {
-				has_bloodline_trigger = yes
+				mep_prestige_dynasty_trigger = yes
+			}
+			father_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
 			}
 		}
 	}
 
 	immediate = {
-		add_character_modifier = {
-			modifier = noble_bloodline
-			duration = -1
+		IF = { #	Eorl
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+					father_even_if_dead = {
+						dynasty = 5
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_eorl
 		}
-		grant_bloodline_effect = yes
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+					father_even_if_dead = {
+						dynasty = 100
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+					father_even_if_dead = {
+						dynasty = 101
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+					father_even_if_dead = {
+						dynasty = 102
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+					father_even_if_dead = {
+						dynasty = 174
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+					father_even_if_dead = {
+						dynasty = 935
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+					father_even_if_dead = {
+						dynasty = 936
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+					father_even_if_dead = {
+						dynasty = 2001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+					father_even_if_dead = {
+						dynasty = 2004
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+					father_even_if_dead = {
+						dynasty = 3002
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+					father_even_if_dead = {
+						dynasty = 3004
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+					father_even_if_dead = {
+						dynasty = 3005
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+					father_even_if_dead = {
+						dynasty = 3006
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+					father_even_if_dead = {
+						dynasty = 3007
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+					father_even_if_dead = {
+						dynasty = 3009
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+					father_even_if_dead = {
+						dynasty = 3010
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+					father_even_if_dead = {
+						dynasty = 3013
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+					father_even_if_dead = {
+						dynasty = 4001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+					father_even_if_dead = {
+						dynasty = 12001
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+					father_even_if_dead = {
+						dynasty = 12003
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_valandil
+		}
 	}
 }
-character_event = {	#Bloodlines - Has Secret
-	id = mep_on_actions_mt.132
+character_event = {	#Bloodlines On Birth - Faux Lines
+	id = mep_on_actions_mt.123
+	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
-		has_hidden_bloodline_trigger = yes
-	}
-
-	mean_time_to_happen = {
-		years = 50
+		has_game_rule = {
+			name = prestige_dynasties
+			value = faux_lines
+		}
+		OR = {
+			father_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+			mother_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+		}
 	}
 
 	immediate = {
-		c_10033 = {
-			character_event = { id = mep_bloodlines_events.0 }
+		IF = { #	Eorl
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 5
+							trait = blood_of_eorl
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_eorl
+		}
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 100
+							trait = blood_of_hurin
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 101
+							trait = blood_of_imrazor
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 102
+							trait = blood_of_anarion
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 174
+							trait = blood_of_castamir
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 935
+							trait = blood_of_oropher
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 936
+							trait = blood_of_amdir
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 2001
+							trait = blood_of_isildur
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 2004
+							trait = blood_of_telcontar
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3002
+							trait = blood_of_peredhel
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3004
+							trait = blood_of_finarfin
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3005
+							trait = blood_of_fingolfin
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3006
+							trait = blood_of_finwe
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3007
+							trait = blood_of_feanor
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3009
+							trait = blood_of_elwe
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3010
+							trait = blood_of_ingwe
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3013
+							trait = blood_of_olwe
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 4001
+							trait = blood_of_durin
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12001
+							trait = blood_of_valandil
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12003
+							trait = blood_of_valandil
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_valandil
 		}
 	}
 }

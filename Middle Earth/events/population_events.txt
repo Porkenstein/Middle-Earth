@@ -1,0 +1,1108 @@
+namespace = population_events
+character_event = {
+	id = population_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = c_minas_tirith
+	}
+
+	immediate = {
+		any_province = {
+			limit = {
+				is_land = yes
+				county = {
+					has_holder = yes
+				}
+				NOT = {
+					has_province_modifier = mod_pop_display
+				}
+			}
+			province_event = {
+				id = population_events.1
+			}
+		}
+	}
+}
+province_event = {	#Establish Base Populations
+	id = population_events.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_land = yes
+		county = {
+			has_holder = yes
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_province_modifier = mod_pop_display
+				}
+			}
+			add_province_modifier = {
+				modifier = mod_pop_display
+				duration = -1
+			}
+			random_list = {
+				1 = {	#1/X Chance of this Section Firing
+					modifier = {#The Chance of this firing for the province is times 0 if the province is NOT in the wilderness Culture Group
+						factor = 0
+						NOT = {
+							culture_group = culture_group_wilderness
+						}
+					}
+					modifier = {#The Chance of this firing for the province is times 0 if the province is NOT in the wilderness Culture Group
+						factor = 100
+						culture_group = culture_group_wilderness
+					}
+					set_variable = {#Population is set to 0
+						which = population
+						value = -1
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 1000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 2000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 3000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 4000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 5000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 10000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 20000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 30000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 40000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 50000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 60000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 70000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 80000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 90000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 100000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 150000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 200000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 250000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 300000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 350000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 400000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 450000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 500000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 600000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 700000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 800000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 900000
+					}
+				}
+				1 = {
+					set_variable = {
+						which = population
+						value = 1000000
+					}
+				}
+			}
+		}
+		province_event = {
+			id = population_events.21
+		}
+	}
+}
+character_event = {
+	id = population_events.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		any_demesne_province = {
+			has_province_modifier = mod_pop_display
+		}
+	}
+
+	immediate = {
+		any_demesne_province = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = population
+						value = 2000000
+					}
+				}
+			}
+			random_list = {
+				1 = {
+					multiply_variable = {
+						which = population
+						value = 0.98
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = population
+						value = 0.99
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = population
+						value = 1.01
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = population
+						value = 1.02
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						OR = {
+							culture = culture_goblin
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = population
+						value = 1.03
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.1
+						NOR = {
+							culture = culture_goblin
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = population
+						value = 1.04
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.05
+						NOR = {
+							culture = culture_goblin
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = population
+						value = 1.05
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.01
+						NOR = {
+							culture = culture_goblin
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = population
+						value = 1.06
+					}
+				}
+			}
+			province_event = {
+				id = population_events.21
+			}
+		}
+	}
+}
+province_event = {
+	id = population_events.21
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		remove_province_modifier = pop_wilderness
+		remove_province_modifier = pop_0
+		remove_province_modifier = pop_1
+		remove_province_modifier = pop_2
+		remove_province_modifier = pop_3
+		remove_province_modifier = pop_4
+		remove_province_modifier = pop_5
+		remove_province_modifier = pop_10
+		remove_province_modifier = pop_20
+		remove_province_modifier = pop_30
+		remove_province_modifier = pop_40
+		remove_province_modifier = pop_50
+		remove_province_modifier = pop_60
+		remove_province_modifier = pop_70
+		remove_province_modifier = pop_80
+		remove_province_modifier = pop_90
+		remove_province_modifier = pop_100
+		remove_province_modifier = pop_150
+		remove_province_modifier = pop_200
+		remove_province_modifier = pop_250
+		remove_province_modifier = pop_300
+		remove_province_modifier = pop_350
+		remove_province_modifier = pop_400
+		remove_province_modifier = pop_450
+		remove_province_modifier = pop_500
+		remove_province_modifier = pop_600
+		remove_province_modifier = pop_700
+		remove_province_modifier = pop_800
+		remove_province_modifier = pop_900
+		remove_province_modifier = pop_1000
+		IF = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = population
+						value = 100
+					}
+				}
+			}
+			set_variable = {
+				which = population
+				value = -1
+			}
+			add_province_modifier = {
+				modifier = pop_wilderness
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 100
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 1000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_0
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 1000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 2000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_1
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 2000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 3000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_2
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 3000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 4000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_3
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 4000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 5000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_4
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 5000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 10000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_5
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 10000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 20000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_10
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 20000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 30000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_20
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 30000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 40000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_30
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 40000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 50000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_40
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 50000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 60000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_50
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 60000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 70000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_60
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 70000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 80000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_70
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 80000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 90000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_80
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 90000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 100000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_90
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 100000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 150000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_100
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 150000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 200000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_150
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 200000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 250000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_200
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 250000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 300000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_250
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 300000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 350000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_300
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 350000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 400000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_350
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 400000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 450000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_400
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 450000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 500000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_450
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 500000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 600000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_500
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 600000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 700000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_600
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 700000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 800000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_700
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 800000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 900000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_800
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 900000
+				}
+				NOT = {
+					check_variable = {
+						which = population
+						value = 1000000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_900
+				duration = -1
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = population
+					value = 1000000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_1000
+				duration = -1
+			}
+		}
+	}
+}
+character_event = {
+	id = population_events.3
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		any_demesne_province = {
+			has_province_modifier = mod_armed_peasants
+		}
+	}
+
+	immediate = {
+		any_demesne_province = {
+			limit = {
+				has_province_modifier = mod_armed_peasants
+			}
+			random_list = {
+				1 = {
+					change_variable = {
+						which = population
+						value = 2000
+					}
+				}
+				1 = {
+					change_variable = {
+						which = population
+						value = 1000
+					}
+				}
+				1 = {
+					change_variable = {
+						which = population
+						value = 500
+					}
+				}
+			}
+			remove_province_modifier = mod_armed_peasants
+		}
+	}
+}
+#Population Flavor
+province_event = {	#Pop Growth
+	id = population_events.4
+	desc = EVTDESCpopulation_events.4
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 600
+		modifier = {	#Happens more for Colonies
+			factor = 0.1
+			has_province_modifier = being_colonised
+		}
+		modifier = {	#Happens more for Rapid Breeders
+			factor = 0.65
+			OR = {
+				culture = culture_goblin
+				culture = culture_orkish
+				culture = culture_spider
+			}
+		}
+	}
+
+	option = {	#10% increase in population
+		name = EVTOPTApopulation_events.4
+		multiply_variable = {
+			which = population
+			value = 1.1
+		}
+	}
+}
+province_event = {	#Food Surplus
+	id = population_events.41
+	desc = EVTDESCpopulation_events.41
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {	#Collect a Bonus Tax
+		name = EVTOPTApopulation_events.41
+		owner = {
+			wealth = 100
+		}
+	}
+
+	option = {	#Donate it to the Poor
+		name = EVTOPTBpopulation_events.41
+		owner = {
+			prestige = 100
+		}
+	}
+
+	option = {	#Let them Keep it
+		name = EVTOPTCpopulation_events.41
+		multiply_variable = {
+			which = population
+			value = 1.05
+		}
+	}
+}
+province_event = {	#Pop Decline
+	id = population_events.5
+	desc = EVTDESCpopulation_events.5
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 600
+		modifier = {	#Rapid Breeders More likely to Crash
+			factor = 0.65
+			OR = {
+				culture = culture_goblin
+				culture = culture_orkish
+				culture = culture_spider
+			}
+		}
+	}
+
+	option = {	#10% decrease in population
+		name = EVTOPTApopulation_events.5
+		multiply_variable = {
+			which = population
+			value = 0.9
+		}
+	}
+}
+province_event = {	#Food Shortage
+	id = population_events.51
+	desc = EVTDESCpopulation_events.51
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {	#Pay for a Grain Shipment
+		name = EVTOPTApopulation_events.51
+		owner = {
+			wealth = -100
+		}
+	}
+
+	option = {	#Ask for aid from a Vassal
+		name = EVTOPTBpopulation_events.51
+		owner = {
+			prestige = -100
+		}
+	}
+
+	option = {	#Sucks for you
+		name = EVTOPTCpopulation_events.51
+		multiply_variable = {
+			which = population
+			value = 0.90
+		}
+	}
+}
