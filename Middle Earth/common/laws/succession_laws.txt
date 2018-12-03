@@ -694,34 +694,34 @@ succession_laws = {
 				trigger = {
 					has_dlc = "Conclave"
 				}
-					holder_scope = {
+				holder_scope = {
 					show_scope_change = no
-						primary_title = {
+					primary_title = {
 						show_scope_change = no
-							OR = {
-								has_law = ze_administration_laws_1
-								has_law = ze_administration_laws_2
-							}
+						OR = {
+							has_law = ze_administration_laws_1
+							has_law = ze_administration_laws_2
 						}
 					}
 				}
+			}
 			conditional_tooltip = {
 				trigger = {
 					NOT = { has_dlc = "Conclave" }
 				}
 				OR = {
-				hidden_tooltip = {
-					has_crown_law_title = no
-				}
-				crownlaw_title = {
-					OR = { 
-						has_law = crown_authority_1
-						has_law = crown_authority_2
-						has_law = crown_authority_3
-						has_law = crown_authority_4
+					hidden_tooltip = {
+						has_crown_law_title = no
+					}
+					crownlaw_title = {
+						OR = { 
+							has_law = crown_authority_1
+							has_law = crown_authority_2
+							has_law = crown_authority_3
+							has_law = crown_authority_4
+						}
 					}
 				}
-			}
 			}
 			custom_tooltip = {
 				text = not_forced_tt
@@ -753,14 +753,24 @@ succession_laws = {
 
 	succ_turkish_succession = {
 		oldest_child_opinion = -5
-#		child_opinion = 30
-#		dynasty_opinion = 10
+		#child_opinion = 30
+		#dynasty_opinion = 10
 		potential = {
 			holder_scope = {
-				mep_temp_muslim_standin_trigger = yes
-				NOR = {
-					religion = religion_wight
-					government = orc_government
+				OR = {
+					mep_temp_muslim_standin_trigger = yes
+					AND = {
+						has_religion_feature = religion_patriarchal
+						is_theocracy = no
+					}
+					AND = {
+						has_religion_feature = religion_matriarchal
+						is_theocracy = no
+					}
+					NOR = {
+						religion = religion_wight
+						government = orc_government
+					}
 				}
 				is_republic = no
 				is_merchant_republic = no
@@ -959,6 +969,8 @@ gender_laws = {
 	cognatic_succession = {
 		potential = {
 			holder_scope = {
+				NOT = { has_religion_feature = religion_matriarchal }
+				NOT = { has_religion_feature = religion_equal }
 				OR = {
 					NOT = { tier = baron }
 					is_theocracy = yes
@@ -1034,12 +1046,14 @@ gender_laws = {
 			factor = 10
 		}
 	}
-	
 	agnatic_succession = {
 		female_dynasty_opinion = -5
 	
 		potential = {
-			always = yes
+			holder_scope = { 
+				NOT = { has_religion_feature = religion_matriarchal } 
+				NOT = { has_religion_feature = religion_equal }
+			}
 		}
 		effect = {
 			gender_succ = agnatic
@@ -1072,7 +1086,9 @@ gender_laws = {
 	true_cognatic_succession = {
 		male_dynasty_opinion = -5
 		
-		potential = {
+		potential = { 
+			holder_scope = { NOT = { has_religion_feature = religion_matriarchal } }
+			holder_scope = { NOT = { has_religion_feature = religion_patriarchal } }
 			OR = {
 				AND = {
 					has_dlc = "Zeus"
@@ -1080,7 +1096,7 @@ gender_laws = {
 						name = gender
 						value = all
 					}
-					is_patrician = no
+					#is_patrician = no
 				}
 				holder_scope = {
 					OR = {
@@ -1089,9 +1105,11 @@ gender_laws = {
 							has_horde_culture = no
 							#is_tribal = no
 							is_nomadic = no
-							is_merchant_republic = no
-							is_patrician = no
+							#is_merchant_republic = no
+							#is_patrician = no
 						}
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_feature_bon
 						AND = {
 							has_dlc = "Zeus"
 							ROOT = { holder_scope = { primary_title = { has_law = status_of_women_4 } } }
@@ -1121,7 +1139,13 @@ gender_laws = {
 				}
 				holder_scope = {
 					is_theocracy = no
-					is_republic = no
+					OR = {
+						is_republic = no
+						is_patrician = yes
+					}
+				}
+				holder_scope = {
+					has_religion_feature = religion_equal
 				}
 			}
 			
@@ -1129,10 +1153,15 @@ gender_laws = {
 		}
 		allow = {
 			OR = {
-				ROOT = { holder_scope = { primary_title = { has_law = status_of_women_4 } } }
-				has_game_rule = {
-					name = gender
-					value = all
+				holder_scope = {
+						has_religion_feature = religion_equal
+				}
+				OR = {
+					ROOT = { holder_scope = { primary_title = { has_law = status_of_women_4 } } }
+					has_game_rule = {
+						name = gender
+						value = all
+					}
 				}
 			}
 		}
@@ -1140,7 +1169,25 @@ gender_laws = {
 			gender_succ = true_cognatic
 			set_allows_matrilineal_marriage = yes
 		}
-
+		default_selection = {
+			factor = 1
+			
+			modifier = {
+				factor = 0.1
+				NOT = {
+					holder_scope = {
+						has_religion_feature = religion_equal
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 100
+				holder_scope = {
+					has_religion_feature = religion_equal
+				}
+			}
+		}
 	}
 	
 	enatic_succession = {
@@ -1148,15 +1195,18 @@ gender_laws = {
 		female_dynasty_opinion = 10
 		
 		potential = {
-			always = no # For modders only
+			holder_scope = { has_religion_feature = religion_matriarchal }
 		}
 		allow = {
-			always=yes
+			
 		}
 		effect = {
 			gender_succ = enatic
 		}
-
+		default_selection = {
+			factor = 1
+			
+		}
 	}
 	
 	enatic_cognatic_succession = {
@@ -1164,15 +1214,49 @@ gender_laws = {
 		female_dynasty_opinion = 5
 		
 		potential = {
-			always = no # For modders only
+			holder_scope = {
+				OR = {
+					has_religion_feature = religion_matriarchal
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_enatic_cognatic 
+					}
+				}
+			}
 		}
 		allow = {
-			always=yes
+			
 		}
 		effect = {
 			gender_succ = enatic_cognatic
 		}
-
-	}
-	
+		default_selection = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					holder_scope = {
+						OR = {
+							has_religion_feature = religion_matriarchal
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_enatic_cognatic 
+							}
+						}
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 100
+				holder_scope = {
+					OR = {
+						has_religion_feature = religion_matriarchal
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_enatic_cognatic 
+						}
+					}
+				}
+			}
+		}		
+	}	
 }

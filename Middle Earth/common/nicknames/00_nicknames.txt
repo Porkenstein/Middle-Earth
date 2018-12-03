@@ -1,3 +1,14 @@
+#############################################
+# CHARACTER NICKNAMES
+# Independent dukes, kings and emperors only
+#
+# 'factor' is the percentage per year of 
+# gaining the nickname
+#
+#############################################
+
+# TRIGGERED ONLY
+################
 # GIVEN BY TRAITS
 #################
 nick_the_lisp_and_lame = {
@@ -156,8 +167,6 @@ nick_the_blind = {
 		NOT = { culture_group = culture_group_wilderness }
 		NOT = { culture_group = culture_group_eru }	
 		OR = {
-			trait = maimed
-			trait = inbred
 			trait = blinded
 			trait = one_eyed
 		}
@@ -175,7 +184,7 @@ nick_the_leper = {
 		NOT = { culture_group = culture_group_eru }	
 	}
 	chance = {
-		factor = 1
+		factor = 3
 	}
 }
 
@@ -239,7 +248,7 @@ nick_the_bastard = {
 nick_the_gouty = {
 	allow = {
 		OR = {
-			AND = {
+			AND = { 
 				age = 40
 				trait = infirm
 			}
@@ -325,7 +334,6 @@ nick_the_just = {
 		NOT = { trait = deceitful }
 		is_dumb_trigger = no
 		NOT = { trait = incapable }
-		NOT = { trait = cruel }
 		NOT = { mep_is_evil_side_trigger = yes }
 		NOT = { culture_group = culture_group_melkor }
 		NOT = { culture_group = culture_group_wilderness }
@@ -435,6 +443,7 @@ nick_the_frog = {
 	allow = {
 		age = 15
 		OR = {
+			trait = uncouth
 			trait = ugly
 			trait = disfigured
 		}
@@ -499,13 +508,14 @@ nick_the_mad = {
 nick_the_fat = {
 	allow = {
 		age = 15
+		trait = is_fat
+		check_variable = { which = physique_variable value = 25 } #Fire only if the character is really fat, not just for any fat character.
 		NOT = { culture_group = culture_group_wilderness }
 		NOT = { culture_group = culture_group_eru }	
 		NOT = { culture_group = culture_group_onodrim }	
 		OR = {
 			trait = gluttonous
 			trait = hedonist
-			trait = drunkard
 		}
 	}
 	chance = {
@@ -521,6 +531,57 @@ nick_the_fat = {
 		modifier = {
 			factor = 2.0
 			trait = drunkard
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = 35 }
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = 50 }
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = 75 } # Probably about to die, but still...
+		}
+	}
+}
+
+nick_the_hollow = {
+	allow = {
+		age = 15
+		trait = is_malnourished
+		NOT = { check_variable = { which = physique_variable value = -25 } } #Fire only if the character is really starving, not just for any malnourished character.
+		OR = {
+			trait = temperate
+			trait = depressed
+		}
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 2.0
+			trait = temperate
+		}
+		modifier = {
+			factor = 2.0
+			trait = depressed
+		}
+		modifier = {
+			factor = 2.0
+			trait = stressed
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = -35 }
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = -50 }
+		}
+		modifier = {
+			factor = 2.0
+			check_variable = { which = physique_variable value = -75 } # Probably about to die, but still...
 		}
 	}
 }
@@ -548,7 +609,7 @@ nick_the_drunkard = {
 			trait = hedonist
 		}
 		modifier = {
-			factor = 5.0
+			factor = 2.0
 			trait = drunkard
 		}
 	}
@@ -779,6 +840,7 @@ nick_the_brute = {
 		OR = {
 			trait = strong
 			trait = robust
+			trait = giant
 		}
 		OR = {
 			trait = cruel
@@ -970,6 +1032,7 @@ nick_the_boar = {
 			trait = robust
 		}
 		OR = {
+			trait = uncouth
 			trait = ugly
 			trait = disfigured
 		}
@@ -994,6 +1057,211 @@ nick_the_faceless = {
 	}
 }
 
+nick_the_cyclops = {
+	allow = {
+		age = 16
+		trait = giant
+		trait = one_eyed
+	}
+	chance = {
+		factor = 10
+	}
+}
+
+nick_the_beanstalk = {
+	allow = {
+		age = 16
+		trait = giant
+		trait = feeble
+	}
+	chance = {
+		factor = 1
+	}
+}
+
+# GIVEN BY PIETY
+#################
+
+nick_the_accursed = {
+	allow = {
+		age = 20
+		OR = {
+			NOT = { piety = -50 }
+			trait = possessed
+			is_any_kinslayer_trigger = yes
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -100 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -200 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -300 }
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 2.0
+			trait = greedy
+		}
+		modifier = {
+			factor = 2.0
+			trait = envious
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+	}
+}
+
+nick_the_wicked = {
+	allow = {
+		age = 20
+		OR = {
+			NOT = { piety = -50 }
+			trait = possessed
+			is_any_kinslayer_trigger = yes
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -100 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -200 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -300 }
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 2.0
+			trait = greedy
+		}
+		modifier = {
+			factor = 2.0
+			trait = envious
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+	}
+}
+
+nick_the_bewitched = {
+	allow = {
+		age = 20
+		OR = {
+			NOT = { piety = -50 }
+			trait = possessed
+			is_any_kinslayer_trigger = yes
+		}
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -100 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -200 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { piety = -300 }
+		}
+		modifier = {
+			factor = 2.0
+			trait = hedonist
+		}
+		modifier = {
+			factor = 2.0
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 2.0
+			trait = greedy
+		}
+		modifier = {
+			factor = 2.0
+			trait = envious
+		}
+		modifier = {
+			factor = 2.0
+			trait = cynical
+		}
+	}
+}
+nick_the_pious = {
+	allow = {
+		age = 20
+		piety = 1000
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			piety = 2000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 4000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 6000
+		}
+	}
+}
+
+nick_the_apostle = {
+	allow = {
+		age = 20
+		piety = 1000
+	}
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			piety = 2000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 4000
+		}
+		modifier = {
+			factor = 2.0
+			piety = 6000
+		}
+	}
+}
 # GIVEN BY RULE
 ################
 

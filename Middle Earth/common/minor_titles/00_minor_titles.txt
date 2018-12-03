@@ -128,48 +128,16 @@ title_queen_mother = {
 
 title_prince = {
 	dignity = 0.8
-	show_as_title = no
+	show_as_title = yes
 	realm_in_name = yes
 	revoke_allowed = no
 	
 	monthly_salary = 0.05
 	monthly_prestige = 0.25
-
+	
 	gain_effect = {
-		IF = {
-			limit = {
-				OR = {
-					father = {
-						has_landed_title = e_steward_gondor
-					}
-					mother = {
-						has_landed_title = e_steward_gondor
-					}
-				}
-			}
-			IF = {
-				limit = { is_primary_heir = yes }
-				set_special_character_title = title_captain_general
-			}
-			break = yes
-		}
-		IF = {
-			limit = {
-				is_female = no
-			}
-			set_special_character_title = title_prince_MEP
-		}
-		IF = {
-			limit = {
-				is_female = yes
-			}
-			set_special_character_title = title_princess_MEP
-		}
 	}
 	lose_effect = {
-		remove_special_character_title = title_captain_general
-		remove_special_character_title = title_prince_MEP
-		remove_special_character_title = title_princess_MEP
 	}
 
 	message = no
