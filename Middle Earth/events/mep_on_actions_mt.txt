@@ -481,6 +481,23 @@ character_event = {	#Prestige Dynasties Startup
 			}
 			add_trait = blood_of_valandil
 		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+					father_even_if_dead = {
+						dynasty = 12015
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elendil
+		}
 	}
 }
 character_event = {	#Prestige Dynasties - Birth Dynastic
@@ -843,6 +860,23 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 				duration = -1
 			}
 			add_trait = blood_of_valandil
+		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+					father_even_if_dead = {
+						dynasty = 12015
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elendil
 		}
 	}
 }
@@ -1266,6 +1300,26 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 				duration = -1
 			}
 			add_trait = blood_of_valandil
+		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12015
+							trait = blood_of_elendil
+						}
+					}
+				}
+			}
+			add_character_modifier = {
+				modifier = noble_bloodline
+				duration = -1
+			}
+			add_trait = blood_of_elendil
 		}
 	}
 }
