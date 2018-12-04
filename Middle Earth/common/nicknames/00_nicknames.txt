@@ -1275,11 +1275,9 @@ nick_the_ironside = {
 		NOT = { culture_group = culture_group_onodrim }
 		OR = {
 			trait = brave
-			trait = strong
+			is_strong_trigger = yes
 		}
-		NOT = {
-			trait = weak
-		}
+		is_weak_trigger = no
 	}
 	chance = {
 		factor = 2
@@ -1298,15 +1296,13 @@ nick_the_lion = {
 		NOT = { culture_group = culture_group_onodrim }
 		OR = {
 			trait = brave
-			trait = strong
+			is_strong_trigger = yes
 		}
 		OR = {
 			trait = skilled_tactician
 			trait = brilliant_strategist
 		}
-		NOT = {
-			trait = weak
-		}
+		is_weak_trigger = no
 	}
 	chance = {
 		factor = 3
@@ -1322,22 +1318,20 @@ nick_the_lionheart = {
 		NOT = { culture_group = culture_group_onodrim }
 		OR = {
 			trait = brave
-			trait = strong
+			is_strong_trigger = yes
 		}
 		OR = {
 			trait = skilled_tactician
 			trait = brilliant_strategist
 		}
-		NOT = {
-			trait = weak
-		}
+		is_weak_trigger = no
 	}
 	chance = {
 		factor = 4
 		modifier = {
 			factor = 2
 			trait = brave
-			trait = strong
+			is_strong_trigger = yes
 		}
 	}
 }
@@ -1352,7 +1346,7 @@ nick_the_bold = {
 		NOT = { culture_group = culture_group_onodrim }
 		OR = {
 			trait = brave
-			trait = strong
+			is_strong_trigger = yes
 		}
 		NOT = {
 			trait = paranoid
@@ -1414,6 +1408,11 @@ nick_the_terrible = {
 			trait = lunatic
 			trait = cruel
 			trait = impaler
+			trait = arbitrary
+			trait = stubborn
+			trait = deceitful
+			trait = paranoid
+			trait = envious
 		}
 		any_vassal = {
 			has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
@@ -1424,6 +1423,73 @@ nick_the_terrible = {
 	}
 }
 
+nick_the_tyrant = {
+	allow = {
+		age = 30
+		ruled_years = 10
+		OR = {
+			trait = wroth
+			trait = lunatic
+			trait = cruel
+			trait = impaler
+			trait = arbitrary
+			trait = stubborn
+			trait = deceitful
+			trait = paranoid
+			trait = envious
+		}
+		any_vassal = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+		}
+	}
+	chance = {
+		factor = 2
+	}
+}
+
+nick_the_oppressor = {
+	allow = {
+		age = 30
+		ruled_years = 10
+		OR = {
+			trait = wroth
+			trait = lunatic
+			trait = cruel
+			trait = impaler
+			trait = arbitrary
+			trait = stubborn
+			trait = deceitful
+			trait = paranoid
+			trait = envious
+		}
+		any_vassal = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+		}
+	}
+	chance = {
+		factor = 2
+	}
+}
+
+nick_the_witch = {
+	allow = {
+		age = 16
+		OR = {
+			trait = mystic
+			trait = physician
+		}
+		NOT = {
+			piety = -50
+		}
+		any_vassal = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+		}
+	}
+	chance = {
+		factor = 3
+	}
+}
+
 nick_the_magnificent = {
 	allow = {
 		age = 30
@@ -1431,14 +1497,8 @@ nick_the_magnificent = {
 		NOT = { culture_group = culture_group_wilderness }
 		NOT = { culture_group = culture_group_eru }	
 		NOT = { culture_group = culture_group_onodrim }
-		OR = {
-			trait = quick
-			trait = genius
-		}
-		NOT = {
-			trait = slow
-			trait = imbecile
-		}
+		is_smart_trigger = yes
+		is_dumb_trigger = no
 		OR = {
 			trait = grey_eminence
 			trait = intricate_webweaver
@@ -1465,6 +1525,95 @@ nick_the_quarreller = {
 		factor = 2
 	}
 }
+
+nick_the_devil = {
+	allow = {
+		ruled_years = 10
+		trait = wroth
+		OR = {
+			is_any_kinslayer_trigger = yes
+			trait = excommunicated
+			trait = impaler
+		}
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 2
+			OR = {
+				is_any_kinslayer_trigger = yes
+				trait = excommunicated
+			}
+		}
+	}
+}
+
+nick_the_dragon = {
+	allow = {
+		is_female = no
+		ruled_years = 10
+		OR = {
+			has_character_modifier = cannibal
+			trait = cannibal_trait
+			AND = {
+				trait = wroth
+				OR = {
+					is_any_kinslayer_trigger = yes
+					trait = excommunicated
+					trait = impaler
+				}
+			}
+		}
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 2
+			is_any_kinslayer_trigger = yes
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				trait = cannibal_trait
+				has_character_modifier = cannibal
+			}
+		}
+	}
+}
+
+nick_the_dragoness = {
+	allow = {
+		is_female = yes
+		ruled_years = 10
+		OR = {
+			has_character_modifier = cannibal
+			trait = cannibal_trait
+			AND = {
+				trait = wroth
+				OR = {
+					is_any_kinslayer_trigger = yes
+					trait = excommunicated
+					trait = impaler
+				}
+			}
+		}
+	}
+	chance = {
+		factor = 3
+		modifier = {
+			factor = 2
+			is_any_kinslayer_trigger = yes
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				trait = cannibal_trait
+				has_character_modifier = cannibal
+			}
+		}
+	}
+}
+
 nick_the_careless = {
 	allow = {
 		age = 30
@@ -1472,7 +1621,7 @@ nick_the_careless = {
 		NOT = { culture_group = culture_group_wilderness }
 		NOT = { culture_group = culture_group_eru }	
 		OR = {
-			trait = weak
+			is_weak_trigger = yes
 			trait = content
 		}
 		NOT = {
@@ -1500,7 +1649,7 @@ nick_the_careless = {
 		}
 		modifier = {
 			factor = 2
-			trait = kinslayer
+			is_any_kinslayer_trigger = yes
 		}
 	}
 }
@@ -1562,100 +1711,74 @@ nick_the_old = {
 nick_the_great = {
 	allow = {
 		ruled_years = 10
-		prestige = 1000
+		prestige = 2000
+		higher_tier_than = COUNT
 	}
 	chance = {
-		factor = 3
-		modifier = {
-			factor = 2.0
-			prestige = 2000
-		}
+		factor = 1
 		modifier = {
 			factor = 2.0
 			prestige = 4000
 		}
 		modifier = {
 			factor = 2.0
-			prestige = 6000
+			prestige = 8000
+		}
+		modifier = {
+			factor = 5.0
+			prestige = 15000
 		}
 	}
 }
 
-nick_the_dragon = {
-	allow = {
-		ruled_years = 10
-		OR = {
-			has_character_modifier = cannibal
-			trait = cannibal_trait
-			AND = {
-				trait = wroth
-				OR = {
-					trait = kinslayer
-					trait = excommunicated
-					trait = impaler
-				}
-			}
-		}
-	}
-	chance = {
-		factor = 3
-		modifier = {
-			factor = 2
-			trait = kinslayer
-		}
-		modifier = {
-			factor = 5
-			OR = {
-				trait = cannibal_trait
-				has_character_modifier = cannibal
-			}
-		}
-	}
-}
-
-
-nick_the_wicked = {
+nick_of_the_empty_pockets = {
 	allow = {
 		age = 20
-		OR = {
-			NOT = { piety = -50 }
-			trait = possessed
-			trait = kinslayer
-		}
+		NOT = { wealth = -10 }
+	}
+	chance = {
+		factor = 1
+	}
+}
+
+nick_the_hunchback = {
+	allow = {
+		age = 20
+		trait = hunchback
+	}
+	chance = {
+		factor = 1
+	}
+}
+
+nick_the_scholar = {
+	allow = {
+		age = 20
+		trait = scholar
 	}
 	chance = {
 		factor = 1
 		modifier = {
 			factor = 2.0
-			NOT = { piety = -100 }
+			learning = 20
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { piety = -200 }
+			learning = 26
 		}
+	}
+}
+
+nick_the_giant = {
+	allow = {
+		age = 16
+		trait = giant
+	}
+	chance = {
+		factor = 5
 		modifier = {
-			factor = 2.0
-			NOT = { piety = -300 }
-		}
-		modifier = {
-			factor = 2.0
-			trait = hedonist
-		}
-		modifier = {
-			factor = 2.0
-			trait = gluttonous
-		}
-		modifier = {
-			factor = 2.0
-			trait = greedy
-		}
-		modifier = {
-			factor = 2.0
-			trait = envious
-		}
-		modifier = {
-			factor = 2.0
-			trait = cynical
+			factor = 3
+			is_strong_trigger = yes
 		}
 	}
 }
@@ -1674,4 +1797,97 @@ nick_the_goldsmith = {}
 nick_the_fox = {}
 nick_the_bane_of_realmname = {}
 nick_the_despoiler = {}
-nick_the_eastern_wind = {}
+nick_the_eastern_wind = {}#Forged Bloodlines nicknames.
+#Murder (Child)
+nick_the_deaths_child = {}
+nick_the_snakeling = {}
+nick_the_little_spider = {}
+nick_the_eerie = {}
+nick_the_little_nightmare = {}
+
+#Murder (Adult)
+nick_the_ripper = {} #Male only
+nick_the_black_widow = {} #Female only
+
+nick_the_ferrante = {} #Culture-bound.
+nick_the_iron_heart = {}
+
+nick_the_pale_spider = {} #Male only
+nick_the_grim_mistress = {} #Female only
+
+#War (Child)
+nick_the_young_eagle = {}
+nick_the_green_warrior = {}
+nick_the_warrior_child = {}
+nick_the_young_conqueror = {}
+
+#War (Adult)
+nick_the_white_knight = {} #Male only
+nick_the_virago = {} #Female only
+
+nick_the_bloodhound = {} #Male only
+#nick_the_fury = {} #Female only
+
+nick_the_warrior_philosopher = {}
+
+#Peace (Child)
+nick_the_angel = {} #Christian only
+nick_the_pure = {}
+nick_the_celestial = {}
+nick_the_radiant = {}
+nick_the_innocent = {}
+
+#Peace (Adult)
+nick_the_peace_maker = {}
+
+nick_the_munificent = {}
+
+#Builders
+nick_the_architect = {}
+
+nick_the_castellan = {}
+
+nick_the_carpenter = {} #Christian only
+nick_the_grandiose = {}
+
+#Murder + War 
+nick_the_griffin = {}
+
+#Murder + Peace
+nick_the_compassionate = {}
+
+#Builder mix
+nick_the_founder = {}
+
+#Builder + Murder
+nick_the_bloodlime = {}
+
+#Architect + Peace
+nick_the_patron_of_arts = {}
+
+#Castellan + Peace
+nick_the_bastion_of_capital = {}
+
+#Monumental + Peace
+nick_the_holy_mason = {}
+
+#Family
+nick_the_grand_patriarch = {}
+nick_the_grand_matriarch = {}
+
+#Technology
+nick_the_philosopher = {}
+
+#Religion
+nick_the_theologian = {}
+nick_the_zealot = {}
+
+#Benevolent
+nick_the_benevolent = {}
+
+#Ruthless
+#nick_the_ruthless = {}
+
+nick_the_elder = {
+	is_prefix = yes
+}
