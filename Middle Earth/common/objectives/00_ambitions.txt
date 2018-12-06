@@ -965,6 +965,8 @@ obj_marry_ruler = {
 		}
 		prisoner = no
 		is_marriage_adult = yes
+		NOT = { trait = celibate }
+		NOT = { trait = incapable }
 		OR = {
 			is_female = no
 			mep_marriagable_female = yes
@@ -1013,9 +1015,7 @@ obj_marry_ruler = {
 				can_marry = no
 			}
 			AND = {
-				is_female = yes
 				is_ruler = no
-				age = 45
 			}
 			trait = celibate
 			trait = incapable
@@ -1051,18 +1051,27 @@ obj_have_a_daughter = {
 			ai = no
 			is_female = yes
 			num_of_children = 2
+			has_religion_feature = religion_matriarchal
 		}
 		OR = {
 			mep_marriagable_female = yes
 			is_female = no
 		}
 		NOT = { trait = celibate }
-		is_incapable = no
+		NOT = { trait = incapable }
 	}
 	
 	chance = {
 		factor = 50
 		
+		modifier = {
+			factor = 0.1
+			has_religion_feature = religion_patriarchal
+		}
+		modifier = {
+			factor = 10.0
+			has_religion_feature = religion_matriarchal
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 3
@@ -1120,6 +1129,7 @@ obj_have_a_son = {
 		OR = {
 			ai = no
 			is_female = no
+			has_religion_feature = religion_patriarchal
 			# Have at least two daughters
 			any_child = {
 				is_female = yes
@@ -1136,11 +1146,19 @@ obj_have_a_son = {
 			mep_marriagable_female = yes
 		}
 		NOT = { trait = celibate }
-		is_incapable = no
+		NOT = { trait = incapable }
 	}
 	chance = {
 		factor = 50
 		
+		modifier = {
+			factor = 0.1
+			has_religion_feature = religion_matriarchal
+		}
+		modifier = {
+			factor = 10.0
+			has_religion_feature = religion_patriarchal
+		}
 		modifier = {
 			factor = 1.5
 			num_of_children = 3
@@ -1192,7 +1210,7 @@ obj_wants_landed_title = {
 		prisoner = no
 		is_adult = yes
 		is_female = no
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = eunuch }
 		NOT = { trait = elf_childhood }
 		NOT = { is_ascetic_trigger = yes }
@@ -1259,6 +1277,13 @@ obj_wants_landed_title = {
 			factor = 3.0
 			trait = ambitious
 		}
+		modifier = {
+			factor = 2.0
+			mep_temp_muslim_standin_trigger = yes
+			liege = {
+				dynasty = ROOT
+			}
+		}
 	}
 	success = {
 		is_ruler = yes
@@ -1308,6 +1333,10 @@ obj_become_heir = {
 			liege = { primary_title = { has_law = agnatic_succession } }
 			is_female = yes
 		}
+		NOT = { 
+			liege = { primary_title = { has_law = enatic_succession } }
+			is_female = no
+		}
 		NOT = { trait = bastard }
 		NOT = { trait = wilderness }
 		liege = {
@@ -1333,7 +1362,7 @@ obj_become_heir = {
 		prisoner = no
 		is_adult = yes
 		is_primary_heir = no
-		is_incapable = no
+		NOT = { trait = incapable }
 	}
 	
 	chance = {
@@ -1399,7 +1428,7 @@ obj_improve_martial = {
 	
 	allow = {
 		NOT = { martial = 8 }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 		NOT = { trait = wilderness }
 		NOT = { trait = elf_childhood }
@@ -1465,7 +1494,7 @@ obj_improve_stewardship = {
 	
 	allow = {
 		NOT = { stewardship = 8 }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 		prisoner = no
 	}
@@ -1532,7 +1561,7 @@ obj_improve_learning = {
 	
 	allow = {
 		NOT = { learning = 8 }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 		prisoner = no
 	}
@@ -1595,7 +1624,7 @@ obj_improve_diplomacy = {
 	
 	allow = {
 		NOT = { diplomacy = 8 }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 		prisoner = no
 	}
@@ -1658,7 +1687,7 @@ obj_improve_intrigue = {
 	
 	allow = {
 		NOT = { intrigue = 8 }
-		is_incapable = no
+		NOT = { trait = incapable }
 		NOT = { trait = infirm }
 		prisoner = no
 	}
@@ -1785,7 +1814,18 @@ obj_become_king = {
 			independent = yes
 			liege = { independent = yes }
 		}
+		NOT = {
+			any_heir_title = {
+				higher_tier_than = DUKE
+			}
+		}
+		capital_scope = {
+			kingdom = {
+				always = yes
+			}
+		}
 		NAND = {
+			ai = yes
 			trait = nazgul
 			independent = no
 			liege = {
@@ -1801,19 +1841,20 @@ obj_become_king = {
 	}
 	
 	allow = {
-		is_incapable = no
+		NOT = { trait = incapable }
 	}
 	
 	chance = {
 		factor = 100
 		
 		modifier = {
-			factor = 0.1
+			factor = 0
 			OR = {
 				religion_group = religion_group_eldar
 				religion_group = religion_group_enyd
 				religion_group = religion_group_periannath
 			}
+			NOT = { trait = ambitious }
 		}
 		modifier = {
 			factor = 3.0
@@ -1830,6 +1871,12 @@ obj_become_king = {
 		modifier = {
 			factor = 2.0
 			trait = brave
+		}
+		modifier = {
+			factor = 3.0
+			OR = {
+				independent = yes
+			}
 		}
 		modifier = {
 			factor = 0.1
@@ -2444,10 +2491,11 @@ obj_gain_any_title = {
 		is_nomadic = no
 		liege = { is_nomadic = no }
 		NOT = { has_character_flag = gain_any_title_ambition_success }
+		is_landed = yes
 	}
 	
 	allow = {
-		is_incapable = no
+		NOT = { trait = incapable }
 	}
 	
 	chance = {
@@ -2476,6 +2524,10 @@ obj_gain_any_title = {
 		modifier = {
 			factor = 0.1
 			trait = slothful
+		}
+		modifier = {
+			factor = 0.1
+			is_theocracy = yes
 		}
 	}
 	
@@ -2668,7 +2720,7 @@ obj_see_the_realm_prosper = {
 					limit = {
 						has_nickname = no
 						is_adult = yes
-						is_incapable = no
+						NOT = { trait = incapable }
 					}
 					random_list = {
 						5 = {

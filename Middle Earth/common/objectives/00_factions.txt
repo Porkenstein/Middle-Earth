@@ -57,6 +57,7 @@ faction_succ_seniority = {
 				}
 			}
 		}
+		mep_temp_muslim_standin_trigger = no
 		primary_title = { higher_tier_than = BARON }
 		
 		NOT = { in_faction = faction_succ_primogeniture }
@@ -153,6 +154,7 @@ faction_succ_seniority = {
 				}
 			}
 			
+			mep_temp_muslim_standin_trigger = no			
 			NOT = { in_faction = faction_succ_primogeniture }
 			NOT = { in_faction = faction_succ_feudal_elective }
 			NOT = { in_faction = faction_succ_gavelkind }			
@@ -255,6 +257,13 @@ faction_succ_seniority = {
 		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
+		}
+		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
 		}
 		
 		modifier = {
@@ -407,6 +416,14 @@ faction_succ_seniority = {
 		modifier = {
 			factor = 0
 			has_character_modifier = faction_succ_seniority_ultimatum_timer
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
 		}
 		
 		modifier = {
@@ -755,6 +772,7 @@ faction_succ_primogeniture = {
 				}
 			}	
 		}
+		mep_temp_muslim_standin_trigger = no		
 		primary_title = { higher_tier_than = BARON }
 		
 		NOT = { in_faction = faction_succ_seniority }
@@ -851,6 +869,7 @@ faction_succ_primogeniture = {
 				}
 			}
 			
+			mep_temp_muslim_standin_trigger = no		
 			NOT = { in_faction = faction_succ_seniority }
 			NOT = { in_faction = faction_succ_feudal_elective }
 			NOT = { in_faction = faction_succ_gavelkind }	
@@ -944,6 +963,12 @@ faction_succ_primogeniture = {
 			}
 		}
 		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
 		modifier = {
 			factor = 1.5
 			NOT = { FROM = { opinion = { who = LIEGE value = 0 } } }
@@ -1039,6 +1064,14 @@ faction_succ_primogeniture = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0.2
 			pacifist = yes
@@ -1440,6 +1473,7 @@ faction_succ_gavelkind = {
 				}
 			}
 		}
+		mep_temp_muslim_standin_trigger = no		
 		primary_title = { higher_tier_than = BARON }
 		
 		NOT = { in_faction = faction_succ_seniority }
@@ -1533,7 +1567,7 @@ faction_succ_gavelkind = {
 					}
 				}
 			}
-				
+			mep_temp_muslim_standin_trigger = no		
 			NOT = { in_faction = faction_succ_seniority }
 			NOT = { in_faction = faction_succ_primogeniture }
 			NOT = { in_faction = faction_succ_feudal_elective }
@@ -1612,6 +1646,12 @@ faction_succ_gavelkind = {
 		#	}
 		#}
 		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
 		# Try to exclude people who should rather support a claimant
 		modifier = {
 			factor = 0
@@ -1805,6 +1845,14 @@ faction_succ_gavelkind = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0.2
 			pacifist = yes
@@ -2165,15 +2213,18 @@ faction_succ_feudal_elective = {
 		NOT = { trait = incapable }
 		liege = {
 			# NOT = { government = chinese_imperial_government }
-			primary_title = {
-				has_law = law_voting_power_1
-				has_law = banish_voting_power_1
-				has_law = execution_voting_power_1
-				has_law = revoke_title_voting_power_1
-				has_law = grant_title_voting_power_1
-				has_law = imprison_voting_power_1
-				has_law = war_voting_power_1
-			}			
+			OR = {
+				primary_title = {
+					has_law = law_voting_power_1
+					has_law = banish_voting_power_1
+					has_law = execution_voting_power_1
+					has_law = revoke_title_voting_power_1
+					has_law = grant_title_voting_power_1
+					has_law = imprison_voting_power_1
+					has_law = war_voting_power_1
+				}
+				NOT = { has_dlc = "Zeus" }
+			}
 			is_vice_royalty = no
 			is_feudal = yes 
 			OR = {
@@ -2188,6 +2239,7 @@ faction_succ_feudal_elective = {
 				}
 			}
 		}
+		mep_temp_muslim_standin_trigger = no		
 		primary_title = { higher_tier_than = BARON }
 		
 		NOT = { in_faction = faction_succ_seniority }
@@ -2284,6 +2336,7 @@ faction_succ_feudal_elective = {
 				}
 			}
 			
+			mep_temp_muslim_standin_trigger = no		
 			NOT = { in_faction = faction_succ_seniority }
 			NOT = { in_faction = faction_succ_primogeniture }
 			NOT = { in_faction = faction_succ_gavelkind }
@@ -2294,6 +2347,12 @@ faction_succ_feudal_elective = {
 	chance = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
 		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
@@ -2562,6 +2621,14 @@ faction_succ_feudal_elective = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0.2
 			pacifist = yes
@@ -2985,6 +3052,12 @@ faction_lower_crown_authority = {
 		factor = 1
 		
 		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
+		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
 		}
@@ -3201,6 +3274,14 @@ faction_lower_crown_authority = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0.2
 			pacifist = yes
@@ -3590,6 +3671,12 @@ faction_lower_tribal_organization = {
 		factor = 1
 		
 		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
+		modifier = {
 			factor = 0
 			FROM = { dislike_tribal_organization = no }
 		}
@@ -3796,6 +3883,14 @@ faction_lower_tribal_organization = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			dislike_tribal_organization = no
@@ -4236,7 +4331,12 @@ faction_independence = {
 				has_character_flag = sauron
 			}
 		}
-		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
 		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
@@ -4266,7 +4366,7 @@ faction_independence = {
 				religion = ROOT
 				culture = ROOT
 				OR = {
-					NOT = { distance = { who = ROOT distance = 200 } }
+					NOT = { distance = { who = ROOT distance = 100 } }
 					AND = {
 						de_jure_vassal_or_below = ROOT
 						NOT = { ROOT = { tier = KING } }
@@ -4508,6 +4608,14 @@ faction_independence = {
 		factor = 4
 		
 		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
+		modifier = {
 			factor = 0.2
 			pacifist = yes
 			NOT = {	
@@ -4517,6 +4625,17 @@ faction_independence = {
 				}
 			}
 		}		
+		
+		modifier = {
+			factor = 0
+			OR = {
+				prisoner = yes
+				trait = incapable
+				is_adult = no
+				is_landed = no
+				preparing_invasion = yes
+			}
+		}
 		
 		modifier = {
 			factor = 0
@@ -4530,7 +4649,7 @@ faction_independence = {
 				religion = ROOT
 				culture = ROOT
 				OR = {
-					NOT = { distance = { who = ROOT distance = 200 } }
+					NOT = { distance = { who = ROOT distance = 100 } }
 					AND = {
 						de_jure_vassal_or_below = ROOT
 						NOT = { ROOT = { tier = KING } }
@@ -5044,7 +5163,19 @@ faction_claimant = {
 			
 			OR = {
 				is_female = no
-				NOT = { ROOT = { succ_law_title = { has_law = agnatic_succession } } }
+				AND = {
+					mep_temp_muslim_standin_trigger = no		
+					NOT = { ROOT = { succ_law_title = { has_law = agnatic_succession } } }
+					NOT = { has_religion_feature = religion_patriarchal }
+				}
+			}
+			OR = {
+				is_female = yes
+				AND = {
+					mep_temp_muslim_standin_trigger = no		
+					NOT = { ROOT = { succ_law_title = { has_law = enatic_succession } } }
+					NOT = { has_religion_feature = religion_matriarchal }
+				}
 			}
 			
 			OR = {
@@ -5123,6 +5254,12 @@ faction_claimant = {
 	chance = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
 		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
@@ -5217,6 +5354,42 @@ faction_claimant = {
 			}
 		}
 		
+		#If claimaint's sex is incompatible with religious dogma.
+		modifier = {
+			factor = 0
+			has_religion_feature = religion_patriarchal
+			new_character = {
+				is_female = yes
+			}
+		}
+		modifier = {
+			factor = 0
+			has_religion_feature = religion_matriarchal
+			new_character = {
+				is_female = no
+			}
+		}
+		#Or if vassal is under the yoke of the wrong kind of liege.
+		modifier = {
+			factor = 3
+			has_religion_feature = religion_patriarchal
+			FROM = {
+				is_female = yes
+			}
+			new_character = {
+				is_female = no
+			}
+		}
+		modifier = {
+			factor = 3
+			has_religion_feature = religion_matriarchal
+			FROM = {
+				is_female = no
+			}
+			new_character = {
+				is_female = yes
+			}
+		}
 		modifier = {
 			factor = 0
 			new_character = {
@@ -5402,6 +5575,9 @@ faction_claimant = {
 			NAND = {
 				has_dlc = "Zeus"
 				OR = {
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
 					has_law = status_of_women_4
 					has_game_rule = {
 						name = gender
@@ -5558,6 +5734,14 @@ faction_claimant = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0.2
 			pacifist = yes
@@ -5821,6 +6005,8 @@ faction_claimant = {
 				has_dlc = "Zeus"
 				OR = {
 					has_law = status_of_women_4
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_matriarchal
 					has_game_rule = {
 						name = gender
 						value = all
@@ -5860,6 +6046,16 @@ faction_claimant = {
 			new_character = {
 				NOT = { age = 5 }
 				NOT = { character = ROOT }
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			new_character = {
+				mep_temp_muslim_standin_trigger = yes
+			}
+			liege = {
+				mep_temp_muslim_standin_trigger = yes
 			}
 		}
 		
@@ -6675,6 +6871,12 @@ faction_overthrow = {
 		factor = 1
 		
 		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
+		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
 		}		
@@ -7028,6 +7230,14 @@ faction_overthrow = {
 	membership = {
 		factor = 1
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			OR = {
@@ -7607,6 +7817,12 @@ faction_increase_council_power = {
 		factor = 1
 		
 		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
+		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
 		}		
@@ -7845,6 +8061,14 @@ faction_increase_council_power = {
 	membership = {
 		factor = 1			
 		
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			OR = {
@@ -8314,6 +8538,12 @@ faction_powerful_vassal_takeover = {
 		factor = 1
 		
 		modifier = {
+			factor = 0.5
+			liege = {  
+				any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+			}
+		}
+		modifier = {
 			factor = 0.2
 			FROM = { pacifist = yes }
 		}		
@@ -8518,6 +8748,14 @@ faction_powerful_vassal_takeover = {
 	membership = {
 		factor = 1
 
+		modifier = {
+			factor = 0.5
+			ROOT = {  
+				liege = { 
+					any_owned_bloodline = { has_bloodline_flag = bloodline_less_factions }
+				}
+			}
+		}
 		modifier = {
 			factor = 0
 			OR = {

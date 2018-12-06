@@ -386,6 +386,17 @@ plot_gain_vassal_title = {
 					}
 				}
 			}
+			# Belongs to Tyrannical Bloodline
+			custom_tooltip = {
+				text = TT_PLOT_GAIN_VASSAL_TITLE_TYRANNICAL_BLOODLINE
+				hidden_tooltip = {
+					FROM = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_revocation_plot 
+						}
+					}
+				}
+			}
 		}
 		holder_scope = {
 			custom_tooltip = { # liege_before_war lacks localisation, among other things
@@ -589,6 +600,12 @@ plot_gain_vassal_title = {
 							num_of_count_titles = 2
 						}
 					}
+					# Bloodline
+					FROM = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_revocation_plot 
+						}
+					}
 				}
 			}
 			FROM = {
@@ -637,24 +654,6 @@ plot_kill_character = {
 	type = realm_characters_plus # All characters in the same realm, plus rivals and relatives of self, parents, children and spouse, and quest target
 	intrigue_plot = yes
 	murder_plot = yes
-	#society_plot = {
-	#	ROOT = {
-	#		society_member_of = the_assassins
-	#		society_rank >= 2
-	#	}
-	#	OR = {
-	#		FROM = { 
-	#			NOR = {
-	#				religion = shiite
-	#				secret_religion = shiite
-	#			}
-	#		}
-	#		ROOT = {
-	#			has_quest = quest_the_assassins_assassination
-	#			quest_target = { character = FROM }
-	#		}
-	#	}
-	#}
 	
 	# Plotter scope
 	potential = {
@@ -881,6 +880,9 @@ plot_kill_character = {
 					OR = {
 						trait = lunatic
 						trait = possessed
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_murderous 
+						}
 					}
 				}
 				
@@ -1043,6 +1045,12 @@ plot_kill_character = {
 				# top_liege = { character = father }
 			# }
 		# }
+		modifier = {
+			factor = 2.0
+			any_owned_bloodline = { #Backstabbing family.
+				has_bloodline_flag = bloodline_murderous 
+			}
+		}
 	}
 	
 	success = {
@@ -1073,24 +1081,6 @@ plot_kill_spouse = {
 	type = spouse
 	intrigue_plot = yes
 	murder_plot = yes
-	#society_plot = {
-	#	ROOT = {
-	#		society_member_of = the_assassins
-	#		society_rank >= 2
-	#	}
-	#	OR = {
-	#		FROM = { 
-	#			NOR = {
-	#				religion = shiite
-	#				secret_religion = shiite
-	#			}
-	#		}
-	#		ROOT = {
-	#			has_quest = quest_the_assassins_assassination
-	#			quest_target = { character = FROM }
-	#		}
-	#	}
-	#}
 	
 	# Plotter scope
 	potential = {
@@ -1155,7 +1145,7 @@ plot_kill_spouse = {
 					any_heir_title = {
 						holder = ROOT
 					}
-		NOT = { trait = incapable }
+					NOT = { trait = incapable }
 					their_opinion = { who = FROM value = 75 }
 				}
 			}
