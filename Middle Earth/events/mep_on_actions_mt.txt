@@ -137,6 +137,7 @@ character_event = {	#Prestige Dynasties Startup
 			father_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
 			}
+			character = 3003
 		}
 	}
 
@@ -199,7 +200,10 @@ character_event = {	#Prestige Dynasties Startup
 						dynasty = 102
 					}
 					father_even_if_dead = {
-						dynasty = 102
+						OR = {
+							dynasty = 102
+							character = 12137
+						}
 					}
 				}
 			}
@@ -297,6 +301,7 @@ character_event = {	#Prestige Dynasties Startup
 		IF = { #	Peredhel
 			limit = {
 				OR = {
+					character = 3003
 					mother_even_if_dead = {
 						dynasty = 3002
 					}
@@ -472,6 +477,9 @@ character_event = {	#Prestige Dynasties Startup
 					}
 					father_even_if_dead = {
 						dynasty = 12003
+						NOT = {
+							character = 12137
+						}
 					}
 				}
 			}
