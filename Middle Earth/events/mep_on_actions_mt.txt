@@ -200,10 +200,13 @@ character_event = {	#Prestige Dynasties Startup
 						dynasty = 102
 					}
 					father_even_if_dead = {
-						OR = {
 							dynasty = 102
+					}
+					AND = {
+						father_even_if_dead = {
 							character = 12137
 						}
+						dynasty = 102
 					}
 				}
 			}
@@ -471,15 +474,15 @@ character_event = {	#Prestige Dynasties Startup
 		}
 		IF = { #	Valandil
 			limit = {
+				NOT = {
+					dynasty = 102
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 12003
 					}
 					father_even_if_dead = {
 						dynasty = 12003
-						NOT = {
-							character = 12137
-						}
 					}
 				}
 			}
