@@ -1,0 +1,382 @@
+### Musician Traits  - Elves/Numenoreans/Middlemen/Hobbits/Dwarves ###
+
+novice_musician = {
+	diplomacy = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		adept_musician
+		skilled_musician
+		master_musician
+	}
+}
+adept_musician = {
+	diplomacy = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		skilled_musician
+		master_musician
+	}
+}
+skilled_musician = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	diplomacy = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		adept_musician
+		master_musician
+	}
+}
+master_musician = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	diplomacy = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		adept_musician
+		skilled_musician
+	}
+}
+
+### Fighter Traits - Elves/Numenoreans/Middlemen/Hobbits/Dwarves/Southron/Easterlings/Edain/Forodwaith/Haldadian/Orcs/Uruk-hai/Half-Orcs/Goblins ###
+
+novice_fighter = {
+	combat_rating = 1
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		adept_fighter
+		skilled_fighter
+		master_fighter
+	}
+}
+adept_fighter = {
+	combat_rating = 2
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		skilled_fighter
+		master_fighter
+	}
+}
+skilled_fighter = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	combat_rating = 3
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		adept_fighter
+		master_fighter
+	}
+}
+master_fighter = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	combat_rating = 5
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		adept_fighter
+		master_fighter
+	}
+}
+
+### Craftsman Traits - Noldor/Dwarves ###
+
+novice_craftsman = {
+	stewardship = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		adept_craftsman
+		skilled_craftsman
+		master_craftsman
+	}
+}
+adept_craftsman = {
+	stewardship = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		skilled_craftsman
+		master_craftsman
+	}
+}
+skilled_craftsman = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	stewardship = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		adept_craftsman
+		master_craftsman
+	}
+}
+master_craftman = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	stewardship = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		adept_craftsman
+		skilled_craftsman
+	}
+}
+
+### Sorcerer Traits - Numenoreans/Middlemen/Southron/Easterlings ###
+
+novice_sorcerer = {
+	intrigue = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		adept_sorcerer
+		skilled_sorcerer
+		master_sorcerer
+	}
+}
+adept_sorcerer = {
+	intrigue = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		skilled_sorcerer
+		master_sorcerer
+	}
+}
+skilled_sorcerer = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	intrigue = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		adept_sorcerer
+		master_sorcerer
+	}
+}
+master_sorcerer = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	intrigue = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		adept_sorcerer
+		skilled_sorcerer
+	}
+}
+
+### Healing Traits - Elves/Dunedain ###
+
+novice_healer = {
+	learning = 1
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		adept_healer
+		skilled_healer
+		master_healer
+	}
+}
+adept_healer = {
+	learning = 2
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		skilled_healer
+		master_healer
+	}
+}
+skilled_healer = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	learning = 3
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		adept_healer
+		master_healer
+	}
+}
+master_healer = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	learning = 5
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		adept_healer
+		skilled_healer
+	}
+}
