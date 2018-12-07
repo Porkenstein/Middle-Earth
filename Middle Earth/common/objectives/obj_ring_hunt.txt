@@ -1,0 +1,65 @@
+obj_ring_hunt = {
+	type = character
+
+	potential = {
+		NOT = {
+			any_character = {
+				is_alive = yes
+				has_artifact = artifact_ring
+			}
+		}
+		c_10016 = {
+			is_alive = yes
+		}
+	}
+
+	allow = {
+		is_ruler = yes
+		independent = yes
+	}
+
+	chance = {
+		factor = 10
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.1
+			trait = shy
+		}
+		modifier = {
+			factor = 0.25
+			trait = slothful
+		}
+		modifier = {
+			factor = 5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 10
+			character = 10016
+		}
+	}
+	success = {
+		has_artifact = artifact_ring
+	}
+	abort = {
+		OR = {
+			has_artifact = artifact_ring
+			AND = {
+				NOT = {
+					has_artifact = artifact_ring
+				}
+				any_character = {
+					is_alive = yes
+					has_artifact = artifact_ring
+				}
+			}
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+	}
+}
