@@ -16,7 +16,7 @@ character_event = {
 					has_holder = yes
 				}
 				NOT = {
-					has_province_modifier = mod_pop_display
+					has_province_modifier = pop_display
 				}
 			}
 			province_event = {
@@ -41,11 +41,11 @@ province_event = {	#Establish Base Populations
 		IF = {
 			limit = {
 				NOT = {
-					has_province_modifier = mod_pop_display
+					has_province_modifier = pop_display
 				}
 			}
 			add_province_modifier = {
-				modifier = mod_pop_display
+				modifier = pop_display
 				duration = -1
 			}
 			random_list = {
@@ -247,7 +247,7 @@ character_event = {
 
 	trigger = {
 		any_demesne_province = {
-			has_province_modifier = mod_pop_display
+			has_province_modifier = pop_display
 		}
 	}
 
@@ -928,14 +928,14 @@ character_event = {
 
 	trigger = {
 		any_demesne_province = {
-			has_province_modifier = mod_armed_peasants
+			has_province_modifier = armed_peasants
 		}
 	}
 
 	immediate = {
 		any_demesne_province = {
 			limit = {
-				has_province_modifier = mod_armed_peasants
+				has_province_modifier = armed_peasants
 			}
 			random_list = {
 				1 = {
@@ -957,7 +957,7 @@ character_event = {
 					}
 				}
 			}
-			remove_province_modifier = mod_armed_peasants
+			remove_province_modifier = armed_peasants
 		}
 	}
 }
@@ -968,7 +968,7 @@ province_event = {	#Pop Growth
 	picture = GFX_evt_ruins
 
 	trigger = {
-		has_province_modifier = mod_pop_display
+		has_province_modifier = pop_display
 		NOT = {
 			has_province_modifier = pop_wilderness
 		}
@@ -1004,7 +1004,7 @@ province_event = {	#Food Surplus
 	picture = GFX_evt_ruins
 
 	trigger = {
-		has_province_modifier = mod_pop_display
+		has_province_modifier = pop_display
 		NOT = {
 			has_province_modifier = pop_wilderness
 		}
@@ -1042,7 +1042,7 @@ province_event = {	#Pop Decline
 	picture = GFX_evt_ruins
 
 	trigger = {
-		has_province_modifier = mod_pop_display
+		has_province_modifier = pop_display
 		NOT = {
 			has_province_modifier = pop_wilderness
 		}
@@ -1074,7 +1074,7 @@ province_event = {	#Food Shortage
 	picture = GFX_evt_ruins
 
 	trigger = {
-		has_province_modifier = mod_pop_display
+		has_province_modifier = pop_display
 		NOT = {
 			has_province_modifier = pop_wilderness
 		}
