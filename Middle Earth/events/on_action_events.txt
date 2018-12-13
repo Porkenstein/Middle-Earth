@@ -1483,6 +1483,40 @@ character_event = {
 	}
 }
 
+# DEMAND_RELIGIOUS_CONVERSION_INTERACTION_ACCEPT_EVENT =
+diploresponse_event = {
+	id = 202
+	desc = "EVTDESC202"
+	
+	is_triggered_only = yes
+	major = no
+	is_friendly = yes
+
+	trigger = {
+		ai = no
+	}
+
+	option = {
+		name = "OK"
+	}
+}
+
+# DEMAND_RELIGIOUS_CONVERSION_INTERACTION_DECLINE_EVENT =
+diploresponse_event = {
+	id = 203
+	desc = "EVTDESC203"
+	
+	is_triggered_only = yes
+	major = no
+
+	trigger = {
+		ai = no
+	}
+
+	option = {
+		name = "OK"
+	}
+}
 
 # REVOKE_TITLE_INTERACTION_ACCEPT_EVENT =
 diploresponse_event = {
@@ -2065,6 +2099,58 @@ diploresponse_event = {
 	}
 }
 
+# ASK_FOR_EXCOMMUNICATION_INTERACTION_ACCEPT_EVENT =
+diploresponse_event = {
+	id = 236
+	
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+	major = no
+	is_friendly = yes
+
+	trigger = {
+		ai = no
+	}
+
+	desc = {
+		text = EVTDESC236
+		trigger = {
+			religion_group = christian
+		}
+	}
+	desc = {
+		text = EVTDESC236_NC
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+	}
+
+	option = {
+		name = "OK"
+	}
+}
+
+# ASK_FOR_EXCOMMUNICATION_INTERACTION_DECLINE_EVENT =
+diploresponse_event = {
+	id = 237
+	
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+	major = no
+	is_friendly = yes
+
+	trigger = {
+		ai = no
+	}
+
+	desc = "EVTDESC237"
+
+	option = {
+		name = "OK"
+	}
+}
 
 # CALL_ALLY_INTERACTION_ACCEPT_EVENT =
 diploresponse_event = {
