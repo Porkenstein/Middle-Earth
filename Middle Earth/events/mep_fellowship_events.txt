@@ -111,7 +111,11 @@ narrative_event = {	#Gandalf Returns
 			event_target:ringbearer_heir = {
 				set_defacto_liege = event_target:ringbearer_liege
 			}
-			add_character_modifier = { modifier = mod_landless_income duration = -1 }
+			add_character_modifier = {
+				modifier = mod_landless_income
+				duration = -1
+				hidden = yes
+			}
 			narrative_event = { id = mep_fellowship_events.112 }
 			any_player = {	#Inform Player Ring Found
 				limit = {
@@ -1456,7 +1460,11 @@ narrative_event = {	#Aragorn Sets out to Bree
 			move_character = event_target:aragornfellowship_heir
 		}
 		set_defacto_liege = THIS
-		add_character_modifier = { modifier = mod_landless_income duration = -1 }
+			add_character_modifier = {
+				modifier = mod_landless_income
+				duration = -1
+				hidden = yes
+			}
 		hidden_effect = {
 			k_ringbearer = {
 				holder_scope = {
