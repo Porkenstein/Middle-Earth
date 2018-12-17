@@ -159,14 +159,14 @@ good_soldier_outcome_score = {
 bad_soldier_outcome_score = { #will make something score higher if current scope isn't exactly soldier material...
 	#value = 1
 	#### Positive!
-	modifier = {
-		factor = 1.1
-		NOT = { has_focus = focus_war }
-	}
-	modifier = {
-		factor = 1.1
-		NOT = { has_focus = focus_hunting }
-	}	
+#	modifier = {
+#		factor = 1.1
+#		NOT = { has_focus = focus_war }
+#	}
+#	modifier = {
+#		factor = 1.1
+#		NOT = { has_focus = focus_hunting }
+#	}	
 	modifier = {
 		factor = 1.5
 		trait = craven
@@ -180,7 +180,7 @@ bad_soldier_outcome_score = { #will make something score higher if current scope
 		NOT = { martial = 10 }
 	}
 	modifier = {
-		factor = 1.5
+		factor = 1.2
 		OR = {
 			has_lifestyle_stewardship_trigger = yes
 			has_lifestyle_learning_trigger = yes
@@ -555,17 +555,17 @@ dishonorable_ai_chance_increase_score = {
             trait = schemer
         }
     }
-    modifier = {
-        factor = 2
-        OR = {
-            society_member_of = the_assassins
-            is_devil_worshiper_trigger = yes
-        }
-    }
-    modifier = {
-        factor = 0.5
-        is_member_of_any_warrior_lodge_trigger = yes
-    }
+    # modifier = {
+        # factor = 2
+        # OR = {
+            # society_member_of = the_assassins
+            # is_devil_worshiper_trigger = yes
+        # }
+    # }
+    # modifier = {
+        # factor = 0.5
+        # is_member_of_any_warrior_lodge_trigger = yes
+    # }
     modifier = {
         factor = 1.5
         OR = {
@@ -637,43 +637,44 @@ at_war_reduction_score = { #used in calculating mission targets (for ease of acc
 	}
 }
 
-warrior_lodge_risk_reduction_score = {
-	#Rank 1 Power: Fledgling
-	modifier = {
-		factor = 0.9 #reduces risk of injury
-		#Note: even being in a Warrior Lodge reduces risk, by default, as you have access to new battle events, effectively making the injury events less likely to fire from the same pool of events
-		OR = {
-			AND = {
-				NOT = { society_rank == 4 }
-				is_member_of_any_warrior_lodge_trigger = yes
-			}
-			any_owned_bloodline = {
-				has_bloodline_flag = battle_survivor_bloodline
-			}
-		}	
-	}
-	#Rank 4 Power: Indomitable
-	modifier = {
-		factor = 0.5 # NO risk of random death in battle (only duels)
-		is_indomitable_trigger = yes
-	}	
-}
+# warrior_lodge_risk_reduction_score = {
+	# #Rank 1 Power: Fledgling
+	# modifier = {
+		# factor = 0.9 #reduces risk of injury
+		# #Note: even being in a Warrior Lodge reduces risk, by default, as you have access to new battle events, effectively making the injury events less likely to fire from the same pool of events
+		# OR = {
+			# AND = {
+				# NOT = { society_rank == 4 }
+				# is_member_of_any_warrior_lodge_trigger = yes
+			# }
+			# any_owned_bloodline = {
+				# has_bloodline_flag = battle_survivor_bloodline
+				# bloodline_is_active_for = PREV
+			# }
+		# }	
+	# }
+	# #Rank 4 Power: Indomitable
+	# modifier = {
+		# factor = 0.5 # NO risk of random death in battle (only duels)
+		# is_indomitable_trigger = yes
+	# }	
+# }
 
 artifact_selection_score = { # (used in legendary journey events)
 	modifier = {
 		factor = 1.1
 		has_artifact_flag = created
 	}
-	modifier = {
-		factor = 1.1
-		event_target:original_hero = { is_society = warrior_lodge_norse }
-		has_artifact_flag = axe
-	}
-	modifier = {
-		factor = 1.1
-		event_target:original_hero = { is_society = warrior_lodge_tengri }
-		has_artifact_flag = bow
-	}
+	# modifier = {
+		# factor = 1.1
+		# event_target:original_hero = { is_society = warrior_lodge_norse }
+		# has_artifact_flag = axe
+	# }
+	# modifier = {
+		# factor = 1.1
+		# event_target:original_hero = { is_society = warrior_lodge_tengri }
+		# has_artifact_flag = bow
+	# }
 }
 
 same_gender_preference_score = {
@@ -934,295 +935,295 @@ likes_other_combatant_score = { #increases the more PREV likes target
 }
 
 
-warrior_lodge_revival_selection_score = {
-	#value = 10
-	modifier = {
-		factor = 0.1
-		trait = incapable
-	}
-	modifier = {
-		factor = 0.1
-		prisoner = yes
-	}
-	modifier = {
-		factor = 0.1
-		is_inaccessible_trigger = yes
-	}
-	modifier = {
-		factor = 0.1
-		NOT = { is_landed = yes }
-	}
-}
+# warrior_lodge_revival_selection_score = {
+	# #value = 10
+	# modifier = {
+		# factor = 0.1
+		# trait = incapable
+	# }
+	# modifier = {
+		# factor = 0.1
+		# prisoner = yes
+	# }
+	# modifier = {
+		# factor = 0.1
+		# is_inaccessible_trigger = yes
+	# }
+	# modifier = {
+		# factor = 0.1
+		# NOT = { is_landed = yes }
+	# }
+# }
 
-warrior_recruit_score = { #rename to... "new_warrior_lodge_recruit_eligibility_score"?
-	#value = 10
-	#### Positive!
-	modifier = {
-		factor = 1.5
-		has_focus = focus_war
-	}
-	modifier = {
-		factor = 1.1
-		has_focus = focus_hunting
-	}
-	modifier = {
-		factor = 1.1
-		trait = brave
-	}
-	modifier = {
-		factor = 0.5
-		trait = craven
-	}
-	modifier = {
-		factor = 1.1
-		trait = wroth
-	}
-	modifier = {
-		factor = 1.1
-		martial = 12
-	}
-	modifier = {
-		factor = 1.1
-		martial = 16
-	}
-	modifier = {
-		factor = 1.2
-		has_lifestyle_martial_trigger = yes
-	}
-	modifier = {
-		factor = 1.1
-		has_lifestyle_diplomacy_trigger = yes
-	}
-	modifier = {
-		factor = 1.1
-		has_pleasant_personality_trigger = yes
-	}
-	modifier = {
-		factor = 1.1
-		has_pleasant_trait_trigger = yes
-	}
-	modifier = {
-		factor = 1.1
-		is_benevolent_trigger = yes
-	}
-	modifier = {
-		factor = 1.1
-		has_benevolent_trait_trigger = yes
-	}
-	modifier = {
-		factor = 1.5
-		has_religion_matching_warrior_lodge_in_need_of_members_trigger = yes
-		trait = zealous
-	}
-	modifier = {
-		factor = 1.2
-		trait = duelist
-	}
-	modifier = {
-		factor = 1.1
-		trait = hunter
-	}
-	modifier = {
-		factor = 1.1
-		trait = strategist
-	}
-	modifier = {
-		factor = 1.1
-		trait = genius
-	}
-	modifier = {
-		factor = 1.1
-		has_education_martial_trigger = yes
-	}
-	modifier = {
-		OR = {
-			trait = tough_soldier
-			trait = skilled_tactician
-		}
-		factor = 1.1
-	}
-	modifier = {
-		trait = brilliant_strategist
-		factor = 1.2
-	}
-	modifier = {
-		has_top_tier_education_trait_trigger = yes
-		factor = 1.1
-	}
-	modifier = {
-		duelist_skill_is_medium_group_trigger = yes
-		factor = 1.1
-	}
-	modifier = {
-		duelist_skill_is_high_group_trigger = yes
-		factor = 1.1
-	}
-	modifier = {
-		OR = {
-			is_decent_duelist_trigger = yes
-			is_good_duelist_trigger = yes
-			is_great_duelist_trigger = yes
-		}
-		factor = 1.5
-	}
-	modifier = {
-		is_fantastic_duelist_trigger = yes
-		factor = 2
-	}
-	modifier = {
-		is_the_best_duelist_trigger = yes
-		factor = 3
-	}
-	modifier = {
-		OR = {
-			trait = quick
-			trait = shrewd
-		}
-		factor = 1.1
-	}
-	modifier = {
-		has_nickname = yes
-		factor = 1.1
-	}
-	modifier = {
-		has_minor_title = title_commander
-		factor = 1.1
-	}
-	modifier = {
-		has_job_title = job_marshal
-		factor = 1.1
-	}
-	modifier = {
-		has_minor_title_relating_to_martial_trigger = yes
-		factor = 1.1
-	}
-	modifier = {
-		any_artifact = {
-			is_dueling_weapon_artifact_and_equipped = yes
-		}
-		factor = 1.2
-	}
-	modifier = {
-        factor = 1.1
-        has_duel_exp_modifier_trigger = yes
-    }
-    modifier = {
-        factor = 1.1
-        any_owned_bloodline = {
-			has_bloodline_flag = bloodline_legendary_warrior
-		}
-    }
-	#### Negative!
-	modifier = {
-		factor = 0.9
-		NOT = { martial = 10 }
-	}
-	modifier = {
-		factor = 0.9
-		NOT = { martial = 8 }
-	}
-	modifier = {
-		factor = 0.9
-		NOT = { martial = 6 }
-	}
-	modifier = {
-		factor = 0.9
-		NOT = { martial = 4 }
-	}
-	modifier = {
-		is_senior_age_trigger = yes
-		factor = 0.9
-	}
-	modifier = {
-		is_the_worst_duelist_trigger = yes
-		factor = 0.9
-	}
-	modifier = {
-		is_terrible_duelist_trigger = yes
-		factor = 0.9
-	}
-	modifier = {
-		duelist_skill_is_low_group_trigger = yes
-		factor = 0.9
-	}
-	modifier = {
-		NOT = { higher_tier_than = BARON }
-		factor = 0.75
-	}
-	modifier = {
-		OR = {
-	        mercenary = yes
-	    	holy_order = yes
-		}
-		factor = 0.9
-	}
-	modifier = {
-		controls_religion = yes
-		factor = 0.9
-	}
-	modifier = {
-		trait = imbecile
-		factor = 0.1
-	}
-	modifier = {
-		trait = inbred
-		factor = 0.2
-	}
-	modifier = {
-		factor = 0.5
-		trait = lunatic
-	}
-	modifier = {
-		factor = 0.5
-		trait = possessed
-	}
-	modifier = {
-		factor = 0.9
-		is_ill = yes
-	}
-	modifier = {
-		factor = 0.9
-		trait = wounded
-	}
-	modifier = {
-		factor = 0.8
-		is_maimed_trigger = yes
-	}
-	modifier = {
-		factor = 0.5
-		trait = infirm
-	}
-	modifier = {
-		factor = 0.4
-		trait = incapable
-	}
-	modifier = {
-		factor = 0.5
-		trait = drunkard
-	}
-	modifier = {
-		factor = 0.5
-		has_epidemic_disease_trigger = yes
-	}
-	modifier = {
-		factor = 0.5
-		has_minor_disease_trigger = yes
-	}
-	modifier = {
-		factor = 0.2
-		is_lowborn = yes
-	}
+# warrior_recruit_score = { #rename to... "new_warrior_lodge_recruit_eligibility_score"?
+	# #value = 10
+	# #### Positive!
+	# modifier = {
+		# factor = 1.5
+		# has_focus = focus_war
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_focus = focus_hunting
+	# }
+	# modifier = {
+		# factor = 1.1
+		# trait = brave
+	# }
+	# modifier = {
+		# factor = 0.5
+		# trait = craven
+	# }
+	# modifier = {
+		# factor = 1.1
+		# trait = wroth
+	# }
+	# modifier = {
+		# factor = 1.1
+		# martial = 12
+	# }
+	# modifier = {
+		# factor = 1.1
+		# martial = 16
+	# }
+	# modifier = {
+		# factor = 1.2
+		# has_lifestyle_martial_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_lifestyle_diplomacy_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_pleasant_personality_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_pleasant_trait_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.1
+		# is_benevolent_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_benevolent_trait_trigger = yes
+	# }
+	# modifier = {
+		# factor = 1.5
+		# has_religion_matching_warrior_lodge_in_need_of_members_trigger = yes
+		# trait = zealous
+	# }
+	# modifier = {
+		# factor = 1.2
+		# trait = duelist
+	# }
+	# modifier = {
+		# factor = 1.1
+		# trait = hunter
+	# }
+	# modifier = {
+		# factor = 1.1
+		# trait = strategist
+	# }
+	# modifier = {
+		# factor = 1.1
+		# trait = genius
+	# }
+	# modifier = {
+		# factor = 1.1
+		# has_education_martial_trigger = yes
+	# }
+	# modifier = {
+		# OR = {
+			# trait = tough_soldier
+			# trait = skilled_tactician
+		# }
+		# factor = 1.1
+	# }
+	# modifier = {
+		# trait = brilliant_strategist
+		# factor = 1.2
+	# }
+	# modifier = {
+		# has_top_tier_education_trait_trigger = yes
+		# factor = 1.1
+	# }
+	# modifier = {
+		# duelist_skill_is_medium_group_trigger = yes
+		# factor = 1.1
+	# }
+	# modifier = {
+		# duelist_skill_is_high_group_trigger = yes
+		# factor = 1.1
+	# }
+	# modifier = {
+		# OR = {
+			# is_decent_duelist_trigger = yes
+			# is_good_duelist_trigger = yes
+			# is_great_duelist_trigger = yes
+		# }
+		# factor = 1.5
+	# }
+	# modifier = {
+		# is_fantastic_duelist_trigger = yes
+		# factor = 2
+	# }
+	# modifier = {
+		# is_the_best_duelist_trigger = yes
+		# factor = 3
+	# }
+	# modifier = {
+		# OR = {
+			# trait = quick
+			# trait = shrewd
+		# }
+		# factor = 1.1
+	# }
+	# modifier = {
+		# has_nickname = yes
+		# factor = 1.1
+	# }
+	# modifier = {
+		# has_minor_title = title_commander
+		# factor = 1.1
+	# }
+	# modifier = {
+		# has_job_title = job_marshal
+		# factor = 1.1
+	# }
+	# modifier = {
+		# has_minor_title_relating_to_martial_trigger = yes
+		# factor = 1.1
+	# }
+	# modifier = {
+		# any_artifact = {
+			# is_dueling_weapon_artifact_and_equipped = yes
+		# }
+		# factor = 1.2
+	# }
+	# modifier = {
+        # factor = 1.1
+        # has_duel_exp_modifier_trigger = yes
+    # }
+    # modifier = {
+        # factor = 1.1
+        # any_owned_bloodline = {
+			# has_bloodline_flag = bloodline_legendary_warrior
+		# }
+    # }
+	# #### Negative!
+	# modifier = {
+		# factor = 0.9
+		# NOT = { martial = 10 }
+	# }
+	# modifier = {
+		# factor = 0.9
+		# NOT = { martial = 8 }
+	# }
+	# modifier = {
+		# factor = 0.9
+		# NOT = { martial = 6 }
+	# }
+	# modifier = {
+		# factor = 0.9
+		# NOT = { martial = 4 }
+	# }
+	# modifier = {
+		# is_senior_age_trigger = yes
+		# factor = 0.9
+	# }
+	# modifier = {
+		# is_the_worst_duelist_trigger = yes
+		# factor = 0.9
+	# }
+	# modifier = {
+		# is_terrible_duelist_trigger = yes
+		# factor = 0.9
+	# }
+	# modifier = {
+		# duelist_skill_is_low_group_trigger = yes
+		# factor = 0.9
+	# }
+	# modifier = {
+		# NOT = { higher_tier_than = BARON }
+		# factor = 0.75
+	# }
+	# modifier = {
+		# OR = {
+	        # mercenary = yes
+	    	# holy_order = yes
+		# }
+		# factor = 0.9
+	# }
+	# modifier = {
+		# controls_religion = yes
+		# factor = 0.9
+	# }
+	# modifier = {
+		# trait = imbecile
+		# factor = 0.1
+	# }
+	# modifier = {
+		# trait = inbred
+		# factor = 0.2
+	# }
+	# modifier = {
+		# factor = 0.5
+		# trait = lunatic
+	# }
+	# modifier = {
+		# factor = 0.5
+		# trait = possessed
+	# }
+	# modifier = {
+		# factor = 0.9
+		# is_ill = yes
+	# }
+	# modifier = {
+		# factor = 0.9
+		# trait = wounded
+	# }
+	# modifier = {
+		# factor = 0.8
+		# is_maimed_trigger = yes
+	# }
+	# modifier = {
+		# factor = 0.5
+		# trait = infirm
+	# }
+	# modifier = {
+		# factor = 0.4
+		# trait = incapable
+	# }
+	# modifier = {
+		# factor = 0.5
+		# trait = drunkard
+	# }
+	# modifier = {
+		# factor = 0.5
+		# has_epidemic_disease_trigger = yes
+	# }
+	# modifier = {
+		# factor = 0.5
+		# has_minor_disease_trigger = yes
+	# }
+	# modifier = {
+		# factor = 0.2
+		# is_lowborn = yes
+	# }
 
-}
+# }
 
-warrior_lodge_bloodline_reduction_score = {
-	modifier = {
-		factor = 0.5
-		any_bloodline = {
-			has_bloodline_flag = bloodline_legendary_warrior
-		}
-	}
-}
+# warrior_lodge_bloodline_reduction_score = {
+	# modifier = {
+		# factor = 0.5
+		# any_bloodline = {
+			# has_bloodline_flag = bloodline_legendary_warrior
+		# }
+	# }
+# }
 
 warrior_hero_score = {
 	#value = 10
@@ -1452,10 +1453,10 @@ potential_rival_score = { #choses "wisely" depending on your skill level/persona
 		factor = 0.1
 		has_medium_disability_trigger = yes #limits the character to some extent
 	}
-	modifier = {
-		factor = 0.1
-		age = 60
-	}
+	# modifier = {
+		# factor = 0.1
+		# age = 60
+	# }
 }
 
 matching_soldier_score = { #choses "wisely", someone close to your skill level/personality
@@ -1486,11 +1487,11 @@ matching_soldier_score = { #choses "wisely", someone close to your skill level/p
 		is_evil_trigger = yes
 		PREV = { is_evil_trigger = yes }
 	}
-	modifier = {
-		factor = 1.1
-		has_any_warrior_lodge_training_trait_trigger = yes
-		PREV = { has_any_warrior_lodge_training_trait_trigger = yes }
-	}
+	# modifier = {
+		# factor = 1.1
+		# has_any_warrior_lodge_training_trait_trigger = yes
+		# PREV = { has_any_warrior_lodge_training_trait_trigger = yes }
+	# }
 	modifier = {
 		factor = 1.5
 		has_at_least_3_traits_in_common_with_prev_trigger = yes
@@ -1906,234 +1907,234 @@ testing_fate_variable_character_score = {
 	} 
 }
 
-post_reformation_ruler_conversion_score = { 
-	#Base factor is 50.
-	#Increases chance of Old-Pagan rulers NOT converting with the Reformer.
-	modifier = { 
-		factor = 0.5
-		vassal_of = ROOT
-	} 
-	#Natures
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_peaceful }
-		OR = { 
-			religion = norse_pagan
-			religion = tengri_pagan
-			religion = aztec
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_peaceful }
-		religion = bon
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_warlike }
-		religion = bon
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_warlike }
-		OR = { 
-			religion = norse_pagan
-			religion = tengri_pagan
-			religion = aztec
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_defensive }
-		OR = { 
-			religion = norse_pagan
-			religion = tengri_pagan
-			religion = aztec
-			religion = hellenic_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_defensive }
-		OR = { 
-			religion = slavic_pagan
-			religion = baltic_pagan
-			religion = finnish_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_proselytizing }
-		OR = { 
-			religion = norse_pagan
-			religion = slavic_pagan
-			religion = baltic_pagan
-			religion = finnish_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_proselytizing }
-		OR = { 
-			religion = hellenic_pagan
-			religion = west_african_pagan
-			religion = bon
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_dogmatic }
-		OR = { 
-			religion = hellenic_pagan
-			religion = bon
-			religion = west_african_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_dogmatic }
-		OR = { 
-			religion = aztec
-			religion = zun_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_cosmopolitan }
-		OR = { 
-			religion = aztec
-			religion = zun_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_cosmopolitan }
-		OR = { 
-			religion = hellenic_pagan
-			religion = bon
-			religion = west_african_pagan
-		}
-	}
-	#Leadership
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_temporal_head }
-		OR = { 
-			religion = aztec
-			religion = norse_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_theocratic_head }
-		OR = { 
-			religion = zun_pagan
-			religion = tengri_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_autocephaly }
-		OR = { 
-			religion = finnish_pagan
-			religion = slavic_pagan
-			religion = baltic_pagan
-			religion = hellenic_pagan
-		}
-	}
-	modifier = { 
-		factor = 0.5
-		ROOT = { has_religion_feature = religion_no_leader }
-		OR = { 
-			religion = bon
-			religion = west_african_pagan
-		}
-	}
-	#Doctrines
-	modifier = { #Always less likely to refuse conversion when picking special Doctrine.
-		factor = 0.45
-		ROOT = { 
-			OR = { 
-				has_religion_feature = religion_feature_norse
-				has_religion_feature = religion_feature_tengri
-				has_religion_feature = religion_feature_slavic
-				has_religion_feature = religion_feature_baltic
-				has_religion_feature = religion_feature_finnish
-				has_religion_feature = religion_feature_west_african
-				has_religion_feature = religion_feature_zun
-				has_religion_feature = religion_feature_bon
-				has_religion_feature = religion_feature_aztec
-				has_religion_feature = religion_feature_hellenic
-			}
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_holy_family }
-		NOT = { 
-			religion = zun_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_harems }
-		NOR = { 
-			religion = zun_pagan
-			religion = tengri_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_jizya }
-		NOR = { 
-			religion = west_african_pagan
-			religion = zun_pagan
-			religion = tengri_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.5
-		ROOT = { has_religion_feature = religion_syncretic }
-		OR = { 
-			religion = aztec
-			religion = baltic_pagan
-			religion = finnish_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.75
-		ROOT = { has_religion_feature = religion_patriarchal }
-		is_female = yes
-	}
-	modifier = { 
-		factor = 1.75
-		ROOT = { has_religion_feature = religion_matriarchal }
-		is_female = no
-	}
-	modifier = { 
-		factor = 1.75
-		ROOT = { has_religion_feature = religion_ritual_sacrifice }
-		NOR = { 
-			religion = aztec
-			religion = norse_pagan
-			religion = zun_pagan
-		}
-	}
-	modifier = { 
-		factor = 1.75
-		ROOT = { has_religion_feature = religion_adventuring }
-		OR = { 
-			religion = finnish_pagan
-			religion = bon
-		}
-	}
-	modifier = { 
-		factor = 1.75
-		ROOT = { has_religion_feature = religion_seafaring }
-		OR = { 
-			religion = finnish_pagan
-			religion = tengri_pagan
-			religion = bon
-		}
-	}
-}
+# post_reformation_ruler_conversion_score = { 
+	# #Base factor is 50.
+	# #Increases chance of Old-Pagan rulers NOT converting with the Reformer.
+	# modifier = { 
+		# factor = 0.5
+		# vassal_of = ROOT
+	# } 
+	# #Natures
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_peaceful }
+		# OR = { 
+			# religion = norse_pagan
+			# religion = tengri_pagan
+			# religion = aztec
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_peaceful }
+		# religion = bon
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_warlike }
+		# religion = bon
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_warlike }
+		# OR = { 
+			# religion = norse_pagan
+			# religion = tengri_pagan
+			# religion = aztec
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_defensive }
+		# OR = { 
+			# religion = norse_pagan
+			# religion = tengri_pagan
+			# religion = aztec
+			# religion = hellenic_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_defensive }
+		# OR = { 
+			# religion = slavic_pagan
+			# religion = baltic_pagan
+			# religion = finnish_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_proselytizing }
+		# OR = { 
+			# religion = norse_pagan
+			# religion = slavic_pagan
+			# religion = baltic_pagan
+			# religion = finnish_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_proselytizing }
+		# OR = { 
+			# religion = hellenic_pagan
+			# religion = west_african_pagan
+			# religion = bon
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_dogmatic }
+		# OR = { 
+			# religion = hellenic_pagan
+			# religion = bon
+			# religion = west_african_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_dogmatic }
+		# OR = { 
+			# religion = aztec
+			# religion = zun_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_cosmopolitan }
+		# OR = { 
+			# religion = aztec
+			# religion = zun_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_cosmopolitan }
+		# OR = { 
+			# religion = hellenic_pagan
+			# religion = bon
+			# religion = west_african_pagan
+		# }
+	# }
+	# #Leadership
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_temporal_head }
+		# OR = { 
+			# religion = aztec
+			# religion = norse_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_theocratic_head }
+		# OR = { 
+			# religion = zun_pagan
+			# religion = tengri_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_autocephaly }
+		# OR = { 
+			# religion = finnish_pagan
+			# religion = slavic_pagan
+			# religion = baltic_pagan
+			# religion = hellenic_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 0.5
+		# ROOT = { has_religion_feature = religion_no_leader }
+		# OR = { 
+			# religion = bon
+			# religion = west_african_pagan
+		# }
+	# }
+	# #Doctrines
+	# modifier = { #Always less likely to refuse conversion when picking special Doctrine.
+		# factor = 0.45
+		# ROOT = { 
+			# OR = { 
+				# has_religion_feature = religion_feature_norse
+				# has_religion_feature = religion_feature_tengri
+				# has_religion_feature = religion_feature_slavic
+				# has_religion_feature = religion_feature_baltic
+				# has_religion_feature = religion_feature_finnish
+				# has_religion_feature = religion_feature_west_african
+				# has_religion_feature = religion_feature_zun
+				# has_religion_feature = religion_feature_bon
+				# has_religion_feature = religion_feature_aztec
+				# has_religion_feature = religion_feature_hellenic
+			# }
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_holy_family }
+		# NOT = { 
+			# religion = zun_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_harems }
+		# NOR = { 
+			# religion = zun_pagan
+			# religion = tengri_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_jizya }
+		# NOR = { 
+			# religion = west_african_pagan
+			# religion = zun_pagan
+			# religion = tengri_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.5
+		# ROOT = { has_religion_feature = religion_syncretic }
+		# OR = { 
+			# religion = aztec
+			# religion = baltic_pagan
+			# religion = finnish_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.75
+		# ROOT = { has_religion_feature = religion_patriarchal }
+		# is_female = yes
+	# }
+	# modifier = { 
+		# factor = 1.75
+		# ROOT = { has_religion_feature = religion_matriarchal }
+		# is_female = no
+	# }
+	# modifier = { 
+		# factor = 1.75
+		# ROOT = { has_religion_feature = religion_ritual_sacrifice }
+		# NOR = { 
+			# religion = aztec
+			# religion = norse_pagan
+			# religion = zun_pagan
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.75
+		# ROOT = { has_religion_feature = religion_adventuring }
+		# OR = { 
+			# religion = finnish_pagan
+			# religion = bon
+		# }
+	# }
+	# modifier = { 
+		# factor = 1.75
+		# ROOT = { has_religion_feature = religion_seafaring }
+		# OR = { 
+			# religion = finnish_pagan
+			# religion = tengri_pagan
+			# religion = bon
+		# }
+	# }
+# }
