@@ -12,6 +12,7 @@ heren_isseon = {
 	opinion_to_other_members = +10
 	opinion_per_rank_above = +5
 	sound = hermetic_society_interface
+	society_influence = no
 	non_interference = {
 		always = yes
 	}
@@ -53,19 +54,19 @@ heren_isseon = {
 				trait = legendary_craftman
 			}
 		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
 		mep_eligible_for_heren_isseon = yes
+		society_member_of = heren_isseon
 	}
 	
 	potential = {
-		NOR = {
-			is_nomadic = yes
-			is_tribal = yes
-		}
-		age = 16
-		#If something else is added here, it could break apprenticeship. Create an event if they can get kicked out. title_heren_isseon_apprentice
+		#If something is added here, it could break apprenticeship. Create an event if they can get kicked out. title_hermetics_apprentice
 	}
 	
 	society_rank = {
@@ -226,7 +227,7 @@ heren_isseon = {
 	    trigger = {
 			ai = yes
 	    	controls_religion = no
-			age = 18
+			age = 16
 			is_in_society = no
 			is_dumb_trigger = no
 			OR = {
