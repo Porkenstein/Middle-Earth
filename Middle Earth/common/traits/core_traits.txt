@@ -1,6 +1,140 @@
-############
-# EDUCATION
-############
+##############
+# Traits - Scenario
+##############
+trait_nooo = {
+	hidden = yes
+	immortal = yes
+	random = no
+	customizer = no
+	cached = yes
+}
+saruman_spell = {
+	customizer = no
+	random = no
+	diplomacy_penalty = -5
+	stewardship_penalty = -5
+	martial_penalty = -5
+	intrigue_penalty = -5
+	learning_penalty = -5
+	general_opinion = -30
+	health = 10 ##Because Saruman wants to keep his zombie puppet alive, and we don't want Theoden to die too soon##
+	incapacitating = yes
+	fertility_penalty = -5.0
+	cannot_marry = yes
+	ai_ambition = -100 #Influences the AI's desire for expansion, primarily affecting the likelihood of wanting to declare war.
+    ai_rationality = -50 #Influences the way the AI makes choices, such as whether the AI will compare its own levy size with its enemy levy size if it wants to go to war.
+    ai_honor = -100 #Influences the likelihood the AI will honor relationships and alliances, and the chance of attacking despite such relations. Also affects its likelihood of joining plots.
+
+}
+vow_of_cerin_amroth = { # Aragorn and Arwen only
+	customizer = no
+	cached = yes
+	cannot_marry = yes
+	fertility_penalty = -5.0
+	random = no
+	monthly_character_prestige = 5.00
+}
+journey_to_valinor = { # Journey to Valinor
+	customizer = no
+	fertility_penalty = -5.0
+	random =no
+	pilgrimage = yes # Will need a regent, but can still be guardian to children
+	cannot_marry = yes
+	cached = yes
+}
+at_east = { # The Character is in the unknown lands of the East
+	customizer = no
+	random = no
+	pilgrimage = yes # Will need a regent, but can still be guardian to children
+	cannot_marry = yes
+	cannot_inherit = yes
+	cached = yes
+}
+search_for_meneltarma = { 
+	customizer = no
+	random = no
+	pilgrimage = yes # Will need a regent, but can still be guardian to children
+	cannot_marry = yes
+	cached = yes
+	monthly_character_prestige = 10.00
+}
+duel_target = {
+	hidden = yes
+	cached = yes
+	customizer = no
+	random = no
+}
+marriedforever = {
+	customizer = yes	
+	cannot_marry = yes
+	cached = yes
+	monthly_character_piety = 1
+}
+mouthofsauon = {
+	hidden = yes
+	cached = yes
+	random = no
+	customizer = no
+}
+white_council = {
+	tolerates_religion_group_eruhini = yes
+    tolerates_religion_group_khazad = yes
+    tolerates_religion_group_eldar = yes
+	tolerates_religion_group_periannath = yes
+	tolerates_religion_group_enyd = yes
+	tolerates_religion_group_edain = yes
+	culture_flex  = 0.9
+	diplomacy = 4
+	intrigue = 6
+	learning = 4
+	martial = 1
+	stewardship = 4
+	church_opinion = 100
+	monthly_character_piety = 2.0	
+    monthly_character_prestige = 1.0
+	vassal_opinion = 5
+	same_opinion = 20
+
+	command_modifier = {
+		religious_enemy = 0.5
+		morale_offence = 0.2
+		morale_defence = 0.2
+	}
+	customizer = no
+	cached = yes
+	random = no
+}
+barahir = {
+	learning = 2
+	vassal_opinion = 5
+	general_opinion = 2
+	monthly_character_prestige = 1.0
+	demesne_size = 1	
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+sailed_west = {
+	cannot_marry = yes
+	cannot_inherit = yes
+	ai_ambition = -100
+	fertility_penalty = -3.0
+	customizer = no	
+	random = no
+}
+dead_target = {
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 	
+	customizer = no
+	random = no
+}
+assign_mission_target = {
+	cached = yes
+	customizer = no
+	hidden = yes
+}
+
+#####################
+# Traits - Education
+#####################
 #Intrigue
 amateurish_plotter = {
 	attribute = intrigue
@@ -333,9 +467,35 @@ mastermind_theologian = {
 }
 
 ########################
-# HEALTH - Events
+# Traits - Health
 ########################
+#Doctor
+physician = {
+	
+	diplomacy = 1
+	learning = 2
+	monthly_character_prestige = 0.25
+	health = 0.5
+	
+	general_opinion = 5
+	
+	customizer = no
+	random = no
+	
+	male_compliment = COMPL_SCHOLAR
+	female_compliment = COMPL_SCHOLAR
+	child_compliment = COMPL_SMARTY
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult = INSULT_BOOKWORM
+	female_insult = INSULT_BOOKWORM
+	child_insult = INSULT_BORE
+	male_insult_adj = INSULT_SQUINTEYED
+	female_insult_adj = INSULT_SQUINTEYED
+}
 
+#Illnesses
 stressed = {
 	is_health = yes
 	intrigue = -1
@@ -518,10 +678,6 @@ maimed = {
 	female_insult_adj = INSULT_USELESS
 	
 	succession_gfx = yes
-}
-scarred = {
-	ruler_designer_cost = 0
-	monthly_character_prestige = 0.1
 }
 infirm = {
 	is_health = yes
@@ -721,10 +877,106 @@ has_small_pox = {
 	
 	succession_gfx = yes
 }
-#####################
-# POSSIBLY CONGENITAL
-#####################
+has_aztec_disease = {
+	is_epidemic = yes
+	is_illness = yes
+	
+	sex_appeal_opinion = -30
+	
+	diplomacy_penalty = -3
+	stewardship_penalty = -2
+	martial_penalty = -2
+	intrigue_penalty = -3
+	learning_penalty = -2
+	
+	health_penalty = -4
+	fertility_penalty = -0.2
+	
+	combat_rating = -3
+	
+	customizer = no
 
+	male_insult_adj = INSULT_POX_RIDDEN
+	female_insult_adj = INSULT_POX_RIDDEN
+	child_insult_adj = INSULT_POX_RIDDEN
+}
+dancing_plague = {
+	is_epidemic = yes
+	is_illness = yes
+	
+	health_penalty = -2
+	diplomacy_penalty = -1
+	intrigue_penalty = -1
+	martial_penalty = -1
+	stewardship_penalty = -1
+	learning_penalty = -1
+	fertility = 0.25
+	
+	customizer = no
+
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+	
+	succession_gfx = yes
+}
+scurvy = {
+	is_health = yes
+	is_illness = yes
+	
+	health_penalty = -3
+	diplomacy_penalty = -1
+	martial_penalty = -1
+	stewardship_penalty = -1
+	intrigue_penalty = -1
+	learning_penalty = -1
+	combat_rating = -2
+	
+	customizer = no
+	
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+lovers_pox = {
+	sex_appeal_opinion = -5
+	
+	customizer = no
+	
+	male_insult_adj = INSULT_POX_RIDDEN
+	female_insult_adj = INSULT_POX_RIDDEN
+	child_insult_adj = INSULT_POX_RIDDEN
+} 
+sick_incapable = {
+	is_health = yes
+	
+	hidden = yes
+	
+	incapacitating = yes # Will need a regent
+	
+	customizer = no
+	random = no
+	
+	male_insult = INSULT_VEGETABLE
+	female_insult = INSULT_VEGETABLE
+	male_insult_adj = INSULT_USELESS
+	female_insult_adj = INSULT_USELESS
+}
+sickly = {
+	is_health = yes
+	is_illness = yes
+	
+	potential = {
+		NOT = { age = 6 }
+	}
+	
+	health = -2.5
+	
+	customizer = no
+	random = no
+}
+
+#Strengths/Weaknesses
 clubfooted = {
 	birth = 50
 	inherit_chance = 15
@@ -1053,10 +1305,2434 @@ weak = {
 	
 	male_insult = INSULT_WEAKLING
 }
+eunuch = {
+	sex_appeal_opinion = -20
+	fertility = -50.0
 
-#################################################################
-# PERSONALITY - Events, should happen more often during childhood
-#################################################################
+	customizer = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	
+	male_insult = INSULT_EUNUCH
+	male_insult_adj = INSULT_UNMANNED
+	child_insult_adj = INSULT_SILLY
+}
+blinded = {
+	sex_appeal_opinion = -10
+	martial = -6
+	stewardship = -2
+	intrigue = -2
+	health = -1
+	
+	ruler_designer_cost = 0
+	
+	combat_rating = -10
+	
+	blinding = yes
+	
+	male_insult_adj = INSULT_BLIND
+	female_insult_adj = INSULT_BLIND
+}
+robust = {
+	opposites =  {
+		feeble
+	}
+	
+	diplomacy = 1
+	martial = 2
+	
+	health = 1
+	
+	combat_rating = 1
+
+	ruler_designer_cost = 0
+	
+	sex_appeal_opinion = 5
+	vassal_opinion = 5
+	tribal_opinion = 5
+	
+	male_compliment_adj = COMPL_STRONG
+}
+feeble = {
+	opposites =  {
+		robust
+	}
+	
+	martial = -1
+	combat_rating = -1
+	
+	health = -0.5
+
+	ruler_designer_cost = 0
+	
+	sex_appeal_opinion = -5
+	vassal_opinion = -5
+	tribal_opinion = -5
+	
+	male_insult = INSULT_WEAKLING
+}
+shrewd = {
+	opposites =  {
+		dull
+	}
+	
+	diplomacy = 2
+	intrigue = 2
+	stewardship = 2
+	martial = 2
+	learning = 2
+
+	ruler_designer_cost = 0
+	
+	ai_rationality = 15
+}
+dull = {
+	opposites =  {
+		shrewd
+	}
+	
+	diplomacy = -2
+	intrigue = -2
+	stewardship = -2
+	martial = -2
+	learning = -2
+
+	ruler_designer_cost = 0
+	
+	ai_rationality = -15
+	
+	male_insult = INSULT_DULLARD
+	female_insult = INSULT_NITWIT
+	male_insult_adj = INSULT_DIM
+	female_insult_adj = INSULT_VACUOUS
+	child_insult_adj = INSULT_STUPID
+}
+#Symptoms
+cough = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -5
+
+	diplomacy_penalty = -1
+	health_penalty = -0.25
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+fever = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	stewardship_penalty = -1
+	learning_penalty = -1
+
+	health_penalty = -1
+	fertility_penalty = -0.1
+
+	ai_rationality = -10
+
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+diarrhea = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -10
+
+	martial_penalty = -2
+	intrigue_penalty = -2
+
+	health_penalty = -1
+	fertility_penalty = -0.2
+	
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+vomiting = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -10
+
+	diplomacy_penalty = -2
+	intrigue_penalty = -2
+
+	health_penalty = -1
+	fertility_penalty = -0.3
+
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+
+}
+chest_pain = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	health_penalty = -2
+
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+cramps = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	martial_penalty = -2
+	
+	health_penalty = -0.5
+
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+rash = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -5
+
+	health_penalty = -0.5
+	
+	fertility_penalty = -0.1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+headache = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	diplomacy_penalty = -1
+	stewardship_penalty = -1
+	learning_penalty = -1
+	health_penalty = -0.5
+	
+	combat_rating = -1
+
+	ai_rationality = -10
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+abdominal_pain = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	health_penalty = -1
+	
+	fertility_penalty = -0.1
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+fatigue = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	diplomacy_penalty = -1
+	intrigue_penalty = -1
+
+	health_penalty = -0.25
+
+	ai_rationality = -20
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+malaise = {
+	is_health = yes
+	is_symptom = yes
+	is_illness = yes
+
+	health_penalty = -0.75
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+infection = {
+	is_health = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -15
+
+	diplomacy_penalty = -3
+	intrigue_penalty = -3
+	martial_penalty = -3
+	stewardship_penalty = -3
+	learning_penalty = -3
+	
+	combat_rating = -1
+	
+	health_penalty = -2
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+	
+	succession_gfx = yes
+}
+
+#Maimed traits
+one_eyed = {
+	is_health = yes
+	
+	sex_appeal_opinion = -5
+	same_opinion = 5
+	
+	combat_rating = -1
+	
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_CRIPPLE
+	female_insult = INSULT_CRIPPLE
+	child_insult = INSULT_CRIPPLE
+	male_insult_adj = INSULT_BLIND
+	female_insult_adj = INSULT_BLIND
+	child_insult_adj = INSULT_BLIND
+}
+one_handed = {
+	is_health = yes
+
+	learning = 1
+	
+	sex_appeal_opinion = -5
+	same_opinion = 5
+	
+	combat_rating = -2
+	
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_CRIPPLE
+	female_insult = INSULT_CRIPPLE
+	child_insult = INSULT_CRIPPLE
+	male_insult_adj = INSULT_MAIMED
+	female_insult_adj = INSULT_MAIMED
+	child_insult_adj = INSULT_MAIMED
+}
+one_legged = {
+	is_health = yes
+
+	learning = 1
+	
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	combat_rating = -3
+
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_CRIPPLE
+	female_insult = INSULT_CRIPPLE
+	child_insult = INSULT_CRIPPLE
+	male_insult_adj = INSULT_LIMPING
+	female_insult_adj = INSULT_LIMPING
+	child_insult_adj = INSULT_LIMPING
+
+}
+disfigured = {
+	is_health = yes
+	
+	sex_appeal_opinion = -20
+	same_opinion = 5
+	
+	diplomacy = -4
+	
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_FREAK
+	female_insult = INSULT_FREAK
+	child_insult = INSULT_FREAK
+	male_insult_adj = INSULT_HEINOUS
+	female_insult_adj = INSULT_HEINOUS
+	child_insult_adj = INSULT_HEINOUS
+}
+mangled = {
+	is_health = yes
+	
+	sex_appeal_opinion = -5
+	same_opinion = 5
+	
+	fertility_penalty = -0.5 
+	
+	intrigue = -2
+	diplomacy = -2
+	martial = -2
+	learning = -2
+	stewardship = -2
+	
+	combat_rating = -4
+
+	health = -3
+	
+	customizer = no
+
+	male_insult = INSULT_CRIPPLE
+	female_insult = INSULT_CRIPPLE
+	child_insult = INSULT_CRIPPLE
+	male_insult_adj = INSULT_MAIMED
+	female_insult_adj = INSULT_MAIMED
+	child_insult_adj = INSULT_MAIMED
+
+}
+severely_injured = {
+	is_health = yes
+	
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	fertility_penalty = -0.25 
+	
+	intrigue_penalty = -2
+	martial_penalty = -2
+	
+	combat_rating = -2
+
+	health_penalty = -2
+	
+	customizer = no
+	
+	male_insult = INSULT_CRIPPLE
+	male_insult_adj = INSULT_USELESS
+	female_insult_adj = INSULT_USELESS
+	
+	succession_gfx = yes
+}
+
+# Reaper diseases
+flu = {
+	is_health = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -30
+
+	diplomacy_penalty = -1
+	intrigue_penalty = -1
+	martial_penalty = -1
+	stewardship_penalty = -1
+	learning_penalty = -1
+	health_penalty = -2
+	
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult_adj = INSULT_SICKLY
+	female_insult_adj = INSULT_SICKLY
+	child_insult_adj = INSULT_SICKLY
+}
+dysentery = {
+	is_health = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -30
+
+	intrigue_penalty = -3
+	martial_penalty = -3
+
+	fertility_penalty = -0.25
+	
+	health_penalty = -4
+	
+	combat_rating = -2
+	
+	customizer = no
+
+	male_insult_adj = INSULT_PUTRID
+	female_insult_adj = INSULT_PUTRID
+	child_insult_adj = INSULT_PUTRID
+}
+gout = {
+	is_health = yes
+	is_illness = yes
+	
+	stewardship_penalty = -2
+	martial_penalty = -1
+
+	health_penalty = -2
+	
+	combat_rating = -2
+	
+	customizer = no
+
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_LIMPING
+	female_insult_adj = INSULT_LIMPING
+	child_insult_adj = INSULT_LIMPING
+}
+food_poisoning = {
+	is_health = yes
+	is_illness = yes
+
+	sex_appeal_opinion = -25
+
+	diplomacy_penalty = -2
+	intrigue_penalty = -2
+	martial_penalty = -2
+	stewardship_penalty = -2
+	learning_penalty = -2
+	
+	fertility_penalty = -0.5
+
+	health_penalty = -3
+	
+	combat_rating = -1
+	
+	customizer = no
+
+	male_insult_adj = INSULT_PUTRID
+	female_insult_adj = INSULT_PUTRID
+	child_insult_adj = INSULT_PUTRID
+}
+rabies = {
+	is_health = yes
+	is_illness = yes
+
+	vassal_opinion = -5
+	sex_appeal_opinion = -20
+	
+	ai_rationality = -50
+
+	diplomacy_penalty = -3
+	intrigue_penalty = -3
+	stewardship_penalty = -2
+	learning_penalty = -2
+
+	combat_rating = 3
+
+	health_penalty = -7
+	
+	customizer = no
+
+	male_insult = INSULT_MANIAC
+	female_insult = INSULT_MANIAC
+	child_insult = INSULT_MANIAC
+	male_insult_adj = INSULT_RABID
+	female_insult_adj = INSULT_RABID
+	child_insult_adj = INSULT_RABID
+}
+cancer = {
+	is_health = yes
+	is_illness = yes
+
+	fertility_penalty = -0.20
+	health_penalty = -3
+	
+	customizer = no
+	
+	male_insult = INSULT_INVALID
+	female_insult = INSULT_INVALID
+	child_insult = INSULT_INVALID
+	male_insult_adj = INSULT_WITHERING
+	female_insult_adj = INSULT_WITHERING
+	child_insult_adj = INSULT_WITHERING
+}
+immortal = {
+	health = 10
+	customizer = no
+	random = no
+	immortal = yes
+}
+trait_old_age = {
+	immortal = yes
+	random = no
+	customizer = no
+	hidden = yes
+}
+
+#Scars
+scarred = {
+	opposites = {
+		scarred_mid
+		scarred_high
+	}
+	opposite_opinion = 10
+	monthly_character_prestige = 0.1
+}
+scarred_type_1 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_2 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_3 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_4 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_5 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_6 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_7 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_8
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_8 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_9
+		scarred_type_10
+	}
+}
+scarred_type_9 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_10
+	}
+}
+scarred_type_10 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		scarred_type_1
+		scarred_type_2
+		scarred_type_3
+		scarred_type_4
+		scarred_type_5
+		scarred_type_6
+		scarred_type_7
+		scarred_type_8
+		scarred_type_9
+	}
+}
+scarred_mid = {
+	potential = {
+		has_dlc = "Holy Fury"
+	}
+	opposites = {
+		scarred
+		scarred_high
+	}
+	combat_rating = 5
+	same_opinion = 5
+	opposite_opinion = 5
+	sex_appeal_opinion = 5
+	tribal_opinion = 5
+	monthly_character_prestige = 0.15
+	random = no
+}
+scarred_high = {
+	potential = {
+		has_dlc = "Holy Fury"
+	}
+	opposites = {
+		scarred
+		scarred_mid
+	}
+	combat_rating = 10
+	same_opinion = 10
+	opposite_opinion = 5
+	sex_appeal_opinion = 10
+	tribal_opinion = 10
+	monthly_character_prestige = 0.2
+	random = no
+}
+
+#Tattoos
+african_tattoo_1 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_2 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_3 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_4 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_5 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_6 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_7 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_8 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+
+norse_tattoo_1 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+norse_tattoo_2 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+norse_tattoo_3 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+norse_tattoo_4 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+norse_tattoo_5 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+norse_tattoo_6 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_1 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_2 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_3 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_4 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_5 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_6
+	}
+}
+slavic_tattoo_6 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+	}
+}
+african_tattoo_9 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_10
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_10 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_11
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_11 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_12
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+african_tattoo_12 = {
+	hidden = yes
+	random = no
+	customizer = no
+	opposites = {
+		african_tattoo_1
+		african_tattoo_2
+		african_tattoo_3
+		african_tattoo_4
+		african_tattoo_5
+		african_tattoo_6
+		african_tattoo_7
+		african_tattoo_8
+
+		african_tattoo_9
+		african_tattoo_10
+		african_tattoo_11
+
+		norse_tattoo_1
+		norse_tattoo_2
+		norse_tattoo_3
+		norse_tattoo_4
+		norse_tattoo_5
+		norse_tattoo_6
+
+		slavic_tattoo_1
+		slavic_tattoo_2
+		slavic_tattoo_3
+		slavic_tattoo_4
+		slavic_tattoo_5
+		slavic_tattoo_6
+	}
+}
+
+#############
+# Traits - Racial
+#############
+#Elf
+elf = {
+	potential = { religion_group = religion_group_eldar }
+	tolerates_religion_group_eruhini = yes
+	tolerates_religion_group_enyd = yes
+	tolerates_religion_group_periannath = yes
+	tolerates_religion_group_edain = yes
+	religion_group_khazad_opinion = -10
+	religion_group_eruhini_opinion = 25
+	religion_group_enyd_opinion = 25
+	religion_group_melkor_opinion = -90
+	religion_group_dragon_opinion = -80
+	religion_group_ungoliant_opinion = -80
+    same_opinion = 20
+	sex_appeal_opinion = 10
+	diplomacy = 2
+	stewardship = 2
+    fertility_penalty = -0.2
+	health = 50
+	customizer = yes
+    command_modifier = {
+		terrain = forest
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+    ai_ambition = -25
+    ai_rationality = 20
+    ai_honor = 45
+	cached = yes
+}
+beard_elf = {
+	hidden = yes
+	potential = { religion_group = religion_group_eldar }
+	cached = yes
+}
+elf_childhood = {
+	hidden = yes
+	potential = {
+		religion_group = religion_group_eldar
+		age = 16
+		NOT = { age = 25 }
+	}
+	fertility_penalty = -5.0
+	health = 100.0
+	childhood  = yes
+	cannot_marry = yes
+	cached = yes
+	incapacitating = yes
+}
+half_elf = {
+    health = 12.0
+	customizer = yes
+	same_opinion = 20
+	fertility_penalty = -0.1
+	cached = yes
+}
+elf_friend = {
+	potential = {
+		NOT = { religion_group = religion_group_eldar }
+		NOT = { mep_evil_religion = yes }
+		NOT = { trait = zealous } # aka 'Racist'
+	}
+	tolerates_religion_group_eldar = yes
+	religion_group_eldar_opinion = 30
+	opposites = { elf }
+	opposite_opinion = 50
+	same_opinion = 20
+}
+
+#Dwarf
+dwarven = {
+	potential = { religion_group = religion_group_khazad }
+	tolerates_religion_group_periannath = yes
+	tolerates_religion_group_edain = yes
+	religion_group_melkor_opinion = -100
+	religion_group_dragon_opinion = -90
+	religion_group_ungoliant_opinion = -50
+	religion_group_eldar_opinion = -10
+	religion_group_enyd_opinion = -10
+   	health = 15.0
+  	same_opinion = 20
+	martial = 2
+	fertility_penalty = -0.25
+    stewardship = 3
+	customizer = yes
+	command_modifier = {
+		terrain = mountain
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+	ai_ambition = -15
+    ai_rationality = 20
+    ai_honor = 45
+	cached = yes
+}
+dwarf_friend = {
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		NOT = { mep_evil_religion = yes }
+		NOT = { trait = zealous } # aka 'Racist'
+	}
+	tolerates_religion_group_khazad = yes
+	religion_group_khazad_opinion = 30
+	opposites = { dwarf }
+	opposite_opinion = 50
+	same_opinion = 20
+}
+
+#Numenorean
+numenorean = {
+	potential = {
+		culture_group = culture_group_numenorean
+	}
+    random = no
+    health = 5.0
+    intrigue = 1
+    martial = 1
+    diplomacy = 1
+    monthly_character_prestige = 0.2
+	customizer = yes
+	same_opinion = 25
+	opposite_opinion = 20
+	vassal_opinion = -5
+	agnatic = yes
+	fertility_penalty = -0.1
+	opposites =  {
+		numenor_blood
+	}
+	cached = yes
+}
+numenor_blood = {
+    health = 12.0
+	intrigue = 2
+	customizer = yes
+	same_opinion = 25
+	fertility_penalty = -0.1
+	opposites =  {
+		numenorean
+	}
+	cached = yes
+}
+
+#Other
+skin_changer = {
+    health = 4.0
+	customizer = yes
+	inherit_chance = 75
+	same_opinion = 20
+	cached = yes
+}
+eagle = {	
+	potential = {
+		religion_group = religion_group_eruhini
+		culture = culture_eagles
+	}
+	tolerates_religion_group_eldar = yes
+	religion_group_melkor_opinion = -100
+	religion_group_dragon_opinion = -70
+	religion_group_ungoliant_opinion = -90
+	religion_numenorean_opinion = 30
+	religion_group_eldar_opinion = 25
+	same_opinion = 10
+	fertility_penalty = -5.0
+    health = 1000.0
+   	diplomacy = 3
+	stewardship = 3
+	martial = 3
+	intrigue = 3
+	learning = 5
+	customizer = yes
+	cached = yes
+}
+hobbit = {
+    potential = { religion_group = religion_group_periannath }
+    tolerates_religion_group_eruhini = yes
+    tolerates_religion_group_khazad = yes
+    tolerates_religion_group_eldar = yes
+    religion_group_melkor_opinion = -50
+	religion_group_dragon_opinion = -60
+	religion_group_ungoliant_opinion = -40
+    health = 6.5
+    same_opinion = 20
+    inherit_chance = 100
+    martial_penalty = -1
+    intrigue = 3
+    stewardship = 3
+    learning = -5
+    customizer = yes
+    ai_ambition = -60
+    ai_rationality = 50
+    cached = yes
+}
+hobbit_friend = {
+	potential = {
+		NOT = { religion_group = religion_group_periannath }
+		NOT = { mep_evil_religion = yes }
+		NOT = { trait = zealous } # aka 'Racist'
+	}
+	tolerates_religion_group_periannath = yes
+	religion_group_periannath_opinion = 30
+	opposites = { hobbit }
+	opposite_opinion = 50
+	same_opinion = 20
+}
+ent = {	
+	potential = { religion_group = religion_group_enyd }
+	tolerates_religion_group_eruhini = yes
+	tolerates_religion_group_eldar = yes
+	religion_group_melkor_opinion = -50
+	religion_group_ungoliant_opinion = -60
+	religion_group_dragon_opinion = -50
+	religion_group_eldar_opinion = 20
+    same_opinion = 20
+	fertility_penalty = -5.0
+    health = 100.0
+    diplomacy = 3
+	intrigue_penalty = -10
+	learning = 3
+	customizer = yes
+	command_modifier = {
+		terrain = forest
+		terrain = woods
+	}
+	cannot_marry = yes
+	ai_ambition = -80
+    ai_rationality = 40
+	cached = yes
+}
+valar = {
+	potential = { culture = culture_valar }
+	tolerates_religion_group_eruhini = yes
+	tolerates_religion_group_eldar = yes
+	religion_group_melkor_opinion = -100
+	religion_group_ungoliant_opinion = -100
+	religion_group_dragon_opinion = -100
+	religion_group_hildor_opinion = -30
+	culture_flex = 0.7
+	fertility = -5.0
+    health = 100.0
+	diplomacy = 20
+	martial = 20
+	stewardship = 20
+	intrigue = 20
+	learning = 20
+	cannot_marry = yes
+	defensive_plot_power_modifier = 1
+	cached = yes
+}
+enigma = {
+	potential = { culture = culture_enigma }
+	tolerates_religion_group_eldar = yes
+	tolerates_religion_group_enyd = yes
+	tolerates_religion_group_periannath = yes
+	tolerates_religion_group_edain = yes
+	culture_flex = 0.9
+	religion_group_melkor_opinion = -60
+	religion_group_ungoliant_opinion = -50
+	religion_group_dragon_opinion = -50
+	fertility_penalty = -5.0
+    health = 1000.0
+	cannot_marry = yes
+	cached = yes
+}
+maiar = {
+	potential = {
+		OR = {
+			religion_group = religion_group_eruhini
+			religion = religion_umaiar
+		}
+		OR = {
+			culture = culture_maiar
+			culture = culture_umaiar
+			culture = culture_istari
+		}
+	}
+	culture_flex = 0.6
+	vassal_opinion = 100
+	fertility_penalty = -5.0
+    health = 1000.0
+    diplomacy = 3
+	stewardship = 3
+	martial = 3
+	intrigue = 3
+	learning = 3
+	customizer = yes
+	cannot_marry = yes
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+		speed = 0.1
+	}
+}
+infertility = {
+	hidden = yes
+	potential = {
+		OR = {
+			religion_group = religion_group_eldar
+			religion_group = religion_group_khazad
+			religion_group = religion_group_edain
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture_group = culture_group_southron
+			culture_group = culture_group_easterling
+            culture_group = culture_group_halfling
+		}
+	}
+    fertility_penalty = -5.0
+	cached = yes
+}
+
+#Evil
+balrog = {	
+	potential = { culture = culture_balrog }
+	religion_group_eldar_opinion = -100
+	religion_group_khazad_opinion = -100
+	religion_group_eruhini_opinion = -100
+	opposites = { worship_balrog }
+	opposite_opinion = 20
+	fertility_penalty= -5.0
+   	health = 1000.0
+	martial = 15
+	intrigue = 15
+	customizer = yes
+	cannot_marry = yes
+	ai_ambition = -100
+   	ai_rationality = -50
+    ai_honor = -100
+	ai_zeal = -100
+	command_modifier = {
+		religious_enemy = 0.3
+		damage = 0.3
+		speed = 0.1
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+	cached = yes
+}
+worship_balrog = {
+	potential = {
+		OR = {
+			religion_group = religion_group_melkor
+			religion_group = religion_group_ungoliant
+		}
+		NOR = {
+			culture = culture_balrog
+		}
+	}
+	opposites = { balrog }
+    opposite_opinion = 50
+	customizer = yes
+    diplomacy = 1
+	stewardship = 1
+	martial = 2
+	learning = 1
+	same_opinion = 30
+	cached = yes
+}
+spider = {
+    potential = {
+        religion_group = religion_group_ungoliant
+    }
+    religion_group_eldar_opinion = -100
+    religion_group_khazad_opinion = -100
+    religion_group_eruhini_opinion = -100
+    religion_group_periannath_opinion = -80
+    religion_group_enyd_opinion = -80
+    religion_group_edain_opinion = -80
+    religion_group_hildor_opinion = -25
+	religion_group_melkor_opinion = -10
+    fertility_penalty = -5.0
+    health = 1000.0
+    diplomacy_penalty = -10
+    stewardship_penalty = -20
+    martial = 1
+    intrigue = 4
+    learning_penalty = -5
+    customizer = yes
+    cannot_marry = yes
+    ai_ambition = -100
+    ai_rationality = -50
+    ai_honor = -100
+    cached = yes
+}
+wight = {
+	potential = {
+		religion = religion_wight
+		culture = culture_wight
+	}
+	religion_group_eldar_opinion = -100
+	religion_group_khazad_opinion = -100
+	religion_group_eruhini_opinion = -100
+	religion_group_periannath_opinion = -80
+	religion_group_enyd_opinion = -80
+	religion_group_edain_opinion = -70
+	religion_group_hildor_opinion = -15
+	fertility_penalty = -4.0
+	health = 1000.0
+	intrigue = 4
+	martial = 3
+	customizer = yes
+	cannot_marry = yes
+	same_opinion = 100
+	cached = yes
+}
+nazgul = {
+	religion_group_eldar_opinion = -100
+	religion_group_khazad_opinion = -100
+	religion_group_eruhini_opinion = -100
+	religion_group_periannath_opinion = -80
+	religion_group_enyd_opinion = -80
+	religion_group_edain_opinion = -80
+	religion_group_hildor_opinion = -10
+	health = 1000.0
+	intrigue = 5
+	martial = 15
+	opposite_opinion = -100
+	vassal_opinion = 130
+	same_opinion = 100
+	command_modifier = {
+		religious_enemy = 0.2
+		damage = 0.2
+		speed = 0.1
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+	cached = yes
+}
+orc = {
+	potential = {
+		OR = {
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_troll
+		}
+	}
+	religion_group_eldar_opinion = -100
+	religion_group_khazad_opinion = -100
+	religion_group_eruhini_opinion = -100
+	religion_group_periannath_opinion = -60
+	religion_group_enyd_opinion = -100
+	religion_group_edain_opinion = -60
+    health = 20.0
+	customizer = yes
+	fertility = 0.2
+	martial = 2
+	ai_ambition = 300
+    ai_rationality = -150
+    ai_honor = -150
+    same_opinion = 5
+	cached = yes
+}
+half_orc = {
+	potential = {
+		culture = culture_half_orc
+	}
+	religion_group_eldar_opinion = -70
+	religion_group_khazad_opinion = -70
+	religion_group_eruhini_opinion = -70
+	religion_group_periannath_opinion = -40
+	religion_group_enyd_opinion = -70
+	religion_group_edain_opinion = -40
+	customizer = yes
+    health = 6.0
+	intrigue = 2
+	martial = 1
+	sex_appeal_opinion = -50
+	fertility = 0.1
+	ai_ambition = 50
+    ai_rationality = -15
+    ai_honor = -15
+    same_opinion = 5
+	cached = yes
+}
+spiritform = {
+	cached = yes
+	random = no
+	incapacitating = yes 
+	health = 100.00
+	global_revolt_risk = -100.00
+	diplomacy_penalty = -5
+	stewardship_penalty = -10
+	martial_penalty = -15
+	intrigue_penalty = -10
+	demesne_size = -2
+	command_modifier = {
+		damage = -0.2
+		morale_offence = -0.1
+		morale_defence = -0.1
+		speed = -0.1
+	}
+}
+dragon = {	
+	potential = {
+		religion_group = religion_group_dragon
+		culture = culture_dragons
+	}
+	religion_group_eldar_opinion = -100
+	religion_group_khazad_opinion = -100
+	religion_group_eruhini_opinion = -100
+	religion_group_periannath_opinion = -80
+	religion_group_enyd_opinion = -100
+	religion_group_edain_opinion = -80
+	religion_group_hildor_opinion = -25
+	religion_group_ungoliant_opinion = -30
+	martial = 3
+   	health = 1000.0
+	customizer = yes
+	ai_ambition = -100
+	ai_rationality = -50
+	ai_honor = -100
+	cached = yes
+}
+
+#Wilderness
+wilderness = {
+   	potential = {
+		culture_group = culture_group_wilderness
+	}
+	immortal = yes
+	fertility_penalty = -5.0
+	diplomacy_penalty = -30
+	stewardship_penalty = -30
+	martial_penalty = -30
+	intrigue_penalty = -30
+	learning_penalty = -30
+	cannot_marry = yes
+	incapacitating = yes
+	cannot_inherit = yes
+	global_revolt_risk = -1000.15
+	ai_ambition = -100
+   	ai_rationality = 100
+    	ai_honor = 100
+    	ai_zeal = -100
+	cached = yes
+	ai_greed = -100
+}
+
+# Prestige Dynasties
+blood_of_amdir = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_anarion = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_castamir = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_durin = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_elendil = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_elros = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_elwe = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_eorl = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_feanor = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_finarfin = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_fingolfin = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_finwe = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_hurin = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_imrazor = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_ingwe = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_isildur = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_olwe = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_oropher = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_peredhel = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_telcontar = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+blood_of_valandil = {
+	customizer = no
+	fertility_penalty = -0.1
+	monthly_character_prestige = 1.0
+	same_opinion = 20
+	cached = yes
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		morale_defence = 0.1
+	}
+}
+
+################
+# Traits - Personality
+################
 # THE SEVEN SINS AND VIRTUES
 lustful = {
 	personality = yes
@@ -1742,10 +4418,83 @@ cruel = {
 	female_insult_adj = INSULT_CALLOUS
 	child_insult_adj = INSULT_WICKED
 }
+erudite = {
+	personality = yes
+	
+	learning = 2
+	
+	church_opinion = 5
 
-############################
-#Leadership traits
-############################
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_WINDBAG
+	female_insult = INSULT_WINDBAG
+	child_insult = INSULT_BORE
+	male_insult_adj = INSULT_BLATHERING
+	female_insult_adj = INSULT_BLATHERING
+	male_compliment = COMPL_SCHOLAR
+	female_compliment = COMPL_SCHOLAR
+	male_compliment_adj = COMPL_WISE
+	female_compliment_adj = COMPL_WISE
+}
+stubborn = {
+	personality = yes
+	
+	stewardship = 1
+	diplomacy = -1
+	
+	vassal_opinion = -5
+	ai_ambition = 10
+	ai_zeal = 10
+
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_MULE
+	female_insult = INSULT_MULE
+	male_insult_adj = INSULT_PIGHEADED
+	female_insult_adj = INSULT_PIGHEADED
+}
+ruthless = {
+	ruler_designer_cost = 0
+	personality = yes
+	opposites =  {
+		honorable
+	}
+	intrigue = 2
+	opposite_opinion = -10
+	ai_rationality = 10
+	ai_honor = -20
+	ai_ambition = 25
+
+	random = no
+    
+}	
+honorable = {
+	potential = {
+		NOT = { religion_group = religion_group_melkor }
+	}
+	personality = yes
+	
+	opposites = {
+		ruthless
+		cruel
+	}
+	
+	intrigue_penalty = -2
+	monthly_character_piety = 1
+	
+	general_opinion = 10
+	same_opinion = 10
+	liege_opinion = 20
+	opposite_opinion = -10
+	
+	ai_honor = 25
+	ruler_designer_cost = 0
+}
+
+################
+# Traits - Leadership
+################
 light_foot_leader = {
 	leader = yes
 
@@ -1850,6 +4599,128 @@ siege_leader = {
 		siege = 0.4
 	}
 }
+flat_terrain_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		terrain = plains
+		terrain = farmlands
+		terrain = steppe
+	}
+}
+rough_terrain_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		terrain = forest
+		terrain = hills
+	}
+}
+mountain_terrain_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		terrain = mountain
+	}
+}
+desert_terrain_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		terrain = desert
+	}
+
+	male_insult = INSULT_DESERT_RAT
+	female_insult = INSULT_DESERT_RAT
+}
+holy_warrior = {
+	leader = yes
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		religious_enemy = 0.3
+	}
+	
+	male_compliment = COMPL_HOLY_WARRIOR
+	female_compliment = COMPL_HOLY_WARRIOR
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+}
+unyielding_leader = {
+	leader = yes
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		morale_defence = 0.2
+		defence = 0.1
+	}
+}
+narrow_flank_leader = {
+	leader = yes
+	
+	command_modifier = {
+		narrow_flank = 0.5
+	}
+}
+war_elephant_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		war_elephants = 0.2
+		morale_offence = 0.2
+	}
+}
+jungle_terrain_leader = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		terrain = jungle
+	}
+
+	male_insult = INSULT_JUNGLE_SNAKE
+	female_insult = INSULT_JUNGLE_SNAKE
+}
+winter_soldier = {
+	leader = yes
+	random = no
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		winter_supply = 4
+		winter_combat = 0.5
+	}	
+}
+resolute_leader = {
+	leader = yes
+	martial = 1
+	stewardship = 2
+	intrigue = 1
+	random = no	
+	same_opinion = 10
+	vassal_opinion = 10
+	ruler_designer_cost = 0
+}
 madness = {
     
 	cached = yes
@@ -1866,7 +4737,7 @@ madness = {
 }
 
 ################################################
-# LIFESTYLE - Events - only 1 lifestyle (adult)
+# Traits - Lifestyle
 ################################################
 celibate = {
 	
@@ -2032,7 +4903,6 @@ hunter = {
 	
 	male_compliment = COMPL_HUNTMASTER
 }
-# Way of Life DLC: No longer a lifestyle trait
 poet = {
 	diplomacy = 1
 	
@@ -2043,7 +4913,6 @@ poet = {
 	
 	ruler_designer_cost = 0
 }
-# Way of Life DLC: No longer a lifestyle trait
 falconer = {
 
 	diplomacy = 1
@@ -2051,4 +4920,1266 @@ falconer = {
 	same_opinion = 10
 	
 	ruler_designer_cost = 0
+}
+seducer = {
+	lifestyle = yes
+	
+	opposites =  {
+		celibate
+		seductress
+	}
+	
+	potential = {
+		is_female = no
+	}
+	
+	intrigue = 2
+	diplomacy = 1
+
+	ruler_designer_cost = 0
+	
+	sex_appeal_opinion = 50
+	
+	male_insult = INSULT_WHOREMONGER
+	male_insult_adj = INSULT_WHORING
+	male_compliment = COMPL_SEDUCER
+	male_compliment_adj = COMPL_CHARMING
+}
+seductress = {
+	lifestyle = yes
+	
+	opposites =  {
+		celibate
+		seducer
+	}
+	
+	potential = {
+		is_female = yes
+	}
+	
+	intrigue = 2
+	diplomacy = 1
+
+	ruler_designer_cost = 0
+	
+	sex_appeal_opinion = 50
+	
+	female_insult = INSULT_TEMPTRESS
+	female_insult_adj = INSULT_DEBASED
+	female_compliment = COMPL_ENCHANTRESS
+	female_compliment_adj = COMPL_RAVISHING
+}
+administrator = {
+	lifestyle = yes
+	
+	stewardship = 3
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		speed = 0.1
+	}
+
+}
+architect = {
+	lifestyle = yes
+	
+	same_opinion = 10
+
+	ruler_designer_cost = 0
+	
+	stewardship = 2
+	martial = 1
+	
+	command_modifier = {
+		siege = 0.2
+	}
+
+	male_compliment = COMPL_ARCHITECT
+	female_compliment = COMPL_ARCHITECT
+}
+strategist = {
+	lifestyle = yes
+	
+	same_opinion = 10
+	
+	martial = 2
+	stewardship = 1
+
+	ruler_designer_cost = 0
+	
+	command_modifier = {
+		defence = 0.2
+	}
+}
+socializer = {
+	lifestyle = yes
+	
+	same_opinion = 10
+	sex_appeal_opinion = 10
+	
+	diplomacy = 3
+	
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_BLABBERER
+	female_insult = INSULT_BLABBERER
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_SILLY
+}
+schemer = {
+	lifestyle = yes
+	
+	same_opinion = -5
+	
+	intrigue = 3
+	
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_INSTIGATOR
+	female_insult = INSULT_INSTIGATOR
+	child_insult = INSULT_SNEAK
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_STUPID
+}
+theologian = {
+	lifestyle = yes
+	
+	learning = 2
+	intrigue = 1
+	
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_BOOKWORM
+	female_insult = INSULT_BOOKWORM
+	male_insult_adj = INSULT_SQUINTEYED
+	female_insult_adj = INSULT_SQUINTEYED
+	male_compliment = COMPL_SCHOLAR
+	female_compliment = COMPL_SCHOLAR
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+}
+gamer = {
+	lifestyle = yes
+	
+	diplomacy = 2
+	martial = 1
+	
+	command_modifier = {
+		narrow_flank = 0.3
+	}
+	
+	same_opinion = 10
+	
+	ruler_designer_cost = 0
+}
+
+#Raiding
+berserker = {
+	potential = {
+		always = no
+	}
+	martial = 4
+	diplomacy = -2
+	combat_rating = 3
+	
+	same_opinion = 10
+
+	ruler_designer_cost = 0
+	
+	ai_rationality = -5
+	
+	male_compliment = COMPL_BERSERKER
+	female_compliment = COMPL_BERSERKER
+	male_insult = INSULT_LUNATIC
+	female_insult = INSULT_LUNATIC
+	child_insult = INSULT_TROLL
+	male_insult_adj = INSULT_CRAZED
+	female_insult_adj = INSULT_CRAZED
+	child_insult_adj = INSULT_CRAZY
+}
+ravager = {
+	potential = {
+		OR = {
+			culture = culture_umbareans
+			culture = culture_black_numenorean
+		}
+	}
+	opposites =  {
+		seaking
+		sea_queen
+	}
+	martial = 2
+	combat_rating = 2
+	monthly_character_prestige = 0.4
+	same_religion_opinion = 20
+
+	ruler_designer_cost = 0
+	
+	same_opinion = 5
+	religious = yes
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+seaking = {
+	potential = {
+		OR = {
+			culture = culture_umbareans
+			culture = culture_black_numenorean
+		}
+	}
+	opposites =  {
+		ravager
+		sea_queen
+	}
+	martial = 3
+	combat_rating = 2
+	monthly_character_prestige = 0.5
+	same_religion_opinion = 25
+	
+	religious = yes
+
+	ruler_designer_cost = 0
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+shieldmaiden  = {	
+
+	monthly_character_piety = 0.1
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	
+	customizer = no
+
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+sea_queen = {
+	potential = {
+		OR = {
+			culture = culture_umbareans
+			culture = culture_black_numenorean
+		}
+	}
+	opposites =  {
+		ravager
+		seaking
+	}
+	martial = 3
+	combat_rating = 2
+	monthly_character_prestige = 0.5
+	same_religion_opinion = 25
+	
+	religious = yes
+	ruler_designer_cost = 0
+	
+	male_insult = COMPL_PIRATE
+	female_insult = COMPL_PIRATE
+	male_compliment = COMPL_VIKING
+	male_compliment_adj = COMPL_VIKING_adj
+	female_compliment = COMPL_VALKYRIE
+	female_compliment_adj = COMPL_VIKING_adj
+}
+cannibal_trait = {
+	martial = 3
+	general_opinion = -10
+	combat_rating = 1
+
+	customizer = no
+	
+	same_opinion = 25
+	
+	ai_rationality = -20
+	ai_honor = -10
+	
+	male_insult = INSULT_CANNIBAL
+	female_insult = INSULT_CANNIBAL
+	male_insult_adj = INSULT_CANNIBALISTIC  
+	female_insult_adj = INSULT_CANNIBALISTIC  
+}
+
+################
+# Traits - Childhood
+################
+haughty = {
+	childhood = yes
+	
+	martial = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_BRAT
+	female_insult = INSULT_BRAT
+	child_insult = INSULT_TROLL
+	male_insult_adj = INSULT_ARROGANT
+	female_insult_adj = INSULT_ARROGANT
+	child_insult_adj = INSULT_GROUCHY
+	male_compliment_adj = COMPL_PROUD
+	female_compliment_adj = COMPL_PROUD
+}
+affectionate = {
+	childhood = yes
+	
+	diplomacy = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_TICK
+	female_insult = INSULT_TICK
+	male_insult_adj = INSULT_CLINGY
+	female_insult_adj = INSULT_CLINGY
+	child_insult_adj = INSULT_FLOPPY
+	male_compliment_adj = COMPL_SWEET
+	female_compliment_adj = COMPL_SWEET
+}
+timid = {
+	childhood = yes
+	
+	opposites =  {
+		rowdy
+	}
+
+	learning = 1
+
+	ruler_designer_cost = 0
+
+	male_insult_adj = INSULT_CREEPY
+	female_insult_adj = INSULT_CREEPY
+	male_compliment_adj = COMPL_GOOD
+	female_compliment_adj = COMPL_GOOD
+}
+rowdy = {
+	childhood = yes
+
+	opposites =  {
+		timid
+	}
+	
+	martial = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_RUFFIAN
+	female_insult = INSULT_RUFFIAN
+	male_insult_adj = INSULT_WILD
+	female_insult_adj = INSULT_WILD
+	child_insult_adj = INSULT_CRAZY
+}
+willful = {
+	childhood = yes
+	
+	intrigue = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_MULE
+	female_insult = INSULT_MULE
+	male_insult_adj = INSULT_PIGHEADED
+	female_insult_adj = INSULT_PIGHEADED
+}
+brooding = {
+	childhood = yes
+	
+	intrigue = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_BORE
+	female_insult = INSULT_BORE
+	male_insult_adj = INSULT_CREEPY
+	female_insult_adj = INSULT_CREEPY
+	male_compliment_adj = COMPL_CLEVER
+	female_compliment_adj = COMPL_CLEVER
+}
+indolent = {
+	childhood = yes
+
+	intrigue = 1
+
+	ruler_designer_cost = 0
+	
+	male_insult_adj = INSULT_USELESS
+	female_insult_adj = INSULT_USELESS
+}
+playful = {
+	childhood = yes
+	
+	diplomacy = 1
+
+	ruler_designer_cost = 0
+	
+	male_compliment_adj = COMPL_LOVELY
+	female_compliment_adj = COMPL_LOVELY
+}
+conscientious = {
+	childhood = yes
+
+	stewardship = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_BORE
+	female_insult = INSULT_BORE
+}
+fussy = {
+	childhood = yes
+	
+	stewardship = 1
+
+	ruler_designer_cost = 0
+
+	male_insult_adj = INSULT_USELESS
+	female_insult_adj = INSULT_USELESS
+}
+curious = {
+	childhood = yes
+	
+	learning = 1
+
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_SNEAK
+	female_insult = INSULT_SNEAK
+}
+idolizer = {
+	childhood = yes
+	
+	learning = 1
+
+	ruler_designer_cost = 0
+
+	male_insult = INSULT_WORM
+	female_insult = INSULT_WORM
+}
+
+##############
+# Traits - Combat
+##############
+horse_master = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10
+	potential = {
+		mep_horse_people_culture = yes
+	}
+	command_modifier = {
+		cavalry = 0.5
+	}
+	cached = yes	
+}
+amroth_knight = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	potential = {
+		culture = culture_gondorian
+	}
+	command_modifier = {
+		heavy_infantry = 0.5
+	}
+	cached = yes
+}
+ithilien_ranger = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	potential = {
+		culture = culture_gondorian
+	}
+	command_modifier = {
+		light_infantry = 0.5
+	}
+	cached = yes
+}
+mumakil_rider = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	potential = {
+		OR = {
+			culture = culture_haradrim
+			culture = culture_far_haradrim
+		}
+	}
+	command_modifier = {
+		war_elephants = 0.5
+	}
+	cached = yes
+}
+dunedain_ranger = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	potential = {
+		culture = culture_dunedain
+	}
+	command_modifier = {
+		light_infantry = 0.5
+	}
+	cached = yes
+}
+umbar_corsair = {
+	martial = 5
+	combat_rating = 3
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	potential = {
+		OR = {
+			culture = culture_black_numenorean
+			culture = culture_umbareans
+		}
+	}
+	command_modifier = {
+		heavy_infantry = 0.5
+	}
+	cached = yes
+}
+
+############
+# Traits - Skills
+############
+#Musician
+novice_musician = {
+	diplomacy = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		adept_musician
+		skilled_musician
+		master_musician
+	}
+}
+adept_musician = {
+	diplomacy = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		skilled_musician
+		master_musician
+	}
+}
+skilled_musician = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	diplomacy = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		adept_musician
+		master_musician
+	}
+}
+master_musician = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	diplomacy = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			mep_is_elf_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+		}
+	}
+	opposites =  {
+		novice_musician
+		adept_musician
+		skilled_musician
+	}
+}
+
+#Fighting
+novice_fighter = {
+	combat_rating = 1
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		adept_fighter
+		skilled_fighter
+		master_fighter
+	}
+}
+adept_fighter = {
+	combat_rating = 2
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		skilled_fighter
+		master_fighter
+	}
+}
+skilled_fighter = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	combat_rating = 3
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		adept_fighter
+		master_fighter
+	}
+}
+master_fighter = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	combat_rating = 5
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+	}
+	opposites = {
+		novice_fighter
+		adept_fighter
+		master_fighter
+	}
+}
+
+#Craftsman
+novice_craftsman = {
+	stewardship = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		adept_craftsman
+		skilled_craftsman
+		master_craftsman
+	}
+}
+adept_craftsman = {
+	stewardship = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		skilled_craftsman
+		master_craftsman
+	}
+}
+skilled_craftsman = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	stewardship = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		adept_craftsman
+		master_craftsman
+	}
+}
+master_craftsman = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	stewardship = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture = culture_noldor
+		}
+	}
+	opposites =  {
+		novice_craftsman
+		adept_craftsman
+		skilled_craftsman
+	}
+}
+
+#Magic
+novice_sorcerer = {
+	intrigue = 1
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		adept_sorcerer
+		skilled_sorcerer
+		master_sorcerer
+	}
+}
+adept_sorcerer = {
+	intrigue = 2
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		skilled_sorcerer
+		master_sorcerer
+	}
+}
+skilled_sorcerer = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	intrigue = 3
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		adept_sorcerer
+		master_sorcerer
+	}
+}
+master_sorcerer = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	intrigue = 5
+	potential = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+		}
+	}
+	opposites =  {
+		novice_sorcerer
+		adept_sorcerer
+		skilled_sorcerer
+	}
+}
+
+#Healing
+novice_healer = {
+	learning = 1
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		adept_healer
+		skilled_healer
+		master_healer
+	}
+}
+adept_healer = {
+	learning = 2
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		skilled_healer
+		master_healer
+	}
+}
+skilled_healer = {
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	learning = 3
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		adept_healer
+		master_healer
+	}
+}
+master_healer = {
+	monthly_character_prestige = 0.5
+	vassal_opinion = 15
+	learning = 5
+	potential = {
+		OR = {
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+		}
+	}
+	opposites =  {
+		novice_healer
+		adept_healer
+		skilled_healer
+	}
+}
+
+###########
+# Traits - Pets
+###########
+masterless_dog = {
+	church_opinion = 5
+	same_religion_opinion = 5
+
+	customizer = no
+	random = no
+	religious = yes
+}
+house_dog = {
+	same_religion_opinion = 5
+
+	customizer = no
+	random = no
+	religious = yes
+}
+hedgehog = {
+	same_religion_opinion = 5
+	health = 0.5
+
+	customizer = no
+	random = no
+	religious = yes
+}
+otter = {
+	church_opinion = 5
+	same_religion_opinion = 10
+	global_revolt_risk = -0.15
+
+	customizer = no
+	random = no
+	religious = yes
+}
+cat = {
+	sex_appeal_opinion = -20
+	fertility = -50.0
+	health = -2
+
+	diplomacy = -10
+	intrigue = -10
+	stewardship = -10
+	martial = -10
+	learning = -10
+
+	inherit_chance = 100
+
+	customizer = no
+	random = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	can_hold_titles = no # Hopefully this will block Glitterhoof from becoming pope again
+
+	potential = {
+		race = cat
+	}
+}
+horse = {
+	sex_appeal_opinion = -20
+	fertility = -50.0
+	health = -2
+
+	diplomacy = -10
+	intrigue = -10
+	stewardship = -10
+	martial = -10
+	learning = -10
+
+	inherit_chance = 100
+
+	customizer = no
+	random = no
+	
+	cannot_marry = yes
+	cannot_inherit = yes
+	can_hold_titles = no # Hopefully this will block Glitterhoof from becoming pope again
+
+	potential = {
+		race = horse
+	}
+}
+
+############
+# Traits - Items
+############
+#One Ring
+onering = {
+    immortal = yes
+	fertility_penalty = -3.0
+	
+	intrigue = 10
+	diplomacy = 2
+	martial = 2
+
+	leadership_traits = 2
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 	
+}
+ringbearer1 = {
+	fertility_penalty = -3.0
+	health = 10.0	
+	general_opinion = 2
+    	monthly_character_prestige = 0.5	
+	customizer = no
+	cached=yes
+	random = no
+}
+ringbearer2 = {
+	fertility_penalty = -3.0
+	immortal = yes	
+	general_opinion = 2
+	monthly_character_prestige = 0.5	
+	customizer = no
+	cached=yes
+	random = no
+}
+
+#Elf Jewelery
+elf_necklace_magic_diplomacy = {
+	diplomacy = 5
+	monthly_character_prestige = 0.2
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+elf_necklace_magic_learning = {
+	diplomacy = 1
+	learning = 4
+	monthly_character_prestige = 0.2
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+elf_necklace_magic_exceptional = {
+	diplomacy = 5
+	learning = 4
+	monthly_character_prestige = 0.3
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+
+elf_brooch_magic_stewardship = {
+	diplomacy = 1
+	stewardship = 3
+	monthly_character_prestige = 0.4
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+elf_brooch_magic_intrigue = {
+	diplomacy = 1
+	intrigue = 3
+	monthly_character_prestige = 0.4
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+elf_brooch_magic_exceptional = {
+	diplomacy = 2
+	intrigue = 3
+	stewardship = 3
+	monthly_character_prestige = 0.4
+	customizer = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger 
+}
+
+# Jewels
+nauglamir = {    
+	diplomacy = 3
+	intrigue = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+
+# Weapons and Armor
+angrist = {
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+anglachel = {
+    martial = 2
+	monthly_character_prestige = 0.2
+	customizer = no
+}
+gurthang = {
+    martial = 3
+	monthly_character_prestige = 0.2
+	customizer = no
+}
+shards_gurthang = {
+    martial = 1
+	monthly_character_prestige = 0.3
+	customizer = no
+}
+dragon_helm = {
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+angainor = {  # the chain used to bind Melkor
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+	cannot_marry = yes
+	cannot_inherit = yes
+}
+valaroma = {
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+elendilmir = {
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+vingilot = {
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+staff_of_doom = {
+    diplomacy = 5
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	customizer = no
+}
+nimphelos = {
+    	diplomacy = 2
+	vassal_opinion = 10
+	monthly_character_prestige = 0.5
+	customizer = no
+}
+necklace_of_girion = {
+    	diplomacy = 1
+	vassal_opinion = 10
+	monthly_character_prestige = 0.5
+	customizer = no
+}
+key_of_orthanc = {
+    	diplomacy = 1
+	vassal_opinion = 10
+	monthly_character_prestige = 0.5
+	customizer = no
+}
+mithril = {
+	martial = 2
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+mithril_armor = {
+	martial = 3
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+himling_armour = {
+	martial = 2
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+erebor_armor = {
+	martial = 1
+	customizer = no
+	combat_rating = 1
+	random = no
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+arveleg_helmet = {
+	martial = 2
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+arvedui_armor = {
+	martial = 1
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+
+# wizard staffs
+staff_of_saruman = {
+	intrigue = 5
+	martial = 3
+	learning = 5
+	health = 20.0
+	fertility = -20.0
+	monthly_character_prestige = 0.7
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+staff_of_radagast = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+staff_of_pallando = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+staff_of_alatar = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	customizer = no
+	combat_rating = 1
+	random = no	
+	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
 }
