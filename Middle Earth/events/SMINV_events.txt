@@ -1,0 +1,233 @@
+namespace = SMINV_events
+character_event = {
+	id = SMINV_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+			has_landed_title = c_minas_tirith
+	}
+
+	immediate = {
+		hidden_tooltip = { activate_title = { status = yes title = e_superman } }
+		e_superman = {
+			create_character = {
+				name = "Kal"
+				age = 35
+				dna = bclgaoacacy
+				health = 10
+				culture = kryptonian_cul
+				religion = truth_rel
+				trait = superman
+				dynasty = 60138
+			}
+			new_character = {
+				grant_title = PREV
+			}
+			succession = primogeniture
+			gender_succ = cognatic
+			holder_scope = {
+				give_nickname = nick_superman
+				save_event_target_as = Superman
+				any_independent_ruler = {
+					random_realm_title = {
+						limit = {
+							real_tier = COUNT
+							holder_scope = { ai = yes }
+						}
+						grant_title_no_opinion = event_target:Superman
+					}
+				}
+				create_character = {
+					name = "Kara"
+					age = 25
+					dna = bclgaoacacy
+					female = yes
+					health = 10
+					culture = kryptonian_cul
+					religion = truth_rel
+					trait = superman
+					dynasty = 60138
+				}
+				new_character = {
+					add_friend = PREV
+				}
+			}
+		}
+		random_playable_ruler = {
+			limit = { ai = no }
+			character_event = { id = SMINV_events.1 days = 1 }
+		}
+		set_global_flag = SMINV
+	}
+}
+
+character_event = {
+	id = SMINV_events.1
+	desc = EVTDESCSMINV_events.1
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	trigger = {
+		ai = no
+	}
+
+	option = {
+		name = EVTOPTASMINV_events.1
+	}
+}
+
+character_event = {
+	id = SMINV_events.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_primary_war_attacker = yes
+		e_superman = {
+			has_holder = yes
+		}
+		NOR = {
+			trait = superman
+			has_landed_title = e_superman
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 50
+			modifier = {
+				factor = 2
+				e_superman = {
+					holder_scope = {
+						ai = no
+					}
+				}
+			}
+			e_superman = {
+				holder_scope = {
+					save_event_target_as = Superman
+					character_event = { id = SMINV_events.21 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SMINV_events.21
+	desc = EVTDESCSMINV_events.21
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTASMINV_events.21
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			character_event = { id = SMINV_events.22 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBSMINV_events.21
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+character_event = {
+	id = SMINV_events.22
+	desc = EVTDESCSMINV_events.22
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTASMINV_events.21
+		any_war = {
+			limit = {
+				ROOT  = {
+					is_primary_war_attacker = yes
+				}
+			}
+			end_war = whitepeace
+		}
+	}
+}
+
+character_event = {
+	id = SMINV_events.3
+	desc = EVTDESCSMINV_events.3
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	trigger = {
+		war = yes
+		trait = superman
+		in_command = yes
+	}
+
+	option = {
+		name = EVTOPTASMINV_events.3
+		any_current_enemy = {
+			limit = { in_command = yes }
+			troops = -1
+		}
+		hidden_tooltip = {
+			any_current_enemy = {
+				any_realm_lord = {
+					limit = { in_command = yes }
+					troops = -1
+				}
+				any_courtier = {
+					limit = { in_command = yes }
+					troops = -1
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SMINV_events.4
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			real_father_even_if_dead = { trait = superman }
+			mother_even_if_dead = { trait = superman }
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 50
+			modifier = {
+				factor = 2
+				real_father_even_if_dead = { trait = superman }
+				mother_even_if_dead = { trait = superman }
+			}
+			add_trait = superman
+			real_father_even_if_dead = {
+				character_event = { id = SMINV_events.41 }
+			}
+			mother_even_if_dead = {
+				character_event = { id = SMINV_events.41 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = SMINV_events.41
+	desc = EVTDESCSMINV_events.41
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTASMINV_events.41
+	}
+}
