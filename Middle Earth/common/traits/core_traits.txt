@@ -10,6 +10,7 @@ trait_nooo = {
 }
 saruman_spell = {
 	customizer = no
+	hidden = yes
 	random = no
 	diplomacy_penalty = -5
 	stewardship_penalty = -5
@@ -3365,13 +3366,14 @@ nazgul = {
 	}
 	cached = yes
 }
-orc = {
+dark_creature = {
 	potential = {
 		OR = {
 			culture = culture_urukhai
 			culture = culture_goblin
 			culture = culture_orkish
 			culture = culture_troll
+			culture = culture_half_orc
 		}
 	}
 	religion_group_eldar_opinion = -100
@@ -3387,28 +3389,6 @@ orc = {
 	ai_ambition = 300
     ai_rationality = -150
     ai_honor = -150
-    same_opinion = 5
-	cached = yes
-}
-half_orc = {
-	potential = {
-		culture = culture_half_orc
-	}
-	religion_group_eldar_opinion = -70
-	religion_group_khazad_opinion = -70
-	religion_group_eruhini_opinion = -70
-	religion_group_periannath_opinion = -40
-	religion_group_enyd_opinion = -70
-	religion_group_edain_opinion = -40
-	customizer = yes
-    health = 6.0
-	intrigue = 2
-	martial = 1
-	sex_appeal_opinion = -50
-	fertility = 0.1
-	ai_ambition = 50
-    ai_rationality = -15
-    ai_honor = -15
     same_opinion = 5
 	cached = yes
 }
@@ -3454,6 +3434,7 @@ dragon = {
 
 #Wilderness
 wilderness = {
+	hidden = yes
    	potential = {
 		culture_group = culture_group_wilderness
 	}
@@ -5474,6 +5455,7 @@ novice_musician = {
 			culture_group = culture_group_middlemen
 		}
 	}
+	random = no
 	opposites =  {
 		adept_musician
 		skilled_musician
@@ -5491,6 +5473,7 @@ adept_musician = {
 			culture_group = culture_group_middlemen
 		}
 	}
+	random = no
 	opposites =  {
 		novice_musician
 		skilled_musician
@@ -5510,6 +5493,7 @@ skilled_musician = {
 			culture_group = culture_group_middlemen
 		}
 	}
+	random = no
 	opposites =  {
 		novice_musician
 		adept_musician
@@ -5529,6 +5513,7 @@ master_musician = {
 			culture_group = culture_group_middlemen
 		}
 	}
+	random = no
 	opposites =  {
 		novice_musician
 		adept_musician
@@ -5557,6 +5542,7 @@ novice_fighter = {
 			culture = culture_urukhai
 		}
 	}
+	random = no
 	opposites = {
 		adept_fighter
 		skilled_fighter
@@ -5583,6 +5569,7 @@ adept_fighter = {
 			culture = culture_urukhai
 		}
 	}
+	random = no
 	opposites = {
 		novice_fighter
 		skilled_fighter
@@ -5611,6 +5598,7 @@ skilled_fighter = {
 			culture = culture_urukhai
 		}
 	}
+	random = no
 	opposites = {
 		novice_fighter
 		adept_fighter
@@ -5639,6 +5627,7 @@ master_fighter = {
 			culture = culture_urukhai
 		}
 	}
+	random = no
 	opposites = {
 		novice_fighter
 		adept_fighter
@@ -5655,6 +5644,7 @@ novice_craftsman = {
 			culture = culture_noldor
 		}
 	}
+	random = no
 	opposites =  {
 		adept_craftsman
 		skilled_craftsman
@@ -5669,6 +5659,7 @@ adept_craftsman = {
 			culture = culture_noldor
 		}
 	}
+	random = no
 	opposites =  {
 		novice_craftsman
 		skilled_craftsman
@@ -5685,6 +5676,7 @@ skilled_craftsman = {
 			culture = culture_noldor
 		}
 	}
+	random = no
 	opposites =  {
 		novice_craftsman
 		adept_craftsman
@@ -5701,6 +5693,7 @@ master_craftsman = {
 			culture = culture_noldor
 		}
 	}
+	random = no
 	opposites =  {
 		novice_craftsman
 		adept_craftsman
@@ -5719,6 +5712,7 @@ novice_sorcerer = {
 			culture_group = culture_group_southron
 		}
 	}
+	random = no
 	opposites =  {
 		adept_sorcerer
 		skilled_sorcerer
@@ -5735,6 +5729,7 @@ adept_sorcerer = {
 			culture_group = culture_group_southron
 		}
 	}
+	random = no
 	opposites =  {
 		novice_sorcerer
 		skilled_sorcerer
@@ -5753,6 +5748,7 @@ skilled_sorcerer = {
 			culture_group = culture_group_southron
 		}
 	}
+	random = no
 	opposites =  {
 		novice_sorcerer
 		adept_sorcerer
@@ -5771,6 +5767,7 @@ master_sorcerer = {
 			culture_group = culture_group_southron
 		}
 	}
+	random = no
 	opposites =  {
 		novice_sorcerer
 		adept_sorcerer
@@ -5787,6 +5784,7 @@ novice_healer = {
 			mep_is_good_numenorean_culture = yes
 		}
 	}
+	random = no
 	opposites =  {
 		adept_healer
 		skilled_healer
@@ -5801,6 +5799,7 @@ adept_healer = {
 			mep_is_good_numenorean_culture = yes
 		}
 	}
+	random = no
 	opposites =  {
 		novice_healer
 		skilled_healer
@@ -5817,6 +5816,7 @@ skilled_healer = {
 			mep_is_good_numenorean_culture = yes
 		}
 	}
+	random = no
 	opposites =  {
 		novice_healer
 		adept_healer
@@ -5833,6 +5833,7 @@ master_healer = {
 			mep_is_good_numenorean_culture = yes
 		}
 	}
+	random = no
 	opposites =  {
 		novice_healer
 		adept_healer
