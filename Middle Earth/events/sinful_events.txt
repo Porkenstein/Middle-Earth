@@ -6,6 +6,8 @@ character_event = {#Happen Upon Dev Temple
 
 	trigger = {
 		ai = no
+		in_command = yes
+		at_location = 797
 		NOT = {
 			has_global_flag = dev_temple
 		}
@@ -72,6 +74,9 @@ narrative_event = {
 
 	option = {	#Leave Temple
 		name = EVTOPTDsinful_events.11
+		narrative_event = {
+			id = sinful_events.13
+		}
 		clr_character_flag = sinful_legends
 		clr_character_flag = sinful_masters
 		clr_character_flag = sinful_heroes
@@ -1095,6 +1100,16 @@ narrative_event = {	#Tribute Received
 		narrative_event = {
 			id = sinful_events.11
 		}
+	}
+}
+narrative_event = {
+	id = sinful_events.13
+	desc = EVTDESCsinful_events.13
+	picture = GFX_evt_mep_team
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAsinful_events.13
 	}
 }
 character_event = {
