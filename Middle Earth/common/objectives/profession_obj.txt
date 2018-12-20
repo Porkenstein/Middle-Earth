@@ -1,0 +1,179 @@
+obj_mastery_music = {
+	type = character
+	allow = {
+		is_musician_trigger = yes
+		NOT = { trait = master_musician }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 2
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			diplomacy = 10
+		}
+	}
+	success = {
+		trait = master_musician
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_musician_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_craft = {
+	type = character
+	allow = {
+		is_craftsman_trigger = yes
+		NOT = { trait = master_craftsman }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			stewardship = 10
+		}
+	}
+	success = {
+		trait = master_craftsman
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_craftsman_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_sorcery = {
+	type = character
+	allow = {
+		is_sorcerer_trigger = yes
+		NOT = { trait = master_sorcerer }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			intrigue = 10
+		}
+	}
+	success = {
+		trait = master_sorcerer 
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_sorcerer_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_healing = {
+	type = character
+	allow = {
+		is_healer_trigger = yes
+		NOT = { trait = master_healer }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			diplomacy = 10
+		}
+	}
+	success = {
+		trait = master_healer
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_healer_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_combat = {
+	type = character
+	allow = {
+		has_combat_prowess_trigger = yes
+		NOT = { trait = master_fighter }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = duelist
+		}
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			martial = 10
+		}
+	}
+	success = {
+		trait = master_fighter 
+	}
+	abort = {
+		NOT = {
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
