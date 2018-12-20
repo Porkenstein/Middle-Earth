@@ -1322,3 +1322,181 @@ character_event = {	#Set Orcs to Open
 		}
 	}
 }
+character_event = {	#Assign Race Traits
+	id = mep_on_actions_mt.21
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			# Deities
+			culture = culture_maiar
+			culture = culture_umaiar
+			culture = culture_istari
+			culture = culture_valar
+			culture = culture_balrog
+			culture = culture_enigma
+			# High Creatures
+			culture = culture_eagles
+			culture = culture_wight
+			culture = culture_spider
+			culture = culture_entish
+			culture = culture_beorning
+			culture = culture_dragons
+			# Lesser Creatures
+			culture = culture_half_orc
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_wargs
+			culture = culture_troll
+			# Elves
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			# Men
+			culture = culture_numenorean
+			culture = culture_adunaic
+			culture = culture_arnorian
+			culture = culture_gondorian
+			culture = culture_black_numenorean
+			culture = culture_dunedain
+			# Dwarves
+			culture_group = culture_group_dwarves
+			# Hobbits
+			culture_group = culture_group_halfling
+			# Wilderness
+			culture_group = culture_group_wilderness
+		}
+	}
+
+	immediate = {
+		IF = {	#Maiar
+			limit = {
+				OR = {
+					culture = culture_maiar
+					culture = culture_umaiar
+					culture = culture_istari
+				}
+			}
+			add_trait = maiar
+		}
+		IF = {	#Valar
+			limit = {
+				culture = culture_valar
+			}
+			add_trait = valar
+		}
+		IF = {	#Enigma
+			limit = {
+				culture = culture_enigma
+			}
+			add_trait = enigma
+		}
+		IF = {
+			limit = {
+				culture = culture_eagles
+			}
+			add_trait = eagle
+		}
+		IF = {
+			limit = {
+				culture = culture_wight
+			}
+			add_trait = wight
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture = culture_half_orc
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+					culture = culture_wargs
+					culture = culture_troll
+				}
+			}
+			add_trait = dark_creature
+		}
+		IF = {
+			limit = {
+				culture = culture_balrog
+			}
+			add_trait = balrog
+		}
+		IF = {
+			limit = {
+				culture = culture_dragons
+			}
+			add_trait = dragon
+		}
+		IF = {
+			limit = {
+				culture = culture_spider
+			}
+			add_trait = spider
+		}
+		IF = {
+			limit = {
+				culture = culture_entish
+			}
+			add_trait = ent
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_quendi
+				}
+			}
+			add_trait = elf
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_dwarves
+			}
+			add_trait = dwarven
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_halfling
+			}
+			add_trait = hobbit
+		}
+		IF = {
+			limit = {
+				culture = culture_beorning
+			}
+			add_trait = skin_changer
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture = culture_numenorean
+					culture = culture_adunaic
+				}
+			}
+			add_trait = numenorean
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture = culture_arnorian
+					culture = culture_gondorian
+					culture = culture_black_numenorean
+					culture = culture_dunedain
+				}
+			}
+			add_trait = numenor_blood
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_wilderness
+			}
+			add_trait = wilderness
+		}
+	}
+}
