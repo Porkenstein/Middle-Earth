@@ -15,6 +15,7 @@ title_decisions = {
 		only_playable = yes
 		filter = sub_realm_owned
 		ai_target_filter = sub_realm_owned
+		ai_check_interval = 36
 		
 		from_potential = {
 			is_nomadic = yes
@@ -115,18 +116,73 @@ title_decisions = {
 		}
 	}
 	
+	reclaim_nomad_province = {
+		only_playable = yes
+		filter = sub_realm_owned
+		ai_target_filter = sub_realm_owned
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		from_potential = {
+			is_nomadic = yes
+			has_dlc = "Horse Lords"
+			OR = {
+				war = no
+				ai = no
+			}
+			any_realm_province = {
+				has_province_modifier = nomad_agitation
+			}
+		}
+		
+		potential = {
+			tier = COUNT
+			location = {
+				owner = {
+					same_realm = FROM
+					is_nomadic = no
+					ai = yes
+				}
+				has_province_modifier = nomad_agitation
+			}
+		}
+
+		allow = {
+			FROM = {
+				war = no
+			}
+			location = {
+				has_province_modifier = nomad_agitation
+			}
+		}
+		effect = {
+			location = {
+				ROOT = {
+					grant_title = FROM
+				}
+				remove_province_modifier = nomad_agitation
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	set_crown_focus = { # High Prio version
 		only_playable = yes
 		filter = owned
 		ai_target_filter = owned
 		is_high_prio = yes
+		ai_check_interval = 12
 		
 		from_potential = {
 			is_playable = yes
 			has_dlc = "Reapers"
 			is_nomadic = no
 			higher_tier_than = COUNT
-			demesne_size = 1
 			NOT = {
 				any_demesne_province = {
 					has_province_flag = crown_focus_province
@@ -141,7 +197,6 @@ title_decisions = {
 
 		allow = {
 			hidden_tooltip = {
-				FROM = { demesne_size  = 1 }
 				OR = {
 					FROM = {
 						ai = no
@@ -217,6 +272,7 @@ title_decisions = {
 		only_playable = yes
 		filter = owned
 		ai_target_filter = owned
+		ai_check_interval = 120
 		
 		from_potential = {
 			is_playable = yes
