@@ -901,4 +901,121 @@ targetted_decisions = {
 			}
 		}
 	}
+	healer_protection = {
+		filter = all_including_me
+		ai_target_filter = all_including_me
+		from_potential = {
+			is_healer_trigger = yes
+			has_artifact = artifact_potion
+		}
+		potential = {
+			NOT = {
+				has_character_modifier = shield_of_light
+			}
+			prisoner = no
+			OR = {
+				same_realm = FROM
+				culture = FROM
+				any_friend = {
+					character = FROM
+				}
+				any_lover = {
+					character = FROM
+				}
+				any_spouse = {
+					character = FROM
+				}
+				any_child = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			NOT = {
+				has_character_modifier = shield_of_light
+			}
+			prisoner = no
+		}
+		effect = {
+			FROM = {
+				destroy_artifact = artifact_potion
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = novice_healer
+					}
+				}
+				add_character_modifier = {
+					modifier = shield_of_light
+					years = 1
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = adept_healer
+					}
+				}
+				add_character_modifier = {
+					modifier = shield_of_light
+					years = 2
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = skilled_healer
+					}
+				}
+				add_character_modifier = {
+					modifier = shield_of_light
+					years = 3
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = master_healer
+					}
+				}
+				add_character_modifier = {
+					modifier = shield_of_light
+					years = 5
+				}
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.73
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 10
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 50
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
 }
