@@ -307,7 +307,7 @@ targetted_decisions = {
 					}
 					add_character_modifier = {
 						modifier = spell_fatigue3
-						years = 2
+						years = 5
 					}
 					remove_character_modifier = spell_fatigue2
 				}
@@ -503,7 +503,7 @@ targetted_decisions = {
 					}
 					add_character_modifier = {
 						modifier = spell_fatigue3
-						years = 2
+						years = 5
 					}
 					remove_character_modifier = spell_fatigue2
 				}
@@ -682,7 +682,7 @@ targetted_decisions = {
 					}
 					add_character_modifier = {
 						modifier = spell_fatigue3
-						years = 2
+						years = 5
 					}
 					remove_character_modifier = spell_fatigue2
 				}
@@ -822,7 +822,7 @@ targetted_decisions = {
 				remove_character_modifier = spell_fatigue2
 				add_character_modifier = {
 					modifier = spell_fatigue3
-					years = 2
+					years = 5
 				}
 			}
 			ROOT = {
@@ -868,6 +868,7 @@ targetted_decisions = {
 			}
 		}
 	}
+
 	# Healer
 	healer_fix_character = {
 		only_playable = yes
@@ -1195,7 +1196,7 @@ targetted_decisions = {
 		ai_target_filter = all_including_me
 		from_potential = {
 			is_healer_trigger = yes
-			has_artifact = artifact_potion
+			piety = 50
 		}
 		potential = {
 			NOT = {
@@ -1229,7 +1230,7 @@ targetted_decisions = {
 		}
 		effect = {
 			FROM = {
-				destroy_artifact = artifact_potion
+				piety = -50
 			}
 			IF = {
 				limit = {
