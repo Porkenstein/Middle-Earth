@@ -88,7 +88,7 @@ obj_mastery_sorcery = {
 		}
 	}
 	success = {
-		trait = master_sorcerer 
+		trait = master_sorcerer
 	}
 	abort = {
 		OR = {
@@ -164,7 +164,37 @@ obj_mastery_combat = {
 		}
 	}
 	success = {
-		trait = master_fighter 
+		trait = master_fighter
+	}
+	abort = {
+		NOT = {
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_change_profession = {
+	type = character
+	allow = {
+		has_profession_trigger = yes
+	}
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		set_character_flag = change_profession
+		character_event = {
+			id = profession_events.3
+		}
+	}
+	success = {
+		NOT = {
+			has_character_flag = change_profession
+		}
 	}
 	abort = {
 		NOT = {

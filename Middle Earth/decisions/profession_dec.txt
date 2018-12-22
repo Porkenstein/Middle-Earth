@@ -1,0 +1,904 @@
+decisions = {
+	healer_craft_potion = {
+		is_high_prio = yes
+		potential = {
+			is_healer_trigger = yes
+			NOR = {
+				has_artifact = artifact_potion
+				has_character_flag = crafting_potion
+			}
+		}
+		allow = {
+			is_healer_trigger = yes
+			NOT = {
+				has_artifact = artifact_potion
+			}
+		}
+		effect = {
+			set_character_flag = crafting_potion
+			character_event = {
+				id = profession_events.7
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+targetted_decisions = {
+	# Sorcerer
+	sorcerer_sacrifice = {
+		only_playable = yes
+		only_rulers = yes
+		filter = home_court
+		ai_target_filter = home_court
+		from_potential = {
+			is_sorcerer_trigger = yes
+			OR = {
+				trait = stressed
+				has_character_modifier = spell_fatigue1
+				has_character_modifier = spell_fatigue2
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			OR = {
+				prisoner = yes
+				AND = {
+					is_ruler = no
+					OR = {
+						mother = {
+							character = FROM
+						}
+						father = {
+							character = FROM
+						}
+						any_child = {
+							character = FROM
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			OR = {
+				prisoner = yes
+				AND = {
+					is_ruler = no
+					OR = {
+						mother = {
+							character = FROM
+						}
+						father = {
+							character = FROM
+						}
+						any_child = {
+							character = FROM
+						}
+						any_sibling = {
+							character = FROM
+						}
+						any_spouse = {
+							character = FROM
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				random_list = {
+					10 = {
+						modifier = {
+							factor = 0.2
+							trait = master_sorcerer
+						}
+						modifier = {
+							factor = 0.6
+							trait = skilled_sorcerer
+						}
+						modifier = {
+							factor = 0.8
+							trait = adept_sorcerer
+						}
+						modifier = {
+							factor = 0.8
+							OR = {
+								father = {
+									character = ROOT
+								}
+								mother = {
+									character = ROOT
+								}
+								any_child = {
+									character = ROOT
+								}
+								any_sibling = {
+									character = ROOT
+								}
+								any_spouse = {
+									character = ROOT
+								}
+							}
+						}
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							OR = {
+								has_character_modifier = spell_fatigue1
+								has_character_modifier = spell_fatigue2
+								has_character_modifier = spell_fatigue3
+							}
+						}
+						remove_trait = stressed
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							NOT = {
+								has_character_modifier = spell_fatigue1
+							}
+						}
+						remove_character_modifier = spell_fatigue1
+						remove_trait = stressed
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							NOT = {
+								has_character_modifier = spell_fatigue2
+							}
+						}
+						remove_character_modifier = spell_fatigue2
+						add_character_modifier = {
+							modifier = spell_fatigue1
+							months = 6
+						}
+						remove_trait = stressed
+					}
+					3 = {
+						modifier = {
+							factor = 0
+							NOT = {
+								has_character_modifier = spell_fatigue3
+							}
+						}
+						remove_character_modifier = spell_fatigue3
+						add_character_modifier = {
+							modifier = spell_fatigue2
+							years = 1
+						}
+						remove_trait = stressed
+					}
+					1 = {
+						modifier = {
+							factor = 1.5
+							trait = master_sorcerer
+						}
+						modifier = {
+							factor = 1.75
+							OR = {
+								father = {
+									character = ROOT
+								}
+								mother = {
+									character = ROOT
+								}
+								any_child = {
+									character = ROOT
+								}
+								any_sibling = {
+									character = ROOT
+								}
+								any_spouse = {
+									character = ROOT
+								}
+							}
+						}
+						remove_character_modifier = spell_fatigue1
+						remove_character_modifier = spell_fatigue2
+						remove_character_modifier = spell_fatigue3
+						remove_trait = stressed
+					}
+				}
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.61
+				}
+			}
+		}
+	}
+	sorcerer_dark_heal = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all_including_me
+		ai_target_filter = all_including_me
+		from_potential = {
+			is_sorcerer_trigger = yes
+			NOR = {
+				is_ill = yes
+				trait = stressed
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			is_ill = yes
+			prisoner = no
+			OR = {
+				same_realm = FROM
+				culture = FROM
+				any_friend = {
+					character = FROM
+				}
+				any_lover = {
+					character = FROM
+				}
+				any_spouse = {
+					character = FROM
+				}
+				any_child = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					FROM = {
+						trait = novice_sorcerer
+					}
+					ROOT = {
+						is_minor_illness = yes
+					}
+				}
+				AND = {
+					FROM = {
+						trait = adept_sorcerer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+						}
+					}
+				}
+				AND = {
+					FROM = {
+						trait = skilled_sorcerer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+							is_severe_illness = yes
+						}
+					}
+				}
+				AND = {
+					FROM = {
+						trait = master_sorcerer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+							is_severe_illness = yes
+							is_deadly_illness = yes
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						has_character_modifier = spell_fatigue2
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue3
+						years = 2
+					}
+					remove_character_modifier = spell_fatigue2
+				}
+				else_if = {
+					limit = {
+						has_character_modifier = spell_fatigue1
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue2
+						years = 1
+					}
+					remove_character_modifier = spell_fatigue1
+				}
+				else = {
+					add_character_modifier = {
+						modifier = spell_fatigue1
+						months = 6
+					}
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = novice_sorcerer
+					}
+				}
+				heal_minor_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = adept_sorcerer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = skilled_sorcerer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+				heal_severe_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = master_sorcerer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+				heal_severe_effect = yes
+				heal_deadly_effect = yes
+			}
+			random_list = {
+				5 = {
+				}
+				4 = {
+					add_trait = stressed
+					set_character_flag = sorcerer_stressed
+				}
+				3 = {
+					add_trait = depressed
+					set_character_flag = sorcerer_depressed
+				}
+				2 = {
+					add_trait = lunatic
+					set_character_flag = sorcerer_lunatic
+				}
+				1 = {
+					add_trait = wight
+					culture = culture_wight
+					religion = religion_wight
+					set_character_flag = sorcerer_wight
+				}
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.62
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 10
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 50
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	sorcerer_invoke_illness = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			is_sorcerer_trigger = yes
+			NOR = {
+				is_ill = yes
+				trait = stressed
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			is_ill = no
+			prisoner = no
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+			OR = {
+				NOT = {
+					same_realm = FROM
+				}
+				AND = {
+					FROM = {
+						independent = no
+					}
+					ROOT = {
+						OR = {
+							any_claim = {
+								holder_scope = {
+									character = FROM
+								}
+							}
+							FROM = {
+								any_claim = {
+									holder_scope = {
+										character = ROOT
+									}
+								}
+							}
+						}
+					}
+				}
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				trait = stressed
+				trait = depressed
+				trait = lunatic
+				trait = incapable
+			}
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						has_character_modifier = spell_fatigue2
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue3
+						years = 2
+					}
+					remove_character_modifier = spell_fatigue2
+				}
+				else_if = {
+					limit = {
+						has_character_modifier = spell_fatigue1
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue2
+						years = 1
+					}
+					remove_character_modifier = spell_fatigue1
+				}
+				else = {
+					add_character_modifier = {
+						modifier = spell_fatigue1
+						months = 6
+					}
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = novice_sorcerer
+					}
+				}
+				add_trait = stressed
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = adept_sorcerer
+					}
+				}
+				add_trait = depressed
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = skilled_sorcerer
+					}
+				}
+				add_trait = lunatic
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = master_sorcerer
+					}
+				}
+				add_trait = incapable
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.63
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.1
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_lover = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	# Healer
+	healer_fix_character = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all_including_me
+		ai_target_filter = all_including_me
+		from_potential = {
+			is_healer_trigger = yes
+			has_artifact = artifact_potion
+		}
+		potential = {
+			is_ill = yes
+			prisoner = no
+			OR = {
+				same_realm = FROM
+				culture = FROM
+				any_friend = {
+					character = FROM
+				}
+				any_lover = {
+					character = FROM
+				}
+				any_spouse = {
+					character = FROM
+				}
+				any_child = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			OR = {
+				AND = {
+					FROM = {
+						trait = novice_healer
+					}
+					ROOT = {
+						is_minor_illness = yes
+					}
+				}
+				AND = {
+					FROM = {
+						trait = adept_healer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+						}
+					}
+				}
+				AND = {
+					FROM = {
+						trait = skilled_healer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+							is_severe_illness = yes
+						}
+					}
+				}
+				AND = {
+					FROM = {
+						trait = master_healer
+					}
+					ROOT = {
+						OR = {
+							is_minor_illness = yes
+							is_moderate_illness = yes
+							is_severe_illness = yes
+							is_deadly_illness = yes
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				destroy_artifact = artifact_potion
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = novice_healer
+					}
+				}
+				heal_minor_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = adept_healer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = skilled_healer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+				heal_severe_effect = yes
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = master_healer
+					}
+				}
+				heal_minor_effect = yes
+				heal_moderate_effect = yes
+				heal_severe_effect = yes
+				heal_deadly_effect = yes
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.72
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 10
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 50
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	healer_imp_fertility = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all_including_me
+		ai_target_filter = all_including_me
+		from_potential = {
+			is_healer_trigger = yes
+			has_artifact = artifact_potion
+		}
+		potential = {
+			NOT = {
+				is_ill = yes
+			}
+			prisoner = no
+			is_adult = yes
+			OR = {
+				same_realm = FROM
+				culture = FROM
+				any_friend = {
+					character = FROM
+				}
+				any_lover = {
+					character = FROM
+				}
+				any_spouse = {
+					character = FROM
+				}
+				any_child = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			fertility = 0.1
+			NOT = {
+				fertility = 1
+			}
+		}
+		effect = {
+			FROM = {
+				destroy_artifact = artifact_potion
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 2
+						trait = novice_healer
+					}
+					fertility = 0.05
+				}
+				1 = {
+					modifier = {
+						factor = 3
+						trait = skilled_healer
+					}
+					fertility = 0.10
+				}
+				1 = {
+					modifier = {
+						factor = 0.9
+						trait = adept_healer
+					}
+					modifier = {
+						factor = 3
+						trait = skilled_healer
+					}
+					fertility = 0.15
+				}
+				1 = {
+					modifier = {
+						factor = 0.5
+						NOT = {
+							trait = master_healer
+						}
+					}
+					fertility = 0.20
+				}
+				1 = {
+					modifier = {
+						factor = 0.1
+						trait = master_healer
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.05
+						trait = master_healer
+					}
+					modifier = {
+						factor = 0.75
+						trait = skilled_healer
+					}
+					modifier = {
+						factor = 0.95
+						trait = adept_healer
+					}
+					modifier = {
+						factor = 1.05
+						trait = novice_healer
+					}
+					fertility = -0.05
+				}
+				1 = {
+					modifier = {
+						factor = 0.01
+						trait = master_healer
+					}
+					modifier = {
+						factor = 0.15
+						trait = skilled_healer
+					}
+					modifier = {
+						factor = 0.25
+						trait = adept_healer
+					}
+					modifier = {
+						factor = 0.5
+						trait = novice_healer
+					}
+					add_trait = incapable
+				}
+			}
+			ROOT = {
+				character_event = {
+					id = profession_events.72
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 10
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 50
+				FROM = {
+					any_spouse = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 50
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+}
