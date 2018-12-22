@@ -757,6 +757,94 @@ character_event = {
 		}
 	}
 }
+character_event = {
+	id = profession_events.64
+	desc = EVTDESCprofession_events.64
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.64
+		trigger = {
+			has_character_flag = force_suicide
+		}
+		death = {
+			death_reason = death_suicide
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.641
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.64
+		trigger = {
+			NOT = {
+				has_character_flag = force_suicide
+			}
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.641
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.641
+	desc = {
+		text = EVTDESCAprofession_events.641
+		trigger = {
+			FROM = {
+				NOT = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBprofession_events.641
+		trigger = {
+			FROM = {
+				is_alive = yes
+			}
+		}
+	}
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.641
+		trigger = {
+			FROM = {
+				NOT = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.641
+		trigger = {
+			FROM = {
+				is_alive = yes
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.65
+	desc = EVTDESCprofession_events.65
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.65
+	}
+}
 
 # Healer Events
 character_event = {
@@ -857,7 +945,7 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTAprofession_events.72
+		name = EVTOPTBprofession_events.72
 		trigger = {
 			trait = incapable
 		}
@@ -866,5 +954,15 @@ character_event = {
 			who = FROM
 			years = 1
 		}
+	}
+}
+character_event = {
+	id = profession_events.73
+	desc = EVTDESCprofession_events.73
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.73
 	}
 }

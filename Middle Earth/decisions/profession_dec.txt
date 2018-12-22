@@ -228,7 +228,9 @@ targetted_decisions = {
 		}
 		potential = {
 			is_ill = yes
-			prisoner = no
+			NOT = {
+				prisoner = yes
+			}
 			OR = {
 				same_realm = FROM
 				culture = FROM
@@ -434,8 +436,12 @@ targetted_decisions = {
 			}
 		}
 		potential = {
-			is_ill = no
-			prisoner = no
+			NOT = {
+				is_ill = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
 			OR = {
 				is_ruler = yes
 				any_rival = {
@@ -592,6 +598,276 @@ targetted_decisions = {
 			}
 		}
 	}
+	sorcerer_force_suicide = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			trait = master_sorcerer
+			NOT = {
+				war = yes
+			}
+			NOR = {
+				is_ill = yes
+				trait = stressed
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				war = yes
+			}
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+			OR = {
+				NOT = {
+					same_realm = FROM
+				}
+				AND = {
+					FROM = {
+						independent = no
+					}
+					ROOT = {
+						OR = {
+							any_claim = {
+								holder_scope = {
+									character = FROM
+								}
+							}
+							FROM = {
+								any_claim = {
+									holder_scope = {
+										character = ROOT
+									}
+								}
+							}
+						}
+					}
+				}
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			NOT = {
+				has_character_modifier = shield_of_light
+			}
+			NOR = {
+				trait = stressed
+				trait = depressed
+				trait = lunatic
+				trait = incapable
+			}
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						has_character_modifier = spell_fatigue2
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue3
+						years = 2
+					}
+					remove_character_modifier = spell_fatigue2
+				}
+				else_if = {
+					limit = {
+						has_character_modifier = spell_fatigue1
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue2
+						years = 1
+					}
+					remove_character_modifier = spell_fatigue1
+				}
+				else = {
+					add_character_modifier = {
+						modifier = spell_fatigue1
+						months = 6
+					}
+				}
+			}
+			ROOT = {
+				random_list = {
+					1 = {
+						set_character_flag = force_suicide
+					}
+					1 = {
+					}
+				}
+				character_event = {
+					id = profession_events.64
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.1
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_lover = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	sorcerer_break_shield = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			trait = master_sorcerer
+			has_ring_trigger = yes
+			NOR = {
+				is_ill = yes
+				trait = stressed
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			has_character_modifier = shield_of_light
+			NOT = {
+				has_ring_trigger = yes
+			}
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+			OR = {
+				NOT = {
+					same_realm = FROM
+				}
+				AND = {
+					FROM = {
+						independent = no
+					}
+					ROOT = {
+						OR = {
+							any_claim = {
+								holder_scope = {
+									character = FROM
+								}
+							}
+							FROM = {
+								any_claim = {
+									holder_scope = {
+										character = ROOT
+									}
+								}
+							}
+						}
+					}
+				}
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			has_character_modifier = shield_of_light
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				remove_character_modifier = spell_fatigue1
+				remove_character_modifier = spell_fatigue2
+				add_character_modifier = {
+					modifier = spell_fatigue3
+					years = 2
+				}
+			}
+			ROOT = {
+				remove_character_modifier = shield_of_light
+				character_event = {
+					id = profession_events.65
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.1
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_lover = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
 	# Healer
 	healer_fix_character = {
 		only_playable = yes
@@ -604,7 +880,9 @@ targetted_decisions = {
 		}
 		potential = {
 			is_ill = yes
-			prisoner = no
+			NOT = {
+				prisoner = yes
+			}
 			OR = {
 				same_realm = FROM
 				culture = FROM
@@ -759,7 +1037,9 @@ targetted_decisions = {
 			NOT = {
 				is_ill = yes
 			}
-			prisoner = no
+			NOT = {
+				prisoner = yes
+			}
 			is_adult = yes
 			OR = {
 				same_realm = FROM
@@ -921,7 +1201,9 @@ targetted_decisions = {
 			NOT = {
 				has_character_modifier = shield_of_light
 			}
-			prisoner = no
+			NOT = {
+				prisoner = yes
+			}
 			OR = {
 				same_realm = FROM
 				culture = FROM
@@ -991,6 +1273,18 @@ targetted_decisions = {
 				add_character_modifier = {
 					modifier = shield_of_light
 					years = 5
+				}
+			}
+			IF = {
+				limit = {
+					FROM = {
+						trait = master_healer
+						has_ring_trigger = yes
+					}
+				}
+				add_character_modifier = {
+					modifier = shield_of_light
+					years = 10
 				}
 			}
 			ROOT = {
