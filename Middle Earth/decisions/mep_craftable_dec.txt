@@ -1,0 +1,50 @@
+targetted_decisions = {
+	crafter_commission = {
+		filter = realm_including_me
+		ai_target_filter = realm_including_me
+		from_potential = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				has_character_flag = mep_crafting
+			}
+			NAND = {
+				any_artifact = {
+					has_artifact_flag = art_sword
+				}
+				any_artifact = {
+					has_artifact_flag = art_armor
+				}
+			}
+			wealth = 100
+		}
+		potential = {
+			is_craftsman_trigger = yes
+			NOT = {
+				prisoner = yes
+			}
+		}
+		allow = {
+			FROM = {
+				OR = {
+					wealth = 100
+					character = ROOT
+				}
+			}
+		}
+		effect = {
+			save_event_target_as = mep_crafter
+			FROM = {
+				save_event_target_as = mep_craftee
+				set_character_flag = mep_crafting
+				character_event = {
+					id = mep_craftables_events.1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+}

@@ -1,0 +1,852 @@
+namespace = mep_craftables_events
+character_event = {
+	id = mep_craftables_events.1
+	desc = EVTDESCmep_craftables_events.1
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Forge Weapon
+		name = EVTOPTAmep_craftables_events.1
+		trigger = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = art_sword
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.11
+			}
+		}
+	}
+
+	option = {	#Forge Armor
+		name = EVTOPTBmep_craftables_events.1
+		trigger = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = art_armor
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.12
+			}
+		}
+	}
+
+	option = {	#Forge a Weapon
+		name = EVTOPTCmep_craftables_events.1
+		clr_character_flag = mep_crafting
+	}
+}
+
+#Weapon
+character_event = {
+	id = mep_craftables_events.11
+	desc = EVTDESCmep_craftables_events.11
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Standard Ore
+		name = EVTOPTAmep_craftables_events.11
+		trigger = {
+			wealth = 100
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -100
+			event_target:mep_crafter = {
+				wealth = 20
+			}
+		}
+		else = {
+			wealth = -80
+		}
+		set_character_flag = mep_craft_standard
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.111
+				days = 2
+				random = 2
+			}
+		}
+	}
+
+	option = {	#Quality Ore
+		name = EVTOPTBmep_craftables_events.11
+		trigger = {
+			wealth = 200
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -200
+			event_target:mep_crafter = {
+				wealth = 40
+			}
+		}
+		else = {
+			wealth = -160
+		}
+		set_character_flag = mep_craft_quality
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.111
+				days = 2
+				random = 2
+			}
+		}
+	}
+
+	option = {	#Exquisite Ore
+		name = EVTOPTBmep_craftables_events.11
+		trigger = {
+			wealth = 300
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -300
+			event_target:mep_crafter = {
+				wealth = 60
+			}
+		}
+		else = {
+			wealth = -240
+		}
+		set_character_flag = mep_craft_exquisite
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.111
+				days = 2
+				random = 2
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.111
+	desc = EVTDESCmep_craftables_events.111
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.5
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.15
+					trait = master_craftsman
+				}
+				event_target:mep_craftee= {
+					add_artifact = sword_1
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.05
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.25
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 2
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = sword_2
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.85
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 1.15
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.85
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.45
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 1.75
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.15
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 0.85
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = sword_3
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.35
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.85
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 1.15
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0.8
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 1.25
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee = {
+					add_artifact = sword_4
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.65
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 2
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.25
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = sword_5
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+		}
+		
+	}
+
+	option = {	#Forge a Weapon
+		name = EVTOPTAmep_craftables_events.111
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_craftee = {
+						character = ROOT
+					}
+				}
+			}
+			event_target:mep_craftee = {
+				character_event = {
+					id = mep_craftables_events.112
+				}
+			}
+		}
+		else = {
+			clr_character_flag = mep_craft_standard
+			clr_character_flag = mep_craft_quality
+			clr_character_flag = mep_craft_exquisite
+			clr_character_flag = mep_crafting
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.112
+	desc = EVTDESCmep_craftables_events.112
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = mep_craft_standard
+		clr_character_flag = mep_craft_quality
+		clr_character_flag = mep_craft_exquisite
+		clr_character_flag = mep_crafting
+	}
+
+	option = {	# Love it - Bonus
+		name = EVTOPTAmep_craftables_events.112
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 4
+					quality = 5
+				}
+			}
+			wealth = 100
+		}
+		transfer_scaled_wealth = {
+			to = event_target:mep_crafter
+			value = 1
+			min = 100
+			max = 200
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	# Love it - Nothing
+		name = EVTOPTBmep_craftables_events.112
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 4
+					quality = 5
+				}
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	# It's Ok
+		name = EVTOPTCmep_craftables_events.112
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 1
+					quality = 2
+					quality = 3
+				}
+			}
+		}
+	}
+
+	option = {	# It Sucks
+		name = EVTOPTDmep_craftables_events.112
+		trigger = {
+			event_target:new_artifact = {
+				quality = 1
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = -50
+		}
+	}
+}
+
+#Armor
+character_event = {
+	id = mep_craftables_events.12
+	desc = EVTDESCmep_craftables_events.12
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Standard Ore
+		name = EVTOPTAmep_craftables_events.12
+		trigger = {
+			wealth = 100
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -100
+			event_target:mep_crafter = {
+				wealth = 20
+			}
+		}
+		else = {
+			wealth = -80
+		}
+		set_character_flag = mep_craft_standard
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.121
+				days = 2
+				random = 2
+			}
+		}
+	}
+
+	option = {	#Quality Ore
+		name = EVTOPTBmep_craftables_events.12
+		trigger = {
+			wealth = 200
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -200
+			event_target:mep_crafter = {
+				wealth = 40
+			}
+		}
+		else = {
+			wealth = -160
+		}
+		set_character_flag = mep_craft_quality
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.121
+				days = 2
+				random = 2
+			}
+		}
+	}
+
+	option = {	#Exquisite Ore
+		name = EVTOPTBmep_craftables_events.12
+		trigger = {
+			wealth = 300
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -300
+			event_target:mep_crafter = {
+				wealth = 60
+			}
+		}
+		else = {
+			wealth = -240
+		}
+		set_character_flag = mep_craft_exquisite
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.121
+				days = 2
+				random = 2
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.121
+	desc = EVTDESCmep_craftables_events.121
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.5
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.15
+					trait = master_craftsman
+				}
+				event_target:mep_craftee= {
+					add_artifact = armor_1
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.05
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.25
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 2
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = armor_2
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.85
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 1.15
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.85
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.45
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 1.75
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.15
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 0.85
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = armor_3
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.35
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.85
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 1.15
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 0.75
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0.8
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 1.25
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee = {
+					add_artifact = armor_4
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.65
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 2
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0.5
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_standard
+					}
+				}
+				modifier = {
+					factor = 1.25
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_quality
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:mep_craftee= {
+						has_character_flag = mep_craft_exquisite
+					}
+				}
+				event_target:mep_craftee= {
+					add_artifact = armor_5
+					new_artifact = {
+						save_event_target_as = new_artifact
+					}
+				}
+			}
+		}
+		
+	}
+
+	option = {	#Forge a Weapon
+		name = EVTOPTAmep_craftables_events.121
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_craftee = {
+						character = ROOT
+					}
+				}
+			}
+			event_target:mep_craftee = {
+				character_event = {
+					id = mep_craftables_events.122
+				}
+			}
+		}
+		else = {
+			clr_character_flag = mep_craft_standard
+			clr_character_flag = mep_craft_quality
+			clr_character_flag = mep_craft_exquisite
+			clr_character_flag = mep_crafting
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.122
+	desc = EVTDESCmep_craftables_events.122
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = mep_craft_standard
+		clr_character_flag = mep_craft_quality
+		clr_character_flag = mep_craft_exquisite
+		clr_character_flag = mep_crafting
+	}
+
+	option = {	# Love it - Bonus
+		name = EVTOPTAmep_craftables_events.122
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 4
+					quality = 5
+				}
+			}
+			wealth = 100
+		}
+		transfer_scaled_wealth = {
+			to = event_target:mep_crafter
+			value = 1
+			min = 100
+			max = 200
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	# Love it - Nothing
+		name = EVTOPTBmep_craftables_events.122
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 4
+					quality = 5
+				}
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	# It's Ok
+		name = EVTOPTCmep_craftables_events.122
+		trigger = {
+			event_target:new_artifact = {
+				OR = {
+					quality = 1
+					quality = 2
+					quality = 3
+				}
+			}
+		}
+	}
+
+	option = {	# It Sucks
+		name = EVTOPTDmep_craftables_events.122
+		trigger = {
+			event_target:new_artifact = {
+				quality = 1
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = -50
+		}
+	}
+}
