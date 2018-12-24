@@ -232,34 +232,34 @@ character_event = {
 	}
 }
 
-## The characters is an Orc ##
-character_event = {
-   id = racetrait.5
-   # title = EVTNAMEracetrait.1
-   # desc = EVTDESCracetrait.1
-   # picture = "GFX_evt_coronation"
+# ## The characters is an Orc ##
+# character_event = {
+   # id = racetrait.5
+   # # title = EVTNAMEracetrait.1
+   # # desc = EVTDESCracetrait.1
+   # # picture = "GFX_evt_coronation"
    
-   hide_window = yes
+   # hide_window = yes
 
-   is_triggered_only = yes
+   # is_triggered_only = yes
    
-	trigger = {
-		OR = {
-			culture = culture_orkish
-			culture = culture_goblin
-			culture = culture_urukhai
-			culture = culture_troll
-		}	
-		NOT = { trait = half_orc }
-		NOT = { trait = orc }
-	}
+	# trigger = {
+		# OR = {
+			# culture = culture_orkish
+			# culture = culture_goblin
+			# culture = culture_urukhai
+			# culture = culture_troll
+		# }	
+		# NOT = { trait = half_orc }
+		# NOT = { trait = orc }
+	# }
 
 
-	option = {
-	    name = EVTOPTAracetrait.1
-	    add_trait = orc #Formerly orkish but orkish is a death trait.
-	}
-}
+	# option = {
+	    # name = EVTOPTAracetrait.1
+	    # add_trait = orc
+	# }
+# }
 
 ## The characters is a spider ##
 character_event = {
@@ -328,89 +328,89 @@ character_event = {
 }
 
 ## The characters is an Orc, but don't have any of the orcs warriors traits at beginning ##
-character_event = {
-	id = racetrait.10
-	# title = EVTNAMEracetrait.10
-	# desc = EVTDESCracetrait.10
-	# picture = "GFX_evt_coronation"
-	hide_window = yes 
+# character_event = {
+	# id = racetrait.10
+	# # title = EVTNAMEracetrait.10
+	# # desc = EVTDESCracetrait.10
+	# # picture = "GFX_evt_coronation"
+	# hide_window = yes 
 
-	is_triggered_only = yes
+	# is_triggered_only = yes
 	
-	trigger = {
-		OR = {
-			culture = culture_orkish
-			culture = culture_goblin
-			culture = culture_urukhai
-		}
-		NOT = { trait = weak_orc }
-		NOT = { trait = orc_warrior }
-		NOT = { trait = strong_orc }
-		NOT = { trait = great_orc }
-		age = 16
-	}
+	# trigger = {
+		# OR = {
+			# culture = culture_orkish
+			# culture = culture_goblin
+			# culture = culture_urukhai
+		# }
+		# NOT = { trait = weak_orc }
+		# NOT = { trait = orc_warrior }
+		# NOT = { trait = strong_orc }
+		# NOT = { trait = great_orc }
+		# age = 16
+	# }
 
 
-	option = {
-	    # name = EVTOPTAracetrait.1
-		trigger = {
-			culture = culture_goblin
-		}
-	    random_list = {
-			70 = {
-				add_trait = weak_orc
-			}
-			20 = {
-				add_trait = orc_warrior
-			}	
-			10 = {
-				add_trait = strong_orc
-			}
-		}
-	}
+	# option = {
+	    # # name = EVTOPTAracetrait.1
+		# trigger = {
+			# culture = culture_goblin
+		# }
+	    # random_list = {
+			# 70 = {
+				# add_trait = weak_orc
+			# }
+			# 20 = {
+				# add_trait = orc_warrior
+			# }	
+			# 10 = {
+				# add_trait = strong_orc
+			# }
+		# }
+	# }
 	
-	option = {
-	    # name = EVTOPTAracetrait.1
-		trigger = {
-			culture = culture_orkish
-		}
-	    random_list = {
-			40 = {
-				add_trait = weak_orc
-			}
-			30 = {
-				add_trait = orc_warrior
-			}	
-			20 = {
-				add_trait = strong_orc
-			}
-			10 = {
-				add_trait = great_orc
-			}	
-		}
-	}	
+	# option = {
+	    # # name = EVTOPTAracetrait.1
+		# trigger = {
+			# culture = culture_orkish
+		# }
+	    # random_list = {
+			# 40 = {
+				# add_trait = weak_orc
+			# }
+			# 30 = {
+				# add_trait = orc_warrior
+			# }	
+			# 20 = {
+				# add_trait = strong_orc
+			# }
+			# 10 = {
+				# add_trait = great_orc
+			# }	
+		# }
+	# }	
 	
-	option = {
-	    # name = EVTOPTAracetrait.1
-		trigger = {
-			culture = culture_urukhai
-		}
-	    random_list = {
-			20 = {
-				add_trait = weak_orc
-			}
-			30 = {
-				add_trait = orc_warrior
-			}	
-			30 = {
-				add_trait = strong_orc
-			}
-			20 = {
-				add_trait = great_orc
-			}	
-		}
-	}	
-}
+	# option = {
+	    # # name = EVTOPTAracetrait.1
+		# trigger = {
+			# culture = culture_urukhai
+		# }
+	    # random_list = {
+			# 20 = {
+				# add_trait = weak_orc
+			# }
+			# 30 = {
+				# add_trait = orc_warrior
+			# }	
+			# 30 = {
+				# add_trait = strong_orc
+			# }
+			# 20 = {
+				# add_trait = great_orc
+			# }	
+		# }
+	# }	
+# }
 
 
 # some species/races or more or less unkillable by normal means
