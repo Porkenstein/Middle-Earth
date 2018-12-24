@@ -39,6 +39,51 @@ character_event = {
 				}
 				add_trait = adept_musician
 			}
+			#Combat
+			9 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						culture_group = culture_group_dwarves
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+						culture_group = culture_group_edain
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture = culture_half_orc
+						culture = culture_goblin
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+				}
+				add_trait = novice_fighter
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						culture_group = culture_group_dwarves
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+						culture_group = culture_group_edain
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture = culture_half_orc
+						culture = culture_goblin
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+				}
+				add_trait = adept_fighter
+			}
 			#Craftsman
 			5 = {
 				modifier = {
@@ -129,6 +174,29 @@ character_event = {
 					}
 				}
 				add_trait = adept_healer
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						culture = culture_noldor
+						mep_is_elf_culture = yes
+						mep_is_good_numenorean_culture = yes
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_dwarves
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+						culture_group = culture_group_edain
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture = culture_half_orc
+						culture = culture_goblin
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+				}
 			}
 		}
 		IF = {
@@ -165,6 +233,13 @@ character_event = {
 			1 = {
 				add_trait = adept_musician
 			}
+			#Combat
+			5 = {
+				add_trait = novice_craftsman
+			}
+			1 = {
+				add_trait = adept_craftsman
+			}
 			#Craftsman
 			5 = {
 				add_trait = novice_craftsman
@@ -200,17 +275,23 @@ character_event = {
 	desc = {
 		text = EVTDESCBprofession_events.11
 		trigger = {
-			is_craftsman_trigger = yes
+			has_combat_prowess_trigger = yes
 		}
 	}
 	desc = {
 		text = EVTDESCCprofession_events.11
 		trigger = {
-			is_sorcerer_trigger = yes
+			is_craftsman_trigger = yes
 		}
 	}
 	desc = {
 		text = EVTDESCDprofession_events.11
+		trigger = {
+			is_sorcerer_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCEprofession_events.11
 		trigger = {
 			is_healer_trigger = yes
 		}
@@ -253,6 +334,7 @@ character_event = {
 	trigger = {
 		has_profession_trigger = yes
 		NOR = {
+			has_combat_prowess_trigger = yes
 			trait = master_musician
 			trait = master_craftsman
 			trait = master_sorcerer
@@ -404,47 +486,6 @@ character_event = {
 	}
 }
 character_event = {
-	id = profession_events.2
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		NOT = {
-			has_combat_prowess_trigger = yes
-		}
-	}
-
-	immediate = {
-		random_list = {
-			#Swordsman
-			9 = {
-				add_trait = novice_fighter
-			}
-			1 = {
-				add_trait = adept_fighter
-			}
-		}
-		IF = {
-			limit = {
-				ai = no
-			}
-			character_event = {
-				id = profession_events.21
-			}
-		}
-	}
-}
-character_event = {
-	id = profession_events.21
-	desc = EVTDESCprofession_events.21
-	picture = GFX_placeholder
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTAprofession_events.21
-	}
-}
-character_event = {
 	id = profession_events.22
 	desc = EVTDESCprofession_events.22
 	picture = GFX_placeholder
@@ -498,34 +539,6 @@ character_event = {
 			}
 			remove_trait = novice_fighter
 			add_trait = adept_fighter
-		}
-	}
-}
-character_event = {
-	id = profession_events.20
-	hide_window = yes
-
-	min_age = 16
-
-	trigger = {
-		NOT = {
-			has_combat_prowess_trigger = yes
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 6
-	}
-
-	immediate = {
-		random_list = {
-			#Swordsman
-			9 = {
-				add_trait = novice_fighter
-			}
-			1 = {
-				add_trait = adept_fighter
-			}
 		}
 	}
 }
