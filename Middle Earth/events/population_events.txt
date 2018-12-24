@@ -56,184 +56,2673 @@ province_event = {	#Establish Base Populations
 							culture_group = culture_group_wilderness
 						}
 					}
-					modifier = {#The Chance of this firing for the province is times 0 if the province is NOT in the wilderness Culture Group
-						factor = 100
-						culture_group = culture_group_wilderness
-					}
-					set_variable = {#Population is set to 0
+					set_variable = {#Population is set to -1 'cause CK2
 						which = population
 						value = -1
 					}
 				}
+				############################
+				#Standard Gondor population#
+				############################
+				#Anorien
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Anorien Region but not Minas Tirith or Annunimas
+						factor = 10
+						region = custom_anorien
+						NOR = {
+							province_id = 422 #Minas Tirith
+							province_id = 1 #Pelennor
+							province_id = 427 #East Osgiliath
+							province_id = 428 #West Osgiliath
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 6000 #
+					}
+				}
+				#Lebennin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Lebennin Region but not Pelargir
+						factor = 10
+						region = custom_lebennin
+						NOT = {
+							province_id = 18 #Pelargir
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 10000 #Lebennin is the most populated area in Gondor
+					}
+				}
+				#Belfalas
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Belfalas Region, but not Dol Amroth
+						factor = 10
+						region = custom_belfalas
+						NOR = {
+							province_id = 656 #Dol Amroth
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 5000 #Belfalas is moderately dense populated
+					}
+				}
+				#Ithilien
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the 
+						factor = 10
+						region = custom_ithilien
+						NOR = {
+						    province_id = 51 #Henneth Annun, the secret pool and hideout of the Rangers
+							province_id = 426 #Minas Ithil
+							year = 10345 #Fall of Minas Ithil
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 2000
+					}
+				}
+				#Harondor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Harondor Region
+						factor = 10
+						region = custom_harondor
+						
+						NOT = {
+							year = 10345 #Fall of Minas Ithil
+						}
+					}
+					set_variable = {#Harondor in the South of Gondor
+						which = population
+						value = 3000
+					}
+				}
+				#Andrast
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Gondor Region but not Minas Tirith or Annunimas
+						factor = 10
+						region = custom_andrast
+					}
+					set_variable = {#The peninsula of Andrast at the Western tip of Gondor is barely inhabitated
+						which = population
+						value = 500
+					}
+				}
+				#The coast of Anfalas
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Anfalas region
+						factor = 10
+						region = custom_anfalas
+					}
+					set_variable = {#Population in the West of Gondor is scarce and stretched thin over a vast territory
+						which = population
+						value = 1500
+					}
+				}
+				#The fiefdom of Pinnath Gelin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Pinnath Gelin Region
+						factor = 10
+						region = custom_pinnath_gelin
+					}
+					set_variable = {#Population in the West of Gondor is scarce and stretched thin over a vast territory
+						which = population
+						value = 1000
+					}
+				}
+				#major population centres
+				#Minas Tirith, the White City
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Tirith
+					    factor = 10
+						AND = { 
+						    province_id = 422 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 250000
+					}
+				}
+				#Fields of Pelennor (yes it is actually populated)
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelennor
+					    factor = 10
+						AND = { 
+						    province_id = 1
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Population of Pelennor
+					    which = population
+						value = 75000
+					}
+				}
+				#Cair Andros
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Garrison of Cair Andros
+					    factor = 10
+						AND = { 
+						    province_id = 1
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Garrison of Cair Anros
+					    which = population
+						value = 7000
+					}
+				}
+				#Pelargir
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelargir
+					    factor = 10
+						AND = { 
+						    province_id = 18
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Population of Pelargir
+					    which = population
+						value = 800000
+					}
+				}
+				#Dol Amroth
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 656 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 100000
+					}
+				}
+				#Linhir
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Linhir adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 656 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 4000
+					}
+				}
+				#Dol Amroth
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth
+					    factor = 10
+						AND = { 
+						    province_id = 656 #Dol Amroth
+							NOT = { 
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 100000
+					}
+				}
+				#Henneth Annun, the Forbidden Pool
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth
+					    factor = 10
+						AND = { 
+						    province_id = 51 #Henneth Annun
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 4600
+					}
+				}
+				#Minas Ithil before it's fall
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Morgul
+					    factor = 10
+						AND = {
+						    province_id = 426 #Minas Morgul
+						    culture_group = culture_group_numenorean
+							NOT = {
+						    year = 10345
+						    }
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 54000
+					}
+				}
+				#Minas Morgul
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Morgul
+					    factor = 10
+						AND = {
+						    province_id = 426 #Minas Morgul
+							culture_group = culture_group_melkor
+							year = 10345
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 460000
+					}
+				}
+				###Osgiliath
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10
+						AND = { 
+						    province_id = 427
+							year = 9980
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 125000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before the Great Plague
+					    factor = 10
+						AND = { 
+						    province_id = 427
+							NOT = {
+							    year = 9980 #8344 began the Third Age
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 280000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10
+						AND = { 
+						    province_id = 428
+							year = 9980 #Great Plague
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 125000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before the Great Plague
+					    factor = 10
+						AND = { 
+						    province_id = 428
+							NOT = {
+							    year = 9980 #8344 began the Third Age
+							}
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 280000
+					}
+				}
+				##############################################
+				#Gondor population during the War of the Ring#
+				##############################################
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Tirith adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 422 
+							year = 11361
+						}
+					}
+					set_variable ={#Population that is not evacuated to Lebennin
+					    which = population
+						value = 125000
+					}
+				}
+				#Fields of Pelennor (yes it is actually populated)
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelennor
+					    factor = 10
+						AND = { 
+						    province_id = 1
+							year = 11361
+						}
+					}
+					set_variable ={#Population of Pelennor
+					    which = population
+						value = 25000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelargir adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 18
+							year = 11361
+						}
+					}
+					set_variable ={#Population of Pelargir together with the refugees from Minas Tirith
+					    which = population
+						value = 925000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 100000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Linhir adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 3000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={#Population that is not evacuated to Lebennin
+					    which = population
+						value = 100000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10
+						AND = { 
+						    province_id = 427
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 200
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before Gondor's retreat from it
+					    factor = 10
+						AND = { 
+						    province_id = 427
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = population
+						value = 1000
+					}
+				}
+				###################################
+				#       Harad and Anadune         #
+				###################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10
+						region = world_south
+						NOR = {
+						    region = custom_bellakar
+							region = custom_umbar
+							region = custom_anadune
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 3000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Bellakar, South of Umbar
+						factor = 10
+						region = custom_bellakar
+						NOR = {
+						    province_id = 519
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 5000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Umbar
+						factor = 10
+						region = custom_umbar
+						NOR = {
+						    province_id = 430
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 6000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Anadune
+						factor = 10
+						region = custom_anadune
+						NOR = {
+						    province_id = 430
+							region = custom_umbar
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 7000 #
+					}
+				}
+				#Umbar and the Capital of Bellakar
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the City of Umbar
+						factor = 10
+						AND = {
+						    province_id = 430
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 400000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Anadune
+						factor = 10
+						AND = {
+						    province_id = 519
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 75000 #
+					}
+				}
+				##########################################################
+				# East - Rhun, Wainriders, Khand, Avari, Eastern Dwarves #
+				##########################################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10
+						region = world_east
+						NOR = {
+						    region = custom_khand
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 2000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10
+						region = custom_khand
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = population
+						value = 4000 #
+					}
+				}
+				###############
+				#   Mordor    #
+				###############
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Gorgoroth
+						factor = 10
+						region = custom_gorgoroth
+						NOR = {
+						    province_id = 654 #Barad-Dur
+							province_id = 148 #Orodruin, commonly known as Mount Doom
+							province_id = 691 #Morannon, the Black Gate
+							province_id = 662 #he Fortress of Durthang
+							province_id = 149 #Cirith Ungol
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 40000 #Orcs
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Nurn
+						factor = 10
+						region = custom_nurn
+						NOR = {
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 10000 #Human Slaves
+					}
+				}
+				#Major military camps and Fortresses within Mordor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is Barad-Dur
+						factor = 10
+						province_id = 654 #Barad-Dur
+					}
+					set_variable = {#Population
+						which = population
+						value = 1500000 #Obviously
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 154 #Orodruin
+					}
+					set_variable = {#Population
 						which = population
 						value = 1000
 					}
 				}
 				1 = {
-					set_variable = {
-						which = population
-						value = 2000
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
 					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 3000
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 691 #Morannon, the Black Gate
 					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 4000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 5000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 10000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 20000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 30000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 40000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 50000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 60000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 70000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 80000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 90000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 100000
-					}
-				}
-				1 = {
-					set_variable = {
-						which = population
-						value = 150000
-					}
-				}
-				1 = {
-					set_variable = {
+					set_variable = {#Population
 						which = population
 						value = 200000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 662 #Durthang
+					}
+					set_variable = {#Population
 						which = population
-						value = 250000
+						value = 150000 #Second largest Fortress within Mordor, former abandoned Last Alliance hold to watch over Mordor
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 149 #Cirith Ungol
+					}
+					set_variable = {#Population
 						which = population
-						value = 300000
+						value = 50000 
+					}
+				}
+				##############
+				#   Lindon   #
+				##############
+				
+				#Mithlond
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mithlond
+						NOR = {
+						    province_id = 657 #Mithlond, the Grey Havens
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 3000
+					}
+				}
+				#Harlindon
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_harlindon
+					}
+					set_variable = {#Population
+						which = population
+						value = 2000
+					}
+				}
+				#Forlindon
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_forlindon
+					}
+					set_variable = {#Population
+						which = population
+						value = 2000
+					}
+				}
+				#######################
+				#                     #
+				#		Eriador       #
+				#                     #
+				#######################
+				
+				#################
+				#    Angmar     #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_angmar
+						NOR = {
+						    province_id = 624 #Carn Dum
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 4000
+					}
+				}
+				#Carn Dum, capital of Angmar
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 624
+					}
+					set_variable = {#Population
+						which = population
+						value = 125000
+					}
+				}
+				###################
+				#    Forochel     #
+				###################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_forochel
+					}
+					set_variable = {#Population
+						which = population
+						value = 625
+					}
+				}
+				##################################################################
+				#    Numeriador (to be changed, name is wrong and misleading)    #
+				##################################################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_numeriador
+						NOR = {
+						    province_id = 687 #Towers of Elostirion
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 650
+					}
+				}
+				###################
+				#      Arnor      #
+				###################
+				
+				#Shire before the arrival of the Hobbits
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_tower_lands
+						NOT = {
+						    year = 10500 #before settlement of Hobbits
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_the_farthings
+						NOT = {
+						    year = 10500 #before settlement of Hobbits
+						}
+					}
+					set_variable = {#Population
 						which = population
-						value = 350000
+						value = 1000
+					}
+				}
+				#Shire after arrival of Hobbits
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_tower_lands
+						year = 10500 #after settlement of Hobbits
+						NOR = {
+						    province_id = 95 #Michel Delving
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 20000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_the_farthings
+						year = 10500 #after settlement of Hobbits
+					}
+					set_variable = {#Population
 						which = population
-						value = 400000
+						value = 20000
+					}
+				}
+				###Arthedain
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_lands_of_evendim #Area around Lake Evendim
+						NOR = {
+						    province_id = 659 #Annuminas
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 625
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_emyn_fornrim
+						NOR = {
+						    province_id = 270 #Fornost
+							province_id = 269 #Amon Sul
+							province_id = 267 #Bree
+						    province_id = 266 #West Breeland
+							province_id = 265 #North Breeland
+							province_id = 264 #Not South Breeland actually
+							province_id = 104 #Tom Bombadil
+							province_id = 659 #Annuminas
+						}
+					}
+					set_variable = {#Population
 						which = population
-						value = 450000
+						value = 250
+					}
+				}
+				#Dunedain Cities in Arnor before the invasion of the witch king
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 270 #Fornost
+						NOT = { 
+							year = 9204 #Abandonement of Annuminas
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 75000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 270 #Fornost
+						year = 9204
+						NOT = { 
+							year = 10318 #Destruction of Fornost
+						}
+					}
+					set_variable = {#Population
 						which = population
-						value = 500000
+						value = 125000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 269 #Weatherhills
+						NOT = { 
+							year = 9752 #Siege of Amon Sul
+						}
+					}
+					set_variable = {#Population
 						which = population
-						value = 600000
+						value = 25000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 267 #Breeland including the city of Bree with 1500 inhabitants
+					}
+					set_variable = {#Population
 						which = population
-						value = 700000
+						value = 5000
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 266 #Brandy Hills
+					}
+					set_variable = {#Population
 						which = population
-						value = 800000
+						value = 250
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 265 #Combe
+					}
+					set_variable = {#Population
 						which = population
-						value = 900000
+						value = 1500
 					}
 				}
 				1 = {
-					set_variable = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 24 #Archet
+					}
+					set_variable = {#Population
 						which = population
-						value = 1000000
+						value = 2500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 104 #Old Forest
+					}
+					set_variable = {#Population
+						which = population
+						value = 200 #Obligatory, Tom Bombadil and his wife, trees don't count as people
+					}
+				}
+				#After invasion of Witch King
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 270 #Fornost
+						year = 10318 #Destruction of Fornost, now known as Deadman's Dike
+					}
+					set_variable = {#Population
+						which = population
+						value = 500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 269 #Weatherhills
+						year = 9752 #Siege of Amon Sul
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				
+				
+				###Cardolan
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_minhiarath
+					}
+					set_variable = {#Population
+						which = population
+						value = 625
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_south_downs
+						NOR = {
+						    province_id = 172 #Tharbad
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 172 #Tharbad
+						NOR = {
+						    year = 9752 #Invasion of Cardolan
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 30000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 172 #Tharbad
+						year = 9752 #Invasion of Cardolan
+					}
+					set_variable = {#Population
+						which = population
+						value = 8000
+					}
+				}
+				###Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_trollshaws
+						culture_group = culture_group_forodwaith #Hillmen
+					    NOR = {
+						    province_id = 298 #Trollshaws
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 2100
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_ettenmoors
+						culture_group = culture_group_forodwaith
+						NOR = {
+							province_id = 366
+							province_id = 371
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_trollshaws
+						province_id = 298 #Trollshaws
+						culture = culture_troll
+					}
+					set_variable = {#Population
+						which = population
+						value = 1000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_ettenmoors
+						OR = {
+							province_id = 366
+							province_id = 371
+						}
+						culture = culture_troll
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				#former Capital of Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 307
+						year = 9752
+						culture_group = culture_group_numenorean
+					}
+					set_variable = {#Population
+						which = population
+						value = 3500
+					}
+				}
+				#Overthrow of the Dunedain King of Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						province_id = 307
+					    year = 9752
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				### Vale of Isen
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_vales_isen
+						NOR = {
+							region = custom_isengard
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 2500
+					}
+				}
+				###Southern Eriador
+				#Barren Coastlands
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_barren_coastlands
+						NOR = {
+							
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 750
+					}
+				}
+				#Shores of the Gwathlo River
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_gwathlo_shores
+						NOR = {
+							
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				###Eregion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_bruinen_greenlands
+						NOR = {
+						    region = custom_eregion
+							province_id = 290 #Ost-in-Edhil
+							year = 6599 #Destruction by Sauron
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1500
+					}
+				}
+				
+				#After invasion by Sauron in the 2nd Age
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_bruinen_greenlands
+						year = 6599 #Destruction by Sauron
+						NOR = {
+							region = custom_eregion
+							province_id = 290 #Ost-in-Edhil
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 200
+					}
+				}
+				
+				#Dunland
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_foothills
+						NOR = {
+							province_id = 290 #Ost-in-Edhil
+							province_id = 288 #West Eregion
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 5000
+					}
+				}
+				#Enedwaith
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_wild_fenlands
+					}
+					set_variable = {#Population
+						which = population
+						value = 500
+					}
+				}
+				#####################
+				#      Rohan        #
+				#####################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						year = 10853
+						NOR = {
+						    province_id = 114 #Aldburg
+							province_id = 122 #Helms Deep
+							province_id = 115 #Edoras
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 5000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 115 #Edoras
+						year = 10853
+					}
+					set_variable = {#Population
+						which = population
+						value = 320000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 122 #Helms Deep
+						year = 10853
+					}
+					set_variable = {#Population
+						which = population
+						value = 13000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 114 #Aldburg
+						year = 10853
+					}
+					set_variable = {#Population
+						which = population
+						value = 240000
+					}
+				}
+				#Rohan before it was settled by Eorl
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						NOR = {
+						    province_id = 114 #Aldburg
+							province_id = 122 #Helms Deep
+							province_id = 115 #Edoras
+							year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1000
+					}
+				}
+				#Helms Deep before foundation by Helm Hammerhand
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 122 #Helms Deep
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1200 #Small Gondorian Garrison manning the fort
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 115 #Edoras
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 9000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rohan
+						province_id = 114 #Aldburg
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 2000
+					}
+				}
+				#################
+				#    Fangorn    #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_fangorn
+					}
+					set_variable = {#Population
+						which = population
+						value = 1200
+					}
+				}
+				#################
+				#   Isengard    #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_isengard
+						NOT = {
+						    province_id = 225
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 15000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						NOR = {
+						    year = 11333 #Before arrival of Saruman
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 1200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						year = 11333 #After arrival of Saruman
+						NOR = {
+						    year = 11362
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 150000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						year = 11362 #Ents destroy the Orthanc and are handed control over by High King Elessar II
+					}
+					set_variable = {#Population
+						which = population
+						value = 1200
+					}
+				}
+				###Druwaith Iaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_druwaith_iaur
+					}
+					set_variable = {#Population
+						which = population
+						value = 2400
+					}
+				}
+				###############################
+				#       Misty Mountains       #
+				###############################
+				
+				###Grey Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_grey_mountains
+						NOT = {
+						    year = 10932 #Invasion by Gundabad
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 4500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_grey_mountains
+						year = 10932 #Invasion by Gundabad
+					}
+					set_variable = {#Population
+						which = population
+						value = 12300
+					}
+				}
+				###Misty Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_mountains
+						NOR = {
+							province_id = 285 #Moria
+							province_id = 802 #Eagles
+						    year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 9000
+					}
+				}
+				#Moria
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_mountains
+						province_id = 285 #Moria
+						NOR = {
+						    year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 240000
+					}
+				}
+				#After invasion by Goblins
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_mountains
+						year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						NOR = {
+							province_id = 285 #Moria
+							province_id = 802 #Eagles
+						
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 124000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_mountains
+						province_id = 285 #Moria
+						year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+					}
+					set_variable = {#Population
+						which = population
+						value = 840000
+					}
+				}
+				###Eagles
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_misty_mountains
+						province_id = 802 #Eagles
+					}
+					set_variable = {#Population
+						which = population
+						value = 800
+					}
+				}
+				###Erebor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_erebor
+						NOR = {
+							year = 10342
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 126
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_erebor
+						year = 10342 #Dwarves move to The Lonely Mountain
+						NOT = { 
+						    year = 11113 #Smaug
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 132000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_erebor
+						year = 11113 #Smaug
+						NOT = {
+						    year = 11284 #resettled by Dwarves
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_erebor
+						year = 11284 #resettled by Dwarves
+
+					}
+					set_variable = {#Population
+						which = population
+						value = 75000
+					}
+				}
+				###Gundabad
+				#Before Orc Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						NOR = {
+						    year = 9648 #Orc Invasion
+							province_id = 642 #Gundabad
+							province_id = 805 #Mount Gram
+							
+						}
+
+					}
+					set_variable = {#Population
+						which = population
+						value = 3400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						province_id = 642 #Gundabad
+						NOR = {
+						    year = 9648 #Orc Invasion
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 170000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						province_id = 805 #Mount Gram
+						NOR = {
+						    year = 9648 #Orc Invasion
+						}
+
+					}
+					set_variable = {#Population
+						which = population
+						value = 55000
+					}
+				}
+				#After Orc Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						year = 9648 #Orc Invasion
+						NOR = {
+							province_id = 642 #Gundabad
+							province_id = 805 #Mount Gram
+						}
+
+					}
+					set_variable = {#Population
+						which = population
+						value = 33000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						province_id = 642 #Gundabad
+						year = 9648 #Orc Invasion
+					}
+					set_variable = {#Population
+						which = population
+						value = 530000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_northern_misty_mountains
+						province_id = 805 #Mount Gram
+						year = 9648 #Orc Invasion
+
+					}
+					set_variable = {#Population
+						which = population
+						value = 420000
+					}
+				}
+				###Iron Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_iron_mountains #Iron Hills, not Mountains
+						NOT = { 
+						    province_id = 572 #Azanulimbar-Dum
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 10400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_iron_mountains #Iron Hills, not Mountains
+						province_id = 572 #Azanulimbar-Dum
+					}
+					set_variable = {#Population
+						which = population
+						value = 35000
+					}
+				}
+				###Blue Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_blue_mountains #Blue Mountains in the West
+						NOT = { 
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 11000
+					}
+				}
+				###East Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_east_mountains #East Mountains in the East 
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 11300
+					}
+				}
+				###Nurunkhizdin, in the South East
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_nurunkhizdin
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 22300
+					}
+				}
+				#Aglarond, Glittering Caves, South of Helms Deep
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_aglarond
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 100
+					}
+				}
+				###Isles
+				#Belegaer
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_western_isles
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				#Meneltarma
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_meneltarma
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 100
+					}
+				}
+				###Eregion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_eregion
+						NOR = {
+						    region = custom_bruinen_greenlands
+						    year = 6599
+							province_id = 234 #Ost-in-Edhil
+							province_id = 290 #Rivendell
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 350
+					}
+				}
+				#After Saurons Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_eregion
+						year = 6599
+						NOR = {
+							province_id = 234 #Ost-in-Edhil
+							province_id = 290 #Rivendell
+					    }
+					}
+					set_variable = {#Population
+						which = population
+						value = 100
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_eregion
+						province_id = 290 #Ost-in-Edhil
+						NOR = {
+						    year = 6599 #Destruction of Eregion
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 22400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_eregion
+						province_id = 290 #Ost-in-Edhil
+						year = 6599 #Destruction of Eregion
+					}
+					set_variable = {#Population
+						which = population
+						value = 150
+					}
+				}
+				#Rivendell
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_eregion
+						province_id = 234 #Rivendell
+					}
+					set_variable = {#Population
+						which = population
+						value = 2500
+					}
+				}
+				#####################
+				#     Rhovanion     #
+				#####################
+				###Mirkwood
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 5100
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture = culture_spider
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 3300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture = culture_orkish
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 142000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+						province_id = 323 #Thranduils Halls
+						NOR = {
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 51000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture = culture_orkish
+					    province_id = 310 #Amon Lanc, also known as Dol Guldur
+					}
+					set_variable = {#Population
+						which = population
+						value = 430000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+					    province_id = 310 #Amon Lanc, also known as Dol Guldur
+					}
+					set_variable = {#Population
+						which = population
+						value = 11300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_mirkwood
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = population
+						value = 5200
+					}
+				}
+				###Dale
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_dale
+						culture_group = culture_group_middlemen
+						NOR = {
+						    province_id = 529 #Dale
+							province_id = 540 #Esgaroth, Lake Town
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 13000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_dale
+						culture_group = culture_group_middlemen
+						province_id = 529 #Dale
+					}
+					set_variable = {#Population
+						which = population
+						value = 59000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_dale
+						culture_group = culture_group_middlemen
+					    province_id = 540 #Esgaroth, Lake Town
+					}
+					set_variable = {#Population
+						which = population
+						value = 114000
+					}
+				}
+				###Dorwinion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_dorwinion
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = population
+						value = 31000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_dorwinion
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = population
+						value = 22000
+					}
+				}
+				###Rhovanion Kingdom
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rhovanion_kingdom
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = population
+						value = 10400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_rhovanion_kingdom
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = population
+						value = 12500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_brownlands
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = population
+						value = 5200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_brownlands
+						culture_group = culture_group_melkor
+					}
+					set_variable = {#Population
+						which = population
+						value = 15900
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_brownlands
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = population
+						value = 6400
+					}
+				}
+				###Vale of Anduin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_anduin_vale
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = population
+						value = 24000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_brownlands
+						culture_group = culture_group_umanyar
+					}
+					set_variable = {#Population
+						which = population
+						value = 1400
+					}
+				}
+				###Lorien, the Golden Woods
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_lorien
+						culture_group = culture_group_umanyar
+						NOT = {
+						    province_id = 235
+						}
+					}
+					set_variable = {#Population
+						which = population
+						value = 2400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10
+						region = custom_lorien
+						culture_group = culture_group_umanyar
+						province_id = 235
+					}
+					set_variable = {#Population
+						which = population
+						value = 27000
 					}
 				}
 			}
+			#This was done in order to geographical region, except Gondor
 		}
 		province_event = {
 			id = population_events.21
