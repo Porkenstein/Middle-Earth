@@ -8,6 +8,24 @@ character_event = {
 		NOT = {
 			has_profession_trigger = yes
 		}
+		OR = {
+			culture = culture_noldor
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
 	}
 
 	immediate = {
@@ -215,6 +233,24 @@ character_event = {
 	min_age = 16
 
 	trigger = {
+		OR = {
+			culture = culture_noldor
+			mep_is_elf_culture = yes
+			mep_is_good_numenorean_culture = yes
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_halfling
+			culture_group = culture_group_middlemen
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_easterling
+			culture_group = culture_group_southron
+			culture_group = culture_group_edain
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+			culture = culture_half_orc
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
 		NOT = {
 			has_profession_trigger = yes
 		}
@@ -228,38 +264,168 @@ character_event = {
 		random_list = {
 			#Musician
 			9 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_dwarves
+						mep_is_elf_culture = yes
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+					}
+				}
 				add_trait = novice_musician
 			}
 			1 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_dwarves
+						mep_is_elf_culture = yes
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+					}
+				}
 				add_trait = adept_musician
 			}
 			#Combat
 			5 = {
-				add_trait = novice_craftsman
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						culture_group = culture_group_dwarves
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+						culture_group = culture_group_edain
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture = culture_half_orc
+						culture = culture_goblin
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+				}
+				add_trait = novice_fighter
 			}
 			1 = {
-				add_trait = adept_craftsman
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						culture_group = culture_group_dwarves
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_halfling
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+						culture_group = culture_group_edain
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture = culture_half_orc
+						culture = culture_goblin
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+				}
+				add_trait = adept_fighter
 			}
 			#Craftsman
 			5 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_dwarves
+						culture = culture_noldor
+					}
+				}
 				add_trait = novice_craftsman
 			}
 			1 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_dwarves
+						culture = culture_noldor
+					}
+				}
 				add_trait = adept_craftsman
 			}
 			#Magic
 			3 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+					}
+				}
 				add_trait = novice_sorcerer
 			}
 			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0
+					NOR = {
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_easterling
+						culture_group = culture_group_southron
+					}
+				}
 				add_trait = adept_sorcerer
 			}
 			#Healing
 			4 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						mep_is_good_numenorean_culture = yes
+					}
+				}
 				add_trait = novice_healer
 			}
 			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0
+					NOR = {
+						mep_is_elf_culture = yes
+						mep_is_good_numenorean_culture = yes
+					}
+				}
 				add_trait = adept_healer
+			}
+			1 = {
 			}
 		}
 	}
