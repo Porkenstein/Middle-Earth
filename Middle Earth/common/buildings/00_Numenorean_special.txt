@@ -448,6 +448,55 @@ castle = {
             		FROMFROM = { title = b_argonath_anarion }
         		}
 	}
+	ca_elendil_tomb = { ### The Tomb of Elendil
+		desc = ca_elendil_tomb_desc
+		gold_cost = 850
+		build_time = 1460 #4y
+		liege_piety = 0.05
+		heavy_infantry = 150
+		garrison_size = 1.2			
+		ai_creation_factor = 86		
+        potential = {
+            FROMFROM = { title = b_tomb_of_elendil }
+			culture_group = culture_group_numenorean
+			has_province_modifier = mod_pop_display
+        }
+	}
+	ca_oath_eorl = { ### The Oath of Eorl
+		desc = ca_elendil_tomb_desc
+		gold_cost = 850
+		build_time = 1460 #4y
+		liege_piety = 0.05
+		heavy_infantry = 100
+		knights = 100
+		garrison_size = 1.2			
+		ai_creation_factor = 86		
+        potential = {
+			year = 10853
+            FROMFROM = { title = b_tomb_of_elendil }
+			OR = {
+				culture_group = culture_group_numenorean
+				culture = culture_rohirrim
+				culture = culture_eotheod
+			}
+			has_province_modifier = mod_pop_display
+        }
+	}
+	ca_meneltarma = { ### The Meneltarma
+		desc = ca_meneltarma_desc
+		gold_cost = 850
+		build_time = 1460 #4y
+		garrison_size = -100.0 # No men in this mountain			
+		ai_creation_factor = 86	
+		liege_piety = 0.5	
+		liege_prestige = 0.5			
+        potential = {
+            FROMFROM = { title = b_meneltarma }
+			has_province_modifier = mod_pop_display
+        }
+	}
+}
+city = {
 	
 	ct_Pelargir = { #Great port of Pelargir#
 		desc = ca_pelargir_desc
