@@ -478,8 +478,12 @@ character_event = {
 		NOT = { mep_is_immortal_race_trigger = yes }
 		NOT = { religion_group = religion_group_wilderness }
 		NOT = { religion_group = religion_group_khazad }
-		NOT = { trait = not_fertile }
-		NOT = { trait = dunedain_infertility }
+		NOT = {
+			culture_group = culture_group_dwarves
+		}
+		NOT = {
+			has_character_modifier = mep_sinfertile
+		}
 		is_alive = yes
 	}
 
@@ -531,8 +535,9 @@ character_event = {
 		NOT = { mep_is_immortal_race_trigger = yes }
 		NOT = { religion_group = religion_group_wilderness }
 		NOT = { religion_group = religion_group_khazad }
-		NOT = { trait = not_fertile }
-		NOT = { trait = dunedain_infertility }
+		NOT = {
+			has_character_modifier = mep_sinfertile
+		}
 		is_alive = yes
 	}
 
@@ -564,7 +569,11 @@ character_event = {
 		}
 		IF = {
 			limit = { age = 50 }
-			mep_addinfertile = yes
+			add_character_modifier = {
+				modifier = mep_sinfertile
+				duration = -1
+				hidden = yes
+			}
 		}
 	}
 
@@ -574,7 +583,11 @@ character_event = {
 		}
 		if = {
 			limit = { age = 45 }
-			mep_addinfertile = yes
+			add_character_modifier = {
+				modifier = mep_sinfertile
+				duration = -1
+				hidden = yes
+			}
 		}
 	}
 
@@ -584,7 +597,11 @@ character_event = {
 		}
 		if = {
 			limit = { age = 45 }
-			mep_addinfertile = yes
+			add_character_modifier = {
+				modifier = mep_sinfertile
+				duration = -1
+				hidden = yes
+			}
 		}
 	}
 
@@ -599,14 +616,20 @@ character_event = {
 	picture = GFX_evt_pregnancy
 	is_triggered_only = yes
 
+	immediate = {
+		add_character_modifier = {
+			modifier = mep_sinfertile
+			duration = -1
+			hidden = yes
+		}
+	}
+
 	option = {
 		name = "OPTAmepmarriage.14" #OK
 		if = {
 			limit = { trait = fertile }
 			remove_trait = fertile
 		}
-		add_trait = dunedain_infertility
-		set_character_flag = human_infertility
 	}
 } 
 #--------------------------------------------------------------------------------------------------
@@ -622,10 +645,19 @@ character_event = {
 	is_triggered_only = yes	
 
 	trigger = {
-		trait = dwarven # just be be sure...
-		NOT = { trait = dwarven_infertility }  # a separate event can addthis even before old age
-		# the condition below could perhaps be replaced by something more complicated later.
+		culture_group = culture_group_dwarves
 		age = 150
+		NOT = {
+			has_character_modifier = mep_sinfertile
+		}
+	}
+
+	immediate = {
+		add_character_modifier = {
+			modifier = mep_sinfertile
+			duration = -1
+			hidden = yes
+		}
 	}
 
 	option = {
@@ -634,7 +666,6 @@ character_event = {
 			limit = { trait = fertile }
 			remove_trait = fertile
 		}
-		add_trait = dwarven_infertility
 	}
 
 }
