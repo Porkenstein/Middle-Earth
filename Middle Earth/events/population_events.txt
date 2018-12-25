@@ -2891,6 +2891,18 @@ province_event = {
 				modifier = pop_wilderness
 				duration = -1
 			}
+			if = {
+				limit = {
+					NOT = {
+						owner = {
+							culture_group = culture_group_wilderness
+						}
+					}
+				}
+				province_event = {
+					id = colonisation.0
+				}
+			}
 		}
 		IF = {
 			limit = {
