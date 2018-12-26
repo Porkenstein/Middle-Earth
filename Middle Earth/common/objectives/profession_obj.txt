@@ -1,3 +1,64 @@
+obj_gain_profession = {
+	type = character
+	allow = {
+		NOT = {
+			has_profession_trigger = yes
+		}
+		OR = {
+
+			culture = culture_noldor
+
+			mep_is_elf_culture = yes
+
+			mep_is_good_numenorean_culture = yes
+
+			culture_group = culture_group_numenorean
+
+			culture_group = culture_group_halfling
+
+			culture_group = culture_group_middlemen
+
+			culture_group = culture_group_dwarves
+
+			culture_group = culture_group_easterling
+
+			culture_group = culture_group_southron
+
+			culture_group = culture_group_edain
+
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+
+			culture = culture_half_orc
+
+			culture = culture_goblin
+
+			culture = culture_orkish
+
+			culture = culture_urukhai
+
+		}
+	}
+	chance = {
+		factor = 30
+	}
+	creation_effect = {
+		character_event = {
+			id = profession_events.0
+		}
+	}
+	success = {
+		has_profession_trigger = yes
+	}
+	abort = {
+		trait = incapable
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
 obj_mastery_music = {
 	type = character
 	allow = {
