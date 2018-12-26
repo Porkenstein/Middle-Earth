@@ -267,10 +267,7 @@ character_event = {
 	option = {
 		name = "EVTOPTAmepmarriage.8"#Excellent...
 		trigger = { 
-			OR = {
-				NOT = { trait = blood_of_numenor }  
-				NOT = { trait = blood_of_numenor2 }
-			}
+			NOT = { trait = numenor_blood }
 		}
 		set_character_flag = orcmarriage2
 		create_random_soldier = {
@@ -324,10 +321,7 @@ character_event = {
 	option = {
 		name = "EVTOPTBmepmarriage.8"#Excellent...
 		trigger = { 
-			OR = {
-				trait = blood_of_numenor 
-				trait = blood_of_numenor2 
-			}
+			trait = numenor_blood
 		}
 		set_character_flag = orcmarriage2
 		create_random_soldier = {
@@ -346,7 +340,7 @@ character_event = {
 			trait = deceitful
 			trait = ambitious
 			trait = impaler
-			trait = blood_of_numenor2
+			trait = numenor_blood
 		}
 		create_random_soldier = {
 			dynasty = none
@@ -361,7 +355,7 @@ character_event = {
 			trait = ambitious
 			trait = lustful
 			trait = craven
-			trait = blood_of_numenor2
+			trait = numenor_blood
 		}
 		create_random_soldier = {
 			dynasty = none
@@ -377,38 +371,38 @@ character_event = {
 			trait = lustful
 			trait = impaler
 			trait = cruel
-			trait = blood_of_numenor2
+			trait = numenor_blood
 		}
 	}		
 }
 #--------------------------------------------------------------------------------------------------
 # Elven infertility after birth: I reduced the chance down to 40% (originally 60%)
-character_event = {
-	id = mepmarriage.10
-	title = "EVTTITmepmarriage.10"
-	desc = "EVTDESCmepmarriage.10"
-	picture = GFX_evt_pregnancy
+# character_event = {
+	# id = mepmarriage.10
+	# title = "EVTTITmepmarriage.10"
+	# desc = "EVTDESCmepmarriage.10"
+	# picture = GFX_evt_pregnancy
 	
-	is_triggered_only = yes	
+	# is_triggered_only = yes	
 	
-	trigger = {
-		is_female = yes
-		trait = elf
-	    NOT = { has_character_flag = elven_infertility }	
-	}
+	# trigger = {
+		# is_female = yes
+		# trait = elf
+	    # NOT = { has_character_flag = elven_infertility }	
+	# }
 		  
-	option = {
-		name = "EVTOPTAmepmarriage.10" #OK
-        random = { 
-			chance = 40
-			if = { limit = { trait = fertile }
-				remove_trait = fertile
-			}
-			add_trait = elven_infertility	
-			set_character_flag = elven_infertility
-	    }
-	}  
-}
+	# option = {
+		# name = "EVTOPTAmepmarriage.10" #OK
+        # random = { 
+			# chance = 40
+			# if = { limit = { trait = fertile }
+				# remove_trait = fertile
+			# }
+			# add_trait = elven_infertility	
+			# set_character_flag = elven_infertility
+	    # }
+	# }  
+# }
 # For Elves: triggered event for adding the 'marriedforever' trait that prevents remarriage
 character_event = {
 	id = mepmarriage.11
@@ -438,33 +432,33 @@ character_event = {
 	}
 }
 # Dwarven Inferitlity after Birth Event
-character_event = {
-	id = mepmarriage.12
-	title = "EVTTITmepmarriage.12"
-	desc = "EVTDESCmepmarriage.12"
-	picture = GFX_evt_pregnancy
-	religion_group = religion_group_khazad
+# character_event = {
+	# id = mepmarriage.12
+	# title = "EVTTITmepmarriage.12"
+	# desc = "EVTDESCmepmarriage.12"
+	# picture = GFX_evt_pregnancy
+	# religion_group = religion_group_khazad
 	
-	is_triggered_only = yes	
+	# is_triggered_only = yes	
 		
-	trigger = {
-		is_female = yes
-		trait = dwarven
-		NOT = { has_character_flag = dwarven_infertility }
-	}
+	# trigger = {
+		# is_female = yes
+		# trait = dwarven
+		# NOT = { has_character_flag = dwarven_infertility }
+	# }
 	
-	option = {
-		name = "EVTOPTAmepmarriage.12" #OK
-		random = { 
-			chance = 35
-			if = { limit = { trait = fertile }
-				remove_trait = fertile
-			}
-			add_trait = dwarven_infertility	
-			set_character_flag = dwarven_infertility
-	    }
-	} 
-}
+	# option = {
+		# name = "EVTOPTAmepmarriage.12" #OK
+		# random = { 
+			# chance = 35
+			# if = { limit = { trait = fertile }
+				# remove_trait = fertile
+			# }
+			# add_trait = dwarven_infertility	
+			# set_character_flag = dwarven_infertility
+	    # }
+	# } 
+# }
 
 # Simple infertility events
 # hidden event that dispatches mepmarriage.14 or just adds not_fertile if conditions are correct

@@ -134,15 +134,14 @@ character_event = {
 			# Blood of Numenor, with a chance of it weakening
 			if = {
 				limit = {
-					father = { trait = blood_of_numenor } # father is
-					mother = { trait = blood_of_numenor } # mother is
+					father = { trait = numenor_blood } # father is
+					mother = { trait = numenor_blood } # mother is
 				}
 				random_list = {
 					3 = { 
-						add_trait = blood_of_numenor2
 					}
 					97 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 				}
 			}
@@ -151,97 +150,20 @@ character_event = {
 				limit = {
 					OR = {
 						AND = {
-							father = { trait = blood_of_numenor } # father is
-							NOT = { mother = { trait = blood_of_numenor } } # mother is not
-							NOT = { mother = { trait = blood_of_numenor2 } } # mother is not - weaken					
+							father = { trait = numenor_blood } # father is
+							NOT = { mother = { trait = numenor_blood } } # mother is not					
 						}
 						AND = {
-							NOT = { father = { trait = blood_of_numenor } } # father is not
-							NOT = { father = { trait = blood_of_numenor } } # father is not - weaken				
-							mother = { trait = blood_of_numenor } # mother is
+							NOT = { father = { trait = numenor_blood } } # father is not			
+							mother = { trait = numenor_blood } # mother is
 						}
 					}
 				}
 				random_list = {
 					35 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 					65 = {
-						add_trait = blood_of_numenor2
-					}
-				}
-			}
-			# Even if both have weak blood, it could strengthen
-			if = {
-				limit = {
-					father = { trait =  blood_of_numenor2 } # father is
-					mother = { trait =  blood_of_numenor2 } # mother is
-				}
-				random_list = {
-					5 = { 
-						prestige = 10
-					}
-					80 = {
-						add_trait = blood_of_numenor2
-					}
-					15 = {
-						add_trait = blood_of_numenor
-					}
-				}
-			}
-			# A bigger chance of strengthening
-			if = {
-				limit = {
-					father = { trait =  blood_of_numenor } # father is
-					mother = { trait =  blood_of_numenor2 } # mother is
-				}
-				random_list = {
-					25 = {
-						add_trait = blood_of_numenor2
-					}
-					75 = {
-						add_trait = blood_of_numenor
-					}
-				}
-			}
-			
-			if = {
-				limit = {
-					father = { trait =  blood_of_numenor2 } # father is
-					mother = { trait =  blood_of_numenor } # mother is
-				}
-				random_list = {
-					40 = {
-						add_trait = blood_of_numenor2
-					}
-					60 = {
-						add_trait = blood_of_numenor
-					}
-				}
-			}
-			# ordinary weak numemnor blood breeding
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait =  blood_of_numenor2 } # father is
-							NOT = { mother = { trait =  blood_of_numenor2 } } # mother is not
-						}
-						AND = {
-							NOT = { father = { trait =  blood_of_numenor2 } } # father is not
-							mother = { trait =  blood_of_numenor2 } # mother is
-						}
-					}
-				}
-				random_list = {
-					25 = { 
-						prestige = 10
-					}
-					12 = {
-						add_trait = blood_of_numenor
-					}
-					63 = {
-						add_trait = blood_of_numenor2
 					}
 				}
 			}
@@ -381,7 +303,6 @@ character_event = {
 			}
 			if = {
 				limit = {
-					
 					real_father = { trait = elven_blood } # real_father is
 					mother = { trait = elven_blood } # mother is
 			
@@ -414,17 +335,14 @@ character_event = {
 		
 			if = {
 				limit = {
-			
-					real_father = { trait = blood_of_numenor } # real_father is
-					mother = { trait = blood_of_numenor } # mother is
-				
+					real_father = { trait = numenor_blood } # real_father is
+					mother = { trait = numenor_blood } # mother is
 				}
 				random_list = {
 					3 = { 
-						add_trait = blood_of_numenor2
 					}
 					97 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 				}
 			}
@@ -432,105 +350,51 @@ character_event = {
 				limit = {
 					OR = {
 						AND = {
-							real_father = { trait = blood_of_numenor } # real_father is
-							NOT = { mother = { trait = blood_of_numenor } } # mother is not
-							NOT = { mother = { trait = blood_of_numenor2 } } # mother is not - weaken					
+							real_father = { trait = numenor_blood } # real_father is
+							NOT = { mother = { trait = numenor_blood } } # mother is not					
 						}
 						AND = {
-							NOT = { real_father = { trait = blood_of_numenor } } # real_father is not
-							NOT = { real_father = { trait = blood_of_numenor } } # real_father is not - weaken				
-							mother = { trait = blood_of_numenor } # mother is
+							NOT = { real_father = { trait = numenor_blood } } # real_father is not
+							NOT = { real_father = { trait = numenor_blood } } # real_father is not - weaken				
+							mother = { trait = numenor_blood } # mother is
 						}
 					}
 				}
 				random_list = {
 					35 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 					65 = {
-						add_trait = blood_of_numenor2
-					}
-				}
-			}
-			if = {
-				limit = {
-				
-					real_father = { trait =  blood_of_numenor2 } # real_father is
-					mother = { trait =  blood_of_numenor2 } # mother is
-				
-				}
-				random_list = {
-					5 = { 
-						prestige = 10
-					}
-					80 = {
-						add_trait = blood_of_numenor2
-					}
-					15 = {
-						add_trait = blood_of_numenor
 					}
 				}
 			}
 		
 			if = {
 				limit = {
-			
-					real_father = { trait =  blood_of_numenor } # real_father is
-					mother = { trait =  blood_of_numenor2 } # mother is
-				
+					real_father = { trait =  numenor_blood } # real_father is
 				}
 				random_list = {
 					25 = {
-						add_trait = blood_of_numenor2
 					}
 					75 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 				}
 			}
 		
 			if = {
 				limit = {
-				
-					real_father = { trait =  blood_of_numenor2 } # real_father is
-					mother = { trait =  blood_of_numenor } # mother is
-				
+					mother = { trait =  numenor_blood } # mother is
 				}
 				random_list = {
 					40 = {
-						add_trait = blood_of_numenor2
 					}
 					60 = {
-						add_trait = blood_of_numenor
+						add_trait = numenor_blood
 					}
 				}
 			}
 		
-		if = {
-			limit = {
-				OR = {
-					AND = {
-						real_father = { trait =  blood_of_numenor2 } # real_father is
-						NOT = { mother = { trait =  blood_of_numenor2 } } # mother is not
-					}
-					AND = {
-						NOT = { real_father = { trait =  blood_of_numenor2 } } # real_father is not
-						mother = { trait =  blood_of_numenor2 } # mother is
-					}
-				}
-			}
-			random_list = {
-				25 = { 
-					prestige = 10
-				}
-				12 = {
-					add_trait = blood_of_numenor
-				}
-				63 = {
-					add_trait = blood_of_numenor2
-				}
-			}
-		}
 		if = {
 			limit = {
 				

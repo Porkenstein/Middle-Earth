@@ -11,14 +11,10 @@ character_event = {
 		
 	trigger = {
 		has_landed_title = e_gondor
-		OR = {
-			trait = blood_of_numenor
-			trait = blood_of_numenor2
-		}
+		trait = numenor_blood
 		current_heir = {
 			age = 5
-			NOT = { trait = blood_of_numenor }
-			NOT = { trait = blood_of_numenor2 }
+			NOT = { trait = numenor_blood }
 			NOT = { trait = elven_blood }
 			NOT = { trait = half_elf }
 		}
@@ -55,8 +51,7 @@ character_event = {
 			culture = culture_arnorian
 			religion = religion_dunedain
 		}
-		NOT = { trait = blood_of_numenor }
-		NOT = { trait = blood_of_numenor2 }
+		NOT = { trait = numenor_blood }
 		NOT = { trait = elven_blood }
 		NOT = { trait = half_elf }
 		NOT = { has_character_flag = newkinstrife2 }
@@ -94,7 +89,7 @@ character_event = {
 			culture = culture_dunedain
 			culture = culture_arnorian
 		}
-		trait = blood_of_numenor
+		trait = numenor_blood
 		NOT = { has_character_flag = newkinstrife3 }
 		NOT = { has_landed_title = e_gondor }
 		NOT = { has_landed_title = e_arnor  }
@@ -113,10 +108,7 @@ character_event = {
 
 		any_playable_ruler  = {
 			limit = {
-				OR = {
-					trait = blood_of_numenor
-					trait = blood_of_numenor2
-				}
+				trait = numenor_blood
 				trait = blood_of_isildur
 				NOT = { has_landed_title = e_gondor }
 				NOT = { has_landed_title = e_arnor }
@@ -179,10 +171,7 @@ character_event = {
 		trigger = { NOT = { has_global_flag = newkinstrife2 } }
 		any_playable_ruler = {
 			limit = {
-				OR = {
-					trait = blood_of_numenor
-					trait = blood_of_numenor2
-				}
+				trait = numenor_blood
 				higher_tier_than = DUKE
 				top_liege = {
 					has_landed_title = e_gondor
@@ -214,10 +203,7 @@ character_event = {
 		name = "EVTOPTAnewkinstrife.6"#Yes, immediately!
 		any_playable_ruler = {
 			limit = {
-			OR = {
-				trait = blood_of_numenor
-				trait = blood_of_numenor2
-			}
+			trait = numenor_blood
 			top_liege = {
 				has_landed_title = e_gondor
 			}
@@ -274,10 +260,7 @@ character_event = {
 		set_character_flag = kinstrifeplotter
 		any_playable_ruler = {
 			limit = {
-				OR = {
-					trait = blood_of_numenor
-					trait = blood_of_numenor2
-				}
+				trait = numenor_blood
 				has_character_flag = kinstrifeclaimant
 				top_liege = {
 					has_landed_title = e_gondor
@@ -318,10 +301,7 @@ character_event = {
 	picture = "GFX_kinstrife"
 
 	trigger = {
-		OR = {
-			trait = blood_of_numenor
-			trait = blood_of_numenor2
-		}
+		trait = numenor_blood
 		has_character_flag = kinstrifeclaimthethrone
 	}
 
@@ -357,10 +337,7 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				OR = {
-					trait = blood_of_numenor
-					trait = blood_of_numenor2
-				}
+				trait = numenor_blood
 				has_character_flag = kinstrifeplotter
 				top_liege = {
 					has_landed_title = e_gondor
@@ -503,10 +480,7 @@ character_event = {
 	picture = "GFX_kinstrife"
 
 	trigger = {
-		OR = {
-			trait = blood_of_numenor
-			trait = blood_of_numenor2
-		}
+		trait = numenor_blood
 		has_character_flag = newkinstrife18
 	}
 
@@ -542,10 +516,7 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				OR = {
-					trait = blood_of_numenor
-					trait = blood_of_numenor2
-				}
+				trait = numenor_blood
 				has_character_flag = kinstrifeplotter
 			}
 			character_event = { id = newkinstrife.17 }
