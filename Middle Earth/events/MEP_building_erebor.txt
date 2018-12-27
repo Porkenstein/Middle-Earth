@@ -384,50 +384,9 @@ character_event = {
 		piety = 100
 		set_global_flag = erebor_built
 		clr_global_flag = building_erebor	
-		add_trait = erebor_founder
 		b_gate_of_erebor = { #castle
 			remove_building = ca_lonely_mountain
 			add_building = ca_erebor			
-		}
-		#b_chamber_of_thror = { #city
-		#	remove_building = ct_lonely_mountain
-		#	# add_building = ct_erebor
-		#}
-		#b_hall_of_thrain = { #city
-		#	remove_building = ct_lonely_mountain
-		#	# add_building = ct_erebor
-		#}
-		b_ravenhill = { #castle
-			remove_building = ca_lonely_mountain
-			# add_building = ca_erebor			
-		}	
-		#b_hall_of_treasure = { #city
-		#	remove_building = ct_lonely_mountain
-		#	# add_building = ct_erebor
-		#}
-		b_back_door = { #castle
-			remove_building = ca_lonely_mountain
-			# add_building = ca_erebor			
-		}
-		#b_erebor = { #city
-		#	remove_building = ct_lonely_mountain
-		#	# add_building = ct_erebor
-		#}			
-	}		
-}
-
-## Building of Erebor - Major Success - Gem mines ##
-character_event = {
-	id = building_erebor.8
-	title = "EVTTITbuilding_erebor.8"
-	desc = "EVTDESCbuilding_erebor.8"
-	picture = GFX_evt_dwarves_mines
-
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTAbuilding_erebor.8" ## Great !
-		add_trait = erebor_gem_mine
-		character_event = { id = building_erebor.7 days = 60 }		
+		}		
 	}		
 }
