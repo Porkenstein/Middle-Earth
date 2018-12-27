@@ -1,0 +1,55 @@
+decisions = {
+	raise_patrols = {
+		potential = {
+			capital_scope = {
+				NOT = {
+					has_province_modifier = city_patrol
+				}
+			}
+		}
+		allow = {
+			capital_scope = {
+				NOT = {
+					has_province_modifier = city_patrol
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					modifier = city_patrol
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	dismiss_patrols = {
+		potential = {
+			capital_scope = {
+				has_province_modifier = city_patrol
+			}
+		}
+		allow = {
+			capital_scope = {
+				has_province_modifier = city_patrol
+			}
+		}
+		effect = {
+			capital_scope = {
+				remove_province_modifier = city_patrol
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 100
+				NOT = {
+					wealth = 0
+				}
+			}
+		}
+	}
+}
