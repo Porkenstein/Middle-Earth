@@ -1,45 +1,4 @@
 castle = {
- ca_lonely_mountain = { #Erebor wilderness#
-		desc = ca_lonely_mountain_desc
-		gold_cost = 10
-		build_time = 10
-		garrison_size = -2
-		tax_income = -1
-		ai_creation_factor = 110
-		add_number_to_name = no
-        	potential = {
-            		province_id = 292 #Erebor
-			NOT = { has_global_flag = erebor_built }
-			NOT = { year = 10342 }			
-            }
-	}
-	ca_erebor = { #Erebor#
-		desc = ca_erebor_desc
-		not_if_x_exists = { ca_lonely_mountain }
-		gold_cost = 1060
-		build_time = 3790
-		fort_level = 6
-		garrison_size = 2
-		tech_growth_modifier = 0.5
-		tax_income = 5
-		heavy_infantry = 105
-		archers = 50
-		pikemen = 50
-		ai_creation_factor = 106
-		add_number_to_name = no
-        potential = {
-        	FROMFROM = { title = b_gate_of_erebor }
-			FROM = {
-			    NOT = { culture_group = culture_group_melkor }
-				culture_group = culture_group_dwarves
-			}
-			ROOT = {
-			    NOT = { culture_group = culture_group_wilderness}
-			    culture_group = culture_group_dwarves
-			}
-        }
-	}
-	
 	ca_azanulimbardum = { #Azanulimbar-dûm#
 		desc = ca_azanulimbardum_desc
 		gold_cost = 510
