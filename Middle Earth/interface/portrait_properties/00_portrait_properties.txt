@@ -1,6 +1,4 @@
 # The choice is made based on a weighted random, but the first factor that evaluates to >= 100 will be automatically chosen
-# Two passes are done when choosing properties; first from lowest to highest, then from highest to lowest. Be aware of this if you reference other properties, as the old properties will still be active in the first pass
-# hide_layers is interpreted from bottom to top. Hidden layers won't hide other layers, but if a lower layer hides a higher layer, the higher layer won't be rechecked, so it might still be hiding other layers despite being hidden itself
 
 # p0 background
 0 = {
@@ -8,30 +6,25 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			NOT = { religion_group = christian }
+		}
+		modifier = {
+			factor = 0
 			is_nomadic = yes
 		}
 	}
 
 	1 = { #throne room
-		factor = 15
+		factor = 50
 		modifier = {
 			factor = 0
 			NOT = { real_tier = king }
 			NOT = { real_tier = emperor }
 		}
 		modifier = {
-			factor = 5
-			OR = { 
-				real_tier = emperor 
-				spouse = { real_tier = emperor }
-			}
-		}
-		modifier = {
 			factor = 0
-			OR = {
-				is_nomadic = yes
-				is_tribal = yes
-			}
+			is_nomadic = yes
+			is_tribal = yes
 		}
 	}
 
@@ -40,7 +33,6 @@
 		modifier = {
 			factor = 0
 			prisoner = no
-			NOT = { death_reason = death_dungeon }
 		}
 	}
 
@@ -48,58 +40,41 @@
 		factor = 1
 		modifier = {
 			factor = 0
+			religion_group = muslim
 		}
 		modifier = {
 			factor = 0.01
 			is_nomadic = yes
 		}
-	#	modifier = {
-	#		factor = 10
-	#		is_tribal = yes
-	#	}
+		modifier = {
+			factor = 10
+			is_tribal = yes
+		}
 	}
 
 	4 = { # bed
 		factor = 100
 		modifier = {
 			factor = 0
-			is_alive = yes
 			NOT = { trait = incapable }
 			NOT = { trait = infirm }
 		}
 		modifier = {
-			factor = 0.001
-			OR = {
-				death_sacrificed_trigger = yes
-				death_reason = death_battle
-				death_execution_trigger = yes
-				death_reason = death_dungeon
-			}
-		}
-		modifier = {
 			factor = 0.02
 			trait = infirm
-			is_alive = yes
 		}
 	}
 	
-	5 = { # secret room
+	5 = { # tavern
 		factor = 100
 		modifier = {
 			factor = 0
-		modifier = {
-			factor = 0
-			NOR = { 
-				trait = drunkard
-				trait = hedonist
-				trait = lustful
-			}
-		}
-		modifier = {
-			factor = 0.25
-			OR = {
-				higher_real_tier_than = DUKE
-				spouse = { higher_real_tier_than = DUKE } 
+			NOT = { 
+				OR = {
+					trait = drunkard
+					trait = hedonist
+					trait = lustful
+				}
 			}
 		}
 	}
@@ -108,17 +83,8 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			OR = {
-				AND = {
-					is_alive = yes
-					in_command = no
-					NOT = { has_job_title  = job_marshal }
-				}
-				AND = {
-					is_alive = no
-					NOT = { death_reason = death_battle }
-				}
-			}
+			in_command = no
+			NOT = { has_job_title  = job_marshal }
 		}
 		modifier = {
 			factor = 0.02
@@ -128,43 +94,37 @@
 	7 = { # Dolmen
 		factor = 5
 		modifier = {
-			factor = 100
-			is_alive = no
+			factor = 0
+			NOT = { religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 2
+			is_priest = yes
 		}
 	}
 	8 = { # Gallows
-		factor = 5
+			factor = 5
 		modifier = {
 			factor = 0
 			NOT = { trait = cruel }
 			NOT = { trait = impaler }
-			NOT = { death_execution_trigger = yes }
 		}
 		modifier = {
 			factor = 20
-			OR = {
-				trait = impaler
-				death_execution_trigger = yes
-			}
-		}
-		modifier = {
-			factor = 0.75
-			OR = {
-				higher_real_tier_than = DUKE
-				spouse = { higher_real_tier_than = DUKE } 
-			}
+			trait = impaler
 		}
 	}
-	
 	9 = { # Church
 		factor = 100
 		modifier = {
 			factor = 0
+			NOT = { religion_group = christian }
+		}
 		modifier = {
 			factor = 0
-			NOR = {
-				is_theocracy = yes
-				has_job_title = job_spiritual
+			OR = {
+				is_ruler = no
+				is_theocracy = no
 			}
 		}
 	}
@@ -172,20 +132,11 @@
 		factor = 5
 		modifier = {
 			factor = 0
-			OR = {
-				higher_real_tier_than = COUNT
-				spouse = { higher_real_tier_than = COUNT } 
-			}
-		}
-		modifier = {
-			factor = 10
-			OR = {
-				is_tribal = yes
-				is_nomadic = yes
-			}
+			NOT = { culture_group = culture_group_southron }
+			#NOT = { capital_scope = { terrain = desert } }
+			#NOT = { capital_scope = { terrain = coastal_desert } }
 		}
 	}
-	
 	11 = { # Steppe
 		factor = 1
 		modifier = {
@@ -199,41 +150,18 @@
 		}
 		modifier = {
 			factor = 10
-			OR = {
-				is_tribal = yes
-				is_nomadic = yes
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				higher_real_tier_than = COUNT
-				spouse = { higher_real_tier_than = COUNT } 
-			}
+			is_nomadic = yes
 		}
 	}
-	
 	12 = { # Ocean w ships
 		factor = 10
 		modifier = {
 			factor = 0
-			OR = { 
-				capital_scope = { 
-					NOT = { 
-						port = yes 
-					} 
-				}
-				location = { 
-					NOT = { 
-						terrain = coastal_desert 
-					} 
-				}
-			}
+			is_patrician = no
 		}
 	}
-	
 	13 = { # Muslim interior
-		factor = 2
+		factor = 1
 		modifier = {
 			factor = 0
 			NOT = { culture_group = culture_group_southron }
@@ -243,7 +171,7 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { culture_group = culture_group_southron }
+			NOT = { religion_group = muslim }
 		}
 		modifier = {
 			factor = 100
@@ -254,11 +182,10 @@
 		}
 	}
 	15 = { # Muslim interior 2
-		factor = 10
+		factor = 5
 		modifier = {
 			factor = 0
-			lower_real_tier_than = DUKE
-			spouse = { lower_real_tier_than = DUKE } 
+			NOT = { religion_group = muslim }
 		}
 	}
 
@@ -266,20 +193,28 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			is_nomadic = no
-		}
+			NOT = { culture = mongol }
 		}
 	}
 
 	17 = { # Mongol camp 2
-		factor = 10
+		factor = 1
 		modifier = {
 			factor = 0
-			lower_real_tier_than = DUKE
-			spouse = { lower_real_tier_than = DUKE } 
+			NOT = { culture = mongol }
 		}
 	}
 
+	18 = { # Papal palace
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_landed_title = k_papal_state }
+			NOT = { has_landed_title = d_fraticelli }
+			NOT = { has_claim = k_papal_state }
+			NOT = { has_claim = d_fraticelli }
+		}
+	}
 
 	19 = { # Muslim mosque
 		factor = 100
@@ -287,11 +222,12 @@
 			factor = 0
 			NOT = { religion_group = muslim }
 		}
+
 		modifier = {
 			factor = 0
-			NOR = {
-				is_theocracy = yes
-				has_job_title = job_spiritual
+			OR = {
+				is_ruler = no
+				is_theocracy = no
 			}
 		}
 	}
@@ -300,32 +236,11 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { death_sacrificed_trigger = yes }
+			NOT = { religion_group = religion_group_melkor }
 		}
 		modifier = {
-			factor = 1000
-			death_sacrificed_trigger = yes
-		}
-	23 = { # ocean window
-		factor = 5
-		modifier = {
-			factor = 0
-			lower_real_tier_than = DUKE
-			spouse = { lower_real_tier_than = DUKE } 
-		}
-		modifier = {
-			factor = 5
-			location = { 
-				port = yes 
-			}
-		}
-	}
-	24 = { # field window
-		factor = 5
-		modifier = {
-			factor = 0
-			lower_real_tier_than = DUKE
-			spouse = { lower_real_tier_than = DUKE } 
+			factor = 10
+			is_priest = yes
 		}
 	}
 }
@@ -371,27 +286,8 @@
 		factor = 1
 	}
 
-	6 = {  # Tonsure
+	6 = { 
 		factor = 1
-		modifier = {
-			factor = 0
-			is_female = no
-			higher_real_tier_than = unlanded
-		}
-		modifier = {
-			factor = 0
-			is_female = no
-			NOT = { trait = detached_priest }
-			NOT = { trait = martial_cleric }
-			NOT = { trait = scholarly_theologian }
-			NOT = { trait = mastermind_theologian }
-			NOT = { has_job_title = job_spiritual }
-		}
-
-		modifier = {
-			factor = 50
-			is_female = no
-		}
 	}
 	
 	7 = {  # Short
@@ -464,21 +360,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 1 }
-				has_portrait_property = { layer = 3 index = 2 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
@@ -509,21 +390,6 @@
 	
 	1 = { # Royal clothes 2
 		factor = 1
-		modifier = {
-			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 0 }
-				has_portrait_property = { layer = 3 index = 2 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
 		modifier = {
 			factor = 0
 			OR = {
@@ -559,21 +425,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 0 }
-				has_portrait_property = { layer = 3 index = 1 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
@@ -607,21 +458,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 4 }
-				has_portrait_property = { layer = 3 index = 5 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
@@ -651,21 +487,6 @@
 	
 	4 = { # Noble clothes 2
 		factor = 1
-		modifier = {
-			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 3 }
-				has_portrait_property = { layer = 3 index = 5 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
 		modifier = {
 			factor = 0
 			OR = {
@@ -699,21 +520,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 3 }
-				has_portrait_property = { layer = 3 index = 4 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
@@ -745,21 +551,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 7 }
-				has_portrait_property = { layer = 3 index = 8 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
 			OR = {
@@ -789,21 +580,6 @@
 	7 = { # Modest clothes 2
 		factor = 1
 		modifier = {
-			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 6 }
-				has_portrait_property = { layer = 3 index = 8 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
 			factor = 20000
 			character = 10009 # Irmo Lorien
 		}			
@@ -826,21 +602,6 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			OR = { #Prevent clothes switching on portrait refresh.
-				has_portrait_property = { layer = 3 index = 6 }
-				has_portrait_property = { layer = 3 index = 7 } 
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
 			NOT = { character = 10001 }
@@ -859,18 +620,6 @@
 	}
 	9 = { # Shady clothes
 		factor = 3
-		modifier = {
-			factor = 0
-			in_command = yes
-			has_game_rule = {
-				name = martial_headgear
-				value = on
-			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
 		modifier = {
 			factor = 0
 			OR = {
