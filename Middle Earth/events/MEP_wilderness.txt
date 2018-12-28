@@ -451,11 +451,9 @@ province_event = {	#Lower Population, 10% Yearly
 		}
 		IF = {
 			limit = {
-				NOT = {
-					check_variable = {
-						which = population
-						value = 100
-					}
+				check_variable = {
+					which = population
+					value < 100
 				}
 			}
 			province_event = {
