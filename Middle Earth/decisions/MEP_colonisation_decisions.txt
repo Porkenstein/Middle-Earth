@@ -92,6 +92,7 @@ title_decisions = {
 						which = population
 						value = -1000
 					}
+					save_event_target_as = capital
 					IF = {
 						limit = {
 							NOT = {
@@ -100,7 +101,7 @@ title_decisions = {
 						}
 						ROOT = {
 							location = {
-								culture = PREV
+								culture = event_target:capital
 							}
 						}
 					}
@@ -122,7 +123,7 @@ title_decisions = {
 						}
 						ROOT = {
 							location = {
-								religion = PREV
+								religion = event_target:capital
 							}
 						}
 					}
@@ -149,7 +150,6 @@ title_decisions = {
 				}
 				province_event = {
 					id = population_events.21
-					days = 1
 				}
 			}
 		}
