@@ -406,10 +406,10 @@ province_event = {	#Establish Base Populations
 					    factor = 0
 						culture_group = culture_group_wilderness
 					}
-					modifier = {#Population of Minas Morgul
+					modifier = {#Population of Minas Ithil
 					    factor = 10000
 						AND = {
-						    province_id = 426 #Minas Morgul
+						    province_id = 426 #Minas Ithil
 						    culture_group = culture_group_numenorean
 							NOT = {
 						    year = 10345
@@ -418,7 +418,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable ={
 					    which = population
-						value = 54000
+						value = 37000
 					}
 				}
 				#Minas Morgul
@@ -437,7 +437,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable ={
 					    which = population
-						value = 460000
+						value = 15000
 					}
 				}
 				###Osgiliath
@@ -835,7 +835,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 10000 #Human Slaves
+						value = 75000 #Human Slaves
 					}
 				}
 				1 = {
@@ -865,7 +865,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 1500000 #Obviously
+						value = 90000 #Administrative and logistic staff alongside military
 					}
 				}
 				1 = {
@@ -893,7 +893,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 200000
+						value = 10000
 					}
 				}
 				1 = {
@@ -1674,7 +1674,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 5000
+						value = 4500
 					}
 				}
 				1 = {
@@ -1690,7 +1690,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 320000
+						value = 13000
 					}
 				}
 				1 = {
@@ -1706,7 +1706,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 13000
+						value = 4000
 					}
 				}
 				1 = {
@@ -1722,7 +1722,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 240000
+						value = 6000
 					}
 				}
 				#Rohan before it was settled by Eorl
@@ -1814,7 +1814,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 130000
+						value = 6700
 					}
 				}
 				#################
@@ -1888,7 +1888,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 420000
+						value = 50000
 					}
 				}
 				1 = {
@@ -2389,7 +2389,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 350
+						value = 13500
 					}
 				}
 				#After Saurons Invasion
@@ -2427,7 +2427,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 22400
+						value = 54000
 					}
 				}
 				1 = {
@@ -2555,7 +2555,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 430000
+						value = 130000
 					}
 				}
 				1 = {
@@ -2586,7 +2586,7 @@ province_event = {	#Establish Base Populations
 					}
 					set_variable = {#Population
 						which = population
-						value = 5200
+						value = 5300
 					}
 				}
 				###Dale
@@ -2619,6 +2619,9 @@ province_event = {	#Establish Base Populations
 						region = custom_dale
 						culture_group = culture_group_middlemen
 						province_id = 529 #Dale
+						NOR = { 
+						    year = 11361
+						}
 					}
 					set_variable = {#Population
 						which = population
@@ -2634,11 +2637,28 @@ province_event = {	#Establish Base Populations
 						factor = 10000
 						region = custom_dale
 						culture_group = culture_group_middlemen
+						province_id = 529 #Dale
+						year = 11361
+					}
+					set_variable = {#Population
+						which = population
+						value = 9400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dale
+						culture_group = culture_group_middlemen
 					    province_id = 540 #Esgaroth, Lake Town
 					}
 					set_variable = {#Population
 						which = population
-						value = 114000
+						value = 1500
 					}
 				}
 				###Dorwinion
@@ -2865,7 +2885,6 @@ province_event = {	#Establish Base Populations
 		}
 		province_event = {
 			id = population_events.21
-			days = 1
 		}
 	}
 }
@@ -2972,7 +2991,6 @@ character_event = {
 			}
 			province_event = {
 				id = population_events.21
-				days = 1
 			}
 		}
 	}
