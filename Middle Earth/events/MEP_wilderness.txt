@@ -1,5 +1,5 @@
 namespace = colonisation
-province_event = {	#Failed Colonization
+province_event = {	#Dead Province
 	id = colonisation.0
 	hide_window = yes
 	is_triggered_only = yes
@@ -49,11 +49,9 @@ province_event = {	#Failed Colonization
 
 	trigger = {
 		has_province_modifier = being_colonised
-		NOT = {
-			check_variable = {
-				which = population
-				value = 100
-			}
+		check_variable = {
+			which = population
+			value <= 100
 		}
 	}
 
