@@ -259,6 +259,11 @@ other_claim = {
 		ROOT = {
 			mercenary = no
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_title = {
@@ -301,7 +306,6 @@ other_claim = {
 		
 		FROM = {
 			NOT = { culture_group = culture_group_wilderness }
-
 			NOT = {
 				any_war = { # when used in title scope, checks all wars for that title
 					attacker = {
@@ -659,6 +663,11 @@ claim_on_liege = {
 			}
 		}
 		is_vice_royalty = no
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	is_valid = {
@@ -920,6 +929,11 @@ claim_on_liege_plot = {
 				is_liege_or_above = FROM
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	is_valid = {
@@ -1130,6 +1144,11 @@ claim_on_vassal_plot = {
 				de_facto_liege = ROOT
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid_title = {
@@ -1254,6 +1273,9 @@ other_claim_on_liege = {
 
 		FROM = {
 			has_landed_title = PREV
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		
 		OR = { 
@@ -1624,6 +1646,11 @@ claim_all = {
 				value = 2
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid = {
@@ -1777,6 +1804,9 @@ change_seniority_succession_law = {
 				liege_before_war = {
 					in_revolt = no
 				}
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 		ROOT = {
@@ -1954,6 +1984,11 @@ change_primogeniture_succession_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM	
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 	
@@ -2145,6 +2180,11 @@ change_feudal_elective_succession_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM	
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -2656,6 +2696,9 @@ bid_for_independence = {
 					}
 				}
 			}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -2886,6 +2929,9 @@ depose_liege = {
 					}
 				}
 			}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -3023,6 +3069,9 @@ overthrow_ruler = {
 		FROM = {
 			primary_title = {
 				is_vice_royalty = no
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 		ROOT = {
@@ -3215,6 +3264,9 @@ overthrow_ruler_no_calls = {
 			primary_title = {
 				is_vice_royalty = no
 			}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		ROOT = {
 			de_facto_liege = FROM
@@ -3347,6 +3399,11 @@ change_gavelkind_succession_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM	
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 	
@@ -3533,6 +3590,11 @@ lower_crown_authority_law = {
 			vassal_of = FROM
 		}
 		NOT = { has_dlc = "Zeus" }
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	can_use_title = {
@@ -3708,6 +3770,11 @@ lower_tribal_organization_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 	
@@ -3898,6 +3965,11 @@ coastal_republic = {
 			NOT = { same_liege = FROM }
 			mercenary = no
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_title = {
@@ -4057,6 +4129,11 @@ coastal_county_republic = {
 			NOT = { is_vassal_or_below = FROM }
 			NOT = { same_liege = FROM }
 			mercenary = no
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -4255,6 +4332,11 @@ weaken_vassal_plot = {
 				is_liege_or_above = FROM
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid_title = {
@@ -4414,6 +4496,11 @@ cb_faction_independence = {
 		ROOT = {
 			vassal_of = FROM
 			mercenary = no
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -4687,6 +4774,9 @@ embargo_cb = {
 					}
 				}
 			}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -4879,6 +4969,9 @@ seize_trade_post = {
 		}
 		FROM = {
 			NOT = { is_liege_or_above = ROOT }
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -5021,6 +5114,11 @@ peasant_revolt = {
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_title = {
@@ -5127,6 +5225,11 @@ heretic_revolt = {
 	
 	can_use = {
 		ROOT = { has_character_flag = heretic_revolter }
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	is_valid = {
@@ -5274,6 +5377,11 @@ religious_revolt = {
 	
 	can_use = {
 		ROOT = { has_character_flag = religious_revolter }
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	is_valid = {
@@ -5421,6 +5529,11 @@ liberation_revolt = {
 	
 	can_use = {
 		ROOT = { has_character_flag = nationalist_rebel }
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_title = {
@@ -5562,6 +5675,11 @@ duchy_adventure = {
 
 	can_use = {
 		ROOT = { has_character_flag = duchy_adventurer }
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid = {
@@ -5892,22 +6010,9 @@ dejure_barony_claim = {
 	sort_priority = 650
 	can_use = {
 		FROM = {
-			# The following is meant to ensure that this CB can be used to seize the holdings
-			# of holy orders only if you have expelled them.
-			# conditions  could be modified for middle-earth use
-			#OR = {
-			#	holy_order = no
-			#	NOT = { religion = ROOT }
-			#	NOT = { has_dlc = "Sons of Abraham" }
-			#	OR = {
-			#		AND = {
-			#			primary_title = { title = d_knights_templar }
-			#			ROOT = {
-			#				has_character_modifier = expelled_d_knights_templar
-			#			}
-			#		}
-			#	}
-			#}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -6080,22 +6185,9 @@ other_dejure_county_claim = {
 		}
 		
 		FROM = {
-			# The following is meant to ensure that this CB can be used to seize the holdings
-			# of holy orders only if you have expelled them.
-			# conditions  could be modified for middle-earth use
-			#OR = {
-			#	holy_order = no
-			#	NOT = { religion = ROOT }
-			#	NOT = { has_dlc = "Sons of Abraham" }
-			#	OR = {
-			#		AND = {
-			#			primary_title = { title = d_knights_templar }
-			#			ROOT = {
-			#				has_character_modifier = expelled_d_knights_templar
-			#			}
-			#		}
-			#	}
-			#}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		
 		mercenary = no
@@ -6883,6 +6975,11 @@ free_tributary_cb = {
 				}
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_gui = {
@@ -7190,6 +7287,11 @@ cb_install_khan = {
 		ROOT = {
 			is_nomadic = yes
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid = {
@@ -7318,6 +7420,9 @@ nomad_dispute = {
 
 		FROM = {
 			is_nomadic = yes
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		ROOT = {
 			is_nomadic = yes
@@ -7443,6 +7548,9 @@ cb_liberate_nomad_duchy = {
 	can_use = {
 		FROM = {
 			is_nomadic = yes
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		ROOT = {
 			is_nomadic = no
@@ -7681,6 +7789,11 @@ cb_minor_clan_revolt = {
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	can_use_title = {
@@ -7887,6 +8000,9 @@ nomad_subjugation = {
 						#using_cb = pagan_subjugation
 					#}
 				}
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 		
@@ -8174,6 +8290,11 @@ nomad_invasion = {
 				}
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	is_valid_title = {
@@ -8403,6 +8524,11 @@ nomad_expansion = {
 			NOT = { same_realm = FROM }
 			mercenary = no
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	can_use_title = {
@@ -8613,6 +8739,11 @@ increase_council_power_war = { # Started from faction
 		ROOT = {
 			vassal_of = FROM
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	can_use_title = {
@@ -8782,6 +8913,9 @@ nomad_humiliate_cb = {
 		
 		FROM = {
 			is_nomadic = yes
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 
 		ROOT = {
@@ -9067,6 +9201,11 @@ powerful_vassal_takeover_war = { # Started from faction
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
+		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 	

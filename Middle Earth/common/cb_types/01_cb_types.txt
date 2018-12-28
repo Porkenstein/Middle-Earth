@@ -270,6 +270,11 @@ dejure_duchy_claim = { # New1
 				}
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	on_success_title = {
@@ -488,6 +493,9 @@ force_vassalization = { # New2
 				culture_group = ROOT
 			}
 			shares_realm_border_with = ROOT
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 	
@@ -619,6 +627,9 @@ great_realm_conflict = { # New3
 			relative_power = {
 				who = ROOT
 				power = 0.95
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 	}
@@ -888,6 +899,11 @@ ducal_county_conquest = { # New4
 				}
 			}
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 	
 	can_use_title = {
@@ -1107,6 +1123,9 @@ hostages_cb = { # New5
 						}
 					}
 				}
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 	}
@@ -1494,6 +1513,9 @@ tributary_permanent_cb = { # New8
 					}
 				}
 			}
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 		
 		# The attacker needs a border, or be at most two sea zones away from one of the target's counties
@@ -1791,6 +1813,9 @@ tributary_nomad_cb = { # New9
 						}
 					}
 				}
+			}
+			NOT = {
+				culture_group = culture_group_wilderness
 			}
 		}
 		
@@ -2185,6 +2210,11 @@ truebelievers_bid_for_independence = {
 		ROOT = {
 			vassal_of = FROM
 		}
+		FROM = {
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
 	}
 
 	is_valid = {
@@ -2510,6 +2540,9 @@ matriarchal_deposition_war = {
 			is_merchant_republic = no
 			is_female = no 
 			independent = yes
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
@@ -2968,6 +3001,9 @@ patriarchal_deposition_war = {
 		FROM = {
 			is_nomadic = no
 			is_merchant_republic = no
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
 		}
 	}
 
