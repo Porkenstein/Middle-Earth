@@ -470,18 +470,18 @@ province_event = {	#Province Cleared
 
 	immediate = {
 		owner = {
-			save_event_target_as = owner
+			top_liege = {
+				capital_scope = {
+					save_event_target_as = owner
+				}
+			}
 		}
-		set_variable = {
-			which = population
-			value = 0
-		}
-		culture = event_target:owner
-		religion = event_target:owner
 		set_variable = {
 			which = population
 			value = 1000
 		}
+		culture = event_target:owner
+		religion = event_target:owner
 	}
 
 	option = {
