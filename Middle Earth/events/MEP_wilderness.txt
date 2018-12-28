@@ -345,119 +345,123 @@ character_event = {	#Start the Slaughter
 		}
 	}
 }
-province_event = {	#Lower Population, 10% Yearly
+character_event = {	#Lower Population, 10% Yearly
 	id = colonisation.51
 	is_triggered_only = yes
 	hide_window = yes
 
 	trigger = {
-		has_province_modifier = clearing_province
+		any_demesne_province = {
+			has_province_modifier = clearing_province
+		}
 	}
 
 	immediate = {
-		random_list = {
-			1 = {
-				multiply_variable = {
-					which = population
-					value = 0.9
-				}
-			}
-			1 = {
-				modifier = {
-					factor = 1.5
-					owner = {
-						job_marshal = {
-							martial = 5
-						}
+		any_demesne_province = {
+			random_list = {
+				1 = {
+					multiply_variable = {
+						which = population
+						value = 0.9
 					}
 				}
-				modifier = {
-					factor = 1.5
-					owner = {
-						job_marshal = {
-							martial = 7
-						}
-					}
-				}
-				modifier = {
-					factor = 2
-					owner = {
-						job_marshal = {
-							martial = 10
-						}
-					}
-				}
-				modifier = {
-					factor = 4
-					owner = {
-						job_marshal = {
-							martial = 15
-						}
-					}
-				}
-				multiply_variable = {
-					which = population
-					value = 0.75
-				}
-			}
-			1 = {
-				modifier = {
-					factor = 0.25
-					owner = {
-						job_marshal = {
-							NOT = {
+				1 = {
+					modifier = {
+						factor = 1.5
+						owner = {
+							job_marshal = {
 								martial = 5
 							}
 						}
 					}
-				}
-				modifier = {
-					factor = 1.1
-					owner = {
-						job_marshal = {
-							martial = 7
+					modifier = {
+						factor = 1.5
+						owner = {
+							job_marshal = {
+								martial = 7
+							}
 						}
 					}
-				}
-				modifier = {
-					factor = 1.1
-					owner = {
-						job_marshal = {
-							martial = 10
+					modifier = {
+						factor = 2
+						owner = {
+							job_marshal = {
+								martial = 10
+							}
 						}
 					}
-				}
-				modifier = {
-					factor = 1.1
-					owner = {
-						job_marshal = {
-							martial = 12
+					modifier = {
+						factor = 4
+						owner = {
+							job_marshal = {
+								martial = 15
+							}
 						}
 					}
-				}
-				modifier = {
-					factor = 3
-					owner = {
-						job_marshal = {
-							martial = 15
-						}
+					multiply_variable = {
+						which = population
+						value = 0.75
 					}
 				}
-				multiply_variable = {
-					which = population
-					value = 0.5
+				1 = {
+					modifier = {
+						factor = 0.25
+						owner = {
+							job_marshal = {
+								NOT = {
+									martial = 5
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 7
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 10
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 12
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							job_marshal = {
+								martial = 15
+							}
+						}
+					}
+					multiply_variable = {
+						which = population
+						value = 0.5
+					}
 				}
 			}
-		}
-		IF = {
-			limit = {
-				check_variable = {
-					which = population
-					value < 100
+			IF = {
+				limit = {
+					check_variable = {
+						which = population
+						value < 100
+					}
 				}
-			}
-			province_event = {
-				id = colonisation.52
+				province_event = {
+					id = colonisation.52
+				}
 			}
 		}
 	}
