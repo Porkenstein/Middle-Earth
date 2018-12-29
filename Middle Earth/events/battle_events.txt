@@ -392,6 +392,15 @@ character_event = {
 	
 	trigger = {
 		NOT = { trait = maimed }
+		NOT = { trait = mangled }
+		NOT = { 
+			AND = {
+				trait = one_eyed
+				trait = one_handed 
+				trait = one_legged 
+				trait = disfigured 
+			}
+		}
 		NOT = { trait = blood_thirsty }
 		is_alive = yes
 	}
@@ -488,14 +497,14 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			trait = pneumonic
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			trait = syphilitic
 		}
 		modifier = {
@@ -517,28 +526,84 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
 		}		
-		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}		
+
 	}
 	
 	option = {
 		name = CURSES
-		add_trait = maimed
+		add_maimed_trait_effect = yes
 	}
 }
 
 #On-action combat event: Serious head injury in action
 character_event = {
 	id = 245
-	desc = EVTDESC245
+	#desc = EVTDESC245
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
+	
+	desc = {
+		picture = GFX_evt_battle
+		text = EVTDESC245
+		trigger = { has_character_flag = wounded_incapable }
+	}
+	desc = {
+		picture = GFX_evt_battle
+		text = 245.d2
+		trigger = { has_character_flag = wounded_disfigured }
+	}
 
 	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+			}
+			random_list = {
+				60 = {
+					modifier = {
+						factor = 0
+						trait = disfigured						
+					}
+					set_character_flag = wounded_disfigured
+				}
+				40 = {
+					set_character_flag = wounded_incapable
+				}
+			}
+		}
+	}
 	
 	
 	trigger = {
 		NOT = { trait = incapable }
+		immortal = no
 		is_alive = yes
 	}
 	
@@ -599,7 +664,6 @@ character_event = {
 			}
 			factor = 2.0
 		}
-		
 		modifier = {
 			trait = imbecile
 			factor = 3.0
@@ -615,8 +679,8 @@ character_event = {
 		modifier = {
 			is_weak_trigger = yes
 			factor = 2.5
-		}		
-				modifier = {
+		}
+		modifier = {
 			factor = 1.25
 			trait = stressed
 		}
@@ -634,14 +698,14 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			trait = pneumonic
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			trait = syphilitic
 		}
 		modifier = {
@@ -654,7 +718,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.25
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 2.0
@@ -663,13 +727,62 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
 		}		
-
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
+		}
 	}
 
 	option = {
 		name = CURSES
-		add_trait = incapable
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+			}
+			add_trait = incapable
+			break = yes
+		}
+		if = {
+			limit = {
+				has_dlc = "Reapers"
+				has_character_flag = wounded_disfigured
+			}
+			add_trait = disfigured 
+			add_trait = severely_injured 
+			resolve_severely_injured_effect = yes
+			clr_character_flag = wounded_disfigured
+			break = yes
+		}
+		if = {
+			limit = {
+				has_character_flag = wounded_incapable
+			}
+			add_trait = incapable
+			clr_character_flag = wounded_incapable
+		}
 	}
 }
 
@@ -681,7 +794,6 @@ character_event = {
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
-
 	
 	trigger = {
 		is_alive = yes
@@ -755,7 +867,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.8
@@ -775,7 +887,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
@@ -789,7 +901,30 @@ character_event = {
 			factor = 0.5
 			trait = drunkard
 		}
-		
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
 	}
 
 	option = {
@@ -826,6 +961,8 @@ character_event = {
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
+	
+	notification = yes
 
 	trigger = {
 		is_alive = yes
@@ -895,7 +1032,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.8
@@ -915,7 +1052,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
@@ -929,11 +1066,38 @@ character_event = {
 			factor = 0.5
 			trait = drunkard
 		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
+	}
+	
+	immediate = {
+		change_martial = 1
 	}
 
 	option = {
 		name = EXCELLENT
-		change_martial = 1
 	}
 }
 
@@ -1014,7 +1178,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.8
@@ -1034,7 +1198,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
@@ -1047,6 +1211,30 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
 		}
 	}
 
@@ -1076,6 +1264,24 @@ character_event = {
 
 	option = {
 		name = EVTOPTA249
+	}
+}
+
+#Opponent is informed that enemy commander has been killed
+character_event = {
+	id = 253
+	desc = EVTDESC253
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_alive = yes
+	}
+
+	option = {
+		name = ALAS
 	}
 }
 
@@ -1154,7 +1360,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.8
@@ -1174,7 +1380,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
@@ -1188,12 +1394,37 @@ character_event = {
 			factor = 0.5
 			trait = drunkard
 		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
+		}
 
 	}
 
 	option = {
 		name = EXCELLENT
 		add_trait = brave
+		add_blood_splatter_effect = yes
 	}
 }
 
@@ -1287,7 +1518,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.1
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -1307,7 +1538,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.25
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 2.0
@@ -1320,6 +1551,30 @@ character_event = {
 		modifier = {
 			factor = 1.1
 			trait = drunkard
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 1.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 1.1
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 1.1
+			trait = has_small_pox
 		}		
 	}
 
@@ -1351,6 +1606,7 @@ character_event = {
 	option = {
 		name = CURSES
 		add_trait = wroth
+		add_blood_splatter_effect = yes
 	}
 }
 
@@ -1454,7 +1710,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.9
-			trait = ill
+			is_ill = yes
 		}
 		modifier = {
 			factor = 0.8
@@ -1474,7 +1730,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.8
-			trait = maimed
+			is_maimed_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
@@ -1487,6 +1743,30 @@ character_event = {
 		modifier = {
 			factor = 0.5
 			trait = drunkard
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_tuberculosis
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhoid_fever
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_typhus
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_bubonic_plague
+		}
+		modifier = {
+			factor = 0.5
+			trait = has_measles
+		}		
+		modifier = {
+			factor = 0.5
+			trait = has_small_pox
 		}
 
 	}
@@ -1503,7 +1783,7 @@ character_event = {
 	}
 
 	option = {
-		# name = OK
+		name = OK
 	}
 }
 
@@ -1511,7 +1791,6 @@ character_event = {
 #On-action battle_won: Soldier Distinguishes himself.
 character_event = {
 	id = 261
-	desc = EVTDESC261
 	picture = GFX_evt_battle
 	border = GFX_event_normal_frame_war
 	
@@ -1521,8 +1800,56 @@ character_event = {
 	
 	trigger = {
 		is_alive = yes
+		ai = no
 	}
 	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = random
+			female = no
+			religion = ROOT
+			culture = ROOT
+			attributes = {
+				martial = 8
+				stewardship = 3
+				diplomacy = 3
+				learning = 3
+				intrigue = 3
+			}
+		}
+		new_character = {
+			add_blood_splatter_effect = yes
+			remove_trait = craven
+			save_event_target_as = soldier_target
+		}
+	}
+
+	desc = {
+		trigger = {
+			NOR = {
+				has_character_modifier = good_battle_omen
+				has_character_modifier = bad_battle_omen
+			}
+		}
+		text = EVTDESC261
+	}
+	
+	desc = {
+		trigger = {
+			has_dlc = "Mystics"
+			has_character_modifier = good_battle_omen
+		}
+		text = EVTDESC261_good_battle_omen
+	}
+	desc = {
+		trigger = {
+			has_dlc = "Mystics"
+			has_character_modifier = bad_battle_omen
+		}
+		text = EVTDESC261_bad_battle_omen
+	}
+
 	weight_multiplier = {
 		days = 1
 		modifier = {
@@ -1544,19 +1871,54 @@ character_event = {
 		modifier = {
 			factor = 0.2
 			trait = arbitrary
-		}		
+		}
+		modifier = {
+			factor = 2
+			has_character_modifier = good_battle_omen
+		}
+		modifier = {
+			factor = 0.9
+			has_character_modifier = bad_battle_omen
+		}
 	}
 
 	option = {
 		name = EXCELLENT
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = random
-			female = no
-			religion = ROOT
-			culture = ROOT
-			age = 48
-		}		
+		event_target:soldier_target = {
+			prestige = 50
+		}
+		trigger = {
+			NOR = {
+				has_character_modifier = good_battle_omen
+				has_character_modifier = bad_battle_omen
+			}
+		}
+	}
+	option = {
+		name = 261_OPTA
+
+		event_target:soldier_target = {
+			prestige = 50
+		}
+		upgrade_seer_modifier_effect = yes
+		trigger = {
+			has_dlc = "Mystics"
+			has_character_modifier = good_battle_omen
+		}
+	}
+	option = {
+		name = 261_OPTB
+		event_target:soldier_target = {
+			prestige = 50
+		}
+		downgrade_seer_modifier_effect = yes
+		trigger = {
+			has_dlc = "Mystics"
+			has_character_modifier = bad_battle_omen
+		}
+	}
+	after = {
+		remove_scrying_omen_modifiers_effect = yes
 	}
 }
 
@@ -1654,6 +2016,7 @@ character_event = {
 #On-action battle_lost: Imprisoned by the enemy
 character_event = {
 	id = 250
+	title = captured_in_battle
 	desc = EVTDESC250
 	picture = GFX_evt_into_the_dungeon
 	border = GFX_event_normal_frame_war
@@ -1670,91 +2033,30 @@ character_event = {
 	
 	weight_multiplier = {
 		days = 1
+		bad_soldier_outcome_score = yes
+		title_tier_reduction_score = yes
 		modifier = {
 			factor = 0.01
 			mep_should_be_unkillable_trigger = yes
 		}
+		
 		modifier = {
-			factor = 1.25
-			trait = brave
+			factor = 2 # if the enemy leader has a particular bloodline
+			FROM = {
+				any_owned_bloodline = {
+					has_bloodline_flag = bloodline_fearsome
+				}
+			}
 		}
-		modifier = {
-			factor = 0.25
-			trait = craven
-		}
-		modifier = {
-			factor = 0.25
-			trait = paranoid
-		}
-
-		modifier = {
-			factor = 1.25
-			trait = stressed
-		}
-		modifier = {
-			factor = 1.25
-			trait = depressed
-		}
-		modifier = {
-			factor = 1.5
-			trait = lunatic
-		}
-		modifier = {
-			factor = 1.5
-			trait = possessed
-		}
-		modifier = {
-			factor = 1.1
-			trait = ill
-		}
-		modifier = {
-			factor = 1.25
-			trait = pneumonic
-		}
-		modifier = {
-			factor = 1.25
-			trait = syphilitic
-		}
-		modifier = {
-			factor = 2.0
-			trait = leper
-		}
-		modifier = {
-			factor = 1.15
-			trait = wounded
-		}
-		modifier = {
-			factor = 1.25
-			trait = maimed
-		}
-		modifier = {
-			factor = 2.0
-			trait = infirm
-		}
-		modifier = {
-			factor = 3.0
-			trait = incapable
-		}
-		modifier = {
-			factor = 1.1
-			trait = drunkard
-		}
-		modifier = {
-			factor = 0.5
-			tier = duke
-		}
-		modifier = {
-			factor = 0.25
-			tier = king
-		}
-		modifier = {
-			factor = 0.125
-			tier = emperor
 		}
 	}
 	
 	immediate = {
-		imprison = FROM
+		save_event_target_as = captured_commander
+		location = { save_event_target_as = battlefield_location }
+		FROM = { save_event_target_as = enemy_liege }
+		#You are captured...
+		imprison = event_target:enemy_liege #ROOT is imprisoned *by* enemy_liege.
 	}
 
 	option = {
@@ -1762,7 +2064,7 @@ character_event = {
 		hidden_tooltip = {
 			FROM = {
 				character_event = { 
-					id = 50020 # imprisoned_events.txt
+					id = 50020 # imprisoned_events.txt #Enemy_liege is notified about your capture...
 				}
 			}
 		}
