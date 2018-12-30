@@ -368,6 +368,10 @@ character_event = {	#Prestige Dynasties Startup
 			}
 			add_trait = blood_of_elendil
 		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
 	}
 }
 character_event = {	#Prestige Dynasties - Birth Dynastic
@@ -667,6 +671,10 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 			}
 			add_trait = blood_of_elendil
 		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
 	}
 }
 character_event = {	#Bloodlines On Birth - Faux Lines
@@ -684,7 +692,10 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		OR = {
 			father_even_if_dead = {
-				mep_prestige_dynasty_trigger = yes
+				OR = {
+					mep_prestige_dynasty_trigger = yes
+					mep_prestige_trait_trigger = yes
+				}
 			}
 			mother_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
@@ -1028,6 +1039,10 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 				}
 			}
 			add_trait = blood_of_elendil
+		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
 		}
 	}
 }
