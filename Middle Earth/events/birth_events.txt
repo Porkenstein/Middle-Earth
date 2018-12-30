@@ -98,7 +98,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			trait = fair
+			has_fair_trait_trigger = yes
 		}
 		modifier = {
 			factor = 2.0
@@ -106,7 +106,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			trait = ugly
+			 has_ugly_trait_trigger = yes
 		}
 		modifier = {
 			factor = 10.0
@@ -211,7 +211,10 @@ character_event = {
 	option = {
 		name = EVTOPTA451 # Make a move
 		ai_chance = { factor = 90 }
-		FROM = { character_event = { id = 452 days = 7 tooltip = EVTTOOLTIP452 } }
+		FROM = {
+			show_scope_change = no
+			character_event = { id = 452 days = 7 tooltip = EVTTOOLTIP452 }
+		}
 	}
 
 	option = {
@@ -259,6 +262,11 @@ character_event = {
 	id = 452
 
 	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		FROM = { is_alive = yes }
+	}
 
 	desc = EVTDESC452
 	picture = GFX_evt_lovers
@@ -655,7 +663,7 @@ character_event = {
 								trait = inbred
 								trait = imbecile
 								trait = dwarf
-								trait = ugly
+								 has_ugly_trait_trigger = yes
 							}
 						}
 						AND = {
@@ -839,14 +847,14 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						 has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
 					}
 				}
 				FROM = {
-					trait = ugly
+					 has_ugly_trait_trigger = yes
 					NOT = { trait = seducer }
 					NOT = { trait = seductress }
 				}
@@ -856,7 +864,7 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						 has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -872,7 +880,7 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						 has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -888,7 +896,7 @@ character_event = {
 				factor = 100.0
 				NOT = {
 					OR = {
-						trait = ugly
+						 has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -943,7 +951,65 @@ character_event = {
 # On-action event: Pregnancy starts showing
 character_event = {
 	id = 400
-	desc = EVTDESC400
+	desc = { 
+		text = EVTDESC400 
+		trigger = { #The father is alive and a spouse
+			is_married = yes			
+			father_of_unborn = {
+				is_alive = yes
+				any_spouse = { character = ROOT }
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_widow
+		trigger = { #The father is dead and a spouse
+			is_married = no
+			father_of_unborn = {
+				is_alive = no
+				ROOT = {
+					any_spouse_even_if_dead = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_CONSORT
+		trigger = { #Not married, but is consort
+			is_married = no
+			NOT = { num_of_consorts = 2 }
+			NOT = {
+				father_of_unborn = {
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_CONSORTS
+		trigger = { #Not married, and multiple consorts
+			is_married = no
+			num_of_consorts = 2
+			NOT = {
+				father_of_unborn = {
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+			
 	picture = GFX_evt_pregnancy
 	border = GFX_event_normal_frame_religion
 	
@@ -951,22 +1017,148 @@ character_event = {
 	
 	trigger = {
 		NOT = { trait = pregnant }
+		is_consort = no
 		father_of_unborn = {
-			any_spouse = {
-				character = ROOT
+			OR = {
+				AND = { #The father is alive and a spouse
+					is_alive = yes
+					any_spouse = { character = ROOT }
+				}
+				AND = { #The father is dead and a spouse
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+				any_consort = {
+					character = ROOT
+					is_senior_consort_party = yes
+				}
 			}
 		}
 	}
 	
+	immediate = {
+		add_trait = pregnant
+	}
+	
 	option = {
 		name = OK
-		add_trait = pregnant
+		tooltip = { add_trait = pregnant }
 		prestige = 10
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { 
+						any_courtier = { has_minor_title = title_appointed_regent } 
+						has_dynasty_flag = pregnancy_regent_warning 
+					} 
+				}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				80 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.9
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.9
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.9
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 8 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 1.5
+						is_tribal = yes
+					}
+					modifier = { 
+						factor = 1.5
+						is_nomadic = yes
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 0.5
+						trait = is_malnourished
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+					modifier = { 
+						factor = 1.5
+						trait = sturdy
+					}
+				} 
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 		
 		if = {
 			limit = {
 				father_of_unborn = {
 					is_alive = yes
+					is_consort = no #No authority to be paranoid. Indeed, he has no way of knowing the child is his.
 				}
 			}
 			
@@ -998,7 +1190,10 @@ character_event = {
 				}
 			}
 			
-			father_of_unborn = { character_event = { id = 403 tooltip = EVTTOOLTIP403 } }
+			father_of_unborn = {
+				show_scope_change = no
+				character_event = { id = 403 tooltip = EVTTOOLTIP403 }
+			}
 		}
 	}
 }

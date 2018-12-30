@@ -6231,3 +6231,45 @@ staff_of_alatar = {
 	random = no	
 	cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
 }
+is_fat = {
+
+	opposites = { is_malnourished }
+	
+	combat_rating = -10
+	tribal_opinion = -5
+	
+	random = no
+	customizer = no
+
+	male_insult = INSULT_FATPIG
+	female_insult = INSULT_SOW
+	male_insult_adj = INSULT_BLOATED
+	female_insult_adj = INSULT_BLOATED
+
+	male_compliment_adj = COMPL_MAGNIFICENT
+	female_compliment_adj = COMPL_MAGNIFICENT
+
+	ai_zeal = -20
+
+}
+
+is_malnourished = {
+
+	opposites = { is_fat }
+	
+	combat_rating = -10
+	fertility = -0.05
+	
+	random = no
+	customizer = no
+
+	male_insult = INSULT_WEAKLING
+	female_insult = INSULT_CORPSE
+	male_insult_adj = INSULT_STARVED
+	female_insult_adj = INSULT_STARVED
+
+	male_compliment_adj = COMPL_FRUGAL
+	female_compliment_adj = COMPL_FRUGAL
+
+	ai_zeal = -20
+}
