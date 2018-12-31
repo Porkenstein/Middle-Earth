@@ -1213,19 +1213,114 @@ character_event = {
 		NOT = { trait = pregnant }
 		is_consort = no
 		father_of_unborn = {
-			NOT = {
+			NOR = {
 				any_spouse = {
 					character = ROOT
+				}	
+				any_consort = {
+					character = ROOT
+					is_senior_consort_party = yes
 				}				
 			}
 		}
 	}
 	
+	immediate = {
+		add_trait = pregnant
+	}
+	
 	option = {
 		name = OK
-		add_trait = pregnant
+		tooltip = { add_trait = pregnant }
 		piety = -50
 		prestige = -50
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
+					has_global_flag = pregnancy_regent_warning } 
+					}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				50 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				50 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 	}
 }
 
@@ -1251,13 +1346,107 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		add_trait = pregnant
+	}
+	
 	option = {
 		name = EVTOPTA402
-		add_trait = pregnant
+		tooltip = { add_trait = pregnant }
 		
 #		log = "402: [Root.GetTitledName], wife of [Root.Spouse.GetTitledName] in [Root.Employer.PrimaryTitle.GetName] gets pregnant with [Root.FatherOfUnborn.GetTitledName]."
 		
-		spouse = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+		spouse = {
+			show_scope_change = no
+			character_event = { id = 404 tooltip = EVTTOOLTIP404 }
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
+					has_global_flag = pregnancy_regent_warning } 
+					}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				30 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 	}
 }
 
@@ -1481,7 +1670,7 @@ character_event = {
 	}
 	
 	option = {
-		# name = OK # Success
+		name = OK # Success
 		
 		trigger = {
 			father_of_unborn = {
@@ -1575,7 +1764,7 @@ character_event = {
 	}
 	
 	option = {
-		# name = OK # No success yet
+		name = OK # No success yet
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -2214,15 +2403,98 @@ character_event = {
 	trigger = {
 		NOT = { trait = pregnant }
 		father_of_unborn = {
-			is_consort = ROOT
+			ROOT = {
+				is_consort = PREV
+			}
 		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
 	}
 	
 	option = {
 		name = ALAS
-		add_trait = pregnant
+		tooltip = { add_trait = pregnant }
 		prestige = 10
 		
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				30 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 		if = {
 			limit = {
 				father_of_unborn = {
@@ -2275,11 +2547,17 @@ character_event = {
 	trigger = {
 		NOT = { trait = pregnant }
 		is_consort = yes
-		father_of_unborn = {
-			NOT = {
-				is_consort = ROOT		
+		NOT = {
+			father_of_unborn = {
+				ROOT = {
+					is_consort = PREV
+				}
 			}
 		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
 	}
 	
 	option = {
