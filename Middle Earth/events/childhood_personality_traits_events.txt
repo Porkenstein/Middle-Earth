@@ -31,6 +31,7 @@ character_event = {
 		NOT = { trait = gluttonous }
 		prisoner = no
 		has_guardian = yes
+		NOT = { has_character_flag = is_child_of_destiny }
 	}
 	
 	weight_multiplier = {
@@ -64,11 +65,11 @@ character_event = {
 			factor = 1.05
 		}
 		modifier = {
-			trait = fair
+			has_fair_trait_trigger = yes
 			factor = 0.95
 		}
 		modifier = {
-			trait = ugly
+			has_ugly_trait_trigger = yes
 			factor = 1.10
 		}
 		modifier = {
@@ -114,6 +115,8 @@ character_event = {
 	option = {
 		name = "EVTOPTA1500"
 		add_trait = gluttonous
+		gain_weight_medium_effect = yes
+		weight_trait_check_effect = yes
 		hidden_tooltip = {
 			guardian = {
 				character_event = {
@@ -142,6 +145,8 @@ character_event = {
 	option = {
 		name = "EVTOPTA1501"
 		remove_trait = gluttonous
+		lose_weight_medium_effect = yes
+		weight_trait_check_effect = yes
 	}
 }
 
@@ -165,6 +170,7 @@ character_event = {
 		NOT = { trait = temperate }
 		NOT = { trait = gluttonous }
 		has_guardian = yes
+		NOT = { has_character_flag = is_child_of_destiny }
 	}
 	
 	weight_multiplier = {
@@ -198,11 +204,11 @@ character_event = {
 			factor = 0.95
 		}
 		modifier = {
-			trait = fair
+			has_fair_trait_trigger = yes
 			factor = 0.8
 		}
 		modifier = {
-			trait = ugly
+			 has_ugly_trait_trigger = yes
 			factor = 1.25
 		}
 		modifier = {
@@ -250,6 +256,8 @@ character_event = {
 	option = {
 		name = "EVTOPTA1510"
 		add_trait = temperate
+		lose_weight_medium_effect = yes
+		weight_trait_check_effect = yes
 		hidden_tooltip = {
 			guardian = {
 				character_event = {
@@ -278,6 +286,8 @@ character_event = {
 	option = {
 		name = "EVTOPTA1511"
 		remove_trait = temperate
+		gain_weight_medium_effect = yes
+		weight_trait_check_effect = yes
 	}
 }
 
