@@ -146,7 +146,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_eorl
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = eorl }
+			}
+			else = {
+				add_trait = blood_of_eorl
+			}
 		}
 		IF = { #	Hurin
 			limit = {
@@ -190,7 +198,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_castamir
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = castamir }
+			}
+			else = {
+				add_trait = blood_of_castamir
+			}
 		}
 		IF = { #	Oropher
 			limit = {
