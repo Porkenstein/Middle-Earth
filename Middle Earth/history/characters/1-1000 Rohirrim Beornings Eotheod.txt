@@ -416,10 +416,38 @@
 		add_spouse=30
 	}
 	11340.1.1 = {add_trait = celibate}
-	11350.1.1 = {add_trait = saruman_spell}
+	11350.1.1 = {
+		add_trait = saruman_spell
+		effect = {
+			c_10032 = {
+				opinion = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+					years = 1000
+				}
+				reverse_opinion = {
+					modifier = opinion_dark_puppetmaster
+					who = ROOT
+					years = 1000
+				}
+			}
+		}
+	}
 	11362.3.2 = {
-	remove_trait = saruman_spell
-	give_nickname = nick_ednew
+		remove_trait = saruman_spell
+		effect = {
+			c_10032 = {
+				remove_opinion = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+				}
+				reverse_remove_opinion = {
+					modifier = opinion_dark_puppetmaster
+					who = ROOT
+				}
+			}
+		}
+		give_nickname = nick_ednew
 	} #Is renewed by Gandalf
 	11362.3.15= {
 	death = {

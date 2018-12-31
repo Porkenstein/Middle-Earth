@@ -442,40 +442,10 @@ targetted_decisions = {
 			NOT = {
 				prisoner = yes
 			}
-			OR = {
-				is_ruler = yes
-				any_rival = {
-					character = FROM
-				}
-			}
-			OR = {
-				NOT = {
-					same_realm = FROM
-				}
-				AND = {
-					FROM = {
-						independent = no
-					}
-					ROOT = {
-						OR = {
-							any_claim = {
-								holder_scope = {
-									character = FROM
-								}
-							}
-							FROM = {
-								any_claim = {
-									holder_scope = {
-										character = ROOT
-									}
-								}
-							}
-						}
-					}
-				}
-				any_rival = {
-					character = FROM
-				}
+			trait = saruman_spell
+			has_opinion_modifier = {
+				modifier = opinion_dark_puppetmaster
+				who = FROM
 			}
 		}
 		allow = {
@@ -487,12 +457,6 @@ targetted_decisions = {
 				trait = depressed
 				trait = lunatic
 				trait = incapable
-			}
-			OR = {
-				is_ruler = yes
-				any_rival = {
-					character = FROM
-				}
 			}
 		}
 		effect = {
@@ -598,7 +562,7 @@ targetted_decisions = {
 			}
 		}
 	}
-	sorcerer_force_suicide = {
+	sorcerer_corrupt = {
 		only_playable = yes
 		only_rulers = yes
 		filter = all
@@ -612,6 +576,9 @@ targetted_decisions = {
 				is_ill = yes
 				trait = stressed
 				has_character_modifier = spell_fatigue3
+			}
+			NOT = {
+				prisoner = yes
 			}
 		}
 		potential = {
@@ -655,6 +622,106 @@ targetted_decisions = {
 				any_rival = {
 					character = FROM
 				}
+			}
+		}
+		allow = {
+			NOT = {
+				has_character_modifier = shield_of_light
+			}
+			NOR = {
+				trait = saruman_spell
+				trait = stressed
+				trait = depressed
+				trait = lunatic
+				trait = incapable
+				trait = master_sorcerer
+				trait = master_healer
+			}
+			OR = {
+				is_ruler = yes
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						has_character_modifier = spell_fatigue2
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue3
+						years = 5
+					}
+					remove_character_modifier = spell_fatigue2
+				}
+				else_if = {
+					limit = {
+						has_character_modifier = spell_fatigue1
+					}
+					add_character_modifier = {
+						modifier = spell_fatigue2
+						years = 1
+					}
+					remove_character_modifier = spell_fatigue1
+				}
+				else = {
+					add_character_modifier = {
+						modifier = spell_fatigue1
+						months = 6
+					}
+				}
+			}
+			random_list = {
+				1 = {
+					add_trait = saruman_spell
+					opinion = {
+						modifier = opinion_dark_puppetmaster
+						who = FROM
+						years = 1000
+					}
+					reverse_opinion = {
+						modifier = opinion_dark_puppet
+						who = FROM
+						years = 1000
+					}
+				}
+				4 = {
+				}
+			}
+			character_event = {
+				id = profession_events.66
+			}
+		}
+	}
+	sorcerer_force_suicide = {
+		only_playable = yes
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			trait = master_sorcerer
+			NOT = {
+				war = yes
+			}
+			NOR = {
+				is_ill = yes
+				trait = stressed
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		potential = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				war = yes
+			}
+			trait = saruman_spell
+			has_opinion_modifier = {
+				modifier = opinion_dark_puppetmaster
+				who = FROM
 			}
 		}
 		allow = {
@@ -885,6 +952,7 @@ targetted_decisions = {
 				prisoner = yes
 			}
 			OR = {
+				character = FROM
 				same_realm = FROM
 				culture = FROM
 				any_friend = {
@@ -1067,6 +1135,7 @@ targetted_decisions = {
 			}
 			is_adult = yes
 			OR = {
+				character = FROM
 				same_realm = FROM
 				culture = FROM
 				any_friend = {
@@ -1254,6 +1323,7 @@ targetted_decisions = {
 				prisoner = yes
 			}
 			OR = {
+				character = FROM
 				same_realm = FROM
 				culture = FROM
 				any_friend = {
