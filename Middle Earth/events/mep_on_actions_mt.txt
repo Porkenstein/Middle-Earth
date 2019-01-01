@@ -165,7 +165,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_hurin
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = hurin }
+			}
+			else = {
+				add_trait = blood_of_hurin
+			}
 		}
 		IF = { #	Imrazor
 			limit = {
@@ -176,7 +184,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_imrazor
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = imrazor }
+			}
+			else = {
+				add_trait = blood_of_imrazor
+			}
 		}
 		IF = { #	Anarion
 			limit = {
@@ -187,7 +203,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_anarion
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = anarion }
+			}
+			else = {
+				add_trait = blood_of_anarion
+			}
 		}
 		IF = { #	Castamir
 			limit = {
@@ -446,6 +470,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Hurin
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 100
@@ -459,6 +486,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Imrazor
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 101
@@ -472,6 +502,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Anarion
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 102
@@ -731,24 +764,24 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 				OR = {
 					mep_prestige_dynasty_trigger = yes
 					mep_prestige_trait_trigger = yes
-					NAND = {
-						has_dlc = "Holy Fury"
-						OR = {
-							dynasty = 5
-							dynasty = 174
-						}
+				}
+				NAND = {
+					has_dlc = "Holy Fury"
+					OR = {
+						dynasty = 5
+						dynasty = 174
 					}
 				}
 			}
 			mother_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
-					NAND = {
-						has_dlc = "Holy Fury"
-						OR = {
-							dynasty = 5
-							dynasty = 174
-						}
+				NAND = {
+					has_dlc = "Holy Fury"
+					OR = {
+						dynasty = 5
+						dynasty = 174
 					}
+				}
 			}
 		}
 	}
@@ -775,6 +808,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Hurin
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 100
@@ -791,6 +827,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Imrazor
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 101
@@ -807,6 +846,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Anarion
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 102
