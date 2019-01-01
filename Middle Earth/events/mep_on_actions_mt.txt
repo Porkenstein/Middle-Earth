@@ -241,7 +241,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_oropher
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = oropher }
+			}
+			else = {
+				add_trait = blood_of_oropher
+			}
 		}
 		IF = { #	Amdir
 			limit = {
@@ -534,6 +542,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Oropher
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 935
@@ -884,6 +895,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Oropher
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 935
