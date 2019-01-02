@@ -294,7 +294,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_amdir
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = amdir }
+			}
+			else = {
+				add_trait = blood_of_amdir
+			}
 		}
 		IF = { #	Isildur
 			limit = {
@@ -305,7 +313,15 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			add_trait = blood_of_isildur
+			if = {
+				limit = {
+					has_dlc = "Holy Fury"
+				}
+				create_bloodline = { type = isildur }
+			}
+			else = {
+				add_trait = blood_of_isildur
+			}
 		}
 		IF = { #	Telcontar
 			limit = {
@@ -592,6 +608,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Amdir
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 936
@@ -605,6 +624,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Isildur
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 2001
@@ -948,6 +970,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Amdir
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 936
@@ -964,6 +989,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Isildur
 			limit = {
+				NOT = {
+					has_dlc = "Holy Fury"
+				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 2001
