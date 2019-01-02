@@ -159,9 +159,6 @@ character_event = {	#Prestige Dynasties Startup
 	hide_window = yes
 
 	trigger = {
-		#NOT = {
-		#	has_dlc = "Holy Fury"
-		#}
 		OR = {
 			mep_prestige_dynasty_trigger = yes
 			mother_even_if_dead = {
@@ -180,15 +177,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = eorl }
-			}
-			else = {
-				add_trait = blood_of_eorl
-			}
+			add_trait = blood_of_eorl
 		}
 		IF = { #	Hurin
 			limit = {
@@ -199,15 +188,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = hurin }
-			}
-			else = {
-				add_trait = blood_of_hurin
-			}
+			add_trait = blood_of_hurin
 		}
 		IF = { #	Imrazor
 			limit = {
@@ -218,15 +199,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = imrazor }
-			}
-			else = {
-				add_trait = blood_of_imrazor
-			}
+			add_trait = blood_of_imrazor
 		}
 		IF = { #	Anarion
 			limit = {
@@ -237,15 +210,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = anarion }
-			}
-			else = {
-				add_trait = blood_of_anarion
-			}
+			add_trait = blood_of_anarion
 		}
 		IF = { #	Castamir
 			limit = {
@@ -256,15 +221,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = castamir }
-			}
-			else = {
-				add_trait = blood_of_castamir
-			}
+			add_trait = blood_of_castamir
 		}
 		IF = { #	Oropher
 			limit = {
@@ -275,15 +232,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = oropher }
-			}
-			else = {
-				add_trait = blood_of_oropher
-			}
+			add_trait = blood_of_oropher
 		}
 		IF = { #	Amdir
 			limit = {
@@ -294,15 +243,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = amdir }
-			}
-			else = {
-				add_trait = blood_of_amdir
-			}
+			add_trait = blood_of_amdir
 		}
 		IF = { #	Isildur
 			limit = {
@@ -313,15 +254,7 @@ character_event = {	#Prestige Dynasties Startup
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Holy Fury"
-				}
-				create_bloodline = { type = isildur }
-			}
-			else = {
-				add_trait = blood_of_isildur
-			}
+			add_trait = blood_of_isildur
 		}
 		IF = { #	Telcontar
 			limit = {
@@ -478,9 +411,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 	hide_window = yes
 
 	trigger = {
-		#NOT = {
-		#	has_dlc = "Holy Fury"
-		#}
 		has_game_rule = {
 			name = prestige_dynasties
 			value = dynastic
@@ -488,23 +418,9 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		OR = {
 			mother_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
-				NAND = {
-					has_dlc = "Holy Fury"
-					OR = {
-						dynasty = 5
-						dynasty = 174
-					}
-				}
 			}
 			father_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
-				NAND = {
-					has_dlc = "Holy Fury"
-					OR = {
-						dynasty = 5
-						dynasty = 174
-					}
-				}
 			}
 		}
 	}
@@ -512,9 +428,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 	immediate = {
 		IF = { #	Eorl
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 5
@@ -528,9 +441,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Hurin
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 100
@@ -544,9 +454,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Imrazor
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 101
@@ -560,9 +467,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Anarion
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 102
@@ -576,9 +480,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Castamir
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 174
@@ -592,9 +493,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Oropher
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 935
@@ -608,9 +506,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Amdir
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 936
@@ -624,9 +519,6 @@ character_event = {	#Prestige Dynasties - Birth Dynastic
 		}
 		IF = { #	Isildur
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 2001
@@ -819,9 +711,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 	hide_window = yes
 
 	trigger = {
-		#NOT = {
-		#	has_dlc = "Holy Fury"
-		#}
 		has_game_rule = {
 			name = prestige_dynasties
 			value = faux_lines
@@ -832,23 +721,9 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 					mep_prestige_dynasty_trigger = yes
 					mep_prestige_trait_trigger = yes
 				}
-				NAND = {
-					has_dlc = "Holy Fury"
-					OR = {
-						dynasty = 5
-						dynasty = 174
-					}
-				}
 			}
 			mother_even_if_dead = {
 				mep_prestige_dynasty_trigger = yes
-				NAND = {
-					has_dlc = "Holy Fury"
-					OR = {
-						dynasty = 5
-						dynasty = 174
-					}
-				}
 			}
 		}
 	}
@@ -856,9 +731,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 	immediate = {
 		IF = { #	Eorl
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 5
@@ -875,9 +747,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Hurin
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 100
@@ -894,9 +763,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Imrazor
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 101
@@ -913,9 +779,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Anarion
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 102
@@ -932,9 +795,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Castamir
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 174
@@ -951,9 +811,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Oropher
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 935
@@ -970,9 +827,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Amdir
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 936
@@ -989,9 +843,6 @@ character_event = {	#Bloodlines On Birth - Faux Lines
 		}
 		IF = { #	Isildur
 			limit = {
-				NOT = {
-					has_dlc = "Holy Fury"
-				}
 				OR = {
 					mother_even_if_dead = {
 						dynasty = 2001
