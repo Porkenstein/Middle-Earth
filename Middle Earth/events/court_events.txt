@@ -166,10 +166,10 @@ character_event = {
 	only_playable = yes
 	prisoner = no
 	only_men = yes
+	is_married = yes
 	
 	trigger = {
 		NOT = { mep_evil_religion = yes }
-		is_married = yes
 		spouse = {
 			is_abroad = no
 			prisoner = no
@@ -187,7 +187,7 @@ character_event = {
 			spouse = { is_pregnant = yes }
 		}
 		modifier = {
-			factor = 4.0
+			factor = 2.0
 			spouse = { trait = poet }
 		}
 		modifier = {
@@ -234,11 +234,12 @@ character_event = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT= { trait = chaste }
-                NOT= { trait = celibate }
+				NOT= { trait = zealous }
 			}
 		}
-        spouse = { add_trait = chaste }
+		spouse = {
+			add_trait = chaste
+		}
 		piety = 10
 	}
 }	
@@ -268,6 +269,17 @@ character_event = {
 		}
 	}
 
+	immediate = {
+		random_vassal = {
+			limit = {
+				tier = baron
+				is_theocracy = yes
+			}
+			save_event_target_as = grumpy_priest				
+		}
+	}	
+	
+
 	weight_multiplier = {
 		days = 1
 		modifier = {
@@ -283,16 +295,13 @@ character_event = {
 	}	
 	option = {
 		name = EVTOPTB73002 # If the Temple wants it, they can pay for it
-		random_vassal = {
-			limit = {
-				tier = baron
-				is_theocracy = yes
-			}
+		event_target:grumpy_priest = {
+			show_scope_change = no
 			opinion = {
 				who = ROOT
 				modifier = ignores_local_saints
 				years = 2
-			}
+			}				
 		}
 	}	
 }	
@@ -506,11 +515,11 @@ character_event = {
 	option = {
 		name = EVTOPTA73005 #Introduce fashion at the court
 		if = {
-			limit = { trait = fair }
+			limit = { has_fair_trait_trigger = yes }
 			random = {
 				chance = 10
 				add_trait = proud 
-				hidden_tooltip = { character_event = { id = 38261 }  }
+				hidden_tooltip = { character_event = { id = 38261 } }
 			}
 		}
 		scaled_wealth = -0.2
