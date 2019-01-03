@@ -1612,8 +1612,6 @@ castle = { #Generic Castle Buildings
 		desc = ca_uruk_pits_desc
 		potential = {
 			has_province_modifier = mod_pop_display
-		potential = {
-			has_province_modifier = mod_pop_display
 			OR = {
 				religion_group = religion_group_melkor
 				religion_group = religion_group_ungoliant
@@ -1705,5 +1703,301 @@ castle = { #Generic Castle Buildings
 		levy_size = 0.1
 		levy_reinforce_rate = 0.05
 		ai_creation_factor = 88
+	}
+
+	#Docks give Income
+	ca_docks_1 = {
+		desc = ca_docks_1_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_0
+				has_province_modifier = pop_1
+				has_province_modifier = pop_2
+				has_province_modifier = pop_3
+				has_province_modifier = pop_4
+				has_province_modifier = pop_5
+				has_province_modifier = pop_10
+				has_province_modifier = pop_20
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	ca_docks_2 = {
+		desc = ca_docks_2_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_10
+				has_province_modifier = pop_20
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = ca_docks_1
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	ca_docks_3 = {
+		desc = ca_docks_3_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = ca_docks_2
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	ca_docks_4 = {
+		desc = ca_docks_4_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = ca_docks_3
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	ca_docks_5 = {
+		desc = ca_docks_5_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = ca_docks_4
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	ca_docks_6 = {
+		desc = ca_docks_6_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			has_province_modifier = pop_1000
+		}
+		upgrades_from = ca_docks_5
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		liege_prestige = 1
+		ai_creation_factor = 100
+	}
+
+	#Shipyards give Galleys
+	ca_shipyard_1 = {
+		desc = ca_shipyard_1_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_1
+			}
+		}
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 0.3
+	}
+	ca_shipyard_2 = {
+		desc = ca_shipyard_2_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_2
+			}
+		}
+		upgrades_from = ca_shipyard_1
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 0.3
+	}
+	ca_shipyard_3 = {
+		desc = ca_shipyard_3_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_3
+			}
+		}
+		upgrades_from = ca_shipyard_2
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 0.3
+	}
+	ca_shipyard_4 = {
+		desc = ca_shipyard_4_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_4
+			}
+		}
+		upgrades_from = ca_shipyard_3
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
+
+		extra_tech_building_start = 0.3
+	}
+	ca_shipyard_5 = {
+		desc = ca_shipyard_5_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_5
+			}
+		}
+		upgrades_from = ca_shipyard_4
+		gold_cost = 50
+		build_time = 365
+		galleys = 10
+		tax_income = 2
+		ai_creation_factor = 100
+		extra_tech_building_start = 0.3
+	}
+	ca_shipyard_6 = {
+		desc = ca_shipyard_6_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_docks_6
+			}
+		}
+		upgrades_from = ca_shipyard_5
+		gold_cost = 50
+		build_time = 365
+		galleys = 20
+		tax_income = 2
+		ai_creation_factor = 100
+		extra_tech_building_start = 0.3
 	}
 }

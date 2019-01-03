@@ -1,15 +1,14 @@
  # Triggers are in Province scope. The From Scope contains the settlement holder (character)
  # start trigger is in title scope.
 
-tribal = {	
-	tb_hillfort_1 = {
-		desc = tb_hillfort_1_desc
+tribal = {	#Generic Tribal Buildings
+	#Keep gives prestige and a little more tax cause big dick display
+	tb_keep_1 = {
+		desc = tb_keep_1_desc
 		potential = {
 			has_province_modifier = mod_pop_display
 		}
-		#potential = { has_game_started = yes }
-		trigger = { 
-			TECH_CASTLE_CONSTRUCTION = 0
+		trigger = {
 			OR = {
 				has_province_modifier = pop_0
 				has_province_modifier = pop_1
@@ -42,24 +41,1055 @@ tribal = {
 				has_province_modifier = pop_1000
 			}
 		}
-		gold_cost = 25
+		gold_cost = 100
 		build_time = 365
-		
-		fort_level = 0.25
-		levy_size = 0.05
-		retinuesize = 100
-		ai_creation_factor = 97
-		ai_feudal_modifier = 10
-		ai_republic_modifier = -10
+		liege_prestige = 1
+		fort_level = 0.5
+		tax_income = 0.25
+		ai_creation_factor = 80
 	}
-	
-	tb_hillfort_2 = {
-		desc = tb_hillfort_2_desc
+	tb_keep_2 = {
+		desc = tb_keep_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_keep_1
+		gold_cost = 100
+		build_time = 365
+		liege_prestige = 1
+		fort_level = 0.5
+		tax_income = 0.25
+		ai_creation_factor = 80
+	}
+	tb_keep_3 = {
+		desc = tb_keep_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_keep_2
+		gold_cost = 100
+		build_time = 365
+		liege_prestige = 1
+		fort_level = 0.5
+		tax_income = 0.25
+		ai_creation_factor = 80
+	}
+	tb_keep_4 = {
+		desc = tb_keep_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_keep_3
+		gold_cost = 100
+		build_time = 365
+		liege_prestige = 1
+		fort_level = 0.5
+		tax_income = 0.25
+		ai_creation_factor = 80
+	}
+
+	# Defenses Structures
+	tb_defenses_1 = {
+		desc = tb_defenses_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_2 = {
+		desc = tb_defenses_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_1
+					has_building = tb_keep_2
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_1
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_3 = {
+		desc = tb_defenses_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_1
+					has_building = tb_keep_2
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_2
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_4 = {
+		desc = tb_defenses_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_2
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_3
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_5 = {
+		desc = tb_defenses_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_2
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_4
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_6 = {
+		desc = tb_defenses_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_5
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_7 = {
+		desc = tb_defenses_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_3
+					has_building = tb_keep_4
+				}
+			}
+		}
+		upgrades_from = tb_defenses_6
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_8 = {
+		desc = tb_defenses_8_desc
 		potential = {
 			has_province_modifier = mod_pop_display
 		}
 		trigger = { 
-			TECH_CASTLE_CONSTRUCTION = 0
+			FROMFROM = {
+				has_building = tb_keep_4
+			}
+		}
+		upgrades_from = tb_defenses_7
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_9 = {
+		desc = tb_defenses_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_keep_4
+			}
+		}
+		upgrades_from = tb_defenses_8
+		gold_cost = 50
+		build_time = 182
+		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+
+	#Recruit Post
+	tb_recruit_post_1 = {
+		desc = tb_recruit_post_1_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_1
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.1
+		garrison_size = 0.1
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_2 = {
+		desc = tb_recruit_post_2_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_2
+			}
+		}
+		upgrades_from = tb_recruit_post_1
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.1
+		garrison_size = 0.1
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_3 = {
+		desc = tb_recruit_post_3_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_3
+			}
+		}
+		upgrades_from = tb_recruit_post_2
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.1
+		garrison_size = 0.1
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_4 = {
+		desc = tb_recruit_post_4_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_4
+			}
+		}
+		upgrades_from = tb_recruit_post_3
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.2
+		garrison_size = 0.2
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_5 = {
+		desc = tb_recruit_post_5_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_5
+			}
+		}
+		upgrades_from = tb_recruit_post_4
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.2
+		garrison_size = 0.2
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_6 = {
+		desc = tb_recruit_post_6_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_6
+			}
+		}
+		upgrades_from = tb_recruit_post_5
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.2
+		garrison_size = 0.2
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_7 = {
+		desc = tb_recruit_post_7_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_7
+			}
+		}
+		upgrades_from = tb_recruit_post_6
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.2
+		garrison_size = 0.2
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+	tb_recruit_post_8 = {
+		desc = tb_recruit_post_8_desc
+		potential = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_recruit_post_7
+		gold_cost = 50
+		build_time = 182
+		levy_size = 0.3
+		garrison_size = 0.3
+		ai_creation_factor = 80
+
+		extra_tech_building_start = 1.0
+	}
+
+	#Barracks give light and heavy infantry
+	tb_barracks_1 = {
+		desc = tb_barracks_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		#potential = { has_game_started = yes }
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_1
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 50
+		heavy_infantry = 20
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_2 = {
+		desc = tb_barracks_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_1
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 50
+		heavy_infantry = 20
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_3 = {
+		desc = tb_barracks_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_2
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 50
+		heavy_infantry = 20
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_4 = {
+		desc = tb_barracks_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_3
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 50
+		heavy_infantry = 20
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_5 = {
+		desc = tb_barracks_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_4
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 150
+		heavy_infantry = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_6 = {
+		desc = tb_barracks_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_5
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 150
+		heavy_infantry = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_7 = {
+		desc = tb_barracks_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_barracks_6
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 150
+		heavy_infantry = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_8 = {
+		desc = tb_barracks_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_barracks_7
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 150
+		heavy_infantry = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_barracks_9 = {
+		desc = tb_barracks_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_barracks_8
+		gold_cost = 50
+		build_time = 182
+		light_infantry = 150
+		heavy_infantry = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+
+	#Bowyers give archers
+	tb_bowyer_1 = {
+		desc = tb_bowyer_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_1
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_2 = {
+		desc = tb_bowyer_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_1
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_3 = {
+		desc = tb_bowyer_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_2
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_4 = {
+		desc = tb_bowyer_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_3
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_5 = {
+		desc = tb_bowyer_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_4
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_6 = {
+		desc = tb_bowyer_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_5
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_7 = {
+		desc = tb_bowyer_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_bowyer_6
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_8 = {
+		desc = tb_bowyer_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_bowyer_7
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_bowyer_9 = {
+		desc = tb_bowyer_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_bowyer_8
+		gold_cost = 50
+		build_time = 182
+		archers = 50
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+
+	#Stables give light and heavy cavalry
+	tb_stables_1 = {
+		desc = tb_stables_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		#potential = { has_game_started = yes }
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_1
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_2 = {
+		desc = tb_stables_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_2
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_1
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_3 = {
+		desc = tb_stables_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_3
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_2
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_4 = {
+		desc = tb_stables_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_4
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_3
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_5 = {
+		desc = tb_stables_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_5
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_4
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_6 = {
+		desc = tb_stables_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_6
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_5
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_7 = {
+		desc = tb_stables_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_recruit_post_7
+					has_building = tb_recruit_post_8
+				}
+			}
+		}
+		upgrades_from = tb_stables_6
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_8 = {
+		desc = tb_stables_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_stables_7
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+	tb_stables_9 = {
+		desc = tb_stables_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_recruit_post_8
+			}
+		}
+		upgrades_from = tb_stables_8
+		gold_cost = 50
+		build_time = 182
+		light_cavalry = 40
+		knights = 10
+		levy_size = -0.05
+		ai_creation_factor = 80
+	}
+
+	#Farms
+	tb_farms_1 = {
+		desc = tb_farms_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_0
+				has_province_modifier = pop_1
+				has_province_modifier = pop_2
+				has_province_modifier = pop_3
+				has_province_modifier = pop_4
+				has_province_modifier = pop_5
+				has_province_modifier = pop_10
+				has_province_modifier = pop_20
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_farms_2 = {
+		desc = tb_farms_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
 			OR = {
 				has_province_modifier = pop_4
 				has_province_modifier = pop_5
@@ -88,24 +1118,18 @@ tribal = {
 				has_province_modifier = pop_1000
 			}
 		}
-		upgrades_from = tb_hillfort_1
+		upgrades_from = tb_farms_1
 		gold_cost = 50
-		build_time = 365
-		
-		fort_level = 0.25
-		levy_size = 0.05
-		ai_creation_factor = 98
-		ai_feudal_modifier = 10
-		ai_republic_modifier = -10
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
 	}
-	
-	tb_hillfort_3 = {
-		desc = tb_hillfort_3_desc
+	tb_farms_3 = {
+		desc = tb_farms_3_desc
 		potential = {
 			has_province_modifier = mod_pop_display
 		}
-		trigger = { 
-			TECH_CASTLE_CONSTRUCTION = 0
+		trigger = {
 			OR = {
 				has_province_modifier = pop_20
 				has_province_modifier = pop_30
@@ -131,24 +1155,18 @@ tribal = {
 				has_province_modifier = pop_1000
 			}
 		}
-		upgrades_from = tb_hillfort_2
-		gold_cost = 75
-		build_time = 365
-		
-		fort_level = 0.25
-		levy_size = 0.05
-		ai_creation_factor = 99
-		ai_feudal_modifier = 10
-		ai_republic_modifier = -10
+		upgrades_from = tb_farms_2
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
 	}
-	
-	tb_hillfort_4 = {
-		desc = tb_hillfort_4_desc
+	tb_farms_4 = {
+		desc = tb_farms_4_desc
 		potential = {
 			has_province_modifier = mod_pop_display
 		}
-		trigger = { 
-			TECH_CASTLE_CONSTRUCTION = 0
+		trigger = {
 			OR = {
 				has_province_modifier = pop_50
 				has_province_modifier = pop_60
@@ -171,828 +1189,816 @@ tribal = {
 				has_province_modifier = pop_1000
 			}
 		}
-		upgrades_from = tb_hillfort_3
-		gold_cost = 100
-		build_time = 365
-		
-		fort_level = 0.25
-		levy_size = 0.05
-		ai_creation_factor = 100
-		ai_feudal_modifier = 10
-		ai_republic_modifier = -10
+		upgrades_from = tb_farms_3
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
 	}
-	
-	# tb_market_town_1 = {
-		# desc = tb_market_town_1_desc
-		# trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		# gold_cost = 25
-		# build_time = 365
-		
-		# tax_income = 0.5
-		# retinuesize = 20
-		# ai_creation_factor = 97
-		# ai_feudal_modifier = -10
-		# ai_republic_modifier = 10
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_market_town_2 = {
-		# desc = tb_market_town_2_desc
-		# trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		# upgrades_from = tb_market_town_1
-		# gold_cost = 50
-		# build_time = 365
-		
-		# tax_income = 0.5
-		# ai_creation_factor = 98
-		# ai_feudal_modifier = -10
-		# ai_republic_modifier = 10
-		
-		# convert_to_castle = ca_town_1
-		# convert_to_city = ct_marketplace_1
-		
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_market_town_3 = {
-		# desc = tb_market_town_3_desc
-		# trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		# upgrades_from = tb_market_town_2
-		# gold_cost = 75
-		# build_time = 365
-		
-		# tax_income = 0.5
-		# ai_creation_factor = 99
-		# ai_feudal_modifier = -10
-		# ai_republic_modifier = 10
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_market_town_4 = {
-		# desc = tb_market_town_4_desc
-		# trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		# upgrades_from = tb_market_town_3
-		# gold_cost = 100
-		# build_time = 365
-		
-		# tax_income = 0.5
-		# ai_creation_factor = 100
-		# ai_feudal_modifier = -10
-		# ai_republic_modifier = 10
-		
-		# convert_to_castle = ca_town_2
-		# convert_to_city = ct_marketplace_2
-		
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_defensive_fortifications_1 = {
-		# desc = tb_defensive_fortifications_1_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		# piety_cost = 100
-		# build_time = 365
-		
-		# potential = {
-			# FROM = {
-				# OR = {
-					# religion = baltic_pagan_reformed
-					# religion = baltic_pagan
-					# religion = finnish_pagan_reformed
-					# religion = finnish_pagan
-					# religion = slavic_pagan_reformed
-					# religion = slavic_pagan
-					# religion = west_african_pagan_reformed
-					# religion = west_african_pagan
-					# religion = bon
-					# religion = bon_reformed
-				# }
-			# }
-		# }
-		
-		# fort_level = 0.20
-		# garrison_size = 0.15
-		# archers = 10
-		# ai_creation_factor = 97
-		# ai_feudal_modifier = 10
-		# ai_republic_modifier = -10
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_defensive_fortifications_2 = {
-		# desc = tb_defensive_fortifications_2_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		# upgrades_from = tb_defensive_fortifications_1
-		# piety_cost = 150
-		# build_time = 365
-		
-		# potential = {
-			# FROM = {
-				# OR = {
-					# religion = baltic_pagan_reformed
-					# religion = baltic_pagan
-					# religion = finnish_pagan_reformed
-					# religion = finnish_pagan
-					# religion = slavic_pagan_reformed
-					# religion = slavic_pagan
-					# religion = west_african_pagan_reformed
-					# religion = west_african_pagan
-					# religion = bon
-					# religion = bon_reformed
-				# }
-			# }
-		# }
-		
-		# fort_level = 0.20
-		# garrison_size = 0.15
-		# archers = 10
-		# ai_creation_factor = 98
-		# ai_feudal_modifier = 10
-		# ai_republic_modifier = -10
-		
-		# convert_to_city = ct_wall_q_1
-		# convert_to_castle = ca_wall_q_1
-		
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_defensive_fortifications_3 = {
-		# desc = tb_defensive_fortifications_3_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		# upgrades_from = tb_defensive_fortifications_2
-		# piety_cost = 200
-		# build_time = 365
-		
-		# potential = {
-			# FROM = {
-				# OR = {
-					# religion = baltic_pagan_reformed
-					# religion = baltic_pagan
-					# religion = finnish_pagan_reformed
-					# religion = finnish_pagan
-					# religion = slavic_pagan_reformed
-					# religion = slavic_pagan
-					# religion = west_african_pagan_reformed
-					# religion = west_african_pagan
-					# religion = bon
-					# religion = bon_reformed
-				# }
-			# }
-		# }
-		
-		# fort_level = 0.20
-		# garrison_size = 0.15
-		# archers = 10
-		# ai_creation_factor = 99
-		# ai_feudal_modifier = 10
-		# ai_republic_modifier = -10
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_defensive_fortifications_4 = {
-		# desc = tb_defensive_fortifications_4_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		# upgrades_from = tb_defensive_fortifications_3
-		# piety_cost = 250
-		# build_time = 365
-		
-		# potential = {
-			# FROM = {
-				# OR = {
-					# religion = baltic_pagan_reformed
-					# religion = baltic_pagan
-					# religion = finnish_pagan_reformed
-					# religion = finnish_pagan
-					# religion = slavic_pagan_reformed
-					# religion = slavic_pagan
-					# religion = west_african_pagan_reformed
-					# religion = west_african_pagan
-					# religion = bon
-					# religion = bon_reformed
-				# }
-			# }
-		# }
-		
-		# fort_level = 0.20
-		# garrison_size = 0.15
-		# archers = 10
-		# ai_creation_factor = 100
-		# ai_feudal_modifier = 10
-		# ai_republic_modifier = -10
-		
-		# convert_to_city = ct_wall_q_2
-		# convert_to_castle = ca_wall_q_2
-		
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_shipyard_1 = {
-		# desc = shipyard_desc
-		# port = yes
-		# trigger = { TECH_NAVAL = 1 }
-		# prestige_cost = 100
-		# build_time = 365
-		# galleys = 6
-		# ai_creation_factor = 96
-		# ai_republic_modifier = 5
-		
-		# convert_to_castle = ca_shipyard_1
-		# convert_to_city = ct_shipyard_1
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_shipyard_2 = {
-		# desc = shipyard_desc
-		# port = yes
-		# trigger = { TECH_NAVAL = 2 }
-		# upgrades_from = tb_shipyard_1
-		# prestige_cost = 200
-		# build_time = 730
-		# galleys = 7
-		# ai_creation_factor = 95
-		# ai_republic_modifier = 5
-		
-		# convert_to_castle = ca_shipyard_2
-		# convert_to_city = ct_shipyard_2
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_shipyard_3 = {
-		# desc = shipyard_desc
-		# port = yes
-		# trigger = { TECH_NAVAL = 3 }
-		# upgrades_from = tb_shipyard_2
-		# prestige_cost = 300
-		# build_time = 1095
-		# galleys = 8
-		# ai_creation_factor = 94
-		# ai_republic_modifier = 5
-		
-		# convert_to_castle = ca_shipyard_3
-		# convert_to_city = ct_shipyard_3
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_shipyard_4 = {
-		# desc = shipyard_desc
-		# port = yes
-		# trigger = { TECH_NAVAL = 4 }
-		# upgrades_from = tb_shipyard_3
-		# prestige_cost = 400
-		# build_time = 1460
-		# galleys = 9
-		# ai_creation_factor = 93
-		# ai_republic_modifier = 5
-		
-		# convert_to_castle = ca_shipyard_4
-		# convert_to_city = ct_shipyard_4
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_training_grounds_1 = {
-		# desc = tb_training_grounds_desc
-		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		# prestige_cost = 100
-		# build_time = 547
-		# levy_size = 0.025
-		# garrison_size = 0.025
-		# ai_creation_factor = 98
+	tb_farms_5 = {
+		desc = tb_farms_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_farms_4
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_farms_6 = {
+		desc = tb_farms_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_farms_5
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_farms_7 = {
+		desc = tb_farms_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_farms_6
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_farms_8 = {
+		desc = tb_farms_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 0
+			OR = {
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_farms_7
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_farms_9 = {
+		desc = tb_farms_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_farms_8
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
 
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_training_grounds_2 = {
-		# desc = tb_training_grounds_desc
-		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		# upgrades_from = tb_training_grounds_1
-		# prestige_cost = 200
-		# build_time = 730
-		# levy_size = 0.05
-		# garrison_size = 0.05
-		# ai_creation_factor = 97
-		
-		# convert_to_castle = ca_keep_1
-		# convert_to_city = ct_training_grounds_1
+	#Markets, give tax and prestige
+	tb_markets_1 = {
+		desc = tb_markets_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_2
+					has_building = tb_farms_3
+					has_building = tb_farms_4
+					has_building = tb_farms_5
+					has_building = tb_farms_6
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_2 = {
+		desc = tb_markets_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_3
+					has_building = tb_farms_4
+					has_building = tb_farms_5
+					has_building = tb_farms_6
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_1
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_3 = {
+		desc = tb_markets_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_4
+					has_building = tb_farms_5
+					has_building = tb_farms_6
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_2
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_4 = {
+		desc = tb_markets_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_5
+					has_building = tb_farms_6
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_3
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_5 = {
+		desc = tb_markets_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_6
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_4
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_6 = {
+		desc = tb_markets_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_7
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_5
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_7 = {
+		desc = tb_markets_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_farms_8
+					has_building = tb_farms_9
+				}
+			}
+		}
+		upgrades_from = tb_markets_6
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		ai_creation_factor = 80
+	}
+	tb_markets_8 = {
+		desc = tb_markets_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_farms_9
+			}
+		}
+		upgrades_from = tb_markets_7
+		gold_cost = 50
+		build_time = 182
+		tax_income = 2
+		liege_prestige = 1
+		ai_creation_factor = 80
+	}
 
-		# extra_tech_building_start = 1.5
-	# } 
-	
-	# tb_training_grounds_3 = {
-		# desc = tb_training_grounds_desc
-		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		# upgrades_from = tb_training_grounds_2
-		# prestige_cost = 300
-		# build_time = 1095
-		# levy_size = 0.075
-		# garrison_size = 0.075
-		# ai_creation_factor = 96
+	#Training grounds, give morale
+	tb_training_grounds_1 = {
+		desc = tb_training_grounds_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_eldar   # Elves
+				religion_group = religion_group_khazad  # Dwarves
+				religion = religion_rhovanion
+				religion = religion_numenorean
+				religion = religion_dunedain
+				religion = religion_edain
+				religion = religion_druedain
+				religion_group = religion_group_eruhini # Ainur (like Eagles)
+				religion_group = religion_group_enyd    # Ents
+			}
+			FROM = {
+				NOR = {
+					culture = culture_adunaic
+					has_character_flag = corrupted
+				}
+			}
+		}
+		gold_cost = 100
+		build_time = 730
+		land_morale = 0.05
+		ai_creation_factor = 89
+	}
+	tb_training_grounds_2 = {
+		desc = tb_training_grounds_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_eldar   # Elves
+				religion_group = religion_group_khazad  # Dwarves
+				religion = religion_rhovanion
+				religion = religion_numenorean
+				religion = religion_dunedain
+				religion = religion_edain
+				religion = religion_druedain
+				religion_group = religion_group_eruhini # Ainur (like Eagles)
+				religion_group = religion_group_enyd    # Ents
+			}
+			FROM = {
+				NOR = {
+					culture = culture_adunaic
+					has_character_flag = corrupted
+				}
+			}
+		}
+		upgrades_from = tb_training_grounds_1
+		gold_cost = 100
+		build_time = 730
+		land_morale = 0.05
+		ai_creation_factor = 88
+	}
+	tb_training_grounds_3 = {
+		desc = tb_training_grounds_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_eldar   # Elves
+				religion_group = religion_group_khazad  # Dwarves
+				religion = religion_rhovanion
+				religion = religion_numenorean
+				religion = religion_dunedain
+				religion = religion_edain
+				religion = religion_druedain
+				religion_group = religion_group_eruhini # Ainur (like Eagles)
+				religion_group = religion_group_enyd    # Ents
+			}
+			FROM = {
+				NOR = {
+					culture = culture_adunaic
+					has_character_flag = corrupted
+				}
+			}
+		}
+		upgrades_from = tb_training_grounds_2
+		gold_cost = 100
+		build_time = 730
+		land_morale = 0.1
+		ai_creation_factor = 88
+	}
+	tb_training_grounds_4 = {
+		desc = tb_training_grounds_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_eldar   # Elves
+				religion_group = religion_group_khazad  # Dwarves
+				religion = religion_rhovanion
+				religion = religion_numenorean
+				religion = religion_dunedain
+				religion = religion_edain
+				religion = religion_druedain
+				religion_group = religion_group_eruhini # Ainur (like Eagles)
+				religion_group = religion_group_enyd    # Ents
+			}
+			FROM = {
+				NOR = {
+					culture = culture_adunaic
+					has_character_flag = corrupted
+				}
+			}
+		}
+		upgrades_from = tb_training_grounds_3
+		gold_cost = 100
+		build_time = 730
+		land_morale = 0.1
+		ai_creation_factor = 88
+	}
 
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_training_grounds_4 = {
-		# desc = tb_training_grounds_desc
-		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		# upgrades_from = tb_training_grounds_3
-		# prestige_cost = 400
-		# build_time = 1460
-		# levy_size = 0.1
-		# garrison_size = 0.1
-		# ai_creation_factor = 95
-		
-		# convert_to_castle = ca_keep_2
-		# convert_to_city = ct_training_grounds_2
+	#Uruk Pits, give levies and reinforcement
+	tb_uruk_pits_1 = {
+		desc = tb_uruk_pits_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_melkor
+				religion_group = religion_group_ungoliant
+				religion_group = religion_group_dragon
+				FROM = {
+					OR = {
+						culture = culture_black_numenorean
+						culture = culture_adunaic
+						has_character_flag = corrupted
+					}
+				}
+			}
+		}
+		}
+		gold_cost = 100
+		build_time = 730
+		levy_size = 0.05
+		levy_reinforce_rate = 0.05
+		ai_creation_factor = 89
+	}
+	tb_uruk_pits_2 = {
+		desc = tb_uruk_pits_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_melkor
+				religion_group = religion_group_ungoliant
+				religion_group = religion_group_dragon
+				FROM = {
+					OR = {
+						culture = culture_black_numenorean
+						culture = culture_adunaic
+						has_character_flag = corrupted
+					}
+				}
+			}
+		}
+		upgrades_from = tb_uruk_pits_1
+		gold_cost = 100
+		build_time = 730
+		levy_size = 0.05
+		levy_reinforce_rate = 0.05
+		ai_creation_factor = 88
+	}
+	tb_uruk_pits_3 = {
+		desc = tb_uruk_pits_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_melkor
+				religion_group = religion_group_ungoliant
+				religion_group = religion_group_dragon
+				FROM = {
+					OR = {
+						culture = culture_black_numenorean
+						culture = culture_adunaic
+						has_character_flag = corrupted
+					}
+				}
+			}
+		}
+		upgrades_from = tb_uruk_pits_2
+		gold_cost = 100
+		build_time = 730
+		levy_size = 0.1
+		levy_reinforce_rate = 0.05
+		ai_creation_factor = 88
+	}
+	tb_uruk_pits_4 = {
+		desc = tb_uruk_pits_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_melkor
+				religion_group = religion_group_ungoliant
+				religion_group = religion_group_dragon
+				FROM = {
+					OR = {
+						culture = culture_black_numenorean
+						culture = culture_adunaic
+						has_character_flag = corrupted
+					}
+				}
+			}
+		}
+		upgrades_from = tb_uruk_pits_3
+		gold_cost = 100
+		build_time = 730
+		levy_size = 0.1
+		levy_reinforce_rate = 0.05
+		ai_creation_factor = 88
+	}
 
-		# extra_tech_building_start = 2.5
-	# } 
-	
-	# tb_war_camp_1 = {
-		# desc = tb_war_camp_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# prestige_cost = 100
-		# build_time = 365
-		# light_infantry = 40
-		# ai_creation_factor = 95
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_war_camp_2 = {
-		# desc = tb_war_camp_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_war_camp_1
-		# prestige_cost = 200
-		# build_time = 547
-		# light_infantry = 40
-		# ai_creation_factor = 94
-		
-		# convert_to_castle = ca_barracks_1
-		# convert_to_city = ct_guard_1
+	#Docks give Income
+	tb_docks_1 = {
+		desc = tb_docks_1_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_0
+				has_province_modifier = pop_1
+				has_province_modifier = pop_2
+				has_province_modifier = pop_3
+				has_province_modifier = pop_4
+				has_province_modifier = pop_5
+				has_province_modifier = pop_10
+				has_province_modifier = pop_20
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	tb_docks_2 = {
+		desc = tb_docks_2_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_10
+				has_province_modifier = pop_20
+				has_province_modifier = pop_30
+				has_province_modifier = pop_40
+				has_province_modifier = pop_50
+				has_province_modifier = pop_60
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_docks_1
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	tb_docks_3 = {
+		desc = tb_docks_3_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_70
+				has_province_modifier = pop_80
+				has_province_modifier = pop_90
+				has_province_modifier = pop_100
+				has_province_modifier = pop_150
+				has_province_modifier = pop_200
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_docks_2
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	tb_docks_4 = {
+		desc = tb_docks_4_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_250
+				has_province_modifier = pop_300
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_docks_3
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	tb_docks_5 = {
+		desc = tb_docks_5_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			OR = {
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
+				has_province_modifier = pop_1000
+			}
+		}
+		upgrades_from = tb_docks_4
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		ai_creation_factor = 100
+	}
+	tb_docks_6 = {
+		desc = tb_docks_6_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			has_province_modifier = pop_1000
+		}
+		upgrades_from = tb_docks_5
+		gold_cost = 50
+		build_time = 365
+		tax_income = 2
+		liege_prestige = 1
+		ai_creation_factor = 100
+	}
 
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_war_camp_3 = {
-		# desc = tb_war_camp_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_war_camp_2
-		# prestige_cost = 300
-		# build_time = 730
-		# light_infantry = 40
-		# ai_creation_factor = 93
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_war_camp_4 = {
-		# desc = tb_war_camp_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_war_camp_3
-		# prestige_cost = 400
-		# build_time = 1095
-		# light_infantry = 40
-		# ai_creation_factor = 92
-		
-		# convert_to_castle = ca_barracks_2
-		# convert_to_city = ct_guard_2
+	#Shipyards give Galleys
+	tb_shipyard_1 = {
+		desc = tb_shipyard_1_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_1
+			}
+		}
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
 
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_practice_range_1 = {
-		# desc = tb_practice_range_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# prestige_cost = 100
-		# build_time = 365
-		# archers = 15
-		# ai_creation_factor = 95
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_practice_range_2 = {
-		# desc = tb_practice_range_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_practice_range_1
-		# prestige_cost = 200
-		# build_time = 547
-		# archers = 15
-		# ai_creation_factor = 94
-		
-		# convert_to_castle = ca_militia_barracks_1
-		# convert_to_city = ct_barracks_1
+		extra_tech_building_start = 0.3
+	}
+	tb_shipyard_2 = {
+		desc = tb_shipyard_2_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_2
+			}
+		}
+		upgrades_from = tb_shipyard_1
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
 
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_practice_range_3 = {
-		# desc = tb_practice_range_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_practice_range_2
-		# prestige_cost = 300
-		# build_time = 730
-		# archers = 15
-		# ai_creation_factor = 93
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_practice_range_4 = {
-		# desc = tb_practice_range_desc
-		# trigger = { TECH_LIGHT_INFANTRY = 0 }
-		# upgrades_from = tb_practice_range_3
-		# prestige_cost = 400
-		# build_time = 1095
-		# archers = 15
-		# ai_creation_factor = 92
-		
-		# convert_to_castle = ca_militia_barracks_2
-		# convert_to_city = ct_barracks_2
+		extra_tech_building_start = 0.3
+	}
+	tb_shipyard_3 = {
+		desc = tb_shipyard_3_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_3
+			}
+		}
+		upgrades_from = tb_shipyard_2
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
 
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_steppe_barracks_1 = {
-		# desc = ca_steppe_barracks_desc
-		# potential = {
-			# terrain = steppe
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-				# }
-			# }
-		# }
-		# replaces = tb_war_camp_1
-		# trigger = { TECH_CAVALRY = 0 }
-		# prestige_cost = 100
-		# build_time = 365
-		# archers = 12
-		# light_cavalry = 10
-		# ai_creation_factor = 105
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_steppe_barracks_2 = {
-		# desc = ca_steppe_barracks_desc
-		# potential = {
-			# terrain = steppe
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-				# }
-			# }
-		# }
-		# replaces = tb_war_camp_2
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_barracks_1
-		# prestige_cost = 200
-		# build_time = 547
-		# archers = 12
-		# light_cavalry = 10
-		# ai_creation_factor = 104
-		
-		# convert_to_castle = ca_steppe_barracks_1
-		# convert_to_city = ct_guard_1
-		
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_steppe_barracks_3 = {
-		# desc = ca_steppe_barracks_desc
-		# potential = {
-			# terrain = steppe
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-				# }
-			# }
-		# }
-		# replaces = tb_war_camp_3
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_barracks_2
-		# prestige_cost = 300
-		# build_time = 730
-		# archers = 12
-		# light_cavalry = 10
-		# ai_creation_factor = 103
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_steppe_barracks_4 = {
-		# desc = ca_steppe_barracks_desc
-		# potential = {
-			# terrain = steppe
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-				# }
-			# }
-		# }
-		# replaces = tb_war_camp_4
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_barracks_3
-		# prestige_cost = 400
-		# build_time = 1095
-		# archers = 12
-		# light_cavalry = 10
-		# ai_creation_factor = 102
-		
-		# convert_to_castle = ca_steppe_barracks_2
-		# convert_to_city = ct_guard_2
-		
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_steppe_stable_1 = {
-		# desc = ca_steppe_stable_desc
-		# potential = {
-			# OR = {
-				# terrain = plains
-				# terrain = steppe
-			# }
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-					# culture = alan
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_1
-		# trigger = { TECH_CAVALRY = 0 }
-		# prestige_cost = 100
-		# build_time = 365
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 89
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_steppe_stable_2 = {
-		# desc = ca_steppe_stable_desc
-		# potential = {
-			# OR = {
-            # terrain = plains
-            # terrain = steppe
-			# }
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-					# culture = alan
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_2
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_stable_1
-		# prestige_cost = 200
-		# build_time = 547
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 88
-		
-		# convert_to_castle = ca_steppe_stable_1
-		# convert_to_city = ct_barracks_1
+		extra_tech_building_start = 0.3
+	}
+	tb_shipyard_4 = {
+		desc = tb_shipyard_4_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_4
+			}
+		}
+		upgrades_from = tb_shipyard_3
+		gold_cost = 50
+		build_time = 365
+		galleys = 5
+		ai_creation_factor = 100
 
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_steppe_stable_3 = {
-		# desc = ca_steppe_stable_desc
-		# potential = {
-			# OR = {
-            # terrain = plains
-            # terrain = steppe
-			# }
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-					# culture = alan
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_3
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_stable_2
-		# prestige_cost = 300
-		# build_time = 730
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 87
-
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_steppe_stable_4 = {
-		# desc = ca_steppe_stable_desc
-		# potential = {
-			# OR = {
-            # terrain = plains
-            # terrain = steppe
-			# }
-			# FROM = {
-				# OR = {
-					# culture_group = altaic
-					# culture_group = magyar
-					# culture = alan
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_4
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_steppe_stable_3
-		# prestige_cost = 400
-		# build_time = 1095
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 86
-		
-		# convert_to_castle = ca_steppe_stable_2
-		# convert_to_city = ct_barracks_2
-
-		# extra_tech_building_start = 2.5
-	# }
-	
-	# tb_arsenal_1 = {
-		# desc = tb_arsenal_desc
-		# trigger = { TECH_RECRUITMENT = 0 }
-		# prestige_cost = 100
-		# build_time = 547
-		# land_morale = 0.1
-		# levy_reinforce_rate = 0.1
-		# retinuesize = 25
-		# ai_creation_factor = 98
-
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_arsenal_2 = {
-		# desc = tb_arsenal_desc
-		# trigger = { TECH_RECRUITMENT = 0 }
-		# upgrades_from = tb_arsenal_1
-		# prestige_cost = 200
-		# build_time = 730
-		# land_morale = 0.1
-		# levy_reinforce_rate = 0.1
-		# retinuesize = 20
-		# ai_creation_factor = 97
-
-		# extra_tech_building_start = 1.5
-		
-		# convert_to_castle = ca_training_grounds_1
-		# convert_to_city = ct_rep_arsenal_1
-	# }
-	
-	# tb_arsenal_3 = {
-		# desc = tb_arsenal_desc
-		# trigger = { TECH_RECRUITMENT = 0 }
-		# upgrades_from = tb_arsenal_2
-		# prestige_cost = 300
-		# build_time = 1095
-		# land_morale = 0.1
-		# levy_reinforce_rate = 0.1
-		# retinuesize = 15
-		# ai_creation_factor = 96
-		
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_arsenal_4 = {
-		# desc = tb_arsenal_desc
-		# trigger = { TECH_RECRUITMENT = 0 }
-		# upgrades_from = tb_arsenal_3
-		# prestige_cost = 400
-		# build_time = 1460
-		# land_morale = 0.1
-		# levy_reinforce_rate = 0.1
-		# retinuesize = 10
-		# ai_creation_factor = 95
-		
-		# extra_tech_building_start = 2.5
-		
-		# convert_to_castle = ca_training_grounds_2
-		# convert_to_city = ct_rep_arsenal_2
-	# }
-
-	# tb_desert_stable_1 = {
-		# desc = tb_desert_stable_desc
-		# potential = {
-			# terrain = desert
-			# FROM = {
-				# OR = {
-					# culture_group = east_african
-					# culture_group = west_african
-					# culture_group = arabic
-					# culture_group = iranian
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_1
-		# trigger = { TECH_CAVALRY = 0 }
-		# prestige_cost = 100
-		# build_time = 365
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 89
-		
-		# extra_tech_building_start = 0.3
-	# }
-	
-	# tb_desert_stable_2 = {
-		# desc = tb_desert_stable_desc
-		# potential = {
-			# terrain = desert
-			# FROM = {
-				# OR = {
-					# culture_group = east_african
-					# culture_group = west_african
-					# culture_group = arabic
-					# culture_group = iranian
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_2
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_desert_stable_1
-		# prestige_cost = 200
-		# build_time = 547
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 88
-		
-		# convert_to_castle = ca_desert_stable_1
-		# convert_to_city = ct_barracks_1
-
-		# extra_tech_building_start = 1.5
-	# }
-	
-	# tb_desert_stable_3 = {
-		# desc = tb_desert_stable_desc
-		# potential = {
-			# terrain = desert
-			# FROM = {
-				# OR = {
-					# culture_group = east_african
-					# culture_group = west_african
-					# culture_group = arabic
-					# culture_group = iranian
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_3
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_desert_stable_2
-		# prestige_cost = 300
-		# build_time = 730
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 87
-
-		# extra_tech_building_start = 2
-	# }
-	
-	# tb_desert_stable_4 = {
-		# desc = tb_desert_stable_desc
-		# potential = {
-			# terrain = desert
-			# FROM = {
-				# OR = {
-					# culture_group = east_african
-					# culture_group = west_african
-					# culture_group = arabic
-					# culture_group = iranian
-				# }
-			# }
-		# }
-		# replaces = tb_practice_range_4
-		# trigger = { TECH_CAVALRY = 0 }
-		# upgrades_from = tb_desert_stable_3
-		# prestige_cost = 400
-		# build_time = 1095
-		# light_cavalry = 12
-		# horse_archers = 5
-		# ai_creation_factor = 86
-		
-		# convert_to_castle = ca_desert_stable_2
-		# convert_to_city = ct_barracks_2
-
-		# extra_tech_building_start = 2.5
-	# }
+		extra_tech_building_start = 0.3
+	}
+	tb_shipyard_5 = {
+		desc = tb_shipyard_5_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_5
+			}
+		}
+		upgrades_from = tb_shipyard_4
+		gold_cost = 50
+		build_time = 365
+		galleys = 10
+		tax_income = 2
+		ai_creation_factor = 100
+		extra_tech_building_start = 0.3
+	}
+	tb_shipyard_6 = {
+		desc = tb_shipyard_6_desc
+		port = yes
+		potential = {
+			has_province_modifier = mod_pop_display
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_docks_6
+			}
+		}
+		upgrades_from = tb_shipyard_5
+		gold_cost = 50
+		build_time = 365
+		galleys = 20
+		tax_income = 2
+		ai_creation_factor = 100
+		extra_tech_building_start = 0.3
+	}
 }	
 	
