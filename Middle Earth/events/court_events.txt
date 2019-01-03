@@ -630,6 +630,19 @@ character_event = {
 			prestige = -5
 		}
 	}
+	option = {
+		name = EVTOPTC73006 #Give him a beating for messing with inferiors
+		pacifists_lose_piety_effect = yes
+		event_target:knocked_up_maid = {
+			opinion = {
+				modifier = resentful_of_my_behaviour
+				who = ROOT
+				years = 2
+			}
+			add_trait = wroth
+			add_trait = ambitious
+		}
+	}
 }
 	
 ### Bored wife: Your wife wants latest fashion fad.... ###
@@ -673,7 +686,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.5
-			spouse = { trait = fair }
+			spouse = { has_fair_trait_trigger = yes }
 		}
 		modifier = {
 			factor = 2.5
@@ -943,7 +956,7 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 5.0
-			NOT = { trait = cynical }
+			trait = zealous
 		}
 		
 		modifier = {
@@ -1047,9 +1060,68 @@ character_event = {
 	option = {
 		name = EVTOPTB73011 # Perhaps I can ask my priest what he thinks.
 		trigger = {
-			trait = cynical
+			NOT = { trait = cynical }
+			OR = {
+				trait = lustful
+				trait = gluttonous
+				trait = greedy
+				trait = slothful
+				trait = envious
+				trait = wroth
+				trait = proud
+			}
 		}
-		remove_trait = cynical				
+		if = {
+			limit = {
+				trait = lustful
+			}
+			remove_trait = lustful
+			piety = -20
+		}
+		if = {
+			limit = {
+				trait = gluttonous
+			}
+			remove_trait = gluttonous
+			lose_weight_small_effect = yes
+			weight_trait_check_effect = yes
+			piety = -20
+		}
+		if = {
+			limit = {
+				trait = greedy
+			}
+			remove_trait = greedy
+			piety = -20
+		}		
+		if = {
+			limit = {
+				trait = slothful
+			}
+			remove_trait = slothful
+			piety = -20
+		}		
+		if = {
+			limit = {
+				trait = envious
+			}
+			remove_trait = envious
+			piety = -20
+		}		
+		if = {
+			limit = {
+				trait = wroth
+			}
+			remove_trait = wroth
+			piety = -20
+		}
+		if = {
+			limit = {
+				trait = proud
+			}
+			remove_trait = proud
+			piety = -20
+		}				
 	}
 	option = {
 		name = EVTOPTC73011 	# They have abandoned us.  We must determine our own fate.
@@ -1290,7 +1362,7 @@ letter_event = {
 letter_event = {
 	id = 73205
 	desc = EVTDESC73205
-	# picture = GFX_evt_spymaster
+	picture = GFX_evt_spymaster
 	border = GFX_event_letter_frame_war
 	
 	is_triggered_only = yes
@@ -1624,7 +1696,7 @@ letter_event = {
 letter_event = {
 	id = 73222
 	desc = EVTDESC73222
-	# picture = GFX_evt_spymaster
+	picture = GFX_evt_spymaster
 	
 	is_triggered_only = yes
 
@@ -1853,7 +1925,7 @@ letter_event = {
 letter_event = {
 	id = 73232
 	desc = EVTDESC73232
-	# picture = GFX_evt_spymaster
+	picture = GFX_evt_spymaster
 	
 	is_triggered_only = yes
 
