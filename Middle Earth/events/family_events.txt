@@ -14,10 +14,22 @@
 character_event = {
 	id = 37000
 	desc = EVTDESC37000
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	min_age = 16
-	only_men = yes
 	capable_only = yes
 	prisoner = no
 	lacks_dlc = "Zeus"
@@ -26,6 +38,16 @@ character_event = {
 		has_ambition = obj_wants_landed_title
 		independent = no
 		liege = {
+			OR = { 
+				AND = { 
+					ROOT = { is_female = yes }
+					has_religion_feature = religion_matriarchal 
+				} 
+				AND = { 
+					ROOT = { is_female = no }
+					NOT = { has_religion_feature = religion_matriarchal }
+				}
+			}
 			OR = {
 				war = no
 				ai = yes
@@ -89,7 +111,20 @@ character_event = {
 character_event = {
 	id = 37001
 	desc = EVTDESC37001
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -136,7 +171,20 @@ character_event = {
 character_event = {
 	id = 37002
 	desc = EVTDESC37002
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -280,7 +328,20 @@ character_event = {
 character_event = {
 	id = 37005
 	desc = EVTDESC37005
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -313,7 +374,20 @@ character_event = {
 character_event = {
 	id = 37006
 	desc = EVTDESC37006
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -399,6 +473,10 @@ character_event = {
 			modifier = {
 				factor = 2.5
 				trait = ambitious
+			}
+			modifier = {
+				factor = 5.0
+				religion = religion_southron
 			}
 			modifier = {
 				factor = 0.25
@@ -799,37 +877,75 @@ character_event = {
 		}
 		
 		# Create some decent commander characters
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = ROOT
-			female = no
-			age = 30
+		if = {
+			limit = { NOT = { has_religion_feature = religion_matriarchal } }
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 30
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 25
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 33
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = no
+				age = 29
+			}
 		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = ROOT
-			female = no
-			age = 25
-		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = ROOT
-			female = no
-			age = 33
-		}
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			religion = ROOT
-			culture = ROOT
-			female = no
-			age = 29
+		if = {
+			limit = { has_religion_feature = religion_matriarchal }
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = yes
+				age = 30
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = yes
+				age = 25
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = yes
+				age = 33
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				religion = ROOT
+				culture = ROOT
+				female = yes
+				age = 29
+			}
 		}
 		
 		# Create a fleet, just to be sure
@@ -1281,6 +1397,7 @@ character_event = {
 		any_spouse = {
 			has_prev_education_trigger = yes
 			opinion = { who = ROOT value = 20 }
+			is_inaccessible_or_incapable_trigger = no
 		}
 		NOT = { has_character_flag = spouse_offered_help }
 	}
