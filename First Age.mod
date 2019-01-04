@@ -1,3 +1,12 @@
 name = "MEP - First Age"
 path = "mod/First Age"
 dependencies = { "Middle Earth" }
+picture="cover.jpg"
+replace_path = "history"
+replace_path = "history/titles"
+replace_path = "history/provinces"
+replace_path = "history/technology"
+replace_path = "history/wars"
+replace_path = "history/diplomacy"
+replace_path = "history/characters"
+replace_path = "map"
