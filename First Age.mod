@@ -1,4 +1,4 @@
-name = "MEP - First Age"
+name = "Middle Earth - First Age"
 path = "mod/First Age"
 # dependencies = { "Middle Earth" }
 replace_path = "common/cb_types"
