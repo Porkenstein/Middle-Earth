@@ -24,6 +24,8 @@ character_event = {
 	prisoner = no
 	lacks_dlc = "Conclave"
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		NOT = {
 			num_of_friends = 2
@@ -66,24 +68,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			is_primary_heir = yes
-		}
-		modifier = {
-			factor = 0.5
-			trait = gregarious
-		}
-		
-		modifier = {
-			factor = 2
-			trait = shy
 		}
 	}
 
@@ -1598,6 +1582,8 @@ character_event = {
 	prisoner = no
 	min_age = 4
 	max_age = 14
+	
+	is_triggered_only = yes
 
 	trigger = {
 		is_inaccessible_trigger = no
@@ -1656,10 +1642,6 @@ character_event = {
 				}
 			}
 		}
-	}
-
-	mean_time_to_happen = {
-		months = 80
 	}
 
 	immediate = {
@@ -1897,6 +1879,8 @@ character_event = {
 	min_age = 11
 	max_age = 16
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		NOT = {
 			num_of_friends = 2
@@ -1977,19 +1961,6 @@ character_event = {
 				}
 				save_event_target_as = target_courtier
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 2
-			trait = cruel
 		}
 	}
 	
@@ -2146,6 +2117,8 @@ character_event = {
 	min_age = 16
 	max_age = 25
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		NOT = {
@@ -2228,28 +2201,6 @@ character_event = {
 				}
 			}
 			save_event_target_as = target_courtier
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = gregarious
-		}
-		modifier = {
-			factor = 0.5
-			trait = trusting
-		}
-		
-		modifier = {
-			factor = 2
-			trait = wroth
-		}
-		modifier = {
-			factor = 2
-			trait = envious
 		}
 	}
 	
@@ -2465,6 +2416,8 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		NOT = {
@@ -2538,27 +2491,6 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = brave
-		}
-		modifier = {
-			factor = 2
-			trait = craven
-		}
-		modifier = {
-			factor = 0.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 2
-			trait = content
-		}
-	}
-	
 	option = {
 		name = EVTOPTA100060
 		prestige = -2
@@ -2628,6 +2560,8 @@ character_event = {
 	min_age = 4
 	max_age = 14
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		NOT = {
@@ -2639,7 +2573,6 @@ character_event = {
 		NOT = {
 			num_of_rivals = 2
 		}
-		NOT = { has_character_modifier = in_seclusion }
 		any_host_courtier = {
 			is_inaccessible_trigger = no
 			is_female = no
@@ -2656,27 +2589,6 @@ character_event = {
 				is_friend = ROOT
 				is_rival = ROOT
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = brave
-		}
-		modifier = {
-			factor = 0.5
-			trait = rowdy
-		}
-		modifier = {
-			factor = 2
-			trait = craven
-		}
-		modifier = {
-			factor = 2
-			trait = timid
 		}
 	}
 
@@ -2935,6 +2847,8 @@ character_event = {
 	min_age = 11
 	max_age = 16
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		NOT = {
@@ -2974,27 +2888,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 2
-			trait = honest
-		}
-		modifier = {
-			factor = 0.5
-			trait = deceitful
-		}
-		modifier = {
-			factor = 0.5
-			intrigue = 5
-		}
-		modifier = {
-			factor = 2
-			NOT = { intrigue = 5 }
 		}
 	}
 
@@ -3251,136 +3144,6 @@ character_event = {
 	}
 }
 
-### Someone does not believe in God! ###
-character_event = {
-	id = 100080
-	desc = EVTDESC100080
-	picture = GFX_evt_child_talking
-	
-	min_age = 4
-	max_age = 14
-	prisoner = no
-	only_capable = yes
-	only_playable = yes
-	religion_group = christian
-	
-	trigger = {
-		is_inaccessible_trigger = no
-		trait = zealous
-		NOT = {
-			num_of_friends = 2
-		}
-		NOT = {
-			num_of_rivals = 2
-		}
-		host = {
-			any_courtier = {
-				is_inaccessible_trigger = no
-				prisoner = no
-				same_sex = ROOT
-				age = 11
-				NOT = {
-					age = 16
-				}
-				at_location = ROOT
-				trait = cynical
-				NOT = {
-					sibling = ROOT
-				}
-				NOT = {
-					num_of_friends = 2
-				}
-				NOT = {
-					num_of_rivals = 2
-				}
-				NOT = {
-					is_friend = ROOT
-				}
-				NOT = {
-					is_rival = ROOT
-				}
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			piety = 50
-		}
-		modifier = {
-			factor = 2
-			NOT = { piety = 50 }
-		}
-		modifier = {
-			factor = 0.5
-			trait = diligent
-		}
-		modifier = {
-			factor = 2
-			trait = slothful
-		}
-		modifier = {
-			factor = 0.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 2
-			trait = content
-		}
-	}
-	
-	option = {
-		name = EVTOPTA100080
-		piety = 10
-	}	
-	option = {
-		name = EVTOPTB100080
-		host = {
-			random_courtier = {
-				limit = {
-					is_inaccessible_trigger = no
-					prisoner = no
-					same_sex = ROOT
-					age = 11
-					NOT = {
-						age = 16
-					}
-					at_location = ROOT
-					OR = {
-						trait = cynical
-						NOT = {
-							trait = zealous
-						}
-					}
-					NOT = {
-						sibling = ROOT
-					}
-					NOT = {
-						num_of_friends = 2
-					}
-					NOT = {
-						num_of_rivals = 2
-					}
-					NOT = {
-						is_friend = ROOT
-					}
-					NOT = {
-						is_rival = ROOT
-					}
-				}
-				character_event = {
-					id = 100081
-					days = 1
-					random = 2
-					tooltip = EVTTOOLTIP100081
-				}
-			}
-		}
-	}
-}
 
 #ROOT tries to convert a cynic
 character_event = {
@@ -3516,6 +3279,8 @@ character_event = {
 	prisoner = no
 	only_capable = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		OR = {
@@ -3557,19 +3322,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 3
-			trait = envious
-		}
-		modifier = {
-			factor = 0.5
-			trait = kind
 		}
 	}
 
@@ -3804,6 +3556,8 @@ character_event = {
 	max_age = 14
 	prisoner = no
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		NOT = {
@@ -3828,43 +3582,6 @@ character_event = {
 				is_friend = ROOT
 				is_rival = ROOT
 			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = kind
-		}
-		modifier = {
-			factor = 0.5
-			trait = humble
-		}
-		modifier = {
-			factor = 0.5
-			trait = timid
-		}
-		modifier = {
-			factor = 0.5
-			trait = affectionate
-		}
-		modifier = {
-			factor = 0.5
-			trait = wroth
-		}
-		modifier = {
-			factor = 0.5
-			trait = envious
-		}
-		modifier = {
-			factor = 0.5
-			trait = rowdy
-		}
-		modifier = {
-			factor = 0.5
-			trait = brooding
 		}
 	}
 
@@ -4426,6 +4143,8 @@ character_event = {
 	capable_only = yes
 	only_rulers = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		is_councillor = no
@@ -4502,58 +4221,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 0.5
-			trait = trusting
-		}
-		modifier = {
-			factor = 0.5
-			OR = {
-				trait = quick
-				trait = shrewd
-			}
-		}
-		modifier = {
-			factor = 0.3
-			trait = genius
-		}
-		modifier = {
-			factor = 0.5
-			trait = diligent
-		}
-		
-		modifier = {
-			factor = 2
-			trait = slothful
-		}
-		modifier = {
-			factor = 2
-			trait = paranoid
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				trait = slow
-				trait = dull
-			}
-		}
-		modifier = {
-			factor = 5
-			trait = imbecile
-		}
-		modifier = {
-			factor = 2
-			trait = content
 		}
 	}
 	
@@ -5037,6 +4704,8 @@ character_event = {
 	only_capable = yes
 	is_married = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		is_pregnant = yes
@@ -5078,44 +4747,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = gregarious
-		}
-		modifier = {
-			factor = 0.5
-			trait = honest
-		}
-		modifier = {
-			factor = 0.5
-			trait = trusting
-		}
-		modifier = {
-			factor = 0.5
-			trait = kind
-		}
-		
-		modifier = {
-			factor = 2
-			trait = shy
-		}
-		modifier = {
-			factor = 2
-			trait = deceitful
-		}
-		modifier = {
-			factor = 2
-			trait = paranoid
-		}
-		modifier = {
-			factor = 2
-			trait = cruel
 		}
 	}
 	
@@ -5227,6 +4858,8 @@ character_event = {
 	war = no
 	friends = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {		
 		in_command = no
 		scaled_wealth = 0.5
@@ -5244,19 +4877,6 @@ character_event = {
 				is_primary_war_attacker = yes
 				is_primary_war_defender = yes
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 120
-		
-		modifier = {
-			factor = 0.5
-			trait = charitable
-		}
-		modifier = {
-			factor = 2
-			trait = greedy
 		}
 	}
 	
@@ -5479,6 +5099,8 @@ character_event = {
 	capable_only = yes
 	war = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		OR = {
 			is_primary_war_attacker = yes
@@ -5502,20 +5124,6 @@ character_event = {
 			}
 			NOT = { has_character_modifier = in_seclusion }
 		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 5
-			trait = proud
-		}
-		
-		modifier = {
-			factor = 0.5
-			trait = trusting
-		}		
 	}
 
 	immediate = {

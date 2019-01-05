@@ -125,120 +125,120 @@ isildur_reconquest = {
 	}
 }
 
-aldarion_reconquest = {
-	name = CB_NAME_RHUDAUR
-	war_name = WAR_NAME_RHUDAUR
-	sprite = 17
-	truce_days = 3650
-	is_permanent = yes
-	check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
+# aldarion_reconquest = {
+	# name = CB_NAME_RHUDAUR
+	# war_name = WAR_NAME_RHUDAUR
+	# sprite = 17
+	# truce_days = 3650
+	# is_permanent = yes
+	# check_de_jure_tier = DUKE # this scans all dejure duchies for the counties which are held by or vassals(or below) of selected character. Only valid if is_permanent = yes
 
-	can_use = {
-		ROOT = {
-			trait = blood_of_aldarion
-			independent = yes
-			NOT = { same_realm = FROM }
-		}
-		FROM = {
-			NOR = {
-				religion_group = religion_group_periannath
-				culture_group = culture_group_wilderness
-			}
-		}
-	}
+	# can_use = {
+		# ROOT = {
+			# trait = blood_of_aldarion
+			# independent = yes
+			# NOT = { same_realm = FROM }
+		# }
+		# FROM = {
+			# NOR = {
+				# religion_group = religion_group_periannath
+				# culture_group = culture_group_wilderness
+			# }
+		# }
+	# }
 
-	can_use_title = {
-		de_jure_liege_or_above = k_rhudaur
-	}
+	# can_use_title = {
+		# de_jure_liege_or_above = k_rhudaur
+	# }
 	
-	is_valid = {
-		ROOT = {
-			independent = yes
-			NOT = { same_realm = FROM }
-		}
-		FROM = {
-			NOT = { religion_group = religion_group_eldar }
-			NOT = { religion = religion_mahal }
-		}
-	}
+	# is_valid = {
+		# ROOT = {
+			# independent = yes
+			# NOT = { same_realm = FROM }
+		# }
+		# FROM = {
+			# NOT = { religion_group = religion_group_eldar }
+			# NOT = { religion = religion_mahal }
+		# }
+	# }
 	
-	on_success = {
-		any_attacker = {
-			limit = { character = ROOT }
-			participation_scaled_prestige = 100
-		}
-		any_attacker = {
-			limit = { NOT = { character = ROOT } }
-			hidden_tooltip = { 
-				participation_scaled_prestige = 100
-			}
-		}
+	# on_success = {
+		# any_attacker = {
+			# limit = { character = ROOT }
+			# participation_scaled_prestige = 100
+		# }
+		# any_attacker = {
+			# limit = { NOT = { character = ROOT } }
+			# hidden_tooltip = { 
+				# participation_scaled_prestige = 100
+			# }
+		# }
 		
-		FROM = { prestige = -100 }
-	}
+		# FROM = { prestige = -100 }
+	# }
 
-	on_success_title = {
-		custom_tooltip = { 
-			text = tribal_invasion_succ_tip
-			hidden_tooltip = {
-				ROOT = {
-					vassalize_or_take_under_title = {
-						title = PREV
-						enemy = FROM
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				holder_scope = { character = FROM }
-			}
-			usurp_title_only = ROOT
-		}
-	}
+	# on_success_title = {
+		# custom_tooltip = { 
+			# text = tribal_invasion_succ_tip
+			# hidden_tooltip = {
+				# ROOT = {
+					# vassalize_or_take_under_title = {
+						# title = PREV
+						# enemy = FROM
+					# }
+				# }
+			# }
+		# }
+		# if = {
+			# limit = {
+				# holder_scope = { character = FROM }
+			# }
+			# usurp_title_only = ROOT
+		# }
+	# }
 
-	on_fail = {
-		ROOT = { prestige = -150 }
-	}
+	# on_fail = {
+		# ROOT = { prestige = -150 }
+	# }
 
-	on_reverse_demand = {
-		ROOT = {
-			transfer_scaled_wealth = {
-				to = FROM
-				value = 4.0
-			}
-			ROOT = { prestige = -200 }
-		}
-		any_defender = {
-			limit = { character = FROM }
-			participation_scaled_piety = 100
-			participation_scaled_prestige = 200
-		}
-		any_defender = {
-			limit = { NOT = { character = FROM } }
-			hidden_tooltip = { 
-				participation_scaled_piety = 100
-				participation_scaled_prestige = 200
-			}
-		}
-	}
+	# on_reverse_demand = {
+		# ROOT = {
+			# transfer_scaled_wealth = {
+				# to = FROM
+				# value = 4.0
+			# }
+			# ROOT = { prestige = -200 }
+		# }
+		# any_defender = {
+			# limit = { character = FROM }
+			# participation_scaled_piety = 100
+			# participation_scaled_prestige = 200
+		# }
+		# any_defender = {
+			# limit = { NOT = { character = FROM } }
+			# hidden_tooltip = { 
+				# participation_scaled_piety = 100
+				# participation_scaled_prestige = 200
+			# }
+		# }
+	# }
 
-	attacker_ai_victory_worth = {
-		factor = -1 # always accept
-	}
+	# attacker_ai_victory_worth = {
+		# factor = -1 # always accept
+	# }
 	
-	attacker_ai_defeat_worth = {
-		factor = 100
-	}
+	# attacker_ai_defeat_worth = {
+		# factor = 100
+	# }
 
-	defender_ai_victory_worth = {
-		factor = -1 # always accept
-	}
+	# defender_ai_victory_worth = {
+		# factor = -1 # always accept
+	# }
 	
-	defender_ai_defeat_worth = {
-		factor = 100
-	}
-}
+	# defender_ai_defeat_worth = {
+		# factor = 100
+	# }
+# }
 
 arpharazon_reconquest = {
 	name = CB_NAME_ARPHARAZON
@@ -250,7 +250,7 @@ arpharazon_reconquest = {
 
 	can_use = {
 		ROOT = {
-			trait = blood_of_arpharazon
+			trait = blood_of_elros
 			independent = yes
 			NOT = { same_realm = FROM }
 		}
