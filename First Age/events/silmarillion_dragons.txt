@@ -1,0 +1,60 @@
+namespace = dragons
+
+# A Dragon is Young
+
+narrative_event = {
+    id = dragons.0
+	hide_window = yes
+	is_triggered_only = yes
+	notification = no
+
+	trigger = {
+        OR = {
+            trait = long_worms
+            trait = cold_drake
+            trait = uruloke
+        }
+        NOT = { trait = young_drake }
+        OR = {
+            NOT = { age = 16 } # not still an infant
+            AND = {
+                NOT = { age = 100 }
+                NOT = { year = 4850 } # not the war of wrath yet
+            }
+        }
+	}
+
+	option = {
+		add_trait = young_drake
+    }
+}
+
+# Coming of Age of Dragons
+character_event = {
+    id = dragons.1
+    title = "EVTTITyoungdrake.1"
+    desc = "EVTDESCyoungdrake.1"
+    picture = "GFX_evt_dragon"
+	is_triggered_only = no
+
+	trigger = {
+		trait = young_drake
+        OR = {
+            age = 100
+            AND = {
+                age = 16 # not still an infant
+                year = 4850 # the war of wrath
+            }
+        }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = { remove_trait = young_drake }
+
+	option = {
+		name = "EVTOPTAyoungdrake.1" ## Ok.
+	}
+}

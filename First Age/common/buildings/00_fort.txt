@@ -1,0 +1,43 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+
+fort = {
+	ft_earthworks = { # earthwork fortifications around the fort
+		desc = ft_earthworks_desc
+		gold_cost = 20
+		build_time = 70
+		ai_creation_factor = 80
+		fort_level= 1.0
+		trigger = { TECH_RECRUITMENT = 1 }
+		potential = {
+       			NOT = { culture_group = culture_group_wilderness }
+    	}
+	}
+	ft_watchtower = { # wooden watchtowers around the fort
+		desc = ft_watchtower_desc
+		gold_cost = 20
+		build_time = 200
+		garrison_size = 0.5
+		ai_creation_factor = 70
+		trigger = { TECH_RECRUITMENT = 3 }
+		potential = {
+	   		#has_global_flag = building
+			NOT = { culture_group = culture_group_wilderness }
+        }
+	}
+	ft_grandcamp = { # facilities for a grand camp following
+		desc = ft_grandcamp_desc
+		gold_cost = 30
+		build_time = 50
+		ai_creation_factor = 70
+		tax_income = 0.2
+		trigger = { TECH_RECRUITMENT = 4 }
+		potential = {
+	   		#has_global_flag = building
+			NOT = { culture_group = culture_group_wilderness }
+			NOT = { culture_group = culture_group_melkor }
+			NOT = { religion_group = religion_group_melkor }
+        }
+	}
+}

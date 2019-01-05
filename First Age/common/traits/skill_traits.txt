@@ -1,0 +1,1256 @@
+### Cavalry traits ###
+
+squire = {
+	leader = yes
+
+	martial = 1
+    
+	potential = {
+		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_easterling		
+		}
+	}	
+	
+	command_modifier = {
+		cavalry = 0.1
+	}
+	
+	opposites =  {
+		good_rider
+		great_rider
+		horse_master
+	}
+	
+}
+
+good_rider = {
+	leader = yes
+
+	martial = 2
+	combat_rating = 5
+    
+    random = no
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_easterling		
+		}
+	}	
+	
+	command_modifier = {
+		cavalry = 0.2
+	}
+	opposites =  {
+		squire
+		great_rider
+		horse_master
+	}
+		
+}
+
+great_rider = {
+	leader = yes
+
+	martial = 3
+	combat_rating = 10
+    
+    random = no
+	
+	monthly_character_prestige = 0.05
+	vassal_opinion = 5
+	sex_appeal_opinion = 5	
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_easterling		
+		}
+	}	
+	
+	command_modifier = {
+		cavalry = 0.3
+	}
+	opposites =  {
+		squire
+		good_rider
+		horse_master
+	}
+	
+}
+
+horse_master = {
+	leader = yes
+
+	martial = 5
+	combat_rating = 20
+    
+    random = no
+	
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10		
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_easterling		
+		}
+	}	
+	
+	command_modifier = {
+		cavalry = 0.5
+	}
+	opposites =  {
+		squire
+		great_rider
+		good_rider
+	}
+	
+}
+
+### Orcs Traits ###
+
+weak_orc = {
+	leader = yes
+
+	martial = 1
+	
+	monthly_character_prestige = -0.1
+	vassal_opinion = -10
+	sex_appeal_opinion = -20	
+
+    random = no	
+	
+	potential = {
+		is_orc_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.1
+	}
+	opposites =  {
+		orc_warrior
+		great_orc
+		strong_orc
+	}
+	
+}
+
+orc_warrior = {
+	leader = yes
+
+	martial = 2
+	combat_rating = 5
+	
+	monthly_character_prestige = 0.02
+	vassal_opinion = 5
+	sex_appeal_opinion = 5	
+
+    random = no
+	
+	potential = {
+		is_orc_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.2
+	}
+	opposites =  {
+		weak_orc
+		great_orc
+		strong_orc
+	}
+	
+}
+
+strong_orc = {
+	leader = yes
+
+	martial = 3
+	combat_rating = 10
+	
+	monthly_character_prestige = 0.05
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+    
+    random = no
+	
+	potential = {
+		is_orc_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.3
+		heavy_infantry = 0.1		
+	}
+	opposites =  {
+		weak_orc
+		orc_warrior
+		great_orc
+	}
+	
+}
+
+great_orc = {
+	leader = yes
+
+	martial = 5
+	combat_rating = 20
+	
+	monthly_character_prestige = 0.1
+	vassal_opinion = 15
+	sex_appeal_opinion = 20
+    
+    random = no
+	
+	potential = {
+		is_orc_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.5
+		heavy_infantry = 0.2		
+	}
+	opposites =  {
+		weak_orc
+		orc_warrior
+		strong_orc
+	}
+	
+}
+
+### Elvish Trait ###
+
+pacifist_elf = {
+	leader = yes
+
+	martial = -1
+	
+    random = no
+    
+	potential = {
+		is_elf_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.1
+	}
+	opposites =  {
+		trained_elf
+		great_elf
+		legendary_warrior
+	}
+		
+}
+
+trained_elf = {
+	leader = yes
+
+    random = no
+    
+	martial = 2
+	combat_rating = 5
+	
+	potential = {
+		is_elf_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.2
+	}
+	opposites =  {
+		pacifist_elf
+		great_elf
+		legendary_warrior
+	}
+	
+}
+
+great_elf = {
+	leader = yes
+
+    random = no
+    
+	martial = 4
+	combat_rating = 10
+	
+	potential = {
+		is_elf_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.3
+		heavy_infantry = 0.1		
+	}
+	opposites =  {
+		pacifist_elf
+		trained_elf
+		legendary_warrior
+	}
+		
+}
+
+legendary_warrior = {
+	leader = yes
+
+    random = no
+    
+	martial = 6
+	combat_rating = 20
+	
+	potential = {
+		is_elf_culture = yes
+	}	
+	
+	command_modifier = {
+		light_infantry = 0.5
+		heavy_infantry = 0.2		
+	}
+	opposites =  {
+		pacifist_elf
+		trained_elf
+		great_elf
+	}
+	
+}
+
+### Dwarven Traits ###
+
+dwarf_warrior = {
+	leader = yes
+
+	martial = 1	
+	    
+	potential = {
+		culture_group = culture_group_dwarves		
+	}	
+	opposites =  {
+		trained_dwarf
+		great_axeman
+		dragon_slayer
+	}
+
+}
+
+trained_dwarf = {
+	leader = yes
+
+	martial = 2
+	combat_rating = 5
+	
+    random = no
+    
+	potential = {
+		culture_group = culture_group_dwarves		
+	}	
+	
+	command_modifier = {
+		heavy_infantry = 0.2
+	}
+	opposites =  {
+		dwarf_warrior
+		great_axeman
+		dragon_slayer
+	}
+	
+}
+
+great_axeman = {
+	leader = yes
+
+	martial = 4
+	combat_rating = 10
+	
+    random = no
+    
+	monthly_character_prestige = 0.1
+	vassal_opinion = 10
+	sex_appeal_opinion = 10
+	
+	potential = {
+		culture_group = culture_group_dwarves		
+	}
+	
+	command_modifier = {
+		heavy_infantry = 0.3	
+	}
+	opposites =  {
+		dwarf_warrior
+		trained_dwarf
+		dragon_slayer
+	}
+		
+}
+
+dragon_slayer = {
+	leader = yes
+
+    random = no
+    
+	martial = 5
+	combat_rating = 20
+	
+	monthly_character_prestige = 0.2
+	vassal_opinion = 15
+	sex_appeal_opinion = 20	
+	
+	potential = {
+		culture_group = culture_group_dwarves		
+	}
+	
+	command_modifier = {
+		heavy_infantry = 0.5	
+	}
+	opposites =  {
+		dwarf_warrior
+		trained_dwarf
+		great_axeman
+	}
+		
+}
+
+
+### archers Traits ###
+
+bowman = {
+	leader = yes
+
+	martial = 1	
+	    
+	potential = {
+		OR = {
+			is_human_culture = yes
+			is_elf_culture = yes
+		}
+	}	
+	opposites =  {
+		skilled_bowman
+		great_bowman
+		master_bowman
+	}
+
+}
+
+skilled_bowman = {
+	leader = yes
+
+	martial = 2
+	combat_rating = 5
+	
+	potential = {
+		OR = {
+			is_human_culture = yes
+			is_elf_culture = yes
+		}
+	}	
+	
+    random = no
+    
+	command_modifier = {
+		phase_skirmish_attack = 0.1
+		phase_skirmish_defense = 0.1
+	}
+	opposites =  {
+		bowman
+		great_bowman
+		master_bowman
+	}
+	
+}
+
+great_bowman = {
+	leader = yes
+
+	martial = 3
+	combat_rating = 10
+	
+	monthly_character_prestige = 0.1
+	vassal_opinion = 5
+	sex_appeal_opinion = 5
+	
+    random = no
+    
+	potential = {
+		OR = {
+			is_human_culture = yes
+			is_elf_culture = yes
+		}
+	}
+	
+	command_modifier = {
+		phase_skirmish_attack = 0.3
+		phase_skirmish_defense = 0.3
+	}
+	opposites =  {
+		bowman
+		skilled_bowman
+		master_bowman
+	}
+		
+}
+
+master_bowman = {
+	leader = yes
+
+	martial = 4
+	combat_rating = 20
+	
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	
+    random = no
+    
+	potential = {
+		OR = {
+			is_human_culture = yes
+			is_elf_culture = yes
+		}
+	}
+	
+	command_modifier = {	
+		phase_skirmish_attack = 0.5
+		phase_skirmish_defense = 0.5
+	}
+	opposites =  {
+		bowman
+		skilled_bowman
+		great_bowman
+	}
+		
+}
+
+### Fighters Traits (Human) ###
+novice_fighter = {
+	leader = yes
+
+	martial = 1	
+	    
+	potential = {
+		is_human_culture = yes
+	}
+	
+	opposites =  {
+		adept_fighter
+		skilled_fighter
+		master_fighter
+	}
+
+}
+
+adept_fighter = {
+	leader = yes
+
+	martial = 2
+	combat_rating = 5
+	
+    random = no
+    
+	potential = {
+		is_human_culture = yes
+	}
+	command_modifier = {
+		light_infantry = 0.1	
+		heavy_infantry = 0.1		
+	}
+	opposites =  {
+		novice_fighter
+		skilled_fighter
+		master_fighter
+	}
+	
+}
+
+skilled_fighter = {
+	leader = yes
+
+	martial = 3
+	combat_rating = 10
+	
+    random = no
+    
+	monthly_character_prestige = 0.1
+	vassal_opinion = 5
+	sex_appeal_opinion = 5
+	
+	potential = {
+		is_human_culture = yes
+	}
+	
+	command_modifier = {
+		light_infantry = 0.2
+		heavy_infantry = 0.2
+	}
+	opposites =  {
+		novice_fighter
+		adept_fighter
+		master_fighter
+	}
+		
+}
+
+master_fighter = {
+	leader = yes
+
+	martial = 4
+	combat_rating = 20
+	
+    random = no
+    
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	sex_appeal_opinion = 10	
+	
+	potential = {
+		is_human_culture = yes
+	}
+	command_modifier = {	
+		light_infantry = 0.3	
+		heavy_infantry = 0.3				
+	}
+	opposites =  {
+		novice_fighter
+		adept_fighter
+		skilled_fighter
+	}
+		
+}
+
+
+
+### Healing Traits - Elves/Dunedain ###
+
+herbalist = {
+	leader = yes
+    
+	intrigue = 1
+	
+	religion_group_eldar_opinion = 2
+	
+	potential = {
+		is_elf_culture = yes		
+	}	
+	opposites =  {
+		apothecary
+		great_healer
+		healer_master
+	}
+}
+
+apothecary = {
+	leader = yes
+
+    random = no
+    
+	intrigue = 1
+	learning = 1
+	
+	religion_group_eldar_opinion = 3
+	
+	potential = {
+		is_elf_culture = yes		
+	}	
+	
+	opposites =  {
+		herbalist
+		great_healer
+		healer_master
+	}	
+}
+
+great_healer = {
+	leader = yes
+
+    random = no
+    
+	intrigue = 2
+	learning = 2
+	
+	monthly_character_prestige = 0.1
+	vassal_opinion = 2
+	
+	religion_group_eldar_opinion = 5
+	
+	potential = {
+		is_elf_culture = yes		
+	}	
+	
+	opposites =  {
+		herbalist
+		apothecary
+		healer_master
+	}		
+}
+
+healer_master = {
+	leader = yes
+
+    random = no
+    
+	intrigue = 3
+	learning = 3
+	
+	monthly_character_prestige = 0.2
+	vassal_opinion = 5
+	
+	religion_group_eldar_opinion = 8
+	
+	potential = {
+		is_elf_culture = yes		
+	}
+	
+	opposites =  {
+		herbalist
+		apothecary
+		great_healer
+	}		
+}
+
+
+#### Artisans Traits - Noldor/Dwarves ####
+
+craftsman = {
+	leader = yes
+    
+	stewardship = 1	
+	
+	religion_group_khazad_opinion = 2
+	religion_calaquendi_opinion = 2
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_amanyar			
+		}		
+	}
+	opposites =  {
+		skilled_craftsman
+		master_craftsman
+		legendary_craftman
+	}
+}
+
+skilled_craftsman = {
+	leader = yes
+
+	stewardship = 2
+	
+    random = no
+    
+	religion_group_khazad_opinion = 3
+	religion_calaquendi_opinion = 3
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_amanyar			
+		}		
+	}	
+	
+	opposites =  {
+		craftsman
+		master_craftsman
+		legendary_craftman
+	}	
+}
+
+master_craftsman = {
+	leader = yes
+	
+	monthly_character_prestige = 0.2
+	vassal_opinion = 2
+	
+    random = no
+    
+	stewardship = 4
+
+	religion_mahal_opinion = 5
+	religion_calaquendi_opinion = 5
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_amanyar
+		}		
+	}		
+
+	opposites =  {
+		craftsman
+		skilled_craftsman
+		legendary_craftman
+	}		
+}
+
+legendary_craftman = {
+	leader = yes
+	
+    random = no
+    
+	monthly_character_prestige = 0.5
+	vassal_opinion = 5
+	
+	stewardship = 6
+	
+	religion_mahal_opinion = 5
+	religion_calaquendi_opinion = 5
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_amanyar
+		}
+	}
+	
+	opposites =  {
+		craftsman
+		skilled_craftsman
+		master_craftsman
+	}		
+}
+
+### Musician Traits  - For Elves/Numenoreans/Middlemen/Hobbits/Dwarves ###
+
+musician = { #poet
+	leader = yes
+    
+	diplomacy = 1
+		
+	potential = {
+		NOT = { religion_group = religion_group_melkor }
+	}	
+	opposites =  {
+		composer
+		skilled_composer
+		legendary_musician
+	}
+}
+
+composer = {
+	leader = yes
+
+    random = no
+    
+	diplomacy = 2
+	
+	general_opinion = 2
+	
+	potential = {
+		NOT = { religion_group = religion_group_melkor }		
+	}	
+	
+	opposites =  {
+		musician
+		skilled_composer
+		legendary_musician
+	}	
+}
+
+skilled_composer = {
+	leader = yes
+	
+    random = no
+    
+	monthly_character_prestige = 0.2
+	vassal_opinion = 2
+	
+	diplomacy = 3
+	
+	general_opinion = 5
+	
+	potential = {
+		NOT = { religion_group = religion_group_melkor }		
+	}		
+	
+	opposites =  {
+		musician
+		composer
+		legendary_musician
+	}		
+}
+
+legendary_musician = {
+	leader = yes
+	
+     random = no
+    
+	monthly_character_prestige = 0.5
+	vassal_opinion = 5
+	
+	diplomacy = 5
+	
+	general_opinion = 8
+	
+	potential = {
+		NOT = { religion_group = religion_group_melkor }		
+	}	
+	
+	opposites =  {
+		musician
+		composer
+		skilled_composer
+	}
+}
+
+
+#### Sailor Traits - Falathrim / Noldor ####
+
+mariner = {
+	leader = yes
+
+    random = no
+    
+	diplomacy = 1
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			culture_group = culture_group_edain	
+		}		
+	}	
+	opposites =  {
+		navigator
+		captain
+		ship_builder
+	}
+}
+
+navigator = {
+	leader = yes
+
+    random = no
+    
+	diplomacy = 1
+	stewardship = 1
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			culture_group = culture_group_edain	
+		}		
+	}	
+	
+	opposites =  {
+		mariner
+		captain
+		ship_builder
+	}	
+}
+
+captain = {
+	leader = yes
+	
+    random = no
+    
+	monthly_character_prestige = 0.2
+	vassal_opinion = 5
+	
+	diplomacy = 3
+	stewardship = 1
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			culture_group = culture_group_edain	
+		}		
+	}		
+	
+	opposites =  {
+		mariner
+		navigator
+		ship_builder
+	}		
+}
+
+ship_builder = {
+	leader = yes
+	
+    random = no
+    
+	monthly_character_prestige = 0.5
+	vassal_opinion = 10
+	
+	diplomacy = 4
+	stewardship = 2
+	
+	potential = {
+		OR = {
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			culture_group = culture_group_edain	
+		}		
+	}	
+	
+	opposites =  {
+		mariner
+		navigator
+		captain
+	}		
+}
+
+
+#### Trader Traits ####
+
+trader = {
+	leader = yes
+	    
+	stewardship = 1	
+	
+	potential = {
+		NOT = { religion_group = religion_group_melkor }
+	}	
+	opposites =  {
+		tradesman
+		great_merchant
+	}
+}
+
+tradesman = {
+	leader = yes
+	
+	stewardship = 2
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_melkor }
+	}	
+	
+	opposites =  {
+		trader
+		great_merchant
+	}	
+}
+
+great_merchant = {
+	leader = yes
+	
+	monthly_character_prestige = 0.2
+	vassal_opinion = 10
+	
+	stewardship = 4
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_melkor }
+	}		
+	
+	opposites =  {
+		trader
+		tradesman
+	}		
+}
+
+
+### Necromancy - enslaving the lost spirits of the dead ###
+
+soultaker = {
+	leader = yes
+
+	monthly_character_piety = 2.5
+	learning = 2
+	combat_rating = 5
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		necromancer
+		master_necromancer
+	}
+}
+
+
+necromancer = {
+	leader = yes
+
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 5.0
+	learning = 4
+	combat_rating = 10
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		soultaker
+		master_necromancer
+	}
+
+}
+
+
+master_necromancer = {
+	leader = yes
+
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 10.0
+	learning = 8
+	combat_rating = 20
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		necromancer
+		soultaker
+	}
+
+}
+
+
+### Sorcery - invoking the power of Morgoth ###
+
+witch = {
+	leader = yes
+
+	monthly_character_piety = 2.5
+	learning = 2
+	combat_rating = 5
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		sorcerer
+		master_sorcerer
+	}
+
+}
+
+
+sorcerer = {
+	leader = yes
+
+	monthly_character_prestige = 0.1
+	monthly_character_piety = 5.0
+	learning = 4
+	combat_rating = 10
+
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		witch
+		master_sorcerer
+	}
+
+}
+
+
+master_sorcerer = {
+	leader = yes
+
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 10.0
+	learning = 8
+	combat_rating = 20
+	
+    random = no
+    
+	potential = {
+		NOT = { religion_group = religion_group_khazad }
+		OR= {
+			trait = mystic
+			religion = religion_umaiar
+		}
+		
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	opposites =  {
+		witch
+		sorcerer
+	}
+
+}
+
+
+# Special Skill Traits
+
+marchwarden = {
+	leader = yes
+	
+    random = no
+    
+	martial = 3
+	combat_rating = 5
+	health = 1
+	general_opinion = 5
+	monthly_character_prestige = 0.5
+	vassal_opinion = 5
+	
+	potential = {
+		has_minor_title = title_marchwarden
+	}
+	
+}

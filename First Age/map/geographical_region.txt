@@ -1,0 +1,167 @@
+# Geographical regions
+# Regions can be declared with one or more of the following fields:
+#	duchies = { }, takes duchy title names declared in landed_titles.txt
+#	counties = { }, takes county title names declared in landed_titles.txt
+#	provinces = { }, takes province id numbers declared in /history/provinces
+#	regions = { }, a region can also include other regions, however the subregions needs to be declared before the parent region. 
+#		E.g. If the region world_europe contains the region world_europe_west then world_europe_west needs to be declared as a region before (i.e. higher up in this file) world_europe.
+
+###########################################################################
+# World Regions
+#	These groups are mutually exclusive on the same tier
+###########################################################################
+
+world_blue_mountains = {
+	duchies = {
+		d_gabilgathol d_shulukbund d_khazadbizar d_tumunzahar d_khazad_zahar
+	}
+}
+
+world_north_blue_mountains = {
+	duchies = {
+		d_zirakbhund d_helevorn
+	}
+}
+
+world_thargelion = {
+	duchies = {
+		d_forthargelion d_harthargelion
+	}
+}
+
+world_ossiriand = {
+	duchies = {
+		d_adurant d_ascar d_brilthor d_duilwen d_legolin d_thalos
+	}
+}
+
+world_nan_gelion = {
+	duchies = {
+		d_avandor d_calensta d_enwinanuine d_hiswatuna d_hyallondie d_nunaluksor
+	}
+}
+
+world_estolad = {
+	duchies = {
+		d_farestolad d_harestolad d_talath_annui d_himlad
+	}
+}
+
+world_dorthonion = {
+	duchies = {
+		d_dimbar d_dor_dinen d_anach d_watch_of_aglon d_enaid_dorthonion d_ered_gorgoroth d_ladros d_taer_dorthonion
+	}
+}
+
+world_lothlann = {
+	duchies = {
+		d_forlothlann d_harlothlann d_lossoth d_maglors_gap d_marches_of_maedhros
+	}
+}
+
+world_ard_galen = {
+	duchies = {
+		d_ard_galen d_ered_engrin d_sereach
+	}
+}
+
+world_iron_mountains = {
+	duchies = {
+		d_minui_annui_eryn d_minui_edwyn_eryn d_thangorodrim d_dor_na_daerachas d_ered_rhivamar d_ered_umarth d_ered_muil
+	}
+}
+
+world_doriath = {
+	duchies = {
+		d_umboth_muilin d_artanor d_arthorien d_esgaliant d_nan_elmoth d_mindeb d_neldoreth d_nivrim d_region
+	}
+}
+
+world_brethil = {
+	duchies = {
+		d_brithiac d_lithir_malduin d_brethil d_obel d_taeglin d_gaurwaithbardh d_dor_cuarthol
+	}
+}
+
+world_narogardh = {
+	duchies = {
+		d_ivrin d_faroth d_nargothrond d_nuath d_talath_dirnen d_talath_i_sirion d_tumhalad
+	}
+}
+
+world_falas = {
+	duchies = {
+		d_brithon d_eglamar d_nimras d_eglandor d_forfalas d_uzlamazahar d_harfalas
+	}
+}
+
+world_arvernien = {
+	duchies = {
+		d_lond_sirion d_nan_tathren d_siriombar d_arvernien d_bay_of_balar d_lhostesgar
+	}
+}
+
+world_nevrast = {
+	duchies = {
+		d_falasquil d_forlinaewen d_harlinaewen d_lammoth d_vinyamar
+	}
+}
+
+world_hithlum = {
+	duchies = {
+		d_darthir d_dor_lomin d_eithel_sirion d_fingolfinardh d_fingonardh d_forlum d_formithrim d_harmithrum d_harnlum
+	}
+}
+
+world_andram = {
+	duchies = {
+		d_andram d_daertelaith d_fornagelion d_ramdal
+	}
+}
+
+###########################################################################
+# Custom Regions
+###########################################################################
+
+custom_east_beleriand = {
+	regions = {
+		world_andram world_estolad
+	}
+}
+
+custom_west_beleriand = {
+	regions = {
+		world_narogardh world_falas world_arvernien world_brethil
+	}
+}
+
+custom_south_lands = {
+	regions = {
+		world_nan_gelion world_ossiriand world_arvernien world_falas world_narogardh
+	}
+}
+
+custom_historical_plague_free_zone = {
+	regions = {
+		world_doriath
+	}
+}
+custom_eastern_edge_of_map = {
+	counties = {
+		c_caranthirs_pass c_calensta c_lossotil c_nan_i_naugrim c_khalarazum c_harnauglim
+	}
+}
+custom_chinese_invasion_target_region = {
+	duchies = {
+		d_lossoth d_khazad_zahar d_khazadbizar d_ered_rhivamar d_ered_umarth d_ered_muil
+	}
+}
+
+custom_eastern_access = {
+	duchies = {
+		d_lossoth
+	}
+	regions = {
+		world_blue_mountains
+	}
+}

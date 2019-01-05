@@ -1,0 +1,340 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+ 
+###################### Castle buildings for Noldor culture (culture group amanyar) - A code- ###################### 
+
+castle = {
+	
+###################### #Watchtowers, give garrison size ###################### 
+	ca_Awatchtower_1 = {
+		desc = ca_Awatchtower_1_desc
+		
+		gold_cost = 30
+		build_time = 90
+		garrison_size = 0.05
+		ai_creation_factor = 90
+        	potential = {
+           		#has_global_flag = building
+			culture_group = culture_group_amanyar			 
+		}
+	}
+	ca_Awatchtower_2 = {
+		desc = ca_Awatchtower_2_desc
+		
+		upgrades_from = ca_Awatchtower_1
+		gold_cost = 50
+		build_time = 185
+		garrison_size = 0.075
+		ai_creation_factor = 89
+        	potential = {
+           		#has_global_flag = building
+			culture_group = culture_group_amanyar				 
+		}
+	}
+	ca_Awatchtower_3 = {
+		desc = ca_Awatchtower_3_desc
+		
+		upgrades_from = ca_Awatchtower_2
+		gold_cost = 75
+		build_time = 285
+		garrison_size = 0.1
+		ai_creation_factor = 88
+        	potential = {
+           		#has_global_flag = building
+			culture_group = culture_group_amanyar				 
+		}
+	}
+	ca_Awatchtower_4 = {
+		desc = ca_Awatchtower_4_desc
+		
+		upgrades_from = ca_Awatchtower_3
+		gold_cost = 125
+		build_time = 550
+		garrison_size = 0.15
+		ai_creation_factor = 87
+        	potential = {
+           		#has_global_flag = building
+			culture_group = culture_group_amanyar				 
+		}
+	}
+	ca_Awatchtower_5 = {
+		desc = ca_Awatchtower_5_desc
+		
+		upgrades_from = ca_Awatchtower_4
+		gold_cost = 125
+		build_time = 550
+		garrison_size = 0.2
+		ai_creation_factor = 86
+        	potential = {
+           		#has_global_flag = building
+			culture_group = culture_group_amanyar
+		}
+	}
+	ca_Awatchtower_6 = {
+		desc = ca_Awatchtower_6_desc
+		
+		upgrades_from = ca_Awatchtower_5
+		gold_cost = 150
+		build_time = 550
+		garrison_size = 0.3
+		ai_creation_factor = 86
+        	potential = {
+        	   	#has_global_flag = building
+			culture_group = culture_group_amanyar
+		}
+	}
+
+##Noldor special Buildings##
+	ca_elven_forge1 = {
+		prerequisites = { ca_keep_1 }
+		desc = ca_elven_forge_desc
+		gold_cost = 145
+		build_time = 520
+		tax_income = 2
+		heavy_infantry = 20
+		ai_creation_factor = 109
+		add_number_to_name = no
+        potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+        }
+	}
+	ca_elven_forge2 = {
+		prerequisites = { ca_keep_2 }
+		desc = ca_elven_forge_desc
+		upgrades_from = ca_elven_forge1
+		gold_cost = 155
+		build_time = 705
+		tax_income = 2
+		heavy_infantry = 15
+		ai_creation_factor = 109
+		add_number_to_name = no
+        potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+        }
+	}
+	ca_elven_forge3 = {
+		prerequisites = { ca_keep_3 }
+		desc = ca_elven_forge_desc
+		upgrades_from = ca_elven_forge2
+		gold_cost = 300
+		build_time = 940
+		tax_income = 5
+		heavy_infantry = 30
+		ai_creation_factor = 109
+		add_number_to_name = no
+		monthly_character_prestige = 0.2
+        potential = {
+            #has_global_flag = building
+            OR = {
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+        }
+	}
+	
+### Noldor Royal Barracks ###
+	
+	ca_Anoldor_elite_1 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge1 }
+		gold_cost = 80
+		build_time = 320
+		heavy_infantry = 50
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	ca_Anoldor_elite_2 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge1 }
+		upgrades_from = ca_Anoldor_elite_1
+		gold_cost = 100
+		build_time = 395
+		heavy_infantry = 100
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	ca_Anoldor_elite_3 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge1 }
+		upgrades_from = ca_Anoldor_elite_2
+		gold_cost = 150
+		build_time = 570
+		heavy_infantry = 150
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	ca_Anoldor_elite_4 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge1 }
+		upgrades_from = ca_Anoldor_elite_3
+		gold_cost = 200
+		build_time = 580
+		heavy_infantry = 200
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }		
+        }
+	}
+	ca_Anoldor_elite_5 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge1 }
+		upgrades_from = ca_Anoldor_elite_4
+		gold_cost = 250
+		build_time = 920
+		heavy_infantry = 300
+		monthly_character_prestige = 0.2
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	
+### Noldor Knight Stables ###
+	
+	ca_Anoldor_knights_1 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge2 }
+		gold_cost = 100
+		build_time = 320
+		knights = 100
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+			culture = culture_noldor
+		}
+	}
+	ca_Anoldor_knights_2 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge2 }
+		upgrades_from = ca_Anoldor_knights_1
+		gold_cost = 150
+		build_time = 395
+		knights = 150
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	ca_Anoldor_knights_3 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge2 }
+		upgrades_from = ca_Anoldor_knights_2
+		gold_cost = 200
+		build_time = 570
+		knights = 200
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+		}
+	}
+	ca_Anoldor_knights_4 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge2 }
+		upgrades_from = ca_Anoldor_knights_3
+		gold_cost = 250
+		build_time = 580
+		knights = 300
+		ai_creation_factor = 104
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+
+		}
+	}
+	ca_Anoldor_knights_5 = {
+		desc = ca_noldor_elite_desc
+		
+		prerequisites = { ca_elven_forge2 }
+		upgrades_from = ca_Anoldor_knights_4
+		gold_cost = 300
+		build_time = 920
+		knights = 400
+		ai_creation_factor = 104
+		monthly_character_prestige = 0.5
+		potential = {
+            #has_global_flag = building
+            OR = { 
+                culture = culture_noldor
+                culture = culture_golodhrim
+                culture = culture_egledhrim
+            }
+
+		}
+	}
+	
+}

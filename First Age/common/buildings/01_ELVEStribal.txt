@@ -1,0 +1,119 @@
+tribal = {
+	tb_oakleather_tannery_1 = {
+		desc = tb_oakleather_tannery_1_desc
+		
+		gold_cost = 50
+		build_time = 250
+		tax_income = 0.5
+		ai_creation_factor = 95
+		potential = {
+			#has_global_flag = building
+			culture_group = culture_group_aumanyar
+		}
+		convert_to_city = ct_oakleather_tannery_1
+	}
+	tb_oakleather_tannery_2 = {
+		desc = tb_oakleather_tannery_2_desc
+		
+		trigger = { TECH_TRADE_PRACTICES = 1 }
+		upgrades_from = tb_oakleather_tannery_1
+		gold_cost = 100
+		build_time = 500
+		tax_income = 1
+		ai_creation_factor = 95
+		potential = {
+			#has_global_flag = building
+			culture_group = culture_group_aumanyar
+		}
+		convert_to_city = ct_oakleather_tannery_2
+	}
+	tb_oakleather_tannery_3 = {
+		desc = tb_oakleather_tannery_3_desc
+		
+		trigger = { TECH_TRADE_PRACTICES = 2 }
+		upgrades_from = tb_oakleather_tannery_2
+		gold_cost = 200
+		build_time = 800
+		tax_income = 2
+		ai_creation_factor = 95
+		potential = {
+			#has_global_flag = building
+			culture_group = culture_group_aumanyar
+		}
+		convert_to_city = ct_oakleather_tannery_3
+	}
+	
+	tb_elvenherborist_1 = {
+		desc = tb_elvenherborist_desc
+		gold_cost = 67
+		build_time = 244
+		tax_income = 2
+		ai_creation_factor = 110
+		add_number_to_name = no
+		potential = {
+			#has_global_flag = building
+			OR = {
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_quendi
+				culture_group = culture_group_aumanyar
+			}
+			OR = {
+				terrain = plains
+				terrain = forest
+				terrain = woods
+				terrain = hills
+			}
+        }
+		convert_to_city = ct_elvenherborist_1
+	}
+	tb_elvenherborist_2 = {
+		desc = tb_elvenherborist_desc
+		upgrades_from = tb_elvenherborist_1
+		gold_cost = 67
+		build_time = 244
+		tax_income = 2
+		ai_creation_factor = 110
+		add_number_to_name = no
+		potential = {
+			#has_global_flag = building
+			OR = {
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_quendi
+				culture_group = culture_group_aumanyar
+			}
+			OR = {
+				terrain = forest
+				terrain = woods
+			}
+        }
+		convert_to_city = ct_elvenherborist_2
+	}
+	tb_elvenherborist_3 = {
+		desc = tb_elvenherborist_desc
+		upgrades_from = tb_elvenherborist_2
+		gold_cost = 67
+		build_time = 244
+		tax_income = 2
+		ai_creation_factor = 110
+		add_number_to_name = no
+		potential = {
+			#has_global_flag = building
+			OR = {
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_quendi
+				culture_group = culture_group_aumanyar
+			}
+			OR = {
+				terrain = forest
+				terrain = woods
+			}
+        }
+		convert_to_city = ct_elvenherborist_3
+	}
+}

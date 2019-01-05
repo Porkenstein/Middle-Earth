@@ -1,0 +1,421 @@
+########################################################
+# ELVEN DIPLOMACY - pacifist subjugation
+#     based on Jogos Nhai and vassal
+#     request decisions in AGOT mod
+########################################################
+
+targetted_decisions = {
+	elf_diplomacy_annex_realm = {
+		ai_target_filter = self
+		filter = independent_rulers
+		only_independent = yes
+		from_potential = {
+			ai = no #uses uses yearly event for optimisation
+			religion_group = religion_group_eldar
+			independent = yes
+			NOT = { is_tributary = { suzerain = ROOT } }		
+		}
+		potential = {
+			independent = yes
+			religion_group = religion_group_eldar
+			NOT = { character = FROM }
+		}
+		allow = {
+			FROM = {
+				is_adult = yes
+				prisoner = no
+				has_regent = no
+				is_ill = no
+				prestige = 250
+				custom_tooltip = {
+					text = TOOLTIPelf_diplomacy_annex_realmASKING
+					hidden_tooltip = {
+						OR = {
+							NOT = { has_character_flag = elf_annexation_in_progress }
+							had_character_flag = { flag = elf_annexation_in_progress days = 20 }
+						}
+					}
+				}
+			}
+			OR = { # either it can become a tributary, or it is a lower tier than us
+				is_tributary = no
+				lower_tier_than = FROM
+			}
+			custom_tooltip = {
+				text = TOOLTIPelf_diplomacy_annex_realmNEIGHBOUR
+				hidden_tooltip = {
+					any_realm_province = {
+						any_neighbor_province = {
+							owner = { same_realm = FROM }
+						}
+					}
+				}
+			}
+			OR = {
+				ai = no
+				opinion = { who = FROM value = 0 }
+				AND = {
+					prisoner = yes
+					host = { character = FROM }
+				}
+			}
+			custom_tooltip = {
+				text = TOOLTIPelf_diplomacy_annex_realmCLAN
+				hidden_tooltip = {
+					NOT = {
+						any_vassal = {
+							ai = yes
+							NOT = { opinion = { who = FROM value = 0 } }
+						}
+					}
+				}
+			}
+			OR = {
+				prisoner = no
+				host = { character = FROM }
+			}
+			NOT = { trait = incapable }
+			war = no
+			NOT = { has_character_modifier = in_seclusion }
+			NOT = { reverse_has_opinion_modifier = { who = FROM modifier = opinion_rejected_elf_diplomacy_annex_realm } }	
+		}
+		effect = {
+			FROM = { prestige = -100 }
+			FROM = { set_character_flag = elf_annexation_in_progress }
+			character_event = { id = elf_diplomacy.2 tooltip = TOOLTIPelf_diplomacy.2 days = 15 }
+			if = {
+				limit = {
+					ai = yes 
+					NAND = {
+						prisoner = yes
+						host = { character = FROM }
+					}
+				}
+				tooltip = {
+					random_list = {
+						20 = {
+							custom_tooltip = {
+								text = TOOLTIPelf_diplomacy_annex_realmSUCCESS
+							}
+							modifier = { #Must have motive to join
+								factor = 0
+								NOR = {
+									NOT = { relative_power = { who = FROM power = 1 } }#Has a smaller realm
+									is_close_relative = FROM
+									is_allied_with = FROM
+									has_non_aggression_pact_with = FROM
+									is_friend = FROM
+									opinion = { who = FROM value = 50 }
+								}
+							}
+							
+							# How scary is Morgoth?
+							modifier = {
+								factor = 2
+								c_10015 = {
+									is_ruler = yes
+									shares_realm_border_with = PREV
+								}
+							}
+							modifier = {
+								factor = 1.5
+								c_10015 = {
+									is_ruler = yes
+									infamy = 90
+									is_within_diplo_range = PREV
+								}
+							}
+							modifier = {
+								factor = 1.5
+								c_10015 = {
+									is_ruler = yes
+									infamy = 70
+									is_within_diplo_range = PREV
+								}
+							}
+							modifier = {
+								factor = 0.5
+								c_10015 = {
+									is_ruler = yes
+									NOT = { infamy = 50 }
+								}
+							}
+							modifier = {
+								factor = 0.5
+								c_10015 = {
+									is_ruler = yes
+									NOT = { infamy = 25 }
+								}
+							}
+							modifier = { # our capitals aren't in the same de jure empire
+								factor = 0.4
+								capital_scope = {
+									empire = {
+										FROM = {
+											capital_scope = {
+												empire = {
+													NOT = { title = PREVPREVPREV }
+												}
+											}
+										}
+									}
+								}
+							}
+							modifier = { # our capitals aren't in the same de jure kingdom
+								factor = 0.4
+								capital_scope = {
+									kingdom = {
+										FROM = {
+											capital_scope = {
+												kingdom = {
+													NOT = { title = PREVPREVPREV }
+												}
+											}
+										}
+									}
+								}
+							}
+							modifier = { # these points become less potent the further we are from the capital
+								factor = 0.8
+								distance = { who = FROM value = 300 }
+							}
+							modifier = {
+								factor = 0.8
+								distance = { who = FROM value = 400 }
+							}
+							modifier = {
+								factor = 0.8
+								distance = { who = FROM value = 500 }
+							}
+							modifier = {
+								factor = 0.8
+								distance = { who = FROM value = 600 }
+							}
+							modifier = {
+								factor = 0.8
+								distance = { who = FROM value = 800 }
+							}
+							modifier = {
+								factor = 0.5
+								distance = { who = FROM value = 1000 }
+							}
+							modifier = {
+								factor = 0.3
+								distance = { who = FROM value = 1200 }
+							}
+							modifier = {
+								factor = 0.1
+								distance = { who = FROM value = 1400 }
+							}
+							
+							modifier = {  # must be a larger realm
+								factor = 0
+								relative_power = { who = FROM power = 1.33 }
+							}
+							modifier = {
+								factor = 1.2
+								is_close_relative = FROM
+							}
+							modifier = {
+								factor = 1.2
+								is_allied_with = FROM
+							}
+							modifier = {
+								factor = 1.2
+								has_non_aggression_pact_with = FROM
+							}
+							modifier = {
+								factor = 1.5
+								is_friend = FROM
+							}
+							modifier = {
+								factor = 0.01
+								is_rival = FROM
+							}
+							modifier = {
+								factor = 1.5
+								opinion = { who = FROM value = 20 }	
+							}
+							modifier = {
+								factor = 1.5
+								opinion = { who = FROM value = 40 }	
+							}
+							modifier = {
+								factor = 1.5
+								opinion = { who = FROM value = 60 }	
+							}
+							modifier = {
+								factor = 1.2
+								opinion = { who = FROM value = 80 }	
+							}
+							modifier = {
+								factor = 1.2
+								opinion = { who = FROM value = 100 }	
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { relative_power = { who = FROM power = 0.8 } }	
+							}
+							modifier = {
+								factor = 2
+								NOT = { relative_power = { who = FROM power = 0.5 } }	
+							}
+							
+							modifier = {
+								factor = 1.4
+								trait = content
+							}
+							modifier = {
+								factor = 1.4
+								trait = craven
+							}
+							modifier = {
+								factor = 1.4
+								trait = weak
+							}
+							modifier = {
+								factor = 1.4
+								trait = humble
+							}
+							modifier = {
+								factor = 1.4
+								trait = patient
+							}
+							
+							# defending me proves that you can protect me
+							modifier = {
+								factor = 1.4
+								has_opinion_modifier = {
+									who = FROM
+									modifier = joined_my_war
+								}
+							}
+							modifier = {
+								factor = 1.2
+								has_opinion_modifier = {
+									who = FROM
+									modifier = honored_alliance
+								}
+							}
+							modifier = {
+								factor = 3
+								has_opinion_modifier = {
+									who = FROM
+									modifier = saved_on_battlefield
+								}
+							}
+							
+							modifier = {
+								factor = 1.33
+								FROM = { realm_martial = 50 }
+							}
+							modifier = {
+								factor = 1.33
+								FROM = { realm_martial = 70 }
+							}
+							modifier = { # kings won't bow
+								factor = 0.001
+								tier = king
+							}
+						}
+						80 = {
+							modifier = { # high lords are reluctant
+								factor = 2
+								tier = duke
+							}
+							modifier = {
+								factor = 5 # havens shouldn't be easy to subjugate
+								government = merchant_republic_government
+							}
+							
+							modifier = {
+								factor = 1.5
+								FROM = { is_female = yes }
+							}						
+							modifier = {
+								factor = 1.5
+								NOT = { opinion = { who = FROM value = -19 } }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { opinion = { who = FROM value = -39 } }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { opinion = { who = FROM value = -59 } }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { opinion = { who = FROM value = -79 } }
+							}
+							modifier = {
+								factor = 1.5
+								NOT = { opinion = { who = FROM value = -99 } }
+							}
+							modifier = {
+								factor = 2
+								relative_power = { who = FROM power = 2 }
+							}
+							modifier = {
+								factor = 2
+								relative_power = { who = FROM power = 3 }	
+							}
+							modifier = {
+								factor = 2
+								relative_power = { who = FROM power = 4 }	
+							}
+							modifier = {
+								factor = 3
+								trait = ambitious
+							}
+							modifier = {
+								factor = 1.5
+								trait = brave
+							}
+							modifier = {
+								factor = 2
+								trait = proud
+							}
+							modifier = {
+								factor = 3
+								trait = zealous
+								NOT = { religion = FROM }
+							}
+							modifier = {
+								factor = 1.5
+								trait = authoritative
+							}
+							modifier = {
+								factor = 1.5
+								trait = stubborn
+							}
+							modifier = {
+								factor = 1.5
+								trait = selfish
+							}
+							modifier = {
+								factor = 1.5
+								trait = envious
+							}
+							modifier = {
+								factor = 1.33
+								FROM = { NOT = { realm_martial = 30 } }
+							}
+							modifier = {
+								factor = 1.33
+								FROM = { NOT = { realm_martial = 20 } }
+							}
+							modifier = {
+								factor = 1.33
+								FROM = { NOT = { realm_martial = 10 } }
+							}
+						}
+					}
+				}
+			}	
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

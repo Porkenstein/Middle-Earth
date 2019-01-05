@@ -1,0 +1,100 @@
+### Middle Earth Project game rules
+
+#
+# List of options showing in the Game Rules screen
+#
+# format is:
+# rule_token = {
+#	name = "TEXT_KEY_FOR_NAME"
+#	desc = "TEXT_KEY_FOR_LONG_DESC"
+#	option = {										# please note that the first option is always the default option
+#		name = option_token
+#		text = "TEXT_KEY_FOR_OPTION_NAME"
+#		achievements = no							# by default achievements = yes, allows or disallows achievements
+#	}
+# }
+
+elf_war_rule = {  # whether or not elves go to war with one another for run-of-the-mill casus belis, like claims and de jure
+    name = "RULE_ELF_WAR"
+	option = { # elves only go to war under extraordinary circumstances
+	    name = canon
+		text = "RULE_OPTION_CANON"
+		desc = "RULE_ELF_WAR_CANON_DESC"
+	}
+	option = { # elves fight each other normally
+	    name = sandbox
+		text = "RULE_OPTION_SANDBOX"
+		desc = "RULE_ELF_WAR_SANDBOX_DESC"
+	}
+}
+
+coming_of_men_rule = { # when the edain, forodwaith, and baradhrim arrive from Eriador
+    name = "RULE_COMING_OF_MEN"
+	option = {
+	    name = canon # the forodwaith arrive around 4400, the edain around 4500, and the baradhrim around 4600
+		text = "RULE_OPTION_CANON"
+		desc = "RULE_COMING_OF_MEN_CANON_DESC"
+	}
+	option = {
+	    name = sandbox # the different groups of men arrive at random times between 4350 and 4800
+		text = "RULE_OPTION_SANDBOX"
+		desc = "RULE_COMING_OF_MEN_SANDBOX_DESC"
+	}
+	option = {
+	    name = off # men never come from the east
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_COMING_OF_MEN_OFF_DESC"
+	}
+}
+
+war_of_wrath_rule = {
+    name = "RULE_WAR_OF_WRATH"
+	option = {
+	    name = canon # the war of wrath occurs when morgoth's realm size is at a certain point and a mariner is alive to beseech the valar
+		text = "RULE_OPTION_CANON"
+		desc = "RULE_WAR_OF_WRATH_CANON_DESC"
+	}
+	option = {
+	    name = sandbox
+		text = "RULE_OPTION_SANDBOX" # the host of valinor arrives sometime randomly
+		desc = "RULE_WAR_OF_WRATH_SANDBOX_DESC"
+	}
+	option = {
+	    name = off
+		text = "RULE_OPTION_OFF" # the valar will not aid middle-earth
+		desc = "RULE_WAR_OF_WRATH_OFF_DESC"
+	}
+}
+
+evil_breath_rule = { # when the evil breath is sent from the north to blight the edain
+    name = "RULE_EVIL_BREATH"
+	option = {
+	    name = canon
+		text = "RULE_OPTION_CANON" # the evil breath comes down from the north to the human and dwarf realms after the Dagor Bragollach
+		desc = "RULE_EVIL_BREATH_CANON_DESC"
+	}
+	option = {
+	    name = sandbox
+		text = "RULE_OPTION_SANDBOX" # the evil breath comes down from the north to the human and dwarf realms at a random time after the edain have arrived
+		desc = "RULE_EVIL_BREATH_SANDBOX_DESC"
+	}
+	option = {
+	    name = off
+		text = "RULE_OPTION_OFF" # the evil breath does not happen
+		desc = "RULE_EVIL_BREATH_OFF_DESC"
+	}
+}
+
+great_battles_rule = { # when great battles trigger
+    name = "RULE_GREAT_BATTLES"
+	option = {
+	    name = canon
+		text = "RULE_OPTION_CANON" # the great battles occur when important decisions are made by morgoth around certain dates, and each always happens by a certain date
+		desc = "RULE_GREAT_BATTLES_CANON_DESC"
+	}
+	option = {
+	    name = sandbox
+		text = "RULE_OPTION_SANDBOX" # the great battles occur whenever morgoth feels like it, and don't necessarily happen
+		desc = "RULE_GREAT_BATTLES_SANDBOX_DESC"
+	}
+}

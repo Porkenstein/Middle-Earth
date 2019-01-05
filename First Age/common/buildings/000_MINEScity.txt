@@ -1,0 +1,828 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+
+# City
+city = {
+
+### SUBTERRANEAN MINES / QUARRIES DEPENDANT ON RESOURCE PROVINCE MODIFIERS ###
+
+    ## resource_iron -> access to high-quality iron
+    # makes better heavy armor and weapons
+
+	ct_iron_mine_1 = {
+		desc = ct_iron_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 0.5
+        tradevalue = 1
+        military_techpoints = 0.01
+        heavy_infantry_defensive = 0.05
+        heavy_infantry_offensive = 0.05
+        knights_defensive = 0.05
+        knights_offensive = 0.05
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_iron
+        }
+	}
+	ct_iron_mine_2 = {
+		desc = ct_iron_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_iron_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 1
+        tradevalue = 4
+        military_techpoints = 0.02
+        heavy_infantry_defensive = 0.1
+        heavy_infantry_offensive = 0.1
+        knights_defensive = 0.1
+        knights_offensive = 0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_iron
+        }
+	}
+	ct_iron_mine_3 = {
+		desc = ct_iron_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_iron_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 2
+        tradevalue = 10
+        military_techpoints = 0.05
+        heavy_infantry_defensive = 0.2
+        heavy_infantry_offensive = 0.2
+        knights_defensive = 0.2
+        knights_offensive = 0.2
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_iron
+        }
+	}
+
+
+    ## resource_magma -> access to a magma vein
+    # makes forging cheaper, faster, and better due to a constant high heat
+
+	ct_magma_forge_1 = {
+		desc = ct_magma_forge_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+        levy_reinforce_rate = 0.1
+        retinue_maintenence_cost = -0.05
+        retinuesize_perc = 0.05
+        military_techpoints = 0.01
+        heavy_infantry_defensive = 0.05
+        heavy_infantry_offensive = 0.05
+        knights_defensive = 0.05
+        knights_offensive = 0.05
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_magma
+        }
+	}
+	ct_magma_forge_2 = {
+		desc = ct_magma_forge_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_magma_forge_1
+
+		gold_cost = 125
+		build_time = 900
+
+        levy_reinforce_rate = 0.2
+        retinue_maintenence_cost = -0.1
+        retinuesize_perc = 0.01
+        military_techpoints = 0.02
+        heavy_infantry_defensive = 0.1
+        heavy_infantry_offensive = 0.1
+        knights_defensive = 0.1
+        knights_offensive = 0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_magma
+        }
+	}
+	ct_magma_forge_3 = {
+		desc = ct_magma_forge_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_magma_forge_2
+
+		gold_cost = 250
+		build_time = 1800
+
+        levy_reinforce_rate = 0.4
+        retinue_maintenence_cost = -0.2
+        retinuesize_perc = 0.2
+        military_techpoints = 0.05
+        heavy_infantry_defensive = 0.2
+        heavy_infantry_offensive = 0.2
+        knights_defensive = 0.2
+        knights_offensive = 0.2
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_magma
+        }
+	}
+
+    ## resource_copper -> access to high-quality copper veins
+    # makes sanitation and construction better
+
+	ct_copper_mine_1 = {
+		desc = ct_copper_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 0.5
+        tradevalue = 1
+        disease_defence = 0.01
+        economy_techpoints = 0.01
+        local_build_cost_modifier = -0.02
+        local_build_time_modifier = -0.02
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_copper
+        }
+	}
+	ct_copper_mine_2 = {
+		desc = ct_copper_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_copper_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 1
+        tradevalue = 2
+        disease_defence = 0.04
+        economy_techpoints = 0.02
+        local_build_cost_modifier = -0.04
+        local_build_time_modifier = -0.04
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_copper
+        }
+	}
+	ct_copper_mine_3 = {
+		desc = ct_copper_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_copper_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 2
+        tradevalue = 5
+        economy_techpoints = 0.05
+        disease_defence = 0.1
+        local_build_cost_modifier = -0.1
+        local_build_time_modifier = -0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_copper
+        }
+	}
+
+
+
+    ## resource_tin -> access to high-quality tin veins
+    # tin is rare outside of the Ered Luin, used for turning copper into bronze
+
+	ct_tin_mine_1 = {
+		desc = ct_tin_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 1
+        tradevalue = 1
+        military_techpoints = 0.01
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_tin
+        }
+	}
+	ct_tin_mine_2 = {
+		desc = ct_tin_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_tin_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 2
+        tradevalue = 4
+        military_techpoints = 0.02
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_tin
+        }
+	}
+	ct_tin_mine_3 = {
+		desc = ct_tin_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_tin_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 5
+        tradevalue = 10
+        military_techpoints = 0.05
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_tin
+        }
+	}
+
+
+    ## resource_stone -> access to high-quality building stone
+    # makes building cheaper and easier
+
+	ct_stone_quarry_1 = {
+		desc = ct_stone_quarry_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 0.5
+        tradevalue = 1
+        economy_techpoints = 0.01
+        local_build_cost_modifier = -0.05
+        local_build_time_modifier = -0.05
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_stone
+        }
+	}
+	ct_stone_quarry_2 = {
+		desc = ct_stone_quarry_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_stone_quarry_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 1
+        tradevalue = 2
+        economy_techpoints = 0.02
+        local_build_cost_modifier = -0.1
+        local_build_time_modifier = -0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_stone
+        }
+	}
+	ct_stone_quarry_3 = {
+		desc = ct_stone_quarry_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_stone_quarry_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 2
+        tradevalue = 5
+        economy_techpoints = 0.05
+        local_build_cost_modifier = -0.3
+        local_build_time_modifier = -0.3
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+                culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_stone
+        }
+	}
+
+
+    ## resource_gold -> access to large veins of gold
+    # puts much wealth in your pockets, but generally devalues trade
+
+	ct_gold_mine_1 = {
+		desc = ct_gold_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 5
+        trade_route_wealth = -1
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gold
+        }
+	}
+	ct_gold_mine_2 = {
+		desc = ct_gold_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_gold_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 10
+        trade_route_wealth = -2
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gold
+        }
+	}
+	ct_gold_mine_3 = {
+		desc = ct_gold_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_gold_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 20
+        trade_route_wealth = -5
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gold
+        }
+	}
+
+
+    ## resource_silver -> access to large veins of silver
+    # puts much wealth in your pockets, but generally devalues trade
+
+	ct_silver_mine_1 = {
+		desc = ct_silver_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 5
+        trade_route_wealth = -1
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_silver
+        }
+	}
+	ct_silver_mine_2 = {
+		desc = ct_silver_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_silver_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 10
+        trade_route_wealth = -2
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_silver
+        }
+	}
+	ct_silver_mine_3 = {
+		desc = ct_silver_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_silver_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 20
+        trade_route_wealth = -5
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_silver
+        }
+	}
+
+    ## resource_gemstones -> access to large veins of gemstones
+    # gives wealth and prestige
+
+	ct_gemstones_mine_1 = {
+		desc = ct_gemstones_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 2
+        tradevalue = 2
+        liege_prestige = 0.05
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gemstones
+        }
+	}
+	ct_gemstones_mine_2 = {
+		desc = ct_gemstones_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_gemstones_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 4
+        tradevalue = 4
+        liege_prestige = 0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gemstones
+        }
+	}
+	ct_gemstones_mine_3 = {
+		desc = ct_gemstones_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_gemstones_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 10
+        tradevalue = 10
+        liege_prestige = 0.3
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_gemstones
+        }
+	}
+
+    ## resource_lapis -> access to large amounts of blue pigment
+    # gives wealth and prestige
+
+	ct_lapis_mine_1 = {
+		desc = ct_lapis_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 0.5
+        tradevalue = 1
+        liege_prestige = 0.01
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_lapis
+        }
+	}
+	ct_lapis_mine_2 = {
+		desc = ct_lapis_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_lapis_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 1
+        tradevalue = 2
+        liege_prestige = 0.05
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_lapis
+        }
+	}
+	ct_lapis_mine_3 = {
+		desc = ct_lapis_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_lapis_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 2
+        tradevalue = 5
+        liege_prestige = 0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+			} }
+	    	has_province_modifier = resource_lapis
+        }
+	}
+
+    ## resource_salt -> access to large salt deposits
+    # gives wealth and supply
+
+	ct_salt_mine_1 = {
+		desc = ct_salt_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 2 }
+
+		gold_cost = 50
+		build_time = 450
+
+		tax_income = 0.5
+        tradevalue = 1
+        global_supply_limit = 0.02
+
+		ai_creation_factor = 300
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+				culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_salt
+        }
+	}
+	ct_salt_mine_2 = {
+		desc = ct_salt_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 4 }
+		upgrades_from = ct_salt_mine_1
+
+		gold_cost = 125
+		build_time = 900
+
+		tax_income = 1
+        tradevalue = 2
+        global_supply_limit = 0.05
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+				culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_salt
+        }
+	}
+	ct_salt_mine_3 = {
+		desc = ct_salt_mine_1_desc
+		start = { always = no }
+        trigger = { TECH_CITY_CONSTRUCTION = 5 }
+		upgrades_from = ct_salt_mine_2
+
+		gold_cost = 250
+		build_time = 1800
+
+		tax_income = 2
+        tradevalue = 5
+        global_supply_limit = 0.1
+
+		ai_creation_factor = 110
+		add_number_to_name = yes
+        potential = {
+			#has_global_flag = building
+			FROM = { OR = {
+				culture_group = culture_group_dwarves
+                culture_group = culture_group_amanyar
+				culture_group = culture_group_melkor
+			} }
+	    	has_province_modifier = resource_salt
+        }
+	}
+}

@@ -1,0 +1,473 @@
+# THE DAGOR BRAGOLLACH
+# the sudden flame
+#
+
+namespace = dagor_bragollach
+
+# The Siege of Angband is broken - AI
+narrative_event = {
+	id = dagor_bragollach.0
+	major = yes
+	hide_window = yes
+			
+	trigger = {
+		year = 4760
+		has_character_flag = morgoth
+		NOT = { has_global_flag = broken_siege_of_angband }
+		 
+		# only happens randomly if AI
+		ai = yes
+	}
+	
+	immediate = {
+		set_global_flag = broken_siege_of_angband
+	}
+	
+	mean_time_to_happen = {
+		years = 7
+	}
+	
+	option = {
+		#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
+		#	value = 35
+		#	localisation = "Dagor Bragollach"
+		#}
+		set_global_flag = broken_siege_of_angband
+		any_playable_ruler = {
+			set_character_flag = notify_set_broken_siege_of_angband_bragollach
+			limit = {
+				NOT = { character = ROOT }
+			}
+		}
+
+		198 = { province_event = { id = evilside.4 } }
+		199 = { province_event = { id = evilside.4 } }
+		200 = { province_event = { id = evilside.4 } }
+		17 = { province_event = { id = evilside.4 } }
+		18 = { province_event = { id = evilside.4 } }
+		430 = { province_event = { id = evilside.4 } }
+		431 = { province_event = { id = evilside.4 } }
+	}
+}
+
+# The Siege of Angband is broken - Morgoth player
+narrative_event = {
+	id = dagor_bragollach.4
+	title = EVTNAME_dagor_bragollach_4
+	desc = EVTDESC_dagor_bragollach_4
+	hide_from = yes
+	major = yes
+
+	picture = GFX_anfauglith
+	border = GFX_event_narrative_frame_war
+
+	has_character_flag = start_dagor_bragollach
+
+	trigger = {
+		has_character_flag = start_dagor_bragollach
+	}
+	
+	immediate = {
+		set_global_flag = broken_siege_of_angband
+		clr_character_flag = start_dagor_bragollach
+		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
+		clr_character_flag = notify_set_broken_siege_of_angband
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = EVTOPTA_dagor_bragollach_4
+
+		#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
+		#	value = 35
+		#	localisation = "Dagor Bragollach"
+		#}
+
+		custom_tooltip = {
+			text = EVTOPTA_dagor_bragollach_4_TIP
+
+			any_playable_ruler = {
+				set_character_flag = notify_set_broken_siege_of_angband_bragollach
+				limit = {
+					NOT = { character = ROOT }
+				}
+			}
+			198 = { province_event = { id = evilside.4 } }
+			199 = { province_event = { id = evilside.4 } }
+			200 = { province_event = { id = evilside.4 } }
+			17 = { province_event = { id = evilside.4 } }
+			18 = { province_event = { id = evilside.4 } }
+			430 = { province_event = { id = evilside.4 } }
+			431 = { province_event = { id = evilside.4 } }
+		}
+	}
+}
+
+# The Siege of Angband is broken - victim player
+narrative_event = {
+	id = dagor_bragollach.1
+	title = EVTNAME_dagor_bragollach_1
+	desc = EVTDESC_dagor_bragollach_1
+	hide_from = yes
+	major = yes
+	
+	picture = GFX_anfauglith
+	border = GFX_event_narrative_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = broken_siege_of_angband
+	}
+	
+	option = {
+		hidden_effect = {
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+				}
+				set_character_flag = notify_set_broken_siege_of_angband_bragollach
+			}
+		}
+
+		# all of ard-galen is laid to waste and overrun by orcs
+		name = EVTOPTA_dagor_bragollach_1
+		198 = { province_event = { id = evilside.4 } }
+		199 = { province_event = { id = evilside.4 } }
+		200 = { province_event = { id = evilside.4 } }
+		17 = { province_event = { id = evilside.4 } }
+		18 = { province_event = { id = evilside.4 } }
+		430 = { province_event = { id = evilside.4 } }
+		431 = { province_event = { id = evilside.4 } }
+	}
+}
+
+# The Siege of Angband has been placed
+narrative_event = {
+	id = dagor_bragollach.2
+	title = EVTNAME_dagor_bragollach_2
+	desc = EVTDESC_dagor_bragollach_2
+	hide_from = yes
+	major = yes
+
+	picture = GFX_noldor_battle_2
+	border = GFX_event_narrative_frame_war
+
+	has_character_flag = notify_clr_broken_siege_of_angband
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = evil_side
+					society_member_of = the_satanists
+					religion_group = religion_group_melkor
+				}
+			}
+		}
+		name = EVTOPTA_dagor_bragollach_2
+		clr_character_flag = notify_clr_broken_siege_of_angband
+	}
+
+	option = {
+		trigger = {
+			has_character_flag=morgoth
+		}
+		name = EVTOPTB_dagor_bragollach_2
+
+		custom_tooltip = {
+			text = EVTOPTB_dagor_bragollach_2_TIP
+
+			clr_character_flag = notify_clr_broken_siege_of_angband
+		}
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_character_flag=morgoth }
+			OR = {
+				trait = evil_side
+				society_member_of = the_satanists
+				religion_group = religion_group_melkor
+			}
+		}
+		name = EVTOPTC_dagor_bragollach_2
+		clr_character_flag = notify_clr_broken_siege_of_angband
+	}
+}
+
+# The Siege of Angband has been broken
+narrative_event = {
+	id = dagor_bragollach.3
+	title = EVTNAME_dagor_bragollach_3
+	desc = EVTDESC_dagor_bragollach_3
+	hide_from = yes
+	major = yes
+	
+	picture = GFX_anfauglith
+	border = GFX_event_narrative_frame_war
+	
+	has_character_flag = notify_set_broken_siege_of_angband_bragollach
+
+	trigger = {
+		AND = {
+			NOT = { has_character_flag = morgoth }
+			has_character_flag = notify_set_broken_siege_of_angband_bragollach
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	immediate = {
+		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
+	}
+
+	option = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = evil_side
+					society_member_of = the_satanists
+					religion_group = religion_group_melkor
+				}
+			}
+		}
+		name = EVTOPTA_dagor_bragollach_3
+		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				trait = evil_side
+				society_member_of = the_satanists
+				religion_group = religion_group_melkor
+			}
+		}
+		name = EVTOPTB_dagor_bragollach_3
+		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
+	}
+}
+
+# The Siege of Angband is broken - Morgoth player
+province_event = {
+	id = dagor_bragollach.5
+	hide_window = yes
+
+	trigger = {
+		has_province_flag = abandoned_by_morgoth
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		clr_province_flag = abandoned_by_morgoth
+		
+		if = {
+			limit = {
+				NOT = { num_of_settlements = 1 }
+			}
+			build_holding = {
+				type = castle
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_settlements = 2
+			}
+			ruin_province = yes
+		}
+
+		create_character = {
+			random_traits = no
+			name = "Wilderness"
+			religion = religion_wilderness
+			culture = culture_wilderness
+			dynasty = 19013
+			female = no
+			age = 4000
+			trait = wilderness
+			#disallow_random_traits = yes
+		}
+
+		county = {
+			new_character = {
+				usurp_title = PREV
+				set_defacto_liege = THIS
+
+				capital_holding = {
+					convert_to = CASTLE
+				}
+				set_government_type = feudal_government
+			}
+			location = {
+				culture = culture_wilderness
+				religion = religion_wilderness
+			}
+		}
+	}
+}
+
+character_event = {
+	id = dagor_bragollach.6
+	notification = no
+	hide_window = yes
+
+	only_rulers = yes
+
+	trigger = {
+		has_global_flag = broken_siege_of_angband
+		independent = yes
+		is_ruler = yes
+
+		completely_controls = d_ard_galen
+		NOR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+		any_independent_ruler = {
+			AND = {
+				religion_group = religion_group_melkor
+				completely_controls = c_angband
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		# this character ended up with a watch on angband!
+		prestige = 500
+		piety = 500
+
+		any_playable_ruler = {
+			limit = {
+				completely_controls = c_angband
+			}
+
+			# gain ard-galen. the rest are wilderness
+			any_realm_province = {
+				limit = {
+					NOT = { kingdom = { title = k_angband } }
+					NOT = { duchy = { title = d_ard_galen } }
+					#NOT = { county = { title = c_minui_edwyn_eryn } }
+					#NOT = { county = { title = c_minui_annui_eryn } }
+				}
+				# abandon the province
+				set_province_flag = abandoned_by_morgoth
+			}
+		}
+
+		# put a watch on angband
+		clr_global_flag = broken_siege_of_angband
+		save_global_event_target_as = target_angband_victor
+		any_playable_ruler = {
+			set_character_flag = notify_clr_broken_siege_of_angband
+		}
+	}
+}
+
+# morgoth ended up breaking the siege of angband
+character_event = {
+	id = dagor_bragollach.7
+	notification = no
+	hide_window = yes
+
+	only_rulers = yes
+
+	trigger = {
+		NOT = { has_global_flag = broken_siege_of_angband }
+		independent = yes
+		is_ruler = yes
+
+		religion_group = religion_group_melkor
+		completely_controls = c_angband
+		completely_controls = d_ard_galen
+		OR = {
+			trait = evil_side
+			religion_group = religion_group_melkor
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		# this character ended breaking the watch on angband!
+		prestige = 100
+		piety = 100
+
+		# destroy the watch on angband
+		set_global_flag = broken_siege_of_angband
+		any_playable_ruler = {
+			set_character_flag = notify_set_broken_siege_of_angband
+			limit = {
+				NOT = { character = ROOT }
+			}
+		}
+	}
+}
+
+
+# The Siege of Angband has been broken
+narrative_event = {
+	id = dagor_bragollach.8
+	title = EVTNAME_dagor_bragollach_8
+	desc = EVTDESC_dagor_bragollach_8
+	hide_from = yes
+	major = yes
+	
+	picture = GFX_anfauglith
+	border = GFX_event_narrative_frame_war
+	
+	has_character_flag = notify_set_broken_siege_of_angband
+
+	trigger = {
+		NOT = { has_character_flag = morgoth }
+		has_character_flag = notify_set_broken_siege_of_angband
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		trigger = {
+			NOT = {
+				OR = {
+					trait = evil_side
+					society_member_of = the_satanists
+					religion_group = religion_group_melkor
+				}
+			}
+		}
+		name = EVTOPTA_dagor_bragollach_8
+		clr_character_flag = notify_set_broken_siege_of_angband
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				trait = evil_side
+				society_member_of = the_satanists
+				religion_group = religion_group_melkor
+			}
+		}
+		name = EVTOPTB_dagor_bragollach_8
+		clr_character_flag = notify_set_broken_siege_of_angband
+	}
+}

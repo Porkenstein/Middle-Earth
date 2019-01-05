@@ -1,0 +1,302 @@
+### COLONISATION EFFECTS ###
+
+# used from province scope
+colonise = {
+	custom_tooltip = { text = colonise_tooltip }
+
+	hidden_tooltip = {
+		# unlock province population events (see RIP.11700)
+		set_province_flag = has_been_colonised
+
+		# populate the province with colonists
+		decrease_depopulation_effect = yes
+	}
+}
+
+add_dwarf_ruins = {
+	remove_province_modifier = elf_ruins_1
+	remove_province_modifier = elf_ruins_2
+	remove_province_modifier = elf_ruins_3
+	remove_province_modifier = elf_ruins_4
+	remove_province_modifier = elf_ruins_5
+	remove_province_modifier = elf_ruins_6
+	remove_province_modifier = noldor_ruins_1
+	remove_province_modifier = noldor_ruins_2
+	remove_province_modifier = noldor_ruins_3
+	remove_province_modifier = noldor_ruins_4
+	remove_province_modifier = noldor_ruins_5
+	remove_province_modifier = noldor_ruins_6
+	
+	if = {
+		limit = { has_province_modifier = dwarf_ruins_5 }
+
+		remove_province_modifier = dwarf_ruins_5
+		add_province_modifier = { name = dwarf_ruins_6 duration = -1 }
+		}
+	if = {
+        limit = { has_province_modifier = dwarf_ruins_4 }
+
+        remove_province_modifier = dwarf_ruins_4
+        add_province_modifier = { name = dwarf_ruins_5 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = dwarf_ruins_3 }
+
+        remove_province_modifier = dwarf_ruins_3
+        add_province_modifier = { name = dwarf_ruins_4 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = dwarf_ruins_2 }
+
+        remove_province_modifier = dwarf_ruins_2
+        add_province_modifier = { name = dwarf_ruins_3 duration = -1 }
+    }
+    if = {
+        limit = { has_province_modifier = dwarf_ruins_1 }
+
+        remove_province_modifier = dwarf_ruins_1
+        add_province_modifier = { name = dwarf_ruins_2 duration = -1 }
+    }
+
+	if = {
+        limit = {
+			NOT = { has_province_modifier = dwarf_ruins_1 }
+			NOT = { has_province_modifier = dwarf_ruins_2 }
+			NOT = { has_province_modifier = dwarf_ruins_3 }
+			NOT = { has_province_modifier = dwarf_ruins_4 }
+			NOT = { has_province_modifier = dwarf_ruins_5 }
+			NOT = { has_province_modifier = dwarf_ruins_6 }
+		}
+
+        # else, add first ruin
+		add_province_modifier = { name = dwarf_ruins_1 duration = -1 }
+    }
+}
+
+add_noldor_ruins = {
+	remove_province_modifier = elf_ruins_1
+	remove_province_modifier = elf_ruins_2
+	remove_province_modifier = elf_ruins_3
+	remove_province_modifier = elf_ruins_4
+	remove_province_modifier = elf_ruins_5
+	remove_province_modifier = elf_ruins_6
+	remove_province_modifier = dwarf_ruins_1
+	remove_province_modifier = dwarf_ruins_2
+	remove_province_modifier = dwarf_ruins_3
+	remove_province_modifier = dwarf_ruins_4
+	remove_province_modifier = dwarf_ruins_5
+	remove_province_modifier = dwarf_ruins_6
+	
+	if = {
+		limit = { has_province_modifier = noldor_ruins_5 }
+
+		remove_province_modifier = noldor_ruins_5
+		add_province_modifier = { name = noldor_ruins_6 duration = -1 }
+		}
+	if = {
+        limit = { has_province_modifier = noldor_ruins_4 }
+
+        remove_province_modifier = noldor_ruins_4
+        add_province_modifier = { name = noldor_ruins_5 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = noldor_ruins_3 }
+
+        remove_province_modifier = noldor_ruins_3
+        add_province_modifier = { name = noldor_ruins_4 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = noldor_ruins_2 }
+
+        remove_province_modifier = noldor_ruins_2
+        add_province_modifier = { name = noldor_ruins_3 duration = -1 }
+    }
+    if = {
+        limit = { has_province_modifier = noldor_ruins_1 }
+
+        remove_province_modifier = noldor_ruins_1
+        add_province_modifier = { name = noldor_ruins_2 duration = -1 }
+    }
+
+	if = {
+        limit = {
+			NOT = { has_province_modifier = noldor_ruins_1 }
+			NOT = { has_province_modifier = noldor_ruins_2 }
+			NOT = { has_province_modifier = noldor_ruins_3 }
+			NOT = { has_province_modifier = noldor_ruins_4 }
+			NOT = { has_province_modifier = noldor_ruins_5 }
+			NOT = { has_province_modifier = noldor_ruins_6 }
+		}
+
+        # else, add first ruin
+		add_province_modifier = { name = noldor_ruins_1 duration = -1 }
+    }
+}
+
+add_elf_ruins = {
+	remove_province_modifier = noldor_ruins_1
+	remove_province_modifier = noldor_ruins_2
+	remove_province_modifier = noldor_ruins_3
+	remove_province_modifier = noldor_ruins_4
+	remove_province_modifier = noldor_ruins_5
+	remove_province_modifier = noldor_ruins_6
+	remove_province_modifier = dwarf_ruins_1
+	remove_province_modifier = dwarf_ruins_2
+	remove_province_modifier = dwarf_ruins_3
+	remove_province_modifier = dwarf_ruins_4
+	remove_province_modifier = dwarf_ruins_5
+	remove_province_modifier = dwarf_ruins_6
+	
+	if = {
+		limit = { has_province_modifier = elf_ruins_5 }
+
+		remove_province_modifier = elf_ruins_5
+		add_province_modifier = { name = elf_ruins_6 duration = -1 }
+		}
+	if = {
+        limit = { has_province_modifier = elf_ruins_4 }
+
+        remove_province_modifier = elf_ruins_4
+        add_province_modifier = { name = elf_ruins_5 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = elf_ruins_3 }
+
+        remove_province_modifier = elf_ruins_3
+        add_province_modifier = { name = elf_ruins_4 duration = -1 }
+    }
+	if = {
+        limit = { has_province_modifier = elf_ruins_2 }
+
+        remove_province_modifier = elf_ruins_2
+        add_province_modifier = { name = elf_ruins_3 duration = -1 }
+    }
+    if = {
+        limit = { has_province_modifier = elf_ruins_1 }
+
+        remove_province_modifier = elf_ruins_1
+        add_province_modifier = { name = elf_ruins_2 duration = -1 }
+    }
+
+	if = {
+        limit = {
+			NOT = { has_province_modifier = elf_ruins_1 }
+			NOT = { has_province_modifier = elf_ruins_2 }
+			NOT = { has_province_modifier = elf_ruins_3 }
+			NOT = { has_province_modifier = elf_ruins_4 }
+			NOT = { has_province_modifier = elf_ruins_5 }
+			NOT = { has_province_modifier = elf_ruins_6 }
+		}
+
+        # else, add first ruin
+		add_province_modifier = { name = elf_ruins_1 duration = -1 }
+    }
+}
+
+# this picks the type of ruins based on the race/culture in THIS province
+add_ruins = {
+	if = {
+		limit = { religion = religion_moriquendi }
+		add_elf_ruins = yes
+	}
+	if = {
+		limit = { religion = religion_calaquendi }
+		add_noldor_ruins = yes
+	}
+	if = {
+		limit = { culture_group = culture_group_dwarves }
+		add_dwarf_ruins = yes
+	}
+}
+
+# add ruins of the appropriate type and destroys all holdings.  called from province scope
+ruin_province = {
+
+	if = {
+		limit = {
+			num_of_settlements = 7
+		}
+		add_ruins = yes
+	}
+	if = {
+		limit = {
+			num_of_settlements = 6
+		}
+		add_ruins = yes
+	}
+	if = {
+		limit = {
+			num_of_settlements = 5
+		}
+		add_ruins = yes
+	}
+	if = {
+		limit = {
+			num_of_settlements = 4
+		}
+		add_ruins = yes
+	}
+	if = {
+		limit = {
+			num_of_settlements = 3
+		}
+		add_ruins = yes
+	}
+	if = {
+		limit = {
+			num_of_settlements = 2
+		}
+		add_ruins = yes
+	}
+	
+	any_province_holding = {
+		limit = {
+			is_capital = no
+		}
+		destroy_settlement = THIS
+	}
+	destroy_fort = THIS
+	owner = {
+		destroy_hospital = PREV
+		destroy_tradepost = PREV
+	}
+}
+
+make_elf_friend = {
+	remove_trait = evil_side
+	
+	# yes, can be racist and elf_friend (like how thingol is racist but dwarf_friend, to his eventual misfortune)
+	add_trait = elf_friend 
+	if = {
+		limit = {
+			is_ruler = yes
+		}
+		add_trait = good_side
+	}
+}
+
+clear_mining_expedition_flags = {
+	clr_character_flag = targetting_province_for_expedition
+	clr_character_flag = good_sponsorship
+	clr_character_flag = ruler_expedition_leader
+	clr_character_flag = councillor_expedition_leader
+	clr_character_flag = sending_mining_expedition
+	clr_character_flag = bad_sponsorship
+	clr_character_flag = mining_expedition_destroyed
+	clr_character_flag = mining_expedition_conquered
+	clr_character_flag = mining_expedition_tantrum
+	clr_character_flag = mining_expedition_starvation
+	clr_character_flag = mining_expedition_neutral
+	clr_character_flag = mining_expedition_success
+	clr_character_flag = mining_expedition_great_success
+	clr_character_flag = no_sponsorship
+	event_target:target_expedition_councillor = {
+		clr_character_flag = sending_mining_expedition
+	}
+	event_target:target_mining_target_owner = {
+        clr_character_flag = mining_target
+    }
+	event_target:target_mining_target = {
+        clr_province_flag = mining_target
+    }
+}

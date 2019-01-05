@@ -1,0 +1,102 @@
+namespace = valinor
+
+###############################################################
+###### VALINOR CHARACTERS SHOULD BE IN THE COURT OF MANWE #####
+###############################################################
+
+character_event = {
+	id = valinor.0
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = sailed_west
+			trait = journey_to_valinor
+			trait = in_helcaraxe
+		}
+        NOT = { culture = culture_valar }
+	}
+
+	option = {
+		ROOT = { abdicate = yes }
+		e_valinor = {
+			holder_scope = { ROOT = { move_character = PREV } }
+		}
+	}
+}
+
+#################################################
+###### THE EXODUS AFTER THE WAR OF WRATH ########
+#################################################
+
+character_event = {
+	id = valinor.1
+	title = "EVTvalinor.1"
+	desc = "EVTDESCvalinor.1"
+	picture = GFX_evt_grey_havens
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAvalinor.1" # I'll sail to West!
+		#character_event = { id = valinor.3 days = 20 }
+		set_character_flag = sailed_west
+	}
+	option = {
+		name = "EVTOPTBvalinor.1" # I'll live and die in Middle-Earth.
+		trigger = { ai = no }
+	}
+}
+
+##  The Ship sail to west ##
+character_event = {
+	id = valinor.3
+	title = "EVTvalinor.3"
+	desc = "EVTDESCvalinor.3"
+	picture = GFX_evt_grey_havens
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAvalinor.3" # At last, i'll leave these lands.
+		ROOT = {
+			add_trait = sailed_west
+			recalc_succession = yes
+			abdicate = yes
+			any_claim = {
+				remove_claim = ROOT
+			}
+		}
+		e_valinor = {
+			holder_scope = { ROOT = { move_character = PREV } }
+		}		
+		recalc_succession = yes	
+		any_playable_ruler = {
+			limit = {
+				NOT = { has_character_flag = fourth_age }
+			}
+			character_event = { id = valinor.4 }
+			set_character_flag = fourth_age
+		}
+	}
+	option = {
+		name = "EVTOPTBvalinor.3" # No! I can't go away from my home!	
+		trigger = { ai = no }
+	}	
+}
+
+##  The End of the First Age - Every character knows that the world breaks.  The game ends. ##
+character_event = {
+	id = valinor.4
+	title = "EVTvalinor.4"
+	desc = "EVTDESCvalinor.4"
+	picture = GFX_evt_grey_havens
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAvalinor.4" # The Breaking of the World !	
+	}
+}

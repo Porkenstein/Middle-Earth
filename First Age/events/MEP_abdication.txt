@@ -1,0 +1,94 @@
+namespace = ABDICATE
+
+character_event = {
+	id = ABDICATE.001
+	desc = "ABD.001.DESC"
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "ABD.001.A"
+		
+		ai_chance = {
+			factor = 1
+		}
+
+		FROM = { character_event = { id = ABDICATE.002 } }
+	}
+}
+
+character_event = {
+	id = ABDICATE.002
+	desc = "ABD.002.DESC"
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "ABD.002.A"	
+		ai_chance = {
+			factor = 1
+		}	
+		FROM = {
+			clr_character_flag = abdicate
+		}
+		
+		clr_character_flag = wants_to_abdicate
+		
+		abdicate_to = FROM
+		
+		set_character_flag = abdicated
+		
+		any_claim = {
+			remove_claim = ROOT
+		}
+	}
+}
+
+
+### Death of an abdicated character ###
+character_event = {
+	id = ABDICATE.003
+	
+	hide_window = yes	
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			culture_group = culture_group_numenorean
+			culture_group = culture_group_dwarves
+		}
+		has_character_flag = abdicated
+		age = 180
+	}
+
+	option = {
+		death = {
+			death_reason = death_natural
+		}			
+	}
+	
+	option = {
+		trigger = { ai = no }
+		health = -5
+		random_list = {
+			22 = {
+				add_trait = stressed
+			}
+			22 = {
+					add_trait = depressed
+			}
+			22 = {
+					add_trait = envious
+			}	
+			22 = {
+					add_trait = zealous
+			}	
+			12 = {
+					add_trait = infirm
+			}				
+		}		
+	}
+}  
