@@ -49,8 +49,16 @@ title_decisions = {
 					culture = culture_wilderness
 					culture = culture_mountains
 				}
-				any_neighbor_independent_ruler = {
-					character = FROM
+				OR = {
+					any_neighbor_independent_ruler = {
+						character = FROM
+					}
+					AND = {
+						FROM = {
+							culture_group = culture_group_dwarves
+						}
+						culture = culture_mountains
+					}
 				}
 			}
 		}
