@@ -2,10 +2,10 @@ decisions = {
 	clear_realm = {
 		potential = {
 			war = no
-			independent = yes
-			higher_real_tier_than = DUKE
 		}
 		allow = {
+			independent = yes
+			higher_real_tier_than = DUKE
 			any_realm_province = {
 				NOR = {
 					culture= ROOT
@@ -34,8 +34,6 @@ title_decisions = {
 			NOT = {
 				culture_group = culture_group_wilderness
 			}
-			higher_real_tier_than = COUNT
-			independent = yes
 		}
 		potential = {
 			real_tier = COUNT
@@ -46,7 +44,14 @@ title_decisions = {
 			}
 			holder_scope = {
 				OR = {
-					culture = culture_wilderness
+					AND = {
+						culture = culture_wilderness
+						NOT = {
+							FROM = {
+								culture_group = culture_group_dwarves
+							}
+						}
+					}
 					culture = culture_mountains
 				}
 				OR = {
@@ -65,12 +70,20 @@ title_decisions = {
 		allow = {
 			FROM = {
 				wealth = 500
+				NOT = {
+					any_realm_province = {
+						has_province_modifier = being_colonised
+						count = 3
+					}
+				}
 				capital_scope = {
 					check_variable = {
 						which = population
 						value > 1500
 					}
 				}
+				higher_real_tier_than = COUNT
+				independent = yes
 			}
 			holder_scope = {
 				OR = {
