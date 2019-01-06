@@ -4806,6 +4806,10 @@ province_event = {	#Pop Growth
 
 	trigger = {
 		has_province_modifier = mod_pop_display
+		check_variable = {
+			which = population
+			value < 1500000
+		}
 		NOT = {
 			has_province_modifier = pop_wilderness
 		}
@@ -4867,6 +4871,12 @@ province_event = {	#Food Surplus
 
 	option = {	#Let them Keep it
 		name = EVTOPTCpopulation_events.41
+		trigger = {
+			check_variable = {
+				which = population
+				value < 1500000
+			}
+		}
 		multiply_variable = {
 			which = population
 			value = 1.05
