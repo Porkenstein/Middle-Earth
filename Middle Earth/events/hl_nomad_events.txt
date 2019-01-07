@@ -52,18 +52,6 @@ character_event = { # Pillaging Repeating Event
 					ROOT = {
 						wealth = 50
 					}
-					custom_tooltip = {
-						text = gain_tech_custom_tooltip
-						hidden_tooltip = {
-							ROOT = {
-								random_list = {
-									10 = { military_techpoints = 5 }
-									10 = { economy_techpoints = 5 }
-									10 = { culture_techpoints = 5 }
-								}
-							}
-						}
-					}
 				}
 				
 				if = {
@@ -247,16 +235,6 @@ character_event = { # Nomads may pillage holdings on siege
 		if = {
 			limit = { NOT = { FROM = { holding_type = tribal } } }
 			wealth = 10
-			custom_tooltip = {
-				text = gain_tech_custom_tooltip
-				hidden_tooltip = {
-					random_list = {
-						10 = { military_techpoints = 5 }
-						10 = { economy_techpoints = 5 }
-						10 = { culture_techpoints = 5 }
-					}
-				}
-			}
 		}
 		if = {
 			limit = { FROM = { holding_type = tribal } }
