@@ -217,47 +217,6 @@ action_oversee_construction = {
 	events = { 923 924 }
 }
 
-action_advance_eco_tech = {
-	attribute = stewardship
-
-	potential = {
-		FROM = {
-			is_tribal = no
-		}
-	}
-
-	trigger = {
-		any_province_lord = {
-			character = FROM
-		}
-		technology_can_spread = yes
-	}
-	
-	tech_growth_modifier_economy = 0.05
-	
-	events = { }
-}
-
-action_build_legend = {
-	attribute = stewardship
-
-	potential = {
-		FROM = {
-			is_tribal = yes
-		}
-	}
-
-	trigger = {
-		FROM = {
-			is_capital = PREV
-		}
-	}
-	
-	monthly_character_prestige = 0.1
-	
-	events = { 20208 }
-}
-
 action_administer_realm = {
 	attribute = stewardship
 
@@ -304,24 +263,6 @@ action_uncover_plots_offmap = {
 	plot_discovery_chance = 0.01
 	
 	events = { MNM.70022 MNM.70024 MNM.70023 }
-}
-
-action_study_technology = {
-	attribute = intrigue
-	
-	potential = {
-	}
-	
-	trigger = {
-		has_higher_tech_than = FROM
-		any_province_lord = {
-			NOT = { is_liege_or_above = FROM }
-			NOT = { character = FROM }
-		}
-		is_within_diplo_range = FROM
-	}
-	
-	events = { 932 933 }
 }
 
 action_organize_spies = {
@@ -386,45 +327,6 @@ action_sabotage_province = {
 }
 
 # Marshal
-action_advance_mil_tech = {
-	attribute = martial
-
-	potential = {
-		FROM = {
-			is_tribal = no
-		}
-	}
-	
-	trigger = {
-		any_province_lord = {
-			character = FROM
-		}
-		technology_can_spread = yes
-	}
-	
-	tech_growth_modifier_military = 0.05
-	
-	events = { 938 939 }
-}
-
-action_organize_raid = {
-	attribute = martial
-
-	potential = {
-		FROM = {
-			is_tribal = yes
-		}
-	}
-
-	trigger = {
-		FROM = {
-			is_capital = PREV
-		}
-	}
-	
-	events = { 20221 }
-}
-
 action_train_troops = {
 	attribute = martial
 	
@@ -591,28 +493,23 @@ action_organize_army = {
 #	events = { 906 907 }
 #}
 #
-action_advance_cul_tech = {
+
+action_organize_raid = {
 	attribute = learning
-	
+
 	potential = {
-		FROM = {
-			is_tribal = no
+		FROM = { 
+			NOT = { mep_is_good_side_trigger = yes }
 		}
 	}
-	
+
 	trigger = {
-		any_province_lord = {
-			OR = {
-				character = FROM
-				is_liege_or_above = FROM
-			}
+		FROM = {
+			is_capital = PREV
 		}
-		technology_can_spread = yes
 	}
 	
-	tech_growth_modifier_culture = 0.05
-	
-	events = { 926 }
+	events = { 20221 }
 }
 
 action_heal_troops = {
@@ -672,24 +569,4 @@ action_claim_artefacts = {
 	}
 	
 	events = { }
-}
-
-action_build_zeal = {
-	attribute = learning
-
-	potential = {
-		FROM = {
-			is_tribal = yes
-		}
-	}
-
-	trigger = {
-		FROM = {
-			is_capital = PREV
-		}
-	}
-	
-	monthly_character_piety = 0.05
-	
-	events = { 20218 }
 }
