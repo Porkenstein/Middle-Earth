@@ -1501,14 +1501,14 @@ NMilitary = {
 
 NTechnology = {
 	DONT_EXECUTE_TECH_BEFORE = 1,				-- Set this to your earliest starting year
-	POINTS_PER_ATTRIBUTE = 0.04,
+	POINTS_PER_ATTRIBUTE = 0.00,
 
-	BASE_NEIGHBOUR_SPREAD_BONUS = 0.03, 		-- bonus for each neighbour with the tech
+	BASE_NEIGHBOUR_SPREAD_BONUS = 0.00, 		-- bonus for each neighbour with the tech
 	NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0, 	-- multiplier to the above bonus if neighbour is of your religious group
-	BASE_DEMESNE_SPREAD_BONUS = 0.06, 			-- bonus for each other province in demesne with the tech
-	MAX_DEMESNE_BONUS = 0.3, 					-- maximum bonus from demesne
-	TRADEPOST_SPREAD_BONUS = 0.002, 			-- Spread from trade posts
-	SPYACTION_SPREAD_BONUS = 0.006,				-- Spread from the target of the study technology spymaster action
+	BASE_DEMESNE_SPREAD_BONUS = 0.00, 			-- bonus for each other province in demesne with the tech
+	MAX_DEMESNE_BONUS = 0.0, 					-- maximum bonus from demesne
+	TRADEPOST_SPREAD_BONUS = 0.000, 			-- Spread from trade posts
+	SPYACTION_SPREAD_BONUS = 0.000,				-- Spread from the target of the study technology spymaster action
 	
 	IDEAL_YEAR_LEVEL_0 = 1, 					-- the chance to get a progress to this level will increase after this date and decrease before it
 	IDEAL_YEAR_LEVEL_8 = 16000,
@@ -1516,10 +1516,10 @@ NTechnology = {
 	
 	PAGAN_HOME_ATTRITION_REMOVAL_LEVEL = 4.0,
 
-	NOMAD_TRIBUTARY_LEECH_RATIO = 10,			-- Nomads leeches 0.01% of the tech growth of their tributaries
+	NOMAD_TRIBUTARY_LEECH_RATIO = 0,			-- Nomads leeches 0.01% of the tech growth of their tributaries
 	
-	BASE_FROM_NOMAD_CAPITAL_SPREAD_BONUS = 0.09,-- bonus for nomad capital with the tech
-	BASE_TO_NOMAD_CAPITAL_SPREAD_BONUS = 0.2	-- bonus for the province the nomad capital resides in
+	BASE_FROM_NOMAD_CAPITAL_SPREAD_BONUS = 0.00,-- bonus for nomad capital with the tech
+	BASE_TO_NOMAD_CAPITAL_SPREAD_BONUS = 0.0	-- bonus for the province the nomad capital resides in
 },  
 
 NDisease = {
