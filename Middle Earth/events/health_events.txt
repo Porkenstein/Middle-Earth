@@ -22,6 +22,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	lacks_dlc = "Reapers"
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -44,8 +45,9 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 20000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 10
 			religion_group = religion_group_khazad
@@ -63,26 +65,26 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			spouse = { 
 				trait = syphilitic 
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			in_command = yes
 		}		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = lustful
 		}
 		modifier = {
-			factor = 0.6
+			factor = 1.7
 			trait = hedonist
 		}
 		
 		modifier = {
-			factor = 5.0
+			factor = 0.2
 			trait = chaste
 		}
 	}
@@ -106,21 +108,22 @@ character_event = {
 	is_sick = yes
 	only_capable = yes
 	lacks_dlc = "Reapers"
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 6
 		trait = syphilitic
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 8
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 9
 		}
 		# The Silmarilien Mod has revovery from Illness being faster for disease-resistant
@@ -155,6 +158,7 @@ character_event = {
 	desc = EVTDESC6010
 	picture = GFX_evt_illness
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	min_age = 10
 	only_capable = yes
@@ -167,8 +171,9 @@ character_event = {
 		NOT = { health = 5 }
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 10
 			religion_group = religion_group_khazad
@@ -186,27 +191,27 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { 
 				health = 4 
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			in_command = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			any_courtier = {
 				trait = leper
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			OR = {
 				trait = infection
 				trait = severely_injured
@@ -214,7 +219,7 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = charitable
 		}
 		
@@ -281,6 +286,7 @@ character_event = {
 	min_age = 16
 	is_sick = yes
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 4
@@ -294,8 +300,8 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
+	weight_multiplier = {
+		days = 1
 		# The Silmarilien Mod has revovery from Illness being faster for disease-resistant
 		# I'll copy that here, but I think they overdo it
 		modifier = {
@@ -328,6 +334,7 @@ character_event = {
 	id = 6020
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	desc = {
 		text = EVTDESC6020
@@ -391,8 +398,9 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 48000 # once in 4000 years on average
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {  # Dúnedain become lunatic less often
 			factor = 4
 			mep_numenorean_traits_trigger = yes
@@ -406,32 +414,32 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.003 # 12 years on average
+			factor = 333 # 12 years on average
 			OR = {
 				trait = syphilitic
 				trait = has_aztec_disease
 			}
 		}
 		modifier = {
-			factor = 0.006 # 24 years on average
+			factor = 167 # 24 years on average
 			prisoner = yes
 			has_character_modifier = the_oubliette
 		}
 		modifier = {
-			factor = 0.02 # 80 years on average
+			factor = 50 # 80 years on average
 			OR = {
 				trait = has_typhoid_fever
 				trait = has_typhus
 			}
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			prisoner = yes
 			NOT = { has_character_modifier = the_oubliette }
 			NOT = { has_character_modifier = house_arrest }
 		}
 		modifier = {
-			factor = 0.2 # 800 years on average
+			factor = 5 # 800 years on average
 			is_ill = yes
 			NOR = {
 				trait = has_typhoid_fever
@@ -441,50 +449,50 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.0025 # 1 year on average, rabies will also be ill
+			factor = 40 # 1 year on average, rabies will also be ill
 			trait = rabies
 		}
 		modifier = {
-			factor = 0.1
+			factor = 40
 			trait = incapable # Coma due to brain damage. Wakes up a lunatic.
 		}
 		modifier = {
-			factor = 0.1
+			factor = 40
 			AND = {
 				trait = incapable
 				immortal = yes # Incapable immortals more likely to wake up nuts
 			}
 		}
 		modifier = {
-			factor = 0.25
+			factor = 4
 			trait = paranoid
 		}
 		modifier = {
-			factor = 0.25
+			factor = 4
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = depressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = zealous
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = inbred
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = imbecile
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = genius
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			trait = drunkard
 		}
 	}
@@ -559,6 +567,7 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 4
@@ -571,10 +580,10 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 12000
+	weight_multiplier = {
+		days = 1
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 6
 		}
 		modifier = {  # Dúnedain recover from lunacy quicker
@@ -603,6 +612,7 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		OR = {
@@ -616,8 +626,9 @@ character_event = {
 		NOT = { culture_group = culture_group_eru }
 	}
 	
-	mean_time_to_happen = {
-		months = 2000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = { 
 			factor = 2
 			mep_numenorean_traits_trigger = yes
@@ -635,17 +646,17 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			trait = diligent
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 10.0
+			factor = 0.1
 			trait = slothful
 		}
 	}
@@ -665,16 +676,17 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = stressed
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.005
+			factor = 200
 			is_ruler = no
 			is_councillor = no
 			in_command = no
@@ -685,19 +697,19 @@ character_event = {
 			religion_group = religion_group_periannath
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			is_ruler = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			is_councillor = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			in_command = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			NOT = { has_minor_title = title_regent }
 		}
 	}
@@ -717,6 +729,7 @@ character_event = {
 	
 	min_age = 10
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { trait = depressed }
@@ -724,8 +737,9 @@ character_event = {
 		NOT = { trait = content }
 	}
 	
-	mean_time_to_happen = {
-		months = 12000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 4
 			religion_group = religion_group_periannath
@@ -742,46 +756,46 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { age = 20 }
 			mother_even_if_dead = { is_alive = no } 
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.33
 			NOT = { age = 20 }
 			father_even_if_dead = { is_alive = no } 
 		}
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = cynical
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_ill = yes
 		}
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			trait = slothful
 		}
 		modifier = {
-			factor = 0.7
-			trait = ugly
+			factor = 1.4
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			trait = ambitious
 		}
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			in_command = yes
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = diligent
 		}
 	}
@@ -801,13 +815,15 @@ character_event = {
 	
 	min_age = 10
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = depressed
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 0.35
 			religion_group = religion_group_periannath
@@ -821,43 +837,43 @@ character_event = {
 			mep_is_immortal_race_trigger = yes
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			trait = content
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			trait = zealous
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = diligent
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = cynical
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = stressed
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			is_ill = yes
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			trait = slothful
 		}
 		modifier = {
-			factor = 1.5
-			trait = ugly
+			factor = 0.666
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
-			factor = 1.3
+			factor = 0.75
 			trait = ambitious
 		}
 		modifier = {
-			factor = 1.3
+			factor = 0.75
 			in_command = yes
 		}
 	}
@@ -883,11 +899,6 @@ character_event = {
 		add_trait = ill
 		blessing_removes_disease_effect = yes
 		deaths_gift_removes_disease_effect = yes
-	}
-	
-	option = {
-		name = "Nothing Happens"
-		trigger = { mep_cant_get_disease_trigger = yes }
 	}
 }
 
