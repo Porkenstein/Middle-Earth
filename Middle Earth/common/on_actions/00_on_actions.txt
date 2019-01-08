@@ -1,7 +1,6 @@
 #character
 on_startup = {
 	events = {
-		toggle_startup.0 
 		racetrait.3
 		racetrait.4
 		racetrait.6
@@ -15,6 +14,7 @@ on_startup = {
 		# ZP.5 #Change Zorastrian pet traits into modifiers
 		JD.60005 #Convert prosthetics event modifiers into artifacts
 		# JD.50401 # Set correct value of the Silk Road
+		GR.30 # Generate random families for characters without
 		mep_on_actions_mt.1
 		mep_on_actions_mt.121
 		mep_on_actions_mt.15
@@ -47,6 +47,7 @@ on_yearly_pulse = {
 		# JD.4000 # Character raiding China result events
 		bear.7 # Secret bear generation
 		bear.1 # Secret bear discovery. Called here and in bear.7, as bear.1 can be temporarily precluded
+		GR.23 # Repeat exclave purge for AI's every year if they are at war
 		# MEP events
 		racetrait.3
 		racetrait.4
@@ -1643,6 +1644,12 @@ on_death = {
 		# JD.3042 # Clear Supply Horses modifier if no longer Nomadic
 		# JD.10080 # Your Chinese Prince/Princess has died (for children or spouse - must be read before JD.60310!)
 		# JD.60310 # Courtier from China dies
+		
+		GR.14 # Lose disconnected exclaves if not at war (Limited)
+		GR.15 # Lose disconnected exclaves if not at war (Significant)
+		GR.16 # Lose disconnected exclaves if not at war (Harsh)
+		GR.17 # Lose disconnected exclaves if not at war (Total)
+		GR.18 # Lose disconnected exclaves if not at war (Limited Naval)
 
 		# Middle-Earth stuff
 		rulegondor.1 # Split of Reunited Kingdom
