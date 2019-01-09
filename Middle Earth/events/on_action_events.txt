@@ -5518,7 +5518,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = durin_ring 
+				effect = { add_artifact = durin_ring }
 			}
 			add_trait = dead_target
 		}
@@ -5528,7 +5528,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = durin_ring  } }
-						add_artifact = durin_ring 
+						effect = { add_artifact = durin_ring }
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -5538,7 +5538,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring
+				effect = { add_artifact = durin_ring }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5546,7 +5546,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring
+				effect = { add_artifact = durin_ring }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5554,7 +5554,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring
+				effect = { add_artifact = durin_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5562,7 +5562,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring
+				effect = { add_artifact = durin_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5570,7 +5570,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring
+				effect = { add_artifact = durin_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5579,7 +5579,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = durin_ring } }		
 			}
-			spouse = { add_artifact = durin_ring  }
+			spouse = { effect = { add_artifact = durin_ring }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5587,7 +5587,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = durin_ring } }
 			}
-			liege = { add_artifact = durin_ring  }
+			liege = { effect = { add_artifact = durin_ring }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5596,7 +5596,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = durin_ring } }
-				add_artifact = durin_ring 
+				effect = { add_artifact = durin_ring }
 			}
 		}
 	}		
@@ -5613,7 +5613,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = dwarf_ring 
+				effect = { add_artifact = dwarf_ring }
 			}
 			add_trait = dead_target
 		}
@@ -5623,7 +5623,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = dwarf_ring  } }
-						add_artifact = dwarf_ring 
+						effect = { add_artifact = dwarf_ring } 
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -5633,7 +5633,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring
+				effect = { add_artifact = dwarf_ring }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5641,7 +5641,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring
+				effect = { add_artifact = dwarf_ring }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5649,7 +5649,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring
+				effect = { add_artifact = dwarf_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5657,7 +5657,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring
+				effect = { add_artifact = dwarf_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5665,7 +5665,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring
+				effect = { add_artifact = dwarf_ring }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5674,7 +5674,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = dwarf_ring } }		
 			}
-			spouse = { add_artifact = dwarf_ring  }
+			spouse = { effect = { add_artifact = dwarf_ring }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5682,7 +5682,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = dwarf_ring } }
 			}
-			liege = { add_artifact = dwarf_ring  }
+			liege = { effect = { add_artifact = dwarf_ring }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5691,7 +5691,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = dwarf_ring } }
-				add_artifact = dwarf_ring 
+				effect = { add_artifact = dwarf_ring } 
 			}
 		}
 	}	
@@ -5708,7 +5708,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = dwarf_necklace 
+				effect = { add_artifact = dwarf_necklace }
 			}
 			add_trait = dead_target
 		}
@@ -5718,7 +5718,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = dwarf_necklace  } }
-						add_artifact = dwarf_necklace 
+						effect = { add_artifact = dwarf_necklace }
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -5728,7 +5728,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace
+				effect = { add_artifact = dwarf_necklace }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5736,7 +5736,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace
+				effect = { add_artifact = dwarf_necklace }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5744,7 +5744,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace
+				effect = { add_artifact = dwarf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5752,7 +5752,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace
+				effect = { add_artifact = dwarf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5760,7 +5760,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace
+				effect = { add_artifact = dwarf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5769,7 +5769,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = dwarf_necklace } }		
 			}
-			spouse = { add_artifact = dwarf_necklace  }
+			spouse = { effect = { add_artifact = dwarf_necklace }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5777,7 +5777,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = dwarf_necklace } }
 			}
-			liege = { add_artifact = dwarf_necklace  }
+			liege = { effect = { add_artifact = dwarf_necklace }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5786,7 +5786,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = dwarf_necklace } }
-				add_artifact = dwarf_necklace 
+				effect = { add_artifact = dwarf_necklace }
 			}
 		}
 	}	
@@ -5803,7 +5803,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = elf_necklace 
+				effect = { add_artifact = elf_necklace }
 			}
 			add_trait = dead_target
 		}
@@ -5813,7 +5813,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = elf_necklace  } }
-						add_artifact = elf_necklace 
+						effect = { add_artifact = elf_necklace } 
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -5823,7 +5823,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace
+				effect = { add_artifact = elf_necklace }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5831,7 +5831,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace
+				effect = { add_artifact = elf_necklace }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5839,7 +5839,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace
+				effect = { add_artifact = elf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5847,7 +5847,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace
+				effect = { add_artifact = elf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5855,7 +5855,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace
+				effect = { add_artifact = elf_necklace }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5864,7 +5864,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = elf_necklace } }		
 			}
-			spouse = { add_artifact = elf_necklace  }
+			spouse = { effect = { add_artifact = elf_necklace }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5872,7 +5872,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = elf_necklace } }
 			}
-			liege = { add_artifact = elf_necklace  }
+			liege = { effect = { add_artifact = elf_necklace }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5881,7 +5881,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = elf_necklace } }
-				add_artifact = elf_necklace 
+				effect = { add_artifact = elf_necklace } 
 			}
 		}
 	}	
@@ -5898,7 +5898,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = dwarf_jewel 
+				effect = { add_artifact = dwarf_jewel }
 			}
 			add_trait = dead_target
 		}
@@ -5908,7 +5908,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = dwarf_jewel  } }
-						add_artifact = dwarf_jewel 
+						effect = { add_artifact = dwarf_jewel } 
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -5918,7 +5918,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel
+				effect = { add_artifact = dwarf_jewel }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5926,7 +5926,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel
+				effect = { add_artifact = dwarf_jewel }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -5934,7 +5934,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel
+				effect = { add_artifact = dwarf_jewel }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5942,7 +5942,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel
+				effect = { add_artifact = dwarf_jewel }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5950,7 +5950,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel
+				effect = { add_artifact = dwarf_jewel }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -5959,7 +5959,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = dwarf_jewel } }		
 			}
-			spouse = { add_artifact = dwarf_jewel  }
+			spouse = { effect = { add_artifact = dwarf_jewel }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5967,7 +5967,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = dwarf_jewel } }
 			}
-			liege = { add_artifact = dwarf_jewel  }
+			liege = { effect = { add_artifact = dwarf_jewel }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -5976,7 +5976,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = dwarf_jewel } }
-				add_artifact = dwarf_jewel 
+				effect = { add_artifact = dwarf_jewel }
 			}
 		}
 	}	
@@ -5993,7 +5993,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = elf_brooch 
+				effect = { add_artifact = elf_brooch }
 			}
 			add_trait = dead_target
 		}
@@ -6003,7 +6003,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = elf_brooch  } }
-						add_artifact = elf_brooch 
+						effect = { add_artifact = elf_brooch } 
 						ROOT = { add_trait = dead_target }
 					}	
 				}					
@@ -6013,7 +6013,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch
+				effect = { add_artifact = elf_brooch }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -6021,7 +6021,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch
+				effect = { add_artifact = elf_brooch }
 				ROOT = { add_trait = dead_target }
 			}	
 		}	
@@ -6029,7 +6029,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch
+				effect = { add_artifact = elf_brooch }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -6037,7 +6037,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch
+				effect = { add_artifact = elf_brooch }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -6045,7 +6045,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch
+				effect = { add_artifact = elf_brooch }
 				ROOT = { add_trait = dead_target }
 			}
 		}
@@ -6054,7 +6054,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = elf_brooch } }		
 			}
-			spouse = { add_artifact = elf_brooch  }
+			spouse = { effect = { add_artifact = elf_brooch }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -6062,7 +6062,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = elf_brooch } }
 			}
-			liege = { add_artifact = elf_brooch  }
+			liege = { effect = { add_artifact = elf_brooch }  }
 			add_trait = dead_target
 		}
 		if = {
@@ -6071,7 +6071,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = elf_brooch } }
-				add_artifact = elf_brooch 
+				effect = { add_artifact = elf_brooch }
 			}
 		}
 	}
