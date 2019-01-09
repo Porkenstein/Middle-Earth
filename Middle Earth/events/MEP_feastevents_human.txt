@@ -1,71 +1,146 @@
-### A travelling minstrel seeks your patronage ###
+###################################
+#
+# Events for Feasts
+#
+# Id 72000 - 72999 is reserved
+#
+# Fired from on actions
+#
+###################################
+#
+# Designed by Johan Andersson
+# Written by Sara Wendel-Örtqvist
+
+###################################
+#Events before the Feast
+###################################
+
 character_event = {
-	id = 72001
-	desc = EVTDESC72001
+	id = 72109
+	desc = "EVTDESC72109"
 	picture = GFX_evt_feast
 	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72109"
+		hidden_tooltip = {
+			random_list = {
+				20 = { #Jongleurs seek your patronage
+					character_event = { id = 72000 days = 5 }
+				}
+				20 = { #Minstrel seeks your patronage
+					character_event = { id = 72001 days = 5 }
+				}
+				20 = { #Musicians seek your patronage
+					character_event = { id = 72002 days = 5 }
+				}
+				20 = { #Fire-eaters seek your patronage
+					character_event = { id = 72006 days = 5 }
+				}
+				20 = { #Conjurer seeks your patronage
+					character_event = { id = 72007 days = 5 }
+				}
+				20 = { #Acrobats seek your patronage
+					character_event = { id = 72009 days = 5 }
+				}
+				20 = { #Travelling Dancers seek your patronage
+					character_event = { id = 72120 days = 5 }
+				}
+			}
+			random_list = {
+				15 = { #Jongleurs seek your patronage #2
+					character_event = { id = 72000 days = 10 }
+				}
+				15 = { #Minstrel seeks your patronage #2
+					character_event = { id = 72001 days = 10 }
+				}
+				15 = { #Musicians seek your patronage #2
+					character_event = { id = 72002 days = 10 }
+				}
+				15 = { #Fire-eaters seek your patronage #2
+					character_event = { id = 72006 days = 10 }
+				}
+				15 = { #Conjurer seeks your patronage #2
+					character_event = { id = 72007 days = 10 }
+				}
+				15 = { #Acrobats seek your patronage #2
+					character_event = { id = 72009 days = 10 }
+				}
+				15 = { #Travelling Dancers seek your patronage #2
+					character_event = { id = 72120 days = 10 }
+				}
+				5 = { #Castle problems
+					modifier = {
+						factor = 0
+						NOT = {
+							any_courtier = {
+								has_job_title = job_treasurer
+							}
+						}
+					}
+					character_event = { id = 72004 days = 10 }
+				}
+				5 = { #Highway Robber Band
+					modifier = {
+						factor = 0
+						NOR = {
+							any_courtier = {
+								has_job_title = job_marshal
+							}
+							location = {
+								has_province_modifier = highway_robber_band
+							}
+						}
+					}
+					character_event = { id = 72005 days = 10 }
+				}
+				30 = { #Hunt for boars for winter feast
+					modifier = {
+						factor = 0
+						NOT = {
+							any_courtier = {
+								has_job_title = job_marshal
+							}
+						}
+					}
+					character_event = { id = 72008 days = 10 }
+				}
+			}
+			character_event = {
+				id = 72003
+				days = 15
+				random = 2
+			}
+		}
+	}
+}
+
+### A troop of wandering jongleurs seek your patronage ###
+character_event = {
+	id = 72000
+	desc = "EVTDESC72000"
+	picture = GFX_evt_jugglers
+
 	prisoner = no
 	only_rulers = yes
 	capable_only = yes
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
-			has_character_flag = sent_invitations
-		}
-		NOT = {
-			has_character_flag = host_feast_started
-		}
-		NOT = {
-			has_character_flag = feast_minstrel
-		}
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-	}
-	
-	mean_time_to_happen = {
-		months = 4
-		
-		modifier = {
-			factor = 2
-			has_character_flag = feast_musicians
-		}
-		modifier = {
-			factor = 2
 			has_character_flag = feast_jongleur
 		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_fireeaters
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_conjurer
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_acrobats
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_dancers
-		}
 	}
-	
+
 	option = {
-		name = EVTOPTA72001
+		name = "EVTOPTA72000"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 0.1
 				NOT = {
@@ -73,20 +148,90 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 20
+				factor = 30
+				treasury = 30
+			}
+		}
+		treasury = -10
+		set_character_flag = feast_jongleur
+	}
+	option = {
+		name = "EVTOPTB72000"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 30
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 0.1
+				treasury = 30
+			}
+		}
+		prestige = -10
+	}
+}
+
+#A traveling minstrel seeks your patronage
+character_event = {
+	id = 72001
+	desc = "EVTDESC72001"
+	picture = GFX_evt_feast
+
+	prisoner = no
+	only_rulers = yes
+	capable_only = yes
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		NOT = {
+			has_character_flag = feast_minstrel
+		}
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
+	}
+	}
+
+	option = {
+		name = "EVTOPTA72001"
+		ai_chance = {
+			factor = 5
+
+			modifier = {
+				factor = 0.1
+				NOT = {
+					treasury = 30
+				}
+			}
+			modifier = {
+				factor = 30
 				treasury = 30
 			}
 		}
 		set_character_flag = feast_minstrel
-		scaled_wealth = -0.15
+		treasury = -10
 	}
 	option = {
-		name = EVTOPTB72001
+		name = "EVTOPTB72001"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
-				factor = 20
+				factor = 30
 				NOT = {
 					treasury = 30
 				}
@@ -100,75 +245,41 @@ character_event = {
 	}
 }
 
-
-### Musicians seek your patronage ###
+#Musicians seek your patronage
 character_event = {
 	id = 72002
-	desc = EVTDESC72002
+	desc = "EVTDESC72002"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
-		NOT = {
-			has_character_flag = sent_invitations
-		}
-		NOT = {
-			has_character_flag = host_feast_started
-		}
 		NOT = {
 			has_character_flag = feast_musicians
 		}
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-	}
-	
-	mean_time_to_happen = {
-		months = 4
-		
-		modifier = {
-			factor = 2
-			has_character_flag = feast_minstrel
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_jongleur
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_fireeaters
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_conjurer
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_acrobats
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_dancers
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
 		}
 	}
-	
+
 	option = {
-		name = EVTOPTA72002
+		name = "EVTOPTA72002"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 0.1
 				NOT = {
@@ -176,20 +287,20 @@ character_event = {
 				}
 			}
 			modifier = {
-				factor = 20
+				factor = 30
 				treasury = 30
 			}
 		}
 		set_character_flag = feast_musicians
-		scaled_wealth = -0.15
+		treasury = -10
 	}
 	option = {
-		name = EVTOPTB72002
+		name = "EVTOPTB72002"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
-				factor = 20
+				factor = 30
 				NOT = {
 					treasury = 30
 				}
@@ -202,20 +313,21 @@ character_event = {
 		prestige = -10
 	}
 }
-### Food Preparations ###
+
+#Food Preparations
 character_event = {
 	id = 72003
-	desc = EVTDESC72003
+	desc = "EVTDESC72003"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
 	is_triggered_only = yes
-	
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = lavishly_food
@@ -226,47 +338,167 @@ character_event = {
 		NOT = {
 			has_character_flag = low_food
 		}
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_artifact = {
+					has_artifact_flag = cooking
+				}
 			}
+			random_artifact = {
+				limit = {
+					has_artifact_flag = cooking
+					OR = {
+						is_artifact_equipped = yes
+						AND = {
+							artifact_type = the_omnivore #If you're not a cannibal, it's not active, so...
+							PREV = { NOT = { trait = cannibal_trait } }
+						}
+						AND = {
+							artifact_type = the_omnivore #If ROOT already cannibal, someone else should be around to become cannical...
+							PREV = {
+								any_courtier = {
+									NOT = { trait = cannibal_trait }
+									is_adult = yes
+									is_inaccessible_or_incapable_trigger = no
+								}
+							}
+						}
+					}
+					NOT = { artifact_type = gastronomic_tonics } #Not really about food
+				}
+				preferred_limit = {
+					quality = 3
+				}
+				preferred_limit = {
+					quality = 2
+				}
+				preferred_limit = {
+					quality = 1
+				}
+				save_event_target_as = book_target
+			}
+			if = { #If ROOT is already a cannibal_trait...
+				limit = {
+					event_target:book_target = {
+						artifact_type = the_omnivore
+					}
+					trait = cannibal_trait
+				}
+				random_courtier = {
+					limit = {
+						NOT = { trait = cannibal_trait }
+						is_adult = yes
+						is_inaccessible_or_incapable_trigger = no
+					}
+					preferred_limit = {
+						has_education_stewardship_trigger = yes
+						family_of_root_trigger = yes
+						is_evil_trigger = yes
+					}
+					preferred_limit = {
+						has_education_stewardship_trigger = yes
+						family_of_root_trigger = yes
+					}
+					preferred_limit = {
+						family_of_root_trigger = yes
+					}
+					preferred_limit = {
+						has_education_stewardship_trigger = yes
+					}
+					save_event_target_as = potential_cannibal
+				}
+			}
+		}
 	}
 
 	option = {
-		name = EVTOPTA72003 #Spend lavishly on food
-		ai_chance = {
-			factor = 30
-			
-			modifier = {
-				factor = 0.5
-				trait = greedy
-			}
-			modifier = {
-				factor = 3
-				trait = gluttonous
+		name = {
+			text = EVTOPTD72003 #Why don't we use this as inspiration?
+			trigger = {
+				event_target:book_target = { quality > 1 }
 			}
 		}
-		set_character_flag = lavishly_food
-		scaled_wealth = -0.15
+		name = {
+			text = EVTOPTD72003_cheap #Let's make use of this little thing
+			trigger = {
+				event_target:book_target = { quality < 2 }
+			}
+		}
+
+		tooltip_info_custom = available_because_books_tt
+
+		if = {
+			limit = {
+				event_target:book_target = {
+					quality < 2
+				}
+			}
+			set_character_flag = low_food
+			prestige = -5
+		}
+		else_if = {
+			limit = {
+				event_target:book_target = {
+					quality = 2
+					NOT = { quality = 3 }
+				}
+			}
+			if = {
+				limit = {
+					event_target:book_target = {
+						artifact_type = the_omnivore
+					}
+				}
+				if = {
+					limit = { NOT = { trait = cannibal_trait } }
+					custom_tooltip = { text = EVTOPTD72003_cannibal_tt }
+					add_trait = cannibal_trait
+				}
+				else = {
+					custom_tooltip = { text = EVTOPTD72003_buddy_cannibal_tt }
+					event_target:potential_cannibal = {
+						show_scope_change = no
+						add_trait = cannibal_trait
+					}
+				}
+				set_character_flag = lavishly_food
+				treasury = -10
+				prestige = 20
+			}
+			else = {
+				set_character_flag = medium_food
+				prestige = 5
+				treasury = -5
+			}
+		}
+		else = { #means it's quality 3/higher
+			set_character_flag = lavishly_food
+			treasury = -10
+			prestige = 20
+		}
 		hidden_tooltip = {
 			character_event = {
-				id = humanfeast.0
+				id = 72010
 				days = 2
 				random = 5
 			}
 		}
-	}
-	option = {
-		name = EVTOPTB72003 #Spend medium on food
 		ai_chance = {
-			factor = 30
-			
+			factor = 50
+
 			modifier = {
 				factor = 0.5
 				NOT = { trait = greedy }
@@ -275,57 +507,129 @@ character_event = {
 				factor = 2
 				NOT = { trait = gluttonous }
 			}
+			modifier = {
+				factor = 2
+				primary_title = { tier = DUKE }
+			}
 		}
-		set_character_flag = medium_food
-		scaled_wealth = -0.10
+		trigger = {
+			event_target:book_target = { always = yes }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72003" #Spend lavishly on food
+		trigger = { NOT = { trait = temperate } }
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		ai_chance = {
+
+			factor = 30
+
+			modifier = {
+				factor = 0.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 3
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 0.1
+				trait = temperate
+			}
+			modifier = {
+				factor = 2
+				primary_title = { higher_tier_than = DUKE }
+			}
+		}
+		set_character_flag = lavishly_food
+		treasury = -20
+		prestige = 10
 		hidden_tooltip = {
 			character_event = {
-				id = humanfeast.0
+				id = 72010
 				days = 2
 				random = 5
 			}
 		}
-		
 	}
 	option = {
-		name = EVTOPTC72003 #Spend low on food
+		name = "EVTOPTB72003" #Spend medium on food
 		ai_chance = {
 			factor = 30
-			
+
+			modifier = {
+				factor = 0.5
+				NOT = { trait = greedy }
+			}
+			modifier = {
+				factor = 2
+				NOT = { trait = gluttonous }
+			}
+			modifier = {
+				factor = 2
+				primary_title = { tier = DUKE }
+			}
+		}
+		set_character_flag = medium_food
+		treasury = -10
+		hidden_tooltip = {
+			character_event = {
+				id = 72010
+				days = 2
+				random = 5
+			}
+		}
+
+	}
+	option = {
+		name = "EVTOPTC72003" #Spend low on food
+		trigger = { NOT = { trait = gluttonous } }
+		ai_chance = {
+			factor = 30
+
 			modifier = {
 				factor = 2.5
 				trait = greedy
 			}
 			modifier = {
-				factor = 0.5
+				factor = 0.1
 				trait = gluttonous
+			}
+			modifier = {
+				factor = 2
+				primary_title = { tier = COUNT }
 			}
 		}
 		set_character_flag = low_food
-		scaled_wealth = -0.05
+		treasury = -5
+		prestige = -5
 		hidden_tooltip = {
 			character_event = {
-				id = humanfeast.0
+				id = 72010
 				days = 2
 				random = 5
 			}
 		}
-		
+
 	}
 }
 
-### Castle problems ###
+#Castle problems
 character_event = {
 	id = 72004
-	desc = EVTDESC72004
+	desc = "EVTDESC72004"
 	picture = GFX_evt_castle_construction
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = castle_problems
@@ -336,46 +640,90 @@ character_event = {
 		any_courtier = {
 			has_job_title = job_treasurer
 		}
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}		
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}		
 	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}
-	
+
 	option = {
-		name = EVTOPTA72004
+		name = "EVTOPTA72004"
 		set_character_flag = castle_problems
 		scaled_wealth = -0.2
 	}
+}
+
+#Send Marshal to deal with Highway Robber Band
+character_event = {
+	id = 72005
+	desc = "EVTDESC72005"
+	picture = GFX_evt_bandits
+
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	war = no
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = holding_large_feast
+		NOT = {
+			has_character_flag = sent_invitations
+		}
+		any_courtier = {
+			has_job_title = job_marshal
+		}
+		location = {
+			has_province_modifier = highway_robber_band
+		}
+	}
+
 	option = {
-		name = EVTOPTB72004
-		set_character_flag = castle_problems
+		name = "EVTOPTA72005"
+		job_marshal = {
+			random_list = {
+				5 = {
+					death = { death_reason = death_rabble }
+				}
+				50 = {
+					ROOT = {
+						location = {
+							remove_province_modifier = highway_robber_band
+						}
+					}
+				}
+				45 = {
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB72005"
 		prestige = -10
 	}
 }
 
-### Fire-eaters seek your patronage ###
+#Fire-eaters seek your patronage
 character_event = {
 	id = 72006
-	desc = EVTDESC72006
+	desc = "EVTDESC72006"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = sent_invitations
@@ -386,52 +734,23 @@ character_event = {
 		NOT = {
 			has_character_flag = feast_fireeaters
 		}
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-	}
-	
-	mean_time_to_happen = {
-		months = 4
-		
-		modifier = {
-			factor = 2
-			has_character_flag = feast_minstrel
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_jongleur
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_musicians
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_conjurer
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_acrobats
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_dancers
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
 		}
 	}
-	
+
 	option = {
-		name = EVTOPTA72006
+		name = "EVTOPTA72006"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 0.1
 				NOT = {
@@ -444,13 +763,13 @@ character_event = {
 			}
 		}
 		set_character_flag = feast_fireeaters
-		scaled_wealth = -0.15
+		treasury = -10
 	}
 	option = {
-		name = EVTOPTB72006
+		name = "EVTOPTB72006"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 20
 				NOT = {
@@ -466,18 +785,20 @@ character_event = {
 	}
 }
 
-### A Conjurer seeks your patronage ###
+#A Conjurer seeks your patronage
 character_event = {
 	id = 72007
-	desc = EVTDESC72007
+	desc = "EVTDESC72007"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = sent_invitations
@@ -488,52 +809,23 @@ character_event = {
 		NOT = {
 			has_character_flag = feast_conjurer
 		}
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-	}
-	
-	mean_time_to_happen = {
-		months = 4
-		
-		modifier = {
-			factor = 2
-			has_character_flag = feast_minstrel
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_jongleur
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_musicians
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_fireeaters
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_acrobats
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_dancers
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
 		}
 	}
-	
+
 	option = {
-		name = EVTOPTA72007
+		name = "EVTOPTA72007"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 0.1
 				NOT = {
@@ -546,13 +838,13 @@ character_event = {
 			}
 		}
 		set_character_flag = feast_conjurer
-		scaled_wealth = -0.15
+		treasury = -10
 	}
 	option = {
-		name = EVTOPTB72007
+		name = "EVTOPTB72007"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 20
 				NOT = {
@@ -568,24 +860,25 @@ character_event = {
 	}
 }
 
-### Hunt for boars for winter feast ###
+#Hunt for boars for winter feast
 character_event = {
 	id = 72008
-	desc = EVTDESC72008
+	desc = "EVTDESC72008"
 	picture = GFX_evt_hunt
-	
-	min_age = 16
+
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = sent_invitations
 		}
-		NOT = { 
-			has_character_flag = feast_boar_hunt 
+		NOT = {
+			has_character_flag = feast_boar_hunt
 		}
 		NOT = {
 			has_character_flag = host_feast_started
@@ -593,106 +886,135 @@ character_event = {
 		any_courtier = {
 			has_job_title = job_marshal
 		}
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 	}
-	
+
 	immediate = {
 		set_character_flag = feast_boar_hunt
 	}
 
-	mean_time_to_happen = {
-		days = 80
-		
-		modifier = {
-			factor = 0.5
-			trait = hunter
-		}
-	}
-	
 	option = {
-		name = EVTOPTA72008
+		name = "EVTOPTA72008"
 		job_marshal = {
 			prestige = 10
 			opinion = {
 				modifier = opinion_flattered
 				who = ROOT
-				years = 2
+				years = 10
 			}
-			random = {
-				chance = 5
-				
-				add_trait = wounded
+			random_list = {
+				80 = { }
+				10 = { change_martial = 1 }
+				7 = {
+					add_trait = wounded
+					hidden_tooltip = { character_event = { id = 38280 } }
+				}
+				2 = {
+					add_maimed_trait_effect = yes
+				}
+				1 = {
+					death = { death_reason = death_accident_boar }
+				}
 			}
 		}
 	}
 	option = {
-		name = EVTOPTB72008
+		name = "EVTOPTB72008"
 		trigger = {
 			any_child = {
 				age = 14
-				is_alive = yes
 				is_female = no
 				is_abroad = no
+				prisoner = no
+				liege = { character = ROOT }
+				NOT = { health_traits = 1 }
+				is_alive = yes
 			}
 		}
 		random_child = {
 			limit = {
 				age = 14
-				is_alive = yes
 				is_female = no
 				is_abroad = no
+				prisoner = no
+				liege = { character = ROOT }
+				NOT = { health_traits = 1 }
+				is_alive = yes
 			}
 			prestige = 10
 			opinion = {
 				modifier = opinion_flattered
 				who = ROOT
-				years = 2
+				years = 10
 			}
-			random = {
-				chance = 5
-				
+			random_list = {
+				80 = { }
+				10 = { change_martial = 1 }
+				7 = {
+					add_trait = wounded
+					hidden_tooltip = { character_event = { id = 38280 } }
+				}
+				2 = {
+					add_maimed_trait_effect = yes
+				}
+				1 = {
+					death = { death_reason = death_accident_boar }
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC72008"
+		trigger = {
+			age = 14
+			is_female = no
+			NOT = { health_traits = 1 }
+			NOT = { trait = craven }
+		}
+		prestige = 10
+		random_list = {
+			80 = { }
+			10 = { change_martial = 1 }
+			7 = {
 				add_trait = wounded
+				hidden_tooltip = { character_event = { id = 38280 } }
+			}
+			2 = {
+				add_maimed_trait_effect = yes
+			}
+			1 = {
+				death = { death_reason = death_accident_boar }
 			}
 		}
 	}
 	option = {
-		name = EVTOPTC72008
-		add_character_modifier = {
-			name = mod_bloodlust
-			duration = 180
-		}
-		random = {
-			chance = 5
-			
-			add_trait = wounded
-		}
-	}
-	option = {
-		name = EVTOPTD72008
+		name = "EVTOPTD72008"
 	}
 }
 
-### Acrobats seek your patronage ###
+#Acrobats seek your patronage
 character_event = {
 	id = 72009
-	desc = EVTDESC72009
+	desc = "EVTDESC72009"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		NOT = {
 			has_character_flag = sent_invitations
@@ -703,52 +1025,23 @@ character_event = {
 		NOT = {
 			has_character_flag = feast_acrobats
 		}
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-	}
-	
-	mean_time_to_happen = {
-		months = 4
-		
-		modifier = {
-			factor = 2
-			has_character_flag = feast_minstrel
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_jongleur
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_musicians
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_fireeaters
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_conjurer
-		}
-		modifier = {
-			factor = 2
-			has_character_flag = feast_dancers
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
 		}
 	}
-	
+
 	option = {
-		name = EVTOPTA72009
+		name = "EVTOPTA72009"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 0.1
 				NOT = {
@@ -761,13 +1054,13 @@ character_event = {
 			}
 		}
 		set_character_flag = feast_acrobats
-		scaled_wealth = -0.15
+		treasury = -10
 	}
 	option = {
-		name = EVTOPTB72009
+		name = "EVTOPTB72009"
 		ai_chance = {
 			factor = 5
-			
+
 			modifier = {
 				factor = 20
 				NOT = {
@@ -788,18 +1081,20 @@ character_event = {
 ###################################
 namespace = humanfeast
 
-### Send invites ###
+#Send invites
 character_event = {
-	id = humanfeast.0
-	desc = "EVTDESChumanfeast.0"
+	id = 72010
+	desc = "EVTDESC72010"
 	picture = GFX_evt_feast
+
+	is_triggered_only = yes
 
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
 	trigger = {
-		war = no
 		has_character_modifier = holding_large_feast
 		OR = {
 			has_character_flag = lavishly_food
@@ -809,37 +1104,41 @@ character_event = {
 		NOT = {
 			has_character_flag = sent_invitations
 		}
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 	}
 	
-	mean_time_to_happen = {
-		days = 1
-	}
-
 	option = {
-		name = "EVTOPTAhumanfeast.0"
+		name = "EVTOPTA72010"
 		set_character_flag = sent_invitations
-		any_vassal = {
-			limit = {
-				prisoner = no
-				war = no
-				in_command = no
-				age = 16
-			}
-			letter_event = {
-				id = 72011
-				days = 1
-				random = 2
-				tooltip = EVTTOOLTIP72011
+		custom_tooltip = {
+			text = EVTTOOLTIP1_RoI_1000
+		}
+		hidden_tooltip = {
+			character_event = { id = 72015 days = 20 }
+			any_vassal = {
+				limit = {
+					NOT = { is_inaccessible_trigger = yes }
+					prisoner = no
+					NOT = { has_character_flag = do_not_disturb }
+					NOT = { trait = incapable }
+					NOT = { has_character_modifier = holding_large_feast }
+					war = no
+					is_adult = yes
+				}
+				letter_event = {
+					id = 72011
+					days = 2
+					#tooltip = "EVTTOOLTIP72011"
+				}
 			}
 		}
 	}
@@ -848,37 +1147,38 @@ character_event = {
 #Vassal is invited to the feast
 letter_event = {
 	id = 72011
-	desc = EVTDESC72011
-	# picture = GFX_evt_feast
-	
+	desc = "EVTDESC72011"
+
 	is_triggered_only = yes
-	
+
+	trigger = { NOT = { is_inaccessible_trigger = yes } }
+
 	option = {
-		name = EVTOPTA72011 #Travel to the feast
+		name = "EVTOPTA72011" #Travel to the feast
 		ai_chance = {
-			factor = 2
+			factor = 1
+			modifier = {
+				factor = 2
+				opinion = { who = from value = -40 }
+			}
 			modifier  = {
 				factor = 2
-				opinion = { who = from value = -10 }
-			}
-			modifier  = {
-				factor = 5
-				opinion = { who = from value = 10 }
-			}
-			modifier  = {
-				factor = 5
-				opinion = { who = from value = 20 }
+				opinion = { who = from value = -20 }
 			}
 		}
 		set_character_flag = coming_to_feast
 	}
 	option = {
-		name = EVTOPTB72011 #Refuse
+		name = "EVTOPTB72011" #Refuse
 		ai_chance = {
 			factor = 1
 			modifier  = {
-				factor = 0
-				opinion = { who = from value = 25 }
+				factor = 2
+				NOT = { opinion = { who = from value = -60 } }
+			}
+			modifier  = {
+				factor = 2
+				NOT = { opinion = { who = from value = -80 } }
 			}
 		}
 		FROM = {
@@ -886,7 +1186,7 @@ letter_event = {
 				id = 72012
 				days = 1
 				random = 2
-				tooltip = EVTTOOLTIP72012
+				tooltip = "EVTTOOLTIP72012"
 			}
 		}
 	}
@@ -895,17 +1195,16 @@ letter_event = {
 #Vassal refused to come to the feast
 letter_event = {
 	id = 72012
-	desc = EVTDESC72012
-	# picture = GFX_evt_feast
-	
+	desc = "EVTDESC72012"
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72012 
+		name = "EVTOPTA72012"
 		opinion = {
 			modifier = opinion_dislike
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -917,25 +1216,27 @@ letter_event = {
 #The guests have arrived
 character_event = {
 	id = 72015
-	desc = EVTDESC72015
+	desc = "EVTDESC72015"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		has_character_modifier = holding_large_feast
 		has_character_flag = sent_invitations
 		NOT = {
@@ -945,28 +1246,1052 @@ character_event = {
 			NOT = {
 				has_character_flag = guest_feast_started
 			}
-			had_character_flag = {
-				flag = coming_to_feast
-				days = 5
-			}
+			has_character_flag = coming_to_feast
 		}
 	}
-	
-	mean_time_to_happen = {
-		months = 1
-	}
-	
+
 	option = {
-		name = EVTOPTA72015
+		name = "EVTOPTA72015"
 		set_character_flag = host_feast_started
-		any_vassal = {
-			limit = {
-				has_character_flag = coming_to_feast
+		hidden_tooltip = { 
+			any_vassal = {
+				limit = {
+					has_character_flag =  coming_to_feast
+				}
+				character_event = {
+					id = 72016
+					tooltip = "EVTTOOLTIP72016"
+				}
 			}
-			character_event = {
-				id = 72016
-				tooltip = EVTTOOLTIP72016
+			random_list = { #First wave of events
+				10 = { #Lavish food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = lavishly_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					random_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						character_event = { id = 72020 days = 3 }
+					}
+				}
+				10 = { #Medium food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = medium_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					random_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						character_event = { id = 72021 days = 3 }
+					}
+				}
+				10 = { #Low food (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = low_food
+							any_vassal = {
+								has_character_flag = guest_feast_started
+								war = no
+							}
+						}
+					}
+					random_vassal = {
+						limit = { 
+							has_character_flag = guest_feast_started
+							war = no
+						}
+						character_event = { id = 72022 days = 3 }
+					}
+				}
+				10 = { #Jongleurs entertain guest (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_jongleur
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72063 days = 3 }
+				}
+				10 = { #Ministrel entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_minstrel
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72065 days = 3 }
+				}
+				10 = { #Musicians entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_musicians
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72067 days = 3 }
+				}
+				10 = { #Fire-eaters entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_fireeaters
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72069 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							has_character_flag = feast_conjurer
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72071 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							in_command = no
+							has_character_flag = feast_dancers
+							has_character_modifier = holding_large_feast
+							has_character_flag = host_feast_started
+						}
+					}
+					character_event = { id = 4165 days = 3 }
+				}
+				10 = { #Conjurer entertain the guests (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							in_command = no
+							has_character_flag = feast_acrobats
+							has_character_modifier = holding_large_feast
+							has_character_flag = host_feast_started
+						}
+					}
+					character_event = { id = 4160 days = 3 }
+				}
+				#10 = {} #Empty as fallback
 			}
+			random_list = { # Second wave of events
+				10 = { #Jester makes bad joke (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_courtier = {
+								has_minor_title = title_court_jester
+								NOT = {
+									opinion = { who = ROOT value = 25 }
+								}
+							}
+							any_vassal = {
+								has_character_flag = guest_feast_started
+							}
+						}
+					}
+					character_event = { id = 72060 days = 10 }
+				}
+				10 = { #Highway robber band (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									location = {
+										has_province_modifier = highway_robber_band
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							war = no
+							has_character_flag = guest_feast_started
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								location = {
+									has_province_modifier = highway_robber_band
+								}
+							}
+						}
+						character_event = { id = 72050 days = 10 }
+					}
+				}
+				10 = { #Claim on visitors title (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							war = no
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							any_claim = {
+								holder_scope = {
+									war = no
+									has_character_flag = guest_feast_started
+									vassal_of = ROOT
+								}
+							}
+						}
+					}
+					character_event = { id = 72085 days = 10 }
+				}
+				30 = { #Duel (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								can_be_maimed_trigger = yes
+								NOT = {
+									trait = wounded
+								}
+								martial = 9
+								OR = {
+									trait = duelist
+									trait = brave
+									trait = wroth
+									trait = cruel
+								}
+								NOT = {
+									trait = craven
+								}
+								any_liege = {
+									war = no
+									has_character_modifier = holding_large_feast
+									has_character_flag = host_feast_started
+									any_vassal = {
+										is_adult = yes
+										has_character_flag = guest_feast_started
+										NOT = {
+											character = PREVPREV
+										}
+										NOT = {
+											reverse_opinion = { who = PREVPREV value = -50 }
+										}
+										NOT = {
+											opinion = { who = PREVPREV value = -50 }
+										}
+										NOT = {
+											trait = wounded
+										}
+										can_be_maimed_trigger = yes
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							NOT = {
+								trait = wounded
+							}
+							can_be_maimed_trigger = yes
+							martial = 9
+							OR = {
+								trait = duelist
+								trait = brave
+								trait = wroth
+								trait = cruel
+							}
+							NOT = {
+								trait = craven
+							}
+							any_liege = {
+								war = no
+								has_character_modifier = holding_large_feast
+								has_character_flag = host_feast_started
+								any_vassal = {
+									is_adult = yes
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREVPREV
+									}
+									NOT = {
+										reverse_opinion = { who = PREVPREV value = -50 }
+									}
+									NOT = {
+										opinion = { who = PREVPREV value = -50 }
+									}
+									NOT = {
+										trait = wounded
+									}
+									can_be_maimed_trigger = yes
+								}
+							}
+						}
+						character_event = { id = 72030 days = 10 }
+					}
+				}
+				10 = { #Late night talk become friends 1 (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								any_realm_character = {
+									same_liege = PREV
+									liege = {
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									is_adult = yes
+									NOT = { num_of_friends = 3 }
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREV
+										any_claim = {
+											holder_scope = {
+												character = PREV
+											}
+										}
+										PREV = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+										}
+									}
+									NOT = {
+										is_friend = PREV
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = guest_feast_started
+							any_realm_character = {
+								same_liege = PREV
+								liege = {
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								is_adult = yes
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								NOT = {
+									character = PREV
+									any_claim = {
+										holder_scope = {
+											character = PREV
+										}
+									}
+									PREV = {
+										any_claim = {
+											holder_scope = {
+												character = PREVPREV
+											}
+										}
+									}
+								}
+								NOT = {
+									is_friend = PREV
+								}
+							}
+						}
+						character_event = { id = 72025 days = 10 }
+					}
+				}
+				10 = { #Late night talk become friends 2 (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								NOT = { num_of_friends = 3 }
+								has_character_flag = guest_feast_started
+								any_liege = {
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										reverse_opinion = { who = PREV value = 0 }
+									}
+									any_vassal = {
+										is_adult = yes
+										NOT = { num_of_friends = 3 }
+										has_character_flag = guest_feast_started
+										NOT = {
+											character = PREVPREV
+										}
+										NOT = {
+											opinion = { who = PREV value = 0 }
+										}
+										NOT = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+											PREVPREV = {
+												any_claim = {
+													holder_scope = {
+														character = PREVPREV
+													}
+												}
+											}
+										}
+										NOT = {
+											is_friend = PREVPREV
+										}
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = guest_feast_started
+							any_liege = {
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									reverse_opinion = { who = PREV value = 0 }
+								}
+								any_vassal = {
+									is_adult = yes
+									NOT = { num_of_friends = 3 }
+									has_character_flag = guest_feast_started
+									NOT = {
+										character = PREVPREV
+									}
+									NOT = {
+										opinion = { who = PREV value = 0 }
+									}
+									NOT = {
+										any_claim = {
+											holder_scope = {
+												character = PREVPREV
+											}
+										}
+										PREVPREV = {
+											any_claim = {
+												holder_scope = {
+													character = PREVPREV
+												}
+											}
+										}
+									}
+									NOT = {
+										is_friend = PREVPREV
+									}
+								}
+							}
+						}
+						character_event = { id = 72027 days = 10 }
+					}
+				}
+				10 = { #Late night talk (Liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							is_adult = yes
+							war = no
+							NOT = { num_of_friends = 3 }
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								NOT = { num_of_friends = 3 }
+								NOT = {
+									is_friend = ROOT
+								}
+							}
+						}
+					}
+					character_event = { id = 72080 days = 10 }
+				}
+				#10 = {} #Empty as fallback
+			}
+			random_list = { #Third wave of events
+				10 = { #Guest kills servant (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								OR = {
+									trait = wroth
+									trait = cruel
+									trait = impaler
+								}
+								OR = {
+									tier = BARON
+									tier = COUNT
+								}
+								NOT = {
+									trait = just
+								}
+								any_liege = {
+									war = no
+									NOT = { personality_traits  = 6 }
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										location = {
+											has_province_modifier = peasants_upset
+										}
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							war = no
+							has_character_flag = guest_feast_started
+							OR = {
+								trait = wroth
+								trait = cruel
+								trait = impaler
+							}
+							OR = {
+								tier = BARON
+								tier = COUNT
+							}
+							NOT = {
+								trait = just
+							}
+							any_liege = {
+								war = no
+								NOT = { personality_traits  = 6 }
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									location = {
+										has_province_modifier = peasants_upset
+									}
+								}
+							}
+						}
+						character_event = { id = 72055 days = 14 }
+					}
+				}
+				10 = { #Drunkard (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								NOT = {
+									trait = drunkard
+								}
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							NOT = {
+								trait = drunkard
+							}
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+							}
+						}
+						character_event = { id = 72045 days = 14 }
+					}
+				}
+				10 = { #Drink and embarass self (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								trait = drunkard
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										has_character_flag = feast_drunkard_guest
+									}
+									any_courtier = {
+										has_job_title = job_treasurer
+										NOT = {
+											trait = drunkard
+										}
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							trait = drunkard
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									has_character_flag = feast_drunkard_guest
+								}
+								any_courtier = {
+									has_job_title = job_treasurer
+									NOT = {
+										trait = drunkard
+									}
+								}
+							}
+						}
+						character_event = { id = 72046 days = 14 }
+					}
+				}
+				10 = { #Drink and embarass self (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								trait = drunkard
+								any_liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+									NOT = {
+										has_character_flag = feast_drunkard_guest
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							trait = drunkard
+							any_liege = {
+								war = no
+								has_character_flag = host_feast_started
+								has_character_modifier = holding_large_feast
+								NOT = {
+									has_character_flag = feast_drunkard_guest
+								}
+							}
+						}
+						character_event = { id = 72048 days = 14 }
+					}
+				}
+				10 = { #Friendly with another spouse (liege)
+					modifier = {
+						factor = 0
+						NOR = {
+							is_adult = yes
+							war = no
+							has_character_flag = host_feast_started
+							has_character_modifier = holding_large_feast
+							NOR = {
+								trait = celibate
+								trait = chaste
+								trait = eunuch
+								trait = homosexual
+							}
+							fertility = 0.4
+							any_vassal = {
+								war = no
+								has_character_flag = guest_feast_started
+								OR = {
+									AND = {
+										is_female = no
+										is_married = yes
+										spouse = {
+											is_adult = yes
+											NOR = {
+												is_close_relative = ROOT
+												age = 40
+												fertility = 0.4
+												trait = celibate
+												trait = chaste
+												trait = homosexual
+											}
+											is_female = yes
+											is_pregnant = no
+											is_alive = yes
+											is_abroad = no
+											prisoner = no
+											opinion = { who = ROOT value = 20 }
+										}
+									}
+									AND = {
+										is_adult = yes
+										NOR = {
+											is_close_relative = ROOT
+											age = 40
+											fertility = 0.4
+											trait = celibate
+											trait = chaste
+											trait = homosexual
+										}
+										is_female = yes
+										is_pregnant = no
+										is_alive = yes
+										is_abroad = no
+										prisoner = no
+										opinion = { who = ROOT value = 20 }
+									}
+								}
+							}
+						}
+					}
+					character_event = { id = 72075 days = 14 }
+				}
+				10 = { #Friedly with spouse (vassal)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_vassal = {
+								is_adult = yes
+								war = no
+								has_character_flag = guest_feast_started
+								is_married = yes
+								fertility = 0.4
+								any_realm_character = {
+									same_liege = PREV
+									liege = {
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									NOT = { character = PREV }
+									has_character_flag = guest_feast_started
+									spouse = {
+										prisoner = no
+										is_adult = yes
+										is_pregnant = no
+										is_alive = yes
+										is_abroad = no
+										NOT = {
+											trait = celibate
+										}
+										NOT = { trait = eunuch }
+										NOT = {
+											age = 30
+										}
+										opinion = { who = PREVPREV value = 20 }
+										NOT = { is_close_relative = PREVPREV }
+
+										OR = {
+											AND = {
+												is_female = yes
+												is_pregnant = no
+												PREVPREV = {
+													is_female = no
+												}
+											}
+											AND = {
+												is_female = no
+												PREVPREV = {
+													is_female = yes
+													is_pregnant = no
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							is_adult = yes
+							war = no
+							has_character_flag = guest_feast_started
+							is_married = yes
+							fertility = 0.4
+							any_realm_character = {
+								same_liege = PREV
+								liege = {
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								NOT = { character = PREV }
+								has_character_flag = guest_feast_started
+								spouse = {
+									prisoner = no
+									is_adult = yes
+									is_pregnant = no
+									is_alive = yes
+									is_abroad = no
+									NOT = {
+										trait = celibate
+									}
+									NOT = { trait = eunuch }
+									NOT = {
+										age = 30
+									}
+									opinion = { who = PREVPREV value = 20 }
+									NOT = { is_close_relative = PREVPREV }
+
+									OR = {
+										AND = {
+											is_female = yes
+											is_pregnant = no
+											PREVPREV = {
+												is_female = no
+											}
+										}
+										AND = {
+											is_female = no
+											PREVPREV = {
+												is_female = yes
+												is_pregnant = no
+											}
+										}
+									}
+								}
+							}
+						}
+						character_event = { id = 72040 days = 14 }
+					}
+				}
+				10 = { #Falling in love (Liege or child)
+					modifier = {
+						factor = 0
+						NOR = {
+							any_realm_character = {
+								OR = {
+									character = ROOT
+									liege = { character = ROOT }
+								}
+								OR = {
+									AND = {
+										is_betrothed = no
+										is_married = no
+									}
+									NOT = { trait = chaste }
+								}
+								has_lover = no
+								NOT = { trait = shy }
+								fertility = 0.4
+								OR = {
+									AND = {
+										NOT = {
+											num_of_children = 1
+										}
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+									AND = {
+										is_adult = yes
+										NOT = {
+											age = 26
+										}
+										father = {
+											war = no
+											has_character_flag = host_feast_started
+											has_character_modifier = holding_large_feast
+										}
+									}
+								}
+								OR = {
+									father = {
+										any_vassal = {
+											has_character_flag = guest_feast_started
+											any_child = {
+												is_female = yes
+												is_married = no
+												is_betrothed = no
+												has_lover = no
+												NOT = { is_close_relative = PREVPREV }
+												is_adult = yes
+												NOT = {
+													age = 26
+												}
+												is_abroad = no
+												opinion = { who = PREVPREV value = 20 }
+											}
+										}
+									}
+									any_vassal = {
+										has_character_flag = guest_feast_started
+										any_child = {
+											is_female = yes
+											is_married = no
+											is_betrothed = no
+											has_lover = no
+											fertility = 0.4
+											NOT = { is_close_relative = PREVPREV }
+											is_adult = yes
+											NOT = {
+												age = 26
+											}
+											is_abroad = no
+											opinion = { who = PREVPREV value = 20 }
+										}
+									}
+								}
+							}
+						}
+					}
+					random_realm_character = {
+						limit = {
+							OR = {
+								character = ROOT
+								liege = { character = ROOT }
+							}
+							OR = {
+								AND = {
+									is_betrothed = no
+									is_married = no
+								}
+								NOT = { trait = chaste }
+							}
+							has_lover = no
+							NOT = { trait = shy }
+							fertility = 0.4
+							OR = {
+								AND = {
+									NOT = {
+										num_of_children = 1
+									}
+									war = no
+									has_character_flag = host_feast_started
+									has_character_modifier = holding_large_feast
+								}
+								AND = {
+									is_adult = yes
+									NOT = {
+										age = 26
+									}
+									father = {
+										war = no
+										has_character_flag = host_feast_started
+										has_character_modifier = holding_large_feast
+									}
+								}
+							}
+							OR = {
+								father = {
+									any_vassal = {
+										has_character_flag = guest_feast_started
+										any_child = {
+											is_female = yes
+											is_married = no
+											is_betrothed = no
+											has_lover = no
+											NOT = { is_close_relative = PREVPREV }
+											is_adult = yes
+											NOT = {
+												age = 26
+											}
+											is_abroad = no
+											opinion = { who = PREVPREV value = 20 }
+										}
+									}
+								}
+								any_vassal = {
+									has_character_flag = guest_feast_started
+									any_child = {
+										is_female = yes
+										is_married = no
+										is_betrothed = no
+										has_lover = no
+										fertility = 0.4
+										NOT = { is_close_relative = PREVPREV }
+										is_adult = yes
+										NOT = {
+											age = 26
+										}
+										is_abroad = no
+										opinion = { who = PREVPREV value = 20 }
+									}
+								}
+							}
+						}
+						character_event = { id = 72090 days = 14 }
+					}
+				}
+				#10 = {} #Empty as fallback
+			}
+			character_event = { id = 72110 days = 20 }
 		}
 	}
 }
@@ -974,13 +2299,13 @@ character_event = {
 #Welcome to the feast!
 character_event = {
 	id = 72016
-	desc = EVTDESC72016
+	desc = "EVTDESC72016"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72016
+		name = "EVTOPTA72016"
 		set_character_flag = guest_feast_started
 	}
 }
@@ -988,81 +2313,28 @@ character_event = {
 #Lavish Food
 character_event = {
 	id = 72020
-	desc = EVTDESC72020
+	desc = "EVTDESC72020"
 	picture = GFX_evt_feast
-	
-	min_age = 16
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
-	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
-		liege = {
-			NOT = {
-				has_character_modifier = complain_food_timer
-			}
-			NOT = {
-				has_character_modifier = compliment_food_timer
-			}
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			has_character_flag = lavishly_food
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 180
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
+
+	is_triggered_only = yes
+
 	option = {
-		name = EVTOPTA72020 #Approve publicly
+		name = "EVTOPTA72020" #Approve publicly
+		trigger = {
+			NOT = { trait = temperate }
+		}
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
 		ai_chance = {
-			factor = 20
-			
+			factor = 40
+
 			modifier = {
 				factor = 5
 				trait = gluttonous
-			}
-			modifier = {
-				factor = 0.1
-				trait = temperate
 			}
 		}
 		any_liege = {
@@ -1080,19 +2352,18 @@ character_event = {
 			}
 			character_event = {
 				id = 72023
-				tooltip = EVTTOOLTIP72023 #Liege is glad you liked it
+				tooltip = "EVTTOOLTIP72023" #Liege is glad you liked it
 			}
 		}
 	}
 	option = {
-		name = EVTOPTB72020 #Disapprove
+		name = "EVTOPTB72020" #Disapprove
+		trigger = {
+			NOT = { trait = gluttonous }
+		}
 		ai_chance = {
 			factor = 20
-			
-			modifier = {
-				factor = 0.1
-				trait = gluttonous
-			}
+
 			modifier = {
 				factor = 5
 				trait = temperate
@@ -1113,12 +2384,12 @@ character_event = {
 			}
 			character_event = {
 				id = 72024
-				tooltip = EVTTOOLTIP72024 #Liege dislike you complaining about the food
+				tooltip = "EVTTOOLTIP72024" #Liege dislike you complaining about the food
 			}
-		}		
+		}
 	}
 	option = {
-		name = EVTOPTC72020
+		name = "EVTOPTC72020"
 		prestige = -10
 	}
 }
@@ -1126,71 +2397,17 @@ character_event = {
 #Medium Food
 character_event = {
 	id = 72021
-	desc = EVTDESC72021
+	desc = "EVTDESC72021"
 	picture = GFX_evt_feast
-	
-	min_age = 16
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
-	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
-		any_liege = {
-			NOT = {
-				has_character_modifier = complain_food_timer
-			}
-			NOT = {
-				has_character_modifier = compliment_food_timer
-			}
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			has_character_flag = medium_food
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 180
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
+
+	is_triggered_only = yes
+
 	option = {
-		name = EVTOPTA72021 #Approve publicly
+		name = "EVTOPTA72021" #Approve publicly
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
@@ -1206,19 +2423,19 @@ character_event = {
 			}
 			character_event = {
 				id = 72023
-				tooltip = EVTTOOLTIP72023 #Liege is glad you liked it
+				tooltip = "EVTTOOLTIP72023" #Liege is glad you liked it
 			}
 		}
 	}
 	option = {
-		name = EVTOPTB72021 #Disapprove
+		name = "EVTOPTB72021" #Disapprove
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
 				has_character_modifier = holding_large_feast
 				has_character_flag = medium_food
 			}
-			
+
 			hidden_tooltip = {
 				add_character_modifier = {
 					name = complain_food_timer
@@ -1228,12 +2445,12 @@ character_event = {
 			}
 			character_event = {
 				id = 72024
-				tooltip = EVTTOOLTIP72024 #Liege dislike you complaining about the food
+				tooltip = "EVTTOOLTIP72024" #Liege dislike you complaining about the food
 			}
-		}		
+		}
 	}
 	option = {
-		name = EVTOPTC72021
+		name = "EVTOPTC72021"
 		prestige = -10
 	}
 }
@@ -1241,78 +2458,23 @@ character_event = {
 #Low Food
 character_event = {
 	id = 72022
-	desc = EVTDESC72022
+	desc = "EVTDESC72022"
 	picture = GFX_evt_feast
-	
-	min_age = 16
+
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
-	
-	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
-		any_liege = {
-			NOT = {
-				has_character_modifier = complain_food_timer
-			}
-			NOT = {
-				has_character_modifier = compliment_food_timer
-			}
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			has_character_flag = low_food
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 180
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
+
+	is_triggered_only = yes
+
 	option = {
-		name = EVTOPTA72022 #Approve publicly
+		name = "EVTOPTA72022" #Approve publicly
+		trigger = {
+			NOT = { trait = gluttonous }
+		}
 		ai_chance = {
 			factor = 20
-			
-			modifier = {
-				factor = 0.1
-				trait = gluttonous
-			}
+
 			modifier = {
 				factor = 5
 				trait = temperate
@@ -1333,22 +2495,21 @@ character_event = {
 			}
 			character_event = {
 				id = 72023
-				tooltip = EVTTOOLTIP72023 #Liege is glad you liked it
+				tooltip = "EVTTOOLTIP72023" #Liege is glad you liked it
 			}
 		}
 	}
 	option = {
-		name = EVTOPTB72022 #Disapprove
+		name = "EVTOPTB72022" #Disapprove
+		trigger = {
+			NOT = { trait = temperate }
+		}
 		ai_chance = {
-			factor = 20
-			
+			factor = 40
+
 			modifier = {
 				factor = 5
 				trait = gluttonous
-			}
-			modifier = {
-				factor = 0.1
-				trait = temperate
 			}
 		}
 		any_liege = {
@@ -1366,12 +2527,12 @@ character_event = {
 			}
 			character_event = {
 				id = 72024
-				tooltip = EVTTOOLTIP72024 #Liege dislike you complaining about the food
+				tooltip = "EVTTOOLTIP72024" #Liege dislike you complaining about the food
 			}
-		}		
+		}
 	}
 	option = {
-		name = EVTOPTC72022
+		name = "EVTOPTC72022"
 		prestige = -10
 	}
 }
@@ -1379,17 +2540,22 @@ character_event = {
 #Liege is glad you liked the food at the feast
 character_event = {
 	id = 72023
-	desc = EVTDESC72023
+	desc = "EVTDESC72023"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72023
+		name = "EVTOPTA72023"
 		opinion = {
 			modifier = opinion_happy
 			who = FROM
-			years = 2
+			years = 10
+		}
+		reverse_opinion = {
+			modifier = opinion_approves
+			who = FROM
+			years = 10
 		}
 	}
 }
@@ -1397,17 +2563,22 @@ character_event = {
 #Liege dislikes you complaining about the food at the feast
 character_event = {
 	id = 72024
-	desc = EVTDESC72024
+	desc = "EVTDESC72024"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72024
+		name = "EVTOPTA72024"
 		opinion = {
 			modifier = opinion_irritated
 			who = FROM
-			years = 2
+			years = 10
+		}
+		reverse_opinion = {
+			modifier = opinion_disapprove
+			who = FROM
+			years = 10
 		}
 	}
 }
@@ -1415,98 +2586,95 @@ character_event = {
 #Late night talk: First person
 character_event = {
 	id = 72025
-	desc = EVTDESC72025
+	desc = "EVTDESC72025"
 	picture = GFX_evt_feast
-	
+
+	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
+		NOT = { num_of_friends = 3 }
+		any_realm_character = {
+			same_liege = ROOT
+			liege = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
 			}
-		has_character_flag = guest_feast_started
-		any_liege = {
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			any_vassal = {
-				age = 16
-				has_character_flag = guest_feast_started
+			is_adult = yes
+			NOT = { num_of_friends = 3 }
+			has_character_flag = guest_feast_started
+			NOT = {
+				character = ROOT
 				any_claim = {
-					NOT = {
-						holder_scope = {
-							character = ROOT
-						}
+					holder_scope = {
+						character = ROOT
 					}
 				}
 				ROOT = {
 					any_claim = {
-						NOT = {
-							holder_scope = { 
+						holder_scope = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+			NOT = {
+				is_friend = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72025"
+		random_realm_character = {
+			limit = {
+				same_liege = ROOT
+				liege = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast
+				}
+				is_adult = yes
+				NOT = { num_of_friends = 3 }
+				has_character_flag = guest_feast_started
+				NOT = {
+					character = ROOT
+					any_claim = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+					ROOT = {
+						any_claim = {
+							holder_scope = {
 								character = PREVPREV
 							}
 						}
 					}
 				}
+				NOT = {
+					is_friend = ROOT
+				}
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {	
-			factor = 0.5
-			trait = gregarious
-		}
-		modifier = {	
-			factor = 0.5
-			trait = trusting
-		}
-		modifier = {	
-			factor = 2
-			trait = shy
-		}
-		modifier = {	
-			factor = 2
-			trait = paranoid
-		}
-	}
-	
-	option = {
-		name = EVTOPTA72025
-		any_liege = {
-			limit = {
-				has_character_flag = host_feast_started
-				has_character_modifier = holding_large_feast
-			}
-			random_vassal = {
-				limit = {
-					has_character_flag = guest_feast_started
-					age = 16
-					any_claim = {
-						holder_scope = {
-							character = ROOT
-						}
-					}
-				}
-				opinion = {
-					modifier = opinion_friend
-					who = ROOT
-					years = 5
-				}
-				character_event = {
-					id = 72026
-					tooltip = EVTTOOLTIP72026
-				}
+			add_friend = ROOT
+			
+			character_event = {
+				id = 72026
+				tooltip = "EVTTOOLTIP72026"
 			}
 		}
 	}
@@ -1515,19 +2683,15 @@ character_event = {
 #Late night talk: Second person
 character_event = {
 	id = 72026
-	desc = EVTDESC72026
+	desc = "EVTDESC72026"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72026
+		name = "EVTOPTA72026"
 		FROM = {
-			opinion = {
-				modifier = opinion_friend
-				who = ROOT
-				years = 5
-			}
+			add_friend = ROOT
 		}
 	}
 }
@@ -1535,83 +2699,68 @@ character_event = {
 #Late night talk: First person
 character_event = {
 	id = 72027
-	desc = EVTDESC72027
+	desc = "EVTDESC72027"
 	picture = GFX_evt_feast
-	
+
+	min_age = 16
 	capable_only = yes
 	prisoner = no
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
+		NOT = { num_of_friends = 3 }
 		any_liege = {
 			has_character_flag = host_feast_started
 			has_character_modifier = holding_large_feast
 			NOT = {
-				reverse_opinion = { who = ROOT value = 10 }
+				reverse_opinion = { who = ROOT value = 0 }
 			}
 			any_vassal = {
-				age = 16
+				is_adult = yes
+				NOT = { num_of_friends = 3 }
 				has_character_flag = guest_feast_started
 				NOT = {
 					character = ROOT
 				}
 				NOT = {
-					reverse_opinion = { who = PREV value = 10 }
+					opinion = { who = PREV value = 0 }
 				}
-				any_claim = {
-					NOT = { 
-						holder_scope = { 
-							same_realm = ROOT 
-						} 
-					}
-				}
-				ROOT = {
+				NOT = {
 					any_claim = {
-						NOT = { 
-							holder_scope = { 
-								same_realm = ROOT 
-							} 
+						holder_scope = {
+							character = ROOT
 						}
 					}
+					ROOT = {
+						any_claim = {
+							holder_scope = {
+								character = PREVPREV
+							}
+						}
+					}
+				}
+				NOT = {
+					is_friend = ROOT
 				}
 			}
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {	
-			factor = 0.5
-			trait = gregarious
-		}
-		modifier = {	
-			factor = 0.5
-			trait = trusting
-		}
-		modifier = {	
-			factor = 2
-			trait = shy
-		}
-		modifier = {	
-			factor = 2
-			trait = paranoid
-		}
-	}
-	
+
 	option = {
-		name = EVTOPTA72027
+		name = "EVTOPTA72027"
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
@@ -1620,36 +2769,37 @@ character_event = {
 			random_vassal = {
 				limit = {
 					has_character_flag = guest_feast_started
-					age = 16
+					is_adult = yes
+					NOT = { num_of_friends = 3 }
 
 					NOT = {
 						character = ROOT
 					}
-					any_claim = {
-						NOT = { 
-							holder_scope = { 
-								same_realm = ROOT 
-							} 
-						}
+					NOT = {
+						opinion = { who = PREV value = 0 }
 					}
-					ROOT = {
+					NOT = {
 						any_claim = {
-							NOT = { 
-								holder_scope = { 
-									same_realm = ROOT 
-								} 
+							holder_scope = {
+								character = ROOT
+							}
+						}
+						ROOT = {
+							any_claim = {
+								holder_scope = {
+									character = PREVPREV
+								}
 							}
 						}
 					}
+					NOT = {
+						is_friend = ROOT
+					}
 				}
-				opinion = {
-					modifier = opinion_friend
-					who = ROOT
-					years = 5
-				}
+				add_friend = ROOT
 				character_event = {
 					id = 72028
-					tooltip = EVTTOOLTIP72028
+					tooltip = "EVTTOOLTIP72028"
 				}
 			}
 		}
@@ -1659,78 +2809,623 @@ character_event = {
 #Late night talk: Second person
 character_event = {
 	id = 72028
-	desc = EVTDESC72028
+	desc = "EVTDESC72028"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72028
-		opinion = {
-			modifier = opinion_friend
-			who = FROM
-			years = 5
+		name = "EVTOPTA72028"
+		
+		add_friend = FROM
+	}
+}
+
+#Duel: Start
+character_event = {
+	id = 72030
+	desc = "EVTDESC72030"
+	picture = GFX_evt_melee
+
+	min_age = 16
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			trait = wounded
+		}
+		can_be_maimed_trigger = yes
+		martial = 9
+		OR = {
+			trait = duelist
+			trait = brave
+			trait = wroth
+			trait = cruel
+		}
+		NOT = {
+			trait = craven
+		}
+		any_liege = {
+			war = no
+			has_character_modifier = holding_large_feast
+			has_character_flag = host_feast_started
+			any_vassal = {
+				is_adult = yes
+				has_character_flag = guest_feast_started
+				NOT = {
+					character = ROOT
+				}
+				NOT = {
+					reverse_opinion = { who = ROOT value = -50 }
+				}
+				NOT = {
+					opinion = { who = ROOT value = -50 }
+				}
+				NOT = {
+					trait = wounded
+				}
+				can_be_maimed_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		any_liege = { 
+			random_vassal = {
+				limit = {
+					is_adult = yes
+					has_character_flag = guest_feast_started
+					NOT = {
+						character = ROOT
+					}
+					NOT = {
+						reverse_opinion = { who = ROOT value = -50 }
+					}
+					NOT = {
+						opinion = { who = ROOT value = -50 }
+					}
+					NOT = {
+						trait = wounded
+					}
+					can_be_maimed_trigger = yes
+				}
+				save_event_target_as = feast_duel_target
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72030"
+		any_liege = {
+			limit = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			set_character_flag = feast_duel
+
+		}
+		event_target:feast_duel_target = {
+			character_event = {
+				id = 72031
+				tooltip = "EVTTOOLTIP72031"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB72030" #Decline
+		prestige = -10
+	}
+}
+
+#Duel: Accept or Decline
+character_event = {
+	id = 72031
+	desc = "EVTDESC72031"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72031" #Accept
+		random_list = {
+			35 = {
+				add_trait = wounded
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = wounded_opponent
+						character_event = {
+							id = 72032
+						}
+					}
+				}
+			}
+			35 = {
+				add_maimed_trait_effect = yes
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = maimed_opponent
+						character_event = {
+							id = 72032
+						}
+					}
+				}
+			}
+			10 = {
+				death = { death_reason = death_duel }
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = killed_opponent
+						character_event = {
+							id = 72033
+						}
+					}
+				}
+			}
+			20 = {
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB72031" #Decline
+		prestige = -10
+	}
+}
+
+#Duel: Opponent is killed/maimed/wounded/nothing
+character_event = {
+	id = 72032
+	desc = "EVTDESC72032"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72032"
+		trigger = {
+			has_character_flag = wounded_opponent
+		}
+		random_list = {
+			10 = {
+				death = { death_reason = death_duel }
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = killed_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			20 = {
+				add_maimed_trait_effect = yes
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = maimed_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			30 = {
+				add_trait = wounded
+				hidden_tooltip = {
+					FROM = {
+						set_character_flag = wounded_opponent
+						character_event = {
+							id = 72033
+							tooltip = "EVTTOOLTIP72033"
+						}
+					}
+				}
+			}
+			40 = {
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTB72032"
+		trigger = {
+			has_character_flag = maimed_opponent
+		}
+		random_list = {
+			1 = {
+				death = { death_reason = death_duel }
+				FROM = {
+					set_character_flag = killed_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			10 = {
+				add_maimed_trait_effect = yes
+				FROM = {
+					set_character_flag = maimed_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			19 = {
+				add_trait = wounded
+				FROM = {
+					set_character_flag = wounded_opponent
+					character_event = {
+						id = 72033
+						tooltip = "EVTTOOLTIP72033"
+					}
+				}
+			}
+			70 = {
+				any_liege = {
+					limit = {
+						has_character_flag = host_feast_started
+						has_character_modifier = holding_large_feast
+					}
+					character_event = {
+						id = 72034
+						tooltip = "EVTTOOLTIP72034"
+					}
+				}
+			}
 		}
 	}
 }
 
+#Duel
+character_event = {
+	id = 72033
+	desc = "EVTDESC72033"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72033"
+		trigger = {
+			has_character_flag = wounded_opponent
+		}
+		FROM = {
+			clr_character_flag = wounded_opponent
+			clr_character_flag = maimed_opponent
+		}
+		any_liege = {
+			limit = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			character_event = {
+				id = 72036
+				tooltip = "EVTTOOLTIP72036"
+			}
+		}
+		clr_character_flag = wounded_opponent
+		change_martial = 1
+	}
+
+	option = {
+		name = "EVTOPTB72033"
+		trigger = {
+			has_character_flag = maimed_opponent
+		}
+		FROM = {
+			clr_character_flag = wounded_opponent
+			clr_character_flag = maimed_opponent
+		}
+		any_liege = {
+			limit = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			character_event = {
+				id = 72037
+				tooltip = "EVTTOOLTIP72037"
+			}
+		}
+		clr_character_flag = maimed_opponent
+		change_martial = 2
+	}
+
+	option = {
+		name = "EVTOPTC72033"
+		trigger = {
+			has_character_flag = killed_opponent
+		}
+		clr_character_flag = killed_opponent
+		change_martial = 3
+		any_liege = {
+			limit = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			character_event = {
+				id = 72035
+				tooltip = "EVTTOOLTIP72035"
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					has_focus = focus_war
+					has_dlc = "Way of Life"
+				}
+				character_event = { id = WoL.11200 days = 3 } # fire focus success
+			}
+		}
+	}
+}
+
+#Duel: The End
+character_event = {
+	id = 72034
+	desc = "EVTDESC72034"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72034"
+		opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+		FROM = {
+			FROM = {
+				reverse_opinion = {
+					modifier = opinion_dislike
+					who = Root
+					years = 10
+				}
+			}
+		}
+	}
+}
+
+#Duel: The End
+character_event = {
+	id = 72035
+	desc = "EVTDESC72035"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72035"
+		opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTB72035"
+		opinion = {
+			modifier = opinion_satisfied
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTC72035"
+		reverse_opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+}
+
+#Duel: Liege is notified about wounded opponent
+character_event = {
+	id = 72036
+	desc = "EVTDESC72036"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72036"
+		opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTB72036"
+		opinion = {
+			modifier = opinion_satisfied
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTC72036"
+		reverse_opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+}
+
+#Duel: Liege is notified about maimed opponent
+character_event = {
+	id = 72037
+	desc = "EVTDESC72037"
+	picture = GFX_evt_melee
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72037"
+		opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTB72037"
+		opinion = {
+			modifier = opinion_satisfied
+			who = FROM
+			years = 10
+		}
+	}
+	option = {
+		name = "EVTOPTC72037"
+		reverse_opinion = {
+			modifier = opinion_dislike
+			who = FROM
+			years = 10
+		}
+	}
+}
 
 #Friendly with another guest's spouse
 character_event = {
 	id = 72040
-	desc = EVTDESC72040
+	desc = "EVTDESC72040"
 	picture = GFX_evt_feast
-	
+
 	min_age = 16
 	max_age = 60
 	prisoner = no
 	only_rulers = yes
 	capable_only = yes
-	
+	war = no
+	has_character_flag = guest_feast_started
+	is_married = yes
+
+	is_triggered_only = yes
+
 	trigger = {
-				OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		war = no
-		has_character_flag = guest_feast_started
-		is_married = yes
 		OR = {
-			trait = lustful
-			trait = hedonist
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
 		}
 		fertility = 0.4
-		any_liege = {
-			war = no
-			has_character_flag = host_feast_started
-			has_character_modifier = holding_large_feast
-			any_vassal = {
+		any_realm_character = {
+			same_liege = ROOT
+			liege = {
+				war = no
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+			}
+			NOT = { character = ROOT }
+			has_character_flag = guest_feast_started
+			spouse = {
+				prisoner = no
+				is_adult = yes
+				is_pregnant = no
+				is_alive = yes
+				is_abroad = no
+				NOT = {
+					trait = celibate
+				}
+				NOT = { trait = eunuch }
+				NOT = {
+					age = 30
+				}
+				opinion = { who = ROOT value = 20 }
+				NOT = { is_close_relative = root }
+
+				OR = {
+					AND = {
+						is_female = yes
+						is_pregnant = no
+						ROOT = {
+							is_female = no
+						}
+					}
+					AND = {
+						is_female = no
+						ROOT = {
+							is_female = yes
+							is_pregnant = no
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72040"
+		prestige = -5
+	}
+
+	option = {
+		name = "EVTOPTB72040"
+		random_realm_character = {
+			limit = {
+				same_liege = ROOT
+				liege = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast
+				}
 				NOT = { character = ROOT }
 				has_character_flag = guest_feast_started
 				spouse = {
 					prisoner = no
-					age = 16
+					is_adult = yes
 					is_pregnant = no
 					is_alive = yes
 					is_abroad = no
 					NOT = {
 						trait = celibate
 					}
+					NOT = { trait = eunuch }
 					NOT = {
-						age = 40
+						age = 30
 					}
 					opinion = { who = ROOT value = 20 }
-					NOT = { is_close_relative = ROOT }
-					
+					NOT = { is_close_relative = root }
 					OR = {
 						AND = {
+							fertility = 0.4
 							is_female = yes
+							is_pregnant = no
 							ROOT = {
 								is_female = no
 							}
@@ -1738,104 +3433,18 @@ character_event = {
 						AND = {
 							is_female = no
 							ROOT = {
+								fertility = 0.4
 								is_female = yes
+								is_pregnant = no
 							}
 						}
 					}
 				}
 			}
-		}	
-	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 0.5
-			trait = lustful
-		}
-		modifier = {
-			factor = 4
-			trait = chaste
-		}
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
-	option = {
-		name = EVTOPTA72040
-		prestige = -5
-	}
-	
-	option = {
-		name = EVTOPTB72040
-		any_liege = {
-			limit = {
-				has_character_flag = host_feast_started
-				has_character_modifier = holding_large_feast
-			}
-			random_vassal = {
-				limit = {
-					NOT = { character = ROOT }
-					has_character_flag = guest_feast_started
-					spouse = {
-						prisoner = no
-						age = 16
-						is_pregnant = no
-						is_alive = yes
-						is_abroad = no
-						NOT = {
-							trait = celibate
-						}
-						NOT = {
-							age = 40
-						}
-						opinion = { who = ROOT value = 20 }
-						NOT = { is_close_relative = ROOT }
-						OR = {
-							AND = {
-								is_female = yes
-								ROOT = {
-									is_female = no
-								}
-							}
-							AND = {
-								is_female = no
-								ROOT = {
-									is_female = yes
-								}
-							}
-						}
-					}
-				}
-				spouse = {
-					character_event = {
-						id = 72041
-						tooltip = EVTTOOLTIP72041
-					}
+			spouse = {
+				character_event = {
+					id = 72041
+					tooltip = "EVTTOOLTIP72041"
 				}
 			}
 		}
@@ -1845,65 +3454,71 @@ character_event = {
 #Spouse answers the 'invitation'
 character_event = {
 	id = 72041
-	desc = EVTDESC72041
+	desc = "EVTDESC72041"
 	picture = GFX_evt_lovers
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72041
+		name = "EVTOPTA72041"
 		trigger = {
 			is_female = yes
 		}
 		random = {
 			chance = 25
-			
+
 			FROM = {
 				impregnate = ROOT
 				character_event = {
 					id = 72042
 					days = 60
-					tooltip = EVTTOOLTIP72042
+					tooltip = "EVTTOOLTIP72042"
 				}
 			}
 		}
 	}
 	option = {
-		name = EVTOPTB72041
+		name = "EVTOPTB72041"
 		trigger = {
 			is_female = no
 		}
 		random = {
 			chance = 25
-			
+
 			impregnate = FROM
 			character_event = {
 				id = 72042
 				days = 60
-				tooltip = EVTTOOLTIP72042
+				tooltip = "EVTTOOLTIP72042"
+			}
+		}
+		hidden_tooltip = {
+			random = {
+				chance = 50
+				venereal_disease_effect = yes
 			}
 		}
 	}
 	option = {
-		name = EVTOPTC72041
-		piety = 2
+		name = "EVTOPTC72041"
+		piety = 5
 	}
 }
 
 #Their night together resulted in a child
 character_event = {
 	id = 72042
-	desc = EVTDESC72042
+	desc = "EVTDESC72042"
 	picture = GFX_evt_pregnancy
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72042
+		name = "EVTOPTA72042"
 		FROM = {
 			spouse = {
 				opinion = {
-					modifier = opinion_hate
+					modifier = opinion_cuckolded_private
 					who = ROOT
 					years = 100
 				}
@@ -1915,26 +3530,28 @@ character_event = {
 #Drink too much wine: become drunkard or insult host
 character_event = {
 	id = 72045
-	desc = EVTDESC72045
+	desc = "EVTDESC72045"
 	picture = GFX_evt_feast
-	
+
 	min_age = 16
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		NOT = {
 			trait = drunkard
 		}
@@ -1942,65 +3559,31 @@ character_event = {
 			war = no
 			has_character_flag = host_feast_started
 			has_character_modifier = holding_large_feast
-			NOT = {
-				has_character_flag = feast_drunkard_guest
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 0.5
-			any_liege = {
-				any_claim = {
-					holder_scope = { 
-						same_realm = ROOT 
-					}
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
 		}
 	}
 
 	option = {
-		name = EVTOPTA72045
-		add_trait = drunkard
-		any_liege = {
-			limit = {
-				has_character_flag = host_feast_started
-				has_character_modifier = holding_large_feast
+		name = "EVTOPTA72045"
+		random = {
+			chance = 25
+
+			add_trait = drunkard
+			hidden_tooltip = {
+				character_event = {
+					id = 38286 #Notify Drunkard
+				}
 			}
-			set_character_flag = feast_drunkard_guest
+			any_liege = {
+				limit = {
+					has_character_flag = host_feast_started
+					has_character_modifier = holding_large_feast
+				}
+				set_character_flag = feast_drunkard_guest
+			}
 		}
 	}
 	option = {
-		name = EVTOPTB72045
+		name = "EVTOPTB72045"
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
@@ -2009,7 +3592,7 @@ character_event = {
 			set_character_flag = feast_drunkard_guest
 			character_event = {
 				id = 72052
-				tooltip = EVTTOOLTIP72052
+				tooltip = "EVTTOOLTIP72052"
 			}
 		}
 	}
@@ -2018,17 +3601,17 @@ character_event = {
 #Liege is insulted when guest refuses more wine
 character_event = {
 	id = 72052
-	desc = EVTDESC72052
+	desc = "EVTDESC72052"
 	picture = GFX_evt_drunk
 
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72052
+		name = "EVTOPTA72052"
 		opinion = {
 			modifier = opinion_insulted
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2036,26 +3619,28 @@ character_event = {
 #Drink too much wine: Embarass yourself
 character_event = {
 	id = 72046
-	desc = EVTDESC72046
+	desc = "EVTDESC72046"
 	picture = GFX_evt_feast
-	
+
 	min_age = 16
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		trait = drunkard
 		any_liege = {
 			war = no
@@ -2072,13 +3657,9 @@ character_event = {
 			}
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-	}
-	
+
 	option = {
-		name = EVTOPTA72046
+		name = "EVTOPTA72046"
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
@@ -2088,7 +3669,7 @@ character_event = {
 			set_character_flag = feast_drunkard_guest
 			character_event = {
 				id = 72047
-				tooltip = EVTTOOLTIP72047
+				tooltip = "EVTTOOLTIP72047"
 			}
 			random_courtier = {
 				limit = {
@@ -2100,7 +3681,7 @@ character_event = {
 				opinion = {
 					modifier = opinion_dislike
 					who = ROOT
-					years = 2
+					years = 10
 				}
 			}
 		}
@@ -2110,17 +3691,17 @@ character_event = {
 #Host is not happy about drunkard falling asleep
 character_event = {
 	id = 72047
-	desc = EVTDESC72047
+	desc = "EVTDESC72047"
 	picture = GFX_evt_drunk
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72047
+		name = "EVTOPTA72047"
 		opinion = {
 			modifier = opinion_disgusted
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2128,26 +3709,28 @@ character_event = {
 #Drink too much wine: Fall asleep
 character_event = {
 	id = 72048
-	desc = EVTDESC72048
+	desc = "EVTDESC72048"
 	picture = GFX_evt_feast
-	
+
 	min_age = 16
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		trait = drunkard
 		any_liege = {
 			war = no
@@ -2158,38 +3741,9 @@ character_event = {
 			}
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
+
 	option = {
-		name = EVTOPTA72048
+		name = "EVTOPTA72048"
 		prestige = -10
 		any_liege = {
 			limit = {
@@ -2200,7 +3754,7 @@ character_event = {
 			set_character_flag = feast_drunkard_guest
 			character_event = {
 				id = 72049
-				tooltip = EVTTOOLTIP72049
+				tooltip = "EVTTOOLTIP72049"
 			}
 		}
 	}
@@ -2209,45 +3763,110 @@ character_event = {
 #Host is not happy about drunkard falling asleep
 character_event = {
 	id = 72049
-	desc = EVTDESC72049
+	desc = "EVTDESC72049"
 	picture = GFX_evt_drunk
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72049
+		name = "EVTOPTA72049"
 		opinion = {
 			modifier = opinion_disgusted
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
 
+#Highway Robber Band: Guest Complains
+character_event = {
+	id = 72050
+	desc = "EVTDESC72050"
+	picture = GFX_evt_bandits
+
+	min_age = 16
+	prisoner = no
+	capable_only = yes
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_liege = {
+			war = no
+			has_character_flag = host_feast_started
+			has_character_modifier = holding_large_feast
+			location = {
+				has_province_modifier = highway_robber_band
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA72050"
+		any_liege = {
+			limit = {
+				has_character_flag = host_feast_started
+				has_character_modifier = holding_large_feast
+				location = {
+					has_province_modifier = highway_robber_band
+				}
+			}
+			character_event = {
+				id = 72051
+				tooltip = "EVTTOOLTIP72051"
+			}
+		}
+	}
+}
+
+#Highway Robber Band: The End
+character_event = {
+	id = 72051
+	desc = "EVTDESC72051"
+	picture = GFX_evt_bandits
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72051"
+		FROM = {
+			opinion = {
+				modifier = opinion_dislike
+				who = ROOT
+				years = 10
+			}
+		}
+	}
+}
 
 #Guest kills Host's servant
 character_event = {
 	id = 72055
-	desc = EVTDESC72055
+	desc = "EVTDESC72055"
 	picture = GFX_evt_feast
-	
+
+	only_rulers = yes
 	min_age = 16
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = guest_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = guest_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		OR = {
 			trait = wroth
 			trait = cruel
@@ -2272,38 +3891,9 @@ character_event = {
 			}
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 240
-		
-		modifier = {
-			factor = 1.1
-			liege = { num_of_vassals = 10 }
-		}
-		modifier = {
-			factor = 1.2
-			liege = { num_of_vassals = 20 }
-		}
-		modifier = {
-			factor = 1.3
-			liege = { num_of_vassals = 30 }
-		}
-		modifier = {
-			factor = 1.4
-			liege = { num_of_vassals = 40 }
-		}
-		modifier = {
-			factor = 1.5
-			liege = { num_of_vassals = 50 }
-		}
-		modifier = {
-			factor = 3
-			liege = { num_of_vassals = 100 }
-		}
-	}
-	
+
 	option = {
-		name = EVTOPTA72055
+		name = "EVTOPTA72055"
 		any_liege = {
 			limit = {
 				has_character_flag = host_feast_started
@@ -2316,7 +3906,7 @@ character_event = {
 			}
 			character_event = {
 				id = 72056
-				tooltip = EVTTOOLTIP72056
+				tooltip = "EVTTOOLTIP72056"
 			}
 		}
 	}
@@ -2325,46 +3915,44 @@ character_event = {
 #Guest kills Host's servant: Imprison?
 character_event = {
 	id = 72056
-	desc = EVTDESC72056
+	desc = "EVTDESC72056"
 	picture = GFX_evt_scandal
 
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72056
+		name = "EVTOPTA72056"
 		FROM = {
 			imprison = ROOT
-			opinion = {
-				modifier = opinion_angry
-				who = ROOT
-				years = 20
-			}
 			hidden_tooltip = {
 				character_event = {
 					id = 72057
 				}
 			}
 		}
-		any_vassal = {
-			opinion = {
-				modifier = opinion_tyrant
-				who = ROOT
-				multiplier = 2
+		if = {
+			limit = {
+				NOT = { trait = just }
 			}
+			add_trait = just
 		}
-		add_trait = just
 	}
 	option = {
-		name = EVTOPTC72056
+		name = "EVTOPTC72056"
 		scaled_wealth = -0.10
 	}
 	option = {
-		name = EVTOPTB72056
-		add_trait = arbitrary
+		name = "EVTOPTB72056"
+		if = {
+			limit = {
+				NOT = { trait = arbitrary }
+			}
+			add_trait = arbitrary
+		}
 		location = {
 			add_province_modifier = {
 				name = peasants_upset
-				duration = 365
+				duration = 90
 			}
 		}
 	}
@@ -2373,13 +3961,13 @@ character_event = {
 #Guest kills Host's servant: The end
 character_event = {
 	id = 72057
-	desc = EVTDESC72057
+	desc = "EVTDESC72057"
 	picture = GFX_evt_into_the_dungeon
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72057
+		name = "EVTOPTA72057"
 		opinion = {
 			modifier = opinion_angry
 			who = FROM
@@ -2396,74 +3984,54 @@ character_event = {
 #Jester jokes about your rule
 character_event = {
 	id = 72060
-	desc = EVTDESC72060
+	desc = "EVTDESC72060"
 	picture = GFX_evt_jugglers
-	
+
 	only_rulers = yes
 	prisoner = no
 	capable_only = yes
+	is_triggered_only = yes
+	war = no
+	has_character_flag = host_feast_started
 	
 	trigger = {
-		war = no
-			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = host_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		has_character_modifier = holding_large_feast
 		any_courtier = {
 			has_minor_title = title_court_jester
 			NOT = {
-				opinion = { who = ROOT value = 0 }
+				opinion = { who = ROOT value = 25 }
 			}
 		}
-		NOT = { has_character_flag = feast_jester }
 		any_vassal = {
 			has_character_flag = guest_feast_started
 		}
 	}
 	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 1.1
-			num_of_vassals = 10
-		}
-		modifier = {
-			factor = 1.2
-			num_of_vassals = 20
-		}
-		modifier = {
-			factor = 1.3
-			num_of_vassals = 30
-		}
-		modifier = {
-			factor = 1.4
-			num_of_vassals = 40
-		}
-		modifier = {
-			factor = 1.5
-			num_of_vassals = 50
-		}
-		modifier = {
-			factor = 3
-			num_of_vassals = 100
-		}
-	}
-	
 	immediate = {
-		set_character_flag = feast_jester 
-	}
+		random_courtier = {
+			limit = {
+				has_minor_title = title_court_jester
+				NOT = {
+					opinion = { who = ROOT value = 25 }
+				}
+			}
+			save_event_target_as = insulting_jester
+		}
 	
+	}
+
 	option = {
-		name = EVTOPTA72060
+		name = "EVTOPTA72060"
 		if = {
 			limit = {
 				trait = arbitrary
@@ -2473,8 +4041,13 @@ character_event = {
 			}
 			random = {
 				chance = 20
-				
+
 				add_trait = cruel
+				hidden_tooltip = {
+					character_event = {
+						id = 38259 #Notify Cruel
+					}
+				}
 			}
 		}
 		if = {
@@ -2486,17 +4059,16 @@ character_event = {
 			}
 			random = {
 				chance = 20
-				
+
 				add_trait = arbitrary
-			}
-		}
-		random_courtier = {
-			limit = {
-				has_minor_title = title_court_jester
-				NOT = {
-					opinion = { who = ROOT value = 0 }
+				hidden_tooltip = {
+					character_event = {
+						id = 38266 #Notify Arbitrary
+					}
 				}
 			}
+		}
+		event_target:insulting_jester = {		
 			imprison = ROOT
 		}
 		any_vassal = {
@@ -2508,12 +4080,12 @@ character_event = {
 			}
 			character_event = {
 				id = 72061
-				tooltip = EVTTOOLTIP72061
+				tooltip = "EVTTOOLTIP72061"
 			}
-		}	
+		}
 	}
 	option = {
-		name = EVTOPTB72060
+		name = "EVTOPTB72060"
 		prestige = -10
 		any_vassal = {
 			limit = {
@@ -2521,7 +4093,7 @@ character_event = {
 			}
 			character_event = {
 				id = 72062
-				tooltip = EVTTOOLTIP72062
+				tooltip = "EVTTOOLTIP72062"
 			}
 		}
 	}
@@ -2530,17 +4102,17 @@ character_event = {
 #Jester is thrown into dungeon: Guests react
 character_event = {
 	id = 72061
-	desc = EVTDESC72061
+	desc = "EVTDESC72061"
 	picture = GFX_evt_jugglers
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72061
+		name = "EVTOPTA72061"
 		opinion = {
 			modifier = opinion_disappointed
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2548,17 +4120,17 @@ character_event = {
 #Jester is ignored: Guests react
 character_event = {
 	id = 72062
-	desc = EVTDESC72062
+	desc = "EVTDESC72062"
 	picture = GFX_evt_jugglers
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72062
+		name = "EVTOPTA72062"
 		opinion = {
 			modifier = opinion_approves
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2566,26 +4138,28 @@ character_event = {
 #Jongleurs entertain the guests
 character_event = {
 	id = 72063
-	desc = EVTDESC72063
+	desc = "EVTDESC72063"
 	picture = GFX_evt_jugglers
-	
+
 	only_rulers = yes
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = host_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = host_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		has_character_modifier = holding_large_feast
 		has_character_flag = feast_jongleur
 		any_vassal = {
@@ -2593,42 +4167,10 @@ character_event = {
 			has_character_flag = guest_feast_started
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 1.1
-			num_of_vassals = 10
-		}
-		modifier = {
-			factor = 1.2
-			num_of_vassals = 20
-		}
-		modifier = {
-			factor = 1.3
-			num_of_vassals = 30
-		}
-		modifier = {
-			factor = 1.4
-			num_of_vassals = 40
-		}
-		modifier = {
-			factor = 1.5
-			num_of_vassals = 50
-		}
-		modifier = {
-			factor = 3
-			num_of_vassals = 100
-		}
-	}
-	
+
 	option = {
-		name = EVTOPTA72063
-		add_character_modifier = {
-			name = entertaining_entertainment
-			duration = 180
-		}
+		name = "EVTOPTA72063"
+		prestige = 10
 		if = {
 			limit = {
 				NOT = {
@@ -2640,8 +4182,13 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = gregarious
+				hidden_tooltip = {
+					character_event = {
+						id = 38265 #Notify Gregarious
+					}
+				}
 			}
 		}
 		if = {
@@ -2655,8 +4202,13 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = charitable
+				hidden_tooltip = {
+					character_event = {
+						id = 38273 #Notify Charitable
+					}
+				}
 			}
 		}
 		random_vassal = {
@@ -2665,7 +4217,7 @@ character_event = {
 			}
 			character_event = {
 				id = 72064
-				tooltip = EVTTOOLTIP72064
+				tooltip = "EVTTOOLTIP72064"
 			}
 		}
 	}
@@ -2674,17 +4226,17 @@ character_event = {
 #Visitor likes jongleurs
 character_event = {
 	id = 72064
-	desc = EVTDESC72064
+	desc = "EVTDESC72064"
 	picture = GFX_evt_jugglers
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72064
+		name = "EVTOPTA72064"
 		opinion = {
 			modifier = opinion_approves
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2692,26 +4244,28 @@ character_event = {
 #Minstrel entertain the guests
 character_event = {
 	id = 72065
-	desc = EVTDESC72065
+	desc = "EVTDESC72065"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = host_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = host_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		has_character_modifier = holding_large_feast
 		has_character_flag = feast_minstrel
 		any_vassal = {
@@ -2719,38 +4273,10 @@ character_event = {
 			has_character_flag = guest_feast_started
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 1.1
-			num_of_vassals = 10
-		}
-		modifier = {
-			factor = 1.2
-			num_of_vassals = 20
-		}
-		modifier = {
-			factor = 1.3
-			num_of_vassals = 30
-		}
-		modifier = {
-			factor = 1.4
-			num_of_vassals = 40
-		}
-		modifier = {
-			factor = 1.5
-			num_of_vassals = 50
-		}
-		modifier = {
-			factor = 3
-			num_of_vassals = 100
-		}
-	}
-	
+
+
 	option = {
-		name = EVTOPTA72065
+		name = "EVTOPTA72065"
 		if = {
 			limit = {
 				NOT = {
@@ -2762,8 +4288,13 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = gregarious
+				hidden_tooltip = {
+					character_event = {
+						id = 38265 #Notify Gregarious
+					}
+				}
 			}
 		}
 		if = {
@@ -2777,21 +4308,23 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = charitable
+				hidden_tooltip = {
+					character_event = {
+						id = 38273 #Notify Charitable
+					}
+				}
 			}
 		}
-		add_character_modifier = {
-			name = entertaining_entertainment
-			duration = 180
-		}
+		prestige = 10
 		random_vassal = {
 			limit = {
 				has_character_flag = guest_feast_started
 			}
 			character_event = {
 				id = 72066
-				tooltip = EVTTOOLTIP72066
+				tooltip = "EVTTOOLTIP72066"
 			}
 		}
 	}
@@ -2800,17 +4333,17 @@ character_event = {
 #Visitor likes minstrel
 character_event = {
 	id = 72066
-	desc = EVTDESC72066
+	desc = "EVTDESC72066"
 	picture = GFX_evt_jugglers
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72066
+		name = "EVTOPTA72066"
 		opinion = {
 			modifier = opinion_approves
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2818,26 +4351,28 @@ character_event = {
 #Musicians entertain the guests
 character_event = {
 	id = 72067
-	desc = EVTDESC72067
+	desc = "EVTDESC72067"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = host_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
-					OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_black_numenorean
-				religion = religion_ishmalogim
-				religion = religion_easterlings
-				religion = religion_southron
-				religion = religion_nurning
-			}
-		has_character_flag = host_feast_started
+		OR = {
+			religion = religion_dunedain
+			religion = religion_rhovanion
+			religion = religion_haldadian
+			religion = religion_black_numenorean
+			religion = religion_ishmalogim
+			religion = religion_easterlings
+			religion = religion_southron
+			religion = religion_nurning
+		}
 		has_character_modifier = holding_large_feast
 		has_character_flag = feast_musicians
 		any_vassal = {
@@ -2845,38 +4380,10 @@ character_event = {
 			has_character_flag = guest_feast_started
 		}
 	}
-	
-	mean_time_to_happen = {
-		days = 60
-		
-		modifier = {
-			factor = 1.1
-			num_of_vassals = 10
-		}
-		modifier = {
-			factor = 1.2
-			num_of_vassals = 20
-		}
-		modifier = {
-			factor = 1.3
-			num_of_vassals = 30
-		}
-		modifier = {
-			factor = 1.4
-			num_of_vassals = 40
-		}
-		modifier = {
-			factor = 1.5
-			num_of_vassals = 50
-		}
-		modifier = {
-			factor = 3
-			num_of_vassals = 100
-		}
-	}
-	
+
+
 	option = {
-		name = EVTOPTA72067
+		name = "EVTOPTA72067"
 		if = {
 			limit = {
 				NOT = {
@@ -2888,8 +4395,13 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = gregarious
+				hidden_tooltip = {
+					character_event = {
+						id = 38265 #Notify Gregarious
+					}
+				}
 			}
 		}
 		if = {
@@ -2903,21 +4415,23 @@ character_event = {
 			}
 			random = {
 				chance = 25
-				
+
 				add_trait = charitable
+				hidden_tooltip = {
+					character_event = {
+						id = 38273 #Notify Charitable
+					}
+				}
 			}
 		}
-		add_character_modifier = {
-			name = entertaining_entertainment
-			duration = 180
-		}
+		prestige = 10
 		random_vassal = {
 			limit = {
 				has_character_flag = guest_feast_started
 			}
 			character_event = {
 				id = 72068
-				tooltip = EVTTOOLTIP72068
+				tooltip = "EVTTOOLTIP72068"
 			}
 		}
 	}
@@ -2926,17 +4440,17 @@ character_event = {
 #Visitor likes musicians
 character_event = {
 	id = 72068
-	desc = EVTDESC72068
+	desc = "EVTDESC72068"
 	picture = GFX_evt_feast
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = EVTOPTA72068
+		name = "EVTOPTA72068"
 		opinion = {
 			modifier = opinion_approves
 			who = FROM
-			years = 2
+			years = 10
 		}
 	}
 }
@@ -2944,15 +4458,18 @@ character_event = {
 #Fire-eaters entertain the guests
 character_event = {
 	id = 72069
-	desc = EVTDESC72069
+	desc = "EVTDESC72069"
 	picture = GFX_evt_feast
-	
+
 	only_rulers = yes
 	prisoner = no
 	capable_only = yes
-	
+	war = no
+	has_character_flag = host_feast_started
+
+	is_triggered_only = yes
+
 	trigger = {
-		war = no
 					OR = {
 				religion = religion_dunedain
 				religion = religion_rhovanion
