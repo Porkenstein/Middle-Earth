@@ -1044,3 +1044,1346 @@ character_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+
+###############################
+#Tier I Events - Generic events that only required the two characters to be living and withing writing distance.
+###############################
+
+#Spend prestige to slander Antagonized.
+
+#Antagonized: hidden ping.
+character_event = {
+	id = HF.22011
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22012 } }
+	}
+}
+
+#Antagonizer: spread ill rumors about Antagonized?
+character_event = {
+	id = HF.22012
+	desc = EVTDESCHFP22012
+	picture = GFX_evt_daughter_asking_father
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+		} 
+	}
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP22012
+		custom_tooltip = { text = tooltip_22012_A }
+		prestige = -300
+		set_character_flag = flag_antagonize_prestige_3
+		hidden_tooltip = { FROM = { character_event = { id = HF.22013 } } }
+		ai_chance = { factor = 20 }
+	}
+	option = {
+		name = EVTOPTBHFP22012
+		custom_tooltip = { text = tooltip_22012_B }
+		prestige = -150
+		set_character_flag = flag_antagonize_prestige_2
+		hidden_tooltip = { FROM = { character_event = { id = HF.22013 } } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = EVTOPTCHFP22012
+		custom_tooltip = { text = tooltip_22012_C }
+		prestige = -50
+		set_character_flag = flag_antagonize_prestige_1
+		hidden_tooltip = { FROM = { character_event = { id = HF.22013 } } }
+		ai_chance = { factor = 40 }
+	}
+	option = { #NO - better luck next pulse.
+		name = EVTOPTDHFP22012
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Appeased: received a word of bad rumors.
+character_event = {
+	id = HF.22013
+	desc = {
+		text = EVTDESCAHF22013
+		trigger = { 
+			FROM = { has_character_flag = flag_antagonize_prestige_3 }
+		}
+	}
+	desc = {
+		text = EVTDESCBHF22013
+		trigger = { 
+			FROM = { has_character_flag = flag_antagonize_prestige_2 }
+		}
+	}
+	desc = {
+		text = EVTDESCCHF22013
+		trigger = { 
+			FROM = { has_character_flag = flag_antagonize_prestige_1 }
+		}
+	}
+	picture = GFX_evt_upsetting_letter
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+		} 
+	}
+	is_triggered_only = yes
+
+	option = { #High Intrigue Counter, only negative opinion gained.
+		name = EVTOPTAHF22013
+		custom_tooltip = { text = tooltip_22013_A }
+		trigger = { intrigue = 12 }
+		hidden_tooltip = { FROM = { character_event = { id = HF.22014 days = 5 } } }
+		opinion = { 
+			who = FROM 
+			modifier = opinion_antagonized_1
+			years = 10
+		}
+		ai_chance = { 
+			factor = 80 
+		}
+	}
+	option = { 
+		name = EVTOPTBHF22013
+		custom_tooltip = { text = tooltip_22013_B }
+		opinion = { 
+			who = FROM 
+			modifier = opinion_antagonized_2
+			years = 10
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_3 } 
+				OR = { 
+					lower_tier_than = FROM 
+					tier = FROM
+				}
+			}
+			prestige = -300 
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_3 } 
+				higher_tier_than = FROM
+			}
+			prestige = -150 
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_2 } 
+				OR = { 
+					lower_tier_than = FROM 
+					tier = FROM
+				}
+			}
+			prestige = -150 
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_2 } 
+				higher_tier_than = FROM
+			}
+			prestige = -50 
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_1 } 
+				OR = { 
+					lower_tier_than = FROM 
+					tier = FROM
+				}
+			}
+			prestige = -50 
+		}
+		if = { 
+			limit = { 
+				FROM = { has_character_flag = flag_antagonize_prestige_1 } 
+				higher_tier_than = FROM
+			}
+			prestige = -10 
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HF.22015 days = 5 } } }
+		ai_chance = { 
+			factor = 10 
+		}
+	}
+}
+
+#Antagonizer: failure.
+character_event = {
+	id = HF.22014
+	desc = {
+		text = EVTDESCAHF22014
+		trigger = { 
+			has_character_flag = flag_antagonize_prestige_3
+		}
+	}
+	desc = {
+		text = EVTDESCBHF22014
+		trigger = { 
+			has_character_flag = flag_antagonize_prestige_2
+		}
+	}
+	desc = {
+		text = EVTDESCCHF22014
+		trigger = { 
+			has_character_flag = flag_antagonize_prestige_1
+		}
+	}
+	picture = GFX_evt_upsetting_letter
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF22014
+		clr_character_flag = flag_antagonize_prestige_3
+		clr_character_flag = flag_antagonize_prestige_2
+		clr_character_flag = flag_antagonize_prestige_1
+		tooltip = { 
+			FROM = { 
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_antagonized_1
+					years = 5
+				}
+			}
+		}
+		ai_chance = { factor = 100 } 
+	}
+}
+#Antagonizer: success.
+character_event = {
+	id = HF.22015
+	desc = EVTDESCAHF22015
+	picture = GFX_evt_pleasing_letter
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF22015
+		clr_character_flag = flag_antagonize_prestige_3
+		clr_character_flag = flag_antagonize_prestige_2
+		clr_character_flag = flag_antagonize_prestige_1
+		tooltip = { 
+			FROM = { 
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_antagonized_2
+					years = 5
+				}
+			}
+		}
+		ai_chance = { factor = 100 } 
+	}
+}
+
+#Generic intrigue roll to antagonize character.
+#Antagonized: hidden ping.
+character_event = {
+	id = HF.22016
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22017 } } #Hidden ping for portrait, check intrigue.
+	}
+}
+#Antagonizer: hidden ping.
+character_event = {
+	id = HF.22017
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		random_list = { 
+			10 = { #Critical success
+				modifier = { 
+					factor = 0
+					trait = shy
+				}
+				modifier = { 
+					factor = 0.5
+					trait = slow
+				}
+				modifier = { 
+					factor = 0.2
+					trait = imbecile
+				}
+				modifier = { 
+					factor = 0.5
+					NOT = { intrigue = 6 }
+				}
+				set_character_flag = flag_generic_antagonize_crit_success
+				FROM = { character_event = { id = HF.22018 } } 
+			}
+			55 = { #Success
+
+				set_character_flag = flag_generic_antagonize_success
+				FROM = { character_event = { id = HF.22018 } } 
+			}
+			34 = { #Failure
+				modifier = { 
+					factor = 0.5
+					reverse_opinion = { who = FROM value = 50 }
+				}
+				modifier = { 
+					factor = 0.35
+					NOT = { reverse_opinion = { who = FROM value = -50 } }
+				}
+				modifier = { 
+					factor = 0.5
+					trait = schemer
+				}
+				modifier = { 
+					factor = 0.75
+					trait = deceitful
+				}
+				modifier = {
+					factor = 0.75
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 0.75
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 0.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 0.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 0.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				modifier = {
+					factor = 0.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 12 } }
+				}
+				set_character_flag = flag_generic_antagonize_failure
+				FROM = { character_event = { id = HF.22018 } } 
+			}
+			1 = { #Critical Failure
+				modifier = { 
+					factor = 0
+					higher_tier_than = FROM
+				}
+				modifier = { 
+					factor = 2
+					NOT = { vassal_of = FROM }
+				}
+				modifier = { 
+					factor = 0
+					intrigue = 12
+				}
+				modifier = { 
+					factor = 0
+					trait = deceitful
+				}
+				modifier = { 
+					factor = 0
+					trait = schemer
+				}
+				set_character_flag = flag_generic_antagonize_crit_failure
+				FROM = { character_event = { id = HF.22018 } } 
+			}
+		}
+	}
+}
+
+#Antagonized: inform of Antagonizer's attempt to slander him.
+character_event = {
+	id = HF.22018
+	desc = {
+		text = EVTDESCAHF22018
+		trigger = { 
+			FROM = { has_character_flag = flag_generic_antagonize_crit_success }
+		}
+		picture = GFX_evt_bad_news
+	}
+	desc = {
+		text = EVTDESCBHF22018
+		trigger = { 
+			FROM = { has_character_flag = flag_generic_antagonize_success }
+		}
+		picture = GFX_evt_bad_news
+	}
+	desc = {
+		text = EVTDESCCHF22018
+		trigger = { 
+			FROM = { has_character_flag = flag_generic_antagonize_failure }
+		}
+		picture = GFX_evt_upsetting_letter
+	}
+	desc = {
+		text = EVTDESCDHF22018
+		trigger = { 
+			FROM = { has_character_flag = flag_generic_antagonize_crit_failure }
+		}
+		picture = GFX_evt_jugglers
+	}
+	picture = GFX_evt_upsetting_letter
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+		} 
+	}
+
+	is_triggered_only = yes
+
+	option = { #Liking him less.
+		name = EVTOPTAHF22018
+		trigger = { FROM = { has_character_flag = flag_generic_antagonize_crit_success } }
+		hidden_tooltip = { FROM = { character_event = { id = HF.22019 } } }
+		prestige = -30
+		opinion = { 
+			who = FROM 
+			modifier = opinion_antagonized_1
+			years = 10
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = { #Liking him less.
+		name = EVTOPTBHF22018
+		trigger = { FROM = { has_character_flag = flag_generic_antagonize_success } }
+		opinion = { 
+			who = FROM 
+			modifier = opinion_antagonized_0
+			years = 5
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HF.22019 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = { #Neutral Failure
+		name = EVTOPTCHF22018
+		trigger = { 
+			OR = {
+				AND = { 
+					ai = no # Player always allowed to deny appeasement.
+					FROM = { NOT = { has_character_flag = flag_generic_antagonize_crit_failure } } 
+				}		
+				FROM = { has_character_flag = flag_generic_sway_failure } 
+			} 
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HF.22019 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = { #Amused by him.
+		name = EVTOPTDHF22018
+		trigger = { FROM = { has_character_flag = flag_generic_antagonize_crit_failure } }
+		opinion = { 
+			who = FROM 
+			modifier = opinion_amused
+			years = 5
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HF.22019 } } }
+		ai_chance = { 
+			factor = 100 
+		}
+	}
+}
+
+#Appeaser: notified of roll's result.
+character_event = {
+	id = HF.22019
+	desc = {
+		text = EVTDESCAHF22019
+		trigger = { 
+			has_character_flag = flag_generic_antagonize_crit_success
+		}
+		picture = GFX_evt_bad_news
+	}
+	desc = {
+		text = EVTDESCBHF22019
+		trigger = { 
+			has_character_flag = flag_generic_antagonize_success
+		}
+		picture = GFX_evt_bad_news
+	}
+	desc = {
+		text = EVTDESCCHF22019
+		trigger = { 
+			has_character_flag = flag_generic_antagonize_failure
+		}
+		picture = GFX_evt_upsetting_letter
+	}
+	desc = {
+		text = EVTDESCDHF22019
+		trigger = { 
+			has_character_flag = flag_generic_antagonize_crit_failure
+		}
+		picture = GFX_evt_jugglers
+	}
+	picture = GFX_evt_daughter_asking_father
+
+	notification = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHF22019
+		clr_character_flag = flag_generic_antagonize_crit_success
+		clr_character_flag = flag_generic_antagonize_success
+		clr_character_flag = flag_generic_antagonize_failure
+		clr_character_flag = flag_generic_antagonize_crit_failure
+		ai_chance = { factor = 100 }
+	}
+}
+
+###############################################################################
+#Main Slander event.
+
+#Antagonized: hidden ping, select a random trait to slander. If character has no traits from the list, just go for generic slander.
+character_event = {
+	id = HF.22020
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		random_list = { 
+			10 = {
+				trigger = { 
+					is_close_relative = FROM
+					dynasty = FROM
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { 
+						trait = cruel
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_relative
+				}		
+				set_character_flag = flag_antagonized_option_relative
+			}
+			20 = {
+				trigger = { 
+					NOT = { religion_group = FROM }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { 
+						trait = zealous
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_infidel
+				}		
+				set_character_flag = flag_antagonized_option_infidel
+			}
+			20 = {
+				trigger = { 
+					is_heresy_of = FROM
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { 
+						trait = zealous
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_heretic
+				}		
+				set_character_flag = flag_antagonized_option_heretic
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { 
+						trait = hunchback
+					}
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0.5
+					FROM = { 
+						trait = hunchback
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_hunchback
+				}		
+				set_character_flag = flag_antagonized_option_hunchback
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOR = { 
+						trait = kinslayer
+						trait = familial_kinslayer 
+						trait = dynastic_kinslayer
+					}
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0.5
+					FROM = { 
+						OR = { 
+							trait = kinslayer
+							trait = familial_kinslayer 
+							trait = dynastic_kinslayer
+						} 
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_kinslayer
+				}		
+				set_character_flag = flag_antagonized_option_kinslayer
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = eunuch }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0
+					FROM = { trait = eunuch }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_eunuch
+				}		
+				set_character_flag = flag_antagonized_option_eunuch
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = mystic }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = theologian }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_mystic
+				}		
+				set_character_flag = flag_antagonized_option_mystic
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOR = { 
+						trait = seducer
+						trait = seductress 
+						trait = lovers_pox
+					}
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = chaste }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_seducer
+				}		
+				set_character_flag = flag_antagonized_option_seducer
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = schemer }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = honest }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_schemer
+				}		
+				set_character_flag = flag_antagonized_option_schemer
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = impaler }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = kind }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_impaler
+				}		
+				set_character_flag = flag_antagonized_option_impaler
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = hedonist }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = temperate }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_hedonist
+				}		
+				set_character_flag = flag_antagonized_option_hedonist
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOR = { 
+						trait = bastard 
+						trait = legit_bastard
+						trait = child_of_consort
+					}
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { 
+						NOR = { 
+							trait = bastard 
+							trait = legit_bastard
+							trait = child_of_consort
+						}
+					}
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_bastard
+				}		
+				set_character_flag = flag_antagonized_option_bastard
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { is_maimed_trigger = yes }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { is_maimed_trigger = no }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_maimed
+				}		
+				set_character_flag = flag_antagonized_option_maimed
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = infirm }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { NOT = { trait = infirm } }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_infirm
+				}		
+				set_character_flag = flag_antagonized_option_infirm
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = is_malnourished }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = is_fat }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_malnourished
+				}		
+				set_character_flag = flag_antagonized_option_malnourished
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = is_fat }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = is_malnourished }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_fat
+				}		
+				set_character_flag = flag_antagonized_option_fat
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = depressed }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = gregarious }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_depressed
+				}		
+				set_character_flag = flag_antagonized_option_depressed
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = drunkard }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = temperate }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_drunkard
+				}		
+				set_character_flag = flag_antagonized_option_drunkard
+			}
+
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = lunatic }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = kind }
+				}	
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_lunatic
+				}		
+				set_character_flag = flag_antagonized_option_lunatic
+			}
+
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = possessed }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = zealous }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_possessed
+				}		
+				set_character_flag = flag_antagonized_option_possessed
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOR = { 
+						has_ugly_trait_trigger = yes
+						has_scarred_trait_trigger = yes
+						trait = disfigured 
+						trait = blinded
+						trait = one_eyed
+						trait = leper
+						trait = harelip 
+					}
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { has_fair_trait_trigger = yes }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_ugly
+				}		
+				set_character_flag = flag_antagonized_option_ugly
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = chaste }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = lustful }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_chaste
+				}		
+				set_character_flag = flag_antagonized_option_chaste
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = temperate }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = gluttonous }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_temperate
+				}		
+				set_character_flag = flag_antagonized_option_temperate
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = charitable }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = greedy }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_charitable
+				}		
+				set_character_flag = flag_antagonized_option_charitable
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = diligent }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = slothful }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_diligent
+				}		
+				set_character_flag = flag_antagonized_option_diligent
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = patient }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = wroth }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_patient
+				}		
+				set_character_flag = flag_antagonized_option_patient
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = kind }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = cruel }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_kind
+				}		
+				set_character_flag = flag_antagonized_option_kind
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = humble }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = proud }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_humble
+				}		
+				set_character_flag = flag_antagonized_option_humble
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = lustful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = chaste }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_lustful
+				}		
+				set_character_flag = flag_antagonized_option_lustful
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = gluttonous }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = temperate }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_gluttonous
+				}		
+				set_character_flag = flag_antagonized_option_gluttonous
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = greedy }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = charitable }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_greedy
+				}		
+				set_character_flag = flag_antagonized_option_greedy
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = slothful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = diligent }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_slothful
+				}		
+				set_character_flag = flag_antagonized_option_slothful
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = wroth }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = patient }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_wroth
+				}		
+				set_character_flag = flag_antagonized_option_wroth
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = envious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = kind }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_envious
+				}		
+				set_character_flag = flag_antagonized_option_envious
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = proud }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = humble }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_proud
+				}		
+				set_character_flag = flag_antagonized_option_proud
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = ambitious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = content }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_ambitious
+				}		
+				set_character_flag = flag_antagonized_option_ambitious
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = arbitrary }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = just }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_arbitrary
+				}		
+				set_character_flag = flag_antagonized_option_arbitrary
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = brave }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = craven }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_brave
+				}		
+				set_character_flag = flag_antagonized_option_brave
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = content }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = ambitious }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_content
+				}		
+				set_character_flag = flag_antagonized_option_content
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = craven }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = brave }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_craven
+				}		
+				set_character_flag = flag_antagonized_option_craven
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = cruel }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = kind }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_cruel
+				}		
+				set_character_flag = flag_antagonized_option_cruel
+			}
+			20 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = cynical }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 0
+					FROM = { NOT = { religion = ROOT } }
+				}
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = zealous religion = ROOT }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_cynical
+				}		
+				set_character_flag = flag_antagonized_option_cynical
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = deceitful }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = honest }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_deceitful
+				}		
+				set_character_flag = flag_antagonized_option_deceitful
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = erudite }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = dull }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_erudite
+				}		
+				set_character_flag = flag_antagonized_option_erudite
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = gregarious }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = shy }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_gregarious
+				}		
+				set_character_flag = flag_antagonized_option_gregarious
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = honest }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = deceitful }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_honest
+				}		
+				set_character_flag = flag_antagonized_option_honest
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = just }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = arbitrary }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_just
+				}		
+				set_character_flag = flag_antagonized_option_just
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = paranoid }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = trusting }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_paranoid
+				}		
+				set_character_flag = flag_antagonized_option_paranoid
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = shy }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = gregarious }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_shy
+				}		
+				set_character_flag = flag_antagonized_option_shy
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = dull }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = shrewd }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_dull
+				}		
+				set_character_flag = flag_antagonized_option_dull
+			}
+			10 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = trusting }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = paranoid }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_trusting
+				}		
+				set_character_flag = flag_antagonized_option_trusting
+			}
+			5 = {
+				modifier = { 
+					factor = 0
+					NOT = { trait = zealous }
+				}	
+				modifier = { #Try to pick opposite traits if any are available
+					factor = 1.5
+					FROM = { trait = cynical religion = ROOT }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_option_zealous
+				}		
+				set_character_flag = flag_antagonized_option_zealous
+			}
+		}
+		FROM = { character_event = { id = HF.22021 } }
+		character_event = { id = HF.22040 days = 55 } #Clean all flags on the Antagonized.
+		FROM = { character_event = { id = HF.22041 days = 55 } } #Clean all flags on the Antagonizer.
+	}
+}

@@ -4713,7 +4713,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}	
@@ -4722,7 +4722,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}	
@@ -4731,7 +4731,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4740,7 +4740,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4749,7 +4749,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4759,7 +4759,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = arkenstone } }		
 			}
-			spouse = { add_artifact = arkenstone character_event = { id = 250287 } }
+			spouse = { effect = { add_artifact = arkenstone } character_event = { id = 250287 } }
 			add_trait = dead_target
 		}
 		if = {
@@ -4767,7 +4767,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = arkenstone } }
 			}
-			liege = { add_artifact = arkenstone character_event = { id = 250287 } }
+			liege = { effect = { add_artifact = arkenstone } character_event = { id = 250287 } }
 			add_trait = dead_target
 		}
 		if = {
@@ -4776,7 +4776,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = arkenstone } }
-				add_artifact = arkenstone 
+				effect = { add_artifact = arkenstone } 
 				character_event = { id = 250287 }
 			}
 		}
@@ -4794,7 +4794,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = annuminas
+				effect = { add_artifact = annuminas }
 				character_event = { id = 250287 }
 			}
 			add_trait = dead_target

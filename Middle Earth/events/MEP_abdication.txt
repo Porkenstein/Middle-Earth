@@ -128,22 +128,21 @@ character_event = {
 		}
 		## Ring of Barahir ##
 		if = {
-			limit = { trait = barahir }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = barahir } 
-						}
+			limit = { has_artifact = barahir }
+			if = { 
+				limit = { 
+					is_ruler = yes
+					current_heir = {  
+						is_alive = yes  
+						NOT = { has_artifact = barahir } 
 					}
-					current_heir = {
-						add_trait = barahir 
-						character_event = { id = 250300 }
-					}
-					remove_trait = barahir 
 				}
-			}	
+				current_heir = {
+					effect = { add_artifact = barahir }
+					character_event = { id = 250299 }
+				}
+			}
+		}	
 		## The Elessar ##
 		if = {
 			limit = { has_artifact = elessar }
