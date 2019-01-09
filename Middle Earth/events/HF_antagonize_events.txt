@@ -1,0 +1,1046 @@
+# Written by Flavio
+
+namespace=HF
+
+character_event = {
+	id = HF.22999
+	hide_window = yes
+	
+	trigger = {
+		has_dlc = "Holy Fury"
+		NOT = { trait = incapable }
+		NOT = { 
+			has_opinion_modifier = { 
+				who = FROM 
+				modifier = antagonize_stop_cooldown 
+			}
+		}
+		prisoner = no
+		persistent_event_target:antagonize_target = {	#If character has become incapable, out of reach or otherwise unable to be interacted with, a notification event will be sent.
+			is_alive = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = { character_event = { id = HF.22000 days = 90 random = 120 } } #Further delayed to prevent potential overlapping with Sway events.
+
+}
+#Giant yearly event firing all the events related to appeasement.
+character_event = {
+	id = HF.22000
+	hide_window = yes
+	
+	trigger = {
+		NOT = { trait = incapable }
+		prisoner = no
+		persistent_event_target:antagonize_target = {	#If character has become incapable, out of reach or otherwise unable to be interacted with, a notification event will be sent.
+			is_alive = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = { 
+		#This event fires for the Antagonizer, but all the DELAYED events below this one should be sent to the Antagonized WITHOUT triggers. They need to be hidden events that simply check the trigger with an "if" and ping back to the Antagonizer. If the trigger has become invalid during the delay, then the hidden event can simply call this event again after a couple of weeks, this way the Antagonizer doesn't have to wait another year to receive an event from this list.
+		random_list = { 
+		#	100 = { #Out of range, clear event target.
+		#		modifier = { 
+		#			factor = 0
+		#			persistent_event_target:antagonize_target = { is_within_diplo_range = ROOT }
+		#		}
+		#		persistent_event_target:antagonize_target = { character_event = { id = HF.22002 days = 30 random = 30 } }
+		#	}
+
+		################## CLEAN UP EVENTS ####################
+			100 = { #Imprisoned, clear event target.
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { prisoner = no }
+				}
+				modifier = { 
+					factor = 0
+					has_character_flag = flag_antagonized_prisoner_notification
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22004 } }
+			}
+			100 = { #Incapable, clear event target.
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { NOT = { trait = incapable } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22007 } }
+			}
+			100 = { #Antagonized has turned into a rival/friend/lover, clear target.
+				trigger = { 
+					OR = { 
+						persistent_event_target:antagonize_target = { is_friend = ROOT }
+						persistent_event_target:antagonize_target = { is_lover = ROOT } 
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22122 } }
+			}
+			10 = { #You have succeeded and gained a rival.
+				trigger = { 
+					NOR = { 
+						is_rival = persistent_event_target:antagonize_target 
+						num_of_rivals = 5
+						persistent_event_target:antagonize_target = { num_of_rivals = 5 }
+						persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -25 } }
+					}
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -30 } } }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -40 } } }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -50 } } }
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { persistent_event_target:antagonize_target = { opinion = { who = ROOT value = -60 } } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22009 } }
+			}
+
+		################## TIER ONE EVENTS (Base, generic notifications) ####################
+			1 = { #Prestige for prestige/opinion.
+				trigger = { 
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
+							is_rival = ROOT #No negative opinion-awarding events if you are already a Rival.
+						}
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22011 } }
+			}
+			
+			1 = { #Generic Bad rumors.
+				trigger = { 
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
+							is_rival = ROOT #No negative opinion-awarding events if you are already a Rival.
+						}
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22016 } }
+			}
+
+
+		################## TIER TWO EVENTS (Main Slander event) ####################
+
+			30 = { #Main slander event.
+				trigger = { #Character must have at LEAST one trait.
+					persistent_event_target:antagonize_target = { 
+						OR = {  
+							AND = { is_close_relative = ROOT dynasty = ROOT }
+							NOT = { religion_group = ROOT }
+							is_heresy_of = ROOT
+							# trait = dwarf
+							trait = hunchback
+							trait = kinslayer
+							trait = familial_kinslayer 
+							trait = dynastic_kinslayer
+							# trait = excommunicated
+							trait = eunuch
+							trait = mystic
+							trait = seducer
+							trait = seductress
+							trait = lovers_pox
+							trait = schemer
+							trait = impaler
+							trait = hedonist
+							trait = bastard
+							trait = legit_bastard
+							trait = child_of_consort
+							trait = maimed
+							trait = infirm
+							trait = is_malnourished
+							trait = is_fat
+							trait = depressed
+							trait = drunkard
+							trait = lunatic
+							trait = possessed
+							has_ugly_trait_trigger = yes
+							trait = chaste
+							trait = temperate
+							trait = diligent
+							trait = patient
+							trait = kind
+							trait = humble
+							trait = lustful
+							trait = gluttonous
+							trait = greedy
+							trait = wroth
+							trait = envious
+							trait = ambitious
+							trait = arbitrary
+							trait = brave
+							trait = content
+							trait = craven
+							trait = gregarious
+							trait = deceitful
+							trait = just
+							trait = paranoid
+							trait = dull
+							trait = trusting
+							trait = zealous
+							# AND = { 
+								# trait = erudite 
+								# NOR = { 
+									# religion = hellenic_pagan
+									# religion = hellenic_pagan_reformed
+								# }
+								# ROOT = { religion_group = pagan_group }
+							# }
+							AND = { 
+								trait = cynical 
+								religion = ROOT
+							}
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						OR = {  
+							is_inaccessible_trigger = yes
+							trait = incapable
+							prisoner = yes
+						}
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22020 } }
+			}
+
+		################## TIER THREE EVENTS (Intrigue-locked events) ####################
+			20 = { #Fund blackguard.
+				trigger = {
+					OR = { 
+						intrigue = 8
+						AND = { 
+							is_rival = persistent_event_target:antagonize_target
+							intrigue = 5
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.1
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						independent = no
+					}
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { 
+						intrigue = 10
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22050 } }
+			}
+			5 = { #Sins event - Lustful.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						NOR = { 
+							trait = syphilitic
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = lustful }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_1_cooldown
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_1_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22069 } }
+			}
+			5 = { #Sins event - Gluttonous.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						NOR = { 
+							trait = food_poisoning 
+							trait = ill
+						}
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = gluttonous }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_2_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_2_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22075 } }
+			}
+			5 = { #Sins event - Greedy.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = greedy }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_3_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_3_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22081 } }
+			}
+			5 = { #Sins event - Slothful.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = slothful }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_4_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_4_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22087 } }
+			}
+			5 = { #Sins event - Wroth.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = wroth }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_5_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_5_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22093 } }
+			}
+			5 = { #Sins event - Envious.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = envious }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_6_cooldown
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_6_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22099 } }
+			}
+			5 = { #Sins event - Proud.
+				trigger = {
+					intrigue = 10
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						is_ruler = no
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						NOT = { trait = proud }
+					}
+				}
+				modifier = { 
+					factor = 0
+					persistent_event_target:antagonize_target = { 
+						has_character_modifier = antagonize_sins_7_cooldown
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { 
+						intrigue = 12
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { 
+					add_character_modifier = {
+						name = antagonize_sins_7_cooldown
+						duration = 7200
+						hidden = yes
+					}
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22105 } }
+			}
+			50 = { #Sabotaging Antagonized Rival.
+				trigger = { 
+					intrigue = 10
+					persistent_event_target:antagonize_target = { 
+						is_ruler = yes
+						is_rival = ROOT
+					}
+				}
+				modifier = { #Should rarely fire as first event.
+					factor = 0.5
+					persistent_event_target:antagonize_target = { 
+						NOR = {  
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_1 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_2 }
+							has_opinion_modifier = { who = ROOT modifier = opinion_antagonized_3 }
+						}
+					}
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { 
+						intrigue = 12
+					}
+				}				
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 2 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 4 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 6 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 8 } }
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { attribute_diff = { character = persistent_event_target:antagonize_target attribute = intrigue  value = 10 } }
+				}
+				persistent_event_target:antagonize_target = { character_event = { id = HF.22120 } }
+			}
+			#MORE EVENTS HERE (OR ABOVE, DEPENDING ON CATEGORY)
+		}
+	}
+}
+
+#Antagonized: no longer within diplomatic range, hidden event to ping to Antagonizer and clear event target.
+character_event = {
+	id = HF.22002
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22002 } }
+	#	if = {  - Older check, no longer needed
+	#		limit = { NOT = { is_within_diplo_range = FROM } }
+	#		
+	#	}
+	#	if = { 
+	#		limit = { is_within_diplo_range = FROM }
+	#		FROM = { character_event = { id = HF.22000 days = 30 } } #Fire the big one again, pick another result.
+	#	}
+	}
+}
+
+#Antagonizer notified.
+character_event = {
+	id = HF.22003
+	desc = EVTDESCHF22003
+	picture = GFX_evt_upsetting_letter
+
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF22003
+		custom_tooltip = { text = tooltip_22003_A }
+		hidden_tooltip = { 
+			remove_special_interest = persistent_event_target:antagonize_target
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized }
+			clear_persistent_event_target = antagonize_target
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Antagonized: is imprisoned and can no longer be interacted with.
+character_event = {
+	id = HF.22004
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22005 } }
+	}
+}
+
+#Antagonizer notified, offered chance to clear target.
+character_event = {
+	id = HF.22005
+	desc = EVTDESCHF22005
+	picture = GFX_evt_into_the_dungeon
+
+	trigger = { 
+		FROM = { 
+			prisoner = yes 
+			is_alive = yes
+		} 
+	}
+	is_triggered_only = yes
+
+	option = { #Stop trying to antagonize him.
+		name = EVTOPTAHF22005
+		custom_tooltip = { text = tooltip_22005_A }
+		hidden_tooltip = { 
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized }
+			remove_special_interest = persistent_event_target:antagonize_target
+			clear_persistent_event_target = antagonize_target
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = { #Keep at it.
+		name = EVTOPTBHF22005
+		custom_tooltip = { text = tooltip_22005_B }
+		set_character_flag = flag_antagonized_prisoner_notification
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Antagonized: became incapable, hidden event to ping to Antagonizer and clear event target.
+character_event = {
+	id = HF.22007
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22008 } }
+	}
+}
+
+#Antagonizer notified.
+character_event = {
+	id = HF.22008
+	desc = EVTDESCHF22008
+	picture = GFX_evt_upsetting_letter
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+			trait = incapable
+		} 
+	}
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF22008
+		custom_tooltip = { text = tooltip_22008_A }
+		hidden_tooltip = { 
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized }
+			remove_special_interest = persistent_event_target:antagonize_target
+			clear_persistent_event_target = antagonize_target
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Antagonized: he has become your rival.
+character_event = {
+	id = HF.22009
+	desc = EVTDESCHF22009
+	picture = GFX_evt_rival_rulers
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22010 } }
+	}
+	option = { 
+		name = EVTOPTAHF22009
+		add_rival = FROM
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Antagonizer notified. Become a rival. Offer chance to stop.
+character_event = {
+	id = HF.22010
+	desc = EVTDESCHF22010
+	picture = GFX_evt_rival_rulers
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+			NOT = { opinion = { who = FROM value = -10 } } #close enough...
+		} 
+	}
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHF22010
+		custom_tooltip = { text = tooltip_21010_A }
+		add_rival = FROM
+		ai_chance = { factor = 100 }
+	}
+	option = { #Stop Antagonizing
+		name = EVTOPTBHF22010
+		custom_tooltip = { text = tooltip_21010_B }
+		add_rival = FROM
+		hidden_tooltip = { 
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized }
+			remove_special_interest = persistent_event_target:antagonize_target 
+			clear_persistent_event_target = antagonize_target
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Antagonizer: has become rivals/friends/lovers with Antagonized, hidden event to ping to appeaser and clear event target.
+character_event = {
+	id = HF.22122
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		FROM = { character_event = { id = HF.22123 } }
+	}
+}
+
+#Antagonizer notified.
+character_event = {
+	id = HF.22123
+	desc = {
+		text = EVTDESCAHFP22123
+		trigger = { 
+			is_lover = FROM
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP22123
+		trigger = { 
+			is_friend = FROM
+		}
+	}
+	desc = {
+		text = EVTDESCCHFP22123
+		trigger = { 
+			is_rival = FROM
+		}
+	}
+	picture = GFX_evt_upsetting_letter
+
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP22123
+		custom_tooltip = { text = tooltip_22123_A }
+		hidden_tooltip = { 
+			persistent_event_target:antagonize_target = { clr_character_flag = flag_character_being_antagonized }
+			remove_special_interest = persistent_event_target:antagonize_target
+			clear_persistent_event_target = antagonize_target
+		}
+		ai_chance = { factor = 100 }
+	}
+}

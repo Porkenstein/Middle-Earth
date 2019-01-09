@@ -4371,107 +4371,107 @@ character_event = {
 	}
 	## Vilya ##	
 	if = {
-			limit = { has_artifact = vilya }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { has_artifact = vilya } 
-					}
+		limit = { has_artifact = vilya }
+		if = { 
+			limit = { 
+				is_ruler = yes
+				current_heir = { 
+					dynasty = ROOT 
+					is_alive = yes  
+					NOT = { has_artifact = vilya } 
 				}
-				current_heir = {
-					effect = { add_artifact = vilya } 
-					character_event = { id = 250299 }
-				}
-				add_trait = dead_target
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { has_artifact = vilya  } }
-							effect = { add_artifact = vilya }
-							character_event = { id = 250299 }
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
+			current_heir = {
+				effect = { add_artifact = vilya } 
+				character_event = { id = 250299 }
 			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-					ROOT = { add_trait = dead_target }
-				}	
+			add_trait = dead_target
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } is_patrician = yes }
+			family_palace = {
+				current_heir = { 
+					if = {
+						limit = { NOT = { has_artifact = vilya  } }
+						effect = { add_artifact = vilya }
+						character_event = { id = 250299 }
+						ROOT = { add_trait = dead_target }
+					}	
+				}					
+			}				
+		}
+		if = { 
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-					ROOT = { add_trait = dead_target }
-				}	
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_sibling = {
+				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+				ROOT = { add_trait = dead_target }
 			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { has_artifact = vilya } }		
-				}
-				spouse = { effect = { add_artifact = vilya } character_event = { id = 250299 } }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { has_artifact = vilya } }
-				}
-				liege = { effect = { add_artifact = vilya } character_event = { id = 250299 } }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { has_artifact = vilya } }
-					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
-				}
+		}	
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_dynasty_member = {
+				limit = { is_alive = yes NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+				ROOT = { add_trait = dead_target }
 			}
 		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { NOT = { trait = dead_target } }
+			random_child = {
+				limit = { is_alive = yes NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+				ROOT = { add_trait = dead_target }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }
+				spouse = { is_alive = yes NOT = { has_artifact = vilya } }		
+			}
+			spouse = { effect = { add_artifact = vilya } character_event = { id = 250299 } }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+				liege = { NOT = { character = ROOT } NOT = { has_artifact = vilya } }
+			}
+			liege = { effect = { add_artifact = vilya } character_event = { id = 250299 } }
+			add_trait = dead_target
+		}
+		if = {
+			limit = { 
+				NOT = { trait = dead_target }	
+			}
+			random_vassal = { 
+				limit = { NOT = { has_artifact = vilya } }
+				effect = { add_artifact = vilya }
+				character_event = { id = 250299 }
+			}
+		}
+	}
 	## Ring of Barahir ##
 	if = {
 		limit = { has_artifact = barahir }
@@ -4588,7 +4588,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 			}
 			add_trait = dead_target
@@ -4599,7 +4599,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = elessar  } }
-						add_artifact = elessar 
+						effect = { add_artifact = elessar }
 						character_event = { id = 250287 }
 						ROOT = { add_trait = dead_target }
 					}	
@@ -4610,7 +4610,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elessar } }
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}	
@@ -4619,7 +4619,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_sibling = {
 				limit = { dynasty = ROOT is_alive = yes NOT = { has_artifact = elessar } }
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}	
@@ -4628,7 +4628,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_dynasty_member = {
 				limit = { is_alive = yes NOT = { has_artifact = elessar } }
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4637,7 +4637,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_primary_heir = yes is_alive = yes NOT = { has_artifact = elessar } }
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4646,7 +4646,7 @@ character_event = {
 			limit = { NOT = { trait = dead_target } }
 			random_child = {
 				limit = { is_alive = yes NOT = { has_artifact = elessar } }
-				add_artifact = elessar
+				effect = { add_artifact = elessar }
 				character_event = { id = 250287 }
 				ROOT = { add_trait = dead_target }
 			}
@@ -4656,7 +4656,7 @@ character_event = {
 				NOT = { trait = dead_target }
 				spouse = { is_alive = yes NOT = { has_artifact = elessar } }		
 			}
-			spouse = { add_artifact = elessar character_event = { id = 250287 } }
+			spouse = { effect = { add_artifact = elessar } character_event = { id = 250287 } }
 			add_trait = dead_target
 		}
 		if = {
@@ -4664,7 +4664,7 @@ character_event = {
 				NOT = { trait = dead_target }	
 				liege = { NOT = { character = ROOT } NOT = { has_artifact = elessar } }
 			}
-			liege = { add_artifact = elessar character_event = { id = 250287 } }
+			liege = { effect = { add_artifact = elessar } character_event = { id = 250287 } }
 			add_trait = dead_target
 		}
 		if = {
@@ -4673,7 +4673,7 @@ character_event = {
 			}
 			random_vassal = { 
 				limit = { NOT = { has_artifact = elessar } }
-				add_artifact = elessar 
+				effect = { add_artifact = elessar } 
 				character_event = { id = 250287 }
 			}
 		}
@@ -4691,7 +4691,7 @@ character_event = {
 				}
 			}
 			current_heir = {
-				add_artifact = arkenstone
+				effect = { add_artifact = arkenstone }
 				character_event = { id = 250287 }
 			}
 			add_trait = dead_target
@@ -4702,7 +4702,7 @@ character_event = {
 				current_heir = { 
 					if = {
 						limit = { NOT = { has_artifact = arkenstone  } }
-						add_artifact = arkenstone 
+						effect = { add_artifact = arkenstone }
 						character_event = { id = 250287 }
 						ROOT = { add_trait = dead_target }
 					}	
