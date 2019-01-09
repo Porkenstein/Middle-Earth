@@ -907,6 +907,7 @@ character_event = {
 	id = 6063
 
 	hide_window = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -921,8 +922,9 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 360
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 10
 			religion_group = religion_group_khazad
@@ -940,59 +942,59 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = depressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.33
 			prisoner = yes
 			has_character_modifier = the_oubliette
 		}
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			prisoner = yes
 			has_character_modifier = the_dungeon
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			base_health = 6
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			is_strong_trigger = yes
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 7
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 8
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = more
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = fewer
 			}
 		}
 		modifier = {
-			factor = 4
+			factor = 0.25
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = rare
@@ -1279,6 +1281,7 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	prisoner = no
+	is_triggered_only = yes
 	
 	trigger = {
 		OR = {
@@ -1292,31 +1295,31 @@ character_event = {
 		}		
 	}
 	
-	mean_time_to_happen = {
-		months = 10000
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			trait = brave
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			is_ruler = yes
 		}
 		
 		modifier = {
-			factor = 0.6
+			factor = 1.666
 			trait = misguided_warrior
 		}
 		
 		modifier = {
-			factor = 1.1
+			factor = 0.9
 			trait = paranoid
 		}
 	}
@@ -1347,6 +1350,7 @@ character_event = {
 			factor = 0.5
 			base_health = 5.1
 		}
+		
 		modifier = {
 			factor = 0.4
 			base_health = 6
@@ -1376,7 +1380,7 @@ character_event = {
 	option = {
 		name = EVTOPTA6081
 		remove_trait = wounded
-		add_trait = scarred
+		add_scarred_tiered_effect = yes
 	}
 }
 
@@ -1387,6 +1391,7 @@ character_event = {
 	desc = EVTDESC6082
 	picture = GFX_evt_illness
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -1395,8 +1400,9 @@ character_event = {
 		is_ill = no
 	}
 	
-	mean_time_to_happen = {
-		months = 240
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 10
 			religion_group = religion_group_khazad
@@ -1414,25 +1420,25 @@ character_event = {
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			trait = leper
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			NOT = { base_health = 6 }
 		}
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			age = 60
 		}
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			age = 70
 		}
 	}
@@ -1471,6 +1477,8 @@ character_event = {
 	min_age = 45
 	only_capable = yes
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		NOT = { trait = infirm }
 		immortal = no
@@ -1481,47 +1489,47 @@ character_event = {
 		NOT = { trait = onering }
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			age = 60
 		}
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			age = 70
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			age = 80
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			age = 90
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = cancer
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.3
 			NOT = { base_health = 5.0 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.3
 			NOT = { base_health = 4.0 }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 5.1
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 6.0
 		}
 	}
@@ -1548,10 +1556,9 @@ character_event = {
 		NOT = { trait = elven_blood }
 	}
 	
-	mean_time_to_happen = {
-		days = 2400
+	weight_multiplier = {
+		days = 1
 		
-
 		modifier = {
 			factor = 4
 			year = 8200
@@ -1645,6 +1652,7 @@ character_event = {
 	
 	trigger = {
 		OR = {
+			trait = numenorean
 			trait = numenor_blood
 			trait = elven_blood
 			trait = half_elf
@@ -1653,9 +1661,9 @@ character_event = {
 		NOT = { trait = incapable }		
 	}
 	
-	mean_time_to_happen = {
-		days = 4800
-
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 4
 			year = 8200
@@ -1750,8 +1758,8 @@ character_event = {
 		NOT = { trait = incapable }
 	}
 	
-	mean_time_to_happen = {
-		days = 4800
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
 			factor = 0.8
@@ -1792,6 +1800,8 @@ character_event = {
 	picture = GFX_evt_recovery
 	border = GFX_event_normal_frame_religion
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		OR = {
 			trait = infirm
@@ -1801,27 +1811,27 @@ character_event = {
 		immortal = no
 	}
 	
-	mean_time_to_happen = {
-		months = 120
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { health = 3.0 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { base_health = 5.0 }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			NOT = { trait = infirm }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 5.1
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 6.0
 		}
 	}
