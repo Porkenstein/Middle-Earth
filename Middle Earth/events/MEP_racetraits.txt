@@ -1,461 +1,191 @@
-namespace = birthevent
-
+namespace = racetrait
 # Blood of Numenor, Elf, half-Elf, Half-Orc
 character_event = {
-	id = birthevent.0
-	# desc = OK
-	
+	id = racetrait.0
 	hide_window = yes
-	
 	is_triggered_only = yes
-	
+
 	trigger = {
-		NOT = { age = 1 }
+		OR = {
+			#Numenors
+			culture = culture_numenorean
+			culture = culture_adunaic
+			#Half Blood
+			culture = culture_gondorian
+			culture = culture_black_numenorean
+			culture = culture_dunedain
+			#Skin Changer
+			culture = culture_beorning
+			#Hobbit
+			culture_group = culture_group_halfling
+			#Dwarf
+			culture_group = culture_group_dwarves
+			#Elves
+			culture_group = culture_group_quendi
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_moriquendi
+			#Ents
+			culture_group = culture_group_onodrim
+			#Godly
+			culture = culture_maiar
+			culture = culture_umaiar
+			culture = culture_istari
+			culture = culture_valar
+			culture = culture_enignma
+			#Lesser Creatures
+			culture = culture_eagles
+			culture = culture_wight
+			culture = culture_half_orc
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_wargs
+			culture = culture_troll
+			#Greater Creatures
+			culture = culture_balrog
+			culture = culture_dragons
+			culture = culture_spider
+			#Wilderness
+			culture_group = culture_group_wilderness
+		}
 	}
 
 	immediate = {
-		# dispatching infertility after pregnancy events
-		mother_even_if_dead = {
-			if = {
-				limit = {
-					is_alive = yes
-					trait = elf
-				}
-				character_event = { id = mepmarriage.10  days = 1 }
-			}
-			if = {
-				limit = {
-					is_alive = yes
-					trait = dwarven
-				}
-				character_event = { id = mepmarriage.12  days = 1 }
-			}
-		}
 		if = {
 			limit = {
-				is_father_real_father = yes 
-			}
-			# Pure elf
-			if = {
-				limit = {
-					father = { trait = elf } # father is
-					mother = { trait = elf } # mother is
-				}
-				add_trait = elf
-			}
-			# Half Elf
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = elf } # father is
-							NOT = { mother = { trait = elf } } # mother is not
-						}
-						AND = {
-							NOT = { father = { trait = elf } } # father is not
-							mother = { trait = elf } # mother is
-						}
-					}
-				}
-				add_trait = half_elf
-			}
-			# Half Elves breed Half Elves with Each other or Elves
-			if = {
-				limit = {
-					father = { trait = half_elf } # father is
-					mother = { trait = half_elf } # mother is	
-				}
-				add_trait = half_elf
-			}
-			if = {
-				limit = {
-					father = { trait = elf } # father is
-					mother = { trait = half_elf } # mother is
-				}
-				add_trait = half_elf
-			}
-			if = {
-				limit = {
-					father = { trait = elf } # father is
-					mother = { trait = half_elf } # mother is
-					}
-				add_trait = half_elf
-			}
-			# Half Elves with non half_elves or non elves gives elven blood
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = half_elf } # father is
-							NOT = { mother = { trait = half_elf } }
-							NOT = { mother = { trait = elf } } # mother is not
-						}
-						AND = {
-							NOT = { father = { trait = elf } }
-							NOT = { father = { trait = half_elf } }# father is not
-							mother = { trait = half_elf } # mother is
-						}
-					}
-				}
-				add_trait = elven_blood
-			}
-			# Just elven blood
-			if = {
-				limit = {
-					father = { trait = elven_blood } # father is
-					mother = { trait = elven_blood } # mother is
-				}
-				add_trait = elven_blood
-			}
-			# Might loose elven blood
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = elven_blood } # father is
-							NOT = { mother = { trait = elven_blood } } # mother is not from elven blood
-							NOT = { mother = { trait = elf } } # mother is not an elf
-						}
-						AND = {
-							NOT = { father = { trait = elven_blood } } # father is not from elven blood
-							NOT = { father = { trait = elf } } # father is not an elf
-							mother = { trait = elven_blood } # mother is
-						}
-					}
-				}
-				random_list = {
-					70 = {
-						add_trait = elven_blood
-					}
-					30 = {
-					}
+				OR = {
+					culture = culture_numenorean
+					culture = culture_adunaic
 				}
 			}
-			# Blood of Numenor, with a chance of it weakening
-			if = {
-				limit = {
-					father = { trait = numenor_blood } # father is
-					mother = { trait = numenor_blood } # mother is
-				}
-				random_list = {
-					3 = { 
-					}
-					97 = {
-						add_trait = numenor_blood
-					}
-				}
-			}
-			# Blood of Numenor Likely to be weaker if marrage is done with non-true blood
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = numenor_blood } # father is
-							NOT = { mother = { trait = numenor_blood } } # mother is not					
-						}
-						AND = {
-							NOT = { father = { trait = numenor_blood } } # father is not			
-							mother = { trait = numenor_blood } # mother is
-						}
-					}
-				}
-				random_list = {
-					35 = {
-						add_trait = numenor_blood
-					}
-					65 = {
-					}
-				}
-			}
-			# orc breeding...
-			if = {
-				limit = {
-					
-					father = { trait = orc } # father is
-					mother = { trait = orc } # mother is
-					
-				}
-				add_trait = orc
-			}
-			# Half orc creation...
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = orc } # father is
-							NOT = { mother = { trait = orc } } # mother is not
-						}
-						AND = {
-							NOT = { father = { trait = orc } } # father is not
-							mother = { trait = orc } # mother is
-						}
-					}
-				}
-				add_trait = half_orc
-			}
-			# ordinary half orc breeding
-			if = {
-				limit = {
-				
-						father = { trait = half_orc } # father is
-						mother = { trait = half_orc } # mother is
-					
-				}
-				add_trait = half_orc
-			}
-			# reduced orc blood
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							father = { trait = half_orc } # father is
-							NOT = { mother = { trait = half_orc } } # mother is not
-						}
-						AND = {
-							NOT = { father = { trait = half_orc } } # father is not
-							mother = { trait = half_orc } # mother is
-						}					
-					}
-				}
-				random_list = {
-					45 = { 
-						prestige = -10
-					}
-					55 = {
-						add_trait = half_orc
-					}
-				}
-			}	
-		}
-		# an additional set which kicks in if the apparent father is not the real father
-		if = {
-			limit = {
-				is_father_real_father = no 
-			}
-		
-			if = {
-				limit = {
-				
-					real_father = { trait = elf } # real_father is
-					mother = { trait = elf } # mother is
-					
-				}
-				add_trait = elf
-			}
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							real_father = { trait = elf } # real_father is
-							NOT = { mother = { trait = elf } } # mother is not
-						}
-						AND = {
-							NOT = { real_father = { trait = elf } } # real_father is not
-							mother = { trait = elf } # mother is
-						}
-					}
-				}
-				add_trait = half_elf
-			}
-			if = {
-				limit = {
-			
-					real_father = { trait = half_elf } # real_father is
-					mother = { trait = half_elf } # mother is
-					
-				}
-				add_trait = half_elf
-			}
-		
-			if = {
-				limit = {
-				
-					real_father = { trait = elf } # real_father is
-					mother = { trait = half_elf } # mother is
-				
-				}
-				add_trait = half_elf
-			}
-			if = {
-				limit = {
-				
-				real_father = { trait = elf } # real_father is
-				mother = { trait = half_elf } # mother is
-				
-				}
-				add_trait = half_elf
-			}
-		
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							real_father = { trait = half_elf } # real_father is
-							NOT = { mother = { trait = half_elf } } # mother is not
-						}
-						AND = {
-							NOT = { real_father = { trait = half_elf } } # real_father is not
-							mother = { trait = half_elf } # mother is
-						}
-					}
-				}
-				add_trait = elven_blood
-			}
-			if = {
-				limit = {
-					real_father = { trait = elven_blood } # real_father is
-					mother = { trait = elven_blood } # mother is
-			
-				}
-					add_trait = elven_blood
-			}
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							real_father = { trait = elven_blood } # real_father is
-							NOT = { mother = { trait = elven_blood } } # mother is not from elven blood
-							NOT = { mother = { trait = elf } } # mother is not an elf
-						}
-						AND = {
-							NOT = { real_father = { trait = elven_blood } } # real_father is not from elven blood
-							NOT = { real_father = { trait = elf } } # real_father is not an elf
-							mother = { trait = elven_blood } # mother is
-						}
-					}
-				}
-				random_list = {
-					70 = {
-						add_trait = elven_blood
-					}
-					30 = {
-					}
-				}
-			}		
-		
-			if = {
-				limit = {
-					real_father = { trait = numenor_blood } # real_father is
-					mother = { trait = numenor_blood } # mother is
-				}
-				random_list = {
-					3 = { 
-					}
-					97 = {
-						add_trait = numenor_blood
-					}
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							real_father = { trait = numenor_blood } # real_father is
-							NOT = { mother = { trait = numenor_blood } } # mother is not					
-						}
-						AND = {
-							NOT = { real_father = { trait = numenor_blood } } # real_father is not
-							NOT = { real_father = { trait = numenor_blood } } # real_father is not - weaken				
-							mother = { trait = numenor_blood } # mother is
-						}
-					}
-				}
-				random_list = {
-					35 = {
-						add_trait = numenor_blood
-					}
-					65 = {
-					}
-				}
-			}
-		
-			if = {
-				limit = {
-					real_father = { trait =  numenor_blood } # real_father is
-				}
-				random_list = {
-					25 = {
-					}
-					75 = {
-						add_trait = numenor_blood
-					}
-				}
-			}
-		
-			if = {
-				limit = {
-					mother = { trait =  numenor_blood } # mother is
-				}
-				random_list = {
-					40 = {
-					}
-					60 = {
-						add_trait = numenor_blood
-					}
-				}
-			}
-		
-		if = {
-			limit = {
-				
-				real_father = { trait = orc } # real_father is
-				mother = { trait = orc } # mother is
-				
-			}
-			add_trait = orc
+			add_trait = numenorean
 		}
 		if = {
 			limit = {
 				OR = {
-					AND = {
-						real_father = { trait = orc } # real_father is
-						NOT = { mother = { trait = orc } } # mother is not
-					}
-					AND = {
-						NOT = { real_father = { trait = orc } } # real_father is not
-						mother = { trait = orc } # mother is
-					}
+					culture = culture_gondorian
+					culture = culture_black_numenorean
+					culture = culture_dunedain
 				}
 			}
-			add_trait = half_orc
+			add_trait = numenor_blood
 		}
 		if = {
 			limit = {
-			
-					real_father = { trait = half_orc } # real_father is
-					mother = { trait = half_orc } # mother is
-				
+				culture = culture_beorning
 			}
-			add_trait = half_orc
+			add_trait = skin_changer
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_halfling
+			}
+			add_trait = hobbit
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_dwarves
+			}
+			add_trait = dwarven
 		}
 		if = {
 			limit = {
 				OR = {
-					AND = {
-						real_father = { trait = half_orc } # real_father is
-						NOT = { mother = { trait = half_orc } } # mother is not
-					}
-					AND = {
-						NOT = { real_father = { trait = half_orc } } # real_father is not
-						mother = { trait = half_orc } # mother is
-					}					
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
 				}
 			}
-			random_list = {
-				45 = { 
-					prestige = -10
-				}
-				55 = {
-					add_trait = half_orc
+			add_trait = elf
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_onodrim
+			}
+			add_trait = ent
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = culture_maiar
+					culture = culture_umaiar
+					culture = culture_istari
 				}
 			}
+			add_trait = maiar
+		}
+		if = {
+			limit = {
+				culture = culture_valar
+			}
+			add_trait = valar
+		}
+		if = {
+			limit = {
+				culture = culture_enignma
+			}
+			add_trait = enigma
+		}
+		if = {
+			limit = {
+				culture = culture_eagles
+			}
+			add_trait = eagle
+		}
+		if = {
+			limit = {
+				culture = culture_wight
+				NOT = {
+					has_character_flag = is_nazgul
+				}
+			}
+			add_trait = wight
+		}
+		if = {
+			limit = {
+				has_character_flag = is_nazgul
+			}
+			add_trait = nazgul
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = culture_half_orc
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+					culture = culture_wargs
+					culture = culture_troll
+				}
+			}
+			add_trait = dark_creature
+		}
+		if = {
+			limit = {
+				culture = culture_balrog
+			}
+			add_trait = balrog
+		}
+		if = {
+			limit = {
+				culture = culture_dragons
+			}
+			add_trait = dragon
+		}
+		if = {
+			limit = {
+				culture = culture_spider
+			}
+			add_trait = spider
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_wilderness
+			}
+			add_trait = wilderness
 		}
 	}
-	}  
 	
-	
-	option = {
-		# name = "OK"
-	}
-
 }
