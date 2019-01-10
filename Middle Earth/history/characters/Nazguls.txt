@@ -9,7 +9,7 @@
 	mother=12221
 	
 	add_trait=cruel
-	# add_trait=wroth
+	add_trait=wroth
 	add_trait=impaler
 	add_trait=envious
 	add_trait=brilliant_strategist
@@ -25,21 +25,24 @@
 	}
 	
 	6722.1.1={
-		name="Mûrazôr"
 		effect = { add_artifact = nazgul_ring }
+		name="Mûrazôr"
 	} #Seduced by the Witch Maegnúrwen at Sauron's behest
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
+		employer = 10016 # Sauron
 		effect = {
-			set_character_flag = witchking
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
 			give_nickname=nick_witch_king
 		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = { 
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 	
 }
@@ -66,27 +69,26 @@
 	}
 	
 	6722.1.1={
-		name="Khamûl"
-		effect = { 
-			set_character_flag = khamul
-			add_artifact = nazgul_ring
-		}
-	}
+		effect = { add_artifact = nazgul_ring }
+		name = "Khâmul"
+	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
-		employer = 10016 # Sauron	
+		employer = 10016 # Sauron
 		effect = {
-			give_nickname=nick_the_easterling
-		}		
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+			give_nickname = "nick_the_easterling"
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
-	
 }
 
 ## Akhôrahil ##
@@ -96,7 +98,6 @@
 	religion="religion_wight"
 	culture="culture_wight"
 	
-	add_trait=numenor_blood
 	add_trait=cruel
 	add_trait=greedy
 	add_trait=deceitful
@@ -111,25 +112,25 @@
 	}
 	
 	6722.1.1={
-		name="Akhôrahil"
-		effect = { 
-			set_character_flag = akhorahil
-			add_artifact = nazgul_ring
-		}
-	}
+		effect = { add_artifact = nazgul_ring }
+		name = "Akhôrahil"
+	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
-		remove_trait=numenor_blood
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
-	
 }
 
 ## Adûnaphazôr ##
@@ -139,7 +140,6 @@
 	religion="religion_wight"
 	culture="culture_wight"
 	
-	add_trait=numenor_blood	
 	add_trait=cruel
 	add_trait=greedy
 	add_trait=ambitious
@@ -154,25 +154,25 @@
 	}
 	
 	6722.1.1={
-		name="Adûnaphazôr"
-		effect = { 
-			set_character_flag = adunaphazor
-			add_artifact = nazgul_ring
-		}
-	}
+		effect = { add_artifact = nazgul_ring }
+		name = "Adûnaphazôr"
+	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
-		remove_trait=numenor_blood
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
-	
 }
 
 ## Dwar the Haradrim ##
@@ -197,17 +197,22 @@
 
 	6722.1.1={
 		effect = { add_artifact = nazgul_ring }
-	}
+	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 }
 
@@ -233,18 +238,23 @@
 	
 	6722.1.1={
 		effect = { add_artifact = nazgul_ring }
-		name="Indûr"
+		name = "Indûr"
 	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 }
 
@@ -272,13 +282,19 @@
 	}	
 	
 	6742.1.1={
-		add_trait=nazgul
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 }
 
@@ -304,16 +320,22 @@
 	
 	6722.1.1={
 		effect = { add_artifact = nazgul_ring }
-	}		
+	}	
 	
 	6742.1.1={
-		add_trait=nazgul
 		employer = 10016 # Sauron
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 }
 
@@ -341,14 +363,18 @@
 	}	
 	
 	6742.1.1={
-		add_trait=nazgul
-		# add_trait = morgul_blade
 		employer = 10016 # Sauron
-		effect = { set_character_flag = abrazir }		
+		effect = {
+			set_character_flag = is_nazgul
+			add_artifact = morgul_blade
+		}
 	} #Defeat of the Nine Kings by the Council of the East, their spirits take the form of wraiths
 	
 	11362.5.1={
 		death="11362.5.1"
-		effect = { destroy_artifact = nazgul_ring }
+		effect = {
+			destroy_artifact = nazgul_ring
+			destroy_artifact = morgul_blade
+		}
 	} #The One Ring is destroyed
 }
