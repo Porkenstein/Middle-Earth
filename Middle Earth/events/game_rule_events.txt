@@ -6805,7 +6805,9 @@ character_event = { # Generate 'Fake Family' for characters without any
 				is_married = no
 				can_marry = yes
 				age = 20
-				female = no
+				NOT = {
+					is_female = yes
+				}
 			}
 			set_character_flag = recieved_royal_marriage_aid_duty
 			create_character = {
@@ -6826,7 +6828,7 @@ character_event = { # Generate 'Fake Family' for characters without any
 				is_married = no
 				can_marry = yes
 				age = 20
-				female = no
+				is_female = yes
 			}
 			set_variable = {
 				which = fk_family_age
@@ -6880,35 +6882,82 @@ character_event = { # Generate 'Fake Family' for characters without any
 					value = -18
 				}
 			}
-			create_character = {
-				age = fk_family_age
-				female = no
-				religion = ROOT
-				culture = ROOT
-				dynasty = actually_culture
-				random_traits = yes
-			}
-			random_list = {
-				1 = {
-					change_variable = {
-						which = fk_family_age
-						value = -1
+			if = {
+				limit = {
+					NOT = {
+						is_female = yes
 					}
 				}
-				1 = {
-					change_variable = {
-						which = fk_family_age
-						value = -2
+				create_character = {
+					age = fk_family_age
+					female = no
+					religion = ROOT
+					culture = ROOT
+					father = ROOT
+					mother = event_target:mother_target
+					dynasty = actually_culture
+					random_traits = yes
+				}
+				random_list = {
+					1 = {
+						change_variable = {
+							which = fk_family_age
+							value = -1
+						}
+					}
+					1 = {
+						change_variable = {
+							which = fk_family_age
+							value = -2
+						}
 					}
 				}
+				create_character = {
+					age = fk_family_age
+					female = yes
+					religion = ROOT
+					culture = ROOT
+					father = ROOT
+					mother = event_target:mother_target
+					dynasty = actually_culture
+					random_traits = yes
+				}
 			}
-			create_character = {
-				age = fk_family_age
-				female = yes
-				religion = ROOT
-				culture = ROOT
-				dynasty = actually_culture
-				random_traits = yes
+			else = {
+				create_character = {
+					age = fk_family_age
+					female = no
+					religion = ROOT
+					culture = ROOT
+					father = event_target:father_target
+					mother = ROOT
+					dynasty = actually_culture
+					random_traits = yes
+				}
+				random_list = {
+					1 = {
+						change_variable = {
+							which = fk_family_age
+							value = -1
+						}
+					}
+					1 = {
+						change_variable = {
+							which = fk_family_age
+							value = -2
+						}
+					}
+				}
+				create_character = {
+					age = fk_family_age
+					female = yes
+					religion = ROOT
+					culture = ROOT
+					father = event_target:father_target
+					mother = ROOT
+					dynasty = actually_culture
+					random_traits = yes
+				}
 			}
 		}
 	}
