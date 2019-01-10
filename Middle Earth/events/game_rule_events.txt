@@ -6831,10 +6831,12 @@ character_event = { # Generate 'Fake Family' for characters without any
 				female = 20
 				religion = ROOT
 				culture = ROOT
-				genetic_father = ROOT
-				genetic_mother = event_target:mother_target
 				dynasty = actually_culture
 				random_traits = yes
+			}
+			new_character = {
+				set_father = ROOT
+				set_mother = event_target:mother_target
 			}
 			create_character = {
 				age = 1
@@ -6845,6 +6847,10 @@ character_event = { # Generate 'Fake Family' for characters without any
 				genetic_mother = event_target:mother_target
 				dynasty = actually_culture
 				random_traits = yes
+			}
+			new_character = {
+				set_father = ROOT
+				set_mother = event_target:mother_target
 			}
 		}
 	}
