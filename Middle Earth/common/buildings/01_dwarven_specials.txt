@@ -880,4 +880,120 @@ castle = {
 			}
 		}
 	}
+	ca_assembly_dwarves_1 = {
+		desc = ca_assembly_dwarves_desc
+		gold_cost = 345
+		build_time = 1265
+		fort_level = 5.0
+		tax_income = 5.0
+		diplomacy = 1
+		demesne_size = 1
+		ai_creation_factor = 106
+		trigger = {
+			FROM = { has_landed_title = e_all_mountains }
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_dwarves_1
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_dwarves_1
+			}
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+	}
+	ca_assembly_guard_1 = {
+		desc = ca_assembly_guard_desc
+		prerequisites = { ca_assembly_dwarves_1 }
+		gold_cost = 320
+		build_time = 1175
+		fort_level = 2
+		heavy_infantry = 150
+		ai_creation_factor = 106
+        trigger = {
+			FROM = { has_landed_title = e_all_mountains }
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_guard_1
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_guard_1
+			}
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+	}
+	ca_assembly_archives_1 = {
+		desc = ca_assembly_archives_desc
+		prerequisites = { ca_assembly_dwarves_1 ca_assembly_guard_1 }
+		gold_cost = 100
+		build_time = 360
+		tax_income = 7
+		stewardship = 2	
+		ai_creation_factor = 106
+        trigger = {
+			FROM = { has_landed_title = e_all_mountains }
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_archives_1
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_gundabad_throne_hall
+				has_building = ca_assembly_archives_1
+			}
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+	}
+	ca_stone_durin = {
+		desc = ca_stone_durin_desc
+		gold_cost = 100
+		build_time = 360
+		tax_income = 3
+		liege_prestige = 0.5
+		liege_piety = 0.5
+		garrison_size = 0.2
+		ai_creation_factor = 106		
+        trigger = {
+			FROMFROM = {
+				title = b_azanulbizar-dum
+				has_building = ca_stone_durin
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_azanulbizar-dum
+				has_building = ca_stone_durin
+			}
+			ROOT = {
+			    culture_group = culture_group_dwarves
+			}
+		}
+	}
 }
