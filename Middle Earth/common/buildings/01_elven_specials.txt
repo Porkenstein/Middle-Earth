@@ -1,0 +1,41 @@
+castle = {
+	ca_edhellond_ruins = {
+		desc = ca_edhellond_ruins_desc
+		gold_cost = 850
+		build_time = 1460 #4y
+		tax_income = -3	
+		garrison_size = -0.2		
+		ai_creation_factor = 86	
+		trigger = {
+			FROMFROM = {
+				title = b_edhellond
+				has_building = ca_edhellond_ruins
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_edhellond
+				has_building = ca_edhellond_ruins
+			}
+			year = 10325
+			NOT = { has_global_flag = edhellond_rebuilded_finally }
+		}
+	}
+	ca_edhellond = {
+		desc = ca_edhellond_desc
+		gold_cost = 75
+		build_time = 730
+		fort_level = 2
+		tax_income = 1.5
+		heavy_infantry = 125
+		light_infantry = 125
+		archers = 250
+		galleys = 15
+		ai_creation_factor = 86
+		
+        potential = {
+			FROMFROM = { title = b_edhellond }
+			NOT = { has_building = ca_edhellond_ruins }
+		}
+	}
+}

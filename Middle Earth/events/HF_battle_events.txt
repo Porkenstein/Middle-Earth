@@ -2095,18 +2095,18 @@ character_event = {
 
 		add_battle_PTSD_effect = yes #sends delayed follow-up event
 
-		hidden_effect = {
-			if = {
-				limit = {
-					is_member_of_any_warrior_lodge_trigger = yes
-					event_target:enemy_commander = { is_member_of_any_warrior_lodge_trigger = yes }
-				}
-				save_persistent_event_target = {
-					name = maimed_me_in_battle_target			#Hook-in: Warrior Lodges (disliked_target_selection_score)
-					scope = event_target:enemy_commander
-				}
-			}
-		}
+		# hidden_effect = {
+			# if = {
+				# limit = {
+					# is_member_of_any_warrior_lodge_trigger = yes
+					# event_target:enemy_commander = { is_member_of_any_warrior_lodge_trigger = yes }
+				# }
+				# save_persistent_event_target = {
+					# name = maimed_me_in_battle_target			#Hook-in: Warrior Lodges (disliked_target_selection_score)
+					# scope = event_target:enemy_commander
+				# }
+			# }
+		# }
 
 		allow_new_battle_events_effect = yes
 
@@ -2449,7 +2449,7 @@ character_event = {
 	option = {
 		name = EVTOPTL96500 # War elephants
 		trigger = {
-			has_dharmic_religion_trigger = yes
+			# has_dharmic_religion_trigger = yes
 			NOT = { trait = war_elephant_leader }
 		}
 		add_trait = war_elephant_leader
@@ -2791,14 +2791,14 @@ character_event = {
 			}
 		}
 	}
-	option = { #For WL members only: comfort hunting
-		name = EVTOPTE_HFP_11019 #Enough of these nonsense FEELINGS
-		tooltip_info_custom = available_due_to_warrior_lodge
-		piety =-5
-		trigger = {
-			is_member_of_any_warrior_lodge_trigger = yes
-		}
-	}
+	# option = { #For WL members only: comfort hunting
+		# name = EVTOPTE_HFP_11019 #Enough of these nonsense FEELINGS
+		# tooltip_info_custom = available_due_to_warrior_lodge
+		# piety =-5
+		# trigger = {
+			# is_member_of_any_warrior_lodge_trigger = yes
+		# }
+	# }
 	after = {
 		clr_ABC_desc_flag_effect = yes
 		allow_new_battle_events_effect = yes
