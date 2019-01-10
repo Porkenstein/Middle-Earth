@@ -6707,15 +6707,12 @@ character_event = { # Delayed cleansing
 
 character_event = { # Generate 'Fake Family' for characters without any
 	id = GR.30
-	
 	hide_window = yes
-	
 	is_triggered_only = yes
-	
 	only_playable = yes
 	min_age = 16
 	only_men = yes
-	
+
 	trigger = {
 		OR = {
 			AND = {
@@ -6735,7 +6732,9 @@ character_event = { # Generate 'Fake Family' for characters without any
 			is_married = no
 			AND = {
 				is_married = yes
-				num_of_children < 1
+				NOT = {
+					has_children = yes
+				}
 				spouse = {
 					is_lowborn = yes
 				}
@@ -6794,7 +6793,7 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 		}
 	}
-	
+
 	immediate = {
 		if = {
 			limit = {
@@ -6816,93 +6815,36 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 			new_character = {
 				add_spouse = ROOT
-				save_event_target_as = mother_target
 			}
+		}
+		spouse = {
+			save_event_target_as = mother_target
 		}
 		if = {
 			limit = {
-				is_married = no
-				can_marry = yes
-				age = 20
-				is_female = yes
+				NOT = {
+					has_children = yes
+				}
 			}
-			set_character_flag = recieved_royal_marriage_aid_duty
 			create_character = {
-				age = 20
-				female = no
+				age = 2
+				female = 20
 				religion = ROOT
 				culture = ROOT
+				genetic_father = ROOT
+				genetic_mother = event_target:mother_target
 				dynasty = actually_culture
 				random_traits = yes
 			}
-			new_character = {
-				add_spouse = ROOT
-				save_event_target_as = father_target
-			}
-		}
-		if = {
-			limit = {
-				num_of_children < 1
-				OR = {
-					age = 20
-					AND = {
-						OR = {
-							culture_group = culture_group_quendi
-							culture_group = culture_group_amanyar
-							culture_group = culture_group_umanyar
-						}
-						age = 110
-					}
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						is_female = yes
-					}
-				}
-				create_character = {
-					age = 2
-					female = no
-					religion = ROOT
-					culture = ROOT
-					father = ROOT
-					mother = event_target:mother_target
-					dynasty = actually_culture
-					random_traits = yes
-				}
-				create_character = {
-					age = 1
-					female = yes
-					religion = ROOT
-					culture = ROOT
-					father = ROOT
-					mother = event_target:mother_target
-					dynasty = actually_culture
-					random_traits = yes
-				}
-			}
-			else = {
-				create_character = {
-					age = 2
-					female = no
-					religion = ROOT
-					culture = ROOT
-					father = event_target:father_target
-					mother = ROOT
-					dynasty = actually_culture
-					random_traits = yes
-				}
-				create_character = {
-					age = 1
-					female = yes
-					religion = ROOT
-					culture = ROOT
-					father = event_target:father_target
-					mother = ROOT
-					dynasty = actually_culture
-					random_traits = yes
-				}
+			create_character = {
+				age = 1
+				female = 60
+				religion = ROOT
+				culture = ROOT
+				genetic_father = ROOT
+				genetic_mother = event_target:mother_target
+				dynasty = actually_culture
+				random_traits = yes
 			}
 		}
 	}
