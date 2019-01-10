@@ -6796,10 +6796,6 @@ character_event = { # Generate 'Fake Family' for characters without any
 	}
 	
 	immediate = {
-		export_to_variable = {
-			which = fk_family_age
-			value = age
-		}
 		if = {
 			limit = {
 				is_married = no
@@ -6811,7 +6807,7 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 			set_character_flag = recieved_royal_marriage_aid_duty
 			create_character = {
-				age = fk_family_age
+				age = 20
 				female = yes
 				religion = ROOT
 				culture = ROOT
@@ -6832,7 +6828,7 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 			set_character_flag = recieved_royal_marriage_aid_duty
 			create_character = {
-				age = fk_family_age
+				age = 20
 				female = no
 				religion = ROOT
 				culture = ROOT
@@ -6861,31 +6857,12 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 			if = {
 				limit = {
-					OR = {
-						culture_group = culture_group_quendi
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_umanyar
-					}
-				}
-				change_variable = {
-					which = fk_family_age
-					value = -100
-				}
-			}
-			else = {
-				change_variable = {
-					which = fk_family_age
-					value = -18
-				}
-			}
-			if = {
-				limit = {
 					NOT = {
 						is_female = yes
 					}
 				}
 				create_character = {
-					age = fk_family_age
+					age = 2
 					female = no
 					religion = ROOT
 					culture = ROOT
@@ -6894,22 +6871,8 @@ character_event = { # Generate 'Fake Family' for characters without any
 					dynasty = actually_culture
 					random_traits = yes
 				}
-				random_list = {
-					1 = {
-						change_variable = {
-							which = fk_family_age
-							value = -1
-						}
-					}
-					1 = {
-						change_variable = {
-							which = fk_family_age
-							value = -2
-						}
-					}
-				}
 				create_character = {
-					age = fk_family_age
+					age = 1
 					female = yes
 					religion = ROOT
 					culture = ROOT
@@ -6921,7 +6884,7 @@ character_event = { # Generate 'Fake Family' for characters without any
 			}
 			else = {
 				create_character = {
-					age = fk_family_age
+					age = 2
 					female = no
 					religion = ROOT
 					culture = ROOT
@@ -6930,22 +6893,8 @@ character_event = { # Generate 'Fake Family' for characters without any
 					dynasty = actually_culture
 					random_traits = yes
 				}
-				random_list = {
-					1 = {
-						change_variable = {
-							which = fk_family_age
-							value = -1
-						}
-					}
-					1 = {
-						change_variable = {
-							which = fk_family_age
-							value = -2
-						}
-					}
-				}
 				create_character = {
-					age = fk_family_age
+					age = 1
 					female = yes
 					religion = ROOT
 					culture = ROOT
