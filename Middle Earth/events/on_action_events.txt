@@ -5295,26 +5295,7 @@ character_event = {
 					character_event = { id = 250296 }
 				}
 			}
-		}	
-	## The Heir of Durin is passed to the heir ##	
-	if = {
-			limit = { trait = heir_of_durin }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = heir_of_durin } 
-					}
-				}
-				current_heir = {
-					add_trait = heir_of_durin 
-				}
-				add_trait = dead_target
-			}
 		}
-
 	## Lesser Ring ##	
 	if = {
 		limit = { has_artifact = lesser_ring }
@@ -6074,101 +6055,7 @@ character_event = {
 				effect = { add_artifact = elf_brooch }
 			}
 		}
-	}
-	if = {
-			limit = { trait = isildur_throne }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = isildur_throne } 
-					}
-				}
-				current_heir = {
-					add_trait = isildur_throne 
-				}
-				add_trait = dead_target
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = isildur_throne  } }
-							add_trait = isildur_throne 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = isildur_throne } }		
-				}
-				spouse = { add_trait = isildur_throne  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = isildur_throne } }
-				}
-				liege = { add_trait = isildur_throne  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = isildur_throne } }
-					add_trait = isildur_throne 
-				}
-			}
-		}		
+	}	
 	## the Helmet of Arveleg ##	
 	if = {
 			limit = { trait = arveleg_helmet }
@@ -6548,103 +6435,8 @@ character_event = {
 					add_trait = shards_gurthang 
 				}
 			}
-		}		
-	## Heir of Durin ##	
-	if = {
-			limit = { trait = heir_of_durin }
-			if = { 
-				limit = { 
-					is_ruler = yes
-					current_heir = { 
-						dynasty = ROOT 
-						is_alive = yes  
-						NOT = { trait = heir_of_durin } 
-					}
-				}
-				current_heir = {
-					add_trait = heir_of_durin 
-				}
-				add_trait = dead_target
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } is_patrician = yes }
-				family_palace = {
-					current_heir = { 
-						if = {
-							limit = { NOT = { trait = heir_of_durin  } }
-							add_trait = heir_of_durin 
-							ROOT = { add_trait = dead_target }
-						}	
-					}					
-				}				
-			}
-			if = { 
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_sibling = {
-					limit = { dynasty = ROOT is_alive = yes NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin
-					ROOT = { add_trait = dead_target }
-				}	
-			}	
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_dynasty_member = {
-					limit = { is_alive = yes NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_primary_heir = yes is_alive = yes NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { NOT = { trait = dead_target } }
-				random_child = {
-					limit = { is_alive = yes NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin
-					ROOT = { add_trait = dead_target }
-				}
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }
-					spouse = { is_alive = yes NOT = { trait = heir_of_durin } }		
-				}
-				spouse = { add_trait = heir_of_durin  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-					liege = { NOT = { character = ROOT } NOT = { trait = heir_of_durin } }
-				}
-				liege = { add_trait = heir_of_durin  }
-				add_trait = dead_target
-			}
-			if = {
-				limit = { 
-					NOT = { trait = dead_target }	
-				}
-				random_vassal = { 
-					limit = { NOT = { trait = heir_of_durin } }
-					add_trait = heir_of_durin 
-				}
-			}
-		}		
-		## Aragorn death ##
+		}	
+	## Aragorn death ##
 		if = {
 			limit = {
 				has_character_flag = aragorn 

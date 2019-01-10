@@ -22,7 +22,6 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTAamroth.0
-		add_trait = love_amroth
 		set_character_flag = amroth_intro
 		any_playable_ruler = {
 			limit = {
@@ -30,7 +29,6 @@ narrative_event = {
 				age = 1
 				has_character_flag = nimrodel
 			}
-			add_trait = love_amroth
 		}
 	}
 }
@@ -58,7 +56,6 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTAamroth.1
-		add_trait = story_amroth
 		any_playable_ruler = {
 			limit = {
 				has_landed_title = k_elves
@@ -85,7 +82,6 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTAamroth.2
-		add_trait = story_amroth
 		character_event = { id = amroth.3 days = 50 }
 	}
 	option = {
@@ -117,7 +113,6 @@ character_event = {
 	option = {
 		name = EVTOPTBamroth.3
 		trigger = { ai = no }
-		remove_trait = story_amroth
 		character_event = { id= amroth.31 days = 40 }
 	}	
 }
@@ -137,7 +132,6 @@ character_event = {
 			limit = {
 				age = 1
 				has_character_flag = nimrodel
-				trait = story_amroth
 			}
 			character_event = { id = amroth.5 days = 2 }
 		}	
@@ -163,8 +157,6 @@ character_event = {
 	option = {
 		name = EVTOPTBamroth.5 ## I refuse.
 		trigger = { ai = no }
-		remove_trait = love_amroth
-		remove_trait = story_amroth
 		FROM = {
 			narrative_event = { id = amroth.7 }
 		}	
@@ -178,9 +170,7 @@ character_event = {
 					narrative_event = { id = amroth.6 } # YES
 				}
 			}
-			15 = {
-				remove_trait = love_amroth
-				remove_trait = story_amroth			
+			15 = {	
 				FROM = {
 					narrative_event = { id = amroth.7 } # NO
 				}	
@@ -218,8 +208,6 @@ narrative_event = {
 	option = {
 		name = EVTOPTAamroth.7 ## I'm depressed.
 		add_trait = depressed
-		remove_trait = love_amroth
-		remove_trait = story_amroth
 		character_event = { id = amroth.31 days = 2 }
 		FROM = { character_event = { id = amroth.31 days = 2 } }
 	}	
@@ -257,7 +245,6 @@ character_event = {
 					limit = {
 						age = 1
 						has_character_flag = nimrodel
-						trait = story_amroth
 					}
 					character_event = { id = amroth.10 days = 2 }
 				}
@@ -267,7 +254,6 @@ character_event = {
 					limit = {
 						age = 1
 						has_character_flag = nimrodel
-						trait = story_amroth
 					}
 					character_event = { id = amroth.11 days = 2 }
 				}
@@ -283,7 +269,6 @@ character_event = {
 					limit = {
 						age = 1
 						has_character_flag = nimrodel
-						trait = story_amroth
 					}
 					character_event = { id = amroth.11 days = 2 }
 				}
@@ -293,7 +278,6 @@ character_event = {
 					limit = {
 						age = 1
 						has_character_flag = nimrodel
-						trait = story_amroth
 					}
 					character_event = { id = amroth.12 days = 2 }
 				}
@@ -383,7 +367,6 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAamroth.15 ## No more Middle-Earth for me.
-		remove_trait = story_amroth
 		abdicate = yes
 		recalc_succession = yes
 		e_valinor = {
@@ -417,7 +400,6 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAamroth.16 ## To Valinor.
-		remove_trait = story_amroth
 		add_trait = sailed_west
 		abdicate = yes
 		recalc_succession = yes
@@ -428,10 +410,8 @@ character_event = {
 			limit = {
 				age = 1
 				has_character_flag = nimrodel
-				trait = story_amroth
 			}
 			add_spouse = ROOT
-			remove_trait = story_amroth
 			add_trait = sailed_west
 			abdicate = yes
 			recalc_succession = yes
@@ -458,7 +438,6 @@ character_event = {
 			limit = {
 				age = 1
 				has_character_flag = nimrodel
-				trait = story_amroth
 			}
 		character_event = { id = amroth.19 days = 45 }
 		}
@@ -502,7 +481,6 @@ character_event = {
 			death_reason = death_accident
 		}
 		FROM = {
-			remove_trait = story_amroth
 			abdicate = yes
 		}
 	}
@@ -824,12 +802,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAamroth.31 ## He's nobliest than me.
-		remove_trait = story_amroth
-		remove_trait = love_amroth
 		add_trait = depressed
 		FROM = {
-			remove_trait = story_amroth
-			remove_trait = love_amroth
 			add_trait = depressed		
 		}
 	}

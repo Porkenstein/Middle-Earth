@@ -472,24 +472,6 @@ character_event = {
 					}
 					remove_trait = himling_armour
 				}
-			}	
-		## The Heir of Durin is passed to the heir ##	
-		if = {
-				limit = { trait = heir_of_durin }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							dynasty = ROOT
-							is_alive = yes  
-							NOT = { trait = heir_of_durin } 
-						}
-					}
-					current_heir = {
-						add_trait = heir_of_durin 
-					}
-					remove_trait = heir_of_durin
-				}
 			}
 		## The Sword founded in the ruins of Himling ##	
 		if = {
@@ -862,24 +844,7 @@ character_event = {
 					}
 				} 
 			}
-		}
-		## the Throne of Isildur ##	
-		if = {
-				limit = { trait = isildur_throne }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = isildur_throne } 
-						}
-					}
-					current_heir = {
-						add_trait = isildur_throne 
-					}
-					remove_trait = isildur_throne
-				}
-			}		
+		}		
 		## the Helmet of Arveleg ##	
 		if = {
 				limit = { trait = arveleg_helmet }
