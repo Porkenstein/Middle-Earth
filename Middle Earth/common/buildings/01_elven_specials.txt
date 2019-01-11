@@ -1,107 +1,35 @@
 castle = {
-	ca_edhellond_ruins = {
+	ca_edhellond_ruins = { ### Edhellond Ruins
 		desc = ca_edhellond_ruins_desc
+		not_if_x_exists = { ca_edhellond }
 		gold_cost = 850
 		build_time = 1460 #4y
 		tax_income = -3	
 		garrison_size = -0.2		
-		ai_creation_factor = 86	
-		add_number_to_name = no
-		trigger = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond_ruins
-			}
-		}
-		potential = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond_ruins
-			}
-			year = 10325
+		ai_creation_factor = 86		
+        potential = {
+			FROMFROM = { title = b_edhellond }
+			year = 10324
 			NOT = { has_global_flag = edhellond_rebuilded_finally }
-		}
+       	}
 	}
-	ca_edhellond = {
+	
+	ca_edhellond = { #Great port of Edhellond#
 		desc = ca_edhellond_desc
-		gold_cost = 75
-		build_time = 730
-		fort_level = 2
-		tax_income = 1.5
-		heavy_infantry = 125
-		light_infantry = 125
-		archers = 250
-		galleys = 15
+		not_if_x_exists = { ca_edhellond_ruins }
+		gold_cost = 150
+		build_time = 1460 #4y
+		fort_level = 4.0
+		tax_income = 3
+		heavy_infantry = 250
+		light_infantry = 250
+		archers = 500
+		galleys = 25
 		ai_creation_factor = 86
-		add_number_to_name = no
-		trigger = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond
-			}
-		}
-		potential = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond
-			}
+		
+        potential = {
+			FROMFROM = { title = b_edhellond }
 			NOT = { has_building = ca_edhellond_ruins }
-		}
-	}
-	ca_edhellond2 = {
-		desc = ca_edhellond_desc
-		upgrades_from = ca_edhellond
-		gold_cost = 75
-		build_time = 730
-		fort_level = 2
-		tax_income = 1.5
-		heavy_infantry = 125
-		light_infantry = 125
-		archers = 250
-		galleys = 15
-		ai_creation_factor = 86
-		add_number_to_name = no
-		trigger = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond2
-			}
-		}
-		potential = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond2
-			}
-			NOT = { has_building = ca_edhellond_ruins }
-			year = 5000
-		}
-	}
-	ca_edhellond3 = {
-		desc = ca_edhellond_desc
-		upgrades_from = ca_edhellond2
-		gold_cost = 75
-		build_time = 730
-		fort_level = 2
-		tax_income = 1.5
-		heavy_infantry = 125
-		light_infantry = 125
-		archers = 250
-		galleys = 15
-		ai_creation_factor = 86
-		add_number_to_name = no
-		trigger = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond3
-			}
-		}
-		potential = {
-			FROMFROM = {
-				title = b_edhellond
-				has_building = ca_edhellond3
-			}
-			NOT = { has_building = ca_edhellond_ruins }
-			year = 10000
 		}
 	}
 }
