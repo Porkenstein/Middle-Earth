@@ -50,7 +50,7 @@ province_event = {	#Failed Colonization
 	trigger = {
 		has_province_modifier = being_colonised
 		check_variable = {
-			which = population
+			which = sin_pop
 			value <= 100
 		}
 	}
@@ -61,7 +61,7 @@ province_event = {	#Failed Colonization
 
 	immediate = {
 		set_variable = {
-			which = population
+			which = sin_pop
 			value = -1
 		}
 		remove_province_modifier = being_colonised
@@ -117,7 +117,7 @@ province_event = {	#Successful Colonization
 	trigger = {
 		has_province_modifier = being_colonised
 		check_variable = {
-			which = population
+			which = sin_pop
 			value = 5000
 		}
 	}
@@ -155,7 +155,7 @@ province_event = {	#New Opportunities Population Boom
 	option = {
 		name = EVTOPTAcolonisation.3
 		multiply_variable = {
-			which = population
+			which = sin_pop
 			value = 1.05
 		}
 	}
@@ -276,7 +276,7 @@ character_event = {	#Successful Colonization
 			}
 			FROM = {
 				multiply_variable = {
-					which = population
+					which = sin_pop
 					value = 0.99
 				}
 			}
@@ -287,7 +287,7 @@ character_event = {	#Successful Colonization
 			}
 			FROM = {
 				multiply_variable = {
-					which = population
+					which = sin_pop
 					value = 0.95
 				}
 			}
@@ -298,7 +298,7 @@ character_event = {	#Successful Colonization
 			}
 			FROM = {
 				multiply_variable = {
-					which = population
+					which = sin_pop
 					value = 0.9
 				}
 			}
@@ -362,7 +362,7 @@ character_event = {	#Lower Population, 10% Yearly
 			random_list = {
 				1 = {
 					multiply_variable = {
-						which = population
+						which = sin_pop
 						value = 0.9
 					}
 				}
@@ -400,7 +400,7 @@ character_event = {	#Lower Population, 10% Yearly
 						}
 					}
 					multiply_variable = {
-						which = population
+						which = sin_pop
 						value = 0.75
 					}
 				}
@@ -448,7 +448,7 @@ character_event = {	#Lower Population, 10% Yearly
 						}
 					}
 					multiply_variable = {
-						which = population
+						which = sin_pop
 						value = 0.5
 					}
 				}
@@ -456,7 +456,7 @@ character_event = {	#Lower Population, 10% Yearly
 			IF = {
 				limit = {
 					check_variable = {
-						which = population
+						which = sin_pop
 						value < 100
 					}
 				}
@@ -482,7 +482,7 @@ province_event = {	#Province Cleared
 			}
 		}
 		set_variable = {
-			which = population
+			which = sin_pop
 			value = 1000
 		}
 		culture = event_target:owner
