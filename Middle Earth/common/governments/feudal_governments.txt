@@ -166,7 +166,12 @@ feudal_governments = {
 
 		frame_suffix = "_darklord"
 		potential = {
-			mep_is_evil_overlord = yes
+			OR = {
+				religion = religion_umaiar
+				religion = religion_wight
+				religion_group = religion_group_ungoliant
+				religion_group = religion_group_dragon
+			}
 			is_patrician = no
 		}
 		color = { 20 20 20 }
@@ -214,11 +219,11 @@ feudal_governments = {
 		frame_suffix = "_darklord"
 		potential = {
 			OR = {
-				religion_group = religion_group_melkor
-				religion_group = religion_group_ungoliant
+				religion = religion_olog
+				religion = religion_orkish
+				religion = religion_corrupted_orkish
+				religion = religion_uruk
 			}
-			mep_is_good_side_trigger = yes
-			NOT = { mep_is_evil_overlord = yes }
 			is_patrician = no
 		}
 		color = { 70 40 40 }
