@@ -685,19 +685,10 @@ abandon_realm_resettle_wilderness = { # TODO: abandon all currently occupied cou
 			FROM = {
 				capital_holding = {
 					location = {
-						culture = ROOT
-						religion = ROOT
-						add_province_modifier = {
-							name = settled_by_refugees
-							duration = 3650
-						}
-						remove_province_modifier = depopulated_3
-						remove_province_modifier = depopulated_2
-						remove_province_modifier = depopulated_1
+						settle_with_root_refugees_effect = yes
 					}
 				}
 			}
-			
 			usurp_title = { target = ROOT type = invasion }			
 
 			# destroy old capital province

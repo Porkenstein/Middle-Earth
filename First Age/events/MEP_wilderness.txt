@@ -56,7 +56,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-        months = 12
+        years = 1
         modifier = {
             factor = 2 # Dwarves are slow
             owner = { religion_group = religion_group_khazad }
@@ -73,28 +73,21 @@ province_event = {
 
 	option = {		
         # stop sending colonists
-		owner = {
-			any_demesne_province = {
-				
-				limit = {
-					has_province_modifier = sending_colonists
-				}
-				
-				remove_province_modifier = sending_colonists
+		remove_province_modifier = sending_colonists
+
+		# if this is initial population, update this province with the source province's culture and race
+		if = {
+			limit = {
+				has_province_modifier = depopulated_3
 			}
-		
-			# if this is initial population, update this province with the source province's culture and race
-			if = {
-				limit = {
-					ROOT = { has_province_modifier = depopulated_3 }
-				}
-				ROOT = {
+			owner = {
+				PREV = {
 					culture = PREV
 					religion = PREV
 				}
 			}
 		}
-		
+
 		# reduce depopulation
 		colonise = yes
 		

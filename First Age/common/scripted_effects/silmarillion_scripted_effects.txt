@@ -300,3 +300,65 @@ clear_mining_expedition_flags = {
         clr_province_flag = mining_target
     }
 }
+
+settle_with_root_refugees_effect = {
+	culture = ROOT
+	religion = ROOT
+	add_province_modifier = {
+		name = settled_by_refugees
+		duration = 3650
+	}
+
+	remove_province_modifier = depopulated_3
+	remove_province_modifier = depopulated_2
+	remove_province_modifier = depopulated_1
+}
+
+build_city_effect = {
+	if = {
+		limit = {
+			num_of_empty_holdings = 1
+		}
+		build_holding = {
+			type = city
+		}
+	}
+}
+
+build_castle_effect = {
+	if = {
+		limit = {
+			num_of_empty_holdings = 1
+		}
+		build_holding = {
+			type = castle
+		}
+	}
+}
+
+build_temple_effect = {
+	if = {
+		limit = {
+			num_of_empty_holdings = 1
+		}
+		build_holding = {
+			type = temple
+		}
+	}
+}
+
+build_tribal_effect = {
+	if = {
+		limit = {
+			num_of_empty_holdings = 1
+			NOT = {
+				any_province_holding = {
+					holding_type = tribal
+				}
+			}
+		}
+		build_holding = {
+			type = tribal
+		}
+	}
+}

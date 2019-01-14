@@ -1,19 +1,696 @@
 namespace = comingofmen
 
 # The Awakening of Men
-character_event = {
+narrative_event = {
 	id = comingofmen.1
+	title = EVTTITcomingofmen.1
+	desc = EVTDESCcomingofmen.1
+	picture = GFX_elves_scouting
 
 	trigger = {
 		ai = no
-        year = 4314
+        year = 4320
         NOT = { has_global_flag = coming_of_men_awakening }
 	}
-	
+
 	mean_time_to_happen = {
-		years = 25
+		years = 20
 	}
 	
 	option = {
+		trigger = {
+			NOT = { has_character_flag = morgoth }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = EVTOPTAcomingofmen.1
+		add_trait = zealous
+	}
+
+	option = {
+		trigger = {
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { trait = zealous }
+		}
+		name = EVTOPTBcomingofmen.1
+		random = {
+			chance = 10
+			add_trait = man_friend
+		}
+	}
+
+	option = {
+		trigger = {
+			has_character_flag = morgoth
+		}
+		name = EVTOPTCcomingofmen.1
+		c_10106 = { # Fankil
+			letter_event = { id = comingofmen.15 days = 5 }
+		}
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_character_flag = morgoth }
+		}
+		name = EVTOPTDcomingofmen.1
+	}
+
+	after = {
+		set_global_flag = coming_of_men_awakening
+	}
+}
+
+# The Forodwaith
+narrative_event = {
+	id = comingofmen.2
+	title = EVTTITcomingofmen.2
+	desc = EVTDESCcomingofmen.2
+	picture = GFX_edain_settlement
+
+	trigger = {
+		ai = no
+        year = 4390
+        NOT = { has_global_flag = coming_of_men_forodwaith }
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+	
+	option = {
+		trigger = {
+			NOT = { has_character_flag = morgoth }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = EVTOPTAcomingofmen.2
+		random = {
+			chance = 10
+			add_trait = zealous
+		}
+		prestige = 200
+	}
+
+	option = {
+		trigger = {
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { trait = zealous }
+		}
+		name = EVTOPTBcomingofmen.2
+		random = {
+			chance = 10
+			add_trait = man_friend
+		}
+		piety = 100
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				religion_group = religion_group_melkor
+				has_character_flag = morgoth
+			}
+		}
+		name = EVTOPTCcomingofmen.2
+	}
+
+	after = {
+		set_global_flag = coming_of_men_forodwaith
+		# todo give province to forodwaith. begin replacing wilderness with forodwaith
+	}
+}
+
+# The Anachrim
+narrative_event = {
+	id = comingofmen.3
+	title = EVTTITcomingofmen.3
+	desc = EVTDESCcomingofmen.3
+	picture = GFX_evt_abandoned_lands
+
+	trigger = {
+		ai = no
+        year = 4400
+        NOT = { has_global_flag = coming_of_men_anachrim }
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = EVTOPTAcomingofmen.3
+	}
+
+	after = {
+		set_global_flag = coming_of_men_anachrim
+		# todo give province to anach. begin replacing wilderness with random anachrim
+	}
+}
+
+# The Battle of Palisor
+narrative_event = {
+	id = comingofmen.4
+	title = EVTTITcomingofmen.4
+	desc = EVTDESCcomingofmen.4
+	picture = GFX_shadows_coming
+
+	trigger = {
+		ai = no
+        year = 4412
+        NOT = { has_global_flag = coming_of_men_battle_of_palisor }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+	
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = EVTOPTAcomingofmen.4
+		random = {
+			chance = 10
+			add_trait = stressed
+		}
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				trait = evil_side
+				religion_group = religion_group_melkor
+			}
+		}
+		name = EVTOPTBcomingofmen.4
+		prestige = 50
+	}
+
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = EVTOPTCcomingofmen.4
+		random = {
+			chance = 10
+			add_trait = cynical
+		}
+		remove_trait = man_friend
+	}
+
+	after = {
+		set_global_flag = coming_of_men_battle_of_palisor
+	}
+}
+
+# The Edain
+narrative_event = {
+	id = comingofmen.5
+	title = EVTTITcomingofmen.5
+	desc = EVTDESCcomingofmen.5
+	picture = GFX_elves_and_men_2
+
+	trigger = {
+		ai = no
+        year = 4560
+        NOT = { has_global_flag = coming_of_men_edain }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+	
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { trait = zealous }
+			learning = 14
+		}
+		name = EVTOPTAcomingofmen.5
+		tooltip_info = learning
+		custom_tooltip = {
+			text = EVTOPTATOOLTIPcomingofmen.5
+			# todo try courting the edain
+		}
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.5
+	}
+
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = EVTOPTCcomingofmen.5
+		prestige = 100
+		random = {
+			chance = 10
+			add_trait = zealous
+		}
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				trait = evil_side
+				religion_group = religion_group_melkor
+				trait = zealous
+			}
+			martial = 14
+		}
+		name = EVTOPTDcomingofmen.5
+		tooltip_info = martial
+		custom_tooltip = {
+			text = EVTOPTDTOOLTIPcomingofmen.5
+			# todo try exterminating the edain
+		}
+	}
+
+	after = {
+		set_global_flag = coming_of_men_edain
+	}
+}
+
+# The Easterlings
+narrative_event = {
+	id = comingofmen.6
+	title = EVTTITcomingofmen.6
+	desc = EVTDESCcomingofmen.6
+	picture = GFX_edain_travel
+
+	trigger = {
+		ai = no
+        year = 4640
+        NOT = { has_global_flag = coming_of_men_easterlings }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+	
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { trait = man_friend }
+		}
+		name = EVTOPTAcomingofmen.6
+		random = {
+			chance = 10
+			add_trait = zealous
+		}
+		prestige = 200
+	}
+
+	option = {
+		trigger = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { trait = zealous }
+		}
+		name = EVTOPTBcomingofmen.6
+		random = {
+			chance = 10
+			add_trait = man_friend
+		}
+		piety = 50
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				religion_group = religion_group_melkor
+				trait = evil_side
+			}
+		}
+		name = EVTOPTCcomingofmen.6
+	}
+
+	after = {
+		set_global_flag = coming_of_men_easterlings
+		# give provinces to random easterlings
+	}
+}
+
+# dan sends a letter
+character_event = {
+	id = comingofmen.11
+	title = EVTTITcomingofmen.11
+	desc = EVTDESCcomingofmen.11
+	picture = GFX_elves_scouting
+
+	trigger = {
+		has_global_flag = coming_of_men_edain
+        NOT = { has_global_flag = coming_of_men_letter }
+		has_character_flag = flag_dan
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = {
+		name = EVTOPTAcomingofmen.11
+		c_3146 = { # finrod
+			letter_event = { id = comingofmen.14 days = 5 }
+		}
+	}
+
+	after = {
+		set_global_flag = coming_of_men_letter
+	}
+}
+
+# A letter from dan
+letter_event = {
+	id = comingofmen.14
+	desc = EVTDESCcomingofmen.14
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.14
+		reverse_opinion = { who = FROM modifier = opinion_insulted }
+	}
+	option = {
+		name = EVTOPTBcomingofmen.14
+		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
+
+		# send a letter that pisses off the edain
+		random_independent_ruler = {
+			limit = {
+				culture_group = culture_group_edain
+				any_demesne_title = {
+					empire = {
+						title = e_ossiriand
+					}
+				}
+			}
+			letter_event = { id = comingofmen.18 days = 5 }
+		}
+	}
+}
+
+# Invade palisor!
+letter_event = {
+	id = comingofmen.15
+	desc = EVTDESCcomingofmen.15
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.15
+		add_trait = at_east
+		abdicate = yes # game over!
+	}
+
+	after = {
+		k_palisor = {
+			PREV = {
+				usurp_title = PREV
+			}
+		}
+	}
+}
+
+# The Awakening of Men - for AI Morgoth
+narrative_event = {
+	id = comingofmen.16
+	title = EVTTITcomingofmen.16
+	desc = EVTDESCcomingofmen.1
+	picture = GFX_elves_scouting
+
+	trigger = {
+		ai = yes
+		has_global_flag = coming_of_men_awakening
+
+        NOT = { has_character_flag = coming_of_men_awakening_ai_morgoth }
+		has_character_flag = morgoth
+	}
+
+	mean_time_to_happen = {
+		years = 2
+	}
+
+	option = {
+		name = EVTOPTCcomingofmen.1
+		c_10106 = { # Fankil
+			letter_event = { id = comingofmen.15 days = 5 }
+		}
+	}
+
+	after = {
+		set_character_flag = coming_of_men_awakening_ai_morgoth
+	}
+}
+
+
+# A letter from finrod
+letter_event = {
+	id = comingofmen.18
+	desc = EVTDESCcomingofmen.18
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.18
+		remove_trait = elf_friend
+		FROM = {
+			letter_event = { id = comingofmen.19 days = 5 }
+		}
+	}
+}
+
+# Response from the edain
+letter_event = {
+	id = comingofmen.19
+	desc = EVTDESCcomingofmen.19
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.19
+		reverse_opinion = { who = FROM modifier = opinion_insulted }
+		remove_trait = man_friend
+	}
+}
+
+# lord of doriath sends a letter
+long_character_event = {
+	id = comingofmen.20
+	desc = EVTDESCcomingofmen.20
+	picture = GFX_elves_scouting
+
+	trigger = {
+		has_landed_title = k_doriath
+		has_global_flag = coming_of_men_edain
+        NOT = { has_global_flag = coming_of_men_brethil }
+
+		any_independent_ruler = {
+			OR ={
+				culture = culture_haladin
+				AND = {
+					culture_group = culture_group_edain
+					year = 4750 # at this point take what we can get
+				}
+			}
+			capital_scope = {
+				empire = {
+					NOT = { title = e_ossiriand }
+					NOT = { title = e_harn_baland }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 2
+	}
+
+	option = {
+		name = EVTOPTAcomingofmen.20
+		
+		# pick random haladin ruler west of the gelion
+		random_independent_ruler = {
+			limit = {
+				OR ={
+					culture = culture_haladin
+					AND = {
+						culture_group = culture_group_edain
+						year = 4750 # at this point take what we can get
+					}
+				}
+				capital_scope = {
+					empire = {
+						NOT = { title = e_ossiriand }
+						NOT = { title = e_harn_baland }
+					}
+				}
+			}
+			letter_event = { id = comingofmen.21 }
+		}
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTBcomingofmen.20
+	}
+	after = {
+		set_global_flag = coming_of_men_brethil
+	}
+}
+
+letter_event = {
+	id = comingofmen.21
+	desc = EVTDESCcomingofmen.21
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.21
+
+		add_trait = elf_friend
+		
+		hidden_tooltip = {
+			if = {
+				limit = {
+					NOT = {
+						any_player = {
+							capital_scope = {
+								county = {
+									title = c_amon_obel
+								}
+							}
+						}
+					}
+				}
+				c_amon_obel = {
+					PREV = {
+						usurp_title = PREV
+					}
+					location = {
+						build_city_effect = yes
+					}
+				}
+			}
+			if = {
+				limit = { 
+					NOT = {
+						any_player = {
+							capital_scope = {
+								county = {
+									title = c_eryn_en_haladin
+								}
+							}
+						}
+					}
+				}
+				c_eryn_en_haladin = {
+					PREV = {
+						usurp_title = PREV
+					}
+					location = {
+						build_city_effect = yes
+					}
+				}
+			}
+			if = {
+				limit = { 
+					NOT = {
+						any_player = {
+							capital_scope = {
+								county = {
+									title = c_angbor
+								}
+							}
+						}
+					}
+				}
+				c_angbor = {
+					PREV = {
+						usurp_title = PREV
+					}
+					location = {
+						build_temple_effect = yes
+					}
+				}
+			}
+			if = {
+				limit = { 
+					NOT = {
+						any_player = {
+							capital_scope = {
+								county = {
+									title = c_brethil
+								}
+							}
+						}
+					}
+				}
+				c_brethil = {
+					PREV = {
+						usurp_title = PREV
+					}
+					location = {
+						build_city_effect = yes
+					}
+				}
+			}
+
+			# get all interior titles
+			any_landed_title = {
+				limit = {
+					de_jure_liege_or_above = k_brethil
+					NOT = { title = d_dimbar }
+					NOT = { title = d_lithir_malduin }
+					NOT = { de_jure_liege_or_above = d_dimbar }
+					NOT = { de_jure_liege_or_above = d_lithir_malduin }
+					higher_tier_than = baron
+					NOT = {
+						owner = {
+							capital_scope = {
+								county = {
+									title = PREVPREVPREV
+								}
+							}
+						}
+					}
+				}
+				PREV = {
+					usurp_title = PREV
+				}
+			}
+
+			# give kingdom
+			k_brethil = {
+				PREV = {
+					usurp_title = PREV
+				}
+			}
+
+			# convert held provinces to haladin
+			any_realm_province = {
+				settle_with_root_refugees_effect = yes
+			}
+
+			# vassalize elves
+			any_independent_ruler = {
+				limit = {
+					capital_scope = {
+						de_jure_liege_or_above = k_brethil
+						NOT = { de_jure_liege_or_above = d_dimbar }
+						NOT = { de_jure_liege_or_above = d_lithir_malduin }
+					}
+					NOT = { religion = religion_wilderness }
+				}
+				set_defacto_liege = PREV
+			}
+		}
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		name = EVTOPTBcomingofmen.21
 	}
 }

@@ -1223,6 +1223,7 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	prisoner = no
+	is_triggered_only = yes
 	
 	trigger = {
 		OR = {
@@ -1236,31 +1237,31 @@ character_event = {
 		}		
 	}
 	
-	mean_time_to_happen = {
-		months = 10000
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			trait = brave
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			is_ruler = yes
 		}
 		
 		modifier = {
-			factor = 0.6
+			factor = 1.666
 			trait = misguided_warrior
 		}
 		
 		modifier = {
-			factor = 1.1
+			factor = 0.9
 			trait = paranoid
 		}
 	}

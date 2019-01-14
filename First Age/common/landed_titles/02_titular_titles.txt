@@ -2706,8 +2706,12 @@ e_egladhrim = { # union of the egledhrim, or feanorean rulers
 	allow = {
 		culture = culture_egledhrim
 		primary_title = { higher_tier_than = DUKE }
-		prestige = 5000
-		realm_size = 60
+		prestige = 2000
+		realm_size = 40
+		any_demesne_title = {
+			count = 3
+			tier = KING
+		}
 	}
 	
 	# Cannot be held as a secondary title
@@ -2734,8 +2738,8 @@ e_noldor = { # union of the noldor, or later the golodhrim/gondolindrim
 			culture = culture_golodhrim
 		}
 		primary_title = { higher_tier_than = DUKE }
-		prestige = 5000
-		realm_size = 60
+		prestige = 2000
+		realm_size = 40
 	}
 		
 	# Cannot be held as a secondary title
@@ -2754,8 +2758,7 @@ e_sindar = { # union of mithrim, eglath, falas, doriathrim.
     
 	allow = {
 		culture_group = culture_group_umanyar
-		primary_title = { higher_tier_than = DUKE }
-		prestige = 5000
+		prestige = 2000
 		realm_size = 60
 		OR = {
 			has_landed_title = k_nevrast
@@ -2787,9 +2790,12 @@ e_edain = {
     # allows vassalization of the atanatari
 	allow = {
 		religion = religion_edain
-		primary_title = { higher_tier_than = DUKE }
-		prestige = 3000
+		prestige = 2000
 		realm_size = 40
+		any_demesne_title = {
+			count = 2
+			tier = KING
+		}
 	}
 	
 	# Cannot be held as a secondary title
@@ -2940,6 +2946,18 @@ e_valinor = {
 
 
 ## REALMS IN ERIADOR
+
+d_utumna = {
+	culture = culture_orkish
+	religion = religion_orkish
+
+	allow = {
+		always = no
+	}
+	
+	# Always exists
+	landless = yes
+}
 
 k_palisor = { # The realm of Fankil
 	culture = culture_easterling
