@@ -6094,18 +6094,18 @@ character_event = {
 			limit = { trait = feeble }
 			remove_trait = feeble
 		}
-		# if = { 
-			# limit = { trait = uncouth }
-			# change_diplomacy = -1 
-		# }
-		# else_if = { 
-			# limit = { NOR = { trait = uncouth trait = groomed } }
-			# add_trait = uncouth
-		# }
-		# else_if = { 
-			# limit = { trait = groomed }
-			# remove_trait = groomed
-		# }
+		if = { 
+			limit = { trait = uncouth }
+			change_diplomacy = -1 
+		}
+		else_if = { 
+			limit = { NOR = { trait = uncouth trait = groomed } }
+			add_trait = uncouth
+		}
+		else_if = { 
+			limit = { trait = groomed }
+			remove_trait = groomed
+		}
 		ai_chance = { 
 			factor = 75 
 		}
@@ -6671,18 +6671,18 @@ character_event = {
 	}
 	option = { 
 		name = EVTOPTBHF24141
-		# if = { 
-			# limit = { trait = groomed }
-			# change_diplomacy = 1 
-		# }
-		# else_if = { 
-			# limit = { NOR = { trait = uncouth trait = groomed } }
-			# add_trait = groomed
-		# }
-		# else_if = { 
-			# limit = { trait = uncouth }
-			# remove_trait = uncouth
-		# }
+		if = { 
+			limit = { trait = groomed }
+			change_diplomacy = 1 
+		}
+		else_if = { 
+			limit = { NOR = { trait = uncouth trait = groomed } }
+			add_trait = groomed
+		}
+		else_if = { 
+			limit = { trait = uncouth }
+			remove_trait = uncouth
+		}
 		if = { 
 			limit = { trait = dull }
 			change_stewardship = -1 
@@ -7324,8 +7324,8 @@ character_event = {
 			modifier = { 
 				factor = 0.5
 				NOR = {
-					# FROM = { trait = groomed }
-					# FROM = { trait = uncouth }
+					FROM = { trait = groomed }
+					FROM = { trait = uncouth }
 					FROM = { trait = is_fat }
 					FROM = { trait = is_malnourished }
 					trait = proud
@@ -7698,115 +7698,115 @@ character_event = {
 	
 	is_triggered_only = yes
 
-	# option = { #More studying, less grooming.
-		# name = EVTOPTAHF24154
-		# tooltip = { 
-			# event_target:meddling_target = { 
-				# show_scope_change = no
-				# if = {
-					# limit = { 
-						# trait = groomed 
-					# }
-					# remove_trait = groomed
-				# } 
-				# else_if = {
-					# limit = { 
-						# NOR = { 
-							# trait = groomed
-							# trait = uncouth
-						# }
-					# }
-					# add_trait = uncouth
-				# }
-				# else_if = {
-					# limit = { 
-						# trait = uncouth
-					# }
-					# event_target:meddling_target = { change_diplomacy = -1 } 
-				# }
-				# event_target:meddling_target = { 
-					# change_martial = 1
-					# change_learning = 1
-				# }
-			# }
-		# }
-		# hidden_tooltip = { event_target:meddling_target = { character_event = { id = HF.24159 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5
-				# NOR = {
-					# event_target:meddling_target = { trait = groomed }
-					# trait = humble
-					# trait = uncouth
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# event_target:meddling_target = { is_female = no }
-				# NOR = {
-					# has_religion_feature = religion_matriarchal
-					# has_game_rule = {
-						# name = gender
-						# value = all
-					# }
-				# }
-			# }
-		# }
-	# }
-	# option = { #More grooming, less studying.
-		# name = EVTOPTBHF24154
-		# tooltip = { 
-			# event_target:meddling_target = { 
-				# show_scope_change = no
-				# if = {
-					# limit = { 
-						# trait = uncouth 
-					# }
-					# remove_trait = uncouth
-				# } 
-				# else_if = {
-					# limit = { 
-						# NOR = { 
-							# trait = groomed
-							# trait = uncouth
-						# }
-					# }
-					# add_trait = groomed
-				# }
-				# else_if = {
-					# limit = { 
-						# trait = groomed
-					# }
-					# event_target:meddling_target = { change_diplomacy = 1 }
-				# }
-				# event_target:meddling_target = { change_stewardship = -1 }
-			# }
-		# }
-		# hidden_tooltip = { event_target:meddling_target = { character_event = { id = HF.24160 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5
-				# NOR = {
-					# event_target:meddling_target = { trait = uncouth }
-					# trait = proud
-					# trait = groomed
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# event_target:meddling_target = { is_female = yes }
-				# NOR = {
-					# has_religion_feature = religion_matriarchal
-					# has_game_rule = {
-						# name = gender
-						# value = all
-					# }
-				# }
-			# }
-		# }
-	# }
+	option = { #More studying, less grooming.
+		name = EVTOPTAHF24154
+		tooltip = { 
+			event_target:meddling_target = { 
+				show_scope_change = no
+				if = {
+					limit = { 
+						trait = groomed 
+					}
+					remove_trait = groomed
+				} 
+				else_if = {
+					limit = { 
+						NOR = { 
+							trait = groomed
+							trait = uncouth
+						}
+					}
+					add_trait = uncouth
+				}
+				else_if = {
+					limit = { 
+						trait = uncouth
+					}
+					event_target:meddling_target = { change_diplomacy = -1 } 
+				}
+				event_target:meddling_target = { 
+					change_martial = 1
+					change_learning = 1
+				}
+			}
+		}
+		hidden_tooltip = { event_target:meddling_target = { character_event = { id = HF.24159 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5
+				NOR = {
+					event_target:meddling_target = { trait = groomed }
+					trait = humble
+					trait = uncouth
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				event_target:meddling_target = { is_female = no }
+				NOR = {
+					has_religion_feature = religion_matriarchal
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+	}
+	option = { #More grooming, less studying.
+		name = EVTOPTBHF24154
+		tooltip = { 
+			event_target:meddling_target = { 
+				show_scope_change = no
+				if = {
+					limit = { 
+						trait = uncouth 
+					}
+					remove_trait = uncouth
+				} 
+				else_if = {
+					limit = { 
+						NOR = { 
+							trait = groomed
+							trait = uncouth
+						}
+					}
+					add_trait = groomed
+				}
+				else_if = {
+					limit = { 
+						trait = groomed
+					}
+					event_target:meddling_target = { change_diplomacy = 1 }
+				}
+				event_target:meddling_target = { change_stewardship = -1 }
+			}
+		}
+		hidden_tooltip = { event_target:meddling_target = { character_event = { id = HF.24160 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5
+				NOR = {
+					event_target:meddling_target = { trait = uncouth }
+					trait = proud
+					trait = groomed
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				event_target:meddling_target = { is_female = yes }
+				NOR = {
+					has_religion_feature = religion_matriarchal
+					has_game_rule = {
+						name = gender
+						value = all
+					}
+				}
+			}
+		}
+	}
 	option = { #Eat more.
 		name = EVTOPTCHF24154
 		trigger = { 
@@ -8374,49 +8374,49 @@ character_event = {
 	
 	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHF24159
-		# if = {
-			# limit = { 
-				# trait = groomed 
-			# }
-			# remove_trait = groomed
-			# reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-		# } 
-		# else_if = {
-			# limit = { 
-				# NOR = { 
-					# trait = groomed
-					# trait = uncouth
-				# }
-			# }
-			# add_trait = uncouth
-			# if = { 
-				# limit = {
-					# FROM = { NOT = { trait = uncouth } }
-				# }
-				# reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-			# }
-			# else_if = { 
-				# limit = {
-					# FROM = { trait = uncouth }
-				# }
-				# opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-				# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-			# }
-		# }
-		# else_if = {
-			# limit = { 
-				# trait = uncouth
-			# }
-			# change_diplomacy = -1
-			# reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-		# }
-		# change_martial = 1
-		# change_learning = 1
-		# hidden_tooltip = { FROM = { character_event = { id = HF.24165 } } }
-		# ai_chance = { factor = 90 }
-	# }
+	option = { 
+		name = EVTOPTAHF24159
+		if = {
+			limit = { 
+				trait = groomed 
+			}
+			remove_trait = groomed
+			reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+		} 
+		else_if = {
+			limit = { 
+				NOR = { 
+					trait = groomed
+					trait = uncouth
+				}
+			}
+			add_trait = uncouth
+			if = { 
+				limit = {
+					FROM = { NOT = { trait = uncouth } }
+				}
+				reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+			}
+			else_if = { 
+				limit = {
+					FROM = { trait = uncouth }
+				}
+				opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+				reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+			}
+		}
+		else_if = {
+			limit = { 
+				trait = uncouth
+			}
+			change_diplomacy = -1
+			reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+		}
+		change_martial = 1
+		change_learning = 1
+		hidden_tooltip = { FROM = { character_event = { id = HF.24165 } } }
+		ai_chance = { factor = 90 }
+	}
 	option = { 
 		name = EVTOPTBHF24159
 		tiered_prestige_negative_effect = yes
@@ -8523,46 +8523,46 @@ character_event = {
 	
 	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHF24160
-		# if = {
-			# limit = { 
-				# trait = uncouth 
-			# }
-			# remove_trait = uncouth
-		# } 
-		# else_if = {
-			# limit = { 
-				# NOR = { 
-					# trait = groomed
-					# trait = uncouth
-				# }
-			# }
-			# add_trait = groomed
-			# if = { 
-				# limit = {
-					# FROM = { NOT = { trait = groomed } }
-				# }
-				# reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-			# }
-			# else_if = { 
-				# limit = {
-					# FROM = { trait = groomed }
-				# }
-				# opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-				# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-			# }
-		# }
-		# else_if = {
-			# limit = { 
-				# trait = groomed
-			# }
-			# change_diplomacy = 1
-		# }
-		# change_stewardship = -1
-		# hidden_tooltip = { FROM = { character_event = { id = HF.24167 } } }
-		# ai_chance = { factor = 90 }
-	# }
+	option = { 
+		name = EVTOPTAHF24160
+		if = {
+			limit = { 
+				trait = uncouth 
+			}
+			remove_trait = uncouth
+		} 
+		else_if = {
+			limit = { 
+				NOR = { 
+					trait = groomed
+					trait = uncouth
+				}
+			}
+			add_trait = groomed
+			if = { 
+				limit = {
+					FROM = { NOT = { trait = groomed } }
+				}
+				reverse_opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+			}
+			else_if = { 
+				limit = {
+					FROM = { trait = groomed }
+				}
+				opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+				reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+			}
+		}
+		else_if = {
+			limit = { 
+				trait = groomed
+			}
+			change_diplomacy = 1
+		}
+		change_stewardship = -1
+		hidden_tooltip = { FROM = { character_event = { id = HF.24167 } } }
+		ai_chance = { factor = 90 }
+	}
 	option = { 
 		name = EVTOPTBHF24160
 		tiered_prestige_negative_effect = yes
@@ -8987,82 +8987,82 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_denied_advice years = 5 }
 	}
 }
-# #Relative is studying more.
-# character_event = {
-	# id = HF.24165
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = no }
-			# NAND = { 
-				# FROM = { trait = uncouth }
-				# trait = uncouth 
-			# }
-		# } 
-		# text = EVTDESCAHF24165
-		# picture = GFX_evt_library
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# NAND = { 
-				# FROM = { trait = uncouth }
-				# trait = uncouth 
-			# }
-		# } 
-		# text = EVTDESCBHF24165
-		# picture = GFX_evt_princess_byzantine
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = no }
-			# FROM = { trait = uncouth }
-			# trait = uncouth
-		# } 
-		# text = EVTDESCCHF24165
-		# picture = GFX_evt_library
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# FROM = { trait = uncouth }
-			# trait = uncouth
-		# } 
-		# text = EVTDESCCHF24165
-		# picture = GFX_evt_princess_byzantine
-	# }
-	# picture = GFX_evt_courtiers_talking
-	# border = GFX_event_normal_frame_diplomacy
+#Relative is studying more.
+character_event = {
+	id = HF.24165
+	desc = { 
+		trigger = { 
+			FROM = { is_female = no }
+			NAND = { 
+				FROM = { trait = uncouth }
+				trait = uncouth 
+			}
+		} 
+		text = EVTDESCAHF24165
+		picture = GFX_evt_library
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = yes }
+			NAND = { 
+				FROM = { trait = uncouth }
+				trait = uncouth 
+			}
+		} 
+		text = EVTDESCBHF24165
+		picture = GFX_evt_princess_byzantine
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = no }
+			FROM = { trait = uncouth }
+			trait = uncouth
+		} 
+		text = EVTDESCCHF24165
+		picture = GFX_evt_library
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = yes }
+			FROM = { trait = uncouth }
+			trait = uncouth
+		} 
+		text = EVTDESCCHF24165
+		picture = GFX_evt_princess_byzantine
+	}
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_diplomacy
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = {
-			# text = EVTOPTAHF24165_A
-			# trigger = {
-				# trait = uncouth
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHF24165_B
-			# trigger = {
-				# NOT = { trait = uncouth }
-			# }
-		# }
-		# tooltip = { 
-			# if = { 
-				# limit = {
-					# trait = uncouth
-					# FROM = { trait = uncouth }
-				# }
-				# opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-				# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-			# }
-			# else = { 
-				# opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = {
+			text = EVTOPTAHF24165_A
+			trigger = {
+				trait = uncouth
+			}
+		}
+		name = {
+			text = EVTOPTAHF24165_B
+			trigger = {
+				NOT = { trait = uncouth }
+			}
+		}
+		tooltip = { 
+			if = { 
+				limit = {
+					trait = uncouth
+					FROM = { trait = uncouth }
+				}
+				opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+				reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+			}
+			else = { 
+				opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+			}
+		}
+	}
+}
 #Relative has refused to forsake grooming.
 character_event = {
 	id = HF.24166
@@ -9077,78 +9077,78 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_denied_advice years = 5 }
 	}
 }
-# #Relative is grooming himself more.
-# character_event = {
-	# id = HF.24167
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = no }
-			# NAND = { 
-				# FROM = { trait = groomed }
-				# trait = groomed 
-			# }
-		# } 
-		# text = EVTDESCAHF24167
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# NAND = { 
-				# FROM = { trait = groomed }
-				# trait = groomed 
-			# }
-		# } 
-		# text = EVTDESCBHF24167
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = no }
-			# FROM = { trait = groomed }
-			# trait = groomed
-		# } 
-		# text = EVTDESCCHF24167
-	# }
-	# desc = { 
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# FROM = { trait = groomed }
-			# trait = groomed
-		# } 
-		# text = EVTDESCDHF24167
-	# }
-	# picture = GFX_evt_dancing
-	# border = GFX_event_normal_frame_diplomacy
+#Relative is grooming himself more.
+character_event = {
+	id = HF.24167
+	desc = { 
+		trigger = { 
+			FROM = { is_female = no }
+			NAND = { 
+				FROM = { trait = groomed }
+				trait = groomed 
+			}
+		} 
+		text = EVTDESCAHF24167
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = yes }
+			NAND = { 
+				FROM = { trait = groomed }
+				trait = groomed 
+			}
+		} 
+		text = EVTDESCBHF24167
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = no }
+			FROM = { trait = groomed }
+			trait = groomed
+		} 
+		text = EVTDESCCHF24167
+	}
+	desc = { 
+		trigger = { 
+			FROM = { is_female = yes }
+			FROM = { trait = groomed }
+			trait = groomed
+		} 
+		text = EVTDESCDHF24167
+	}
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_diplomacy
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = {
-			# text = EVTOPTAHF24167_A
-			# trigger = {
-				# trait = groomed
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHF24167_B
-			# trigger = {
-				# NOT = { trait = groomed }
-			# }
-		# }
-		# tooltip = { 
-			# if = { 
-				# limit = {
-					# trait = groomed
-					# FROM = { trait = groomed }
-				# }
-				# opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-				# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
-			# }
-			# else = { 
-				# opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = {
+			text = EVTOPTAHF24167_A
+			trigger = {
+				trait = groomed
+			}
+		}
+		name = {
+			text = EVTOPTAHF24167_B
+			trigger = {
+				NOT = { trait = groomed }
+			}
+		}
+		tooltip = { 
+			if = { 
+				limit = {
+					trait = groomed
+					FROM = { trait = groomed }
+				}
+				opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+				reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 15 } 
+			}
+			else = { 
+				opinion = { who = FROM modifier = opinion_took_my_advice years = 5 } 
+			}
+		}
+	}
+}
 #Relative has refused to grooming advice.
 character_event = {
 	id = HF.24168
