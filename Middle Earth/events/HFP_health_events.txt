@@ -6765,2511 +6765,2511 @@ character_event = {
 	}
 }
 
-# #Genuinely concerned character: what to do?
-# character_event = {
-	# id = HFP.20650
-	# desc = {
-		# text = EVTDESCAHFP20650
-		# trigger = { 
-			# FROM = { 
-				# check_variable = { which = physique_variable value = 7 } 
-				# is_female = no
-			# }
-		# }
-		# picture = GFX_evt_fancy_feast
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20650
-		# trigger = { 
-			# FROM = { 
-				# check_variable = { which = physique_variable value = 7 } 
-				# is_female = yes
-			# }
-		# }
-		# picture = GFX_evt_brothel
-	# }
-	# desc = {
-		# text = EVTDESCCHFP20650
-		# trigger = { 
-			# FROM = { 
-				# NOT = { check_variable = { which = physique_variable value = -7 } } 
-				# is_female = no
-			# }
-		# }
-		# picture = GFX_evt_library
-	# }
-	# desc = {
-		# text = EVTDESCDHFP20650
-		# trigger = { 
-			# FROM = { 
-				# NOT = { check_variable = { which = physique_variable value = -7 } } 
-				# is_female = yes
-			# }
-		# }
-		# picture = GFX_evt_princess_byzantine
-	# }
-	# picture = GFX_evt_fancy_feast
+#Genuinely concerned character: what to do?
+character_event = {
+	id = HFP.20650
+	desc = {
+		text = EVTDESCAHFP20650
+		trigger = { 
+			FROM = { 
+				check_variable = { which = physique_variable value = 7 } 
+				is_female = no
+			}
+		}
+		picture = GFX_evt_fancy_feast
+	}
+	desc = {
+		text = EVTDESCBHFP20650
+		trigger = { 
+			FROM = { 
+				check_variable = { which = physique_variable value = 7 } 
+				is_female = yes
+			}
+		}
+		picture = GFX_evt_brothel
+	}
+	desc = {
+		text = EVTDESCCHFP20650
+		trigger = { 
+			FROM = { 
+				NOT = { check_variable = { which = physique_variable value = -7 } } 
+				is_female = no
+			}
+		}
+		picture = GFX_evt_library
+	}
+	desc = {
+		text = EVTDESCDHFP20650
+		trigger = { 
+			FROM = { 
+				NOT = { check_variable = { which = physique_variable value = -7 } } 
+				is_female = yes
+			}
+		}
+		picture = GFX_evt_princess_byzantine
+	}
+	picture = GFX_evt_fancy_feast
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Suggest to eat less (+10).
-		# name = EVTOPTAHFP20650
-		# custom_tooltip = { text = tooltip_20650_A }
-		# trigger = { 
-			# FROM = { check_variable = { which = physique_variable value = 5 } } 
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
-		# ai_chance = { 
-			# factor = 25 
-			# modifier = {
-				# factor = 1.75
-				# OR = { 
-					# trait = zealous
-					# trait = theologian
-					# is_theocracy = yes
-				# }
-				# OR = { 
-					# religion_group = christian
-					# religion_group = muslim
-					# religion_group = indian_group
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = feeble
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = temperate
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = diligent
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = is_malnourished
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = duelist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = hunter
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = kind
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = { #Suggest to eat less (-10).
-		# name = EVTOPTBHFP20650
-		# custom_tooltip = { text = tooltip_20650_B }
-		# trigger = { 
-			# FROM = { NOT = { check_variable = { which = physique_variable value = -5 } } }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
-		# ai_chance = { 
-			# factor = 25 
-			# modifier = {
-				# factor = 1.75
-				# OR = { 
-					# trait = zealous
-					# trait = theologian
-					# is_theocracy = yes
-				# }
+	option = { #Suggest to eat less (+10).
+		name = EVTOPTAHFP20650
+		custom_tooltip = { text = tooltip_20650_A }
+		trigger = { 
+			FROM = { check_variable = { which = physique_variable value = 5 } } 
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.75
+				OR = { 
+					trait = zealous
+					trait = theologian
+					is_theocracy = yes
+				}
 				# OR = { 
 					# religion_group = christian
 					# religion_group = muslim
 					# religion_group = indian_group
 				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = feeble
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = temperate
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = diligent
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = is_malnourished
-			# }
-
-		# }
-	# }
-	# option = { #Suggest to eat more (+10).
-		# name = EVTOPTCHFP20650
-		# custom_tooltip = { text = tooltip_20650_C }
-		# trigger = { 
-			# FROM = { check_variable = { which = physique_variable value = 5 } }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
-		# ai_chance = { 
-			# factor = 25 
-			# modifier = {
-				# factor = 1.75
-				# trait = hedonist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = sturdy
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = robust
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = gluttonous
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = drunkard
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = is_fat
-			# }
-		# }
-	# }
-	# option = { #Suggest to eat more (-10).
-		# name = EVTOPTDHFP20650
-		# custom_tooltip = { text = tooltip_20650_D }
-		# trigger = { 
-			# FROM = { NOT = { check_variable = { which = physique_variable value = -5 } } } 
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
-		# ai_chance = { 
-			# factor = 25 
-			# modifier = {
-				# factor = 1.75
-				# trait = hedonist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = sturdy
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = robust
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = gluttonous
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = drunkard
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = is_fat
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = duelist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = hunter
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = kind
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = { #Not my business
-		# name = EVTOPTEHFP20650
-		# ai_chance = { 
-			# factor = 30 
-			# modifier = {
-				# factor = 0.75
-				# trait = honest
-			# }
-			# modifier = {
-				# factor = 0.75
-				# trait = gregarious
-			# }
-			# modifier = {
-				# factor = 0
-				# is_lover = FROM
-			# }
-			# modifier = {
-				# factor = 0
-				# is_friend = FROM
-			# }
-			# modifier = {
-				# factor = 0.5
-				# is_married = FROM
-			# }
-		# }
-	# }
-# }
-
-# #Ill-advising character: what to do?
-# character_event = {
-	# id = HFP.20651
-	# desc = EVTDESCAHFP20651
-	# picture = GFX_evt_courtiers_talking
-
-	# is_triggered_only = yes
-
-	# option = { #Suggest is fat.
-		# name = EVTOPTAHFP20651
-		# custom_tooltip = { text = tooltip_20651_A }
-		# set_character_flag = flag_ill_advisor #For localization
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# trait = is_malnourished
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = gluttonous
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = feeble
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = hedonist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = duelist
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = hunter
-			# }
-		# }
-	# }
-	# option = { #Suggest is thin.
-		# name = EVTOPTBHFP20651
-		# custom_tooltip = { text = tooltip_20651_B }
-		# set_character_flag = flag_ill_advisor #For localization
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = {
-				# factor = 1.5
-				# trait = is_fat
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = sturdy
-			# }
-			# modifier = { #Would consider it a downgrade.
-				# factor = 1.5
-				# OR = { 
-					# trait = zealous
-					# trait = theologian
-					# is_theocracy = yes
-				# }
+			}
+			modifier = {
+				factor = 1.5
+				trait = feeble
+			}
+			modifier = {
+				factor = 1.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = is_malnourished
+			}
+			modifier = {
+				factor = 1.5
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.5
+				trait = hunter
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+		}
+	}
+	option = { #Suggest to eat less (-10).
+		name = EVTOPTBHFP20650
+		custom_tooltip = { text = tooltip_20650_B }
+		trigger = { 
+			FROM = { NOT = { check_variable = { which = physique_variable value = -5 } } }
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.75
+				OR = { 
+					trait = zealous
+					trait = theologian
+					is_theocracy = yes
+				}
 				# OR = { 
 					# religion_group = christian
 					# religion_group = muslim
 					# religion_group = indian_group
 				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# trait = robust
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = hunter
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = proud
-			# }
-			# modifier = {
-				# factor = 1.75
-				# trait = temperate
-			# }
-		# }
-	# }
-	# option = { #Not my business
-		# name = EVTOPTDHFP20651
-		# ai_chance = { 
-			# factor = 10 
-			# modifier = {
-				# factor = 0.75
-				# trait = deceitful
-			# }
-			# modifier = {
-				# factor = 0.75
-				# trait = cruel
-			# }
-		# }
-	# }
-# }
+			}
+			modifier = {
+				factor = 1.5
+				trait = feeble
+			}
+			modifier = {
+				factor = 1.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+			modifier = {
+				factor = 1.5
+				trait = is_malnourished
+			}
 
-# #Character encouraged to eat less.
-# character_event = {
-	# id = HFP.20652
-	# desc = EVTDESCHAFP20652
+		}
+	}
+	option = { #Suggest to eat more (+10).
+		name = EVTOPTCHFP20650
+		custom_tooltip = { text = tooltip_20650_C }
+		trigger = { 
+			FROM = { check_variable = { which = physique_variable value = 5 } }
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.75
+				trait = hedonist
+			}
+			modifier = {
+				factor = 1.5
+				trait = sturdy
+			}
+			modifier = {
+				factor = 1.5
+				trait = robust
+			}
+			modifier = {
+				factor = 1.5
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = {
+				factor = 1.5
+				trait = is_fat
+			}
+		}
+	}
+	option = { #Suggest to eat more (-10).
+		name = EVTOPTDHFP20650
+		custom_tooltip = { text = tooltip_20650_D }
+		trigger = { 
+			FROM = { NOT = { check_variable = { which = physique_variable value = -5 } } } 
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
+		ai_chance = { 
+			factor = 25 
+			modifier = {
+				factor = 1.75
+				trait = hedonist
+			}
+			modifier = {
+				factor = 1.5
+				trait = sturdy
+			}
+			modifier = {
+				factor = 1.5
+				trait = robust
+			}
+			modifier = {
+				factor = 1.5
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = {
+				factor = 1.5
+				trait = is_fat
+			}
+			modifier = {
+				factor = 1.5
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.5
+				trait = hunter
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+		}
+	}
+	option = { #Not my business
+		name = EVTOPTEHFP20650
+		ai_chance = { 
+			factor = 30 
+			modifier = {
+				factor = 0.75
+				trait = honest
+			}
+			modifier = {
+				factor = 0.75
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0
+				is_lover = FROM
+			}
+			modifier = {
+				factor = 0
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 0.5
+				is_married = FROM
+			}
+		}
+	}
+}
 
-	# trigger = { 
-		# FROM = { is_alive = yes } 
-	# }
+#Ill-advising character: what to do?
+character_event = {
+	id = HFP.20651
+	desc = EVTDESCAHFP20651
+	picture = GFX_evt_courtiers_talking
 
-	# picture = GFX_evt_courtiers_talking
+	is_triggered_only = yes
 
-	# is_triggered_only = yes
-
-	# option = { #Paranoid
-		# name = EVTOPTAHFP20652
-		# custom_tooltip = { text = tooltip_20652_A }
-		# trigger = { trait = paranoid }
-		# tooltip_info = paranoid
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20658 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# NOT = { check_variable = { which = physique_variable value = -7 } } 
-			# }
-		# }
-	# }
-	# option = { #Trusting
-		# name = EVTOPTBHFP20652
-		# custom_tooltip = { text = tooltip_20652_B }
-		# lose_weight_medium_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20655 } } }
-		# hidden_tooltip = { character_event = { id = HFP.20657  days = 30 } } #Results
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# check_variable = { which = physique_variable value = 7 } 
-			# }
-			# modifier = {
-				# factor = 1.75
-				# is_friend = FROM
-			# }
-			# modifier = {
-				# factor = 1.75
-				# is_lover = FROM
-			# }
-			# modifier = {
-				# factor = 0.25
-				# is_rival = FROM
-			# }
-			# modifier = {
-				# factor = 1.5
-				# is_married = FROM
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 8 
-					# has_character_flag = flag_ill_advisor
+	option = { #Suggest is fat.
+		name = EVTOPTAHFP20651
+		custom_tooltip = { text = tooltip_20651_A }
+		set_character_flag = flag_ill_advisor #For localization
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20652 days = 10 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				trait = is_malnourished
+			}
+			modifier = {
+				factor = 1.5
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 1.5
+				trait = feeble
+			}
+			modifier = {
+				factor = 1.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 1.5
+				trait = duelist
+			}
+			modifier = {
+				factor = 1.5
+				trait = hunter
+			}
+		}
+	}
+	option = { #Suggest is thin.
+		name = EVTOPTBHFP20651
+		custom_tooltip = { text = tooltip_20651_B }
+		set_character_flag = flag_ill_advisor #For localization
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20653 days = 10 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.5
+				trait = is_fat
+			}
+			modifier = {
+				factor = 1.5
+				trait = sturdy
+			}
+			modifier = { #Would consider it a downgrade.
+				factor = 1.5
+				OR = { 
+					trait = zealous
+					trait = theologian
+					is_theocracy = yes
+				}
+				# OR = { 
+					# religion_group = christian
+					# religion_group = muslim
+					# religion_group = indian_group
 				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 10 
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 12
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 15
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.25
-				# opinion = { who = FROM value = 30 }
-			# }
-			# modifier = {
-				# factor = 1.25
-				# opinion = { who = FROM value = 50 }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# opinion = { who = FROM value = 70 }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# opinion = { who = FROM value = 90 }
-			# }
-		# }
-	# }
-	# option = { #Not trusting
-		# name = EVTOPTCHFP20652
-		# trigger = { NOT = { trait = trusting } }
-		# custom_tooltip = { text = tooltip_20652_C }
-		# random = { 
-			# chance = 30
-			# if = { 
-				# limit = { trait = stressed } 
-				# custom_tooltip = { text = tooltip_health_deteriorates }
-				# hidden_tooltip = { health = -0.25 }
-			# }
-			# if = { 
-				# limit = { NOT = { trait = stressed } } 
-				# add_trait = stressed
-				# hidden_tooltip = { character_event = { id = 38282 } }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20660 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# NOT = { check_variable = { which = physique_variable value = 7 } } 
-			# }
-			# modifier = {
-				# factor = 1.75
-				# trait = stubborn
-			# }
-			# modifier = {
-				# factor = 1.5
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = 0
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -40
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -60
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -80
-					# }
-				# }
-			# }
-		# }
-	# }
-# }
+			}
+			modifier = {
+				factor = 1.5
+				trait = robust
+			}
+			modifier = { 
+				factor = 1.5
+				trait = hunter
+			}
+			modifier = { 
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.75
+				trait = temperate
+			}
+		}
+	}
+	option = { #Not my business
+		name = EVTOPTDHFP20651
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+				factor = 0.75
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.75
+				trait = cruel
+			}
+		}
+	}
+}
 
-# #Character encouraged to eat more.
-# character_event = {
-	# id = HFP.20653
-	# desc = {
-		# text = EVTDESCAHFP20653
-		# trigger = { 
-			# is_female = no
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20653
-		# trigger = { 
-			# is_female = yes
-		# }
-	# }
+#Character encouraged to eat less.
+character_event = {
+	id = HFP.20652
+	desc = EVTDESCHAFP20652
 
-	# trigger = { 
-		# FROM = { is_alive = yes } 
-	# }
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
 
-	# picture = GFX_evt_courtiers_talking
+	picture = GFX_evt_courtiers_talking
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Paranoid
-		# name = EVTOPTAHFP20653
-		# custom_tooltip = { text = tooltip_20653_A }
-		# trigger = { trait = paranoid }
-		# tooltip_info = paranoid
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20658 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# check_variable = { which = physique_variable value = 10 } 
-			# }
-		# }
-	# }
-	# option = { #Trusting
-		# name = EVTOPTBHFP20653
-		# custom_tooltip = { text = tooltip_20653_B }
-		# gain_weight_medium_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20654 } } }
-		# hidden_tooltip = { character_event = { id = HFP.20656  days = 30 } } #Results
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# NOT = { check_variable = { which = physique_variable value = -10 } } 
-			# }
-			# modifier = {
-				# factor = 1.75
-				# is_friend = FROM
-			# }
-			# modifier = {
-				# factor = 1.75
-				# is_lover = FROM
-			# }
-			# modifier = {
-				# factor = 0.25
-				# is_rival = FROM
-			# }
-			# modifier = {
-				# factor = 1.5
-				# is_married = FROM
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 8 
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 10 
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 12
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# FROM = { 
-					# intrigue = 15
-					# has_character_flag = flag_ill_advisor
-				# }
-			# }
-			# modifier = {
-				# factor = 1.25
-				# opinion = { who = FROM value = 30 }
-			# }
-			# modifier = {
-				# factor = 1.25
-				# opinion = { who = FROM value = 50 }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# opinion = { who = FROM value = 70 }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# opinion = { who = FROM value = 90 }
-			# }
-		# }
-	# }
-	# option = { #Not trusting
-		# name = EVTOPTCHFP20653
-		# trigger = { NOT = { trait = trusting } }
-		# custom_tooltip = { text = tooltip_20653_C }
-		# random = { 
-			# chance = 30
-			# if = { 
-				# limit = { trait = stressed } 
-				# custom_tooltip = { text = tooltip_health_deteriorates }
-				# hidden_tooltip = { health = -0.25 }
-			# }
-			# if = { 
-				# limit = { NOT = { trait = stressed } } 
-				# add_trait = stressed
-				# hidden_tooltip = { character_event = { id = 38282 } }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20659 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = {
-				# factor = 1.5
-				# check_variable = { which = physique_variable value = 10 } 
-			# }
-			# modifier = {
-				# factor = 1.75
-				# trait = stubborn
-			# }
-			# modifier = {
-				# factor = 1.5
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = 0
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -40
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -60
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 1.75
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -80
-					# }
-				# }
-			# }
-		# }
-	# }
-# }
+	option = { #Paranoid
+		name = EVTOPTAHFP20652
+		custom_tooltip = { text = tooltip_20652_A }
+		trigger = { trait = paranoid }
+		tooltip_info = paranoid
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20658 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = physique_variable value = -7 } } 
+			}
+		}
+	}
+	option = { #Trusting
+		name = EVTOPTBHFP20652
+		custom_tooltip = { text = tooltip_20652_B }
+		lose_weight_medium_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20655 } } }
+		hidden_tooltip = { character_event = { id = HFP.20657  days = 30 } } #Results
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				check_variable = { which = physique_variable value = 7 } 
+			}
+			modifier = {
+				factor = 1.75
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 1.75
+				is_lover = FROM
+			}
+			modifier = {
+				factor = 0.25
+				is_rival = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_married = FROM
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 8 
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 10 
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 12
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 15
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROM value = 30 }
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 70 }
+			}
+			modifier = {
+				factor = 1.75
+				opinion = { who = FROM value = 90 }
+			}
+		}
+	}
+	option = { #Not trusting
+		name = EVTOPTCHFP20652
+		trigger = { NOT = { trait = trusting } }
+		custom_tooltip = { text = tooltip_20652_C }
+		random = { 
+			chance = 30
+			if = { 
+				limit = { trait = stressed } 
+				custom_tooltip = { text = tooltip_health_deteriorates }
+				hidden_tooltip = { health = -0.25 }
+			}
+			if = { 
+				limit = { NOT = { trait = stressed } } 
+				add_trait = stressed
+				hidden_tooltip = { character_event = { id = 38282 } }
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20660 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = physique_variable value = 7 } } 
+			}
+			modifier = {
+				factor = 1.75
+				trait = stubborn
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -80
+					}
+				}
+			}
+		}
+	}
+}
 
-# #Advisor notified: Character is eating more.
-# character_event = {
-	# id = HFP.20654
-	# desc = {
-		# text = EVTDESCHAFP20654
-		# trigger = { 
-			# FROM = { is_female = no } 
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHBFP20654
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHCFP20654
-		# trigger = { 
-			# has_character_flag = flag_ill_advisor 
-		# }
-	# }
+#Character encouraged to eat more.
+character_event = {
+	id = HFP.20653
+	desc = {
+		text = EVTDESCAHFP20653
+		trigger = { 
+			is_female = no
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20653
+		trigger = { 
+			is_female = yes
+		}
+	}
 
-	# trigger = { 
-		# FROM = { is_alive = yes } 
-	# }
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
 
-	# picture = GFX_evt_courtiers_talking
+	picture = GFX_evt_courtiers_talking
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Good
-		# name = EVTOPTAHFP20654
-		# if = { 
-			# limit = { 
-				# trait = deceitful 
-				# has_character_flag = flag_ill_advisor
-			# } 
-			# random = { 
-				# chance = 30
-				# change_intrigue = 1
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = deceitful } 
-				# has_character_flag = flag_ill_advisor
-			# } 
-			# random = { 
-				# chance = 30
-				# add_trait = deceitful
-				# hidden_tooltip = { character_event = { id = 38255 } }
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { has_character_flag = flag_ill_advisor } 
-				# FROM = { NOT = { check_variable = { which = physique_variable value = 10 } } } #Character is recovering.
-			# } 
-			# tiered_piety_reward_effect = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { has_character_flag = flag_ill_advisor } 
-				# FROM = { check_variable = { which = physique_variable value = 10 } } #Character is getting worse.
-			# } 
-			# tiered_prestige_reward_effect = yes
-		# }
-		# clr_character_flag = flag_ill_advisor
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	option = { #Paranoid
+		name = EVTOPTAHFP20653
+		custom_tooltip = { text = tooltip_20653_A }
+		trigger = { trait = paranoid }
+		tooltip_info = paranoid
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20658 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				check_variable = { which = physique_variable value = 10 } 
+			}
+		}
+	}
+	option = { #Trusting
+		name = EVTOPTBHFP20653
+		custom_tooltip = { text = tooltip_20653_B }
+		gain_weight_medium_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20654 } } }
+		hidden_tooltip = { character_event = { id = HFP.20656  days = 30 } } #Results
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { check_variable = { which = physique_variable value = -10 } } 
+			}
+			modifier = {
+				factor = 1.75
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 1.75
+				is_lover = FROM
+			}
+			modifier = {
+				factor = 0.25
+				is_rival = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_married = FROM
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 8 
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 10 
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 12
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { 
+					intrigue = 15
+					has_character_flag = flag_ill_advisor
+				}
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROM value = 30 }
+			}
+			modifier = {
+				factor = 1.25
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 70 }
+			}
+			modifier = {
+				factor = 1.75
+				opinion = { who = FROM value = 90 }
+			}
+		}
+	}
+	option = { #Not trusting
+		name = EVTOPTCHFP20653
+		trigger = { NOT = { trait = trusting } }
+		custom_tooltip = { text = tooltip_20653_C }
+		random = { 
+			chance = 30
+			if = { 
+				limit = { trait = stressed } 
+				custom_tooltip = { text = tooltip_health_deteriorates }
+				hidden_tooltip = { health = -0.25 }
+			}
+			if = { 
+				limit = { NOT = { trait = stressed } } 
+				add_trait = stressed
+				hidden_tooltip = { character_event = { id = 38282 } }
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20659 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				check_variable = { which = physique_variable value = 10 } 
+			}
+			modifier = {
+				factor = 1.75
+				trait = stubborn
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -80
+					}
+				}
+			}
+		}
+	}
+}
 
-# #Advisor notified: Character is eating less.
-# character_event = {
-	# id = HFP.20655
-	# desc = {
-		# text = EVTDESCHAFP20655
-		# trigger = { 
-			# FROM = { is_female = no }
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHBFP20655
-		# trigger = { 
-			# FROM = { is_female = yes }
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHCFP20655
-		# trigger = { 
-			# has_character_flag = flag_ill_advisor 
-		# }
-	# }
+#Advisor notified: Character is eating more.
+character_event = {
+	id = HFP.20654
+	desc = {
+		text = EVTDESCHAFP20654
+		trigger = { 
+			FROM = { is_female = no } 
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCHBFP20654
+		trigger = { 
+			FROM = { is_female = yes }
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCHCFP20654
+		trigger = { 
+			has_character_flag = flag_ill_advisor 
+		}
+	}
 
-	# trigger = { 
-		# FROM = { is_alive = yes } 
-	# }
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
 
-	# picture = GFX_evt_courtiers_talking
+	picture = GFX_evt_courtiers_talking
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Good
-		# name = EVTOPTAHFP20655
-		# if = { 
-			# limit = { 
-				# trait = deceitful 
-				# has_character_flag = flag_ill_advisor
-			# } 
-			# random = { 
-				# chance = 30
-				# change_intrigue = 1
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = deceitful } 
-				# has_character_flag = flag_ill_advisor
-			# } 
-			# random = { 
-				# chance = 30
-				# add_trait = deceitful
-				# hidden_tooltip = { character_event = { id = 38255 } }
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { has_character_flag = flag_ill_advisor } 
-				# FROM = { check_variable = { which = physique_variable value = -10 } } #Character is recovering.
-			# } 
-			# tiered_piety_reward_effect = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { has_character_flag = flag_ill_advisor } 
-				# FROM = { NOT = { check_variable = { which = physique_variable value = -10 } } } #Character is getting worse.
-			# } 
-			# tiered_prestige_reward_effect = yes
-		# }
-		# clr_character_flag = flag_ill_advisor
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	option = { #Good
+		name = EVTOPTAHFP20654
+		if = { 
+			limit = { 
+				trait = deceitful 
+				has_character_flag = flag_ill_advisor
+			} 
+			random = { 
+				chance = 30
+				change_intrigue = 1
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = deceitful } 
+				has_character_flag = flag_ill_advisor
+			} 
+			random = { 
+				chance = 30
+				add_trait = deceitful
+				hidden_tooltip = { character_event = { id = 38255 } }
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { has_character_flag = flag_ill_advisor } 
+				FROM = { NOT = { check_variable = { which = physique_variable value = 10 } } } #Character is recovering.
+			} 
+			tiered_piety_reward_effect = yes
+		}
+		if = { 
+			limit = { 
+				NOT = { has_character_flag = flag_ill_advisor } 
+				FROM = { check_variable = { which = physique_variable value = 10 } } #Character is getting worse.
+			} 
+			tiered_prestige_reward_effect = yes
+		}
+		clr_character_flag = flag_ill_advisor
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
 
-# #Results of character eating more.
-# character_event = {
-	# id = HFP.20656
-	# desc = {
-		# text = EVTDESCHAFP20656
-		# trigger = { 
-			# is_female = no
-			# check_variable = { which = physique_variable value = 15 }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHBFP20656
-		# trigger = { 
-			# is_female = yes
-			# check_variable = { which = physique_variable value = 15 }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHCFP20656
-		# trigger = { 
-			# is_female = no
-			# NOT = { check_variable = { which = physique_variable value = 15 } }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHDFP20656
-		# trigger = { 
-			# is_female = yes
-			# NOT = { check_variable = { which = physique_variable value = 15 } }
-		# }
-	# }
+#Advisor notified: Character is eating less.
+character_event = {
+	id = HFP.20655
+	desc = {
+		text = EVTDESCHAFP20655
+		trigger = { 
+			FROM = { is_female = no }
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCHBFP20655
+		trigger = { 
+			FROM = { is_female = yes }
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCHCFP20655
+		trigger = { 
+			has_character_flag = flag_ill_advisor 
+		}
+	}
 
-	# picture = GFX_evt_fancy_feast
+	trigger = { 
+		FROM = { is_alive = yes } 
+	}
 
-	# is_triggered_only = yes
+	picture = GFX_evt_courtiers_talking
 
-	# option = {
-		# name = EVTOPTAHFP20656
-		# set_character_flag = flag_primed_physique #No flavor needed.
-		# weight_trait_check_effect = yes
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	is_triggered_only = yes
 
-# #Results of character eating less.
-# character_event = {
-	# id = HFP.20657
-	# desc = {
-		# text = EVTDESCHAFP20657
-		# picture = GFX_evt_bad_news
-		# trigger = { 
-			# NOT = { check_variable = { which = physique_variable value = -15 } }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHCFP20657
-		# picture = GFX_evt_recovery
-		# trigger = { 
-			# is_female = no
-			# check_variable = { which = physique_variable value = -15 }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHDFP20657
-		# picture = GFX_evt_recovery
-		# trigger = { 
-			# is_female = yes
-			# check_variable = { which = physique_variable value = -15 }
-		# }
-	# }
+	option = { #Good
+		name = EVTOPTAHFP20655
+		if = { 
+			limit = { 
+				trait = deceitful 
+				has_character_flag = flag_ill_advisor
+			} 
+			random = { 
+				chance = 30
+				change_intrigue = 1
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = deceitful } 
+				has_character_flag = flag_ill_advisor
+			} 
+			random = { 
+				chance = 30
+				add_trait = deceitful
+				hidden_tooltip = { character_event = { id = 38255 } }
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { has_character_flag = flag_ill_advisor } 
+				FROM = { check_variable = { which = physique_variable value = -10 } } #Character is recovering.
+			} 
+			tiered_piety_reward_effect = yes
+		}
+		if = { 
+			limit = { 
+				NOT = { has_character_flag = flag_ill_advisor } 
+				FROM = { NOT = { check_variable = { which = physique_variable value = -10 } } } #Character is getting worse.
+			} 
+			tiered_prestige_reward_effect = yes
+		}
+		clr_character_flag = flag_ill_advisor
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
 
-	# picture = GFX_evt_courtiers_talking
+#Results of character eating more.
+character_event = {
+	id = HFP.20656
+	desc = {
+		text = EVTDESCHAFP20656
+		trigger = { 
+			is_female = no
+			check_variable = { which = physique_variable value = 15 }
+		}
+	}
+	desc = {
+		text = EVTDESCHBFP20656
+		trigger = { 
+			is_female = yes
+			check_variable = { which = physique_variable value = 15 }
+		}
+	}
+	desc = {
+		text = EVTDESCHCFP20656
+		trigger = { 
+			is_female = no
+			NOT = { check_variable = { which = physique_variable value = 15 } }
+		}
+	}
+	desc = {
+		text = EVTDESCHDFP20656
+		trigger = { 
+			is_female = yes
+			NOT = { check_variable = { which = physique_variable value = 15 } }
+		}
+	}
 
-	# is_triggered_only = yes
+	picture = GFX_evt_fancy_feast
 
-	# option = {
-		# name = EVTOPTAHFP20657
-		# set_character_flag = flag_primed_physique #No flavor needed.
-		# weight_trait_check_effect = yes
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	is_triggered_only = yes
 
-# #Advisor: character doesn't trust you.
-# character_event = {
-	# id = HFP.20658
-	# desc = {
-		# text = EVTDESCHAFP20658
-		# trigger = { 
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHBFP20658
-		# trigger = { 
-			# has_character_flag = flag_ill_advisor
-		# }
-	# }
+	option = {
+		name = EVTOPTAHFP20656
+		set_character_flag = flag_primed_physique #No flavor needed.
+		weight_trait_check_effect = yes
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
 
-	# picture = GFX_evt_courtiers_talking
+#Results of character eating less.
+character_event = {
+	id = HFP.20657
+	desc = {
+		text = EVTDESCHAFP20657
+		picture = GFX_evt_bad_news
+		trigger = { 
+			NOT = { check_variable = { which = physique_variable value = -15 } }
+		}
+	}
+	desc = {
+		text = EVTDESCHCFP20657
+		picture = GFX_evt_recovery
+		trigger = { 
+			is_female = no
+			check_variable = { which = physique_variable value = -15 }
+		}
+	}
+	desc = {
+		text = EVTDESCHDFP20657
+		picture = GFX_evt_recovery
+		trigger = { 
+			is_female = yes
+			check_variable = { which = physique_variable value = -15 }
+		}
+	}
 
-	# is_triggered_only = yes
+	picture = GFX_evt_courtiers_talking
 
-	# option = {
-		# name = EVTOPTAHFP20658
-		# clr_character_flag = flag_ill_advisor
-		# opinion = { 
-			# who = FROM
-			# modifier = opinion_offended
-			# years = 5
-		# } 
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	is_triggered_only = yes
 
+	option = {
+		name = EVTOPTAHFP20657
+		set_character_flag = flag_primed_physique #No flavor needed.
+		weight_trait_check_effect = yes
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
 
-# #Advisor: character doesn't want to eat more.
-# character_event = {
-	# id = HFP.20659
-	# desc = {
-		# text = EVTDESCAHFP20659
-		# trigger = { 
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20659
-		# trigger = { 
-			# has_character_flag = flag_ill_advisor
-		# }
-	# }
+#Advisor: character doesn't trust you.
+character_event = {
+	id = HFP.20658
+	desc = {
+		text = EVTDESCHAFP20658
+		trigger = { 
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCHBFP20658
+		trigger = { 
+			has_character_flag = flag_ill_advisor
+		}
+	}
 
-	# picture = GFX_evt_courtiers_talking
+	picture = GFX_evt_courtiers_talking
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTAHFP20659
-		# clr_character_flag = flag_ill_advisor
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
-
-# #Advisor: character doesn't want to eat less.
-# character_event = {
-	# id = HFP.20660
-	# desc = {
-		# text = EVTDESCAHFP20660
-		# trigger = { 
-			# NOT = { has_character_flag = flag_ill_advisor } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20660
-		# trigger = { 
-			# has_character_flag = flag_ill_advisor
-		# }
-	# }
-	# picture = GFX_evt_courtiers_talking
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTAHFP20660
-		# clr_character_flag = flag_ill_advisor
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20658
+		clr_character_flag = flag_ill_advisor
+		opinion = { 
+			who = FROM
+			modifier = opinion_offended
+			years = 5
+		} 
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
 
 
-# # Health complications: late life health issues.
+#Advisor: character doesn't want to eat more.
+character_event = {
+	id = HFP.20659
+	desc = {
+		text = EVTDESCAHFP20659
+		trigger = { 
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20659
+		trigger = { 
+			has_character_flag = flag_ill_advisor
+		}
+	}
 
-# #Character has become obese.
-# character_event = {
-	# id = HFP.20661
-	# desc = EVTDESCAHFP20661
-	# picture = GFX_evt_fancy_feast
-	# min_age = 40	#Unlikely to happen earlier.
-	# capable_only = yes
-	# prisoner = no
+	picture = GFX_evt_courtiers_talking
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHFP20659
+		clr_character_flag = flag_ill_advisor
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+#Advisor: character doesn't want to eat less.
+character_event = {
+	id = HFP.20660
+	desc = {
+		text = EVTDESCAHFP20660
+		trigger = { 
+			NOT = { has_character_flag = flag_ill_advisor } 
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20660
+		trigger = { 
+			has_character_flag = flag_ill_advisor
+		}
+	}
+	picture = GFX_evt_courtiers_talking
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHFP20660
+		clr_character_flag = flag_ill_advisor
+		ai_chance = { 
+			factor = 100
+		}
+	}
+}
+
+
+# Health complications: late life health issues.
+
+#Character has become obese.
+character_event = {
+	id = HFP.20661
+	desc = EVTDESCAHFP20661
+	picture = GFX_evt_fancy_feast
+	min_age = 60	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no
+
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# trait = is_fat 
-		# NOT = { has_character_modifier = obese_modifier }
-		# check_variable = { which = physique_variable value = 30 }
-		# has_character_flag = flag_becoming_obese		#Gained in HFP.20647
-	# } 
-	# weight_multiplier = {
-		# factor = 1
-		# modifier = {
-			# factor = 2
-			# has_character_modifier = well_fed
-		# }
-		# modifier = {
-			# factor = 1.5
-		# check_variable = { which = physique_variable value = 35 }
-		# }
-		# modifier = {
-			# factor = 3
-		# check_variable = { which = physique_variable value = 40 }
-		# }
-		# modifier = {
-			# factor = 5
-		# check_variable = { which = physique_variable value = 50 }
-		# }
-		# modifier = {
-			# factor = 7
-		# check_variable = { which = physique_variable value = 60 }
-		# }
-		# modifier = {
-			# factor = 10
-		# check_variable = { which = physique_variable value = 70 }
-		# }
-	# }
+	trigger = { 
+		trait = is_fat 
+		NOT = { has_character_modifier = obese_modifier }
+		check_variable = { which = physique_variable value = 30 }
+		has_character_flag = flag_becoming_obese		#Gained in HFP.20647
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = well_fed
+		}
+		modifier = {
+			factor = 1.5
+		check_variable = { which = physique_variable value = 35 }
+		}
+		modifier = {
+			factor = 3
+		check_variable = { which = physique_variable value = 40 }
+		}
+		modifier = {
+			factor = 5
+		check_variable = { which = physique_variable value = 50 }
+		}
+		modifier = {
+			factor = 7
+		check_variable = { which = physique_variable value = 60 }
+		}
+		modifier = {
+			factor = 10
+		check_variable = { which = physique_variable value = 70 }
+		}
+	}
 
-	# option = { #Too late to do anything anymore.
-		# name = EVTOPTCHFP20661	
-		# add_character_modifier = {
-			# name = obese_modifier
-			# duration = -1
-		# }
-		# clr_character_flag = flag_becoming_obese
-		# hidden_tooltip = { 
-			# if = { 
-				# limit = { check_variable = { which = physique_variable value = 35 } } 
-				# health = -0.5
-			# }
-			# if = { 
-				# limit = { check_variable = { which = physique_variable value = 40 } } 
-				# health = -0.7
-			# }
-			# if = { 
-				# limit = { check_variable = { which = physique_variable value = 45 } } 
-				# health = -0.7
-			# }
-			# if = { 
-				# limit = { check_variable = { which = physique_variable value = 50 } } 
-				# health = -1.0
-			# }
-			# if = { 
-				# limit = { check_variable = { which = physique_variable value = 55 } } 
-				# health = -2.0
-			# }
-		# } 
-		# gain_weight_small_effect = yes
-		# ai_chance = { factor = 30 }
-	# }
-# }
+	option = { #Too late to do anything anymore.
+		name = EVTOPTCHFP20661	
+		add_character_modifier = {
+			name = obese_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_obese
+		hidden_tooltip = { 
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 35 } } 
+				health = -0.5
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 40 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 45 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 50 } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 55 } } 
+				health = -2.0
+			}
+		} 
+		gain_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}
 
-# #Character has become severely underweight.
-# character_event = {
-	# id = HFP.20662
-	# desc = EVTDESCAHFP20662
-	# picture = GFX_evt_bad_news
-	# min_age = 40	#Unlikely to happen earlier.
-	# capable_only = yes
-	# prisoner = no 	#Starvation in prison still handled by vanilla events.
+#Character has become severely underweight.
+character_event = {
+	id = HFP.20662
+	desc = EVTDESCAHFP20662
+	picture = GFX_evt_bad_news
+	min_age = 60	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no 	#Starvation in prison still handled by vanilla events.
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# trait = is_malnourished
-		# NOT = { has_character_modifier = severely_underweight_modifier }
-		# NOT = { check_variable = { which = physique_variable value = -30 } }
-		# has_character_flag = flag_becoming_underweight 	#Gained in HFP.20648
-	# } 
-	# weight_multiplier = {
-		# factor = 1
-		# modifier = {
-			# factor = 2
-			# has_character_modifier = one_year_fasting
-		# }
-		# modifier = {
-			# factor = 2
-			# prisoner = yes
-		# }
-		# modifier = {
-			# factor = 3
-		# NOT = { check_variable = { which = physique_variable value = -35 } }
-		# }
-		# modifier = {
-			# factor = 5
-		# NOT = { check_variable = { which = physique_variable value = -40 } }
-		# }
-		# modifier = {
-			# factor = 10
-		# NOT = { check_variable = { which = physique_variable value = -45 } }
-		# }
-		# modifier = {
-			# factor = 10
-		# NOT = { check_variable = { which = physique_variable value = -50 } }
-		# }
-		# modifier = {
-			# factor = 10
-		# NOT = { check_variable = { which = physique_variable value = -55 } }
-		# }
-	# }
-
-	# option = { #Too late now.
-		# name = EVTOPTAHFP20662
-		# add_character_modifier = {
-			# name = severely_underweight_modifier
-			# duration = -1
-		# }
-		# clr_character_flag = flag_becoming_underweight
-		# hidden_tooltip = { 
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -30 } } } 
-				# health = -0.75
-			# }
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -35 } } } 
-				# health = -0.75
-			# }
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -40 } } } 
-				# health = -1.0
-			# }
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -45 } } } 
-				# health = -1.5
-			# }
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -50 } } } 
-				# health = -2.0
-			# }
-			# if = { 
-				# limit = { NOT = { check_variable = { which = physique_variable value = -55 } } }
-				# health = -3.0
-			# }
-		# } 
-		# lose_weight_small_effect = yes
-		# ai_chance = { factor = 30 }
-	# }
-# }
-# ######################################
-# #### Additional Flavor ####
-
-# #Fat ruler becomes proud
-# character_event = {
-	# id = HFP.20663
-	# desc = {
-		# text = EVTDESCAHFP20663
-		# trigger = { is_female = no }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20663
-		# trigger = { is_female = yes }
-	# }
-	# picture = GFX_evt_fancy_feast
-
-	# trigger = { 
-		# trait = is_fat
-		# has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20663
-		# tooltip_info = is_fat
-		# if = { 
-			# limit = { trait = proud } 
-			# tiered_prestige_reward_effect = yes
-		# } 
-		# if = { 
-			# limit = { trait = humble } 
-			# remove_trait = humble
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = proud } } 
-			# add_trait = proud
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Fat ruler becomes patient
-# character_event = {
-	# id = HFP.20664
-	# desc = {
-		# text = EVTDESCAHFP20664
-		# trigger = { is_female = no }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20664
-		# trigger = { is_female = yes }
-	# }
-	# picture = GFX_evt_courtiers_talking
-
-	# trigger = { 
-		# trait = is_fat
-		# has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20664
-		# tooltip_info = is_fat
-		# if = { 
-			# limit = { trait = proud } 
-			# piety = 50
-		# } 
-		# if = { 
-			# limit = { trait = wroth } 
-			# remove_trait = wroth
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = patient } } 
-			# add_trait = patient
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Fat ruler becomes content
-# character_event = {
-	# id = HFP.20665
-	# desc = {
-		# text = EVTDESCAHFP20665
-		# trigger = { is_female = no }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20665
-		# trigger = { is_female = yes }
-	# }
-	# picture = GFX_evt_recovery
-
-	# trigger = { 
-		# trait = is_fat
-		# has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20665
-		# tooltip_info = is_fat
-		# if = { 
-			# limit = { trait = content } 
-			# piety = 50
-		# } 
-		# if = { 
-			# limit = { trait = ambitious } 
-			# remove_trait = ambitious
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = content } } 
-			# add_trait = content
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-
-# #Malnourished ruler becomes humble
-# character_event = {
-	# id = HFP.20666
-	# desc = {
-		# text = EVTDESCAHFP20666
-	# }
-	# picture = GFX_evt_recovery
-
-	# trigger = { 
-		# trait = is_malnourished
-		# has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20666
-		# tooltip_info = is_malnourished
-		# if = { 
-			# limit = { trait = humble } 
-			# piety = 50
-		# } 
-		# if = { 
-			# limit = { trait = proud } 
-			# remove_trait = proud
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = humble } } 
-			# add_trait = humble
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Malnourished ruler becomes envious
-# character_event = {
-	# id = HFP.20667
-	# desc = {
-		# text = EVTDESCAHFP20667
-		# trigger = { is_female = no }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20667
-		# trigger = { is_female = yes }
-	# }
-	# picture = GFX_evt_scandal
-
-	# trigger = { 
-		# trait = is_malnourished
-		# has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20667
-		# tooltip_info = is_malnourished
-		# if = { 
-			# limit = { trait = kind } 
-			# remove_trait = kind
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = envious } } 
-			# add_trait = envious
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Malnourished ruler becomes cruel
-# character_event = {
-	# id = HFP.20668
-	# desc = {
-		# text = EVTDESCAHFP20668
-		# trigger = { has_character_flag = flag_malnourished_for_paranoid }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20668
-		# trigger = { has_character_flag = flag_malnourished_for_slothful }
-	# }
-	# desc = {
-		# text = EVTDESCCHFP20668
-		# trigger = { has_character_flag = flag_malnourished_for_cannibal }
-	# }
-	# picture = GFX_evt_lunatic
-
-	# trigger = { 
-		# trait = is_malnourished
-		# has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20668
-		# tooltip_info = is_malnourished
-		# if = { 
-			# limit = { trait = kind } 
-			# remove_trait = kind
-		# } 
-		# if = { 
-			# limit = { NOT = { trait = cruel } } 
-			# add_trait = cruel
-		# }
-		# #clear_fat_flags_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-
-# #Event for sturdy/frail teenage, chance to turn it into something else.
-# #Chance of triggering in the adolescence event itself.
-# character_event = {
-	# id = HFP.20669
-	# desc = {
-		# text = EVTDESCAHFP20669
-		# trigger = { 
-			# trait = sturdy
-			# is_female = no
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20669
-		# trigger = { 
-			# trait = sturdy
-			# is_female = yes
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCCHFP20669
-		# trigger = { 
-			# trait = feeble
-			# is_female = no
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCDHFP20669
-		# trigger = { 
-			# trait = feeble
-			# is_female = yes
-		# }
-	# }
-	# picture = GFX_evt_courtiers_talking
-
-	# is_triggered_only = yes
-
-	# option = { #Military training is what I need!
-		# name = EVTOPTAHFP20669
-		# trigger = { 
-			# NOR = { 
-				# trait = is_fat
-				# trait = is_malnourished #Shouldn't be either at this age anyway, but, just to be safe...
-			# }
-			# OR = { 
-				# trait = sturdy
-				# trait = feeble #Works for both.
-			# }
-			# combat_rating = 15
-			# OR = {
-				# trait = misguided_warrior
-				# trait = tough_soldier 
-				# trait = skilled_tactician
-				# trait = brilliant_strategist 
-			# }
-		# }
-		# tooltip_info = combat_rating
-		# custom_tooltip = { text = tooltip_20663_A } 
-		# balance_weight_large_effect = yes
-		# hidden_tooltip = {
-			# random_list = {
-				# 80 = { #Success - Character stops being sturdy/feeble
-					# character_event = { id = HFP.20670 days = 150 random = 150 } 
-				# }
-				# 20 = { #Critical Success - Character becomes brawny
-					# character_event = { id = HFP.20671 days = 150 random = 150 } 
-				# }
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 100
-		# }
-	# }
-	# option = { #Eat less.
-		# name = EVTOPTBHFP20669
-		# trigger = { 
-			# trait = sturdy
-		# }
-		# custom_tooltip = { text = tooltip_20663_B } 
-		# balance_weight_large_effect = yes
-		# hidden_tooltip = {
-			# random_list = {
-				# 10 = { #Overboard - Character becomes feeble
-					# character_event = { id = HFP.20672 days = 150 random = 150 } 
-				# }
-				# 50 = { #Success - Character stops being sturdy
-					# character_event = { id = HFP.20673 days = 150 random = 150 } 
-				# }
-				# 30 = { #Failure - Character still sturdy
-				# }
-			# } 
-		# } 
-		# ai_chance = { 
-			# factor = 50
-		# }
-	# }
-	# option = { #Eat more.
-		# name = EVTOPTCHFP20669
-		# trigger = { 
-			# trait = feeble
-		# }
-		# custom_tooltip = { text = tooltip_20663_C } 
-		# balance_weight_large_effect = yes
-		# hidden_tooltip = {
-			# random_list = {
-				# 10 = { #Overboard - Character becomes sturdy
-					# character_event = { id = HFP.20674 days = 150 random = 150 } 
-				# }
-				# 50 = { #Success - Character stops being feeble
-					# character_event = { id = HFP.20675 days = 150 random = 150 } 
-				# }
-				# 30 = { #Failure - Character still feeble
-				# }
-			# } 
-		# } 
-		# ai_chance = { 
-			# factor = 50
-		# }
-	# }
-	# option = { #Nothing
-		# name = EVTOPTDHFP20669
-		# ai_chance = { 
-			# factor = 0
-		# }
-	# }
-# }
-
-# #Training removes sturdy/feeble
-# character_event = {
-	# id = HFP.20670
-	# desc = {
-		# text = EVTDESCAHFP20670
-		# trigger = { 
-			# trait = sturdy
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20670
-		# trigger = { 
-			# trait = feeble
-		# }
-	# }
-	# desc = EVTDESCAHFP20670
-	# picture = GFX_evt_child_sword
-
-	# trigger = { 
-		# OR = { 
-			# trait = sturdy
-			# trait = feeble 
-		# }
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20670
-		# if = { 
-			# limit = { trait = sturdy } 
-			# remove_trait = sturdy
-		# } 
-		# if = { 
-			# limit = { trait = feeble } 
-			# remove_trait = feeble
-		# } 
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Training makes brawny
-# character_event = {
-	# id = HFP.20671
-	# desc = EVTDESCAHFP20671
-	# picture = GFX_evt_child_sword
-
-	# trigger = { 
-		# OR = { 
-			# trait = sturdy
-			# trait = feeble 
-		# }
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20671
-		# if = { 
-			# limit = { trait = sturdy } 
-			# remove_trait = sturdy
-		# } 
-		# if = { 
-			# limit = { trait = feeble } 
-			# remove_trait = feeble
-		# } 
-		# add_trait = robust
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Sturdy becomes feeble
-# character_event = {
-	# id = HFP.20672
-	# desc = EVTDESCAHFP20672
-	# picture = GFX_evt_child_reading
-
-	# trigger = { 
-		# trait = sturdy
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20672
-		# if = { 
-			# limit = { trait = sturdy } 
-			# remove_trait = sturdy
-		# } 
-		# add_trait = feeble
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Character no longer sturdy.
-# character_event = {
-	# id = HFP.20673
-	# desc = EVTDESCAHFP20673
-	# picture = GFX_evt_child_reading
-
-	# trigger = { 
-		# trait = sturdy
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20673
-		# if = { 
-			# limit = { trait = sturdy } 
-			# remove_trait = sturdy
-		# } 
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Feeble becomes sturdy
-# character_event = {
-	# id = HFP.20674
-	# desc = {
-		# text = EVTDESCAHFP20674
-		# trigger = { 
-			# is_female = no
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20674
-		# trigger = { 
-			# is_female = yes
-		# }
-	# }
-	# picture = GFX_evt_child_reading
-
-	# trigger = { 
-		# trait = feeble
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20674
-		# if = { 
-			# limit = { trait = feeble } 
-			# remove_trait = feeble
-		# } 
-		# add_trait = sturdy
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Character no longer feeble.
-# character_event = {
-	# id = HFP.20675
-	# desc = EVTDESCAHFP20675
-	# picture = GFX_evt_child_reading
-
-	# trigger = { 
-		# trait = feeble
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20675
-		# if = { 
-			# limit = { trait = feeble } 
-			# remove_trait = feeble
-		# } 
-		# prestige = 25
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# ######################################################
-# #Potential Obese/Underweight flavor. (fired from the events applying those modifiers) - Higher than Count only.
-
-# #The Leechlord (requires Reaper's Due).
-# #Court Physician has brilliant idea.
-# character_event = {
-	# id = HFP.20676
-	# desc = EVTDESCAHFP20676
-	# picture = GFX_evt_died_old_age
-
-	# trigger = { 
-		# has_minor_title = title_court_physician
-		# FROM = { 
-			# is_alive = yes
-			# trait = is_malnourished
-		# }
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { #Inform liege.
-		# name = EVTOPTAHFP20676
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20677 } } }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #No.
-		# name = EVTOPTBHFP20676
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Liege informed of treatment to rebalance humors.
-# character_event = {
-	# id = HFP.20677
-	# desc = EVTDESCAHFP20677
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #Yes.
-		# name = EVTOPTAHFP20677
-		# custom_tooltip = { text = tooltip_health_improves }
-		# hidden_tooltip = { health = 0.35 } 
-		# lose_weight_medium_effect = yes
-		# FROM = {
-			# show_scope_change = no 
-			# opinion = { 
-				# who = ROOT 
-				# modifier = opinion_loyal_servant 
-				# months = 1200
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20701 } } } #Notify in case it's player.
-		# hidden_tooltip = { character_event = { id = HFP.20678 days = 30 random = 30 } }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #No.
-		# name = EVTOPTBHFP20677
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20702 } } } 
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Court Physician notified. (End of his line)
-# character_event = {
-	# id = HFP.20701
-	# desc = EVTDESCAHFP20701
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #No.
-		# name = EVTOPTAHFP20701
-		# tiered_piety_reward_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-# #Court Physician notified. (End of his line)
-# character_event = {
-	# id = HFP.20702
-	# desc = EVTDESCAHFP20702
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #No.
-		# name = EVTOPTAHFP20702
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Time has passed, ruler notices change in behavior.
-# character_event = {
-	# id = HFP.20678
-	# desc = EVTDESCAHFP20678
-	# picture = GFX_evt_died_old_age
-	# show_from_from = yes
-
-	# is_triggered_only = yes
-
-	# option = { #Do not care, but kill physician.
-		# name = EVTOPTAHFP20678
-		# trigger = { trait = paranoid }
-		# tooltip_info = paranoid
-		# if = { 
-			# limit = { NOT = { trait = cruel } } 
-			# add_trait = cruel
-		# }
-		# add_character_modifier = { 
-			# modifier = leechlord_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_leechlord }
-		# }
-		# tooltip = {  
-			# FROMFROM = {
-				# death = { 
-					# death_reason = death_execution_hanging
-					# killer = ROOT 
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20679 } } } #Actually kill Physician.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Do not care.
-		# name = EVTOPTBHFP20678
-		# if = { 
-			# limit = { NOT = { trait = cruel } } 
-			# add_trait = cruel
-		# }
-		# add_character_modifier = { 
-			# modifier = leechlord_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_leechlord }
-		# }
-		# opinion = { 
-			# who = FROMFROM
-			# modifier = opinion_trusted_servant 
-			# months = 1200
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20703 days = 17 } } } #Notify Physician.
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Stop treatment.
-		# name = EVTOPTCHFP20678 
-		# gain_weight_medium_effect = yes
-		# remove_opinion = { who = FROMFROM modifier = opinion_trusted_servant }
-		# custom_tooltip = { text = tooltip_health_deteriorates }
-		# hidden_tooltip = { health = -0.5 }
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Court Physician notified and executed.
-# character_event = {
-	# id = HFP.20679
-	# desc = EVTDESCAHFP20679
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #No.
-		# name = EVTOPTAHFP20679
-		# death = { 
-			# death_reason = death_execution_hanging
-			# killer = FROM 
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20690 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Final notification for Leechlord. - Physician has been killed.
-# character_event = {
-	# id = HFP.20690
-	# desc = EVTDESCAHFP20690
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #Good.
-		# name = EVTOPTAHFP20690
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Final notification for Physician.
-# character_event = {
-	# id = HFP.20703
-	# desc = EVTDESCAHFP20703
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #Good.
-		# name = EVTOPTAHFP20703
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20691 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Final notification for Leechlord. - Physician still serving you.
-# character_event = {
-	# id = HFP.20691
-	# desc = EVTDESCAHFP20691
-	# picture = GFX_evt_died_old_age
-
-	# is_triggered_only = yes
-
-	# option = { #Good.
-		# name = EVTOPTAHFP20691
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-
-# #The Whisperer (requires a non-cruel/envious married vassal).
-# #Potential vassal is concerned about liege.
-# character_event = {
-	# id = HFP.20700
-	# desc = EVTDESCAHFP20700
-	# picture = GFX_evt_recovery
-
-	# trigger = { 
-		# vassal_of = FROM
-		# is_married = yes
-		# NOT = { is_married = FROM }
-		# spouse = { 
-			# OR = { 
-				# is_ruler = no 
-				# top_liege = { character = FROM } 
-			# } 
-		# }
-		# FROM = { 
-			# is_alive = yes
-			# trait = is_malnourished
-		# }
-	# }
-	# is_triggered_only = yes
-
-	# option = { #Yes
-		# name = EVTOPTAHFP20700
-		# tiered_piety_reward_effect = yes
-		# tooltip = {
-			# opinion = { 
-				# who = FROM 
-				# modifier = opinion_loyal_servant 
-				# months = 1200
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20680 } } }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #No
-		# name = EVTOPTBHFP20700
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Liege is informed of special care.
-# character_event = {
-	# id = HFP.20680
-	# desc = EVTDESCAHFP20680
-	# picture = GFX_evt_recovery
-
-	# is_triggered_only = yes
-
-	# option = { #Take advantage of care.
-		# name = EVTOPTAHFP20680
-		# custom_tooltip = { text = tooltip_health_improves }
-		# hidden_tooltip = { health = 0.35 } 
-		# lose_weight_medium_effect = yes
-		# hidden_tooltip = { FROM = { spouse = { character_event = { id = HFP.20682 days = 30 random = 30 } } } } #Wife of vassal is upset.
-		# FROM = {
-			# show_scope_change = no
-			# opinion = { 
-				# who = ROOT 
-				# modifier = opinion_loyal_servant 
-				# months = 1200
-			# }
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #No.
-		# name = EVTOPTBHFP20680
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20681 } } } #Inform, end line.
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Potential vassal notified of inappropriate behavior.
-# character_event = {
-	# id = HFP.20681
-	# desc = EVTDESCAHFP20681
-	# picture = GFX_evt_recovery
-
-	# is_triggered_only = yes
-
-	# option = { #Yes
-		# name = EVTOPTAHFP20681
-		# tooltip = {
-			# remove_opinion = { 
-				# who = FROM 
-				# modifier = opinion_loyal_servant 
-			# }
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-# }
-# #Spouse of vassal notified.
-# character_event = {
-	# id = HFP.20682
-	# desc = EVTDESCAHFP20682
-	# picture = GFX_evt_scandal
-
-	# trigger = { 
-		# OR = { 
-			# is_ruler = no 
-			# top_liege = { character = FROM } 
-		# }
-		# is_married = FROMFROM
-		# FROM = { 
-			# is_alive = yes
-			# trait = is_malnourished
-		# }
-	# }
-	# is_triggered_only = yes
-
-	# option = { #Complain
-		# name = EVTOPTAHFP20682
-		# custom_tooltip = { text = tooltip_HFP20682_A }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20683 } } } #Ruler solves the issue.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Do nothing.
-		# name = EVTOPTBHFP20682
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Ruler: wife (FROM) of vassal (FROMFROMFROM) complained.
-# character_event = {
-	# id = HFP.20683
-	# desc = EVTDESCAHFP20683
-	# picture = GFX_evt_scandal
-
-	# is_triggered_only = yes
-
-	# option = { #Make vassal kill wife.
-		# name = EVTOPTAHFP20683
-		# trigger = { trait = cruel }
-		# tooltip_info = cruel
-		# if = { 
-			# limit = { NOT = { trait = deceitful } } 
-			# add_trait = deceitful
-		# }
-		# add_character_modifier = { 
-			# modifier = whisperer_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_whisperer }
-		# }
-		# opinion = { 
-			# who = FROMFROMFROM
-			# modifier = opinion_trusted_servant 
-			# months = 1200
-		# }
-		# tooltip = {  
-			# FROM = {
-				# death = { 
-					# death_reason = death_murder_unknown
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20684 } } } #Vassal obeys.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Make vassal repudiate wife.
-		# name = EVTOPTBHFP20683
-		# if = { 
-			# limit = { NOT = { trait = deceitful } } 
-			# add_trait = deceitful
-		# }
-		# add_character_modifier = { 
-			# modifier = whisperer_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_whisperer }
-		# }
-		# opinion = { 
-			# who = FROMFROMFROM
-			# modifier = opinion_trusted_servant 
-			# months = 1200
-		# }
-		# hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20686 } } } #Vassal obeys.
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Free vassal of vow.
-		# name = EVTOPTCHFP20683
-		# if = { 
-			# limit = { NOT = { trait = kind } } 
-			# add_trait = kind
-		# }
-		# gain_weight_medium_effect = yes
-		# remove_opinion = { who = FROMFROMFROM modifier = opinion_trusted_servant }
-		# custom_tooltip = { text = tooltip_health_deteriorates }
-		# hidden_tooltip = { health = -0.5 }
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Vassal forced to kill his wife.
-# character_event = {
-	# id = HFP.20684
-	# desc = EVTDESCAHFP20684
-	# picture = GFX_evt_shadow
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20684
-		# tooltip = {  
-			# FROMFROM = {
-				# death = { 
-					# death_reason = death_murder_unknown
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20685 } } } #Actually kill wife.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Wife is killed.
-# character_event = {
-	# id = HFP.20685
-	# desc = EVTDESCAHFP20685
-	# picture = GFX_evt_shadow
-
-	# is_triggered_only = yes
-
-	# option = { #Do nothing.
-		# name = EVTOPTAHFP20685
-		# death = { 
-			# death_reason = death_murder_unknown
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20689 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Vassal forced to repudiate his wife.
-# character_event = {
-	# id = HFP.20686
-	# desc = EVTDESCAHFP20686
-	# picture = GFX_evt_quarrel
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20686
-		# if = { 
-			# limit = { NOT = { trait = celibate } } 
-			# add_trait = celibate
-		# }
-		# FROMFROM = {
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_repudiated_me
-				# years = 100
-			# }
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20687 } } } #Notify wife.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Wife is notified.
-# character_event = {
-	# id = HFP.20687
-	# desc = EVTDESCAHFP20687
-	# picture = GFX_evt_quarrel
-
-	# is_triggered_only = yes
-
-	# option = { #Do nothing.
-		# name = EVTOPTAHFP20687
-		# opinion = { 
-			# who = FROM
-			# modifier = opinion_repudiated_me
-			# years = 100
-		# }
-		# hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20688 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Final notification for Whisperer. - Wife has been repudiated.
-# character_event = {
-	# id = HFP.20688
-	# desc = EVTDESCAHFP20688
-	# picture = GFX_evt_lunatic
-
-	# is_triggered_only = yes
-
-	# option = { #Good.
-		# name = EVTOPTAHFP20688
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Final notification for Whisperer. - Wife has been killed.
-# character_event = {
-	# id = HFP.20689
-	# desc = EVTDESCAHFP20689
-	# picture = GFX_evt_lunatic
-
-	# is_triggered_only = yes
-
-	# option = { #Good.
-		# name = EVTOPTAHFP20689
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #HFP.20690 and HFP.20691 taken for notifications to Leechlord.
-
-# #The Black Boar. (Requres an non-deceitful/paranoid vassal).
-# #Vassal informed bard under his protection wrote bad song about ruler.
-# character_event = {
-	# id = HFP.20692
-	# desc = EVTDESCAHFP20692
-	# picture = GFX_evt_jugglers
-
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes
-			# trait = is_fat
-		# }
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { #Leave him be.
-		# name = EVTOPTAHFP20692
-		# custom_tooltip = { text = tooltip_HFP20692_A }
-		# tiered_prestige_reward_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20693 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Censor him.
-		# name = EVTOPTBHFP20692
-		# if = { 
-			# limit = { trait = honest } 
-			# remove_trait = honest
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Ruler hears song
-# character_event = {
-	# id = HFP.20693
-	# desc = EVTDESCAHFP20693
-	# picture = GFX_evt_jugglers
-	# hide_from = yes
-
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes
-			# trait = is_fat
-		# }
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { #Cook the bard.
-		# name = EVTOPTAHFP20693
-		# custom_tooltip = { text = tooltip_HFP20693_A }
-		# if = { 
-			# limit = { NOT = { trait = cruel } } 
-			# add_trait = cruel
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20698 } } } #Notify vassal.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Punish bard lightly.
-		# name = EVTOPTBHFP20693
-		# custom_tooltip = { text = tooltip_HFP20693_B }
-		# if = { 
-			# limit = { trait = just } 
-			# change_stewardship = 1
-		# }
-		# if = { 
-			# limit = { NOT = { trait = just } } 
-			# add_trait = just
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20696 } } } #Notify vassal.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Tolerate bard.
-		# name = EVTOPTCHFP20693
-		# if = { 
-			# limit = { trait = kind } 
-			# change_diplomacy = 1
-		# }
-		# if = { 
-			# limit = { NOT = { trait = kind } } 
-			# add_trait = kind
-		# }
-		# FROM = { 
-			# show_scope_change = no
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_swayed_2
-				# years = 15
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20694 } } } #Notify vassal.
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Vassal impressed
-# character_event = {
-	# id = HFP.20694
-	# desc = EVTDESCAHFP20694
-	# picture = GFX_evt_jugglers
-
-	# is_triggered_only = yes
-
-	# option = { #
-		# name = EVTOPTAHFP20694
-		# opinion = { 
-			# who = FROM
-			# modifier = opinion_swayed_2
-			# years = 15
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20695 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Ruler notified.
-# character_event = {
-	# id = HFP.20695
-	# desc = EVTDESCAHFP20695
-	# picture = GFX_evt_jugglers
-
-	# is_triggered_only = yes
-
-	# option = { #
-		# name = EVTOPTAHFP20695
-		# ROOT = { give_nickname = nick_the_merry }
-		# tooltip = { 
-			# FROM = { 
-				# show_scope_change = no
-				# opinion = { 
-					# who = ROOT
-					# modifier = opinion_swayed_2
-					# years = 15
-				# }
-			# }
-		# }
-		# tiered_prestige_reward_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Vassal: Ruler punished bard lightly, and bard didn't learn the lesson.
-# character_event = {
-	# id = HFP.20696
-	# desc = EVTDESCAHFP20696
-	# picture = GFX_evt_jugglers
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20696
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20697 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Ruler notified.
-# character_event = {
-	# id = HFP.20697
-	# desc = EVTDESCAHFP20697
-	# picture = GFX_evt_jugglers
-	# hide_from = yes
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTAHFP20697
-		# tiered_prestige_negative_effect = yes
-		# add_character_modifier = { 
-			# modifier = laughing_stock_modifier 
-			# years = 10 
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Vassal: Ruler cooked the impudent bard.
-# character_event = {
-	# id = HFP.20698
-	# desc = EVTDESCAHFP20698
-	# picture = GFX_evt_jugglers
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20698
-		# tiered_prestige_negative_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20699 } } } #Notify ruler.
-		# ai_chance = { factor = 100 }
-	# }
-# }
-
-# #Ruler notified.
-# character_event = {
-	# id = HFP.20699
-	# desc = EVTDESCAHFP20699
-	# picture = GFX_evt_jugglers
-	# hide_from = yes
-
-	# is_triggered_only = yes
-
-	# option = { #Be(come) Cannibal.
-		# name = EVTOPTAHFP20699
-		# trigger = { 
-			# OR = { 
-				# trait = cannibal_trait 
-				# has_dlc = "Way of Life"
-			# } 
-		# } 
-		# add_trait = cannibal_trait
-		# add_character_modifier = { 
-			# modifier = black_boar_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_black_boar }
-		# }
+	trigger = { 
+		trait = is_malnourished
+		NOT = { has_character_modifier = severely_underweight_modifier }
+		NOT = { check_variable = { which = physique_variable value = -30 } }
+		has_character_flag = flag_becoming_underweight 	#Gained in HFP.20648
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = one_year_fasting
+		}
+		modifier = {
+			factor = 2
+			prisoner = yes
+		}
+		modifier = {
+			factor = 3
+		NOT = { check_variable = { which = physique_variable value = -35 } }
+		}
+		modifier = {
+			factor = 5
+		NOT = { check_variable = { which = physique_variable value = -40 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -45 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -50 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -55 } }
+		}
+	}
+
+	option = { #Too late now.
+		name = EVTOPTAHFP20662
+		add_character_modifier = {
+			name = severely_underweight_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_underweight
+		hidden_tooltip = { 
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -30 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -35 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -40 } } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -45 } } } 
+				health = -1.5
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -50 } } } 
+				health = -2.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -55 } } }
+				health = -3.0
+			}
+		} 
+		lose_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}
+######################################
+#### Additional Flavor ####
+
+#Fat ruler becomes proud
+character_event = {
+	id = HFP.20663
+	desc = {
+		text = EVTDESCAHFP20663
+		trigger = { is_female = no }
+	}
+	desc = {
+		text = EVTDESCBHFP20663
+		trigger = { is_female = yes }
+	}
+	picture = GFX_evt_fancy_feast
+
+	trigger = { 
+		trait = is_fat
+		has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20663
+		tooltip_info = is_fat
+		if = { 
+			limit = { trait = proud } 
+			tiered_prestige_reward_effect = yes
+		} 
+		if = { 
+			limit = { trait = humble } 
+			remove_trait = humble
+		} 
+		if = { 
+			limit = { NOT = { trait = proud } } 
+			add_trait = proud
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Fat ruler becomes patient
+character_event = {
+	id = HFP.20664
+	desc = {
+		text = EVTDESCAHFP20664
+		trigger = { is_female = no }
+	}
+	desc = {
+		text = EVTDESCBHFP20664
+		trigger = { is_female = yes }
+	}
+	picture = GFX_evt_courtiers_talking
+
+	trigger = { 
+		trait = is_fat
+		has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20664
+		tooltip_info = is_fat
+		if = { 
+			limit = { trait = proud } 
+			piety = 50
+		} 
+		if = { 
+			limit = { trait = wroth } 
+			remove_trait = wroth
+		} 
+		if = { 
+			limit = { NOT = { trait = patient } } 
+			add_trait = patient
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Fat ruler becomes content
+character_event = {
+	id = HFP.20665
+	desc = {
+		text = EVTDESCAHFP20665
+		trigger = { is_female = no }
+	}
+	desc = {
+		text = EVTDESCBHFP20665
+		trigger = { is_female = yes }
+	}
+	picture = GFX_evt_recovery
+
+	trigger = { 
+		trait = is_fat
+		has_fat_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20665
+		tooltip_info = is_fat
+		if = { 
+			limit = { trait = content } 
+			piety = 50
+		} 
+		if = { 
+			limit = { trait = ambitious } 
+			remove_trait = ambitious
+		} 
+		if = { 
+			limit = { NOT = { trait = content } } 
+			add_trait = content
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+#Malnourished ruler becomes humble
+character_event = {
+	id = HFP.20666
+	desc = {
+		text = EVTDESCAHFP20666
+	}
+	picture = GFX_evt_recovery
+
+	trigger = { 
+		trait = is_malnourished
+		has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20666
+		tooltip_info = is_malnourished
+		if = { 
+			limit = { trait = humble } 
+			piety = 50
+		} 
+		if = { 
+			limit = { trait = proud } 
+			remove_trait = proud
+		} 
+		if = { 
+			limit = { NOT = { trait = humble } } 
+			add_trait = humble
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Malnourished ruler becomes envious
+character_event = {
+	id = HFP.20667
+	desc = {
+		text = EVTDESCAHFP20667
+		trigger = { is_female = no }
+	}
+	desc = {
+		text = EVTDESCBHFP20667
+		trigger = { is_female = yes }
+	}
+	picture = GFX_evt_scandal
+
+	trigger = { 
+		trait = is_malnourished
+		has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20667
+		tooltip_info = is_malnourished
+		if = { 
+			limit = { trait = kind } 
+			remove_trait = kind
+		} 
+		if = { 
+			limit = { NOT = { trait = envious } } 
+			add_trait = envious
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Malnourished ruler becomes cruel
+character_event = {
+	id = HFP.20668
+	desc = {
+		text = EVTDESCAHFP20668
+		trigger = { has_character_flag = flag_malnourished_for_paranoid }
+	}
+	desc = {
+		text = EVTDESCBHFP20668
+		trigger = { has_character_flag = flag_malnourished_for_slothful }
+	}
+	desc = {
+		text = EVTDESCCHFP20668
+		trigger = { has_character_flag = flag_malnourished_for_cannibal }
+	}
+	picture = GFX_evt_lunatic
+
+	trigger = { 
+		trait = is_malnourished
+		has_malnourished_for_flag_trigger = yes #Won't fire if recovered in the meantime due to thirdparty help
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20668
+		tooltip_info = is_malnourished
+		if = { 
+			limit = { trait = kind } 
+			remove_trait = kind
+		} 
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		#clear_fat_flags_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+#Event for sturdy/frail teenage, chance to turn it into something else.
+#Chance of triggering in the adolescence event itself.
+character_event = {
+	id = HFP.20669
+	desc = {
+		text = EVTDESCAHFP20669
+		trigger = { 
+			trait = sturdy
+			is_female = no
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20669
+		trigger = { 
+			trait = sturdy
+			is_female = yes
+		}
+	}
+	desc = {
+		text = EVTDESCCHFP20669
+		trigger = { 
+			trait = feeble
+			is_female = no
+		}
+	}
+	desc = {
+		text = EVTDESCDHFP20669
+		trigger = { 
+			trait = feeble
+			is_female = yes
+		}
+	}
+	picture = GFX_evt_courtiers_talking
+
+	is_triggered_only = yes
+
+	option = { #Military training is what I need!
+		name = EVTOPTAHFP20669
+		trigger = { 
+			NOR = { 
+				trait = is_fat
+				trait = is_malnourished #Shouldn't be either at this age anyway, but, just to be safe...
+			}
+			OR = { 
+				trait = sturdy
+				trait = feeble #Works for both.
+			}
+			combat_rating = 15
+			OR = {
+				trait = misguided_warrior
+				trait = tough_soldier 
+				trait = skilled_tactician
+				trait = brilliant_strategist 
+			}
+		}
+		tooltip_info = combat_rating
+		custom_tooltip = { text = tooltip_20663_A } 
+		balance_weight_large_effect = yes
+		hidden_tooltip = {
+			random_list = {
+				80 = { #Success - Character stops being sturdy/feeble
+					character_event = { id = HFP.20670 days = 150 random = 150 } 
+				}
+				20 = { #Critical Success - Character becomes brawny
+					character_event = { id = HFP.20671 days = 150 random = 150 } 
+				}
+			} 
+		}
+		ai_chance = { 
+			factor = 100
+		}
+	}
+	option = { #Eat less.
+		name = EVTOPTBHFP20669
+		trigger = { 
+			trait = sturdy
+		}
+		custom_tooltip = { text = tooltip_20663_B } 
+		balance_weight_large_effect = yes
+		hidden_tooltip = {
+			random_list = {
+				10 = { #Overboard - Character becomes feeble
+					character_event = { id = HFP.20672 days = 150 random = 150 } 
+				}
+				50 = { #Success - Character stops being sturdy
+					character_event = { id = HFP.20673 days = 150 random = 150 } 
+				}
+				30 = { #Failure - Character still sturdy
+				}
+			} 
+		} 
+		ai_chance = { 
+			factor = 50
+		}
+	}
+	option = { #Eat more.
+		name = EVTOPTCHFP20669
+		trigger = { 
+			trait = feeble
+		}
+		custom_tooltip = { text = tooltip_20663_C } 
+		balance_weight_large_effect = yes
+		hidden_tooltip = {
+			random_list = {
+				10 = { #Overboard - Character becomes sturdy
+					character_event = { id = HFP.20674 days = 150 random = 150 } 
+				}
+				50 = { #Success - Character stops being feeble
+					character_event = { id = HFP.20675 days = 150 random = 150 } 
+				}
+				30 = { #Failure - Character still feeble
+				}
+			} 
+		} 
+		ai_chance = { 
+			factor = 50
+		}
+	}
+	option = { #Nothing
+		name = EVTOPTDHFP20669
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
+
+#Training removes sturdy/feeble
+character_event = {
+	id = HFP.20670
+	desc = {
+		text = EVTDESCAHFP20670
+		trigger = { 
+			trait = sturdy
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20670
+		trigger = { 
+			trait = feeble
+		}
+	}
+	desc = EVTDESCAHFP20670
+	picture = GFX_evt_child_sword
+
+	trigger = { 
+		OR = { 
+			trait = sturdy
+			trait = feeble 
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20670
+		if = { 
+			limit = { trait = sturdy } 
+			remove_trait = sturdy
+		} 
+		if = { 
+			limit = { trait = feeble } 
+			remove_trait = feeble
+		} 
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Training makes brawny
+character_event = {
+	id = HFP.20671
+	desc = EVTDESCAHFP20671
+	picture = GFX_evt_child_sword
+
+	trigger = { 
+		OR = { 
+			trait = sturdy
+			trait = feeble 
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20671
+		if = { 
+			limit = { trait = sturdy } 
+			remove_trait = sturdy
+		} 
+		if = { 
+			limit = { trait = feeble } 
+			remove_trait = feeble
+		} 
+		add_trait = robust
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Sturdy becomes feeble
+character_event = {
+	id = HFP.20672
+	desc = EVTDESCAHFP20672
+	picture = GFX_evt_child_reading
+
+	trigger = { 
+		trait = sturdy
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20672
+		if = { 
+			limit = { trait = sturdy } 
+			remove_trait = sturdy
+		} 
+		add_trait = feeble
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Character no longer sturdy.
+character_event = {
+	id = HFP.20673
+	desc = EVTDESCAHFP20673
+	picture = GFX_evt_child_reading
+
+	trigger = { 
+		trait = sturdy
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20673
+		if = { 
+			limit = { trait = sturdy } 
+			remove_trait = sturdy
+		} 
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Feeble becomes sturdy
+character_event = {
+	id = HFP.20674
+	desc = {
+		text = EVTDESCAHFP20674
+		trigger = { 
+			is_female = no
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20674
+		trigger = { 
+			is_female = yes
+		}
+	}
+	picture = GFX_evt_child_reading
+
+	trigger = { 
+		trait = feeble
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20674
+		if = { 
+			limit = { trait = feeble } 
+			remove_trait = feeble
+		} 
+		add_trait = sturdy
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Character no longer feeble.
+character_event = {
+	id = HFP.20675
+	desc = EVTDESCAHFP20675
+	picture = GFX_evt_child_reading
+
+	trigger = { 
+		trait = feeble
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20675
+		if = { 
+			limit = { trait = feeble } 
+			remove_trait = feeble
+		} 
+		prestige = 25
+		ai_chance = { factor = 100 }
+	}
+}
+
+######################################################
+#Potential Obese/Underweight flavor. (fired from the events applying those modifiers) - Higher than Count only.
+
+#The Leechlord (requires Reaper's Due).
+#Court Physician has brilliant idea.
+character_event = {
+	id = HFP.20676
+	desc = EVTDESCAHFP20676
+	picture = GFX_evt_died_old_age
+
+	trigger = { 
+		has_minor_title = title_court_physician
+		FROM = { 
+			is_alive = yes
+			trait = is_malnourished
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Inform liege.
+		name = EVTOPTAHFP20676
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20677 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = { #No.
+		name = EVTOPTBHFP20676
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Liege informed of treatment to rebalance humors.
+character_event = {
+	id = HFP.20677
+	desc = EVTDESCAHFP20677
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #Yes.
+		name = EVTOPTAHFP20677
+		custom_tooltip = { text = tooltip_health_improves }
+		hidden_tooltip = { health = 0.35 } 
+		lose_weight_medium_effect = yes
+		FROM = {
+			show_scope_change = no 
+			opinion = { 
+				who = ROOT 
+				modifier = opinion_loyal_servant 
+				months = 1200
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20701 } } } #Notify in case it's player.
+		hidden_tooltip = { character_event = { id = HFP.20678 days = 30 random = 30 } }
+		ai_chance = { factor = 100 }
+	}
+	option = { #No.
+		name = EVTOPTBHFP20677
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20702 } } } 
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Court Physician notified. (End of his line)
+character_event = {
+	id = HFP.20701
+	desc = EVTDESCAHFP20701
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #No.
+		name = EVTOPTAHFP20701
+		tiered_piety_reward_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+#Court Physician notified. (End of his line)
+character_event = {
+	id = HFP.20702
+	desc = EVTDESCAHFP20702
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #No.
+		name = EVTOPTAHFP20702
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Time has passed, ruler notices change in behavior.
+character_event = {
+	id = HFP.20678
+	desc = EVTDESCAHFP20678
+	picture = GFX_evt_died_old_age
+	show_from_from = yes
+
+	is_triggered_only = yes
+
+	option = { #Do not care, but kill physician.
+		name = EVTOPTAHFP20678
+		trigger = { trait = paranoid }
+		tooltip_info = paranoid
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		add_character_modifier = { 
+			modifier = leechlord_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_leechlord }
+		}
+		tooltip = {  
+			FROMFROM = {
+				death = { 
+					death_reason = death_execution_hanging
+					killer = ROOT 
+				}
+			}
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20679 } } } #Actually kill Physician.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Do not care.
+		name = EVTOPTBHFP20678
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		add_character_modifier = { 
+			modifier = leechlord_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_leechlord }
+		}
+		opinion = { 
+			who = FROMFROM
+			modifier = opinion_trusted_servant 
+			months = 1200
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20703 days = 17 } } } #Notify Physician.
+		ai_chance = { factor = 50 }
+	}
+	option = { #Stop treatment.
+		name = EVTOPTCHFP20678 
+		gain_weight_medium_effect = yes
+		remove_opinion = { who = FROMFROM modifier = opinion_trusted_servant }
+		custom_tooltip = { text = tooltip_health_deteriorates }
+		hidden_tooltip = { health = -0.5 }
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Court Physician notified and executed.
+character_event = {
+	id = HFP.20679
+	desc = EVTDESCAHFP20679
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #No.
+		name = EVTOPTAHFP20679
+		death = { 
+			death_reason = death_execution_hanging
+			killer = FROM 
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20690 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Final notification for Leechlord. - Physician has been killed.
+character_event = {
+	id = HFP.20690
+	desc = EVTDESCAHFP20690
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #Good.
+		name = EVTOPTAHFP20690
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Final notification for Physician.
+character_event = {
+	id = HFP.20703
+	desc = EVTDESCAHFP20703
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #Good.
+		name = EVTOPTAHFP20703
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20691 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Final notification for Leechlord. - Physician still serving you.
+character_event = {
+	id = HFP.20691
+	desc = EVTDESCAHFP20691
+	picture = GFX_evt_died_old_age
+
+	is_triggered_only = yes
+
+	option = { #Good.
+		name = EVTOPTAHFP20691
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+#The Whisperer (requires a non-cruel/envious married vassal).
+#Potential vassal is concerned about liege.
+character_event = {
+	id = HFP.20700
+	desc = EVTDESCAHFP20700
+	picture = GFX_evt_recovery
+
+	trigger = { 
+		vassal_of = FROM
+		is_married = yes
+		NOT = { is_married = FROM }
+		spouse = { 
+			OR = { 
+				is_ruler = no 
+				top_liege = { character = FROM } 
+			} 
+		}
+		FROM = { 
+			is_alive = yes
+			trait = is_malnourished
+		}
+	}
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = EVTOPTAHFP20700
+		tiered_piety_reward_effect = yes
+		tooltip = {
+			opinion = { 
+				who = FROM 
+				modifier = opinion_loyal_servant 
+				months = 1200
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20680 } } }
+		ai_chance = { factor = 100 }
+	}
+	option = { #No
+		name = EVTOPTBHFP20700
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Liege is informed of special care.
+character_event = {
+	id = HFP.20680
+	desc = EVTDESCAHFP20680
+	picture = GFX_evt_recovery
+
+	is_triggered_only = yes
+
+	option = { #Take advantage of care.
+		name = EVTOPTAHFP20680
+		custom_tooltip = { text = tooltip_health_improves }
+		hidden_tooltip = { health = 0.35 } 
+		lose_weight_medium_effect = yes
+		hidden_tooltip = { FROM = { spouse = { character_event = { id = HFP.20682 days = 30 random = 30 } } } } #Wife of vassal is upset.
+		FROM = {
+			show_scope_change = no
+			opinion = { 
+				who = ROOT 
+				modifier = opinion_loyal_servant 
+				months = 1200
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = { #No.
+		name = EVTOPTBHFP20680
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20681 } } } #Inform, end line.
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Potential vassal notified of inappropriate behavior.
+character_event = {
+	id = HFP.20681
+	desc = EVTDESCAHFP20681
+	picture = GFX_evt_recovery
+
+	is_triggered_only = yes
+
+	option = { #Yes
+		name = EVTOPTAHFP20681
+		tooltip = {
+			remove_opinion = { 
+				who = FROM 
+				modifier = opinion_loyal_servant 
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+#Spouse of vassal notified.
+character_event = {
+	id = HFP.20682
+	desc = EVTDESCAHFP20682
+	picture = GFX_evt_scandal
+
+	trigger = { 
+		OR = { 
+			is_ruler = no 
+			top_liege = { character = FROM } 
+		}
+		is_married = FROMFROM
+		FROM = { 
+			is_alive = yes
+			trait = is_malnourished
+		}
+	}
+	is_triggered_only = yes
+
+	option = { #Complain
+		name = EVTOPTAHFP20682
+		custom_tooltip = { text = tooltip_HFP20682_A }
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20683 } } } #Ruler solves the issue.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Do nothing.
+		name = EVTOPTBHFP20682
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Ruler: wife (FROM) of vassal (FROMFROMFROM) complained.
+character_event = {
+	id = HFP.20683
+	desc = EVTDESCAHFP20683
+	picture = GFX_evt_scandal
+
+	is_triggered_only = yes
+
+	option = { #Make vassal kill wife.
+		name = EVTOPTAHFP20683
+		trigger = { trait = cruel }
+		tooltip_info = cruel
+		if = { 
+			limit = { NOT = { trait = deceitful } } 
+			add_trait = deceitful
+		}
+		add_character_modifier = { 
+			modifier = whisperer_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_whisperer }
+		}
+		opinion = { 
+			who = FROMFROMFROM
+			modifier = opinion_trusted_servant 
+			months = 1200
+		}
+		tooltip = {  
+			FROM = {
+				death = { 
+					death_reason = death_murder_unknown
+				}
+			}
+		}
+		hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20684 } } } #Vassal obeys.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Make vassal repudiate wife.
+		name = EVTOPTBHFP20683
+		if = { 
+			limit = { NOT = { trait = deceitful } } 
+			add_trait = deceitful
+		}
+		add_character_modifier = { 
+			modifier = whisperer_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_whisperer }
+		}
+		opinion = { 
+			who = FROMFROMFROM
+			modifier = opinion_trusted_servant 
+			months = 1200
+		}
+		hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20686 } } } #Vassal obeys.
+		ai_chance = { factor = 50 }
+	}
+	option = { #Free vassal of vow.
+		name = EVTOPTCHFP20683
+		if = { 
+			limit = { NOT = { trait = kind } } 
+			add_trait = kind
+		}
+		gain_weight_medium_effect = yes
+		remove_opinion = { who = FROMFROMFROM modifier = opinion_trusted_servant }
+		custom_tooltip = { text = tooltip_health_deteriorates }
+		hidden_tooltip = { health = -0.5 }
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Vassal forced to kill his wife.
+character_event = {
+	id = HFP.20684
+	desc = EVTDESCAHFP20684
+	picture = GFX_evt_shadow
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20684
+		tooltip = {  
+			FROMFROM = {
+				death = { 
+					death_reason = death_murder_unknown
+				}
+			}
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20685 } } } #Actually kill wife.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Wife is killed.
+character_event = {
+	id = HFP.20685
+	desc = EVTDESCAHFP20685
+	picture = GFX_evt_shadow
+
+	is_triggered_only = yes
+
+	option = { #Do nothing.
+		name = EVTOPTAHFP20685
+		death = { 
+			death_reason = death_murder_unknown
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20689 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Vassal forced to repudiate his wife.
+character_event = {
+	id = HFP.20686
+	desc = EVTDESCAHFP20686
+	picture = GFX_evt_quarrel
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20686
+		if = { 
+			limit = { NOT = { trait = celibate } } 
+			add_trait = celibate
+		}
+		FROMFROM = {
+			opinion = { 
+				who = ROOT
+				modifier = opinion_repudiated_me
+				years = 100
+			}
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20687 } } } #Notify wife.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Wife is notified.
+character_event = {
+	id = HFP.20687
+	desc = EVTDESCAHFP20687
+	picture = GFX_evt_quarrel
+
+	is_triggered_only = yes
+
+	option = { #Do nothing.
+		name = EVTOPTAHFP20687
+		opinion = { 
+			who = FROM
+			modifier = opinion_repudiated_me
+			years = 100
+		}
+		hidden_tooltip = { FROMFROM = { character_event = { id = HFP.20688 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Final notification for Whisperer. - Wife has been repudiated.
+character_event = {
+	id = HFP.20688
+	desc = EVTDESCAHFP20688
+	picture = GFX_evt_lunatic
+
+	is_triggered_only = yes
+
+	option = { #Good.
+		name = EVTOPTAHFP20688
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Final notification for Whisperer. - Wife has been killed.
+character_event = {
+	id = HFP.20689
+	desc = EVTDESCAHFP20689
+	picture = GFX_evt_lunatic
+
+	is_triggered_only = yes
+
+	option = { #Good.
+		name = EVTOPTAHFP20689
+		ai_chance = { factor = 100 }
+	}
+}
+
+#HFP.20690 and HFP.20691 taken for notifications to Leechlord.
+
+#The Black Boar. (Requres an non-deceitful/paranoid vassal).
+#Vassal informed bard under his protection wrote bad song about ruler.
+character_event = {
+	id = HFP.20692
+	desc = EVTDESCAHFP20692
+	picture = GFX_evt_jugglers
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes
+			trait = is_fat
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Leave him be.
+		name = EVTOPTAHFP20692
+		custom_tooltip = { text = tooltip_HFP20692_A }
+		tiered_prestige_reward_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20693 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Censor him.
+		name = EVTOPTBHFP20692
+		if = { 
+			limit = { trait = honest } 
+			remove_trait = honest
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Ruler hears song
+character_event = {
+	id = HFP.20693
+	desc = EVTDESCAHFP20693
+	picture = GFX_evt_jugglers
+	hide_from = yes
+
+	trigger = { 
+		FROM = { 
+			is_alive = yes
+			trait = is_fat
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { #Cook the bard.
+		name = EVTOPTAHFP20693
+		custom_tooltip = { text = tooltip_HFP20693_A }
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20698 } } } #Notify vassal.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Punish bard lightly.
+		name = EVTOPTBHFP20693
+		custom_tooltip = { text = tooltip_HFP20693_B }
+		if = { 
+			limit = { trait = just } 
+			change_stewardship = 1
+		}
+		if = { 
+			limit = { NOT = { trait = just } } 
+			add_trait = just
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20696 } } } #Notify vassal.
+		ai_chance = { factor = 100 }
+	}
+	option = { #Tolerate bard.
+		name = EVTOPTCHFP20693
+		if = { 
+			limit = { trait = kind } 
+			change_diplomacy = 1
+		}
+		if = { 
+			limit = { NOT = { trait = kind } } 
+			add_trait = kind
+		}
+		FROM = { 
+			show_scope_change = no
+			opinion = { 
+				who = ROOT
+				modifier = opinion_swayed_2
+				years = 15
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20694 } } } #Notify vassal.
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Vassal impressed
+character_event = {
+	id = HFP.20694
+	desc = EVTDESCAHFP20694
+	picture = GFX_evt_jugglers
+
+	is_triggered_only = yes
+
+	option = { #
+		name = EVTOPTAHFP20694
+		opinion = { 
+			who = FROM
+			modifier = opinion_swayed_2
+			years = 15
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20695 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Ruler notified.
+character_event = {
+	id = HFP.20695
+	desc = EVTDESCAHFP20695
+	picture = GFX_evt_jugglers
+
+	is_triggered_only = yes
+
+	option = { #
+		name = EVTOPTAHFP20695
+		ROOT = { give_nickname = nick_the_merry }
+		tooltip = { 
+			FROM = { 
+				show_scope_change = no
+				opinion = { 
+					who = ROOT
+					modifier = opinion_swayed_2
+					years = 15
+				}
+			}
+		}
+		tiered_prestige_reward_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Vassal: Ruler punished bard lightly, and bard didn't learn the lesson.
+character_event = {
+	id = HFP.20696
+	desc = EVTDESCAHFP20696
+	picture = GFX_evt_jugglers
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20696
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20697 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Ruler notified.
+character_event = {
+	id = HFP.20697
+	desc = EVTDESCAHFP20697
+	picture = GFX_evt_jugglers
+	hide_from = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAHFP20697
+		tiered_prestige_negative_effect = yes
+		add_character_modifier = { 
+			modifier = laughing_stock_modifier 
+			years = 10 
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Vassal: Ruler cooked the impudent bard.
+character_event = {
+	id = HFP.20698
+	desc = EVTDESCAHFP20698
+	picture = GFX_evt_jugglers
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20698
+		tiered_prestige_negative_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20699 } } } #Notify ruler.
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Ruler notified.
+character_event = {
+	id = HFP.20699
+	desc = EVTDESCAHFP20699
+	picture = GFX_evt_jugglers
+	hide_from = yes
+
+	is_triggered_only = yes
+
+	option = { #Be(come) Cannibal.
+		name = EVTOPTAHFP20699
+		trigger = { 
+			OR = { 
+				trait = cannibal_trait 
+				has_dlc = "Way of Life"
+			} 
+		} 
+		add_trait = cannibal_trait
+		add_character_modifier = { 
+			modifier = black_boar_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_black_boar }
+		}
 		# hidden_tooltip = {
 			# if = {
 				# limit = {
@@ -9282,24 +9282,24 @@ character_event = {
 				# ROOT = { set_character_flag = achievement_bon_appetit }
 			# }
 		# }
-		# gain_weight_medium_effect = yes
-		# tiered_piety_negative_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Good.
-		# name = EVTOPTBHFP20699
-		# trigger = { NOT = { trait = cannibal_trait } } 
-		# add_character_modifier = { 
-			# modifier = black_boar_modifier 
-			# duration = -1 
-		# }
-		# if = { 
-			# limit = { NOT = { has_nickname = yes } } 
-			# ROOT = { give_nickname = nick_the_black_boar }
-		# }
-		# tiered_piety_negative_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
+		gain_weight_medium_effect = yes
+		tiered_piety_negative_effect = yes
+		ai_chance = { factor = 100 }
+	}
+	option = { #Good.
+		name = EVTOPTBHFP20699
+		trigger = { NOT = { trait = cannibal_trait } } 
+		add_character_modifier = { 
+			modifier = black_boar_modifier 
+			duration = -1 
+		}
+		if = { 
+			limit = { NOT = { has_nickname = yes } } 
+			ROOT = { give_nickname = nick_the_black_boar }
+		}
+		tiered_piety_negative_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
 
-# # Id HFP.20700/HFP.20701/HFP.20702/HFP.20703 taken by missing events.
+# Id HFP.20700/HFP.20701/HFP.20702/HFP.20703 taken by missing events.
