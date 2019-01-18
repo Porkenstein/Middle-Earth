@@ -1458,2448 +1458,2448 @@ character_event = {
 }
 
 
-# #Lonely mother decides if she wants to start regency or not.
-# character_event = {
-	# id = HFP.20407
-	# desc = EVTDESCHFPA20407
-	# picture = GFX_evt_bad_news_female
+#Lonely mother decides if she wants to start regency or not.
+character_event = {
+	id = HFP.20407
+	desc = EVTDESCHFPA20407
+	picture = GFX_evt_bad_news_female
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
 
-	# trigger = { NOT = { has_character_flag = mother_asked_retirement } }
+	trigger = { NOT = { has_character_flag = mother_asked_retirement } }
 
-	# option = { #Yes, staying at court.
-		# name = EVTOPTAHFP20407
-		# custom_tooltip = { text = mother_staying_court_2 }
-		# add_trait = in_hiding
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 70 = { character_event = { id = HFP.20411 } } #Home hard pregnancy negative randomized events.
-				# 30 = { #Pregnancy goes well, without any more issues.
-					# modifier = { 
-						# factor = 0.8
-						# trait = paranoid 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = stressed 
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# trait = depressed 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = lunatic 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = possessed 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# has_disease_trigger = yes
-					# }
-				# } 
-			# }
-		# }
-		# ai_chance = {
-			# factor = 40
-			# modifier = { 
-				# factor = 2
-				# trait = slothful
-			# }
-		# }
-	# }
-	# option = { #Yes, going out.
-		# name = EVTOPTBHFP20407
-		# custom_tooltip = { text = mother_going_countryside_2 }
-		# trigger = { NOT = { trait = incapable } }
-		# add_trait = travelling
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 60 = { character_event = { id = HFP.20412 } } #Countryside hard pregnancy negative randomized events.
-				# 40 = { #Pregnancy goes well, without any more issues.
-					# modifier = { 
-						# factor = 0.8
-						# trait = paranoid 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = stressed 
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# trait = depressed 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = feeble 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = weak 
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# has_disease_trigger = yes
-					# }
-				# } 
-			# }
-		# }
-		# ai_chance = {
-			# factor = 10
-			# modifier = { 
-				# factor = 0.5
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = falconer
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = hunter
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = duelist
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = gardener
-			# }
-		# }
-	# }
-	# option = { 	#No.
-		# name = EVTOPTCHFP20407
-		# trigger = { is_ruler = yes }
-		# custom_tooltip = { text = mother_keeps_ruling_2 }
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 30 = { 
-					# modifier = { 
-						# factor = 1.2
-						# tier = COUNT
-					# }
-					# modifier = { 
-						# factor = 1.3
-						# tier = DUKE
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# tier = KING
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# tier = EMPEROR
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# age = 40
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# num_of_children = 4
-					# }
-				# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# } 
-				# 60 = { character_event = { id = HFP.20411 } } #Home hard pregnancy negative randomized events.
-				# 10 = { #Pregnancy goes well, without any more issues.
-					# modifier = { 
-						# factor = 0.8
-						# trait = paranoid 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = stressed 
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# trait = depressed 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = feeble 
-					# }
-					# modifier = { 
-						# factor = 0.7
-						# trait = weak 
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# has_disease_trigger = yes
-					# }
-				# } 
-			# }
-		# }
-		# ai_chance = {
-			# factor = 40
-			# modifier = { 
-				# factor = 2 
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 0.75
-				# is_ill = yes
-			# }
-		# }
-	# }
-# }
+	option = { #Yes, staying at court.
+		name = EVTOPTAHFP20407
+		custom_tooltip = { text = mother_staying_court_2 }
+		add_trait = in_hiding
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { character_event = { id = HFP.20411 } } #Home hard pregnancy negative randomized events.
+				30 = { #Pregnancy goes well, without any more issues.
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = stressed 
+					}
+					modifier = { 
+						factor = 0.5
+						trait = depressed 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.7
+						has_disease_trigger = yes
+					}
+				} 
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = { 
+				factor = 2
+				trait = slothful
+			}
+		}
+	}
+	option = { #Yes, going out.
+		name = EVTOPTBHFP20407
+		custom_tooltip = { text = mother_going_countryside_2 }
+		trigger = { NOT = { trait = incapable } }
+		add_trait = travelling
+		hidden_tooltip = { 
+			random_list = { 
+				60 = { character_event = { id = HFP.20412 } } #Countryside hard pregnancy negative randomized events.
+				40 = { #Pregnancy goes well, without any more issues.
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = stressed 
+					}
+					modifier = { 
+						factor = 0.5
+						trait = depressed 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = feeble 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.5
+						has_disease_trigger = yes
+					}
+				} 
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = { 
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = { 
+				factor = 2
+				trait = falconer
+			}
+			modifier = { 
+				factor = 2
+				trait = hunter
+			}
+			modifier = { 
+				factor = 1.5
+				trait = duelist
+			}
+			modifier = { 
+				factor = 1.5
+				trait = gardener
+			}
+		}
+	}
+	option = { 	#No.
+		name = EVTOPTCHFP20407
+		trigger = { is_ruler = yes }
+		custom_tooltip = { text = mother_keeps_ruling_2 }
+		hidden_tooltip = { 
+			random_list = { 
+				30 = { 
+					modifier = { 
+						factor = 1.2
+						tier = COUNT
+					}
+					modifier = { 
+						factor = 1.3
+						tier = DUKE
+					}
+					modifier = { 
+						factor = 1.5
+						tier = KING
+					}
+					modifier = { 
+						factor = 1.75
+						tier = EMPEROR
+					}
+					modifier = { 
+						factor = 1.75
+						age = 40
+					}
+					modifier = { 
+						factor = 1.75
+						num_of_children = 4
+					}
+				troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				} 
+				60 = { character_event = { id = HFP.20411 } } #Home hard pregnancy negative randomized events.
+				10 = { #Pregnancy goes well, without any more issues.
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = stressed 
+					}
+					modifier = { 
+						factor = 0.5
+						trait = depressed 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = feeble 
+					}
+					modifier = { 
+						factor = 0.7
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.5
+						has_disease_trigger = yes
+					}
+				} 
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = { 
+				factor = 2 
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = { 
+				factor = 0.75
+				is_ill = yes
+			}
+		}
+	}
+}
 
-# #Spouse/Physician informed mother will rest.
-# character_event = {
-	# id = HFP.20408
-	# desc = EVTDESCHFP20408
-	# picture = GFX_evt_lovers
+#Spouse/Physician informed mother will rest.
+character_event = {
+	id = HFP.20408
+	desc = EVTDESCHFP20408
+	picture = GFX_evt_lovers
 
-	# trigger = { 
-		# FROM = { is_alive = yes }
-	# }
+	trigger = { 
+		FROM = { is_alive = yes }
+	}
 
-	# notification = yes
+	notification = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20408
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20408
+	}
+}
 
-# #Spouse/Physician informed mother will rest outside.
-# character_event = {
-	# id = HFP.20409
-	# desc = EVTDESCHFP20409
-	# picture = GFX_evt_lovers
+#Spouse/Physician informed mother will rest outside.
+character_event = {
+	id = HFP.20409
+	desc = EVTDESCHFP20409
+	picture = GFX_evt_lovers
 
-	# trigger = { 
-		# FROM = { is_alive = yes }
-	# }
+	trigger = { 
+		FROM = { is_alive = yes }
+	}
 	
-	# notification = yes
+	notification = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20409
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20409
+	}
+}
 
-# #Spouse/Physician informed mother will not rest.
-# character_event = {
-	# id = HFP.20410
-	# desc = EVTDESCHFP20410
-	# picture = GFX_evt_quarrel
+#Spouse/Physician informed mother will not rest.
+character_event = {
+	id = HFP.20410
+	desc = EVTDESCHFP20410
+	picture = GFX_evt_quarrel
 
-	# trigger = { 
-		# FROM = { is_alive = yes }
-	# }
+	trigger = { 
+		FROM = { is_alive = yes }
+	}
 	
-	# notification = yes
+	notification = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20410
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20410
+	}
+}
 
-# #Hidden random list for possible bad effects during hard pregnancy at home.
-# character_event = {
-	# id = HFP.20411
-	# hide_window = yes
+#Hidden random list for possible bad effects during hard pregnancy at home.
+character_event = {
+	id = HFP.20411
+	hide_window = yes
 
-	# trigger = { 
-		# trait = hard_pregnancy
-	# }
+	trigger = { 
+		trait = hard_pregnancy
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# clr_character_flag = mother_asked_retirement #If still active.
-		# random_list = {
+	immediate = { 
+		clr_character_flag = mother_asked_retirement #If still active.
+		random_list = {
 
-			# 35 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = stressed
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = cruel
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = envious 
-				# }
-				# modifier = { 
-					# factor = 1.5 #Additives cause risk of troubled pregnancy.
-					# trait = wroth
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = depressed
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = kind
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = patient
-				# }
+			35 = {
+				modifier = { 
+					factor = 1.5
+					trait = stressed
+				}
+				modifier = { 
+					factor = 1.5
+					trait = cruel
+				}
+				modifier = { 
+					factor = 1.5
+					trait = envious 
+				}
+				modifier = { 
+					factor = 1.5 #Additives cause risk of troubled pregnancy.
+					trait = wroth
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = depressed
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = kind
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = patient
+				}
 
-				# character_event = { id = HFP.20413 days = 30 random = 30 } #Wroth pregnant.
-			# }
-			# 35 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = stressed
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = hedonist
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = slothful
-				# }
-				# modifier = { 
-					# factor = 1.5 #Additives cause risk of troubled pregnancy.
-					# trait = gluttonous
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = temperate
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = patient
-				# }
+				character_event = { id = HFP.20413 days = 30 random = 30 } #Wroth pregnant.
+			}
+			35 = {
+				modifier = { 
+					factor = 1.5
+					trait = stressed
+				}
+				modifier = { 
+					factor = 1.5
+					trait = hedonist
+				}
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5 #Additives cause risk of troubled pregnancy.
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = patient
+				}
 
-				# character_event = { id = HFP.20414 days = 30 random = 30 } #Glutton pregnant.
-			# }
-			# 25 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = envious
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = slothful
-				# }
-				# modifier = { 
-					# factor = 1.5 #Additives cause risk of troubled pregnancy.
-					# trait = depressed
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = humble
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = ambitious
-				# }
+				character_event = { id = HFP.20414 days = 30 random = 30 } #Glutton pregnant.
+			}
+			25 = {
+				modifier = { 
+					factor = 1.5
+					trait = envious
+				}
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5 #Additives cause risk of troubled pregnancy.
+					trait = depressed
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = humble
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = ambitious
+				}
 
-				# character_event = { id = HFP.20415 days = 30 random = 30 } #Depressed pregnant.
-			# }
-			# 15 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = depressed
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = slothful
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = hedonist
-				# }
-				# modifier = { 
-					# factor = 1.5 #Additives cause risk of troubled pregnancy.
-					# trait = drunkard
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = temperate
-				# }
-				# modifier = { 
-					# factor = 0.5 
-					# trait = diligent
-				# }
+				character_event = { id = HFP.20415 days = 30 random = 30 } #Depressed pregnant.
+			}
+			15 = {
+				modifier = { 
+					factor = 1.5
+					trait = depressed
+				}
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
+				modifier = { 
+					factor = 1.5
+					trait = hedonist
+				}
+				modifier = { 
+					factor = 1.5 #Additives cause risk of troubled pregnancy.
+					trait = drunkard
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = temperate
+				}
+				modifier = { 
+					factor = 0.5 
+					trait = diligent
+				}
 
-				# character_event = { id = HFP.20416 days = 30 random = 30 } #Drunkard pregnant.
-			# }
-		# }
-	# }
-# }
+				character_event = { id = HFP.20416 days = 30 random = 30 } #Drunkard pregnant.
+			}
+		}
+	}
+}
 
-# #Hidden random list for possible bad effects during hard pregnancy outside.
-# character_event = {
-	# id = HFP.20412
-	# hide_window = yes
+#Hidden random list for possible bad effects during hard pregnancy outside.
+character_event = {
+	id = HFP.20412
+	hide_window = yes
 
-	# trigger = { 
-		# trait = hard_pregnancy
-	# }
+	trigger = { 
+		trait = hard_pregnancy
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# clr_character_flag = mother_asked_retirement #If still active.
-		# random_list = {
+	immediate = { 
+		clr_character_flag = mother_asked_retirement #If still active.
+		random_list = {
 
-			# 10 = {
-				# modifier = { 
-					# factor = 2
-					# trait = robust
-				# }
-				# modifier = { 
-					# factor = 2
-					# trait = strong
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = diligent
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = falconer
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = hunter
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = duelist
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = shieldmaiden
-				# }
+			10 = {
+				modifier = { 
+					factor = 2
+					trait = robust
+				}
+				modifier = { 
+					factor = 2
+					trait = strong
+				}
+				modifier = { 
+					factor = 1.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 1.5
+					trait = falconer
+				}
+				modifier = { 
+					factor = 1.5
+					trait = hunter
+				}
+				modifier = { 
+					factor = 1.5
+					trait = duelist
+				}
+				modifier = { 
+					factor = 1.5
+					trait = shieldmaiden
+				}
 
-				# #Nothing happens. Pregnancy goes well.
-			# }
-			# 20 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = wounded
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = weak
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = feeble
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = slow
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# trait = imbecile
-				# }
+				#Nothing happens. Pregnancy goes well.
+			}
+			20 = {
+				modifier = { 
+					factor = 1.5
+					trait = wounded
+				}
+				modifier = { 
+					factor = 1.5
+					trait = weak
+				}
+				modifier = { 
+					factor = 1.5
+					trait = feeble
+				}
+				modifier = { 
+					factor = 1.5
+					trait = slow
+				}
+				modifier = { 
+					factor = 1.75
+					trait = imbecile
+				}
 
-				# character_event = { id = HFP.20417 days = 30 random = 30 } #Riding accident.
-			# }
-			# 50 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = stressed
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = depressed
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# is_ill = yes
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = strong
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = robust
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = diligent
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = falconer
-				# }
+				character_event = { id = HFP.20417 days = 30 random = 30 } #Riding accident.
+			}
+			50 = {
+				modifier = { 
+					factor = 1.5
+					trait = stressed
+				}
+				modifier = { 
+					factor = 1.5
+					trait = depressed
+				}
+				modifier = { 
+					factor = 1.75
+					is_ill = yes
+				}
+				modifier = { 
+					factor = 0.5
+					trait = strong
+				}
+				modifier = { 
+					factor = 0.5
+					trait = robust
+				}
+				modifier = { 
+					factor = 0.5
+					trait = diligent
+				}
+				modifier = { 
+					factor = 0.5
+					trait = falconer
+				}
 
-				# character_event = { id = HFP.20418 days = 30 random = 30 } #Getting sick.
-			# }
-			# 20 = {
-				# modifier = { 
-					# factor = 1.5
-					# trait = drunkard
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = gluttonous
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = hedonist
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = slothful
-				# }
+				character_event = { id = HFP.20418 days = 30 random = 30 } #Getting sick.
+			}
+			20 = {
+				modifier = { 
+					factor = 1.5
+					trait = drunkard
+				}
+				modifier = { 
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 1.5
+					trait = hedonist
+				}
+				modifier = { 
+					factor = 1.5
+					trait = slothful
+				}
 
-				# character_event = { id = HFP.20419 days = 30 random = 30 } #Bad weather. (localized by region).
-			# }
-		# }
-	# }
-# }
+				character_event = { id = HFP.20419 days = 30 random = 30 } #Bad weather. (localized by region).
+			}
+		}
+	}
+}
 
-# #Became wroth pregnant
-# character_event = { 
-	# id = HFP.20413
-	# desc = EVTDESCHFP20413
-	# picture = GFX_evt_quarrel
+#Became wroth pregnant
+character_event = { 
+	id = HFP.20413
+	desc = EVTDESCHFP20413
+	picture = GFX_evt_quarrel
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20413
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = wroth } #If you already have the bad trait before this event, small chance of troubled pregnancy.
-				# random = { 
-					# chance = 1
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# if = { 
-			# limit = { NOT = { trait = wroth } }
-			# set_character_flag = wroth_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
-		# }
-		# add_trait = wroth
-		# hidden_tooltip = { character_event = { id = HFP.20442 days = 5 random = 10 } }  #Confirmation.
-		# hidden_tooltip = { character_event = { id = HFP.20422 days = 200 } }  #Post-pregnancy recovery.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20413
-		# if = { 
-			# limit = { NOT = { trait = depressed } }
-			# random = { 
-				# chance = 40
-				# modifier = { 
-					# factor = 1.25
-					# trait = stressed
-				# } 
-				# modifier = { 
-					# factor = 1.5
-					# trait = paranoid
-				# } 
-				# modifier = { 
-					# factor = 0.5
-					# trait = patient #Countertrait
-				# } 
-				# modifier = { 
-					# factor = 0.75
-					# trait = kind
-				# } 
-				# modifier = { 
-					# factor = 2
-					# trait = wroth
-				# } 
-				# tooltip = { add_trait = depressed }
-				# hidden_tooltip = { character_event = { id = HFP.20415 days = 5 random = 5 } } #Depressed pregnant.
-			# }
-			# break = yes  
-		# }
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = depressed }
-				# random = { 
-					# chance = 20
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20413
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = wroth } #If you already have the bad trait before this event, small chance of troubled pregnancy.
+				random = { 
+					chance = 1
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		if = { 
+			limit = { NOT = { trait = wroth } }
+			set_character_flag = wroth_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
+		}
+		add_trait = wroth
+		hidden_tooltip = { character_event = { id = HFP.20442 days = 5 random = 10 } }  #Confirmation.
+		hidden_tooltip = { character_event = { id = HFP.20422 days = 200 } }  #Post-pregnancy recovery.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20413
+		if = { 
+			limit = { NOT = { trait = depressed } }
+			random = { 
+				chance = 40
+				modifier = { 
+					factor = 1.25
+					trait = stressed
+				} 
+				modifier = { 
+					factor = 1.5
+					trait = paranoid
+				} 
+				modifier = { 
+					factor = 0.5
+					trait = patient #Countertrait
+				} 
+				modifier = { 
+					factor = 0.75
+					trait = kind
+				} 
+				modifier = { 
+					factor = 2
+					trait = wroth
+				} 
+				tooltip = { add_trait = depressed }
+				hidden_tooltip = { character_event = { id = HFP.20415 days = 5 random = 5 } } #Depressed pregnant.
+			}
+			break = yes  
+		}
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = depressed }
+				random = { 
+					chance = 20
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Became gluttonous pregnant
-# character_event = { 
-	# id = HFP.20414
-	# desc = EVTDESCHFP20414
-	# picture = GFX_evt_fancy_feast
+#Became gluttonous pregnant
+character_event = { 
+	id = HFP.20414
+	desc = EVTDESCHFP20414
+	picture = GFX_evt_fancy_feast
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20414
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = gluttonous } #If you already have the bad trait before this event, small chance of troubled pregnancy.
-				# random = { 
-					# chance = 1
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# random = { 
-			# chance = 40
-			# add_trait = gluttonous 
-			# hidden_tooltip = { character_event = { id = 38277 } } #Notification
+	option = { 
+		name = EVTOPTAHFP20414
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = gluttonous } #If you already have the bad trait before this event, small chance of troubled pregnancy.
+				random = { 
+					chance = 1
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		random = { 
+			chance = 40
+			add_trait = gluttonous 
+			hidden_tooltip = { character_event = { id = 38277 } } #Notification
 
-		# }
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# if = { 
-			# limit = { NOT = { has_character_flag = gluttonous_pregnant } }
-			# hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
-			# hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
-		# }
-		# set_character_flag = gluttonous_pregnant 	#Avoid double event if fired by weird cravings, facilitate post-birth recovery.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20414
-		# if = { 
-			# limit = { NOT = { trait = depressed } }
-			# random = { 
-				# chance = 40
-				# modifier = { 
-					# factor = 1.25
-					# trait = stressed
-				# } 
-				# modifier = { 
-					# factor = 1.5
-					# trait = paranoid
-				# } 
-				# modifier = { 
-					# factor = 0.5
-					# trait = temperate #Countertrait
-				# } 
-				# modifier = { 
-					# factor = 1.75
-					# trait = hedonist
-				# } 
-				# modifier = { 
-					# factor = 2
-					# trait = gluttonous
-				# }
-				# tooltip = { add_trait = depressed }
-				# hidden_tooltip = { character_event = { id = HFP.20415  days = 5 random = 5 } } #Depressed pregnant.
-			# }
-			# break = yes  
-		# }
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = depressed }
-				# random = { 
-					# chance = 20
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
+		}
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		if = { 
+			limit = { NOT = { has_character_flag = gluttonous_pregnant } }
+			hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
+			hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
+		}
+		set_character_flag = gluttonous_pregnant 	#Avoid double event if fired by weird cravings, facilitate post-birth recovery.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20414
+		if = { 
+			limit = { NOT = { trait = depressed } }
+			random = { 
+				chance = 40
+				modifier = { 
+					factor = 1.25
+					trait = stressed
+				} 
+				modifier = { 
+					factor = 1.5
+					trait = paranoid
+				} 
+				modifier = { 
+					factor = 0.5
+					trait = temperate #Countertrait
+				} 
+				modifier = { 
+					factor = 1.75
+					trait = hedonist
+				} 
+				modifier = { 
+					factor = 2
+					trait = gluttonous
+				}
+				tooltip = { add_trait = depressed }
+				hidden_tooltip = { character_event = { id = HFP.20415  days = 5 random = 5 } } #Depressed pregnant.
+			}
+			break = yes  
+		}
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = depressed }
+				random = { 
+					chance = 20
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Became depressed pregnant
-# character_event = { 
-	# id = HFP.20415
-	# desc = EVTDESCHFP20415
-	# picture = GFX_evt_bad_news_female
+#Became depressed pregnant
+character_event = { 
+	id = HFP.20415
+	desc = EVTDESCHFP20415
+	picture = GFX_evt_bad_news_female
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTAHFP20415
-		# trigger = { trait = poet }
-		# tooltip_info = poet
-		# tiered_prestige_reward_effect = yes
-		# if = { 
-			# limit = { NOT = { trait = depressed } }
-			# set_character_flag = depressed_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
-		# }
-		# add_trait = depressed
-		# hidden_tooltip = { character_event = { id = HFP.20443 days = 5 random = 10 } }  #Confirmation.
-		# hidden_tooltip = { character_event = { id = HFP.20423 days = 200 } }   #Post-pregnancy recovery.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20415
-		# trigger = { NOT = { trait = poet } }
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = depressed }
-				# random = { 
-					# chance = 20
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# if = { 
-			# limit = { NOT = { trait = depressed } }
-			# set_character_flag = depressed_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
-		# }
-		# add_trait = depressed
-		# hidden_tooltip = { character_event = { id = HFP.20423 days = 200 } }   #Post-pregnancy recovery.
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20415
+		trigger = { trait = poet }
+		tooltip_info = poet
+		tiered_prestige_reward_effect = yes
+		if = { 
+			limit = { NOT = { trait = depressed } }
+			set_character_flag = depressed_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
+		}
+		add_trait = depressed
+		hidden_tooltip = { character_event = { id = HFP.20443 days = 5 random = 10 } }  #Confirmation.
+		hidden_tooltip = { character_event = { id = HFP.20423 days = 200 } }   #Post-pregnancy recovery.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20415
+		trigger = { NOT = { trait = poet } }
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = depressed }
+				random = { 
+					chance = 20
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		if = { 
+			limit = { NOT = { trait = depressed } }
+			set_character_flag = depressed_pregnant 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
+		}
+		add_trait = depressed
+		hidden_tooltip = { character_event = { id = HFP.20423 days = 200 } }   #Post-pregnancy recovery.
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Became drunkard pregnant
-# character_event = { 
-	# id = HFP.20416
-	# desc = EVTDESCHFP20416
-	# picture = GFX_evt_drunk
+#Became drunkard pregnant
+character_event = { 
+	id = HFP.20416
+	desc = EVTDESCHFP20416
+	picture = GFX_evt_drunk
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20416
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = drunkard } #If you already have the bad trait before this event, small chance of troubled pregnancy.
-				# random = { 
-					# chance = 1
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# if = { 
-			# limit = { NOT = { trait = drunkard } }
-			# set_character_flag = drunkard_pregnant	 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
-		# }
-		# hidden_tooltip = { character_event = { id = HFP.20440 days = 5 random = 10 } }  #Confirmation.
-		# add_trait = drunkard
-		# set_character_flag = drunk_pregnant
-		# hidden_tooltip = { character_event = { id = HFP.20420 days = 200 } }   #Post-pregnancy recovery.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20416
-		# if = { 
-			# limit = { NOT = { trait = depressed } }
-			# random = { 
-				# chance = 40
-				# modifier = { 
-					# factor = 1.25
-					# trait = stressed
-				# } 
-				# modifier = { 
-					# factor = 1.5
-					# trait = paranoid
-				# } 
-				# modifier = { 
-					# factor = 0.5
-					# trait = temperate #Countertrait
-				# } 
-				# modifier = { 
-					# factor = 1.75
-					# trait = hedonist
-				# } 
-				# modifier = { 
-					# factor = 2
-					# trait = drunkard
-				# }
-				# tooltip = { add_trait = depressed }
-				# hidden_tooltip = { character_event = { id = HFP.20415  days = 5 random = 5 } } #Depressed pregnant.
-			# }
-			# break = yes  
-		# }
-		# hidden_tooltip = {
-			# if = { 
-				# limit = { trait = depressed }
-				# random = { 
-					# chance = 20
-					# modifier = { 
-						# factor = 1.5
-						# trait = stressed
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = feeble
-					# } 
-					# modifier = { 
-						# factor = 1.5
-						# trait = weak
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# modifier = { 
-						# factor = 1.75
-						# is_ill = yes
-					# } 
-					# troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
-				# }
-			# }  
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20416
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = drunkard } #If you already have the bad trait before this event, small chance of troubled pregnancy.
+				random = { 
+					chance = 1
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		if = { 
+			limit = { NOT = { trait = drunkard } }
+			set_character_flag = drunkard_pregnant	 	#check to see if trait is temporary, so that after pregnancy is over there is greater chance of recovery.
+		}
+		hidden_tooltip = { character_event = { id = HFP.20440 days = 5 random = 10 } }  #Confirmation.
+		add_trait = drunkard
+		set_character_flag = drunk_pregnant
+		hidden_tooltip = { character_event = { id = HFP.20420 days = 200 } }   #Post-pregnancy recovery.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20416
+		if = { 
+			limit = { NOT = { trait = depressed } }
+			random = { 
+				chance = 40
+				modifier = { 
+					factor = 1.25
+					trait = stressed
+				} 
+				modifier = { 
+					factor = 1.5
+					trait = paranoid
+				} 
+				modifier = { 
+					factor = 0.5
+					trait = temperate #Countertrait
+				} 
+				modifier = { 
+					factor = 1.75
+					trait = hedonist
+				} 
+				modifier = { 
+					factor = 2
+					trait = drunkard
+				}
+				tooltip = { add_trait = depressed }
+				hidden_tooltip = { character_event = { id = HFP.20415  days = 5 random = 5 } } #Depressed pregnant.
+			}
+			break = yes  
+		}
+		hidden_tooltip = {
+			if = { 
+				limit = { trait = depressed }
+				random = { 
+					chance = 20
+					modifier = { 
+						factor = 1.5
+						trait = stressed
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = feeble
+					} 
+					modifier = { 
+						factor = 1.5
+						trait = weak
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					modifier = { 
+						factor = 1.75
+						is_ill = yes
+					} 
+					troubled_pregnancy_chance_low_effect = yes  #Critical Failure: chance of Troubled Pregnancy.
+				}
+			}  
+		}
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Countryside: Riding accident.
-# character_event = { 
-	# id = HFP.20417
-	# desc = EVTDESCHFP20417
-	# picture = GFX_evt_carriage
+#Countryside: Riding accident.
+character_event = { 
+	id = HFP.20417
+	desc = EVTDESCHFP20417
+	picture = GFX_evt_carriage
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Take control of the horses.
-		# name = EVTOPTAHFP20417
-		# trigger = { 
-			# OR = { 
-				# trait = hunter 
-				# trait = falconer
-				# trait = duelist
-				# martial = 15
-			# } 
-		# }
-		# tooltip_info = martial
-		# tiered_prestige_reward_effect = yes
-		# troubled_pregnancy_chance_low_effect = yes #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20417
-		# trigger = { 
-			# NOR = { 
-				# trait = hunter 
-				# trait = falconer
-				# trait = duelist
-				# martial = 15
-			# } 
-		# }
-		# add_trait = wounded
-		# troubled_pregnancy_chance_medium_effect = yes #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 10 }
-	# }
-# }
+	option = { #Take control of the horses.
+		name = EVTOPTAHFP20417
+		trigger = { 
+			OR = { 
+				trait = hunter 
+				trait = falconer
+				trait = duelist
+				martial = 15
+			} 
+		}
+		tooltip_info = martial
+		tiered_prestige_reward_effect = yes
+		troubled_pregnancy_chance_low_effect = yes #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20417
+		trigger = { 
+			NOR = { 
+				trait = hunter 
+				trait = falconer
+				trait = duelist
+				martial = 15
+			} 
+		}
+		add_trait = wounded
+		troubled_pregnancy_chance_medium_effect = yes #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 10 }
+	}
+}
 
-# #Countryside: Health is dropping during travel.
-# character_event = { 
-	# id = HFP.20418
-	# desc = EVTDESCHFP20418
-	# picture = GFX_evt_carriage
+#Countryside: Health is dropping during travel.
+character_event = { 
+	id = HFP.20418
+	desc = EVTDESCHFP20418
+	picture = GFX_evt_carriage
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# if = { limit = { any_courtier_or_vassal = { has_minor_title = title_court_physician } } 
-			# random_courtier_or_vassal = { limit = { has_minor_title = title_court_physician } 
-				# save_event_target_as = localize_physician
-			# }
-		# }
-	# }
+	immediate = { 
+		if = { limit = { any_courtier_or_vassal = { has_minor_title = title_court_physician } } 
+			random_courtier_or_vassal = { limit = { has_minor_title = title_court_physician } 
+				save_event_target_as = localize_physician
+			}
+		}
+	}
 
-	# option = { #Knows how to treat herself.
-		# name = EVTOPTAHFP20418
-		# trigger = { 
-			# OR = { 
-				# trait = scholar 
-				# trait = gardener
-				# trait = mystic
-				# trait = physician
-				# learning = 15
-			# } 
-		# }
-		# tooltip_info = learning
-		# health = -0.25
-		# troubled_pregnancy_chance_low_effect = yes  #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 70 }
-	# }
-	# option = { #Ask my Physician
-		# name = EVTOPTBHFP20418
-		# trigger = { 
-			# is_ruler = yes
-			# any_courtier_or_vassal = { has_minor_title = title_court_physician }
-		# }
-		# show_portrait = event_target:localize_physician
-		# wealth = -15
-		# health = -0.25
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Ask my spouse's Physician
-		# name = EVTOPTCHFP20418
-		# trigger = { 
-			# is_ruler = no
-			# spouse = { 
-				# is_ruler = yes
-				# any_courtier_or_vassal = { has_minor_title = title_court_physician } 
-			# }
-		# }
-		# health = -0.25
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTDHFP20418
-		# trigger = { 
-			# NOR = { 
-				# trait = scholar 
-				# trait = gardener
-				# trait = mystic
-				# trait = physician
-				# learning = 15
-				# any_courtier_or_vassal = { has_minor_title = title_court_physician }
-				# spouse = { 
-					# is_ruler = yes
-					# any_courtier_or_vassal = { has_minor_title = title_court_physician } 
-				# }
-			# } 
-		# }
-		# health = -0.75
-		# troubled_pregnancy_chance_medium_effect = yes  #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 10 }
-	# }
-# }
+	option = { #Knows how to treat herself.
+		name = EVTOPTAHFP20418
+		trigger = { 
+			OR = { 
+				trait = scholar 
+				trait = gardener
+				trait = mystic
+				trait = physician
+				learning = 15
+			} 
+		}
+		tooltip_info = learning
+		health = -0.25
+		troubled_pregnancy_chance_low_effect = yes  #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 70 }
+	}
+	option = { #Ask my Physician
+		name = EVTOPTBHFP20418
+		trigger = { 
+			is_ruler = yes
+			any_courtier_or_vassal = { has_minor_title = title_court_physician }
+		}
+		show_portrait = event_target:localize_physician
+		wealth = -15
+		health = -0.25
+		ai_chance = { factor = 100 }
+	}
+	option = { #Ask my spouse's Physician
+		name = EVTOPTCHFP20418
+		trigger = { 
+			is_ruler = no
+			spouse = { 
+				is_ruler = yes
+				any_courtier_or_vassal = { has_minor_title = title_court_physician } 
+			}
+		}
+		health = -0.25
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTDHFP20418
+		trigger = { 
+			NOR = { 
+				trait = scholar 
+				trait = gardener
+				trait = mystic
+				trait = physician
+				learning = 15
+				any_courtier_or_vassal = { has_minor_title = title_court_physician }
+				spouse = { 
+					is_ruler = yes
+					any_courtier_or_vassal = { has_minor_title = title_court_physician } 
+				}
+			} 
+		}
+		health = -0.75
+		troubled_pregnancy_chance_medium_effect = yes  #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 10 }
+	}
+}
 
-# #Countryside: Bad weather.
-# character_event = { 
-	# id = HFP.20419
-	# desc = EVTDESCHFP20419		#Loc key tied to regions.
-	# picture = GFX_evt_carriage
+#Countryside: Bad weather.
+character_event = { 
+	id = HFP.20419
+	desc = EVTDESCHFP20419		#Loc key tied to regions.
+	picture = GFX_evt_carriage
 
-	# trigger = { trait = hard_pregnancy }
+	trigger = { trait = hard_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Endure
-		# name = EVTOPTAHFP20419
-		# trigger = { 
-			# trait = brave
-		# }
-		# tooltip_info = brave
-		# health = -0.25
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Endure
-		# name = EVTOPTAHFP20419
-		# trigger = { 
-			# trait = stubborn
-		# }
-		# tooltip_info = stubborn
-		# health = -0.25
-		# troubled_pregnancy_chance_low_effect = yes  #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20419
-		# trigger = { 
-			# NOR = { 
-				# trait = stubborn
-				# trait = brave
-			# }
-		# }
-		# health = -0.75
-		# troubled_pregnancy_chance_medium_effect = yes  #Critical failure: chance of Troubled Pregnancy.
-		# ai_chance = { factor = 0 }
-	# }
-# }
+	option = { #Endure
+		name = EVTOPTAHFP20419
+		trigger = { 
+			trait = brave
+		}
+		tooltip_info = brave
+		health = -0.25
+		ai_chance = { factor = 100 }
+	}
+	option = { #Endure
+		name = EVTOPTAHFP20419
+		trigger = { 
+			trait = stubborn
+		}
+		tooltip_info = stubborn
+		health = -0.25
+		troubled_pregnancy_chance_low_effect = yes  #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 100 }
+	}
+	option = { 
+		name = EVTOPTBHFP20419
+		trigger = { 
+			NOR = { 
+				trait = stubborn
+				trait = brave
+			}
+		}
+		health = -0.75
+		troubled_pregnancy_chance_medium_effect = yes  #Critical failure: chance of Troubled Pregnancy.
+		ai_chance = { factor = 0 }
+	}
+}
 
 
-# ############After Hard Pregnancy recovery###############
-# character_event = { #if drunk pregnant
-	# id = HFP.20420
-	# desc = EVTDESCHFP20420
-	# picture = GFX_evt_birth
+############After Hard Pregnancy recovery###############
+character_event = { #if drunk pregnant
+	id = HFP.20420
+	desc = EVTDESCHFP20420
+	picture = GFX_evt_birth
 
-	# trigger = { trait = drunkard }
+	trigger = { trait = drunkard }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20420
-		# custom_tooltip = { text = tooltip_recover_drunkard }
-		# if = { 
-			# limit = { NOT = { trait = stressed } }
-			# random = { 
-				# chance = 30
-				# add_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38282 } } 
-			# }
-		# }
-		# hidden_tooltip = {
-			# random_list = {
-				# 50 = { 
-					# modifier = { 
-						# factor = 1.5 
-						# has_character_flag = drunk_pregnant
-					# }
-					# remove_trait = drunkard
-				# }
-				# 50 = { 
-					# hidden_tooltip = { 
-						# spouse = { 
-							# character_event = { id = HFP.20426 days = 100 random = 100 } 
-						# } 
-					# } 
-				# }
-			# }
-		# }
-		# clr_character_flag = drunk_pregnant 
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20420
-		# clr_character_flag = drunk_pregnant 
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20426 days = 100 random = 100 } } } 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20420
+		custom_tooltip = { text = tooltip_recover_drunkard }
+		if = { 
+			limit = { NOT = { trait = stressed } }
+			random = { 
+				chance = 30
+				add_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38282 } } 
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = { 
+					modifier = { 
+						factor = 1.5 
+						has_character_flag = drunk_pregnant
+					}
+					remove_trait = drunkard
+				}
+				50 = { 
+					hidden_tooltip = { 
+						spouse = { 
+							character_event = { id = HFP.20426 days = 100 random = 100 } 
+						} 
+					} 
+				}
+			}
+		}
+		clr_character_flag = drunk_pregnant 
+	}
+	option = { 
+		name = EVTOPTBHFP20420
+		clr_character_flag = drunk_pregnant 
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20426 days = 100 random = 100 } } } 
+	}
+}
 
-# character_event = { #if gluttonous pregnant
-	# id = HFP.20421
-	# desc = EVTDESCHFP20421
-	# picture = GFX_evt_birth
+character_event = { #if gluttonous pregnant
+	id = HFP.20421
+	desc = EVTDESCHFP20421
+	picture = GFX_evt_birth
 
-	# trigger = { trait = gluttonous }
+	trigger = { trait = gluttonous }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20421
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# custom_tooltip = { text = tooltip_recover_gluttonous }
-		# if = { 
-			# limit = { NOT = { trait = stressed } }
-			# random = { 
-				# chance = 30
-				# add_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38282 } } 
-			# }
-		# }
-		# hidden_tooltip = {
-			# random_list = {
-				# 50 = { 
-					# modifier = { 
-						# factor = 1.5 
-						# has_character_flag = gluttonous_pregnant
-					# }
-					# remove_trait = gluttonous
-				# }
-				# 50 = { 
-					# hidden_tooltip = { spouse = { character_event = { id = HFP.20424 days = 100 random = 100 } }  } 
-				# }
-			# }
-		# }
-		# clr_character_flag = gluttonous_pregnant 
-		# ai_chance = { factor = 40 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20421
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20424 days = 100 random = 100 } } } 
-		# clr_character_flag = gluttonous_pregnant 
-		# ai_chance = { factor = 60 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20421
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		custom_tooltip = { text = tooltip_recover_gluttonous }
+		if = { 
+			limit = { NOT = { trait = stressed } }
+			random = { 
+				chance = 30
+				add_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38282 } } 
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = { 
+					modifier = { 
+						factor = 1.5 
+						has_character_flag = gluttonous_pregnant
+					}
+					remove_trait = gluttonous
+				}
+				50 = { 
+					hidden_tooltip = { spouse = { character_event = { id = HFP.20424 days = 100 random = 100 } }  } 
+				}
+			}
+		}
+		clr_character_flag = gluttonous_pregnant 
+		ai_chance = { factor = 40 }
+	}
+	option = { 
+		name = EVTOPTBHFP20421
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20424 days = 100 random = 100 } } } 
+		clr_character_flag = gluttonous_pregnant 
+		ai_chance = { factor = 60 }
+	}
+}
 
-# character_event = { #if wroth pregnant
-	# id = HFP.20422
-	# desc = EVTDESCHFP20422
-	# picture = GFX_evt_birth
+character_event = { #if wroth pregnant
+	id = HFP.20422
+	desc = EVTDESCHFP20422
+	picture = GFX_evt_birth
 
-	# trigger = { trait = wroth }
+	trigger = { trait = wroth }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20422
-		# custom_tooltip = { text = tooltip_recover_wroth }
-		# if = { 
-			# limit = { NOT = { trait = stressed } }
-			# random = { 
-				# chance = 30
-				# add_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38282 } } 
-			# }
-		# }
-		# hidden_tooltip = {
-			# random_list = {
-				# 50 = { 
-					# modifier = { 
-						# factor = 1.5 
-						# has_character_flag = wroth_pregnant
-					# }
-					# remove_trait = wroth
-				# }
-				# 50 = { 
-					# hidden_tooltip = { spouse = { character_event = { id = HFP.20428 days = 100 random = 100 } }  } 
-				# }
-			# }
-		# }
-		# clr_character_flag = wroth_pregnant 
-		# ai_chance = { factor = 70 }
-	# }
+	option = { 
+		name = EVTOPTAHFP20422
+		custom_tooltip = { text = tooltip_recover_wroth }
+		if = { 
+			limit = { NOT = { trait = stressed } }
+			random = { 
+				chance = 30
+				add_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38282 } } 
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = { 
+					modifier = { 
+						factor = 1.5 
+						has_character_flag = wroth_pregnant
+					}
+					remove_trait = wroth
+				}
+				50 = { 
+					hidden_tooltip = { spouse = { character_event = { id = HFP.20428 days = 100 random = 100 } }  } 
+				}
+			}
+		}
+		clr_character_flag = wroth_pregnant 
+		ai_chance = { factor = 70 }
+	}
 
-	# option = { 
-		# name = EVTOPTBHFP20422
-		# hidden_tooltip = { 
-			# spouse = { 
-				# character_event = { id = HFP.20428 days = 100 random = 100 } 
-			# }
-		# } 
-		# clr_character_flag = wroth_pregnant 
-		# ai_chance = { factor = 30 }
-	# }
-# }
+	option = { 
+		name = EVTOPTBHFP20422
+		hidden_tooltip = { 
+			spouse = { 
+				character_event = { id = HFP.20428 days = 100 random = 100 } 
+			}
+		} 
+		clr_character_flag = wroth_pregnant 
+		ai_chance = { factor = 30 }
+	}
+}
 
-# character_event = { #if depressed pregnant
-	# id = HFP.20423
-	# desc = EVTDESCHFP20423
-	# picture = GFX_evt_birth
+character_event = { #if depressed pregnant
+	id = HFP.20423
+	desc = EVTDESCHFP20423
+	picture = GFX_evt_birth
 
-	# trigger = { trait = depressed }
+	trigger = { trait = depressed }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20423
-		# custom_tooltip = { text = tooltip_recover_depressed }
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# if = { 
-			# limit = { NOT = { trait = stressed } }
-			# random = { 
-				# chance = 30
-				# add_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38282 } } 
-			# }
-		# }
-		# hidden_tooltip = {
-			# random_list = {
-				# 50 = { 
-					# modifier = { 
-						# factor = 1.5 
-						# has_character_flag = depressed_pregnant
-					# }
-					# remove_trait = depressed
-					# hidden_tooltip = { character_event = { id = 38314 } }
-				# }
-				# 50 = { 
-					# hidden_tooltip = { spouse = { character_event = { id = HFP.20430 days = 100 random = 100 } }  } 
-				# }
-			# }
-		# }
-		# clr_character_flag = depressed_pregnant 
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20423
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# clr_character_flag = depressed_pregnant 
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20430 days = 100 random = 100 } } } 
-		# ai_chance = { factor = 20 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20423
+		custom_tooltip = { text = tooltip_recover_depressed }
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		if = { 
+			limit = { NOT = { trait = stressed } }
+			random = { 
+				chance = 30
+				add_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38282 } } 
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				50 = { 
+					modifier = { 
+						factor = 1.5 
+						has_character_flag = depressed_pregnant
+					}
+					remove_trait = depressed
+					hidden_tooltip = { character_event = { id = 38314 } }
+				}
+				50 = { 
+					hidden_tooltip = { spouse = { character_event = { id = HFP.20430 days = 100 random = 100 } }  } 
+				}
+			}
+		}
+		clr_character_flag = depressed_pregnant 
+		ai_chance = { factor = 80 }
+	}
+	option = { 
+		name = EVTOPTBHFP20423
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		clr_character_flag = depressed_pregnant 
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20430 days = 100 random = 100 } } } 
+		ai_chance = { factor = 20 }
+	}
+}
 
-# ############Spouse responses###########
+############Spouse responses###########
 
-# ####Spouse complains about fat wife###
-# character_event = {
-	# id = HFP.20424
-	# desc = {
-		# text = EVTDESCHFP20424
-		# trigger = { 
-			# NOT = { 
-				# FROM = { 
-					# has_opinion_modifier = { 
-						# who = ROOT
-						# modifier = opinion_cravings 
-					# }
-				# }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCBHFP20424
-		# trigger = { 
-			# FROM = { 
-				# has_opinion_modifier = { 
-					# who = ROOT
-					# modifier = opinion_cravings 
-				# }
-			# }
-		# }
-	# }
-	# picture = GFX_evt_birth
+####Spouse complains about fat wife###
+character_event = {
+	id = HFP.20424
+	desc = {
+		text = EVTDESCHFP20424
+		trigger = { 
+			NOT = { 
+				FROM = { 
+					has_opinion_modifier = { 
+						who = ROOT
+						modifier = opinion_cravings 
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBHFP20424
+		trigger = { 
+			FROM = { 
+				has_opinion_modifier = { 
+					who = ROOT
+					modifier = opinion_cravings 
+				}
+			}
+		}
+	}
+	picture = GFX_evt_birth
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# FROM = { 
-			# trait = gluttonous
-			# is_alive = yes
-			# is_married = ROOT
-		# }
-	# }
+	trigger = {
+		FROM = { 
+			trait = gluttonous
+			is_alive = yes
+			is_married = ROOT
+		}
+	}
 
-	# option = {
-		# name = EVTOPTZHFP20424
-		# trigger = { trait = gluttonous }
-		# tooltip_info = gluttonous
-		# custom_tooltip = { text = tooltip_HFP20424_Z }
-		# tiered_prestige_reward_effect = yes
-		# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-		# hidden_tooltip = {
-			# opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-			# FROM = { character_event = { id = HFP.20069 } }
-		# }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.5
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = hedonist
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = kind
-			# }
-		# }
-	# }
+	option = {
+		name = EVTOPTZHFP20424
+		trigger = { trait = gluttonous }
+		tooltip_info = gluttonous
+		custom_tooltip = { text = tooltip_HFP20424_Z }
+		tiered_prestige_reward_effect = yes
+		reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+			FROM = { character_event = { id = HFP.20069 } }
+		}
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = hedonist
+			}
+			modifier = { 
+				factor = 1.75
+				trait = kind
+			}
+		}
+	}
 
-	# option = {
-		# name = {
-			# text = EVTOPTAHFP20424
-			# trigger = {
-				# NOT = { 
-					# FROM = { 
-						# has_opinion_modifier = { 
-							# who = ROOT
-							# modifier = opinion_cravings 
-						# }
-					# }
-				# }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20424_B
-			# trigger = {
-				# FROM = { 
-					# has_opinion_modifier = { 
-						# who = ROOT
-						# modifier = opinion_cravings 
-					# }
-				# }
-			# }
-		# }
-		# custom_tooltip = { text = tooltip_HFP20424_A }
-		# FROM = {
-			# character_event = { id = HFP.20425 }
-			# opinion = { 
-				# modifier = opinion_angry
-				# who = ROOT
-				# years = 1 
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.2
-				# trait = temperate
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTBHFP20424
-		# custom_tooltip = { text = tooltip_HFP20424_B }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = gluttonous
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = drunkard
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = {
+			text = EVTOPTAHFP20424
+			trigger = {
+				NOT = { 
+					FROM = { 
+						has_opinion_modifier = { 
+							who = ROOT
+							modifier = opinion_cravings 
+						}
+					}
+				}
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20424_B
+			trigger = {
+				FROM = { 
+					has_opinion_modifier = { 
+						who = ROOT
+						modifier = opinion_cravings 
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = tooltip_HFP20424_A }
+		FROM = {
+			character_event = { id = HFP.20425 }
+			opinion = { 
+				modifier = opinion_angry
+				who = ROOT
+				years = 1 
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.2
+				trait = temperate
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBHFP20424
+		custom_tooltip = { text = tooltip_HFP20424_B }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.5
+				trait = gluttonous
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.2
+				trait = drunkard
+			}
+			modifier = { 
+				factor = 1.2
+				trait = envious
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Fat wife receives complaint###
-# character_event = {
-	# id = HFP.20425
-	# desc = EVTDESCHFP20425
-	# picture = GFX_evt_quarrel
+####Fat wife receives complaint###
+character_event = {
+	id = HFP.20425
+	desc = EVTDESCHFP20425
+	picture = GFX_evt_quarrel
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTAHFP20425
-		# random = { 
-			# chance = 75
-			# if = { 
-				# limit = { trait = stressed }
-				# remove_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38313 } }
-			# }
-			# lose_weight_small_effect = yes
-			# weight_trait_check_effect = yes
-			# remove_trait = gluttonous 
-			# clr_character_flag = gluttonous_pregnant
-			# hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
-			# hidden_tooltip = { FROM = { character_event = { id = HFP.20432 days = 12 } } }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.35
-				# is_ruler = no
-				# FROM = { is_ruler = yes }
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = diligent
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = ambitious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = just
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-				# }
-			# }
-		# }
-	# option = { 
-		# name = EVTOPTBHFP20425
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20433 days = 12 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = drunkard
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = arbitrary
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20425
+		random = { 
+			chance = 75
+			if = { 
+				limit = { trait = stressed }
+				remove_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38313 } }
+			}
+			lose_weight_small_effect = yes
+			weight_trait_check_effect = yes
+			remove_trait = gluttonous 
+			clr_character_flag = gluttonous_pregnant
+			hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
+			hidden_tooltip = { FROM = { character_event = { id = HFP.20432 days = 12 } } }
+		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.35
+				is_ruler = no
+				FROM = { is_ruler = yes }
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = diligent
+			}
+			modifier = { 
+				factor = 1.2
+				trait = ambitious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = just
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+				}
+			}
+		}
+	option = { 
+		name = EVTOPTBHFP20425
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20433 days = 12 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = drunkard
+			}
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = arbitrary
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Spouse complains about drunkard wife###
-# character_event = {
-	# id = HFP.20426
-	# desc = EVTDESCHFP20426
-	# picture = GFX_evt_birth
+####Spouse complains about drunkard wife###
+character_event = {
+	id = HFP.20426
+	desc = EVTDESCHFP20426
+	picture = GFX_evt_birth
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# FROM = { 
-			# trait = drunkard
-			# is_alive = yes
-			# is_married = ROOT
-		# }
-	# }
+	trigger = {
+		FROM = { 
+			trait = drunkard
+			is_alive = yes
+			is_married = ROOT
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTAHFP20426
-		# custom_tooltip = { text = tooltip_HFP20426_A }
-		# FROM = {
-			# hidden_tooltip = { character_event = { id = HFP.20427 } }
-			# opinion = { 
-				# modifier = opinion_angry
-				# who = ROOT
-				# years = 1 
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.35
-				# is_ruler = no
-				# FROM = { is_ruler = yes }
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = temperate
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTBHFP20426
-		# custom_tooltip = { text = tooltip_HFP20426_B }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gluttonous
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = drunkard
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20426
+		custom_tooltip = { text = tooltip_HFP20426_A }
+		FROM = {
+			hidden_tooltip = { character_event = { id = HFP.20427 } }
+			opinion = { 
+				modifier = opinion_angry
+				who = ROOT
+				years = 1 
+			}
+		}
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.35
+				is_ruler = no
+				FROM = { is_ruler = yes }
+			}
+			modifier = { 
+				factor = 1.2
+				trait = temperate
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBHFP20426
+		custom_tooltip = { text = tooltip_HFP20426_B }
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gluttonous
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = { 
+				factor = 1.2
+				trait = envious
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Drunkard wife receives complaint###
-# character_event = {
-	# id = HFP.20427
-	# desc = EVTDESCHFP20427
-	# picture = GFX_evt_quarrel
+####Drunkard wife receives complaint###
+character_event = {
+	id = HFP.20427
+	desc = EVTDESCHFP20427
+	picture = GFX_evt_quarrel
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTAHFP20427
-		# random = { 
-			# chance = 75
-			# remove_trait = drunkard
-			# if = { 
-				# limit = { trait = stressed }
-				# remove_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38313 } }
-			# }
-			# clr_character_flag = drunkard_pregnant
-			# hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
-			# hidden_tooltip = { 
-				# FROM = { 
-					# character_event = { id = HFP.20434 days = 12 } 
-				# }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.35
-				# is_ruler = no
-				# FROM = { is_ruler = yes }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = trusting
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = diligent
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = ambitious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = just
-			# }
-			# modifier = {
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20427
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20435 days = 12 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.5
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gluttonous
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = arbitrary
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20427
+		random = { 
+			chance = 75
+			remove_trait = drunkard
+			if = { 
+				limit = { trait = stressed }
+				remove_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38313 } }
+			}
+			clr_character_flag = drunkard_pregnant
+			hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
+			hidden_tooltip = { 
+				FROM = { 
+					character_event = { id = HFP.20434 days = 12 } 
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.35
+				is_ruler = no
+				FROM = { is_ruler = yes }
+			}
+			modifier = { 
+				factor = 1.5
+				trait = trusting
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = diligent
+			}
+			modifier = { 
+				factor = 1.2
+				trait = ambitious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = just
+			}
+			modifier = {
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20427
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20435 days = 12 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gluttonous
+			}
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = arbitrary
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Spouse complains about wroth wife###
-# character_event = {
-	# id = HFP.20428
-	# desc = EVTDESCHFP20428
-	# picture = GFX_evt_birth
+####Spouse complains about wroth wife###
+character_event = {
+	id = HFP.20428
+	desc = EVTDESCHFP20428
+	picture = GFX_evt_birth
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# FROM = { 
-			# NOT = { trait = pregnant }
-			# trait = wroth
-			# is_alive = yes
-			# is_married = ROOT
-		# }
-	# }
+	trigger = {
+		FROM = { 
+			NOT = { trait = pregnant }
+			trait = wroth
+			is_alive = yes
+			is_married = ROOT
+		}
+	}
 
-	# option = {
-		# name = EVTOPTAHFP20428
-		# custom_tooltip = { text = tooltip_HFP20428_A }
-		# FROM = {
-			# hidden_tooltip = { character_event = { id = HFP.20429 } }
-			# opinion = { 
-				# modifier = opinion_angry
-				# who = ROOT
-				# years = 1 
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 1.5
-				# trait = brave
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTBHFP20428
-		# custom_tooltip = { text = tooltip_HFP20428_B }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gluttonous
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = craven
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = drunkard
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20428
+		custom_tooltip = { text = tooltip_HFP20428_A }
+		FROM = {
+			hidden_tooltip = { character_event = { id = HFP.20429 } }
+			opinion = { 
+				modifier = opinion_angry
+				who = ROOT
+				years = 1 
+			}
+		}
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 1.5
+				trait = brave
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBHFP20428
+		custom_tooltip = { text = tooltip_HFP20428_B }
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gluttonous
+			}
+			modifier = { 
+				factor = 1.5
+				trait = craven
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Wroth wife receives complaint###
-# character_event = {
-	# id = HFP.20429
-	# desc = EVTDESCHFP20429
-	# picture = GFX_evt_quarrel
+####Wroth wife receives complaint###
+character_event = {
+	id = HFP.20429
+	desc = EVTDESCHFP20429
+	picture = GFX_evt_quarrel
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTAHFP20429
-		# random = { 
-			# chance = 60
-			# if = { 
-				# limit = { trait = stressed }
-				# remove_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38313 } }
-			# }
-			# remove_trait = wroth
-			# clr_character_flag = wroth_pregnant
-			# hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
-			# hidden_tooltip = { 
-				# FROM = { 
-					# character_event = { id = HFP.20436 days = 12 } 
-				# }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.35
-				# is_ruler = no
-				# FROM = { is_ruler = yes }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = trusting
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = temperate
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = diligent
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = just
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20429
-		# random = { 
-			# chance = 40
-			# FROM  = { add_trait = wounded }
-			# hidden_tooltip = { FROM = { character_event = { id = HFP.20437 days = 1 } } } 
-			# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.5
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = ambitious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = arbitrary
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = strong
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20429
+		random = { 
+			chance = 60
+			if = { 
+				limit = { trait = stressed }
+				remove_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38313 } }
+			}
+			remove_trait = wroth
+			clr_character_flag = wroth_pregnant
+			hidden_tooltip = { remove_opinion = { who = FROM modifier = opinion_angry } }
+			hidden_tooltip = { 
+				FROM = { 
+					character_event = { id = HFP.20436 days = 12 } 
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.35
+				is_ruler = no
+				FROM = { is_ruler = yes }
+			}
+			modifier = { 
+				factor = 1.5
+				trait = trusting
+			}
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = temperate
+			}
+			modifier = { 
+				factor = 1.2
+				trait = diligent
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = just
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20429
+		random = { 
+			chance = 40
+			FROM  = { add_trait = wounded }
+			hidden_tooltip = { FROM = { character_event = { id = HFP.20437 days = 1 } } } 
+			}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = ambitious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = arbitrary
+			}
+			modifier = { 
+				factor = 1.2
+				trait = strong
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Spouse complains about depressed wife###
-# character_event = {
-	# id = HFP.20430
-	# desc = EVTDESCHFP20430
-	# picture = GFX_evt_birth
+####Spouse complains about depressed wife###
+character_event = {
+	id = HFP.20430
+	desc = EVTDESCHFP20430
+	picture = GFX_evt_birth
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# FROM = { 
-			# trait = depressed
-			# is_alive = yes
-			# is_married = ROOT
-		# }
-	# }
+	trigger = {
+		FROM = { 
+			trait = depressed
+			is_alive = yes
+			is_married = ROOT
+		}
+	}
 
-	# option = {
-		# name = EVTOPTZHFP20430
-		# trigger = { trait = shy }
-		# tooltip_info = shy
-		# custom_tooltip = { text = tooltip_HFP20430_Z }
-		# tiered_piety_reward_effect = yes
-		# reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-		# hidden_tooltip = {
-			# opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-			# FROM = { character_event = { id = HFP.20070 } }
-		# }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.5
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = poet
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = depressed
-			# }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTAHFP20430
-		# custom_tooltip = { text = tooltip_HFP20430_A }
-		# FROM = {
-			# hidden_tooltip = { character_event = { id = HFP.20431 } }
-		# }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.5
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = just
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = honest
-			# }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTBHFP20430
-		# custom_tooltip = { text = tooltip_HFP20430_B }
-		# hidden_tooltip = { 
-			# random = { 
-				# chance = 60
-				# remove_trait = kind 
-				# hidden_tooltip = { character_event = { id = 38307 } }
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 60 
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = drunkard
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTZHFP20430
+		trigger = { trait = shy }
+		tooltip_info = shy
+		custom_tooltip = { text = tooltip_HFP20430_Z }
+		tiered_piety_reward_effect = yes
+		reverse_opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+		hidden_tooltip = {
+			opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+			FROM = { character_event = { id = HFP.20070 } }
+		}
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = poet
+			}
+			modifier = { 
+				factor = 1.75
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.2
+				trait = depressed
+			}
+		}
+	}
+	option = {
+		name = EVTOPTAHFP20430
+		custom_tooltip = { text = tooltip_HFP20430_A }
+		FROM = {
+			hidden_tooltip = { character_event = { id = HFP.20431 } }
+		}
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.2
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = just
+			}
+			modifier = { 
+				factor = 1.75
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = honest
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBHFP20430
+		custom_tooltip = { text = tooltip_HFP20430_B }
+		hidden_tooltip = { 
+			random = { 
+				chance = 60
+				remove_trait = kind 
+				hidden_tooltip = { character_event = { id = 38307 } }
+			} 
+		}
+		ai_chance = { 
+			factor = 60 
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.75
+				trait = cruel
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = drunkard
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ####Depressed wife receives complaint###
-# character_event = {
-	# id = HFP.20431
-	# desc = EVTDESCHFP20431
-	# picture = GFX_evt_quarrel
+####Depressed wife receives complaint###
+character_event = {
+	id = HFP.20431
+	desc = EVTDESCHFP20431
+	picture = GFX_evt_quarrel
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTAHFP20431
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# random = { 
-			# chance = 75
-			# if = { 
-				# limit = { trait = stressed }
-				# remove_trait = stressed 
-				# hidden_tooltip = { character_event = { id = 38313 } }
-			# }
-			# remove_trait = depressed
-			# clr_character_flag = depressed_pregnant
- 			# hidden_tooltip = { FROM = { character_event = { id = HFP.20438 days = 12 } } } 
- 		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.35
-				# is_ruler = no
-				# FROM = { is_ruler = yes }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = trusting
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = wroth
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = ambitious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = lustful
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = just
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = strong
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20431
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# random = { 
-			# chance = 80
-			# health = -1.0
- 			# hidden_tooltip = { FROM = { character_event = { id = HFP.20439 days = 12 } } } 
- 		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.5
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = slothful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = weak
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = content
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 1.2
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 2
-				# is_rival = FROM
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20431
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		random = { 
+			chance = 75
+			if = { 
+				limit = { trait = stressed }
+				remove_trait = stressed 
+				hidden_tooltip = { character_event = { id = 38313 } }
+			}
+			remove_trait = depressed
+			clr_character_flag = depressed_pregnant
+ 			hidden_tooltip = { FROM = { character_event = { id = HFP.20438 days = 12 } } } 
+ 		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.35
+				is_ruler = no
+				FROM = { is_ruler = yes }
+			}
+			modifier = { 
+				factor = 1.5
+				trait = trusting
+			}
+			modifier = { 
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = { 
+				factor = 1.5
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.2
+				trait = ambitious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = lustful
+			}
+			modifier = { 
+				factor = 1.2
+				trait = just
+			}
+			modifier = { 
+				factor = 1.2
+				trait = strong
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20431
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		random = { 
+			chance = 80
+			health = -1.0
+ 			hidden_tooltip = { FROM = { character_event = { id = HFP.20439 days = 12 } } } 
+ 		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.2
+				trait = weak
+			}
+			modifier = { 
+				factor = 1.2
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.2
+				trait = content
+			}
+			modifier = { 
+				factor = 1.2
+				trait = envious
+			}
+			modifier = { 
+				factor = 1.2
+				trait = patient
+			}
+			modifier = { 
+				factor = 0.5
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.5
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 2
+				is_rival = FROM
+			}
+		}
+	}
+}
 
-# ############Spouse receives comunication of success/failure###########
+############Spouse receives comunication of success/failure###########
 
-# character_event = { #wife's back in shape
-	# id = HFP.20432
-	# desc = EVTDESCHFP20432
-	# picture = GFX_evt_lovers
+character_event = { #wife's back in shape
+	id = HFP.20432
+	desc = EVTDESCHFP20432
+	picture = GFX_evt_lovers
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20432 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20432 
+	}
+}
 
-# character_event = { #wife's become fat
-	# id = HFP.20433
-	# desc = EVTDESCHFP20433
-	# picture = GFX_evt_fancy_feast
+character_event = { #wife's become fat
+	id = HFP.20433
+	desc = EVTDESCHFP20433
+	picture = GFX_evt_fancy_feast
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20433 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20433 
+	}
+}
 
-# character_event = { #wife's sober again
-	# id = HFP.20434
-	# desc = EVTDESCHFP20434
-	# picture = GFX_evt_lovers
+character_event = { #wife's sober again
+	id = HFP.20434
+	desc = EVTDESCHFP20434
+	picture = GFX_evt_lovers
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20434 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20434 
+	}
+}
 
-# character_event = { #wife still drinks
-	# id = HFP.20435
-	# desc = EVTDESCHFP20435
-	# picture = GFX_evt_lovers
+character_event = { #wife still drinks
+	id = HFP.20435
+	desc = EVTDESCHFP20435
+	picture = GFX_evt_lovers
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20435 
-	# }
-# }
-# character_event = { #wife's calm now
-	# id = HFP.20436
-	# desc = EVTDESCHFP20436
-	# picture = GFX_evt_lovers
+	option = { 
+		name = EVTOPTAHFP20435 
+	}
+}
+character_event = { #wife's calm now
+	id = HFP.20436
+	desc = EVTDESCHFP20436
+	picture = GFX_evt_lovers
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20436 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20436 
+	}
+}
 
-# character_event = { #wife's wounded husband!
-	# id = HFP.20437
-	# desc = EVTDESCHFP20437
-	# picture = GFX_evt_quarrel
+character_event = { #wife's wounded husband!
+	id = HFP.20437
+	desc = EVTDESCHFP20437
+	picture = GFX_evt_quarrel
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20437
-		# opinion = { 
-			# modifier = opinion_angry
-			# who = FROM
-			# years = 1 
-		# }
-	# }
-# }
-# character_event = { #wife's happy again
-	# id = HFP.20438
-	# desc = EVTDESCHFP20438
-	# picture = GFX_evt_lovers
+	option = { 
+		name = EVTOPTAHFP20437
+		opinion = { 
+			modifier = opinion_angry
+			who = FROM
+			years = 1 
+		}
+	}
+}
+character_event = { #wife's happy again
+	id = HFP.20438
+	desc = EVTDESCHFP20438
+	picture = GFX_evt_lovers
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20438 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20438 
+	}
+}
 
-# character_event = { #wife's become hollow
-	# id = HFP.20439
-	# desc = EVTDESCHFP20439
-	# picture = GFX_evt_bad_news_female
+character_event = { #wife's become hollow
+	id = HFP.20439
+	desc = EVTDESCHFP20439
+	picture = GFX_evt_bad_news_female
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20439 
-	# }
-# }
-# ########################################
-# #Pre-notifications during pregnancy
+	option = { 
+		name = EVTOPTAHFP20439 
+	}
+}
+########################################
+#Pre-notifications during pregnancy
 
-# character_event = { #wife enjoys drinking
-	# id = HFP.20440
-	# desc = EVTDESCHFP20440
-	# picture = GFX_evt_drunk
+character_event = { #wife enjoys drinking
+	id = HFP.20440
+	desc = EVTDESCHFP20440
+	picture = GFX_evt_drunk
 	
-	# trigger = { 
-		# trait = drunkard
-		# trait = hard_pregnancy 
-	# }
+	trigger = { 
+		trait = drunkard
+		trait = hard_pregnancy 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20440 
-		# tooltip_info = drunkard
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20440 
+		tooltip_info = drunkard
+	}
+}
 
-# character_event = { #wife enjoys eating
-	# id = HFP.20441
-	# desc = EVTDESCHFP20441
-	# picture = GFX_evt_fancy_feast
+character_event = { #wife enjoys eating
+	id = HFP.20441
+	desc = EVTDESCHFP20441
+	picture = GFX_evt_fancy_feast
 	
-	# trigger = { 
-		# trait = gluttonous
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		trait = gluttonous
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20441 
-		# tooltip_info = gluttonous
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20441 
+		tooltip_info = gluttonous
+	}
+}
 
-# character_event = { #wife enjoys yelling
-	# id = HFP.20442
-	# desc = EVTDESCHFP20442
-	# picture = GFX_evt_quarrel
+character_event = { #wife enjoys yelling
+	id = HFP.20442
+	desc = EVTDESCHFP20442
+	picture = GFX_evt_quarrel
 	
-	# trigger = { 
-		# trait = wroth
-		# trait = hard_pregnancy 
-	# }
+	trigger = { 
+		trait = wroth
+		trait = hard_pregnancy 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20442 
-		# tooltip_info = wroth
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20442 
+		tooltip_info = wroth
+	}
+}
 
-# character_event = { #wife enjoys crying
-	# id = HFP.20443
-	# desc = EVTDESCHFP20443
-	# picture = GFX_evt_bad_news_female
+character_event = { #wife enjoys crying
+	id = HFP.20443
+	desc = EVTDESCHFP20443
+	picture = GFX_evt_bad_news_female
 	
-	# trigger = { 
-		# trait = depressed
-		# trait = hard_pregnancy 
-	# }
+	trigger = { 
+		trait = depressed
+		trait = hard_pregnancy 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20443
-		# tooltip_info = depressed
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20443
+		tooltip_info = depressed
+	}
+}
 # ###############################################################################
 
 # #HFP.20500 Troubled Pregnancy begins.
