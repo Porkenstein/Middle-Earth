@@ -3900,96 +3900,96 @@ character_event = { #wife enjoys crying
 		tooltip_info = depressed
 	}
 }
-# ###############################################################################
+###############################################################################
 
-# #HFP.20500 Troubled Pregnancy begins.
-# character_event = { 
-	# id = HFP.20500 
-	# desc = EVTDESCHFP20500
-	# picture = GFX_evt_illness
+#HFP.20500 Troubled Pregnancy begins.
+character_event = { 
+	id = HFP.20500 
+	desc = EVTDESCHFP20500
+	picture = GFX_evt_illness
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# remove_trait = hard_pregnancy 
-		# add_trait = troubled_pregnancy
-	# }
+	immediate = { 
+		remove_trait = hard_pregnancy 
+		add_trait = troubled_pregnancy
+	}
 
-	# option = {
-		# name = EVTOPTAHFP20500
-		# tooltip = { add_trait = troubled_pregnancy }
-		# hidden_tooltip = { 
-			# set_variable =  { which = troubled_pregnancy_variable value = 2 } #Used to determine if the mother dies or not, and if there are complications after the pregnancy.
+	option = {
+		name = EVTOPTAHFP20500
+		tooltip = { add_trait = troubled_pregnancy }
+		hidden_tooltip = { 
+			set_variable =  { which = troubled_pregnancy_variable value = 2 } #Used to determine if the mother dies or not, and if there are complications after the pregnancy.
 			
-			# if = {  #If married, spouse may offer assistance.
-				# limit = { is_married = yes } 
-				# spouse = { character_event = { id = HFP.20501 days = 4 } } 
-			# } 
+			if = {  #If married, spouse may offer assistance.
+				limit = { is_married = yes } 
+				spouse = { character_event = { id = HFP.20501 days = 4 } } 
+			} 
 
-			# if = {  #If regent likes you, he'll try to help you, as if he were your spouse.
-				# limit = { 
-					# any_courtier_or_vassal = { 
-						# OR = { 
-							# has_minor_title = title_regent 
-							# has_minor_title = title_appointed_regent
-						# }
-						# NOT = { is_married = FROM } #Don't fire twice if the spouse is also the regent.
-						# opinion = { 
-							# who = ROOT 
-							# value = -50 
-						# } 
-					# }
-				# } 
-				# random_courtier_or_vassal = { 
-					# limit = { 
-						# OR = { 
-							# has_minor_title = title_regent 
-							# has_minor_title = title_appointed_regent
-						# }
-						# opinion = {
-							# who = ROOT 
-							# value = -50 
-						# } 
-					# }
-					# character_event = { id = HFP.20501 days = 6 } 
-				# } 
-			# }
-			# if = { #If regent doesn't like you, he may try to kill you in your vulnerable state.
-				# limit = { 
-					# any_courtier_or_vassal = { 
-						# OR = { 
-							# has_minor_title = title_regent 
-							# has_minor_title = title_appointed_regent
-						# }
-						# NOT = { 
-							# opinion = {  
-								# who = ROOT 
-								# value = -50 
-							# } 
-						# } 
-					# }
-				# } 
-				# random_courtier_or_vassal = { 
-					# limit = { 
-						# OR = { 
-							# has_minor_title = title_regent 
-							# has_minor_title = title_appointed_regent
-						# }
-						# NOT = { 
-						# opinion = {
-							# who = ROOT 
-							# value = -50 
-							# } 
-						# } 
-					# }
-					# character_event = { id = HFP.20502 days = 3 random = 3 } 
-				# } 
-			# }
-			# if = { #Chance of a strange birth.
-				# limit = { NOT = { has_dynasty_flag = flag_vision_baby } }
-				# random_list = { 
-					# 70 = { } 									#No vision
-					# 15 = { 
+			if = {  #If regent likes you, he'll try to help you, as if he were your spouse.
+				limit = { 
+					any_courtier_or_vassal = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent
+						}
+						NOT = { is_married = FROM } #Don't fire twice if the spouse is also the regent.
+						opinion = { 
+							who = ROOT 
+							value = -50 
+						} 
+					}
+				} 
+				random_courtier_or_vassal = { 
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent
+						}
+						opinion = {
+							who = ROOT 
+							value = -50 
+						} 
+					}
+					character_event = { id = HFP.20501 days = 6 } 
+				} 
+			}
+			if = { #If regent doesn't like you, he may try to kill you in your vulnerable state.
+				limit = { 
+					any_courtier_or_vassal = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent
+						}
+						NOT = { 
+							opinion = {  
+								who = ROOT 
+								value = -50 
+							} 
+						} 
+					}
+				} 
+				random_courtier_or_vassal = { 
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent
+						}
+						NOT = { 
+						opinion = {
+							who = ROOT 
+							value = -50 
+							} 
+						} 
+					}
+					character_event = { id = HFP.20502 days = 3 random = 3 } 
+				} 
+			}
+			if = { #Chance of a strange birth.
+				limit = { NOT = { has_dynasty_flag = flag_vision_baby } }
+				random_list = { 
+					70 = { } 									#No vision
+					15 = { 
 						# modifier = { 
 							# factor = 0 
 							# NOR = { 
@@ -4001,10 +4001,10 @@ character_event = { #wife enjoys crying
 								# religion = norse_pagan_reformed
 							# } 
 						# } 
-						# set_dynasty_flag = flag_vision_baby		#Positive
-						# character_event = { id = HFP.20503 days = 43 random = 20 }  
-					# } 
-					# 15 = { 
+						set_dynasty_flag = flag_vision_baby		#Positive
+						character_event = { id = HFP.20503 days = 43 random = 20 }  
+					} 
+					15 = { 
 						# modifier = { 
 							# factor = 0 
 							# NOR = { 
@@ -4016,191 +4016,191 @@ character_event = { #wife enjoys crying
 								# religion = norse_pagan_reformed
 							# } 
 						# }
-						# set_dynasty_flag = flag_vision_baby 	#Negative
-						# character_event = { id = HFP.20504 days = 33 random = 20 }  
-					# } 
-				# } 
-			# }
+						set_dynasty_flag = flag_vision_baby 	#Negative
+						character_event = { id = HFP.20504 days = 33 random = 20 }  
+					} 
+				} 
+			}
 
-			# character_event = { id = HFP.20520 days = 10 random = 7 } #Give mom chance to help herself.
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-# }
+			character_event = { id = HFP.20520 days = 10 random = 7 } #Give mom chance to help herself.
+		}
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Notify Spouse and Regent of the ruler about what is happening and prompt either to offer help if possible.
-# character_event = { 
-	# id = HFP.20501
-	# desc = {
-		# text = EVTDESCHFPA20501	
-		# picture = GFX_evt_bad_news
-		# trigger = {
-			# ROOT = { is_married = FROM } #Desc for Spouse.
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20501	
-		# picture = GFX_evt_illness
-		# trigger = {
-			# ROOT = { has_minor_title = title_regent } #Desc for Regent.
-		# }
-	# }
-	# picture = GFX_evt_bad_news
+#Notify Spouse and Regent of the ruler about what is happening and prompt either to offer help if possible.
+character_event = { 
+	id = HFP.20501
+	desc = {
+		text = EVTDESCHFPA20501	
+		picture = GFX_evt_bad_news
+		trigger = {
+			ROOT = { is_married = FROM } #Desc for Spouse.
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20501	
+		picture = GFX_evt_illness
+		trigger = {
+			ROOT = { has_minor_title = title_regent } #Desc for Regent.
+		}
+	}
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
 
-	# option = { #Send Physician
-		# name = EVTOPTAHFP20501
-		# custom_tooltip = { text = EVTOOLTIPAHFP20501 }
-		# wealth = -50
-		# trigger = { 
-			# is_ruler = yes
-			# any_courtier_or_vassal = { has_minor_title = title_court_physician }
-		# }
-		# if = { 
-			# limit = { is_married = FROM } 
-			# random_courtier_or_vassal = { 
-				# limit = { has_minor_title = title_court_physician } 
-				# save_event_target_as = pregnancy_spouse_physician
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# has_minor_title = title_regent
-				# NOT = { is_married = FROM } #Don't fire twice if the spouse is also the regent.
-			# } 
-			# random_courtier_or_vassal = { 
-				# limit = { has_minor_title = title_court_physician } 
-				# save_event_target_as = pregnancy_regent_physician
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20505 days = 1 } } } #Notify woman
-		# ai_chance = { 
-			# factor = 70 
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = quick 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = genius 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# learning = 20
-				# }
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# NOT = { learning = 10 }
-				# }
-			# }
-		# }
-	# }
+	option = { #Send Physician
+		name = EVTOPTAHFP20501
+		custom_tooltip = { text = EVTOOLTIPAHFP20501 }
+		wealth = -50
+		trigger = { 
+			is_ruler = yes
+			any_courtier_or_vassal = { has_minor_title = title_court_physician }
+		}
+		if = { 
+			limit = { is_married = FROM } 
+			random_courtier_or_vassal = { 
+				limit = { has_minor_title = title_court_physician } 
+				save_event_target_as = pregnancy_spouse_physician
+			}
+		}
+		if = { 
+			limit = { 
+				has_minor_title = title_regent
+				NOT = { is_married = FROM } #Don't fire twice if the spouse is also the regent.
+			} 
+			random_courtier_or_vassal = { 
+				limit = { has_minor_title = title_court_physician } 
+				save_event_target_as = pregnancy_regent_physician
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20505 days = 1 } } } #Notify woman
+		ai_chance = { 
+			factor = 70 
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = quick 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = genius 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					learning = 20
+				}
+			}
+			modifier = { 
+				factor = 0.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					NOT = { learning = 10 }
+				}
+			}
+		}
+	}
 
-	# option = { #Send Physician (no Reaper's Due)
-		# name = EVTOPTAHFP20501
-		# custom_tooltip = { text = EVTOOLTIPAHFP20501 }
-		# wealth = -50
-		# trigger = { 
-			# is_ruler = yes
-			# FROM = { is_ruler = no }
-			# NOT = { has_dlc = "Reapers" }
-		# }
-		# FROM = { set_character_flag = pregnancy_healer_help }
-		# ai_chance = { 
-			# factor = 70 
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = quick 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = genius 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# learning = 20
-				# }
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# NOT = { learning = 10 }
-				# }
-			# }
-		# }
-	# }
+	option = { #Send Physician (no Reaper's Due)
+		name = EVTOPTAHFP20501
+		custom_tooltip = { text = EVTOOLTIPAHFP20501 }
+		wealth = -50
+		trigger = { 
+			is_ruler = yes
+			FROM = { is_ruler = no }
+			NOT = { has_dlc = "Reapers" }
+		}
+		FROM = { set_character_flag = pregnancy_healer_help }
+		ai_chance = { 
+			factor = 70 
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = quick 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = genius 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					learning = 20
+				}
+			}
+			modifier = { 
+				factor = 0.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					NOT = { learning = 10 }
+				}
+			}
+		}
+	}
 
-	# option = { #No Physician, but I am a Scholar myself
-		# name = EVTOPTBHFP20501
-		# custom_tooltip = { text = EVTOOLTIPBHFP20501 }
-		# trigger = { 
-			# NOT = { any_courtier_or_vassal = { has_minor_title = title_court_physician } }
-			# is_inaccessible_trigger = no
-			# prisoner = no
-			# NOT = { trait = incapable }
-			# OR = { 
-				# trait = scholar 
-				# trait = mystic
-				# trait = physician
-				# learning = 15
-			# }
-		# }
-		# if = { 
-			# limit = { is_married = FROM } 
-			# save_event_target_as = pregnancy_spouse_physician
-		# }
-		# if = { 
-			# limit = { has_minor_title = title_regent } 
-			# save_event_target_as = pregnancy_regent_physician
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20506 } } } #Notify woman
-		# ai_chance = { 
-			# factor = 70 
-			# modifier = { 
-				# factor = 1.5
-				# trait = quick
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = genius
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# learning = 20
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# NOT = { learning = 10 }
-			# }
-		# }
-	# }
+	option = { #No Physician, but I am a Scholar myself
+		name = EVTOPTBHFP20501
+		custom_tooltip = { text = EVTOOLTIPBHFP20501 }
+		trigger = { 
+			NOT = { any_courtier_or_vassal = { has_minor_title = title_court_physician } }
+			is_inaccessible_trigger = no
+			prisoner = no
+			NOT = { trait = incapable }
+			OR = { 
+				trait = scholar 
+				trait = mystic
+				trait = physician
+				learning = 15
+			}
+		}
+		if = { 
+			limit = { is_married = FROM } 
+			save_event_target_as = pregnancy_spouse_physician
+		}
+		if = { 
+			limit = { has_minor_title = title_regent } 
+			save_event_target_as = pregnancy_regent_physician
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20506 } } } #Notify woman
+		ai_chance = { 
+			factor = 70 
+			modifier = { 
+				factor = 1.5
+				trait = quick
+			}
+			modifier = { 
+				factor = 1.5
+				trait = genius
+			}
+			modifier = { 
+				factor = 1.5
+				learning = 20
+			}
+			modifier = { 
+				factor = 0.5
+				NOT = { learning = 10 }
+			}
+		}
+	}
 
-	# option = { #Send a Priest
-		# name = EVTOPTCHFP20501
-		# custom_tooltip = { text = EVTOOLTIPCHFP20501 }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20509 days = 1 } } } #Notify woman
+	option = { #Send a Priest
+		name = EVTOPTCHFP20501
+		custom_tooltip = { text = EVTOOLTIPCHFP20501 }
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20509 days = 1 } } } #Notify woman
 		# trigger = { 
 			# OR = { 
 				# is_reformed_religion = yes 
@@ -4209,143 +4209,143 @@ character_event = { #wife enjoys crying
 			# NOT = { FROM = { has_character_flag = pregnancy_priest_comfort } }
 			# NOT = { FROM = { has_character_flag = pregnancy_shaman_comfort } }
 		# }
-		# FROM = { set_character_flag = pregnancy_priest_comfort }
-		# piety = 100
-		# wealth = -20
-		# ai_chance = { 
-			# factor = 10 
-			# modifier = { 
-				# factor = 2
-				# trait = zealous
-			# }
-		# }
-	# }
-	# option = { #Send a Shaman
-		# name = EVTOPTDHFP20501
-		# custom_tooltip = { text = EVTOOLTIPDHFP20501 }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20510 } } } #Notify woman
+		FROM = { set_character_flag = pregnancy_priest_comfort }
+		piety = 100
+		wealth = -20
+		ai_chance = { 
+			factor = 10 
+			modifier = { 
+				factor = 2
+				trait = zealous
+			}
+		}
+	}
+	option = { #Send a Shaman
+		name = EVTOPTDHFP20501
+		custom_tooltip = { text = EVTOOLTIPDHFP20501 }
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20510 } } } #Notify woman
 		# trigger = { 
 			# is_reformed_religion = no 
 			# religion_group = pagan_group
 			# NOT = { FROM = { has_character_flag = pregnancy_shaman_comfort } }
 			# NOT = { FROM = { has_character_flag = pregnancy_priest_comfort } }
 		# }
-		# FROM = { set_character_flag = pregnancy_shaman_comfort }
-		# piety = 50
-		# prestige = 50
-		# wealth = -5
-		# ai_chance = { 
-			# factor = 20 
-			# modifier = { 
-				# factor = 2
-				# is_tribal = yes
-			# }
-			# modifier = { 
-				# factor = 2.5
-				# is_nomadic = yes
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = zealous
-			# }
-		# }
-	# }
+		FROM = { set_character_flag = pregnancy_shaman_comfort }
+		piety = 50
+		prestige = 50
+		wealth = -5
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 2
+				is_tribal = yes
+			}
+			modifier = { 
+				factor = 2.5
+				is_nomadic = yes
+			}
+			modifier = { 
+				factor = 2
+				trait = zealous
+			}
+		}
+	}
 
-	# option = { #Offer moral support
-		# name = EVTOPTEHFP20501
-		# custom_tooltip = { text = EVTOOLTIPEHFP20501 }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20519 } } } #Notify woman
-		# trigger = { is_married = FROM }
-		# FROM = { set_character_flag = pregnancy_spouse_comfort }
-		# if = { 
-			# limit = { 
-				# FROM = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -50 
-					# } 
-				# }
-			# }
-			# FROM = { 
-				# opinion = { 
-					# modifier = comforted_opinion
-					# who = ROOT
-					# years = 5 
-				# }
-			# }
-		# }
-		# ai_chance = { 	
-			# factor = 30 
-			# modifier = { 
-				# factor = 0.1
-				# NOT = { trait = slow }
-				# NOT = { trait = imbecile }
-				# NOT = { trait = inbred }
-				# OR = { 		#If you have a better option, you'd need to be an idiot not use that.
-					# trait = zealous 
-					# trait = cruel
-					# AND = { 
-						# is_inaccessible_trigger = no
-						# prisoner = no
-						# NOT = { trait = incapable }
-						# OR = { 
-							# trait = scholar 
-							# trait = mystic
-							# trait = physician 
-							# learning = 15
-						# } 
-					# }
-					# AND = { 
-						# is_ruler =  yes
-						# any_courtier_or_vassal = { has_minor_title = title_court_physician } 
-					# }
-				# }
-			# }
-		# }
-	# }
+	option = { #Offer moral support
+		name = EVTOPTEHFP20501
+		custom_tooltip = { text = EVTOOLTIPEHFP20501 }
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20519 } } } #Notify woman
+		trigger = { is_married = FROM }
+		FROM = { set_character_flag = pregnancy_spouse_comfort }
+		if = { 
+			limit = { 
+				FROM = { 
+					opinion = { 
+						who = FROM 
+						value = -50 
+					} 
+				}
+			}
+			FROM = { 
+				opinion = { 
+					modifier = comforted_opinion
+					who = ROOT
+					years = 5 
+				}
+			}
+		}
+		ai_chance = { 	
+			factor = 30 
+			modifier = { 
+				factor = 0.1
+				NOT = { trait = slow }
+				NOT = { trait = imbecile }
+				NOT = { trait = inbred }
+				OR = { 		#If you have a better option, you'd need to be an idiot not use that.
+					trait = zealous 
+					trait = cruel
+					AND = { 
+						is_inaccessible_trigger = no
+						prisoner = no
+						NOT = { trait = incapable }
+						OR = { 
+							trait = scholar 
+							trait = mystic
+							trait = physician 
+							learning = 15
+						} 
+					}
+					AND = { 
+						is_ruler =  yes
+						any_courtier_or_vassal = { has_minor_title = title_court_physician } 
+					}
+				}
+			}
+		}
+	}
 
-	# option = { #Do nothing.
-		# name = EVTOPTFHFP20501
-		# ai_chance = { 
-			# factor = 1 
-			# modifier = { 
-				# factor = 0
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 0
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 50
-				# is_rival = FROM
-			# }
-			# modifier = { 
-				# factor = 10
-				# trait = greedy
-				# NOT =  { wealth = 0 } 
-			# }
-			# modifier = { 
-				# factor = 10
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -50 
-					# } 
-				# } 
-			# }
-			# modifier = { 
-				# factor = 30
-				# NOT = { 
-					# opinion = { 
-						# who = FROM 
-						# value = -90 
-					# } 
-				# } 
-			# }
-		# }
-	# }
-# }
+	option = { #Do nothing.
+		name = EVTOPTFHFP20501
+		ai_chance = { 
+			factor = 1 
+			modifier = { 
+				factor = 0
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 0
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 50
+				is_rival = FROM
+			}
+			modifier = { 
+				factor = 10
+				trait = greedy
+				NOT =  { wealth = 0 } 
+			}
+			modifier = { 
+				factor = 10
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -50 
+					} 
+				} 
+			}
+			modifier = { 
+				factor = 30
+				NOT = { 
+					opinion = { 
+						who = FROM 
+						value = -90 
+					} 
+				} 
+			}
+		}
+	}
+}
 
 # #Naughty Regent: So, how do we do it?
 # character_event = {
