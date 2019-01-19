@@ -4347,282 +4347,282 @@ character_event = {
 	}
 }
 
-# #Naughty Regent: So, how do we do it?
-# character_event = {
-	# id = HFP.20502
-	# desc = EVTDESCHFP20502
-	# picture = GFX_evt_shadow
+#Naughty Regent: So, how do we do it?
+character_event = {
+	id = HFP.20502
+	desc = EVTDESCHFP20502
+	picture = GFX_evt_shadow
 
-	# trigger = { 
-		# FROM = { trait = troubled_pregnancy } 
-		# OR = { 
-			# has_minor_title = title_regent 
-			# has_minor_title = title_appointed_regent
-		# }
-	# }
+	trigger = { 
+		FROM = { trait = troubled_pregnancy } 
+		OR = { 
+			has_minor_title = title_regent 
+			has_minor_title = title_appointed_regent
+		}
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Poison
-		# name = EVTOPTAHFP20502
-		# custom_tooltip = { text = EVTOOLTIPAHFP20502 }
-		# set_character_flag = flag_poisoning_mother
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 50 = { #Success
-					# modifier = { 
-						# factor = 0.5
-						# NOT = { intrigue = 5 }
-					# }
-					# modifier = { 
-						# factor = 0.75
-						# NOT = { intrigue = 10 }
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# intrigue = 10
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# intrigue = 15
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# intrigue = 20
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# intrigue = 25
-					# }
-					# modifier = { 
-						# factor = 1.2
-						# trait = amateurish_plotter
-					# }
-					# modifier = { 
-						# factor = 1.3
-						# trait = flamboyant_schemer
-					# }
-					# modifier = { 
-						# factor = 1.4
-						# trait = intricate_webweaver
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = elusive_shadow
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = schemer
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = quick
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# trait = genius
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# trait = deceitful
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# trait = slow
-					# }
-					# modifier = { 
-						# factor = 0.25
-						# trait = imbecile
-					# }
-					# modifier = { 
-						# factor = 0.25
-						# trait = inbred
-					# }
-					# FROM = { character_event = { id = HFP.20511 } } 
-				# } 
-				# 50 = { #Failure
-					# FROM = { character_event = { id = HFP.20515 } } 
-				# } 
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 0.5
-				# NOT = { intrigue = 5 }
-			# }
-			# modifier = { 
-				# factor = 0.75
-				# NOT = { intrigue = 10 }
-			# }
-			# modifier = { 
-				# factor = 0.85
-				# NOT = { intrigue = 15 }
-			# }
-			# modifier = { 
-				# factor = 1.25
-				# trait = deceitful
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = schemer
-			# }
-		# }
-	# }
+	option = { #Poison
+		name = EVTOPTAHFP20502
+		custom_tooltip = { text = EVTOOLTIPAHFP20502 }
+		set_character_flag = flag_poisoning_mother
+		hidden_tooltip = { 
+			random_list = { 
+				50 = { #Success
+					modifier = { 
+						factor = 0.5
+						NOT = { intrigue = 5 }
+					}
+					modifier = { 
+						factor = 0.75
+						NOT = { intrigue = 10 }
+					}
+					modifier = { 
+						factor = 1.25
+						intrigue = 10
+					}
+					modifier = { 
+						factor = 1.25
+						intrigue = 15
+					}
+					modifier = { 
+						factor = 1.5
+						intrigue = 20
+					}
+					modifier = { 
+						factor = 1.75
+						intrigue = 25
+					}
+					modifier = { 
+						factor = 1.2
+						trait = amateurish_plotter
+					}
+					modifier = { 
+						factor = 1.3
+						trait = flamboyant_schemer
+					}
+					modifier = { 
+						factor = 1.4
+						trait = intricate_webweaver
+					}
+					modifier = { 
+						factor = 1.5
+						trait = elusive_shadow
+					}
+					modifier = { 
+						factor = 1.5
+						trait = schemer
+					}
+					modifier = { 
+						factor = 1.5
+						trait = quick
+					}
+					modifier = { 
+						factor = 1.75
+						trait = genius
+					}
+					modifier = { 
+						factor = 1.25
+						trait = deceitful
+					}
+					modifier = { 
+						factor = 0.5
+						trait = slow
+					}
+					modifier = { 
+						factor = 0.25
+						trait = imbecile
+					}
+					modifier = { 
+						factor = 0.25
+						trait = inbred
+					}
+					FROM = { character_event = { id = HFP.20511 } } 
+				} 
+				50 = { #Failure
+					FROM = { character_event = { id = HFP.20515 } } 
+				} 
+			} 
+		}
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 0.5
+				NOT = { intrigue = 5 }
+			}
+			modifier = { 
+				factor = 0.75
+				NOT = { intrigue = 10 }
+			}
+			modifier = { 
+				factor = 0.85
+				NOT = { intrigue = 15 }
+			}
+			modifier = { 
+				factor = 1.25
+				trait = deceitful
+			}
+			modifier = { 
+				factor = 1.5
+				trait = schemer
+			}
+		}
+	}
 	
-	# option = { #Smothering
-		# name = EVTOPTBHFP20502
-		# custom_tooltip = { text = EVTOOLTIPBHFP20502 }
-		# set_character_flag = flag_smothering_mother
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 50 = { #Success
-					# modifier = { 
-						# factor = 0.5
-						# NOT = { combat_rating = 5 }
-					# }
-					# modifier = { 
-						# factor = 0.75
-						# NOT = { combat_rating = 10 }
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# combat_rating = 10
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# combat_rating = 15
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# combat_rating = 20
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# combat_rating = 25
-					# }
-					# modifier = { 
-						# factor = 1.2
-						# trait = misguided_warrior
-					# }
-					# modifier = { 
-						# factor = 1.3
-						# trait = tough_soldier
-					# }
-					# modifier = { 
-						# factor = 1.4
-						# trait = skilled_tactician
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = brilliant_strategist
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = duelist
-					# }
-					# modifier = { 
-						# factor = 1.5
-						# trait = robust
-					# }
-					# modifier = { 
-						# factor = 1.75
-						# trait = strong
-					# }
-					# modifier = { 
-						# factor = 1.25
-						# trait = hunter
-					# }
-					# modifier = { 
-						# factor = 0.5
-						# trait = feeble
-					# }
-					# modifier = { 
-						# factor = 0.25
-						# trait = weak
-					# }
-					# modifier = { 
-						# factor = 0.75
-						# trait = inbred
-					# }
-					# FROM = { character_event = { id = HFP.20513 } } 
-				# } 
-				# 50 = { #Failure
-					# FROM = { character_event = { id = HFP.20518 } } 
-				# } 
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 0.5
-				# trait = weak 
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = craven 
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = feeble
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# NOT = { combat_rating = 10 }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = strong
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = robust
-			# }
-		# }
-	# }
+	option = { #Smothering
+		name = EVTOPTBHFP20502
+		custom_tooltip = { text = EVTOOLTIPBHFP20502 }
+		set_character_flag = flag_smothering_mother
+		hidden_tooltip = { 
+			random_list = { 
+				50 = { #Success
+					modifier = { 
+						factor = 0.5
+						NOT = { combat_rating = 5 }
+					}
+					modifier = { 
+						factor = 0.75
+						NOT = { combat_rating = 10 }
+					}
+					modifier = { 
+						factor = 1.25
+						combat_rating = 10
+					}
+					modifier = { 
+						factor = 1.25
+						combat_rating = 15
+					}
+					modifier = { 
+						factor = 1.5
+						combat_rating = 20
+					}
+					modifier = { 
+						factor = 1.75
+						combat_rating = 25
+					}
+					modifier = { 
+						factor = 1.2
+						trait = misguided_warrior
+					}
+					modifier = { 
+						factor = 1.3
+						trait = tough_soldier
+					}
+					modifier = { 
+						factor = 1.4
+						trait = skilled_tactician
+					}
+					modifier = { 
+						factor = 1.5
+						trait = brilliant_strategist
+					}
+					modifier = { 
+						factor = 1.5
+						trait = duelist
+					}
+					modifier = { 
+						factor = 1.5
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.75
+						trait = strong
+					}
+					modifier = { 
+						factor = 1.25
+						trait = hunter
+					}
+					modifier = { 
+						factor = 0.5
+						trait = feeble
+					}
+					modifier = { 
+						factor = 0.25
+						trait = weak
+					}
+					modifier = { 
+						factor = 0.75
+						trait = inbred
+					}
+					FROM = { character_event = { id = HFP.20513 } } 
+				} 
+				50 = { #Failure
+					FROM = { character_event = { id = HFP.20518 } } 
+				} 
+			} 
+		}
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 0.5
+				trait = weak 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = craven 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = feeble
+			}
+			modifier = { 
+				factor = 0.5
+				NOT = { combat_rating = 10 }
+			}
+			modifier = { 
+				factor = 1.5
+				trait = strong
+			}
+			modifier = { 
+				factor = 1.5
+				trait = robust
+			}
+		}
+	}
 	
-	# option = { #Not doing it.
-		# name = EVTOPTCHFP20502
-		# piety = 50
-		# ai_chance = { 
-			# factor = 5 
-			# modifier = { 
-				# factor = 0.1
-				# FROM = { current_heir = { character = ROOT } }
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = honest
-			# }
-			# modifier = { 
-				# factor = 0.75
-				# trait = deceitful
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = cruel 
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = lunatic 
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = possessed 
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# is_rival = FROM
-			# }
-			# modifier = { 
-				# factor = 0.75
-				# intrigue = 12
-			# }
-		# }
-	# }
-# }
+	option = { #Not doing it.
+		name = EVTOPTCHFP20502
+		piety = 50
+		ai_chance = { 
+			factor = 5 
+			modifier = { 
+				factor = 0.1
+				FROM = { current_heir = { character = ROOT } }
+			}
+			modifier = { 
+				factor = 2
+				trait = honest
+			}
+			modifier = { 
+				factor = 0.75
+				trait = deceitful
+			}
+			modifier = { 
+				factor = 0.5
+				trait = cruel 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = lunatic 
+			}
+			modifier = { 
+				factor = 0.5
+				trait = possessed 
+			}
+			modifier = { 
+				factor = 0.5
+				is_rival = FROM
+			}
+			modifier = { 
+				factor = 0.75
+				intrigue = 12
+			}
+		}
+	}
+}
 
-# #Rare strange positive dream during pregnancy will cause strange birth. (happens only once per dynasty)
+#Rare strange positive dream during pregnancy will cause strange birth. (happens only once per dynasty)
 # character_event = {
 	# id = HFP.20503
 	# desc = {
@@ -4772,238 +4772,238 @@ character_event = {
 	# }
 # }
 
-# #Notification: Spouse/Regent has sent his physician to help. Do you want him?
-# character_event = {
-	# id = HFP.20505
-	# desc = EVTDESCHFPA20505
-	# picture = GFX_evt_court_physician
+#Notification: Spouse/Regent has sent his physician to help. Do you want him?
+character_event = {
+	id = HFP.20505
+	desc = EVTDESCHFPA20505
+	picture = GFX_evt_court_physician
 	
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20505
-		# hidden_tooltip = {
-			# FROM = { character_event = { id = HFP.20507 } } 
-			# ROOT = {
-				# if = {
-					# limit = {
-						# event_target:pregnancy_spouse_physician = {
-							# always = yes
-						# }
-					# }
-					# save_persistent_event_target = { name = pregnancy_spouse_physician_per scope = event_target:pregnancy_spouse_physician }
-				# }
-			# }
-			# ROOT = {
-				# if = {
-					# limit = {
-						# event_target:pregnancy_regent_physician = {
-							# always = yes
-						# }
-					# }
-					# save_persistent_event_target = { name = pregnancy_regent_physician_per scope = event_target:pregnancy_regent_physician }
-				# }
-			# }
-		# }
-		# FROM = { 
-			# opinion = { 
-				# modifier = opinion_relieved
-				# who = ROOT
-				# years = 1
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 80 
-			# modifier = { 
-				# factor = 0.5 
-				# FROM = { is_married = ROOT }
-				# NOT = { persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 } }
-			# }
-			# modifier = { 
-				# factor = 0.5 
-				# FROM = { NOT = { is_married = ROOT } }
-				# NOT = { persistent_event_target:pregnancy_regent_physician_per = { learning = 10 } }
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20505
-		# hidden_tooltip = {
-			# FROM = { character_event = { id = HFP.20508 } } 
-			# if = { 
-				# limit = { is_married = FROM } 
-				# clear_event_target = pregnancy_spouse_physician
-			# }
-			# if = { 
-				# limit = { NOT = { is_married = FROM } } 
-				# clear_event_target = pregnancy_regent_physician
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 20
-			# modifier = { 
-				# factor = 1.5
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = zealous
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# is_rival = FROM
-			# }
-			# modifier = { 
-				# factor = 0 
-				# is_ruler = no
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20505
+		hidden_tooltip = {
+			FROM = { character_event = { id = HFP.20507 } } 
+			ROOT = {
+				if = {
+					limit = {
+						event_target:pregnancy_spouse_physician = {
+							always = yes
+						}
+					}
+					save_persistent_event_target = { name = pregnancy_spouse_physician_per scope = event_target:pregnancy_spouse_physician }
+				}
+			}
+			ROOT = {
+				if = {
+					limit = {
+						event_target:pregnancy_regent_physician = {
+							always = yes
+						}
+					}
+					save_persistent_event_target = { name = pregnancy_regent_physician_per scope = event_target:pregnancy_regent_physician }
+				}
+			}
+		}
+		FROM = { 
+			opinion = { 
+				modifier = opinion_relieved
+				who = ROOT
+				years = 1
+			}
+		}
+		ai_chance = { 
+			factor = 80 
+			modifier = { 
+				factor = 0.5 
+				FROM = { is_married = ROOT }
+				NOT = { persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 } }
+			}
+			modifier = { 
+				factor = 0.5 
+				FROM = { NOT = { is_married = ROOT } }
+				NOT = { persistent_event_target:pregnancy_regent_physician_per = { learning = 10 } }
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20505
+		hidden_tooltip = {
+			FROM = { character_event = { id = HFP.20508 } } 
+			if = { 
+				limit = { is_married = FROM } 
+				clear_event_target = pregnancy_spouse_physician
+			}
+			if = { 
+				limit = { NOT = { is_married = FROM } } 
+				clear_event_target = pregnancy_regent_physician
+			}
+		}
+		ai_chance = { 
+			factor = 20
+			modifier = { 
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 1.5
+				trait = envious
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = zealous
+			}
+			modifier = { 
+				factor = 1.5 
+				is_rival = FROM
+			}
+			modifier = { 
+				factor = 0 
+				is_ruler = no
+			}
+		}
+	}
+}
 
-# #Notification: Spouse/Regent wishes to offer his services as physician. Do you want him?
-# character_event = {
-	# id = HFP.20506
-	# desc = EVTDESCHFPA20506
-	# picture = GFX_evt_library
+#Notification: Spouse/Regent wishes to offer his services as physician. Do you want him?
+character_event = {
+	id = HFP.20506
+	desc = EVTDESCHFPA20506
+	picture = GFX_evt_library
 	
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20506
-		# FROM = { 
-			# opinion = { 
-				# modifier = opinion_relieved
-				# who = ROOT
-				# years = 1
-			# }
-		# }
-		# hidden_tooltip = {
-			# FROM = { character_event = { id = HFP.20507 } } 
-			# if = { 
-				# limit = { event_target:pregnancy_spouse_physician = { is_alive = yes } }
-				# ROOT = { save_persistent_event_target = { name = pregnancy_spouse_physician_per scope = event_target:pregnancy_spouse_physician } }
-			# }
-			# if = { 
-				# limit = { event_target:pregnancy_regent_physician = { is_alive = yes } }
-				# ROOT = { save_persistent_event_target = { name = pregnancy_regent_physician_per scope = event_target:pregnancy_regent_physician } }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 80 
-			# modifier = { 
-				# factor = 0.5 
-				# FROM = { NOT = { learning = 10 } }
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20506
-		# hidden_tooltip = {
-			# FROM = { character_event = { id = HFP.20508 } }
-			# if = { 
-				# limit = { is_married = FROM } 
-				# clear_event_target = pregnancy_spouse_physician
-			# }
-			# if = { 
-				# limit = { NOT = { is_married = FROM } } 
-				# clear_event_target = pregnancy_regent_physician
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 20
-			# modifier = { 
-				# factor = 1.5
-				# trait = stubborn
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = zealous
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# is_rival = FROM
-			# }
-			# modifier = { 
-				# factor = 0 
-				# is_ruler = no
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20506
+		FROM = { 
+			opinion = { 
+				modifier = opinion_relieved
+				who = ROOT
+				years = 1
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = HFP.20507 } } 
+			if = { 
+				limit = { event_target:pregnancy_spouse_physician = { is_alive = yes } }
+				ROOT = { save_persistent_event_target = { name = pregnancy_spouse_physician_per scope = event_target:pregnancy_spouse_physician } }
+			}
+			if = { 
+				limit = { event_target:pregnancy_regent_physician = { is_alive = yes } }
+				ROOT = { save_persistent_event_target = { name = pregnancy_regent_physician_per scope = event_target:pregnancy_regent_physician } }
+			}
+		}
+		ai_chance = { 
+			factor = 80 
+			modifier = { 
+				factor = 0.5 
+				FROM = { NOT = { learning = 10 } }
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20506
+		hidden_tooltip = {
+			FROM = { character_event = { id = HFP.20508 } }
+			if = { 
+				limit = { is_married = FROM } 
+				clear_event_target = pregnancy_spouse_physician
+			}
+			if = { 
+				limit = { NOT = { is_married = FROM } } 
+				clear_event_target = pregnancy_regent_physician
+			}
+		}
+		ai_chance = { 
+			factor = 20
+			modifier = { 
+				factor = 1.5
+				trait = stubborn
+			}
+			modifier = { 
+				factor = 1.5
+				trait = envious
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = zealous
+			}
+			modifier = { 
+				factor = 1.5 
+				is_rival = FROM
+			}
+			modifier = { 
+				factor = 0 
+				is_ruler = no
+			}
+		}
+	}
+}
 
-# #Notify regent/spouse that his physician will help woman.
-# character_event = {
-	# id = HFP.20507
-	# desc = {
-		# text = EVTDESCHFPA20507
-		# trigger = {			#If spouse/regent receiving notification is also the physician.
-			# OR = { 
-				# persistent_event_target:pregnancy_spouse_physician_per = { character = ROOT }
-				# persistent_event_target:pregnancy_regent_physician_per = { character = ROOT }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20507
-		# trigger = {
-			# NOR = { 
-				# persistent_event_target:pregnancy_spouse_physician_per = { character = ROOT }
-				# persistent_event_target:pregnancy_regent_physician_per = { character = ROOT }
-			# }
-		# }
-	# }
-	# picture = GFX_evt_bad_news
+#Notify regent/spouse that his physician will help woman.
+character_event = {
+	id = HFP.20507
+	desc = {
+		text = EVTDESCHFPA20507
+		trigger = {			#If spouse/regent receiving notification is also the physician.
+			OR = { 
+				persistent_event_target:pregnancy_spouse_physician_per = { character = ROOT }
+				persistent_event_target:pregnancy_regent_physician_per = { character = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20507
+		trigger = {
+			NOR = { 
+				persistent_event_target:pregnancy_spouse_physician_per = { character = ROOT }
+				persistent_event_target:pregnancy_regent_physician_per = { character = ROOT }
+			}
+		}
+	}
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20507
-		# tooltip = { 
-			# opinion = { 
-				# modifier = opinion_relieved
-				# who = FROM
-				# years = 1
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20507
+		tooltip = { 
+			opinion = { 
+				modifier = opinion_relieved
+				who = FROM
+				years = 1
+			}
+		}
+	}
+}
 
-# #Notify regent/spouse that woman needs no help.
-# character_event = {
-	# id = HFP.20508
-	# desc = EVTDESCHFPA20508
-	# picture = GFX_evt_bad_news
+#Notify regent/spouse that woman needs no help.
+character_event = {
+	id = HFP.20508
+	desc = EVTDESCHFPA20508
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20508
-		# opinion = { 
-			# modifier = opinion_worried
-			# who = FROM
-			# years = 1
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20508
+		opinion = { 
+			modifier = opinion_worried
+			who = FROM
+			years = 1
+		}
+	}
+}
 
 # #Mother: Spouse/Regent sent a priest.
 # character_event = {
@@ -5032,278 +5032,278 @@ character_event = {
 	# }
 # }
 
-# #Mother: Regent succeeds in poisoning you.
-# character_event = {
-	# id = HFP.20511
-	# desc = EVTDESCHFPA20511
-	# picture = GFX_evt_shadow
-	# hide_from = yes
+#Mother: Regent succeeds in poisoning you.
+character_event = {
+	id = HFP.20511
+	desc = EVTDESCHFPA20511
+	picture = GFX_evt_shadow
+	hide_from = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20511
-		# death = { death_reason = death_troubled_pregnancy }
-		# hidden_tooltip = { 
-			# random_courtier_or_vassal = {
-				# limit = { has_minor_title = title_regent }
-				# character_event = { id = HFP.20512 }
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20511
+		death = { death_reason = death_troubled_pregnancy }
+		hidden_tooltip = { 
+			random_courtier_or_vassal = {
+				limit = { has_minor_title = title_regent }
+				character_event = { id = HFP.20512 }
+			}
+		}
+	}
+}
 
-# #Notify regent that he has succeeded in poisoning pregnant woman.
-# character_event = {
-	# id = HFP.20512
-	# desc = EVTDESCHFPA20512
-	# picture = GFX_evt_shadow
+#Notify regent that he has succeeded in poisoning pregnant woman.
+character_event = {
+	id = HFP.20512
+	desc = EVTDESCHFPA20512
+	picture = GFX_evt_shadow
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20512
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20512
+	}
+}
 
-# #Mother: Regent succeeds in smothering you.
-# character_event = {
-	# id = HFP.20513
-	# desc = EVTDESCHFPA20513
-	# picture = GFX_evt_shadow
-	# hide_from = yes
+#Mother: Regent succeeds in smothering you.
+character_event = {
+	id = HFP.20513
+	desc = EVTDESCHFPA20513
+	picture = GFX_evt_shadow
+	hide_from = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20513
-		# death = { 
-			# death_reason = death_childbirth
-		# }
-		# hidden_tooltip = { 
-			# random_courtier_or_vassal = {
-				# limit = { has_minor_title = title_regent }
-				# character_event = { id = HFP.20514 }
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20513
+		death = { 
+			death_reason = death_childbirth
+		}
+		hidden_tooltip = { 
+			random_courtier_or_vassal = {
+				limit = { has_minor_title = title_regent }
+				character_event = { id = HFP.20514 }
+			}
+		}
+	}
+}
 
-# #Notify regent that he has succeeded in smothering pregnant woman.
-# character_event = {
-	# id = HFP.20514
-	# desc = EVTDESCHFPA20514
-	# picture = GFX_evt_shadow
+#Notify regent that he has succeeded in smothering pregnant woman.
+character_event = {
+	id = HFP.20514
+	desc = EVTDESCHFPA20514
+	picture = GFX_evt_shadow
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20514
-	# }
-# }
-# #Mother: Regent is discovered trying to use poison.
-# character_event = {
-	# id = HFP.20515
-	# desc = EVTDESCHFPA20515
-	# picture = GFX_evt_shadow
+	option = { 
+		name = EVTOPTAHFP20514
+	}
+}
+#Mother: Regent is discovered trying to use poison.
+character_event = {
+	id = HFP.20515
+	desc = EVTDESCHFPA20515
+	picture = GFX_evt_shadow
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20515
-		# #Guards! Seize [From.GetHerHim]!"
-		# opinion = { 
-			# modifier = opinion_traitor
-			# who = FROM
-			# years = 30
-		# }
-		# random_courtier_or_vassal = {
-			# limit = { has_minor_title = title_regent }
-			# imprison = ROOT 
-			# remove_title = title_regent
-			# hidden_tooltip = { character_event = { id = HFP.20516 } }
-		# }
-		# ai_chance = { factor = 50 }
-	# }
+	option = { 
+		name = EVTOPTAHFP20515
+		#Guards! Seize [From.GetHerHim]!"
+		opinion = { 
+			modifier = opinion_traitor
+			who = FROM
+			years = 30
+		}
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_regent }
+			imprison = ROOT 
+			remove_title = title_regent
+			hidden_tooltip = { character_event = { id = HFP.20516 } }
+		}
+		ai_chance = { factor = 50 }
+	}
 
-	# option = { 
-		# name = EVTOPTBHFP20515 
-		# #Guards! Kill [From.GetHerHim]!"
-		# random_courtier_or_vassal = {
-			# limit = { has_minor_title = title_regent }
-			# imprison = ROOT 
-			# hidden_tooltip = { character_event = { id = HFP.20517 } }
-		# }
-	# ai_chance = { factor = 50 }
-	# }
-# }
+	option = { 
+		name = EVTOPTBHFP20515 
+		#Guards! Kill [From.GetHerHim]!"
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_regent }
+			imprison = ROOT 
+			hidden_tooltip = { character_event = { id = HFP.20517 } }
+		}
+	ai_chance = { factor = 50 }
+	}
+}
 
-# #Regent imprisoned for his deed.
-# character_event = {
-	# id = HFP.20516
-	# desc = EVTDESCHFPA20516
-	# picture = GFX_evt_into_the_dungeon
+#Regent imprisoned for his deed.
+character_event = {
+	id = HFP.20516
+	desc = EVTDESCHFPA20516
+	picture = GFX_evt_into_the_dungeon
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFPA20516
-		# piety = -300 
-		# tooltip = { 
-			# FROM = { 
-				# opinion = { 
-					# modifier = opinion_traitor
-					# who = ROOT
-					# years = 30
-				# }
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFPA20516
+		piety = -300 
+		tooltip = { 
+			FROM = { 
+				opinion = { 
+					modifier = opinion_traitor
+					who = ROOT
+					years = 30
+				}
+			}
+		}
+	}
+}
 
-# #Regent killed for his deed.
-# character_event = {
-	# id = HFP.20517
-	# desc = EVTDESCHFPA20517
-	# picture = GFX_evt_beheading
+#Regent killed for his deed.
+character_event = {
+	id = HFP.20517
+	desc = EVTDESCHFPA20517
+	picture = GFX_evt_beheading
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFPA20517
-		# death = { 
-			# death_reason = death_execution 
-			# killer = FROM 
-		# }
-		# piety = -300 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFPA20517
+		death = { 
+			death_reason = death_execution 
+			killer = FROM 
+		}
+		piety = -300 
+	}
+}
 
-# #Mother: Regent is discovered trying to smother you.
-# character_event = {
-	# id = HFP.20518
-	# desc = EVTDESCHFPA20518
-	# picture = GFX_evt_shadow
+#Mother: Regent is discovered trying to smother you.
+character_event = {
+	id = HFP.20518
+	desc = EVTDESCHFPA20518
+	picture = GFX_evt_shadow
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20518
-		# #Guards! Seize [FromFrom.GetHerHim]!"
-		# opinion = { 
-			# modifier = opinion_traitor
-			# who = FROM
-			# years = 30
-		# }
-		# random_courtier_or_vassal = {
-			# limit = { has_minor_title = title_regent }
-			# imprison = ROOT 
-			# remove_title = title_regent
-			# hidden_tooltip = { character_event = { id = HFP.20516 } }
-		# }
-		# ai_chance = { factor = 50 }
-	# }
+	option = { 
+		name = EVTOPTAHFP20518
+		#Guards! Seize [FromFrom.GetHerHim]!"
+		opinion = { 
+			modifier = opinion_traitor
+			who = FROM
+			years = 30
+		}
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_regent }
+			imprison = ROOT 
+			remove_title = title_regent
+			hidden_tooltip = { character_event = { id = HFP.20516 } }
+		}
+		ai_chance = { factor = 50 }
+	}
 
-	# option = { 
-		# name = EVTOPTBHFP20518
-		# #Guards! Kill [FromFrom.GetHerHim]!"
-		# random_courtier_or_vassal = {
-			# limit = { has_minor_title = title_regent }
-			# tooltip = { 
-				# death = { 
-					# death_reason = death_execution 
-					# killer = FROM 
-				# }
-			# }
-			# hidden_tooltip = { character_event = { id = HFP.20517 } }
-		# }
-	# ai_chance = { factor = 50 }
-	# }
-# }
+	option = { 
+		name = EVTOPTBHFP20518
+		#Guards! Kill [FromFrom.GetHerHim]!"
+		random_courtier_or_vassal = {
+			limit = { has_minor_title = title_regent }
+			tooltip = { 
+				death = { 
+					death_reason = death_execution 
+					killer = FROM 
+				}
+			}
+			hidden_tooltip = { character_event = { id = HFP.20517 } }
+		}
+	ai_chance = { factor = 50 }
+	}
+}
 
-# #Mother: Spouse/Regent offers moral support.
-# character_event = {
-	# id = HFP.20519
-	# desc = EVTDESCHFPA20519
-	# picture = GFX_evt_lovers
+#Mother: Spouse/Regent offers moral support.
+character_event = {
+	id = HFP.20519
+	desc = EVTDESCHFPA20519
+	picture = GFX_evt_lovers
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20519
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20519
+	}
+}
 
-# #Mother in troubled pregnancy: Offer chance to do something about it.
-# character_event = {
-	# id = HFP.20520
-	# desc = EVTDESCHFPA20520
-	# picture = GFX_evt_illness
+#Mother in troubled pregnancy: Offer chance to do something about it.
+character_event = {
+	id = HFP.20520
+	desc = EVTDESCHFPA20520
+	picture = GFX_evt_illness
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #My Physician will help me.
-		# name = EVTOPTAHFP20520
-		# #custom_tooltip = { text = EVTOOLTIPAHFP20520 }
-		# wealth = -50
-		# trigger = { 
-			# is_ruler = yes
-			# any_courtier_or_vassal = { has_minor_title = title_court_physician }
-		# }
-		# random_courtier_or_vassal = { 
-			# limit = { has_minor_title = title_court_physician } 
-			# save_event_target_as = pregnancy_mother_physician
-		# }
-		# ROOT = { save_persistent_event_target = { name = pregnancy_mother_physician_per scope = event_target:pregnancy_mother_physician } }
-		# ai_chance = { 
-			# factor = 70 
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = quick 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# trait = genius 
-				# }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# learning = 20
-				# }
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# any_courtier_or_vassal = { 
-					# has_minor_title = title_court_physician
-					# NOT = { learning = 10 }
-				# }
-			# }
-		# }
-	# }
-	# option = { #Call for a Healer (don't have Physicians due to lack of Reaper's Due DLC)
-		# name = EVTOPTBHFP20520
-		# #custom_tooltip = { text = EVTOOLTIPBHFP20520 }
-		# trigger = { 
-			# is_ruler = yes
-			# NOT = { has_dlc = "Reapers" }
-		# }
-		# set_character_flag = pregnancy_healer_help
-		# wealth = -50
-		# ai_chance = { 
-			# factor = 10 
-			# modifier = { 
-				# factor = 0.75
-				# trait = zealous
-			# }
-		# }
-	# }
+	option = { #My Physician will help me.
+		name = EVTOPTAHFP20520
+		#custom_tooltip = { text = EVTOOLTIPAHFP20520 }
+		wealth = -50
+		trigger = { 
+			is_ruler = yes
+			any_courtier_or_vassal = { has_minor_title = title_court_physician }
+		}
+		random_courtier_or_vassal = { 
+			limit = { has_minor_title = title_court_physician } 
+			save_event_target_as = pregnancy_mother_physician
+		}
+		ROOT = { save_persistent_event_target = { name = pregnancy_mother_physician_per scope = event_target:pregnancy_mother_physician } }
+		ai_chance = { 
+			factor = 70 
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = quick 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					trait = genius 
+				}
+			}
+			modifier = { 
+				factor = 1.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					learning = 20
+				}
+			}
+			modifier = { 
+				factor = 0.5
+				any_courtier_or_vassal = { 
+					has_minor_title = title_court_physician
+					NOT = { learning = 10 }
+				}
+			}
+		}
+	}
+	option = { #Call for a Healer (don't have Physicians due to lack of Reaper's Due DLC)
+		name = EVTOPTBHFP20520
+		#custom_tooltip = { text = EVTOOLTIPBHFP20520 }
+		trigger = { 
+			is_ruler = yes
+			NOT = { has_dlc = "Reapers" }
+		}
+		set_character_flag = pregnancy_healer_help
+		wealth = -50
+		ai_chance = { 
+			factor = 10 
+			modifier = { 
+				factor = 0.75
+				trait = zealous
+			}
+		}
+	}
 	# option = { #Call for a Priest
 		# name = EVTOPTCHFP20520
 		# #custom_tooltip = { text = EVTOOLTIPCHFP20520 }
@@ -5358,1225 +5358,1225 @@ character_event = {
 		# }
 	# }
 
-	# option = { #Do nothing.
-		# name = EVTOPTEHFP20520
-		# ai_chance = { 
-			# factor = 1
-		# }
-	# }
-	# after = { #Now for randomized pain.
-		# character_event = { id = HFP.20521 }
-	# }
-# }
-
-# character_event = {
-	# id = HFP.20521
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = { 
-		# random_list = { 
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = cough
-				# }
-				# character_event = { id = HFP.20522 days = 15 random = 15 } } #Asthma
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = vomiting
-				# }
-				# character_event = { id = HFP.20523 days = 15 random = 15  } } #Vomiting
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = rash
-				# }
-				# character_event = { id = HFP.20524 days = 15 random = 15  } } #Hair and rashes
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = malaise
-				# }
-				# character_event = { id = HFP.20525 days = 15 random = 15  } } #metalmouth
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = fever
-				# }
-				# character_event = { id = HFP.20526 days = 15 random = 15  } } #fever and sweath
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = headache
-				# }
-				# character_event = { id = HFP.20527 days = 15 random = 15  } } #amnesia
-			# 5 = { character_event = { id = HFP.20528 days = 15 random = 15  } } #panic attack
-
-			# 5 = { character_event = { id = HFP.20529 days = 15 random = 15  } } #undernourishment
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = stressed
-				# }
-				# character_event = { id = HFP.20530 days = 15 random = 15  } } #epileptic episode
-			# 10 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = cramps
-				# }
-				# character_event = { id = HFP.20531 days = 15 random = 15  } } #blood and cramps
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = infection
-				# }
-				# character_event = { id = HFP.20532 days = 15 random = 15  } } #teeth hurting and falling
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = fatigue
-				# }
-				# character_event = { id = HFP.20533 days = 15 random = 15  } } #insomnia
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = fatigue
-				# }
-				# character_event = { id = HFP.20534 days = 15 random = 15 } } #hallucinations
-			# 5 = { 
-				# modifier = { 
-					# factor = 0.25
-					# trait = fatigue
-				# }
-				# character_event = { id = HFP.20535 days = 15 random = 15  } } #sleepwalking
-			# 3 = { 
-				# modifier = { 
-					# factor = 0.9
-					# NOT = { health = 2 }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# age = 40
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# has_character_modifier = mother_comforted 
-				# }
-				# modifier = { 
-					# factor = 0.95		#Fasting
-					# has_character_modifier = mother_vow_temperance 
-				# }
-				# modifier = { 
-					# factor = 1.15
-					# has_character_modifier = mother_vow_charity 
-				# }
-				# modifier = { 
-					# factor = 1.15
-					# has_character_modifier = mother_vow_humility 
-				# }
-				# modifier = { 
-					# factor = 1.15
-					# has_character_modifier = mother_vow_chastity 
-				# }
-				# modifier = { 
-					# factor = 0.9
-					# has_character_modifier = mother_bad_omen  
-				# }
-				# modifier = { 
-					# factor = 1.15
-					# has_character_modifier = mother_good_omen  
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# has_character_modifier = mother_minor_rest  
-				# }
-				# modifier = { 
-					# factor = 1.45
-					# has_character_modifier = mother_resting_health 
-				# }
-				# modifier = { 
-					# factor = 1.15
-					# has_character_modifier = mother_praying_health 
-				# }
-				# modifier = { 
-					# factor = 0.9
-					# has_character_modifier = mother_partying_health 
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# has_character_modifier = mother_exposed_to_elements
-				# }
-				# modifier = { 
-					# factor = 0.7
-					# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
-				# }
-				# modifier = { 
-					# factor = 0.9
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
-				# }
-				# modifier = { 
-					# factor = 0.7
-					# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
-				# }
-				# modifier = { 
-					# factor = 0.9
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
-				# }
-				# modifier = { 
-					# factor = 0.7
-					# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
-				# }
-				# modifier = { 
-					# factor = 0.9
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
-				# }
-				# modifier = { 
-					# factor = 0.8
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
-				# }
-				# modifier = { #Every successful healing on random event reduces variable, lower the variable, more likely mother is to recover.
-					# factor = 1.25
-					# check_variable =  { which = troubled_pregnancy_variable value = -1 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# check_variable =  { which = troubled_pregnancy_variable value = -2 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# check_variable =  { which = troubled_pregnancy_variable value = -4 }
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# check_variable =  { which = troubled_pregnancy_variable value = -6 }
-				# }
-				# character_event = { id = HFP.20536 days = 15 random = 15  } #RECOVERY
-			# }
-			# 1 = { 
-				# modifier = { #Every failed healing on random event increases variable, higher the variable, more likely mother is to die.
-					# factor = 1.25
-					# check_variable =  { which = troubled_pregnancy_variable value = 1 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# check_variable =  { which = troubled_pregnancy_variable value = 2 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# check_variable =  { which = troubled_pregnancy_variable value = 3 }
-				# }
-				# modifier = { 
-					# factor = 2
-					# check_variable =  { which = troubled_pregnancy_variable value = 4 }
-				# }
-				# modifier = { 
-					# factor = 3
-					# check_variable =  { which = troubled_pregnancy_variable value = 5 }
-				# }
-
-				# character_event = { id = HFP.20537 days = 15 random = 15  } #DEATH
-			# } 
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Asthma
-# character_event = {
-	# id = HFP.20522
-	# desc = EVTDESCHFPA20522			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20522
-		# custom_tooltip = { text = tooltip_troubled_pregnancy_helpers522 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = cough
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = cough
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Vomiting
-# character_event = {
-	# id = HFP.20523
-	# desc = EVTDESCHFPA20523			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20523
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_523 }
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = vomiting
-				# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = vomiting
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Hair and Rashes
-# character_event = {
-	# id = HFP.20524
-	# desc = EVTDESCHFPA20524			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20524
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_524 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = rash
-				# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = rash
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Metalmouth
-# character_event = {
-	# id = HFP.20525
-	# desc = EVTDESCHFPA20525			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20525
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_525 }
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = malaise
-				# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = malaise
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Fever and Sweath
-# character_event = {
-	# id = HFP.20526
-	# desc = EVTDESCHFPA20526			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20526
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_526 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = fever
-				# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = fever
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Amnesia
-# character_event = {
-	# id = HFP.20527
-	# desc = EVTDESCHFPA20527		#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20527
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_527 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = headache
-				# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = headache
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Panic Attack
-# character_event = {
-	# id = HFP.20528
-	# desc = EVTDESCHFPA20528			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20528
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_528 }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_easy_effect = yes
-		# }
-	# }
-# }
-
-# #####More Dangerous ones.
-
-# #Troubled pregnancy: Undernourishment
-# character_event = {
-	# id = HFP.20529
-	# desc = EVTDESCHFPA20529			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20529
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_529 }
-		# lose_weight_medium_effect = yes
-		# weight_trait_check_effect = yes
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Epilectic Episode
-# character_event = {
-	# id = HFP.20530
-	# desc = EVTDESCHFPA20530			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20530
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_530 }
-		# if = {
-			# limit = {
-				# trait = stressed
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# trait = stressed
-				# }
-			# }
-			# add_trait = stressed
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Blood and Cramps
-# character_event = {
-	# id = HFP.20531
-	# desc = EVTDESCHFPA20531			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20531
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_531 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = cramps
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = cramps
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Teeth Hurting and Falling
-# character_event = {
-	# id = HFP.20532
-	# desc = EVTDESCHFPA20532			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20532
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_532 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = infection
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = infection
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Insomnia
-# character_event = {
-	# id = HFP.20533
-	# desc = EVTDESCHFPA20533			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20533
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_533 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = fatigue
-			# }
-			# health = -0.05
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = fatigue
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Hallucinations
-# character_event = {
-	# id = HFP.20534
-	# desc = EVTDESCHFPA20534			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20534
-		# custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_534 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.02
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = fatigue
-			# }
-			# health = -0.02
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = fatigue
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Sleepwalking
-# character_event = {
-	# id = HFP.20535
-	# desc = EVTDESCHFPA20535			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_illness
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20535
-		# custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_535 }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# trait = ill
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = {
-				# NOT = {
-					# has_dlc = "Reapers"
-				# }
-				# NOT = {
-					# trait = ill
-				# }
-			# }
-			# add_trait = ill
-		# }
-		# if = {
-			# limit = { 
-				# has_dlc = "Reapers" 
-				# trait = fatigue
-			# }
-			# health = -0.07
-		# }
-		# if = {
-			# limit = { has_dlc = "Reapers" }
-			# add_trait = fatigue
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20521 days = 10 random = 10 }
-			# troubled_pregnancy_variable_hard_effect = yes
-		# }
-	# }
-# }
-
-# #Troubled pregnancy: Recovery
-# character_event = {
-	# id = HFP.20536
-	# desc = EVTDESCHFPA20536			#Possible custom loc keys added to describe help from spouse/physicians/priests.
-	# picture = GFX_evt_recovery
-
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
-
-	# is_triggered_only = yes
-
-	# option = { 
-		# name = EVTOPTAHFP20536
-		# hidden_tooltip = { 
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = vomiting
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-			# remove_trait = stressed
-			# health = 0.1
-			# clr_character_flag = pregnancy_healer_help
+	option = { #Do nothing.
+		name = EVTOPTEHFP20520
+		ai_chance = { 
+			factor = 1
+		}
+	}
+	after = { #Now for randomized pain.
+		character_event = { id = HFP.20521 }
+	}
+}
+
+character_event = {
+	id = HFP.20521
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = { 
+		random_list = { 
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = cough
+				}
+				character_event = { id = HFP.20522 days = 15 random = 15 } } #Asthma
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = vomiting
+				}
+				character_event = { id = HFP.20523 days = 15 random = 15  } } #Vomiting
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = rash
+				}
+				character_event = { id = HFP.20524 days = 15 random = 15  } } #Hair and rashes
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = malaise
+				}
+				character_event = { id = HFP.20525 days = 15 random = 15  } } #metalmouth
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = fever
+				}
+				character_event = { id = HFP.20526 days = 15 random = 15  } } #fever and sweath
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = headache
+				}
+				character_event = { id = HFP.20527 days = 15 random = 15  } } #amnesia
+			5 = { character_event = { id = HFP.20528 days = 15 random = 15  } } #panic attack
+
+			5 = { character_event = { id = HFP.20529 days = 15 random = 15  } } #undernourishment
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = stressed
+				}
+				character_event = { id = HFP.20530 days = 15 random = 15  } } #epileptic episode
+			10 = { 
+				modifier = { 
+					factor = 0.25
+					trait = cramps
+				}
+				character_event = { id = HFP.20531 days = 15 random = 15  } } #blood and cramps
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = infection
+				}
+				character_event = { id = HFP.20532 days = 15 random = 15  } } #teeth hurting and falling
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = fatigue
+				}
+				character_event = { id = HFP.20533 days = 15 random = 15  } } #insomnia
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = fatigue
+				}
+				character_event = { id = HFP.20534 days = 15 random = 15 } } #hallucinations
+			5 = { 
+				modifier = { 
+					factor = 0.25
+					trait = fatigue
+				}
+				character_event = { id = HFP.20535 days = 15 random = 15  } } #sleepwalking
+			3 = { 
+				modifier = { 
+					factor = 0.9
+					NOT = { health = 2 }
+				}
+				modifier = { 
+					factor = 0.8
+					age = 40
+				}
+				modifier = { 
+					factor = 1.25
+					has_character_modifier = mother_comforted 
+				}
+				modifier = { 
+					factor = 0.95		#Fasting
+					has_character_modifier = mother_vow_temperance 
+				}
+				modifier = { 
+					factor = 1.15
+					has_character_modifier = mother_vow_charity 
+				}
+				modifier = { 
+					factor = 1.15
+					has_character_modifier = mother_vow_humility 
+				}
+				modifier = { 
+					factor = 1.15
+					has_character_modifier = mother_vow_chastity 
+				}
+				modifier = { 
+					factor = 0.9
+					has_character_modifier = mother_bad_omen  
+				}
+				modifier = { 
+					factor = 1.15
+					has_character_modifier = mother_good_omen  
+				}
+				modifier = { 
+					factor = 1.25
+					has_character_modifier = mother_minor_rest  
+				}
+				modifier = { 
+					factor = 1.45
+					has_character_modifier = mother_resting_health 
+				}
+				modifier = { 
+					factor = 1.15
+					has_character_modifier = mother_praying_health 
+				}
+				modifier = { 
+					factor = 0.9
+					has_character_modifier = mother_partying_health 
+				}
+				modifier = { 
+					factor = 0.8
+					has_character_modifier = mother_exposed_to_elements
+				}
+				modifier = { 
+					factor = 0.7
+					persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
+				}
+				modifier = { 
+					factor = 0.9
+					persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
+				}
+				modifier = { 
+					factor = 0.7
+					persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
+				}
+				modifier = { 
+					factor = 0.9
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
+				}
+				modifier = { 
+					factor = 0.7
+					persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
+				}
+				modifier = { 
+					factor = 0.9
+					persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
+				}
+				modifier = { 
+					factor = 0.8
+					persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
+				}
+				modifier = { 
+					factor = 1.25
+					persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
+				}
+				modifier = { 
+					factor = 1.5
+					persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
+				}
+				modifier = { #Every successful healing on random event reduces variable, lower the variable, more likely mother is to recover.
+					factor = 1.25
+					check_variable =  { which = troubled_pregnancy_variable value = -1 }
+				}
+				modifier = { 
+					factor = 1.25
+					check_variable =  { which = troubled_pregnancy_variable value = -2 }
+				}
+				modifier = { 
+					factor = 1.5
+					check_variable =  { which = troubled_pregnancy_variable value = -4 }
+				}
+				modifier = { 
+					factor = 1.75
+					check_variable =  { which = troubled_pregnancy_variable value = -6 }
+				}
+				character_event = { id = HFP.20536 days = 15 random = 15  } #RECOVERY
+			}
+			1 = { 
+				modifier = { #Every failed healing on random event increases variable, higher the variable, more likely mother is to die.
+					factor = 1.25
+					check_variable =  { which = troubled_pregnancy_variable value = 1 }
+				}
+				modifier = { 
+					factor = 1.25
+					check_variable =  { which = troubled_pregnancy_variable value = 2 }
+				}
+				modifier = { 
+					factor = 1.5
+					check_variable =  { which = troubled_pregnancy_variable value = 3 }
+				}
+				modifier = { 
+					factor = 2
+					check_variable =  { which = troubled_pregnancy_variable value = 4 }
+				}
+				modifier = { 
+					factor = 3
+					check_variable =  { which = troubled_pregnancy_variable value = 5 }
+				}
+
+				character_event = { id = HFP.20537 days = 15 random = 15  } #DEATH
+			} 
+		}
+	}
+}
+
+#Troubled pregnancy: Asthma
+character_event = {
+	id = HFP.20522
+	desc = EVTDESCHFPA20522			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20522
+		custom_tooltip = { text = tooltip_troubled_pregnancy_helpers522 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = cough
+			}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = cough
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Vomiting
+character_event = {
+	id = HFP.20523
+	desc = EVTDESCHFPA20523			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20523
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_523 }
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = vomiting
+				}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = vomiting
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Hair and Rashes
+character_event = {
+	id = HFP.20524
+	desc = EVTDESCHFPA20524			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20524
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_524 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = rash
+				}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = rash
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Metalmouth
+character_event = {
+	id = HFP.20525
+	desc = EVTDESCHFPA20525			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20525
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_525 }
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = malaise
+				}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = malaise
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Fever and Sweath
+character_event = {
+	id = HFP.20526
+	desc = EVTDESCHFPA20526			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20526
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_526 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = fever
+				}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = fever
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Amnesia
+character_event = {
+	id = HFP.20527
+	desc = EVTDESCHFPA20527		#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20527
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_527 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = headache
+				}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = headache
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Panic Attack
+character_event = {
+	id = HFP.20528
+	desc = EVTDESCHFPA20528			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20528
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_528 }
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_easy_effect = yes
+		}
+	}
+}
+
+#####More Dangerous ones.
+
+#Troubled pregnancy: Undernourishment
+character_event = {
+	id = HFP.20529
+	desc = EVTDESCHFPA20529			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20529
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_529 }
+		lose_weight_medium_effect = yes
+		weight_trait_check_effect = yes
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Epilectic Episode
+character_event = {
+	id = HFP.20530
+	desc = EVTDESCHFPA20530			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20530
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_530 }
+		if = {
+			limit = {
+				trait = stressed
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					trait = stressed
+				}
+			}
+			add_trait = stressed
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Blood and Cramps
+character_event = {
+	id = HFP.20531
+	desc = EVTDESCHFPA20531			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20531
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_531 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.07
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = cramps
+			}
+			health = -0.07
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = cramps
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Teeth Hurting and Falling
+character_event = {
+	id = HFP.20532
+	desc = EVTDESCHFPA20532			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20532
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_532 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.07
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = infection
+			}
+			health = -0.07
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = infection
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Insomnia
+character_event = {
+	id = HFP.20533
+	desc = EVTDESCHFPA20533			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20533
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_533 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.05
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = fatigue
+			}
+			health = -0.05
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = fatigue
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Hallucinations
+character_event = {
+	id = HFP.20534
+	desc = EVTDESCHFPA20534			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20534
+		custom_tooltip = {  text = tooltip_troubled_pregnancy_helpers_534 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.02
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = fatigue
+			}
+			health = -0.02
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = fatigue
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Sleepwalking
+character_event = {
+	id = HFP.20535
+	desc = EVTDESCHFPA20535			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20535
+		custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_535 }
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				trait = ill
+			}
+			health = -0.07
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Reapers"
+				}
+				NOT = {
+					trait = ill
+				}
+			}
+			add_trait = ill
+		}
+		if = {
+			limit = { 
+				has_dlc = "Reapers" 
+				trait = fatigue
+			}
+			health = -0.07
+		}
+		if = {
+			limit = { has_dlc = "Reapers" }
+			add_trait = fatigue
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20521 days = 10 random = 10 }
+			troubled_pregnancy_variable_hard_effect = yes
+		}
+	}
+}
+
+#Troubled pregnancy: Recovery
+character_event = {
+	id = HFP.20536
+	desc = EVTDESCHFPA20536			#Possible custom loc keys added to describe help from spouse/physicians/priests.
+	picture = GFX_evt_recovery
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20536
+		hidden_tooltip = { 
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = vomiting
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+			remove_trait = stressed
+			health = 0.1
+			clr_character_flag = pregnancy_healer_help
 			# clr_character_flag = pregnancy_priest_comfort
 			# clr_character_flag = pregnancy_shaman_comfort
-			# clr_character_flag = pregnancy_spouse_comfort
-			# clr_character_flag = mother_asked_retirement
-			# #Send notifications to all doctors.
-			# persistent_event_target:pregnancy_mother_physician_per = { character_event = { id = HFP.20553 } }
-			# persistent_event_target:pregnancy_spouse_physician_per = { character_event = { id = HFP.20553 } }
-			# persistent_event_target:pregnancy_regent_physician_per = { character_event = { id = HFP.20553 } }
-			# #And to the spouse, if he already isn't one of them.
-			# if = { 
-				# limit = { 
-					# persistent_event_target:pregnancy_mother_physician_per = { NOT = { is_married = ROOT } }
-					# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { is_married = ROOT } }
-					# persistent_event_target:pregnancy_regent_physician_per = { NOT = { is_married = ROOT } } 
-				# } 
-			# spouse = { character_event = { id = HFP.20554 } }
-			# } 
-		# }
-		# hidden_tooltip = { change_variable =  { which = troubled_pregnancy_variable value = -4 } } #Not set to 0, still small chance of post-birth complications.
-		# remove_trait = troubled_pregnancy
-		# set_character_flag = survivor_mom		#More likely to have difficult pregnancies in the future, unlocks chance to go celibate for rulers.
-	# }
-# }
+			clr_character_flag = pregnancy_spouse_comfort
+			clr_character_flag = mother_asked_retirement
+			#Send notifications to all doctors.
+			persistent_event_target:pregnancy_mother_physician_per = { character_event = { id = HFP.20553 } }
+			persistent_event_target:pregnancy_spouse_physician_per = { character_event = { id = HFP.20553 } }
+			persistent_event_target:pregnancy_regent_physician_per = { character_event = { id = HFP.20553 } }
+			#And to the spouse, if he already isn't one of them.
+			if = { 
+				limit = { 
+					persistent_event_target:pregnancy_mother_physician_per = { NOT = { is_married = ROOT } }
+					persistent_event_target:pregnancy_spouse_physician_per = { NOT = { is_married = ROOT } }
+					persistent_event_target:pregnancy_regent_physician_per = { NOT = { is_married = ROOT } } 
+				} 
+			spouse = { character_event = { id = HFP.20554 } }
+			} 
+		}
+		hidden_tooltip = { change_variable =  { which = troubled_pregnancy_variable value = -4 } } #Not set to 0, still small chance of post-birth complications.
+		remove_trait = troubled_pregnancy
+		set_character_flag = survivor_mom		#More likely to have difficult pregnancies in the future, unlocks chance to go celibate for rulers.
+	}
+}
 
-# #physician notified of mother recovering from troubled pregnancy before childbirth.
-# character_event = {
-	# id = HFP.20553
-	# desc = EVTDESCHFPA20553
+#physician notified of mother recovering from troubled pregnancy before childbirth.
+character_event = {
+	id = HFP.20553
+	desc = EVTDESCHFPA20553
 
-	# picture = GFX_evt_bad_news_female
+	picture = GFX_evt_bad_news_female
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20553 
-		# piety = 30
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-	# }
-# }
-# #spouse (who is not a physician) notified of mother recovering from troubled pregnancy before childbirth.
-# character_event = {
-	# id = HFP.20554
-	# desc = EVTDESCHFPA20554
+	option = { 
+		name = EVTOPTAHFP20553 
+		piety = 30
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+	}
+}
+#spouse (who is not a physician) notified of mother recovering from troubled pregnancy before childbirth.
+character_event = {
+	id = HFP.20554
+	desc = EVTDESCHFPA20554
 
-	# picture = GFX_evt_bad_news_female
+	picture = GFX_evt_bad_news_female
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20554
-		# piety = 30
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-	# }
-# }
-# #Troubled pregnancy: DEATH before birth
-# character_event = {
-	# id = HFP.20537
-	# desc = EVTDESCHFPA20537	
-	# picture = GFX_evt_illness
+	option = { 
+		name = EVTOPTAHFP20554
+		piety = 30
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+	}
+}
+#Troubled pregnancy: DEATH before birth
+character_event = {
+	id = HFP.20537
+	desc = EVTDESCHFPA20537	
+	picture = GFX_evt_illness
 
-	# trigger = { 
-		# trait = troubled_pregnancy
-		# trait = pregnant 
-	# }
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20537
-		# hidden_tooltip = { 
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = diarrhea
-			# remove_trait = vomiting
-			# remove_trait = chest_pain
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = abdominal_pain
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-		# }
-		# if = {
-			# limit = { any_spouse = { always = yes } }
-			# spouse = { save_event_target_as = scoped_father }
-		# }
-		# #Hollow child is born in this circumstance, giving another chance to avoid game over.
-		# custom_tooltip = { text = tooltip_HFP20537_A }
-		# hidden_tooltip = {
-			# random_list = { 
-				# 50 = {
-					# create_character = {
-						# random_traits = no
-						# dynasty = ROOT
-						# culture = ROOT
-						# religion = ROOT
-						# female = no
-						# age = 0
-					# }
-				# } 
-				# 50 = {
-					# create_character = {
-						# random_traits = no
-						# dynasty = ROOT
-						# culture = ROOT
-						# religion = ROOT
-						# female = yes
-						# age = 0
-					# }
-				# }
-			# }
-			# new_character = {
-				# set_mother = ROOT
-				# random = { 
-					# chance = 5
-					# add_trait = clubfooted
-				# }
-				# random = { 
-					# chance = 5 
-					# add_trait = ugly
-				# }
-				# lose_weight_large_effect = yes
-				# lose_weight_medium_effect = yes
-				# add_trait = is_malnourished
-				# save_event_target_as = hollow_baby
-				# set_character_flag = flag_hollow_child_primed
-				# if = { #If a dad exists...
-					# limit = { event_target:scoped_father = { always = yes } }
-					# set_father = event_target:scoped_father
-					# if = { # and mom is not matrilineally married...
-						# limit = { ROOT = { is_married_matrilineally = no } }
-						# event_target:hollow_baby = { 
-							# dynasty = event_target:scoped_father 
-							# culture = event_target:scoped_father
-							# religion = event_target:scoped_father
-						# }  
-					# }
-				# }
-			# }
-			# #event_target:hollow_baby = { character_event = { id = HFP.20057 days = 820 } } 
-		# }
-		# hidden_tooltip = { 
-			# event_target:scoped_father = { #Check if father likes mother
-				# if = { 
-					# limit = { 
-						# opinion = { 
-							# who = ROOT
-							# value = 40 
-						# } 
-					# }
-					# set_character_flag = flag_loved_dead_mother 
-				# }
-				# character_event = { id = HFP.20056 } 
-			# } 	
-			# death = { death_reason = death_troubled_pregnancy }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20537
+		hidden_tooltip = { 
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = diarrhea
+			remove_trait = vomiting
+			remove_trait = chest_pain
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = abdominal_pain
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+		}
+		if = {
+			limit = { any_spouse = { always = yes } }
+			spouse = { save_event_target_as = scoped_father }
+		}
+		#Hollow child is born in this circumstance, giving another chance to avoid game over.
+		custom_tooltip = { text = tooltip_HFP20537_A }
+		hidden_tooltip = {
+			random_list = { 
+				50 = {
+					create_character = {
+						random_traits = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						female = no
+						age = 0
+					}
+				} 
+				50 = {
+					create_character = {
+						random_traits = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						female = yes
+						age = 0
+					}
+				}
+			}
+			new_character = {
+				set_mother = ROOT
+				random = { 
+					chance = 5
+					add_trait = clubfooted
+				}
+				random = { 
+					chance = 5 
+					add_trait = ugly
+				}
+				lose_weight_large_effect = yes
+				lose_weight_medium_effect = yes
+				add_trait = is_malnourished
+				save_event_target_as = hollow_baby
+				set_character_flag = flag_hollow_child_primed
+				if = { #If a dad exists...
+					limit = { event_target:scoped_father = { always = yes } }
+					set_father = event_target:scoped_father
+					if = { # and mom is not matrilineally married...
+						limit = { ROOT = { is_married_matrilineally = no } }
+						event_target:hollow_baby = { 
+							dynasty = event_target:scoped_father 
+							culture = event_target:scoped_father
+							religion = event_target:scoped_father
+						}  
+					}
+				}
+			}
+			#event_target:hollow_baby = { character_event = { id = HFP.20057 days = 820 } } 
+		}
+		hidden_tooltip = { 
+			event_target:scoped_father = { #Check if father likes mother
+				if = { 
+					limit = { 
+						opinion = { 
+							who = ROOT
+							value = 40 
+						} 
+					}
+					set_character_flag = flag_loved_dead_mother 
+				}
+				character_event = { id = HFP.20056 } 
+			} 	
+			death = { death_reason = death_troubled_pregnancy }
+		}
+	}
+}
 
 # #on_birth baby vision child event
 # character_event = {
@@ -6736,822 +6736,822 @@ character_event = {
 	# }
 # }
 
-# #############################POST BIRTH TROUBLED PREGNANCY OUTCOMES#######################
-# #post-fever
-# character_event = {
-	# id = HFP.20541
-	# desc = EVTDESCHFP20541
-	# picture = GFX_evt_illness
+#############################POST BIRTH TROUBLED PREGNANCY OUTCOMES#######################
+#post-fever
+character_event = {
+	id = HFP.20541
+	desc = EVTDESCHFP20541
+	picture = GFX_evt_illness
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20541 #Why am I shaking?
-		# custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_541 }
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 25 = { 
+	option = { 
+		name = EVTOPTAHFP20541 #Why am I shaking?
+		custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_541 }
+		hidden_tooltip = { 
+			random_list = { 
+				25 = { 
 
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
-		# }
-					# character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
-				# 45 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
-				# 20 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
-				# 5 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
-			# }
-		# }
-	# }
-# }
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
+		}
+					character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
+				45 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
+				20 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
+				5 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
+			}
+		}
+	}
+}
 
-# #hair loss
-# character_event = {
-	# id = HFP.20542
-	# desc = EVTDESCHFP20542
-	# picture = GFX_evt_illness
+#hair loss
+character_event = {
+	id = HFP.20542
+	desc = EVTDESCHFP20542
+	picture = GFX_evt_illness
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20542 #What's happening to me?!
-		# custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_542 }
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 35 = { 
+	option = { 
+		name = EVTOPTAHFP20542 #What's happening to me?!
+		custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_542 }
+		hidden_tooltip = { 
+			random_list = { 
+				35 = { 
 
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
-		# }
-				# character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
-				# 50 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
-				# 10 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
-				# 5 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
-			# }
-		# }
-	# }
-# }
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
+		}
+				character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
+				50 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
+				10 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
+				5 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
+			}
+		}
+	}
+}
 
-# #blood
-# character_event = {
-	# id = HFP.20543
-	# desc = EVTDESCHFP20543
-	# picture = GFX_evt_illness
+#blood
+character_event = {
+	id = HFP.20543
+	desc = EVTDESCHFP20543
+	picture = GFX_evt_illness
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20543 #I will bleed out!
-		# custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_531 }
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# hidden_tooltip = { 
-			# random_list = { 
-				# 10 = { 
+	option = { 
+		name = EVTOPTAHFP20543 #I will bleed out!
+		custom_tooltip = { text = tooltip_troubled_pregnancy_helpers_531 }
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		hidden_tooltip = { 
+			random_list = { 
+				10 = { 
 
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
-		# }
-		# modifier = { 
-			# factor = 0.7
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
-		# }
-		# modifier = { 
-			# factor = 0.9
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
-		# }
-		# modifier = { 
-			# factor = 0.8
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
-		# }
-		# modifier = { 
-			# factor = 1.25
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
-		# }
-		# modifier = { 
-			# factor = 1.5
-			# persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
-		# }
-					# character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
-				# 40 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
-				# 20 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
-				# 30 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
-			# }
-		# }
-	# }
-# }
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_mother_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_mother_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_mother_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_spouse_physician_per = { learning = 25 }
+		}
+		modifier = { 
+			factor = 0.7
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 5 } }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { NOT = { learning = 10 } }
+		}
+		modifier = { 
+			factor = 0.9
+			persistent_event_target:pregnancy_regent_physician_per = { trait = slow }
+		}
+		modifier = { 
+			factor = 0.8
+			persistent_event_target:pregnancy_regent_physician_per = { trait = imbecile }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = scholar }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = physician }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { trait = quick }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { trait = genius }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 10 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 15 }
+		}
+		modifier = { 
+			factor = 1.25
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 20 }
+		}
+		modifier = { 
+			factor = 1.5
+			persistent_event_target:pregnancy_regent_physician_per = { learning = 25 }
+		}
+					character_event = { id = HFP.20544 days = 5 random = 5 } } #recovers completely
+				40 = { character_event = { id = HFP.20545 days = 5 random = 5 } } #recovers weakened
+				20 = { character_event = { id = HFP.20546 days = 5 random = 5 } } #remains infirm
+				30 = { character_event = { id = HFP.20547 days = 5 random = 5 } } #DEATH
+			}
+		}
+	}
+}
 
-# #complete recovery
-# character_event = {
-	# id = HFP.20544
-	# desc = EVTDESCHFP20544
-	# picture = GFX_evt_recovery
+#complete recovery
+character_event = {
+	id = HFP.20544
+	desc = EVTDESCHFP20544
+	picture = GFX_evt_recovery
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20544 #I won't mind getting up now.
-		# hidden_tooltip = {	
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = vomiting
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-			# remove_trait = stressed 
-			# clr_character_flag = pregnancy_healer_help
+	option = { 
+		name = EVTOPTAHFP20544 #I won't mind getting up now.
+		hidden_tooltip = {	
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = vomiting
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+			remove_trait = stressed 
+			clr_character_flag = pregnancy_healer_help
 			# clr_character_flag = pregnancy_priest_comfort
 			# clr_character_flag = pregnancy_shaman_comfort
-			# clr_character_flag = pregnancy_spouse_comfort
-			# clr_character_flag = mother_asked_retirement
-		# }
-		# remove_trait = troubled_pregnancy
-		# set_character_flag = survivor_mom
-		# if = { 
-			# limit = { is_married = yes } 
-			# spouse = { character_event = { id = HFP.20548 } } 
-		# }
-	# }
-# }
+			clr_character_flag = pregnancy_spouse_comfort
+			clr_character_flag = mother_asked_retirement
+		}
+		remove_trait = troubled_pregnancy
+		set_character_flag = survivor_mom
+		if = { 
+			limit = { is_married = yes } 
+			spouse = { character_event = { id = HFP.20548 } } 
+		}
+	}
+}
 
-# #partial recovery
-# character_event = {
-	# id = HFP.20545
-	# desc = EVTDESCHFP20545
-	# picture = GFX_evt_recovery
+#partial recovery
+character_event = {
+	id = HFP.20545
+	desc = EVTDESCHFP20545
+	picture = GFX_evt_recovery
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20545 #I think I'll rest another couple of days still...
-		# if = { 
-			# limit = { 
-					# trait = feeble
-			# } 
-			# health = -1.0
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = robust 
-					# trait = feeble
-				# }  
-			# } 
-			# add_trait = feeble 
-		# }
-		# if = { 
-			# limit = { trait = robust } 
-			# remove_trait = robust 
-		# }
-		# hidden_tooltip = {	
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = vomiting
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-			# remove_trait = stressed 
-			# clr_character_flag = pregnancy_healer_help
+	option = { 
+		name = EVTOPTAHFP20545 #I think I'll rest another couple of days still...
+		if = { 
+			limit = { 
+					trait = feeble
+			} 
+			health = -1.0
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = robust 
+					trait = feeble
+				}  
+			} 
+			add_trait = feeble 
+		}
+		if = { 
+			limit = { trait = robust } 
+			remove_trait = robust 
+		}
+		hidden_tooltip = {	
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = vomiting
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+			remove_trait = stressed 
+			clr_character_flag = pregnancy_healer_help
 			# clr_character_flag = pregnancy_priest_comfort
 			# clr_character_flag = pregnancy_shaman_comfort
-			# clr_character_flag = pregnancy_spouse_comfort
-			# clr_character_flag = mother_asked_retirement
-		# }
-		# remove_trait = troubled_pregnancy
-		# set_character_flag = survivor_mom
-		# if = { 
-			# limit = { is_married = yes } 
-			# spouse = { character_event = { id = HFP.20549 } } 
-		# }
-	# }
-# }
+			clr_character_flag = pregnancy_spouse_comfort
+			clr_character_flag = mother_asked_retirement
+		}
+		remove_trait = troubled_pregnancy
+		set_character_flag = survivor_mom
+		if = { 
+			limit = { is_married = yes } 
+			spouse = { character_event = { id = HFP.20549 } } 
+		}
+	}
+}
 
-# #remains infirm
-# character_event = {
-	# id = HFP.20546
-	# desc = EVTDESCHFP20546
-	# picture = GFX_evt_recovery
+#remains infirm
+character_event = {
+	id = HFP.20546
+	desc = EVTDESCHFP20546
+	picture = GFX_evt_recovery
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20546 #Who goes there?
-		# if = { 
-			# limit = { 
-					# trait = infirm
-			# } 
-			# health = -1.0
-		# }
-		# if = { 
-			# limit = { 
-					# NOT = { trait = infirm } 
-			# } 
-			# add_trait = infirm
-		# }
-		# hidden_tooltip = {	
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = vomiting
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-			# remove_trait = stressed 
-			# clr_character_flag = pregnancy_healer_help
+	option = { 
+		name = EVTOPTAHFP20546 #Who goes there?
+		if = { 
+			limit = { 
+					trait = infirm
+			} 
+			health = -1.0
+		}
+		if = { 
+			limit = { 
+					NOT = { trait = infirm } 
+			} 
+			add_trait = infirm
+		}
+		hidden_tooltip = {	
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = vomiting
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+			remove_trait = stressed 
+			clr_character_flag = pregnancy_healer_help
 			# clr_character_flag = pregnancy_priest_comfort
 			# clr_character_flag = pregnancy_shaman_comfort
-			# clr_character_flag = pregnancy_spouse_comfort
-			# clr_character_flag = mother_asked_retirement
-		# }
-		# remove_trait = troubled_pregnancy
-		# set_character_flag = survivor_mom
-		# if = { 
-			# limit = { is_married = yes } 
-			# spouse = { character_event = { id = HFP.20550 } } 
-		# }
-	# }
-# }
+			clr_character_flag = pregnancy_spouse_comfort
+			clr_character_flag = mother_asked_retirement
+		}
+		remove_trait = troubled_pregnancy
+		set_character_flag = survivor_mom
+		if = { 
+			limit = { is_married = yes } 
+			spouse = { character_event = { id = HFP.20550 } } 
+		}
+	}
+}
 
-# #Death after birth
-# character_event = {
-	# id = HFP.20547
-	# desc = EVTDESCHFP20547
-	# picture = GFX_evt_recovery
+#Death after birth
+character_event = {
+	id = HFP.20547
+	desc = EVTDESCHFP20547
+	picture = GFX_evt_recovery
 
-	# trigger = { trait = troubled_pregnancy }
+	trigger = { trait = troubled_pregnancy }
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20547 #I'll rest just a little more...
-		# hidden_tooltip = {	
-			# remove_trait = cough
-			# remove_trait = fever
-			# remove_trait = vomiting
-			# remove_trait = cramps
-			# remove_trait = rash
-			# remove_trait = headache
-			# remove_trait = fatigue
-			# remove_trait = malaise
-			# remove_trait = infection
-			# remove_trait = stressed 
-			# clr_character_flag = pregnancy_healer_help
+	option = { 
+		name = EVTOPTAHFP20547 #I'll rest just a little more...
+		hidden_tooltip = {	
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = vomiting
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+			remove_trait = stressed 
+			clr_character_flag = pregnancy_healer_help
 			# clr_character_flag = pregnancy_priest_comfort
 			# clr_character_flag = pregnancy_shaman_comfort
-			# clr_character_flag = pregnancy_spouse_comfort
-			# clr_character_flag = mother_asked_retirement
-		# }
-		# death = { death_reason = death_troubled_pregnancy }
-		# if = { 
-			# limit = { is_married = yes } 
-			# spouse = { character_event = { id = HFP.20551 } } 
-		# }
-	# }
-# }
+			clr_character_flag = pregnancy_spouse_comfort
+			clr_character_flag = mother_asked_retirement
+		}
+		death = { death_reason = death_troubled_pregnancy }
+		if = { 
+			limit = { is_married = yes } 
+			spouse = { character_event = { id = HFP.20551 } } 
+		}
+	}
+}
 
-# #spouse notified of full recovery
-# character_event = {
-	# id = HFP.20548
-	# desc = EVTDESCHFP20548
-	# picture = GFX_evt_recovery
-	# ai = no
+#spouse notified of full recovery
+character_event = {
+	id = HFP.20548
+	desc = EVTDESCHFP20548
+	picture = GFX_evt_recovery
+	ai = no
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20548 #That's a relif. To when the next son?
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20548 #That's a relif. To when the next son?
+	}
+}
 
-# #spouse notified of partial recovery
-# character_event = {
-	# id = HFP.20549
-	# desc = EVTDESCHFP20549
-	# picture = GFX_evt_recovery
-	# ai = no
+#spouse notified of partial recovery
+character_event = {
+	id = HFP.20549
+	desc = EVTDESCHFP20549
+	picture = GFX_evt_recovery
+	ai = no
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20549 #It can still manage another couple of toddlers, right?
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20549 #It can still manage another couple of toddlers, right?
+	}
+}
 
-# #spouse notified of infirmity
-# character_event = {
-	# id = HFP.20550
-	# desc = EVTDESCHFP20550
-	# picture = GFX_evt_bad_news_female
-	# ai = no
+#spouse notified of infirmity
+character_event = {
+	id = HFP.20550
+	desc = EVTDESCHFP20550
+	picture = GFX_evt_bad_news_female
+	ai = no
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20550 #It can still manage another couple of toddlers, right?
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20550 #It can still manage another couple of toddlers, right?
+	}
+}
 
-# #spouse notified of death
-# character_event = {
-	# id = HFP.20551
-	# desc = EVTDESCHFP20551
-	# picture = GFX_evt_bad_news_female
+#spouse notified of death
+character_event = {
+	id = HFP.20551
+	desc = EVTDESCHFP20551
+	picture = GFX_evt_bad_news_female
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20551 #My darling!
-		# if = { 
-			# limit = { 
-				# OR = { 
-					# is_lover = FROM 
-					# opinion = { 
-						# who = FROM
-						# value = 50 
-					# }
-				# } 
-			# }
-			# random = { 
-				# chance = 40
-				# add_trait = depressed
-				# hidden_tooltip = { 
-					# character_event = { id = 38288 } 
-				# }
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20551 #My darling!
+		if = { 
+			limit = { 
+				OR = { 
+					is_lover = FROM 
+					opinion = { 
+						who = FROM
+						value = 50 
+					}
+				} 
+			}
+			random = { 
+				chance = 40
+				add_trait = depressed
+				hidden_tooltip = { 
+					character_event = { id = 38288 } 
+				}
+			}
+		}
+	}
+}
 
-# #spouse notified of troubled pregnancy after birth
-# character_event = {
-	# id = HFP.20552
-	# desc = {
-		# text = EVTDESCHFPA20552
-		# trigger = {
-			# FROM = { has_character_flag = troubled_pregnancy_relapse }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20552
-		# trigger = { 
-			# NOT = {
-				# FROM = { has_character_flag = troubled_pregnancy_relapse }
-			# }
-		# }
-	# }
-	# picture = GFX_evt_bad_news_female
+#spouse notified of troubled pregnancy after birth
+character_event = {
+	id = HFP.20552
+	desc = {
+		text = EVTDESCHFPA20552
+		trigger = {
+			FROM = { has_character_flag = troubled_pregnancy_relapse }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20552
+		trigger = { 
+			NOT = {
+				FROM = { has_character_flag = troubled_pregnancy_relapse }
+			}
+		}
+	}
+	picture = GFX_evt_bad_news_female
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20552 #That's unfortunate.
-		# FROM = { clr_character_flag = troubled_pregnancy_relapse }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20552 #That's unfortunate.
+		FROM = { clr_character_flag = troubled_pregnancy_relapse }
+	}
+}
 
-# ##20553 and 20554 ids taken by notifications to physician/spouse of recovery during pregnancy.
+##20553 and 20554 ids taken by notifications to physician/spouse of recovery during pregnancy.
 
 
-# #clear hard pregnancy on_birth.
-# character_event = {
-	# id = HFP.20555
-	# hide_window = yes
+#clear hard pregnancy on_birth.
+character_event = {
+	id = HFP.20555
+	hide_window = yes
 	
-	# trigger = { mother = { trait = hard_pregnancy } }
+	trigger = { mother = { trait = hard_pregnancy } }
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# mother = {
-			# remove_trait = hard_pregnancy
-			# remove_trait = in_hiding
-			# remove_trait = travelling
-			# clr_character_flag = mother_asked_retirement #If still on for whatever reason.
-		# }
-	# }
-# }
+	immediate = { 
+		mother = {
+			remove_trait = hard_pregnancy
+			remove_trait = in_hiding
+			remove_trait = travelling
+			clr_character_flag = mother_asked_retirement #If still on for whatever reason.
+		}
+	}
+}
 
 # #########################################
 
