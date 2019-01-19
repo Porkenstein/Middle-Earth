@@ -7553,443 +7553,443 @@ character_event = {
 	}
 }
 
-# #########################################
+#########################################
 
-# #on_pregnancy positive events.
-# character_event = {
-	# id = HFP.20556
-	# hide_window = yes
+#on_pregnancy positive events.
+character_event = {
+	id = HFP.20556
+	hide_window = yes
 
-	# trigger = { 
-		# OR = {
-			# has_game_rule = {
-				# name = pregnancy_flavor
-				# value = on
-			# }
-			# has_game_rule = {
-				# name = pregnancy_flavor
-				# value = limited
-			# }
-		# }
-	# }
+	trigger = { 
+		OR = {
+			has_game_rule = {
+				name = pregnancy_flavor
+				value = on
+			}
+			has_game_rule = {
+				name = pregnancy_flavor
+				value = limited
+			}
+		}
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# clr_character_flag = flag_mother_dark_rest
-		# clr_character_flag = mother_gossip_listening #Safety check, they should already have been removed
-		# clr_character_flag = mother_gossip_talking
-		# clr_character_flag = mother_gossip_trusting
-		# clr_character_flag = mother_gossip_plotting
-		# clr_character_flag = mother_gossip_envious
-		# clr_character_flag = mother_gossip_shy
-		# clr_character_flag = mother_gossip_learning
-		# clr_character_flag = mother_gossip_content
-		# clr_character_flag = mother_gossip_gluttonous
-		# clr_character_flag = flag_mother_festival_gregarious
-		# clr_character_flag = flag_mother_festival_kind
-		# clr_character_flag = flag_mother_festival_piety
-		# clr_character_flag = flag_mother_festival_proud
-		# clr_character_flag = flag_mother_festival_ambitious
-		# clr_character_flag = flag_mother_festival_prestige
-		# clr_character_flag = flag_mother_festival_peasants
-		# clr_character_flag = flag_mother_festival_vassals
-		# clr_character_flag = flag_mother_festival_gluttonous
-		# clr_character_flag = flag_mother_festival_drunkard
-		# clr_character_flag = flag_mother_festival_chaste
-		# clr_character_flag = flag_mother_festival_lustful
-		# any_lover = {  
-			# limit = {
-				# ai = no
-				# is_female = no # So lesbian lovers will not believe the child is theirs.
-			# }
-			# character_event = { id = HFP.20067 }
-		# }
-		# #First pregnancy scare. 
-		# random_list = {
-			# 20 = {}
-			# 80 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# NOT = { age = 20 }
-				# }
-				# modifier = { 
-					# factor = 0
-					# num_of_children = 1
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_married = no
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# trait = craven
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = brave
-				# }
+	immediate = { 
+		clr_character_flag = flag_mother_dark_rest
+		clr_character_flag = mother_gossip_listening #Safety check, they should already have been removed
+		clr_character_flag = mother_gossip_talking
+		clr_character_flag = mother_gossip_trusting
+		clr_character_flag = mother_gossip_plotting
+		clr_character_flag = mother_gossip_envious
+		clr_character_flag = mother_gossip_shy
+		clr_character_flag = mother_gossip_learning
+		clr_character_flag = mother_gossip_content
+		clr_character_flag = mother_gossip_gluttonous
+		clr_character_flag = flag_mother_festival_gregarious
+		clr_character_flag = flag_mother_festival_kind
+		clr_character_flag = flag_mother_festival_piety
+		clr_character_flag = flag_mother_festival_proud
+		clr_character_flag = flag_mother_festival_ambitious
+		clr_character_flag = flag_mother_festival_prestige
+		clr_character_flag = flag_mother_festival_peasants
+		clr_character_flag = flag_mother_festival_vassals
+		clr_character_flag = flag_mother_festival_gluttonous
+		clr_character_flag = flag_mother_festival_drunkard
+		clr_character_flag = flag_mother_festival_chaste
+		clr_character_flag = flag_mother_festival_lustful
+		any_lover = {  
+			limit = {
+				ai = no
+				is_female = no # So lesbian lovers will not believe the child is theirs.
+			}
+			character_event = { id = HFP.20067 }
+		}
+		#First pregnancy scare. 
+		random_list = {
+			20 = {}
+			80 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 20 }
+				}
+				modifier = { 
+					factor = 0
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					is_married = no
+				}
+				modifier = { 
+					factor = 1.75
+					trait = craven
+				}
+				modifier = { 
+					factor = 0.5
+					trait = brave
+				}
 
-				# character_event = { id = HFP.20557 days = 7 random = 5 }
-			# }
-		# }
-		# #Random stuff 
-		# random_list = {
-			# #Pregnancy Glow
-			# 10 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# NOT = { age = 25 }
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# age = 35
-				# }
-				# modifier = { 
-					# factor = 0.1
-					# age = 45
-				# }
-				# character_event = { id = HFP.20003 days = 25 random = 10 }
-			# }
-			# #Dark Rest
-			# 10 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# NOT = { age = 25 }
-				# }
-				# modifier = { 
-					# factor = 0
-					# NOT = { higher_tier_than = BARON }
-					# spouse = { lower_tier_than = COUNT }
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# age = 35
-				# }
-				# modifier = { 
-					# factor = 0.1
-					# age = 45
-				# }
-				# #Fires for woman if landed, otherwise husband.
-				# if = { 
-					# limit = { is_ruler = yes } 
-					# character_event = { id = HFP.20030 days = 60 random = 10 }
-				# }
-				# else = { spouse = { character_event = { id = HFP.20030 days = 60 random = 10 } } } 
-			# }
-			# #Baby kicks
-			# 20 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# character_event = { id = HFP.20558 days = 80 random = 20 }
-			# }
-			# #Gender wager
-			# 30 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 0
-					# NOT = { num_of_children = 1 }
-				# }
-				# modifier = { #Already have an heir
-					# factor = 0
-					# any_child = { 
-						# is_female = no
-					# }
-					# OR = { 
-						# has_law = agnatic_succession
-						# has_law = cognatic_succession
-					# }
-				# }
-				# modifier = { #Already have an heir
-					# factor = 0
-					# any_child = { 
-						# is_female = yes
-					# }
-					# OR = { 
-						# has_law = enatic_cognatic_succession
-						# has_law = enatic_succession
-					# }
-				# }
-				# modifier = { #Doesn't really matter.
-					# factor = 0.5
-					# OR = { 
-						# has_law = status_of_women_4
-						# has_law = true_cognatic_succession
-					# }
-				# }
-				# character_event = { id = HFP.20559 days = 60 random = 10 }
-			# }
-			# #Ordering new dresses
-			# 15 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = temperate
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = gluttonous
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# trait = is_malnourished
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# trait = is_fat
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = sturdy
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = feeble
-				# }
-				# character_event = { id = HFP.20560 days = 80 random = 100 }
-			# }
-			# #Positive omen
-			# 5 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = zealous
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = cynical
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_tribal = yes
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_nomadic = yes
-				# }
-				# character_event = { id = HFP.20565 days = 65 random = 20 }
-			# }
-			# #Negative omen
-			# 5 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = zealous
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# trait = cynical
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_tribal = yes
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_nomadic = yes
-				# }
-				# character_event = { id = HFP.20567 days = 65 random = 20 }
-			# }
-			# #Nothing
-			# 15 = {
-				# modifier = { 
-					# factor = 0.5
-					# NOT = { num_of_children = 1 }
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 1.5
-					# num_of_children = 1
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 1.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 1.5
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 1.75
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 1.8
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# age = 35
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# age = 40
-				# }
-			# }
-		# }
-		# #Vows and sacrifices for healthy child (rulers only).
-		# random_list = {
+				character_event = { id = HFP.20557 days = 7 random = 5 }
+			}
+		}
+		#Random stuff 
+		random_list = {
+			#Pregnancy Glow
+			10 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 25 }
+				}
+				modifier = { 
+					factor = 0.25
+					age = 35
+				}
+				modifier = { 
+					factor = 0.1
+					age = 45
+				}
+				character_event = { id = HFP.20003 days = 25 random = 10 }
+			}
+			#Dark Rest
+			10 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 25 }
+				}
+				modifier = { 
+					factor = 0
+					NOT = { higher_tier_than = BARON }
+					spouse = { lower_tier_than = COUNT }
+				}
+				modifier = { 
+					factor = 0.25
+					age = 35
+				}
+				modifier = { 
+					factor = 0.1
+					age = 45
+				}
+				#Fires for woman if landed, otherwise husband.
+				if = { 
+					limit = { is_ruler = yes } 
+					character_event = { id = HFP.20030 days = 60 random = 10 }
+				}
+				else = { spouse = { character_event = { id = HFP.20030 days = 60 random = 10 } } } 
+			}
+			#Baby kicks
+			20 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				character_event = { id = HFP.20558 days = 80 random = 20 }
+			}
+			#Gender wager
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 0
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { #Already have an heir
+					factor = 0
+					any_child = { 
+						is_female = no
+					}
+					OR = { 
+						has_law = agnatic_succession
+						has_law = cognatic_succession
+					}
+				}
+				modifier = { #Already have an heir
+					factor = 0
+					any_child = { 
+						is_female = yes
+					}
+					OR = { 
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
+				}
+				modifier = { #Doesn't really matter.
+					factor = 0.5
+					OR = { 
+						has_law = status_of_women_4
+						has_law = true_cognatic_succession
+					}
+				}
+				character_event = { id = HFP.20559 days = 60 random = 10 }
+			}
+			#Ordering new dresses
+			15 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 0.25
+					trait = is_malnourished
+				}
+				modifier = { 
+					factor = 1.75
+					trait = is_fat
+				}
+				modifier = { 
+					factor = 1.5
+					trait = sturdy
+				}
+				modifier = { 
+					factor = 0.5
+					trait = feeble
+				}
+				character_event = { id = HFP.20560 days = 80 random = 100 }
+			}
+			#Positive omen
+			5 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 1.5
+					is_tribal = yes
+				}
+				modifier = { 
+					factor = 1.5
+					is_nomadic = yes
+				}
+				character_event = { id = HFP.20565 days = 65 random = 20 }
+			}
+			#Negative omen
+			5 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 1.5
+					is_tribal = yes
+				}
+				modifier = { 
+					factor = 1.5
+					is_nomadic = yes
+				}
+				character_event = { id = HFP.20567 days = 65 random = 20 }
+			}
+			#Nothing
+			15 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 1
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.75
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.8
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					age = 35
+				}
+				modifier = { 
+					factor = 1.75
+					age = 40
+				}
+			}
+		}
+		#Vows and sacrifices for healthy child (rulers only).
+		random_list = {
 			# #Holy Virgin for Christians
 			# 45 = {
 				# trigger = { 
@@ -8012,22 +8012,22 @@ character_event = {
 				# }
 				# character_event = { id = HFP.20569 days = 15 random = 8 }
 			# }
-			# #Fertility festival for baltic, norse, finnish pagans.
-			# 90 = {
-				# trigger = { 
-					# is_married = yes
-					# is_main_spouse = yes
-					# NOR = { 
-						# num_of_children = 3 
-						# has_character_modifier = mother_fertility_festival_1
-						# has_character_modifier = mother_fertility_festival_2
-						# has_character_modifier = mother_festival_blessing
-					# }
-					# OR = { 
-						# higher_real_tier_than = COUNT
-						# spouse = { higher_real_tier_than = COUNT } 
-					# } 
-					# spouse = { 
+			#Fertility festival for baltic, norse, finnish pagans.
+			90 = {
+				trigger = { 
+					is_married = yes
+					is_main_spouse = yes
+					NOR = { 
+						num_of_children = 3 
+						has_character_modifier = mother_fertility_festival_1
+						has_character_modifier = mother_fertility_festival_2
+						has_character_modifier = mother_festival_blessing
+					}
+					OR = { 
+						higher_real_tier_than = COUNT
+						spouse = { higher_real_tier_than = COUNT } 
+					} 
+					spouse = { 
 						# OR = { 
 							# religion = norse_pagan
 							# religion = norse_pagan_reformed
@@ -8036,12 +8036,12 @@ character_event = {
 							# religion = finnish_pagan
 							# religion = finnish_pagan_reformed 
 						# }  
-						# NOR = { 
-							# trait = incapable 
-							# prisoner = yes
-							# is_inaccessible_trigger = yes
-						# }
-					# }
+						NOR = { 
+							trait = incapable 
+							prisoner = yes
+							is_inaccessible_trigger = yes
+						}
+					}
 					# OR = { 
 						# religion = norse_pagan
 						# religion = norse_pagan_reformed
@@ -8050,46 +8050,46 @@ character_event = {
 						# religion = finnish_pagan
 						# religion = finnish_pagan_reformed 
 					# } 
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# num_of_children = 1
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_attractive_trigger = yes
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# NOT = { age = 30 }
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# OR = { 
-						# real_tier = KING
-						# spouse = { real_tier = KING }
-					# }
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# OR = { 
-						# real_tier = EMPEROR
-						# spouse = { real_tier = EMPEROR }
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.85
-					# is_ill = yes
-				# }
-				# spouse = { character_event = { id = HFP.20043 days = 15 random = 8 } }
-			# }
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0.25
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					is_attractive_trigger = yes
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 30 }
+				}
+				modifier = { 
+					factor = 1.5
+					OR = { 
+						real_tier = KING
+						spouse = { real_tier = KING }
+					}
+				}
+				modifier = { 
+					factor = 1.75
+					OR = { 
+						real_tier = EMPEROR
+						spouse = { real_tier = EMPEROR }
+					}
+				}
+				modifier = { 
+					factor = 0.85
+					is_ill = yes
+				}
+				spouse = { character_event = { id = HFP.20043 days = 15 random = 8 } }
+			}
 			# #Sacrifices for Pagans
 			# 50 = {
 				# trigger = { 
@@ -8191,289 +8191,289 @@ character_event = {
 				# }
 				# character_event = { id = HFP.20571 days = 15 random = 8 }
 			# }
-			# #Nothing
-			# 45 = {
-				# modifier = { 
-					# factor = 0.5
-					# NOT = { num_of_children = 1 }
-				# }
-				# modifier = { 
-					# factor = 0.75	#Young mom is scared.
-					# NOT = { age = 20 }
-				# }
+			#Nothing
+			45 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 0.75	#Young mom is scared.
+					NOT = { age = 20 }
+				}
 				# modifier = { 
 					# factor = 0.75	#Old mom is scared.
 					# age = 37
 				# }
-				# modifier = { 
-					# factor = 1.5
-					# is_ill = no
-				# }
-				# modifier = { 
-					# factor = 0.75
-					# trait = zealous
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = cynical
-				# }
-				# modifier = { 
-					# factor = 2
-					# num_of_children = 4
-				# }
-				# modifier = { 
-					# factor = 3
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# age = 35
-				# }
-			# }
-		# }
-		# #Mother has weird cravings.
-		# random_list = {
-			# #Yes
-			# 10 = {
-				# modifier = { 
-					# factor = 1.5
-					# NOR = { num_of_children = 3 } 
-					# NOR = { 
-						# any_child = { trait = harelip } 
-						# any_child = { trait = ugly } 
-						# any_child = { trait = clubfooted } 
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# trait = hedonist
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# trait = gluttonous
-				# }
-				# modifier = { 
-					# factor = 0.35
-					# trait = temperate
-				# }
-				# character_event = { id = HFP.20573 days = 40 random = 10 }
-			# }
-			# #No
-			# 90 = {
-				# modifier = { 
-					# factor = 0.5
-					# NOT = { num_of_children = 1 }
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# num_of_children = 3
-				# }
-				# modifier = { 
-					# factor = 2
-					# num_of_children = 4
-				# }
-				# modifier = { 
-					# factor = 3
-					# num_of_children = 5
-				# }
+				modifier = { 
+					factor = 1.5
+					is_ill = no
+				}
+				modifier = { 
+					factor = 0.75
+					trait = zealous
+				}
+				modifier = { 
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					age = 35
+				}
+			}
+		}
+		#Mother has weird cravings.
+		random_list = {
+			#Yes
+			10 = {
+				modifier = { 
+					factor = 1.5
+					NOR = { num_of_children = 3 } 
+					NOR = { 
+						any_child = { trait = harelip } 
+						any_child = { trait = ugly } 
+						any_child = { trait = clubfooted } 
+					}
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 1.75
+					trait = hedonist
+				}
+				modifier = { 
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 0.35
+					trait = temperate
+				}
+				character_event = { id = HFP.20573 days = 40 random = 10 }
+			}
+			#No
+			90 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 1.75
+					num_of_children = 3
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
 
-			# }
-		# }
-		# #Mother receives solace from...
-		# random_list = {
-			# #Other sons
-			# 30 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 0
-					# NOT = { 
-						# any_child = { 
-							# is_alive = yes 
-							# age = 6
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# prisoner = no
-						# }
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.75
-					# NOT = { 
-						# any_child = { 
-							# is_alive = yes 
-							# age = 6
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# prisoner = no
-							# trait = kind
-						# }
-					# }
-				# }
-				# random_child = { 
-					# limit = { 
-						# is_alive = yes 
-						# age = 6
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# prisoner = no
-					# }
-					# character_event = { id = HFP.20574 days = 120 random = 20 }
-				# }
-			# }
-			# #Spouse 
-			# 30 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.15
-					# is_ruler = no
-					# is_main_spouse = no
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# has_character_modifier = adulteress
-				# }
-				# modifier = { 
-					# factor = 0.25
-					# has_character_modifier = incestuous_adulteress
-				# }
-				# modifier = { 
-					# factor = 0
-					# NOT = { 
-						# any_spouse = { 
-							# is_alive = yes 
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# prisoner = no
-						# }
-					# }
-				# }
-				# modifier = { 
-					# factor = 0.75
-					# NOT = { 
-						# any_spouse = { 
-							# is_alive = yes 
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# prisoner = no
-							# trait = kind
-						# }
-					# }
-				# }
-				# random_spouse = { 
-					# limit = { 
-						# is_alive = yes 
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# prisoner = no
-					# }
-					# character_event = { id = HFP.20574 days = 120 random = 20 }
-				# }
-			# }
-			# #Lover
-			# 30 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 0
-					# is_consort = yes
-				# }
-				# modifier = { 
-					# factor = 0
-					# NOT = { 
-						# any_lover = { 
-							# is_alive = yes 
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# NOT = { is_married = ROOT } #Loving husbands get event above.
-							# prisoner = no
-						# }
-					# }
-				# }
-				# random_lover = { 
-					# limit = { 
-						# is_alive = yes 
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# NOT = { is_married = ROOT }
-						# prisoner = no
-					# }
-					# character_event = { id = HFP.20575 days = 120 random = 20 }
-				# }
-			# }
-			# #Spouse organizes Gossiping
-			# 40 = {
-				# modifier = { 
-					# factor = 0.5
-					# has_game_rule = {
-						# name = pregnancy_flavor
-						# value = limited
-					# }
-				# }
-				# modifier = { 
-					# factor = 0
-					# is_main_spouse = no
-				# }
-				# modifier = { 
-					# factor = 0
-					# is_married = no
-				# }
-				# modifier = {
-					# factor = 0
-					# spouse = { trait = incapable }
-				# }
-				# modifier = {
-					# factor = 0
-					# spouse = { prisoner = yes }
-				# }
-				# modifier = { #Only for rulers with vassals (or spouses of rulers)
-					# factor = 0
-					# spouse = { lower_tier_than = COUNT }
-					# lower_tier_than = COUNT
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.5
-					# num_of_children = 2
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.35
-					# num_of_children = 3
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.25
-					# num_of_children = 4
-				# }
-				# modifier = { #Make events less likely to become recurring at every pregnancy.
-					# factor = 0.15
-					# num_of_children = 5
-				# }
-				# modifier = { 
-					# factor = 1.65
-					# trait = gregarious
-				# }
+			}
+		}
+		#Mother receives solace from...
+		random_list = {
+			#Other sons
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_child = { 
+							is_alive = yes 
+							age = 6
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+						}
+					}
+				}
+				modifier = { 
+					factor = 0.75
+					NOT = { 
+						any_child = { 
+							is_alive = yes 
+							age = 6
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+							trait = kind
+						}
+					}
+				}
+				random_child = { 
+					limit = { 
+						is_alive = yes 
+						age = 6
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						prisoner = no
+					}
+					character_event = { id = HFP.20574 days = 120 random = 20 }
+				}
+			}
+			#Spouse 
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0.15
+					is_ruler = no
+					is_main_spouse = no
+				}
+				modifier = { 
+					factor = 0.25
+					has_character_modifier = adulteress
+				}
+				modifier = { 
+					factor = 0.25
+					has_character_modifier = incestuous_adulteress
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_spouse = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+						}
+					}
+				}
+				modifier = { 
+					factor = 0.75
+					NOT = { 
+						any_spouse = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+							trait = kind
+						}
+					}
+				}
+				random_spouse = { 
+					limit = { 
+						is_alive = yes 
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						prisoner = no
+					}
+					character_event = { id = HFP.20574 days = 120 random = 20 }
+				}
+			}
+			#Lover
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					is_consort = yes
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_lover = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							NOT = { is_married = ROOT } #Loving husbands get event above.
+							prisoner = no
+						}
+					}
+				}
+				random_lover = { 
+					limit = { 
+						is_alive = yes 
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { is_married = ROOT }
+						prisoner = no
+					}
+					character_event = { id = HFP.20575 days = 120 random = 20 }
+				}
+			}
+			#Spouse organizes Gossiping
+			40 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					is_main_spouse = no
+				}
+				modifier = { 
+					factor = 0
+					is_married = no
+				}
+				modifier = {
+					factor = 0
+					spouse = { trait = incapable }
+				}
+				modifier = {
+					factor = 0
+					spouse = { prisoner = yes }
+				}
+				modifier = { #Only for rulers with vassals (or spouses of rulers)
+					factor = 0
+					spouse = { lower_tier_than = COUNT }
+					lower_tier_than = COUNT
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.65
+					trait = gregarious
+				}
 				# modifier = { 
 					# factor = 1.5
 					# NOT = { age = 25 }
@@ -8486,456 +8486,456 @@ character_event = {
 					# factor = 0.1
 					# age = 45
 				# }
-				# spouse = { character_event = { id = HFP.20005 days = 120 random = 20 } } #Fires on husband first.
-			# }
-			# #Nobody
-			# 40 = {
-				# modifier = { 
-					# factor = 0.85
-					# NOT = { num_of_children = 1 }
-				# }
-				# modifier = { 
-					# factor = 1.25
-					# num_of_children = 1
-				# }
-				# modifier = { 
-					# factor = 1.5
-					# num_of_children = 2
-				# }
-				# modifier = { 
-					# factor = 1.75
-					# num_of_children = 3
-				# }
-				# modifier = { 
-					# factor = 2
-					# num_of_children = 4
-				# }
-				# modifier = { 
-					# factor = 3
-					# num_of_children = 5
-				# }
+				spouse = { character_event = { id = HFP.20005 days = 120 random = 20 } } #Fires on husband first.
+			}
+			#Nobody
+			40 = {
+				modifier = { 
+					factor = 0.85
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 1.25
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					num_of_children = 2
+				}
+				modifier = { 
+					factor = 1.75
+					num_of_children = 3
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
 
-			# }
-		# }
-	# }
-# }
+			}
+		}
+	}
+}
 
-# #First pregnancy scare.
-# character_event = {
-	# id = HFP.20557
-	# desc = EVTDESCHFPA20557
-	# picture = GFX_evt_princess_byzantine
+#First pregnancy scare.
+character_event = {
+	id = HFP.20557
+	desc = EVTDESCHFPA20557
+	picture = GFX_evt_princess_byzantine
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Pray for good health
-		# name = EVTOPTAHFP20557
-		# add_character_modifier = {
-			# name = mother_praying_health
-			# duration = -1 #Removed on birth
-		# }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 2
-				# trait = zealous
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = cynical
-			# }
-		# }
-	# }
-	# option = { #Rest
-		# name = EVTOPTBHFP20557
-		# add_character_modifier = {
-			# name = mother_resting_health
-			# duration = -1 #Removed on birth
-		# }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 2
-				# trait = temperate
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = shrewd
-			# }
+	option = { #Pray for good health
+		name = EVTOPTAHFP20557
+		add_character_modifier = {
+			name = mother_praying_health
+			duration = -1 #Removed on birth
+		}
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 2
+				trait = zealous
+			}
+			modifier = { 
+				factor = 0.5
+				trait = cynical
+			}
+		}
+	}
+	option = { #Rest
+		name = EVTOPTBHFP20557
+		add_character_modifier = {
+			name = mother_resting_health
+			duration = -1 #Removed on birth
+		}
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 2
+				trait = temperate
+			}
+			modifier = { 
+				factor = 2
+				trait = shrewd
+			}
 
-		# }
-	# }
-	# option = { #Go out, distract yourself
-		# name = EVTOPTCHFP20557
-		# add_character_modifier = {
-			# name = mother_partying_health
-			# duration = -1 #Removed on birth
-		# }
-		# ai_chance = { factor = 20 
-			# modifier = { 
-				# factor = 2
-				# trait = hedonist
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = gregarious
-			# }
-		# }
-	# }
-# }
+		}
+	}
+	option = { #Go out, distract yourself
+		name = EVTOPTCHFP20557
+		add_character_modifier = {
+			name = mother_partying_health
+			duration = -1 #Removed on birth
+		}
+		ai_chance = { factor = 20 
+			modifier = { 
+				factor = 2
+				trait = hedonist
+			}
+			modifier = { 
+				factor = 2
+				trait = gregarious
+			}
+		}
+	}
+}
 
-# #Baby kicks.
-# character_event = {
-	# id = HFP.20558
-	# desc = EVTDESCHFPA20558
-	# picture = GFX_evt_princess_byzantine
+#Baby kicks.
+character_event = {
+	id = HFP.20558
+	desc = EVTDESCHFPA20558
+	picture = GFX_evt_princess_byzantine
 	
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Hope he's a warrior.
-		# name = EVTOPTAHFP20558
-		# custom_tooltip = { text = tooltip_hoping_child_warrior }
-		# random = { 
-			# chance = 30 
-			# add_trait = stressed
-			# hidden_tooltip = { character_event = { id = 38282 } }
-		# }
-		# set_character_flag = mom_hopes_child_warrior
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Rest a moment
-		# name = EVTOPTBHFP20558
-		# prestige = -50
-		# if = { 
-			# limit = { 
-				# trait = stressed 
-			# } 
-			# remove_trait = stressed
-		# }
-		# add_character_modifier = {
-			# name = mother_minor_rest
-			# duration = 20
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-# }
+	option = { #Hope he's a warrior.
+		name = EVTOPTAHFP20558
+		custom_tooltip = { text = tooltip_hoping_child_warrior }
+		random = { 
+			chance = 30 
+			add_trait = stressed
+			hidden_tooltip = { character_event = { id = 38282 } }
+		}
+		set_character_flag = mom_hopes_child_warrior
+		ai_chance = { factor = 50 }
+	}
+	option = { #Rest a moment
+		name = EVTOPTBHFP20558
+		prestige = -50
+		if = { 
+			limit = { 
+				trait = stressed 
+			} 
+			remove_trait = stressed
+		}
+		add_character_modifier = {
+			name = mother_minor_rest
+			duration = 20
+		}
+		ai_chance = { factor = 50 }
+	}
+}
 
-# #Mother of one thinks about what will her next child be.
-# character_event = {
-	# id = HFP.20559
-	# desc = {
-		# text = EVTDESCHFPA20559
-		# trigger = {
-			# OR = { 
-				# has_law = agnatic_succession
-				# has_law = cognatic_succession
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20559
-		# trigger = { 
-			# OR = { 
-				# has_law = enatic_succession
-				# has_law = enatic_cognatic_succession
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20559
-		# trigger = { 
-			# has_law = true_cognatic_succession
-		# }
-	# }
-	# picture = GFX_evt_princess_byzantine
+#Mother of one thinks about what will her next child be.
+character_event = {
+	id = HFP.20559
+	desc = {
+		text = EVTDESCHFPA20559
+		trigger = {
+			OR = { 
+				has_law = agnatic_succession
+				has_law = cognatic_succession
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20559
+		trigger = { 
+			OR = { 
+				has_law = enatic_succession
+				has_law = enatic_cognatic_succession
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20559
+		trigger = { 
+			has_law = true_cognatic_succession
+		}
+	}
+	picture = GFX_evt_princess_byzantine
 	
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Hope he's a boy
-		# name = EVTOPTAHFP20559
-		# custom_tooltip = { text = tooltip_hoping_child_boy }
-		# set_character_flag = mom_hopes_child_boy
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Hope he's a girl
-		# name = EVTOPTBHFP20559
-		# custom_tooltip = { text = tooltip_hoping_child_girl }
-		# set_character_flag = mom_hopes_child_girl
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Doesn't matter
-		# name = EVTOPTCHFP20559
-		# ai_chance = { factor = 10 }
-	# }
-# }
+	option = { #Hope he's a boy
+		name = EVTOPTAHFP20559
+		custom_tooltip = { text = tooltip_hoping_child_boy }
+		set_character_flag = mom_hopes_child_boy
+		ai_chance = { factor = 50 }
+	}
+	option = { #Hope he's a girl
+		name = EVTOPTBHFP20559
+		custom_tooltip = { text = tooltip_hoping_child_girl }
+		set_character_flag = mom_hopes_child_girl
+		ai_chance = { factor = 50 }
+	}
+	option = { #Doesn't matter
+		name = EVTOPTCHFP20559
+		ai_chance = { factor = 10 }
+	}
+}
 
-# #Mother needs new dresses.
-# character_event = {
-	# id = HFP.20560
-	# desc = EVTDESCHFPA20560
-	# picture = GFX_evt_princess_byzantine
+#Mother needs new dresses.
+character_event = {
+	id = HFP.20560
+	desc = EVTDESCHFPA20560
+	picture = GFX_evt_princess_byzantine
 	
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Eat less
-		# name = EVTOPTAHFP20560
-		# trigger = { 
-			# trait = gluttonous
-		# }
-		# lose_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# tooltip_info = gluttonous
-		# tiered_prestige_negative_effect = yes
-		# remove_trait = gluttonous
-		# clr_character_flag = gluttonous_pregnant
-		# random = { 
-			# chance = 30 
-			# add_trait = stressed
-			# hidden_tooltip = { character_event = { id = 38282 } }
-		# }
-		# ai_chance = { factor = 10 }
-	# }
-	# option = { #Ask husband
-		# name = EVTOPTBHFP20560
-		# trigger = { 
-			# is_married = yes 
-			# spouse = { 
-				# is_inaccessible_trigger = no 
-				# prisoner = no
-				# NOT = { trait = incapable }
-				# is_ruler = yes
-			# }
-		# }
-		# custom_tooltip = { text = tooltip_ask_dress_husband }
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20561 } } }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Buy new dresses
-		# name = EVTOPTCHFP20560
-		# trigger = { is_ruler = yes }
-		# scaled_wealth = -0.1
-		# tiered_prestige_reward_effect = yes
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5 
-				# trait = humble
-			# }
-		# }
-	# }
-	# option = { #Doesn't matter
-		# name = EVTOPTDHFP20560
-		# tiered_prestige_negative_effect = yes
-		# tiered_piety_reward_effect = yes
-		# if = { 
-			# limit = { trait = proud } 
-			# remove_trait = proud
-		# }
-		# random = { 
-			# chance = 25
-			# add_trait = stressed
-			# hidden_tooltip = { character_event = { id = 38282 } }
-		# }
-		# ai_chance = { 
-			# factor = 10 
-			# modifier = { 
-				# factor = 0.5 
-				# trait = proud
-			# }
-		# }
-	# }
-# }
+	option = { #Eat less
+		name = EVTOPTAHFP20560
+		trigger = { 
+			trait = gluttonous
+		}
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		tooltip_info = gluttonous
+		tiered_prestige_negative_effect = yes
+		remove_trait = gluttonous
+		clr_character_flag = gluttonous_pregnant
+		random = { 
+			chance = 30 
+			add_trait = stressed
+			hidden_tooltip = { character_event = { id = 38282 } }
+		}
+		ai_chance = { factor = 10 }
+	}
+	option = { #Ask husband
+		name = EVTOPTBHFP20560
+		trigger = { 
+			is_married = yes 
+			spouse = { 
+				is_inaccessible_trigger = no 
+				prisoner = no
+				NOT = { trait = incapable }
+				is_ruler = yes
+			}
+		}
+		custom_tooltip = { text = tooltip_ask_dress_husband }
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20561 } } }
+		ai_chance = { factor = 50 }
+	}
+	option = { #Buy new dresses
+		name = EVTOPTCHFP20560
+		trigger = { is_ruler = yes }
+		scaled_wealth = -0.1
+		tiered_prestige_reward_effect = yes
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5 
+				trait = humble
+			}
+		}
+	}
+	option = { #Doesn't matter
+		name = EVTOPTDHFP20560
+		tiered_prestige_negative_effect = yes
+		tiered_piety_reward_effect = yes
+		if = { 
+			limit = { trait = proud } 
+			remove_trait = proud
+		}
+		random = { 
+			chance = 25
+			add_trait = stressed
+			hidden_tooltip = { character_event = { id = 38282 } }
+		}
+		ai_chance = { 
+			factor = 10 
+			modifier = { 
+				factor = 0.5 
+				trait = proud
+			}
+		}
+	}
+}
 
-# #Husband: pregnant wife wants new dresses.
-# character_event = {
-	# id = HFP.20561
-	# desc = EVTDESCHFPA20561
-	# picture = GFX_evt_daughter_asking_father
+#Husband: pregnant wife wants new dresses.
+character_event = {
+	id = HFP.20561
+	desc = EVTDESCHFPA20561
+	picture = GFX_evt_daughter_asking_father
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Flattery
-		# name = EVTOPTAHFP20561
-		# trigger = { diplomacy = 10 }
-		# tooltip_info = diplomacy
-		# FROM = {
-			# show_scope_change = no
-			# opinion = {
-				# modifier = opinion_flattered
-				# years = 5
-				# who = ROOT
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20562 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 1.5 
-				# trait = quick
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = genius
-			# }
-		# }
-	# }
-	# option = { #Buy clothes for her
-		# name = EVTOPTBHFP20561
-		# scaled_wealth = -0.1
-		# FROM = {
-			# tiered_prestige_reward_effect = yes
-			# opinion = {
-				# modifier = opinion_flattered
-				# years = 5
-				# who = ROOT
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20563 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5 
-				# trait = greedy
-			# }
-			# modifier = { 
-				# factor = 1.75 
-				# trait = charitable
-			# }
-		# }
-	# }
-	# option = { #No.
-		# name = EVTOPTCHFP20561
-		# FROM = {
-			# opinion = {
-				# modifier = opinion_denied_request
-				# years = 5
-				# who = ROOT
-			# }
-		# }
-		# tooltip = {
-			# FROM = { 
-				# show_scope_change = no
-				# random = { 
-					# chance = 40
-					# add_trait = stressed
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20564 } } }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5 
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 1.75 
-				# trait = greedy
-			# }
-		# }
-	# }
-# }
-# #Wife flattered by husband
-# character_event = {
-	# id = HFP.20562
-	# desc = EVTDESCHFPA20562
-	# picture = GFX_evt_lovers
+	option = { #Flattery
+		name = EVTOPTAHFP20561
+		trigger = { diplomacy = 10 }
+		tooltip_info = diplomacy
+		FROM = {
+			show_scope_change = no
+			opinion = {
+				modifier = opinion_flattered
+				years = 5
+				who = ROOT
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20562 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 1.5 
+				trait = quick
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = genius
+			}
+		}
+	}
+	option = { #Buy clothes for her
+		name = EVTOPTBHFP20561
+		scaled_wealth = -0.1
+		FROM = {
+			tiered_prestige_reward_effect = yes
+			opinion = {
+				modifier = opinion_flattered
+				years = 5
+				who = ROOT
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20563 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5 
+				trait = greedy
+			}
+			modifier = { 
+				factor = 1.75 
+				trait = charitable
+			}
+		}
+	}
+	option = { #No.
+		name = EVTOPTCHFP20561
+		FROM = {
+			opinion = {
+				modifier = opinion_denied_request
+				years = 5
+				who = ROOT
+			}
+		}
+		tooltip = {
+			FROM = { 
+				show_scope_change = no
+				random = { 
+					chance = 40
+					add_trait = stressed
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20564 } } }
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5 
+				trait = charitable
+			}
+			modifier = { 
+				factor = 1.75 
+				trait = greedy
+			}
+		}
+	}
+}
+#Wife flattered by husband
+character_event = {
+	id = HFP.20562
+	desc = EVTDESCHFPA20562
+	picture = GFX_evt_lovers
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20562
-		# tooltip = {
-			# opinion = {
-				# modifier = opinion_flattered
-				# years = 5
-				# who = FROM
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20562
+		tooltip = {
+			opinion = {
+				modifier = opinion_flattered
+				years = 5
+				who = FROM
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+		}
+	}
+}
 
-# #Wife gets clothes from husband.
-# character_event = {
-	# id = HFP.20563
-	# desc = EVTDESCHFPA20563
-	# picture = GFX_evt_daughter_asking_father
-	# trigger = { NOT = { trait = troubled_pregnancy } }
+#Wife gets clothes from husband.
+character_event = {
+	id = HFP.20563
+	desc = EVTDESCHFPA20563
+	picture = GFX_evt_daughter_asking_father
+	trigger = { NOT = { trait = troubled_pregnancy } }
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20563
-		# tooltip = {
-			# tiered_prestige_reward_effect = yes
-			# opinion = {
-				# modifier = opinion_flattered
-				# years = 5
-				# who = FROM
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20563
+		tooltip = {
+			tiered_prestige_reward_effect = yes
+			opinion = {
+				modifier = opinion_flattered
+				years = 5
+				who = FROM
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+		}
+	}
+}
 
-# #Wife doesn't get clothes from husband.
-# character_event = {
-	# id = HFP.20564
-	# desc = EVTDESCHFPA20564
-	# picture = GFX_evt_quarrel
-	# trigger = { NOT = { trait = troubled_pregnancy } }
+#Wife doesn't get clothes from husband.
+character_event = {
+	id = HFP.20564
+	desc = EVTDESCHFPA20564
+	picture = GFX_evt_quarrel
+	trigger = { NOT = { trait = troubled_pregnancy } }
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20564
-		# tooltip = {
-			# opinion = {
-				# modifier = opinion_denied_request
-				# years = 5
-				# who = FROM
-			# }
-		# }
-		# random = { 
-			# chance = 40
-			# add_trait = stressed
-			# hidden_tooltip = { character_event = { id = 38282 } }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20564
+		tooltip = {
+			opinion = {
+				modifier = opinion_denied_request
+				years = 5
+				who = FROM
+			}
+		}
+		random = { 
+			chance = 40
+			add_trait = stressed
+			hidden_tooltip = { character_event = { id = 38282 } }
+		}
+		ai_chance = { 
+			factor = 50 
+		}
+	}
+}
 
 # #Mother gets positive omen.
 # character_event = {
