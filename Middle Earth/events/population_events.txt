@@ -4764,8 +4764,15 @@ character_event = {
 	hide_window = yes
 
 	trigger = {
-		any_demesne_province = {
-			has_province_modifier = mod_armed_peasants
+		OR = {
+			any_demesne_province = {
+				has_province_modifier = mod_armed_peasants
+			}
+			FROM = {
+				any_demesne_province = {
+					has_province_modifier = mod_armed_peasants
+				}
+			}
 		}
 	}
 
@@ -4795,6 +4802,78 @@ character_event = {
 				}
 			}
 			remove_province_modifier = mod_armed_peasants
+		}
+		FROM = {
+			any_demesne_province = {
+				limit = {
+					has_province_modifier = mod_armed_peasants
+				}
+				random_list = {
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 2000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 1000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 500
+						}
+					}
+				}
+				remove_province_modifier = mod_armed_peasants
+			}
+		}
+	}
+}
+character_event = {
+	id = population_events.411
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = {
+			war = yes
+		}
+		FROM = {
+			location = {
+				has_province_modifier = mod_armed_peasants
+			}
+		}
+	}
+
+	immediate = {
+		FROM = {
+			location = {
+				random_list = {
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 2000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 1000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 500
+						}
+					}
+				}
+				remove_province_modifier = mod_armed_peasants
+			}
 		}
 	}
 }
