@@ -9529,469 +9529,282 @@ character_event = {
 	# }
 # }
 
-# #Mother has weird cravings.
-# character_event = {
-	# id = HFP.20573
-	# desc = EVTDESCHFPA20573
-	# picture = GFX_evt_fancy_feast
+#Mother has weird cravings.
+character_event = {
+	id = HFP.20573
+	desc = EVTDESCHFPA20573
+	picture = GFX_evt_fancy_feast
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+	}
 
-	# #Everything
-	# #Quail's leg
-	# #Hare's head
-	# #Trout's eye
+	#Everything
+	#Quail's leg
+	#Hare's head
+	#Trout's eye
 
-	# option = { 
-		# name = EVTOPTAHFP20573
-		# trigger = { 
-			# trait = gluttonous 
-			# is_ruler = yes
-		# }
-		# tooltip_info = gluttonous
-		# custom_tooltip = { text = tooltip_mother_craved_all }
-		# gain_weight_small_effect = yes
-		# weight_trait_check_effect = yes
-		# tiered_prestige_reward_effect = yes
-		# scaled_wealth = -0.05
-		# if = { 
-			# limit = { NOT = { has_character_flag = gluttonous_pregnant } }
-			# hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
-			# hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
-		# }
-		# add_character_modifier = {
-				# name = well_fed
-				# years = 2
-		# }
-		# ai_chance = { 
-			# factor = 50
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTAHFP20573
-		# trigger = { 
-			# NOT = { trait = gluttonous } 
-			# is_ruler = yes
-		# }
-		# custom_tooltip = { text = tooltip_mother_craved_all }
-		# random = { 
-			# chance = 20
-			# add_trait = gluttonous 
-			# hidden_tooltip = { character_event = { id = 38277 } } #Notification
+	option = { 
+		name = EVTOPTAHFP20573
+		trigger = { 
+			trait = gluttonous 
+			is_ruler = yes
+		}
+		tooltip_info = gluttonous
+		custom_tooltip = { text = tooltip_mother_craved_all }
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
+		tiered_prestige_reward_effect = yes
+		scaled_wealth = -0.05
+		if = { 
+			limit = { NOT = { has_character_flag = gluttonous_pregnant } }
+			hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
+			hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
+		}
+		add_character_modifier = {
+				name = well_fed
+				years = 2
+		}
+		ai_chance = { 
+			factor = 50
+		}
+	}
+	option = { 
+		name = EVTOPTAHFP20573
+		trigger = { 
+			NOT = { trait = gluttonous } 
+			is_ruler = yes
+		}
+		custom_tooltip = { text = tooltip_mother_craved_all }
+		random = { 
+			chance = 20
+			add_trait = gluttonous 
+			hidden_tooltip = { character_event = { id = 38277 } } #Notification
 
-		# }
-		# tiered_prestige_reward_effect = yes
-		# scaled_wealth = { value = -0.05 min = -5 max = -100 }
-		# add_character_modifier = {
-				# name = well_fed
-				# years = 2
-		# }
-		# ai_chance = { 
-			# factor = 50
-		# }
-	# }
-	# option = { #Quail's leg
-		# name = EVTOPTBHFP20573
-		# trigger = { is_ruler = yes }
-		# custom_tooltip = { text = tooltip_mother_craved_quail }
-		# scaled_wealth = { value = -0.01 min = -1 max = -30 }
-		# set_character_flag = mother_craved_quail
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Hare's head
-		# name = EVTOPTCHFP20573
-		# trigger = { is_ruler = yes }
-		# custom_tooltip = { text = tooltip_mother_craved_hare }
-		# scaled_wealth = { value = -0.01 min = -1 max = -30 }
-		# set_character_flag = mother_craved_hare
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Trout's eye
-		# name = EVTOPTDHFP20573
-		# trigger = { is_ruler = yes }
-		# custom_tooltip = { text = tooltip_mother_craved_trout }
-		# scaled_wealth = { value = -0.01 min = -1 max = -30 }
-		# set_character_flag = mother_craved_trout
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Useless courtier needs to ask her husband (if she has any).
-		# name = EVTOPTEHFP20573
-		# trigger = { 
-			# is_ruler = no
-			# is_main_spouse = yes #Prevent concubine spamming 
-		# }
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20596 } } }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Useless courtier is not even the main wife and does nothing.
-		# name = EVTOPTEHFP20573
-		# trigger = { 
-			# is_ruler = no
-			# is_main_spouse = no
-		# }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-# }
+		}
+		tiered_prestige_reward_effect = yes
+		scaled_wealth = { value = -0.05 min = -5 max = -100 }
+		add_character_modifier = {
+				name = well_fed
+				years = 2
+		}
+		ai_chance = { 
+			factor = 50
+		}
+	}
+	option = { #Quail's leg
+		name = EVTOPTBHFP20573
+		trigger = { is_ruler = yes }
+		custom_tooltip = { text = tooltip_mother_craved_quail }
+		scaled_wealth = { value = -0.01 min = -1 max = -30 }
+		set_character_flag = mother_craved_quail
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Hare's head
+		name = EVTOPTCHFP20573
+		trigger = { is_ruler = yes }
+		custom_tooltip = { text = tooltip_mother_craved_hare }
+		scaled_wealth = { value = -0.01 min = -1 max = -30 }
+		set_character_flag = mother_craved_hare
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Trout's eye
+		name = EVTOPTDHFP20573
+		trigger = { is_ruler = yes }
+		custom_tooltip = { text = tooltip_mother_craved_trout }
+		scaled_wealth = { value = -0.01 min = -1 max = -30 }
+		set_character_flag = mother_craved_trout
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Useless courtier needs to ask her husband (if she has any).
+		name = EVTOPTEHFP20573
+		trigger = { 
+			is_ruler = no
+			is_main_spouse = yes #Prevent concubine spamming 
+		}
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20596 } } }
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Useless courtier is not even the main wife and does nothing.
+		name = EVTOPTEHFP20573
+		trigger = { 
+			is_ruler = no
+			is_main_spouse = no
+		}
+		ai_chance = { 
+			factor = 20
+		}
+	}
+}
 
-# #Spouse: Mother has weird cravings.
-# character_event = {
-	# id = HFP.20596
-	# desc = EVTDESCHFPA20596
-	# picture = GFX_evt_fancy_feast
+#Spouse: Mother has weird cravings.
+character_event = {
+	id = HFP.20596
+	desc = EVTDESCHFPA20596
+	picture = GFX_evt_fancy_feast
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = { 
-		# is_ruler = yes 
-		# FROM = { is_alive = yes is_married = ROOT } 
-	# }
+	trigger = { 
+		is_ruler = yes 
+		FROM = { is_alive = yes is_married = ROOT } 
+	}
 
-	# #Everything
-	# #Quail's leg
-	# #Hare's head
-	# #Trout's eye
+	#Everything
+	#Quail's leg
+	#Hare's head
+	#Trout's eye
 
-	# option = { 
-		# name = EVTOPTAHFP20596
-		# trigger = { NOT = {	trait = greedy } } 
-		# custom_tooltip = { text = tooltip_father_gave_all }
-		# scaled_wealth = -0.05
-		# FROM = { 
-			# show_scope_change = no
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_cravings 
-				# years = 2
-			# }
-			# gain_weight_small_effect = yes
-			# weight_trait_check_effect = yes
-			# if = { 
-				# limit = { NOT = { has_character_flag = gluttonous_pregnant } }
-				# hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
-				# hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
-			# }
-			# random = { 
-				# chance = 40
-				# add_trait = gluttonous 
-				# hidden_tooltip = { character_event = { id = 38277 } } #Notification
-			# }
-			# add_character_modifier = {
-				# name = well_fed
-				# years = 2
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Quail's leg
-		# name = EVTOPTBHFP20596
-		# custom_tooltip = { text = tooltip_father_gave_quail }
-		# scaled_wealth = -0.01
-		# FROM = { 
-		# set_character_flag = mother_craved_quail
-		# }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Hare's head
-		# name = EVTOPTCHFP20596
-		# custom_tooltip = { text = tooltip_father_gave_hare }
-		# scaled_wealth = -0.01
-		# FROM = { 
-		# set_character_flag = mother_craved_hare
-		# }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { #Trout's eye
-		# name = EVTOPTDHFP20596
-		# custom_tooltip = { text = tooltip_father_gave_trout }
-		# scaled_wealth = -0.01
-		# FROM = { 
-		# set_character_flag = mother_craved_trout
-		# }
-		# ai_chance = { 
-			# factor = 20
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTEHFP20596
-		# trigger = { trait = greedy }
-		# tooltip_info = greedy
-		# FROM = { 
-			# random = { 
-				# chance = 30 
-				# add_trait = stressed
-				# hidden_tooltip = { character_event = { id = 38282 } }
-			# }
-			# opinion = { 
-				# modifier = opinion_angry
-				# who = ROOT
-				# years = 4
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 70
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20596
+		trigger = { NOT = {	trait = greedy } } 
+		custom_tooltip = { text = tooltip_father_gave_all }
+		scaled_wealth = -0.05
+		FROM = { 
+			show_scope_change = no
+			opinion = { 
+				who = ROOT
+				modifier = opinion_cravings 
+				years = 2
+			}
+			gain_weight_small_effect = yes
+			weight_trait_check_effect = yes
+			if = { 
+				limit = { NOT = { has_character_flag = gluttonous_pregnant } }
+				hidden_tooltip = { character_event = { id = HFP.20441 days = 15 random = 10 } }  #Confirmation.
+				hidden_tooltip = { character_event = { id = HFP.20421 days = 200 } }   #Post-pregnancy recovery.
+			}
+			random = { 
+				chance = 40
+				add_trait = gluttonous 
+				hidden_tooltip = { character_event = { id = 38277 } } #Notification
+			}
+			add_character_modifier = {
+				name = well_fed
+				years = 2
+			} 
+		}
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Quail's leg
+		name = EVTOPTBHFP20596
+		custom_tooltip = { text = tooltip_father_gave_quail }
+		scaled_wealth = -0.01
+		FROM = { 
+		set_character_flag = mother_craved_quail
+		}
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Hare's head
+		name = EVTOPTCHFP20596
+		custom_tooltip = { text = tooltip_father_gave_hare }
+		scaled_wealth = -0.01
+		FROM = { 
+		set_character_flag = mother_craved_hare
+		}
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { #Trout's eye
+		name = EVTOPTDHFP20596
+		custom_tooltip = { text = tooltip_father_gave_trout }
+		scaled_wealth = -0.01
+		FROM = { 
+		set_character_flag = mother_craved_trout
+		}
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = { 
+		name = EVTOPTEHFP20596
+		trigger = { trait = greedy }
+		tooltip_info = greedy
+		FROM = { 
+			random = { 
+				chance = 30 
+				add_trait = stressed
+				hidden_tooltip = { character_event = { id = 38282 } }
+			}
+			opinion = { 
+				modifier = opinion_angry
+				who = ROOT
+				years = 4
+			}
+		}
+		ai_chance = { 
+			factor = 70
+		}
+	}
+}
 
-# #Son/Spouse: chance to offer solace to pregnant mother/wife.
-# character_event = {
-	# id = HFP.20574
-	# desc = {
-		# text = EVTDESCHFPA20574
-		# trigger = {		
-			# NOT = { is_married = FROM }
-			# NOT = { 
-				# age = 16
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20574
-		# trigger = {
-			# NOT = { is_married = FROM }
-			# age = 16
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20574
-		# trigger = {
-			# is_married = FROM
-			# NOR = {
-				# FROM = { has_character_modifier = adulteress }
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPD20574
-		# trigger = {
-			# is_married = FROM
-			# OR = {
-				# FROM = { has_character_modifier = adulteress }
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-		# }
-	# }
-	# picture = GFX_evt_bad_news_female
+#Son/Spouse: chance to offer solace to pregnant mother/wife.
+character_event = {
+	id = HFP.20574
+	desc = {
+		text = EVTDESCHFPA20574
+		trigger = {		
+			NOT = { is_married = FROM }
+			NOT = { 
+				age = 16
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20574
+		trigger = {
+			NOT = { is_married = FROM }
+			age = 16
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20574
+		trigger = {
+			is_married = FROM
+			NOR = {
+				FROM = { has_character_modifier = adulteress }
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPD20574
+		trigger = {
+			is_married = FROM
+			OR = {
+				FROM = { has_character_modifier = adulteress }
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+		}
+	}
+	picture = GFX_evt_bad_news_female
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = {
-		# FROM = {
-			# is_alive = yes
-			# trait = pregnant
-			# OR = {
-				# is_married = ROOT
-				# is_mother = ROOT
-			# }
-			# NOR = {
-				# trait = on_hajj
-				# trait = on_pilgrimage
-				# trait = on_indian_pilgrimage
-				# trait = kow_tow_travels
-				# trait = travelling
-			# }
-		# }
-	# }
-
-	# option = { #Buy something (spouse)
-		# name = EVTOPTAHFP20574
-		# custom_tooltip = { text = tooltip_buy_to_woman }
-		# trigger = { 
-			# is_married = FROM
-		# }
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no
-				# add_character_modifier = {
-					# name = mother_comforted
-					# duration = 60
-					# stacking = yes
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20576 } } }
-		# scaled_wealth = { value = -0.1 min = -5 max = -150 }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = charitable } 
-			# } 
-			# random = { 
-				# chance = 15
-				# add_trait = charitable
-				# hidden_tooltip = { character_event = { id = 38273 } }
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = kind } 
-			# } 
-			# random = { 
-				# chance = 5
-				# add_trait = kind
-				# hidden_tooltip = { character_event = { id = 38268 } }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 60
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROM
-			# }
-		# }
-	# }
-	# option = { #Spend time
-		# name = EVTOPTBHFP20574
-		# custom_tooltip = { text = tooltip_spend_time_woman }
-		# trigger = { 
-			# OR = { 
-				# is_child_of = FROM
-				# is_lover = FROM
-			# }
-		# }
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no
-				# add_character_modifier = {
-					# name = mother_comforted
-					# duration = 30
-					# stacking = yes
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20578 } } }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = kind } 
-			# } 
-			# random = { 
-				# chance = 5
-				# add_trait = kind
-				# hidden_tooltip = { character_event = { id = 38268 } }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 70
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROM
-			# }
-		# }
-	# }
-	# option = { #Do not do anything.
-		# name = { 
-			# text = EVTOPTCHFP20574 
-			# trigger = { 
-				# NOR = {
-					# FROM = { has_character_modifier = adulteress }
-					# FROM = { has_character_modifier = incestuous_adulteress }
-				# }
-			# }
-		# }
-		# name = { 
-			# text = EVTOPTCHFP20574_B 
-			# trigger = { 
-				# OR = {
-					# FROM = { has_character_modifier = adulteress }
-					# FROM = { has_character_modifier = incestuous_adulteress }
-				# }
-			# }
-		# }
-
-		# tiered_piety_negative_effect = yes
-		# #if = { 
-		# #	limit = { 
-		# #		NOT = { trait = cruel } 
-		# #	} 
-		# #	random = { 
-		# #		chance = 5
-		# #		add_trait = cruel
-		# #		hidden_tooltip = { character_event = { id = 38259 } }
-		# #	}
-		# #}
-		# ai_chance = { 
-			# factor = 30
-			# modifier = { 
-				# factor = 1.75
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = greedy
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# FROM = { has_character_modifier = adulteress }
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# FROM = { trait = hard_pregnancy }
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# is_friend = FROM
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# is_lover = FROM
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# NOT = { opinion = { who = FROM value = 0 } }
-			# }
-		# }
-	# }
-# }
-
-# #Lover: chance to visit pregnant lover in secret.
-# character_event = {
-	# id = HFP.20575
-	# desc = {
-		# text = EVTDESCHFPA20575
-		# trigger = {		
-			# is_female = no
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20575
-		# trigger = {		
-			# is_female = yes
-		# }
-	# }
-	# picture = GFX_evt_bad_news_female
-
-	# is_triggered_only = yes
-
-	# trigger = {
-		# FROM = {
-			# trait = pregnant
-			# is_alive = yes
-			# is_lover = ROOT
+	trigger = {
+		FROM = {
+			is_alive = yes
+			trait = pregnant
+			OR = {
+				is_married = ROOT
+				is_mother = ROOT
+			}
 			# NOR = {
 				# trait = on_hajj
 				# trait = on_pilgrimage
@@ -9999,403 +9812,590 @@ character_event = {
 				# trait = kow_tow_travels
 				# trait = travelling
 			# }
-		# }
-	# }
+		}
+	}
 
-	# option = { #Visit
-		# name = EVTOPTAHFP20575
-		# custom_tooltip = { text = tooltip_visit_lover }
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no
-				# add_character_modifier = {
-					# name = mother_comforted
-					# duration = 30
-					# stacking = yes
-				# }
+	option = { #Buy something (spouse)
+		name = EVTOPTAHFP20574
+		custom_tooltip = { text = tooltip_buy_to_woman }
+		trigger = { 
+			is_married = FROM
+		}
+		tooltip = {
+			FROM = {
+				show_scope_change = no
+				add_character_modifier = {
+					name = mother_comforted
+					duration = 60
+					stacking = yes
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20576 } } }
+		scaled_wealth = { value = -0.1 min = -5 max = -150 }
+		if = { 
+			limit = { 
+				NOT = { trait = charitable } 
+			} 
+			random = { 
+				chance = 15
+				add_trait = charitable
+				hidden_tooltip = { character_event = { id = 38273 } }
+			}
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = kind } 
+			} 
+			random = { 
+				chance = 5
+				add_trait = kind
+				hidden_tooltip = { character_event = { id = 38268 } }
+			}
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROM
+			}
+		}
+	}
+	option = { #Spend time
+		name = EVTOPTBHFP20574
+		custom_tooltip = { text = tooltip_spend_time_woman }
+		trigger = { 
+			OR = { 
+				is_child_of = FROM
+				is_lover = FROM
+			}
+		}
+		tooltip = {
+			FROM = {
+				show_scope_change = no
+				add_character_modifier = {
+					name = mother_comforted
+					duration = 30
+					stacking = yes
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20578 } } }
+		if = { 
+			limit = { 
+				NOT = { trait = kind } 
+			} 
+			random = { 
+				chance = 5
+				add_trait = kind
+				hidden_tooltip = { character_event = { id = 38268 } }
+			}
+		}
+		ai_chance = { 
+			factor = 70
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROM
+			}
+		}
+	}
+	option = { #Do not do anything.
+		name = { 
+			text = EVTOPTCHFP20574 
+			trigger = { 
+				NOR = {
+					FROM = { has_character_modifier = adulteress }
+					FROM = { has_character_modifier = incestuous_adulteress }
+				}
+			}
+		}
+		name = { 
+			text = EVTOPTCHFP20574_B 
+			trigger = { 
+				OR = {
+					FROM = { has_character_modifier = adulteress }
+					FROM = { has_character_modifier = incestuous_adulteress }
+				}
+			}
+		}
+
+		tiered_piety_negative_effect = yes
+		#if = { 
+		#	limit = { 
+		#		NOT = { trait = cruel } 
+		#	} 
+		#	random = { 
+		#		chance = 5
+		#		add_trait = cruel
+		#		hidden_tooltip = { character_event = { id = 38259 } }
+		#	}
+		#}
+		ai_chance = { 
+			factor = 30
+			modifier = { 
+				factor = 1.75
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.75
+				trait = greedy
+			}
+			modifier = { 
+				factor = 1.5
+				FROM = { has_character_modifier = adulteress }
+			}
+			modifier = { 
+				factor = 1.5
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+			modifier = { 
+				factor = 0.5
+				FROM = { trait = hard_pregnancy }
+			}
+			modifier = { 
+				factor = 0.1 
+				is_friend = FROM
+			}
+			modifier = { 
+				factor = 0.1 
+				is_lover = FROM
+			}
+			modifier = { 
+				factor = 1.75
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+		}
+	}
+}
+
+#Lover: chance to visit pregnant lover in secret.
+character_event = {
+	id = HFP.20575
+	desc = {
+		text = EVTDESCHFPA20575
+		trigger = {		
+			is_female = no
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20575
+		trigger = {		
+			is_female = yes
+		}
+	}
+	picture = GFX_evt_bad_news_female
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			trait = pregnant
+			is_alive = yes
+			is_lover = ROOT
+			# NOR = {
+				# trait = on_hajj
+				# trait = on_pilgrimage
+				# trait = on_indian_pilgrimage
+				# trait = kow_tow_travels
+				# trait = travelling
 			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20580 } } }
-		# ai_chance = { 
-			# factor = 70
-			# modifier = { 
-				# factor = 1.5
-				# trait = brave
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = lustful
-			# }
-		# }
-	# }
-	# option = { #No
-		# name = EVTOPTBHFP20575
-		# ai_chance = { 
-			# factor = 30
-			# modifier = { 
-				# factor = 1.75
-				# trait = shy
-			# }
-			# modifier = { 
-				# factor = 1.75
-				# trait = paranoid
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = craven
-			# }
-		# }
-	# }
-# }
+		}
+	}
 
-# #Mother: Spouse gives presents to make you feel better.
-# character_event = {
-	# id = HFP.20576
-	# desc = EVTDESCHFPA20576
-	# picture = GFX_evt_princess_byzantine
+	option = { #Visit
+		name = EVTOPTAHFP20575
+		custom_tooltip = { text = tooltip_visit_lover }
+		tooltip = {
+			FROM = {
+				show_scope_change = no
+				add_character_modifier = {
+					name = mother_comforted
+					duration = 30
+					stacking = yes
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20580 } } }
+		ai_chance = { 
+			factor = 70
+			modifier = { 
+				factor = 1.5
+				trait = brave
+			}
+			modifier = { 
+				factor = 1.5
+				trait = lustful
+			}
+		}
+	}
+	option = { #No
+		name = EVTOPTBHFP20575
+		ai_chance = { 
+			factor = 30
+			modifier = { 
+				factor = 1.75
+				trait = shy
+			}
+			modifier = { 
+				factor = 1.75
+				trait = paranoid
+			}
+			modifier = { 
+				factor = 2
+				trait = craven
+			}
+		}
+	}
+}
 
-	# is_triggered_only = yes
+#Mother: Spouse gives presents to make you feel better.
+character_event = {
+	id = HFP.20576
+	desc = EVTDESCHFPA20576
+	picture = GFX_evt_princess_byzantine
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-		# FROM = { is_alive = yes is_married = ROOT } 
-	# }
+	is_triggered_only = yes
 
-	# option = { #Chance for lover
-		# name = EVTOPTAHFP20576
-		# trigger = { 
-			# NOT = { is_lover = FROM } 
-			# trait = trusting
-		# }
-		# tooltip_info = trusting
-		# add_lover = FROM
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 60
-			# stacking = yes
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20577 } } }
-		# ai_chance = { 
-			# factor = 30
-			# modifier = { 
-				# factor = 1.5
-				# trait = lustful
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = chaste
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = shy
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20576
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 60
-			# stacking = yes
-		# }
-		# ai_chance = { 
-			# factor = 70
-			# modifier = { 
-				# factor = 1.5
-				# trait = greedy
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = paranoid
-			# }
-		# }
-	# }
-# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+		FROM = { is_alive = yes is_married = ROOT } 
+	}
 
-# #Notify spouse that woman has fallen in love with him.
-# character_event = {
-	# id = HFP.20577
-	# desc = EVTDESCHFPA20577
-	# picture = GFX_evt_lovers
+	option = { #Chance for lover
+		name = EVTOPTAHFP20576
+		trigger = { 
+			NOT = { is_lover = FROM } 
+			trait = trusting
+		}
+		tooltip_info = trusting
+		add_lover = FROM
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 60
+			stacking = yes
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20577 } } }
+		ai_chance = { 
+			factor = 30
+			modifier = { 
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = { 
+				factor = 0.5
+				trait = chaste
+			}
+			modifier = { 
+				factor = 0.5
+				trait = shy
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20576
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 60
+			stacking = yes
+		}
+		ai_chance = { 
+			factor = 70
+			modifier = { 
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = { 
+				factor = 1.5
+				trait = paranoid
+			}
+		}
+	}
+}
 
-	# is_triggered_only = yes
+#Notify spouse that woman has fallen in love with him.
+character_event = {
+	id = HFP.20577
+	desc = EVTDESCHFPA20577
+	picture = GFX_evt_lovers
 
-	# option = { 
-		# name = EVTOPTAHFP20577
-		# add_lover = FROM
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	is_triggered_only = yes
 
-# #Mother: Loving husband/child spends time with her.
-# character_event = {
-	# id = HFP.20578
-	# desc = {
-		# text = EVTDESCHFPA20578
-		# trigger = {		
-			# NOT = { is_married = FROM }
-			# NOT = { 
-				# FROM = { age = 16 }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20578
-		# trigger = {
-			# NOT = { is_married = FROM }
-			# FROM = { age = 16 }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20578
-		# trigger = {
-			# is_married = FROM
-		# }
-	# }
-	# picture = GFX_evt_princess_byzantine
+	option = { 
+		name = EVTOPTAHFP20577
+		add_lover = FROM
+		ai_chance = { factor = 100 }
+	}
+}
 
-	# is_triggered_only = yes
+#Mother: Loving husband/child spends time with her.
+character_event = {
+	id = HFP.20578
+	desc = {
+		text = EVTDESCHFPA20578
+		trigger = {		
+			NOT = { is_married = FROM }
+			NOT = { 
+				FROM = { age = 16 }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20578
+		trigger = {
+			NOT = { is_married = FROM }
+			FROM = { age = 16 }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20578
+		trigger = {
+			is_married = FROM
+		}
+	}
+	picture = GFX_evt_princess_byzantine
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = troubled_pregnancy } 
-		# FROM = { 
-			# is_alive = yes 
-			# OR = {
-				# is_married = ROOT
-				# is_mother = ROOT
-			# }
-		# } 
-	# }
+	is_triggered_only = yes
 
-	# option = { #Chance for mother becoming child's friend
-		# name = EVTOPTAHFP20578
-		# trigger = { 
-			# NOT = { num_of_friends = 3 }
-			# NOR = { 
-				# is_married = FROM 
-				# is_friend = FROM
-				# is_rival = FROM
-			# }
-		# }
-		# add_friend = FROM
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 30
-			# stacking = yes
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20579 } } }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = { 
-				# factor = 1.5
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = shy
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20578
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 30
-			# stacking = yes
-		# }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = { 
-				# factor = 1.5
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = paranoid
-			# }
-		# }
-	# }
-# }
-# #Notify child that mother loves him.
-# character_event = {
-	# id = HFP.20579
-	# desc = {
-		# text = EVTDESCHFPA20579
-		# trigger = {		
-			# NOT = { age = 16 }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20579
-		# trigger = { age = 16 }
-	# }
-	# picture = GFX_evt_princess_byzantine
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = troubled_pregnancy } 
+		FROM = { 
+			is_alive = yes 
+			OR = {
+				is_married = ROOT
+				is_mother = ROOT
+			}
+		} 
+	}
 
-	# is_triggered_only = yes
+	option = { #Chance for mother becoming child's friend
+		name = EVTOPTAHFP20578
+		trigger = { 
+			NOT = { num_of_friends = 3 }
+			NOR = { 
+				is_married = FROM 
+				is_friend = FROM
+				is_rival = FROM
+			}
+		}
+		add_friend = FROM
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 30
+			stacking = yes
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20579 } } }
+		ai_chance = { 
+			factor = 50
+			modifier = { 
+				factor = 1.5
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 0.5
+				trait = cruel
+			}
+			modifier = { 
+				factor = 0.5
+				trait = shy
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20578
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 30
+			stacking = yes
+		}
+		ai_chance = { 
+			factor = 50
+			modifier = { 
+				factor = 1.5
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.5
+				trait = paranoid
+			}
+		}
+	}
+}
+#Notify child that mother loves him.
+character_event = {
+	id = HFP.20579
+	desc = {
+		text = EVTDESCHFPA20579
+		trigger = {		
+			NOT = { age = 16 }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20579
+		trigger = { age = 16 }
+	}
+	picture = GFX_evt_princess_byzantine
 
-	# option = { 
-		# name = EVTOPTAHFP20579
-		# add_friend = FROM
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	is_triggered_only = yes
 
-# #Mother is visited by lover.
-# character_event = {
-	# id = HFP.20580
-	# desc = EVTDESCHFPA20580
-	# picture = GFX_evt_lovers
+	option = { 
+		name = EVTOPTAHFP20579
+		add_friend = FROM
+		ai_chance = { factor = 100 }
+	}
+}
 
-	# is_triggered_only = yes
+#Mother is visited by lover.
+character_event = {
+	id = HFP.20580
+	desc = EVTDESCHFPA20580
+	picture = GFX_evt_lovers
 
-	# option = { 
-		# name = EVTOPTAHFP20580
-		# if = { 
-			# limit = { trait = depressed } 
-			# remove_trait = depressed
-			# clr_character_flag = depressed_pregnant
-		# }
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 30
-			# stacking = yes
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	is_triggered_only = yes
 
-# #################### Post-birth notifications ######################
+	option = { 
+		name = EVTOPTAHFP20580
+		if = { 
+			limit = { trait = depressed } 
+			remove_trait = depressed
+			clr_character_flag = depressed_pregnant
+		}
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 30
+			stacking = yes
+		}
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Mother recovers from stress after pregnancy.
-# character_event = {
-	# id = HFP.20581
-	# desc = EVTDESCHFPA20581
-	# picture = GFX_evt_recovery
+#################### Post-birth notifications ######################
 
-	# trigger = { 
-		# trait = stressed 
-		# FROM = { is_alive = yes }
-		# FROM = { NOT = { trait = sickly } }		#Baby needs to be alive and well for mother to feel relieved.
-	# }
+#Mother recovers from stress after pregnancy.
+character_event = {
+	id = HFP.20581
+	desc = EVTDESCHFPA20581
+	picture = GFX_evt_recovery
 
-	# is_triggered_only = yes
+	trigger = { 
+		trait = stressed 
+		FROM = { is_alive = yes }
+		FROM = { NOT = { trait = sickly } }		#Baby needs to be alive and well for mother to feel relieved.
+	}
 
-	# option = { 
-		# name = EVTOPTAHFP20581
-		# remove_trait = stressed
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	is_triggered_only = yes
 
-# #Mother craved for quail's leg: child is good at talking but clubfooted.
-# character_event = {
-	# id = HFP.20582
-	# desc = EVTDESCHFPA20582
-	# picture = GFX_evt_birth
+	option = { 
+		name = EVTOPTAHFP20581
+		remove_trait = stressed
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Mother craved for quail's leg: child is good at talking but clubfooted.
+character_event = {
+	id = HFP.20582
+	desc = EVTDESCHFPA20582
+	picture = GFX_evt_birth
 	
-	# trigger = { 
-		# FROM = { 
-			# trait = clubfooted 
-			# is_alive = yes
-		# }
-	# }
+	trigger = { 
+		FROM = { 
+			trait = clubfooted 
+			is_alive = yes
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20582
-		# FROM = { change_diplomacy = 2 } 
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20582
+		FROM = { change_diplomacy = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Mother craved for hare's head: child is good at spying but harelipped.
-# character_event = {
-	# id = HFP.20583
-	# desc = EVTDESCHFPA20583
-	# picture = GFX_evt_birth
+#Mother craved for hare's head: child is good at spying but harelipped.
+character_event = {
+	id = HFP.20583
+	desc = EVTDESCHFPA20583
+	picture = GFX_evt_birth
 	
-	# trigger = { 
-		# FROM = { 
-			# trait = harelip
-			# is_alive = yes
-			# }
-		# }
+	trigger = { 
+		FROM = { 
+			trait = harelip
+			is_alive = yes
+			}
+		}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20583
-		# FROM = { change_intrigue = 2 } 
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20583
+		FROM = { change_intrigue = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Mother craved for trout's eye: child is good at learning but ugly.
-# character_event = {
-	# id = HFP.20584
-	# desc = EVTDESCHFPA20584
-	# picture = GFX_evt_birth
+#Mother craved for trout's eye: child is good at learning but ugly.
+character_event = {
+	id = HFP.20584
+	desc = EVTDESCHFPA20584
+	picture = GFX_evt_birth
 	
-	# trigger = { 
-		# FROM = { 
-			# trait = ugly 
-			# is_alive = yes
-		# } 
-	# }
+	trigger = { 
+		FROM = { 
+			trait = ugly 
+			is_alive = yes
+		} 
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20584
-		# FROM = { change_learning = 2 } 
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20584
+		FROM = { change_learning = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Mother hoped for a warrior and she got one.
-# character_event = {
-	# id = HFP.20585
-	# desc = EVTDESCHFPA20585
-	# picture = GFX_evt_birth
+#Mother hoped for a warrior and she got one.
+character_event = {
+	id = HFP.20585
+	desc = EVTDESCHFPA20585
+	picture = GFX_evt_birth
 	
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes
-			# NOR = { 
-				# trait = weak
-				# trait = feeble
-				# trait = inbred
-				# trait = hunchback
-				# trait = dwarf
-				# trait = sickly
-			# }
-		# }
-	# }
+	trigger = { 
+		FROM = { 
+			is_alive = yes
+			NOR = { 
+				trait = weak
+				trait = feeble
+				trait = inbred
+				trait = hunchback
+				trait = dwarf
+				trait = sickly
+			}
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20585
-		# FROM = { change_martial = 2 } 
-		# tiered_prestige_reward_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20585
+		FROM = { change_martial = 2 } 
+		tiered_prestige_reward_effect = yes
+		ai_chance = { factor = 100 }
+	}
+}
 # #Mother sacrificed to gods for strong kid and got one.
 # character_event = {
 	# id = HFP.20586
@@ -10466,117 +10466,117 @@ character_event = {
 		# ai_chance = { factor = 100 }
 	# }
 # }
-# #Mother wanted a boy/girl and she got a...
-# character_event = {
-	# id = HFP.20589
-	# desc = {
-		# text = EVTDESCHFPA20589
-		# trigger = {
-			# OR = { 
-				# AND = { 
-					# FROM = { is_female = yes } 
-					# has_character_flag = mom_hopes_child_girl
-				# }
-				# AND = { 
-					# FROM = { is_female = no } 
-					# has_character_flag = mom_hopes_child_boy
-				# }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20589
-		# trigger = {
-			# OR = { 
-				# AND = { 
-					# FROM = { is_female = no } 
-					# has_character_flag = mom_hopes_child_girl
-				# }
-				# AND = { 
-					# FROM = { is_female = yes } 
-					# has_character_flag = mom_hopes_child_boy
-				# }
-			# }
-		# }
-	# }
+#Mother wanted a boy/girl and she got a...
+character_event = {
+	id = HFP.20589
+	desc = {
+		text = EVTDESCHFPA20589
+		trigger = {
+			OR = { 
+				AND = { 
+					FROM = { is_female = yes } 
+					has_character_flag = mom_hopes_child_girl
+				}
+				AND = { 
+					FROM = { is_female = no } 
+					has_character_flag = mom_hopes_child_boy
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20589
+		trigger = {
+			OR = { 
+				AND = { 
+					FROM = { is_female = no } 
+					has_character_flag = mom_hopes_child_girl
+				}
+				AND = { 
+					FROM = { is_female = yes } 
+					has_character_flag = mom_hopes_child_boy
+				}
+			}
+		}
+	}
 	
-	# picture = GFX_evt_birth
+	picture = GFX_evt_birth
 	
-	# trigger = { 
-		# FROM = { is_alive = yes }
-	# }
+	trigger = { 
+		FROM = { is_alive = yes }
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Success
-		# name = EVTOPTAHFP20589
-		# trigger = {
-			# OR = { 
-				# AND = { 
-					# FROM = { is_female = yes } 
-					# has_character_flag = mom_hopes_child_girl
-				# }
-				# AND = { 
-					# FROM = { is_female = no } 
-					# has_character_flag = mom_hopes_child_boy
-				# }
-			# }
-		# }
-		# tiered_prestige_reward_effect = yes
-		# opinion = {
-			# modifier = opinion_kind
-			# years = 40
-			# who = FROM
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Failure - But still likes child.
-		# name = EVTOPTBHFP20589
-		# trigger = {
-			# trait = kind
-			# OR = { 
-				# AND = { 
-					# FROM = { is_female = no } 
-					# has_character_flag = mom_hopes_child_girl
-				# }
-				# AND = { 
-					# FROM = { is_female = yes } 
-					# has_character_flag = mom_hopes_child_boy
-				# }
-			# }
-		# }
-		# tooltip_info = kind
-		# tiered_prestige_negative_effect = yes
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Failure
-		# name = EVTOPTCHFP20589
-		# trigger = {
-			# NOT = { trait = kind }
-			# OR = { 
-				# AND = { 
-					# FROM = { is_female = no } 
-					# has_character_flag = mom_hopes_child_girl
-				# }
-				# AND = { 
-					# FROM = { is_female = yes } 
-					# has_character_flag = mom_hopes_child_boy
-				# }
-			# }
-		# }
-		# tiered_prestige_negative_effect = yes
-		# opinion = {
-			# modifier = opinion_dislike
-			# years = 40
-			# who = FROM
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-	# after = { 
-		# clr_character_flag = mom_hopes_child_boy 
-		# clr_character_flag = mom_hopes_child_girl 
-	# }
-# }
+	option = { #Success
+		name = EVTOPTAHFP20589
+		trigger = {
+			OR = { 
+				AND = { 
+					FROM = { is_female = yes } 
+					has_character_flag = mom_hopes_child_girl
+				}
+				AND = { 
+					FROM = { is_female = no } 
+					has_character_flag = mom_hopes_child_boy
+				}
+			}
+		}
+		tiered_prestige_reward_effect = yes
+		opinion = {
+			modifier = opinion_kind
+			years = 40
+			who = FROM
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = { #Failure - But still likes child.
+		name = EVTOPTBHFP20589
+		trigger = {
+			trait = kind
+			OR = { 
+				AND = { 
+					FROM = { is_female = no } 
+					has_character_flag = mom_hopes_child_girl
+				}
+				AND = { 
+					FROM = { is_female = yes } 
+					has_character_flag = mom_hopes_child_boy
+				}
+			}
+		}
+		tooltip_info = kind
+		tiered_prestige_negative_effect = yes
+		ai_chance = { factor = 100 }
+	}
+	option = { #Failure
+		name = EVTOPTCHFP20589
+		trigger = {
+			NOT = { trait = kind }
+			OR = { 
+				AND = { 
+					FROM = { is_female = no } 
+					has_character_flag = mom_hopes_child_girl
+				}
+				AND = { 
+					FROM = { is_female = yes } 
+					has_character_flag = mom_hopes_child_boy
+				}
+			}
+		}
+		tiered_prestige_negative_effect = yes
+		opinion = {
+			modifier = opinion_dislike
+			years = 40
+			who = FROM
+		}
+		ai_chance = { factor = 100 }
+	}
+	after = { 
+		clr_character_flag = mom_hopes_child_boy 
+		clr_character_flag = mom_hopes_child_girl 
+	}
+}
 
 # #Mother made vow to the Holy Virgin, if child is healthy, time to pay up.
 # character_event = {
@@ -10914,151 +10914,151 @@ character_event = {
 	# }
 # }
 
-# #On adulthood: hidden event to determine if child of troubled birth will talk to mother about the event.
-# character_event = {
-	# id = HFP.20592
-	# hide_window = yes
+#On adulthood: hidden event to determine if child of troubled birth will talk to mother about the event.
+character_event = {
+	id = HFP.20592
+	hide_window = yes
 
-	# has_character_flag = flag_troubled_pregnancy_child 
+	has_character_flag = flag_troubled_pregnancy_child 
 
-	# trigger = {
-		# mother = { 
-			# is_alive = yes
-			# NOT = { trait = incapable }
-			# prisoner = no
-		# }
-	# }
+	trigger = {
+		mother = { 
+			is_alive = yes
+			NOT = { trait = incapable }
+			prisoner = no
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# mother = { character_event = { id = HFP.20593 } } #hidden ping for portrait
-	# }
-# }
-# #portrait ping.
-# character_event = {
-	# id = HFP.20593
-	# hide_window = yes
+	immediate = { 
+		mother = { character_event = { id = HFP.20593 } } #hidden ping for portrait
+	}
+}
+#portrait ping.
+character_event = {
+	id = HFP.20593
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { character_event = { id = HFP.20594 days = 30 random = 30 } } #Actual event for child
-# }
+	immediate = { character_event = { id = HFP.20594 days = 30 random = 30 } } #Actual event for child
+}
 
-# #Child of troubled birth: approach mother about subject?
-# character_event = {
-	# id = HFP.20594
-	# desc = EVTDESCHFPA20594
-	# picture = GFX_evt_son_asking_father
+#Child of troubled birth: approach mother about subject?
+character_event = {
+	id = HFP.20594
+	desc = EVTDESCHFPA20594
+	picture = GFX_evt_son_asking_father
 	
-	# trigger = { 
-		# mother = { 
-			# is_alive = yes
-		# }
-	# }
+	trigger = { 
+		mother = { 
+			is_alive = yes
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20594
-		# custom_tooltip = { text = tooltip_troubled_child_talks }
-		# hidden_tooltip = { character_event = { id = HFP.20595 } }
-		# clr_character_flag = flag_troubled_pregnancy_child 
-		# tooltip = {
-			# FROM = {
-				# opinion = {
-					# modifier = opinion_kind
-					# years = 15
-					# who = ROOT
-				# }
-			# }
-		# }
-		# if = {
-			# limit = { trait = kind }
-			# piety = 100
-		# }
-		# if = {
-			# limit = { NOT = { trait = kind } }
-			# random = {
-				# chance = 20
-				# add_trait = kind
-				# character_event = { id = 38268 }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 70
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20594
-		# clr_character_flag = flag_troubled_pregnancy_child 
-		# if = {
-			# limit = { trait = cruel }
-			# tiered_prestige_reward_effect = yes
-		# }
-		# if = {
-			# limit = { NOT = { trait = cruel } }
-			# random = {
-				# chance = 20
-				# add_trait = cruel
-				# character_event = { id = 38259 }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 30 
-			# modifier = { 
-				# factor = 2
-				# trait = slow
-			# }
-			# modifier = { 
-				# factor = 3
-				# trait = imbecile
-			# }
-			# modifier = { 
-				# factor = 3
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = kind
-			# }
-		# }
-	# }
-# }
-# #Mother is grateful for the child's kindness.
-# character_event = {
-	# id = HFP.20595
-	# desc = EVTDESCHFPA20595
-	# picture = GFX_evt_son_asking_father
+	option = { 
+		name = EVTOPTAHFP20594
+		custom_tooltip = { text = tooltip_troubled_child_talks }
+		hidden_tooltip = { character_event = { id = HFP.20595 } }
+		clr_character_flag = flag_troubled_pregnancy_child 
+		tooltip = {
+			FROM = {
+				opinion = {
+					modifier = opinion_kind
+					years = 15
+					who = ROOT
+				}
+			}
+		}
+		if = {
+			limit = { trait = kind }
+			piety = 100
+		}
+		if = {
+			limit = { NOT = { trait = kind } }
+			random = {
+				chance = 20
+				add_trait = kind
+				character_event = { id = 38268 }
+			}
+		}
+		ai_chance = { 
+			factor = 70
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20594
+		clr_character_flag = flag_troubled_pregnancy_child 
+		if = {
+			limit = { trait = cruel }
+			tiered_prestige_reward_effect = yes
+		}
+		if = {
+			limit = { NOT = { trait = cruel } }
+			random = {
+				chance = 20
+				add_trait = cruel
+				character_event = { id = 38259 }
+			}
+		}
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
+				factor = 2
+				trait = slow
+			}
+			modifier = { 
+				factor = 3
+				trait = imbecile
+			}
+			modifier = { 
+				factor = 3
+				trait = cruel
+			}
+			modifier = { 
+				factor = 0.5
+				trait = kind
+			}
+		}
+	}
+}
+#Mother is grateful for the child's kindness.
+character_event = {
+	id = HFP.20595
+	desc = EVTDESCHFPA20595
+	picture = GFX_evt_son_asking_father
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTBHFP20595
-		# tiered_prestige_reward_effect = yes
-		# opinion = {
-			# modifier = opinion_kind
-			# years = 15
-			# who = FROM
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTBHFP20595
+		tiered_prestige_reward_effect = yes
+		opinion = {
+			modifier = opinion_kind
+			years = 15
+			who = FROM
+		}
+	}
+}
 
-# #id 20596 taken by husband version of weird cravings
+#id 20596 taken by husband version of weird cravings
 
-# #Clean up event 35 days post-birth to clear all persistent event targets.
-# character_event = {
-	# id = HFP.20597
-	# hide_window = yes
+#Clean up event 35 days post-birth to clear all persistent event targets.
+character_event = {
+	id = HFP.20597
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# immediate = { 
-		# clear_persistent_event_target = pregnancy_mother_physician_per
-		# clear_persistent_event_target = pregnancy_spouse_physician_per
-		# clear_persistent_event_target = pregnancy_regent_physician_per
-	# }
-# }
+	immediate = { 
+		clear_persistent_event_target = pregnancy_mother_physician_per
+		clear_persistent_event_target = pregnancy_spouse_physician_per
+		clear_persistent_event_target = pregnancy_regent_physician_per
+	}
+}
 
 # #Mother thinks about her son/daughter being the son/daughter of the Pope.
 # character_event = {
@@ -11126,275 +11126,275 @@ character_event = {
 	# }
 # }
 
-# #delayed from on_birth event. Mother develops bond with child.
-# character_event = {
-	# id = HFP.20599
-	# desc = {
-		# text = EVTDESCHFPA20599
-		# trigger = {
-			# NOT = { has_character_flag = survivor_mom }
-			# NOT = { trait = kind } 
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20599
-		# trigger = {
-			# NOT = { has_character_flag = survivor_mom }
-			# trait = kind
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20599
-		# trigger = {
-			# has_character_flag = survivor_mom
-			# NOT = { trait = kind }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPD20599
-		# trigger = {
-			# has_character_flag = survivor_mom
-			# trait = kind
-		# }
-	# }
-	# picture = GFX_evt_birth
+#delayed from on_birth event. Mother develops bond with child.
+character_event = {
+	id = HFP.20599
+	desc = {
+		text = EVTDESCHFPA20599
+		trigger = {
+			NOT = { has_character_flag = survivor_mom }
+			NOT = { trait = kind } 
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20599
+		trigger = {
+			NOT = { has_character_flag = survivor_mom }
+			trait = kind
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20599
+		trigger = {
+			has_character_flag = survivor_mom
+			NOT = { trait = kind }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPD20599
+		trigger = {
+			has_character_flag = survivor_mom
+			trait = kind
+		}
+	}
+	picture = GFX_evt_birth
 
-	# trigger = { 
-		# prisoner = no
-		# NOT = { trait = incapable }
-		# FROM = { 
-			# is_alive = yes 
-			# prisoner = no
-			# NOT = { trait = incapable }
-			# NOT = { trait = sickly }
-			# OR = { 
-				# host = { character = ROOT }
-				# at_location = ROOT
-				# guardian = { character = ROOT }
-			# }
-		# } 
-	# }
-	# is_triggered_only = yes
+	trigger = { 
+		prisoner = no
+		NOT = { trait = incapable }
+		FROM = { 
+			is_alive = yes 
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { trait = sickly }
+			OR = { 
+				host = { character = ROOT }
+				at_location = ROOT
+				guardian = { character = ROOT }
+			}
+		} 
+	}
+	is_triggered_only = yes
 	
-	# option = { #In love
-		# name = EVTOPTAHFP20599
-		# trigger = { NOT = { trait = cruel } }
-		# custom_tooltip = { text = tooltip_20599_A }
-		# add_character_modifier = { 
-			# modifier = breastfeeding_infant 
-			# years = 2
-		# }
-		# opinion = { 
-			# modifier = opinion_motherly_love 
-			# who = FROM
-			# years = 10
-		# }
-		# random_list = { 
-			# 20 = { FROM = { change_diplomacy = 1 } }
-			# 20 = { FROM = { change_martial = 1 } }
-			# 20 = { FROM = { change_stewardship = 1 } }
-			# 20 = { FROM = { change_intrigue = 1 } }
-			# 20 = { FROM = { change_learning = 1 } }
-		# }
-		# random = { 
-			# chance = 30
-			# if = { 
-				# limit = { trait = kind } 
-				# piety = 25
-			# }
-			# if = { 
-				# limit = { NOT = { trait = kind } } 
-				# add_trait = kind
-				# hidden_tooltip = { character_event = { id = 38268 } } 
-			# }
-		# }
-		# hidden_tooltip = { 
-			# FROM = { health = 0.2 } 
-			# gain_weight_small_effect = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Just relieved
-		# name = EVTOPTBHFP20599
-		# custom_tooltip = { text = tooltip_20599_B }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Annoyed
-		# name = EVTOPTCHFP20599
-		# custom_tooltip = { text = tooltip_20599_C }
-		# trigger = { 
-			# OR = { 
-				# trait = cruel
-				# has_character_flag = survivor_mom
-			# }
-		# }
-		# hidden_tooltip = { 
-			# FROM = { health = -0.2 } 
-			# balance_weight_small_effect = yes
-		# }
-		# opinion = { 
-			# modifier = opinion_upset_mother 
-			# who = FROM
-			# years = 10
-		# }
-		# random = { 
-			# chance = 30
-			# if = { 
-				# limit = { trait = cruel } 
-				# piety = -25
-			# }
-			# if = { 
-				# limit = { NOT = { trait = cruel } } 
-				# add_trait = cruel
-				# hidden_tooltip = { character_event = { id = 38259 } } 
-			# }
-		# }
-		# ai_chance = { factor = 40 } 
-	# }
-# }
+	option = { #In love
+		name = EVTOPTAHFP20599
+		trigger = { NOT = { trait = cruel } }
+		custom_tooltip = { text = tooltip_20599_A }
+		add_character_modifier = { 
+			modifier = breastfeeding_infant 
+			years = 2
+		}
+		opinion = { 
+			modifier = opinion_motherly_love 
+			who = FROM
+			years = 10
+		}
+		random_list = { 
+			20 = { FROM = { change_diplomacy = 1 } }
+			20 = { FROM = { change_martial = 1 } }
+			20 = { FROM = { change_stewardship = 1 } }
+			20 = { FROM = { change_intrigue = 1 } }
+			20 = { FROM = { change_learning = 1 } }
+		}
+		random = { 
+			chance = 30
+			if = { 
+				limit = { trait = kind } 
+				piety = 25
+			}
+			if = { 
+				limit = { NOT = { trait = kind } } 
+				add_trait = kind
+				hidden_tooltip = { character_event = { id = 38268 } } 
+			}
+		}
+		hidden_tooltip = { 
+			FROM = { health = 0.2 } 
+			gain_weight_small_effect = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Just relieved
+		name = EVTOPTBHFP20599
+		custom_tooltip = { text = tooltip_20599_B }
+		ai_chance = { factor = 50 }
+	}
+	option = { #Annoyed
+		name = EVTOPTCHFP20599
+		custom_tooltip = { text = tooltip_20599_C }
+		trigger = { 
+			OR = { 
+				trait = cruel
+				has_character_flag = survivor_mom
+			}
+		}
+		hidden_tooltip = { 
+			FROM = { health = -0.2 } 
+			balance_weight_small_effect = yes
+		}
+		opinion = { 
+			modifier = opinion_upset_mother 
+			who = FROM
+			years = 10
+		}
+		random = { 
+			chance = 30
+			if = { 
+				limit = { trait = cruel } 
+				piety = -25
+			}
+			if = { 
+				limit = { NOT = { trait = cruel } } 
+				add_trait = cruel
+				hidden_tooltip = { character_event = { id = 38259 } } 
+			}
+		}
+		ai_chance = { factor = 40 } 
+	}
+}
 
-# #delayed from on_birth event (of a few years). Father develops bond with child.
-# character_event = {
-	# id = HFP.20000
-	# desc = {
-		# text = EVTDESCHFPA20000
-		# trigger = {
-			# NOT = { trait = kind }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20000
-		# trigger = {
-			# trait = kind
-		# }
-	# }
-	# picture = GFX_evt_family
+#delayed from on_birth event (of a few years). Father develops bond with child.
+character_event = {
+	id = HFP.20000
+	desc = {
+		text = EVTDESCHFPA20000
+		trigger = {
+			NOT = { trait = kind }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20000
+		trigger = {
+			trait = kind
+		}
+	}
+	picture = GFX_evt_family
 
-	# trigger = { 
-		# prisoner = no
-		# NOT = { trait = incapable }
-		# FROM = { 
-			# is_alive = yes 
-			# prisoner = no
-			# NOT = { trait = sickly }
-			# NOT = { trait = bastard }
-			# NOT = { trait = incapable }
-			# OR = { 
-				# host = { character = ROOT }
-				# at_location = ROOT
-				# guardian = { character = ROOT }
-			# }
-		# } 
-	# }
-	# is_triggered_only = yes
+	trigger = { 
+		prisoner = no
+		NOT = { trait = incapable }
+		FROM = { 
+			is_alive = yes 
+			prisoner = no
+			NOT = { trait = sickly }
+			NOT = { trait = bastard }
+			NOT = { trait = incapable }
+			OR = { 
+				host = { character = ROOT }
+				at_location = ROOT
+				guardian = { character = ROOT }
+			}
+		} 
+	}
+	is_triggered_only = yes
 	
-	# option = { #In love
-		# name = EVTOPTAHFP20000
-		# trigger = { NOT = { trait = cruel } }
-		# custom_tooltip = { text = tooltip_20000_A }
-		# opinion = { 
-			# modifier = opinion_fatherly_love 
-			# who = FROM
-			# years = 10
-		# }
-		# random_list = { 
-			# 20 = { FROM = { change_diplomacy = 1 } }
-			# 20 = { FROM = { change_martial = 1 } }
-			# 20 = { FROM = { change_stewardship = 1 } }
-			# 20 = { FROM = { change_intrigue = 1 } }
-			# 20 = { FROM = { change_learning = 1 } }
-		# }
-		# random = { 
-			# chance = 30
-			# if = { 
-				# limit = { trait = kind } 
-				# piety = 25
-			# }
-			# if = { 
-				# limit = { NOT = { trait = kind } } 
-				# add_trait = kind
-				# hidden_tooltip = { character_event = { id = 38268 } } 
-			# }
-		# }
-		# hidden_tooltip = { 
-			# FROM = { health = 0.2 } 
-			# gain_weight_small_effect = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Annoyed
-		# name = EVTOPTBHFP20000
-		# custom_tooltip = { text = tooltip_20000_B }
-		# trigger = { NOT = { trait = kind } }
-		# hidden_tooltip = { 
-			# FROM = { health = -0.2 } 
-			# balance_weight_small_effect = yes
-		# }
-		# opinion = { 
-			# modifier = opinion_upset_father 
-			# who = FROM
-			# years = 10
-		# }
-		# random = { 
-			# chance = 20
-			# if = { 
-				# limit = { trait = cruel } 
-				# piety = -25
-			# }
-			# if = { 
-				# limit = { NOT = { trait = cruel } } 
-				# add_trait = cruel
-				# hidden_tooltip = { character_event = { id = 38259 } } 
-			# }
-		# }
-		# ai_chance = { factor = 50 } 
-	# }
-# }
+	option = { #In love
+		name = EVTOPTAHFP20000
+		trigger = { NOT = { trait = cruel } }
+		custom_tooltip = { text = tooltip_20000_A }
+		opinion = { 
+			modifier = opinion_fatherly_love 
+			who = FROM
+			years = 10
+		}
+		random_list = { 
+			20 = { FROM = { change_diplomacy = 1 } }
+			20 = { FROM = { change_martial = 1 } }
+			20 = { FROM = { change_stewardship = 1 } }
+			20 = { FROM = { change_intrigue = 1 } }
+			20 = { FROM = { change_learning = 1 } }
+		}
+		random = { 
+			chance = 30
+			if = { 
+				limit = { trait = kind } 
+				piety = 25
+			}
+			if = { 
+				limit = { NOT = { trait = kind } } 
+				add_trait = kind
+				hidden_tooltip = { character_event = { id = 38268 } } 
+			}
+		}
+		hidden_tooltip = { 
+			FROM = { health = 0.2 } 
+			gain_weight_small_effect = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Annoyed
+		name = EVTOPTBHFP20000
+		custom_tooltip = { text = tooltip_20000_B }
+		trigger = { NOT = { trait = kind } }
+		hidden_tooltip = { 
+			FROM = { health = -0.2 } 
+			balance_weight_small_effect = yes
+		}
+		opinion = { 
+			modifier = opinion_upset_father 
+			who = FROM
+			years = 10
+		}
+		random = { 
+			chance = 20
+			if = { 
+				limit = { trait = cruel } 
+				piety = -25
+			}
+			if = { 
+				limit = { NOT = { trait = cruel } } 
+				add_trait = cruel
+				hidden_tooltip = { character_event = { id = 38259 } } 
+			}
+		}
+		ai_chance = { factor = 50 } 
+	}
+}
 
-# #Mother drunk/drugged during pregnancy, child is growing dumb.
-# character_event = {
-	# id = HFP.20001
-	# desc = {
-		# text = EVTDESCHFPA20001
-		# trigger = {
-			# FROM = { has_character_flag = flag_drunk_birth }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20001
-		# trigger = {
-			# FROM = { has_character_flag = flag_drugged_birth }
-		# }
-	# }
-	# picture = GFX_evt_birth
+#Mother drunk/drugged during pregnancy, child is growing dumb.
+character_event = {
+	id = HFP.20001
+	desc = {
+		text = EVTDESCHFPA20001
+		trigger = {
+			FROM = { has_character_flag = flag_drunk_birth }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20001
+		trigger = {
+			FROM = { has_character_flag = flag_drugged_birth }
+		}
+	}
+	picture = GFX_evt_birth
 
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes 
-			# NOT = { trait = incapable }
-			# OR = { 
-				# host = { character = ROOT }
-				# at_location = ROOT
-				# guardian = { character = ROOT }
-			# }
-			# OR = { 
-				# trait = slow
-				# trait = imbecile
-			# }
-		# } 
-	# }
-	# is_triggered_only = yes
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+			NOT = { trait = incapable }
+			OR = { 
+				host = { character = ROOT }
+				at_location = ROOT
+				guardian = { character = ROOT }
+			}
+			OR = { 
+				trait = slow
+				trait = imbecile
+			}
+		} 
+	}
+	is_triggered_only = yes
 	
-	# option = { # Concerned, try stopping the bad habit if still into it.
-		# name = {
-			# text = EVTOPTAHFP20001_A 	#Still drinking
-			# trigger = { 
-				# trait = drunkard
-				# FROM = {
-					# has_character_flag = flag_drunk_birth
-				# }
-			# }
-		# }
+	option = { # Concerned, try stopping the bad habit if still into it.
+		name = {
+			text = EVTOPTAHFP20001_A 	#Still drinking
+			trigger = { 
+				trait = drunkard
+				FROM = {
+					has_character_flag = flag_drunk_birth
+				}
+			}
+		}
 		# name = {
 			# text = EVTOPTAHFP20001_B 	#Still smoking
 			# trigger = { 
@@ -11404,15 +11404,15 @@ character_event = {
 				# }
 			# }
 		# }
-		# name = {
-			# text = EVTOPTAHFP20001_C 	#Stopped drinking
-			# trigger = { 
-				# NOT = { trait = drunkard }
-				# FROM = {
-					# has_character_flag = flag_drunk_birth
-				# }
-			# }
-		# }
+		name = {
+			text = EVTOPTAHFP20001_C 	#Stopped drinking
+			trigger = { 
+				NOT = { trait = drunkard }
+				FROM = {
+					has_character_flag = flag_drunk_birth
+				}
+			}
+		}
 		# name = {
 			# text = EVTOPTAHFP20001_D 	#Stopped smoking
 			# trigger = { 
@@ -11422,18 +11422,18 @@ character_event = {
 				# }
 			# }
 		# }
-		# tiered_piety_negative_effect = yes
-		# tooltip = { 
-			# FROM = {	
-				# father = {
-					# opinion = { 
-						# modifier = opinion_irresponsible_mother
-						# who = ROOT
-						# years = 20
-					# }
-				# }	
-			# }
-		# }
+		tiered_piety_negative_effect = yes
+		tooltip = { 
+			FROM = {	
+				father = {
+					opinion = { 
+						modifier = opinion_irresponsible_mother
+						who = ROOT
+						years = 20
+					}
+				}	
+			}
+		}
 		# if = { 
 			# limit = {
 				# has_character_modifier = hashish_addict 
@@ -11456,90 +11456,90 @@ character_event = {
 				# }
 			# }
 		# }
-		# if = { 
-			# limit = {
-				# trait = drunkard
-				# FROM = { has_character_flag = flag_drunk_birth } 
-			# } 
-			# random = {
-				# chance = 20
-				# add_trait = stressed
-				# remove_trait = drunkard
-			# }
-		# }
-	# }
-	# option = { # Not concerned but still addicted.
-		# name = EVTOPTBHFP20001 	
-		# trigger = { 
-			# NOT = { trait = kind }
-			# OR = { 
-				# AND = { 
-					# trait = drunkard
-					# FROM = { has_character_flag = flag_drunk_birth } 
-				# } 
-				# AND = { 
-					# has_character_modifier = hashish_addict 
-					# FROM = { has_character_flag = flag_drugged_birth } 
-				# } 
-			# }
-		# }
-	# }
-	# after = {
-		# FROM = { 
-			# clr_character_flag = flag_drugged_birth
-			# clr_character_flag = flag_drunk_birth
-		# }
-	# }
-# }
+		if = { 
+			limit = {
+				trait = drunkard
+				FROM = { has_character_flag = flag_drunk_birth } 
+			} 
+			random = {
+				chance = 20
+				add_trait = stressed
+				remove_trait = drunkard
+			}
+		}
+	}
+	option = { # Not concerned but still addicted.
+		name = EVTOPTBHFP20001 	
+		trigger = { 
+			NOT = { trait = kind }
+			OR = { 
+				AND = { 
+					trait = drunkard
+					FROM = { has_character_flag = flag_drunk_birth } 
+				} 
+				AND = { 
+					has_character_modifier = hashish_addict 
+					FROM = { has_character_flag = flag_drugged_birth } 
+				} 
+			}
+		}
+	}
+	after = {
+		FROM = { 
+			clr_character_flag = flag_drugged_birth
+			clr_character_flag = flag_drunk_birth
+		}
+	}
+}
 
-# #Father: Mother drunk/drugged during pregnancy, child is growing dumb.
-# character_event = {
-	# id = HFP.20002
-	# desc = {
-		# text = EVTDESCHFPA20002
-		# trigger = {
-			# FROM = { has_character_flag = flag_drunk_birth }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20002
-		# trigger = {
-			# FROM = { has_character_flag = flag_drugged_birth }
-		# }
-	# }
-	# picture = GFX_evt_birth
+#Father: Mother drunk/drugged during pregnancy, child is growing dumb.
+character_event = {
+	id = HFP.20002
+	desc = {
+		text = EVTDESCHFPA20002
+		trigger = {
+			FROM = { has_character_flag = flag_drunk_birth }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20002
+		trigger = {
+			FROM = { has_character_flag = flag_drugged_birth }
+		}
+	}
+	picture = GFX_evt_birth
 
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes 
-			# NOT = { trait = incapable }
-			# NOT = { trait = bastard }
-			# OR = { 
-				# host = { character = ROOT }
-				# at_location = ROOT
-				# guardian = { character = ROOT }
-			# }
-			# OR = { 
-				# trait = slow
-				# trait = imbecile
-			# }
-		# } 
-	# }
-	# is_triggered_only = yes
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+			NOT = { trait = incapable }
+			NOT = { trait = bastard }
+			OR = { 
+				host = { character = ROOT }
+				at_location = ROOT
+				guardian = { character = ROOT }
+			}
+			OR = { 
+				trait = slow
+				trait = imbecile
+			}
+		} 
+	}
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = {
-			# text = EVTOPTAHFP20002_A 	#Still drinking
-			# trigger = { 
-				# FROM = { 
-					# mother = { 
-						# trait = drunkard 
-						# is_alive = yes 
-					# }
-					# has_character_flag = flag_drunk_birth
-				# }
-			# }
-		# }
+	option = { 
+		name = {
+			text = EVTOPTAHFP20002_A 	#Still drinking
+			trigger = { 
+				FROM = { 
+					mother = { 
+						trait = drunkard 
+						is_alive = yes 
+					}
+					has_character_flag = flag_drunk_birth
+				}
+			}
+		}
 		# name = {
 			# text = EVTOPTAHFP20002_B 	#Still smoking
 			# trigger = { 
@@ -11552,1782 +11552,1782 @@ character_event = {
 				# }
 			# }
 		# }
-		# name = {
-			# text = EVTOPTAHFP20002_C 	#Mother no longer addicted.
-			# trigger = { 
-				# FROM = {
-					# mother = { 
-						# is_alive = yes
-						# NOT = { trait = drunkard } 
+		name = {
+			text = EVTOPTAHFP20002_C 	#Mother no longer addicted.
+			trigger = { 
+				FROM = {
+					mother = { 
+						is_alive = yes
+						NOT = { trait = drunkard } 
 						# NOT = { has_character_modifier = hashish_addict } 
-					# }
-				# }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20002_D 	#Mother died in the meantime
-			# trigger = { 
-				# FROM = {
-					# mother = { 
-						# is_alive = no 
-					# }
-				# }
-			# }
-		# }
-		# FROM = { 
-			# mother = { 
-				# reverse_opinion = { 
-					# modifier = opinion_irresponsible_mother
-					# who = ROOT
-					# years = 20
-				# }
-			# }
-		# }
-	# }
-# }
+					}
+				}
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20002_D 	#Mother died in the meantime
+			trigger = { 
+				FROM = {
+					mother = { 
+						is_alive = no 
+					}
+				}
+			}
+		}
+		FROM = { 
+			mother = { 
+				reverse_opinion = { 
+					modifier = opinion_irresponsible_mother
+					who = ROOT
+					years = 20
+				}
+			}
+		}
+	}
+}
 
-# ##############################################
+##############################################
 
-# #Pregnancy glow
-# character_event = {
-	# id = HFP.20003
-	# desc = {
-		# text = EVTDESCHFPA20003
-		# trigger = {
-			# is_attractive_trigger = yes
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20003
-		# trigger = {
-			# NOR = {
-				# is_attractive_trigger = yes
-				# is_unattractive_trigger = yes
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20003
-		# trigger = {
-			# is_unattractive_trigger = yes
-		# }
-	# }
-	# picture = GFX_evt_homage_hf
+#Pregnancy glow
+character_event = {
+	id = HFP.20003
+	desc = {
+		text = EVTDESCHFPA20003
+		trigger = {
+			is_attractive_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20003
+		trigger = {
+			NOR = {
+				is_attractive_trigger = yes
+				is_unattractive_trigger = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20003
+		trigger = {
+			is_unattractive_trigger = yes
+		}
+	}
+	picture = GFX_evt_homage_hf
 
-	# trigger = { 
-		# trait = pregnant
-		# NOT = { trait = incapable }
-		# NOT = { trait = hard_pregnancy }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		trait = pregnant
+		NOT = { trait = incapable }
+		NOT = { trait = hard_pregnancy }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { #Bask in it
-		# name = EVTOPTAHFP20003
-		# tiered_prestige_reward_effect = yes
-		# add_character_modifier = { 
-			# modifier = mother_pregnancy_glow
-			# duration = 80 
-		# }
-		# if = { 
-			# limit = { is_main_spouse = yes } 
-			# hidden_tooltip = { spouse = { character_event = { id = HFP.20004 days = 15 random = 5 } } } 
-		# }
-		# ai_chance = { 
-			# factor = 75 
-			# modifier = { 
-				# factor = 0.5
-				# trait = shy
-			# } 
-			# modifier = { 
-				# factor = 0.5
-				# trait = humble
-			# }
-		# } 
-	# }
+	option = { #Bask in it
+		name = EVTOPTAHFP20003
+		tiered_prestige_reward_effect = yes
+		add_character_modifier = { 
+			modifier = mother_pregnancy_glow
+			duration = 80 
+		}
+		if = { 
+			limit = { is_main_spouse = yes } 
+			hidden_tooltip = { spouse = { character_event = { id = HFP.20004 days = 15 random = 5 } } } 
+		}
+		ai_chance = { 
+			factor = 75 
+			modifier = { 
+				factor = 0.5
+				trait = shy
+			} 
+			modifier = { 
+				factor = 0.5
+				trait = humble
+			}
+		} 
+	}
 
-	# option = { #Be humble about it
-		# name = EVTOPTBHFP20003
-		# if = { 
-			# limit = { trait = proud }
-			# random = { 
-				# chance = 30
-				# remove_trait = proud 
-				# hidden_tooltip = { character_event = { id = 38300 } }
-				# break = yes
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = proud 
-					# trait = humble 
-				# } 
-			# }
-			# random = { 
-				# chance = 30
-				# add_trait = humble 
-				# hidden_tooltip = { character_event = { id = 38260 } }
-				# break = yes
-			# }
-		# }
-		# if = { 
-			# limit = { trait = humble }
-			# tiered_piety_reward_effect = yes
-		# }
-		# ai_chance = { 
-			# factor = 25
-			# modifier = { 
-				# factor = 0.5
-				# trait = gregarious
-			# } 
-			# modifier = { 
-				# factor = 0.5
-				# trait = proud
-			# }
-		# }
-	# }
-# }
+	option = { #Be humble about it
+		name = EVTOPTBHFP20003
+		if = { 
+			limit = { trait = proud }
+			random = { 
+				chance = 30
+				remove_trait = proud 
+				hidden_tooltip = { character_event = { id = 38300 } }
+				break = yes
+			}
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = proud 
+					trait = humble 
+				} 
+			}
+			random = { 
+				chance = 30
+				add_trait = humble 
+				hidden_tooltip = { character_event = { id = 38260 } }
+				break = yes
+			}
+		}
+		if = { 
+			limit = { trait = humble }
+			tiered_piety_reward_effect = yes
+		}
+		ai_chance = { 
+			factor = 25
+			modifier = { 
+				factor = 0.5
+				trait = gregarious
+			} 
+			modifier = { 
+				factor = 0.5
+				trait = proud
+			}
+		}
+	}
+}
 
-# #Pregnancy glow - Spouse notified
-# character_event = {
-	# id = HFP.20004
-	# desc = {
-		# text = EVTDESCHFPA20004
-		# trigger = {
-			# FROM = { 
-				# is_attractive_trigger = yes
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20004
-		# trigger = {
-			# FROM = {
-				# NOR = {
-					# is_attractive_trigger = yes
-					# is_unattractive_trigger = yes
-				# }
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20004
-		# trigger = {
-			# FROM = {
-				# is_unattractive_trigger = yes
-			# }
-		# }
-	# }
-	# picture = GFX_evt_homage_hf
+#Pregnancy glow - Spouse notified
+character_event = {
+	id = HFP.20004
+	desc = {
+		text = EVTDESCHFPA20004
+		trigger = {
+			FROM = { 
+				is_attractive_trigger = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20004
+		trigger = {
+			FROM = {
+				NOR = {
+					is_attractive_trigger = yes
+					is_unattractive_trigger = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20004
+		trigger = {
+			FROM = {
+				is_unattractive_trigger = yes
+			}
+		}
+	}
+	picture = GFX_evt_homage_hf
 
-	# trigger = { 
-		# FROM = { is_alive = yes is_married = ROOT }  
-	# } 
+	trigger = { 
+		FROM = { is_alive = yes is_married = ROOT }  
+	} 
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { #Appreciate it
-		# name = EVTOPTAHFP20004
-		# tiered_piety_negative_effect = yes
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no 
-				# opinion = { 
-					# who = ROOT 
-					# modifier = opinion_flattered 
-					# years = 5
-				# }
-			# }
-		# }
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20029 } } }
-		# if = { 
-			# limit = { trait = celibate }
-			# remove_trait = celibate
-		# }
-		# if = { 
-			# limit = { trait = chaste }
-			# random = { 
-				# chance = 25
-				# remove_trait = chaste 
-				# hidden_tooltip = { character_event = { id = 38303 } }
-				# break = yes
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = lustful 
-					# trait = chaste 
-				# } 
-			# }
-			# random = { 
-				# chance = 25
-				# add_trait = lustful 
-				# hidden_tooltip = { character_event = { id = 38272 } }
-				# break = yes
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = { 
-				# factor = 1.5
-				# trait = lustful
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = chaste
-			# }
-			# modifier = { 
-				# factor = 0.01
-				# trait = celibate
-			# }
-			# modifier = { 
-				# factor = 0.25
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-			# modifier = { 
-				# factor = 0.25
-				# FROM = { has_character_modifier = adulteress }
-			# }
-		# }
-	# }
-	# option = { #Not appropriate
-		# name = EVTOPTBHFP20004
-		# if = { 
-			# limit = { trait = lustful }
-			# random = { 
-				# chance = 25
-				# remove_trait = lustful 
-				# break = yes
-			# }
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = lustful 
-					# trait = chaste 
-				# } 
-			# }
-			# random = { 
-				# chance = 25
-				# add_trait = chaste 
-				# hidden_tooltip = { character_event = { id = 38274 } }
-				# break = yes
-			# }
-		# }
-		# if = { 
-			# limit = { trait = chaste }
-			# tiered_piety_reward_effect = yes
-		# }
-		# ai_chance = { 
-			# factor = 50
-			# modifier = { 
-				# factor = 1.5
-				# trait = chaste
-			# }
-			# modifier = { 
-				# factor = 0.5
-				# trait = lustful
-			# }
-			# modifier = { 
-				# factor = 0.1
-				# trait = hedonist
-			# }
-		# }
-	# }
-# }
+	option = { #Appreciate it
+		name = EVTOPTAHFP20004
+		tiered_piety_negative_effect = yes
+		tooltip = {
+			FROM = {
+				show_scope_change = no 
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_flattered 
+					years = 5
+				}
+			}
+		}
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20029 } } }
+		if = { 
+			limit = { trait = celibate }
+			remove_trait = celibate
+		}
+		if = { 
+			limit = { trait = chaste }
+			random = { 
+				chance = 25
+				remove_trait = chaste 
+				hidden_tooltip = { character_event = { id = 38303 } }
+				break = yes
+			}
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = lustful 
+					trait = chaste 
+				} 
+			}
+			random = { 
+				chance = 25
+				add_trait = lustful 
+				hidden_tooltip = { character_event = { id = 38272 } }
+				break = yes
+			}
+		}
+		ai_chance = { 
+			factor = 50
+			modifier = { 
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = { 
+				factor = 0.5
+				trait = chaste
+			}
+			modifier = { 
+				factor = 0.01
+				trait = celibate
+			}
+			modifier = { 
+				factor = 0.25
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+			modifier = { 
+				factor = 0.25
+				FROM = { has_character_modifier = adulteress }
+			}
+		}
+	}
+	option = { #Not appropriate
+		name = EVTOPTBHFP20004
+		if = { 
+			limit = { trait = lustful }
+			random = { 
+				chance = 25
+				remove_trait = lustful 
+				break = yes
+			}
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = lustful 
+					trait = chaste 
+				} 
+			}
+			random = { 
+				chance = 25
+				add_trait = chaste 
+				hidden_tooltip = { character_event = { id = 38274 } }
+				break = yes
+			}
+		}
+		if = { 
+			limit = { trait = chaste }
+			tiered_piety_reward_effect = yes
+		}
+		ai_chance = { 
+			factor = 50
+			modifier = { 
+				factor = 1.5
+				trait = chaste
+			}
+			modifier = { 
+				factor = 0.5
+				trait = lustful
+			}
+			modifier = { 
+				factor = 0.1
+				trait = hedonist
+			}
+		}
+	}
+}
 
-# #Pregnancy glow - Spouse is flattering you.
-# character_event = {
-	# id = HFP.20029
-	# desc = EVTDESCHFPA20029
-	# picture = GFX_evt_homage_hf
+#Pregnancy glow - Spouse is flattering you.
+character_event = {
+	id = HFP.20029
+	desc = EVTDESCHFPA20029
+	picture = GFX_evt_homage_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { 
-		# name = EVTOPTAHFP20029
-		# opinion = { 
-			# who = FROM 
-			# modifier = opinion_flattered 
-			# years = 2
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20029
+		opinion = { 
+			who = FROM 
+			modifier = opinion_flattered 
+			years = 2
+		}
+	}
+}
 
-# ##############################################
+##############################################
 
-# #The Gossiping - Only for rulers or spouses of rulers (COUNT or higher)
-# #Husband receives event to call other women to entertain wife.
-# character_event = {
-	# id = HFP.20005
-	# desc = EVTDESCHFPA20005
-	# picture = GFX_evt_princess_byzantine
+#The Gossiping - Only for rulers or spouses of rulers (COUNT or higher)
+#Husband receives event to call other women to entertain wife.
+character_event = {
+	id = HFP.20005
+	desc = EVTDESCHFPA20005
+	picture = GFX_evt_princess_byzantine
 
-	# trigger = { 
-		# FROM = { 
-			# trait = pregnant
-			# is_married = ROOT
-			# is_alive = yes
-			# NOR = {
-				# trait = incapable
-				# trait = troubled_pregnancy
+	trigger = { 
+		FROM = { 
+			trait = pregnant
+			is_married = ROOT
+			is_alive = yes
+			NOR = {
+				trait = incapable
+				trait = troubled_pregnancy
 				# trait = on_hajj
 				# trait = on_pilgrimage
 				# trait = on_indian_pilgrimage
 				# trait = kow_tow_travels
 				# trait = travelling
-			# }
-		# }
-	# }
+			}
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { #Call relatives to entertain
-		# name = EVTOPTAHFP20005 
-		# custom_tooltip = { text = tooltip_HFP20005_A } 
-		# trigger = {
-			# OR = {
-				# ROOT = { 
-					# is_ruler = yes
-					# any_courtier_or_vassal = { 
-						# OR = { 
-							# dynasty = FROM
-							# dynasty = ROOT 
-						# }
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# NOT = { character = FROM } 
-						# NOT = { character = ROOT }
-						# prisoner = no
-						# is_female = yes
-						# is_adult = yes
-						# count = 2
-					# }
-				# }
-				# FROM = { 
-					# is_ruler = yes
-					# any_courtier_or_vassal = { 
-						# OR = { 
-							# dynasty = FROM
-							# dynasty = ROOT 
-						# }
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# NOT = { character = FROM } 
-						# NOT = { character = ROOT }
-						# prisoner = no
-						# is_female = yes
-						# is_adult = yes
-						# count = 2
-					# }
-				# }
-			# }
-		# }
-		# prestige = 30
-		# piety = 10
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no
-				# add_character_modifier = {
-					# name = mother_comforted
-					# duration = 60
-					# stacking = yes
-				# }
-				# opinion = { 
-					# who = ROOT 
-					# modifier = opinion_swayed_2 
-					# years = 2
-				# }
-			# }
-		# }
-		# hidden_tooltip = { 
-			# FROM = { 
-				# set_character_flag = flag_gossiping_relatives
-				# character_event = { id = HFP.20006 days = 10 random = 15 } #Notification
-			# }
-			# if = { #If husband is ruler, pick from his court.
-				# limit = { is_ruler = yes }
-				# #Ping player first. 
-				# random_courtier_or_vassal = { 
-					# limit = { 
-						# OR = { 
-							# dynasty = FROM
-							# dynasty = ROOT 
-						# }
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# NOT = { character = FROM } 
-						# NOT = { character = ROOT }
-						# prisoner = no
-						# is_female = yes
-						# is_adult = yes
-						# ai = no
-					# }
-					# character_event = { id = HFP.20010 days = 5 random = 5 }
-					# break = yes
-				# }
-				# #Otherwise random AI.
-				# random_courtier_or_vassal = { 
-					# limit = { 
-						# OR = { 
-							# dynasty = FROM
-							# dynasty = ROOT 
-						# }
-						# is_inaccessible_trigger = no
-						# NOT = { trait = incapable }
-						# NOT = { character = FROM } 
-						# NOT = { character = ROOT }
-						# prisoner = no
-						# is_female = yes
-						# is_adult = yes
-						# ai = yes
-					# }
-					# character_event = { id = HFP.20010 days = 5 random = 5 }
-					# break = yes
-				# }	
-			# }
-			# if = { #If husband is not ruler, pick from her court.
-				# limit = { is_ruler = no }
-				# #Ping player first. 
-				# FROM = { 
-					# random_courtier_or_vassal = { 
-						# limit = { 
-							# OR = { 
-								# dynasty = FROM
-								# dynasty = ROOT 
-							# }
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# NOT = { character = FROM } 
-							# NOT = { character = ROOT }
-							# prisoner = no
-							# is_female = yes
-							# is_adult = yes
-							# ai = no
-						# }
-						# character_event = { id = HFP.20010 days = 5 random = 5 }
-						# break = yes
-					# }
-				# }
-				# #Otherwise random AI.
-				# FROM = { 
-					# random_courtier_or_vassal = { 
-						# limit = { 
-							# OR = { 
-								# dynasty = FROM
-								# dynasty = ROOT 
-							# }
-							# is_inaccessible_trigger = no
-							# NOT = { trait = incapable }
-							# NOT = { character = FROM } 
-							# NOT = { character = ROOT }
-							# prisoner = no
-							# is_female = yes
-							# is_adult = yes
-							# ai = no
-						# }
-						# character_event = { id = HFP.20010 days = 5 random = 5 }
-						# break = yes
-					# }
-				# }	
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 100 
-			# modifier = { 
-				# factor = 0.1 
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 0.25 
-				# FROM = { has_character_modifier = adulteress }
-			# }
-			# modifier = { 
-				# factor = 0.25 
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-		# }
-	# }
-	# option = { #Hire servants
-		# name = EVTOPTBHFP20005
-		# custom_tooltip = { text = tooltip_HFP20005_B } 
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20006 days = 10 random = 15 } } }
-		# scaled_wealth = { value = -0.05 min = -10 max = -75 }
-		# piety = 10
-		# tooltip = {
-			# FROM = {
-				# show_scope_change = no
-				# add_character_modifier = {
-					# name = mother_comforted
-					# duration = 60
-					# stacking = yes
-				# }
-				# opinion = { 
-					# who = ROOT 
-					# modifier = opinion_swayed_2 
-					# years = 2
-				# }
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 50 
-			# modifier = { 
-				# factor = 0.5 
-				# trait = greedy
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 0.25 
-				# FROM = { has_character_modifier = adulteress }
-			# }
-			# modifier = { 
-				# factor = 0.25 
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-		# }
-	# }
-	# option = { #Do nothing
-		# name = EVTOPTCHFP20005
-		# piety = -10
-		# ai_chance = { 
-			# factor = 10 
-			# modifier = { 
-				# factor = 0.1 
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 2
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 3
-				# FROM = { has_character_modifier = adulteress }
-			# }
-			# modifier = { 
-				# factor = 3
-				# FROM = { has_character_modifier = incestuous_adulteress }
-			# }
-		# }
-	# }
-# }
+	option = { #Call relatives to entertain
+		name = EVTOPTAHFP20005 
+		custom_tooltip = { text = tooltip_HFP20005_A } 
+		trigger = {
+			OR = {
+				ROOT = { 
+					is_ruler = yes
+					any_courtier_or_vassal = { 
+						OR = { 
+							dynasty = FROM
+							dynasty = ROOT 
+						}
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { character = FROM } 
+						NOT = { character = ROOT }
+						prisoner = no
+						is_female = yes
+						is_adult = yes
+						count = 2
+					}
+				}
+				FROM = { 
+					is_ruler = yes
+					any_courtier_or_vassal = { 
+						OR = { 
+							dynasty = FROM
+							dynasty = ROOT 
+						}
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { character = FROM } 
+						NOT = { character = ROOT }
+						prisoner = no
+						is_female = yes
+						is_adult = yes
+						count = 2
+					}
+				}
+			}
+		}
+		prestige = 30
+		piety = 10
+		tooltip = {
+			FROM = {
+				show_scope_change = no
+				add_character_modifier = {
+					name = mother_comforted
+					duration = 60
+					stacking = yes
+				}
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_swayed_2 
+					years = 2
+				}
+			}
+		}
+		hidden_tooltip = { 
+			FROM = { 
+				set_character_flag = flag_gossiping_relatives
+				character_event = { id = HFP.20006 days = 10 random = 15 } #Notification
+			}
+			if = { #If husband is ruler, pick from his court.
+				limit = { is_ruler = yes }
+				#Ping player first. 
+				random_courtier_or_vassal = { 
+					limit = { 
+						OR = { 
+							dynasty = FROM
+							dynasty = ROOT 
+						}
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { character = FROM } 
+						NOT = { character = ROOT }
+						prisoner = no
+						is_female = yes
+						is_adult = yes
+						ai = no
+					}
+					character_event = { id = HFP.20010 days = 5 random = 5 }
+					break = yes
+				}
+				#Otherwise random AI.
+				random_courtier_or_vassal = { 
+					limit = { 
+						OR = { 
+							dynasty = FROM
+							dynasty = ROOT 
+						}
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { character = FROM } 
+						NOT = { character = ROOT }
+						prisoner = no
+						is_female = yes
+						is_adult = yes
+						ai = yes
+					}
+					character_event = { id = HFP.20010 days = 5 random = 5 }
+					break = yes
+				}	
+			}
+			if = { #If husband is not ruler, pick from her court.
+				limit = { is_ruler = no }
+				#Ping player first. 
+				FROM = { 
+					random_courtier_or_vassal = { 
+						limit = { 
+							OR = { 
+								dynasty = FROM
+								dynasty = ROOT 
+							}
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							NOT = { character = FROM } 
+							NOT = { character = ROOT }
+							prisoner = no
+							is_female = yes
+							is_adult = yes
+							ai = no
+						}
+						character_event = { id = HFP.20010 days = 5 random = 5 }
+						break = yes
+					}
+				}
+				#Otherwise random AI.
+				FROM = { 
+					random_courtier_or_vassal = { 
+						limit = { 
+							OR = { 
+								dynasty = FROM
+								dynasty = ROOT 
+							}
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							NOT = { character = FROM } 
+							NOT = { character = ROOT }
+							prisoner = no
+							is_female = yes
+							is_adult = yes
+							ai = no
+						}
+						character_event = { id = HFP.20010 days = 5 random = 5 }
+						break = yes
+					}
+				}	
+			}
+		}
+		ai_chance = { 
+			factor = 100 
+			modifier = { 
+				factor = 0.1 
+				trait = cruel
+			}
+			modifier = { 
+				factor = 0.1 
+				trait = envious
+			}
+			modifier = { 
+				factor = 0.25 
+				FROM = { has_character_modifier = adulteress }
+			}
+			modifier = { 
+				factor = 0.25 
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+		}
+	}
+	option = { #Hire servants
+		name = EVTOPTBHFP20005
+		custom_tooltip = { text = tooltip_HFP20005_B } 
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20006 days = 10 random = 15 } } }
+		scaled_wealth = { value = -0.05 min = -10 max = -75 }
+		piety = 10
+		tooltip = {
+			FROM = {
+				show_scope_change = no
+				add_character_modifier = {
+					name = mother_comforted
+					duration = 60
+					stacking = yes
+				}
+				opinion = { 
+					who = ROOT 
+					modifier = opinion_swayed_2 
+					years = 2
+				}
+			}
+		}
+		ai_chance = { 
+			factor = 50 
+			modifier = { 
+				factor = 0.5 
+				trait = greedy
+			}
+			modifier = { 
+				factor = 0.1 
+				trait = cruel
+			}
+			modifier = { 
+				factor = 0.1 
+				trait = envious
+			}
+			modifier = { 
+				factor = 0.25 
+				FROM = { has_character_modifier = adulteress }
+			}
+			modifier = { 
+				factor = 0.25 
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+		}
+	}
+	option = { #Do nothing
+		name = EVTOPTCHFP20005
+		piety = -10
+		ai_chance = { 
+			factor = 10 
+			modifier = { 
+				factor = 0.1 
+				trait = kind
+			}
+			modifier = { 
+				factor = 0.1 
+				trait = charitable
+			}
+			modifier = { 
+				factor = 2
+				trait = cruel
+			}
+			modifier = { 
+				factor = 2
+				trait = envious
+			}
+			modifier = { 
+				factor = 3
+				FROM = { has_character_modifier = adulteress }
+			}
+			modifier = { 
+				factor = 3
+				FROM = { has_character_modifier = incestuous_adulteress }
+			}
+		}
+	}
+}
 
-# #Mother: gossiping has been organized.
-# character_event = {
-	# id = HFP.20006
-	# desc = {
-		# text = EVTDESCHFPA20006
-		# trigger = {
-			# has_character_flag = flag_gossiping_relatives
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20006
-		# trigger = {
-			# NOT = { has_character_flag = flag_gossiping_relatives }
-		# }
-	# }
-	# picture = GFX_evt_princess_byzantine
+#Mother: gossiping has been organized.
+character_event = {
+	id = HFP.20006
+	desc = {
+		text = EVTDESCHFPA20006
+		trigger = {
+			has_character_flag = flag_gossiping_relatives
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20006
+		trigger = {
+			NOT = { has_character_flag = flag_gossiping_relatives }
+		}
+	}
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# option = { 
-		# name = EVTOPTAHFP20006
-		# trigger = { trait = gregarious }
-		# tooltip_info = gregarious
-		# if = { 
-			# limit = { trait = depressed } 
-			# remove_trait = depressed
-		# }
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 60
-			# stacking = yes
-		# }
-		# opinion = { 
-			# who = FROM 
-			# modifier = opinion_swayed_2 
-			# years = 2
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20006
-		# trigger = { NOT = { trait = gregarious } }
-		# add_character_modifier = {
-			# name = mother_comforted
-			# duration = 60
-			# stacking = yes
-		# }
-		# opinion = { 
-			# who = FROM 
-			# modifier = opinion_swayed_2 
-			# years = 2
-		# }	
-	# }
-	# after = { 
-		# clr_character_flag = flag_gossiping_relatives 
-		# hidden_tooltip = { 
-			# #Fallback events if the mother either has no relative or if the random relative pinged either refused the gossiping or died in the meantime.
-		# random_list = { 
-				# #Mother enjoys herself, either becomes gregarious or trusting (patient offers chance for +1 learning).
-				# 45 = { character_event = { id = HFP.20007 days = 20 random = 5 } } 
-				# #Mother not enjoying herself, either becomes envious or shy (deceitful offers chance for +1 intrigue).
-				# 10 = { character_event = { id = HFP.20008 days = 20 random = 5 } } 
-				# #Mother pampered, either becomes content or gluttonous (diligent offers chance for +1 diplomacy)
-				# 45 = { character_event = { id = HFP.20009 days = 20 random = 5 } } 
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20006
+		trigger = { trait = gregarious }
+		tooltip_info = gregarious
+		if = { 
+			limit = { trait = depressed } 
+			remove_trait = depressed
+		}
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 60
+			stacking = yes
+		}
+		opinion = { 
+			who = FROM 
+			modifier = opinion_swayed_2 
+			years = 2
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20006
+		trigger = { NOT = { trait = gregarious } }
+		add_character_modifier = {
+			name = mother_comforted
+			duration = 60
+			stacking = yes
+		}
+		opinion = { 
+			who = FROM 
+			modifier = opinion_swayed_2 
+			years = 2
+		}	
+	}
+	after = { 
+		clr_character_flag = flag_gossiping_relatives 
+		hidden_tooltip = { 
+			#Fallback events if the mother either has no relative or if the random relative pinged either refused the gossiping or died in the meantime.
+		random_list = { 
+				#Mother enjoys herself, either becomes gregarious or trusting (patient offers chance for +1 learning).
+				45 = { character_event = { id = HFP.20007 days = 20 random = 5 } } 
+				#Mother not enjoying herself, either becomes envious or shy (deceitful offers chance for +1 intrigue).
+				10 = { character_event = { id = HFP.20008 days = 20 random = 5 } } 
+				#Mother pampered, either becomes content or gluttonous (diligent offers chance for +1 diplomacy)
+				45 = { character_event = { id = HFP.20009 days = 20 random = 5 } } 
+			}
+		}
+	}
+}
 
-# #Mother: enjoying the gossiping.
-# character_event = {
-	# id = HFP.20007
-	# desc = EVTDESCHFPA20007
-	# picture = GFX_evt_princess_byzantine
+#Mother: enjoying the gossiping.
+character_event = {
+	id = HFP.20007
+	desc = EVTDESCHFPA20007
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-		# NOT = { has_character_modifier = pregnancy_gossip_cooldown }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+		NOT = { has_character_modifier = pregnancy_gossip_cooldown }
+	}
 
-	# option = { #Listen and learn
-		# name = EVTOPTAHFP20007
-		# trigger = { trait = patient }
-		# tooltip_info = patient
-		# change_learning = 1
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Becoming gregarious
-		# name = EVTOPTBHFP20007
-		# if = { 
-			# limit = { trait = shy } 
-			# random = { 
-				# chance = 50
-				# remove_trait = shy
-				# hidden_tooltip = { character_event = { id = 38295 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = shy
-					# trait = gregarious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = gregarious
-				# hidden_tooltip = { character_event = { id = 38265 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = gregarious } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Relaxed and trusting
-		# name = EVTOPTCHFP20007
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = paranoid } 
-			# random = { 
-				# chance = 50
-				# remove_trait = paranoid
-				# hidden_tooltip = { character_event = { id = 38305 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = trusting
-					# trait = paranoid 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = trusting
-				# hidden_tooltip = { character_event = { id = 38250 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = trusting } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-# }
+	option = { #Listen and learn
+		name = EVTOPTAHFP20007
+		trigger = { trait = patient }
+		tooltip_info = patient
+		change_learning = 1
+		ai_chance = { factor = 80 }
+	}
+	option = { #Becoming gregarious
+		name = EVTOPTBHFP20007
+		if = { 
+			limit = { trait = shy } 
+			random = { 
+				chance = 50
+				remove_trait = shy
+				hidden_tooltip = { character_event = { id = 38295 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = shy
+					trait = gregarious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = gregarious
+				hidden_tooltip = { character_event = { id = 38265 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = gregarious } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Relaxed and trusting
+		name = EVTOPTCHFP20007
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = paranoid } 
+			random = { 
+				chance = 50
+				remove_trait = paranoid
+				hidden_tooltip = { character_event = { id = 38305 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = trusting
+					trait = paranoid 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = trusting
+				hidden_tooltip = { character_event = { id = 38250 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = trusting } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+}
 
-# #Mother: not enjoying the gossiping.
-# character_event = {
-	# id = HFP.20008
-	# desc = EVTDESCHFPA20008
-	# picture = GFX_evt_princess_byzantine
+#Mother: not enjoying the gossiping.
+character_event = {
+	id = HFP.20008
+	desc = EVTDESCHFPA20008
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-		# NOT = { has_character_modifier = pregnancy_gossip_cooldown }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+		NOT = { has_character_modifier = pregnancy_gossip_cooldown }
+	}
 
-	# option = { #Listen and plot
-		# name = EVTOPTAHFP20008
-		# trigger = { trait = deceitful }
-		# tooltip_info = deceitful
-		# change_intrigue = 1
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Envy
-		# name = EVTOPTBHFP20008
-		# if = { 
-			# limit = { trait = kind } 
-			# random = { 
-				# chance = 50
-				# remove_trait = kind
-				# hidden_tooltip = { character_event = { id = 38307 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = kind
-					# trait = envious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = envious
-				# hidden_tooltip = { character_event = { id = 38271 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = envious } 
-			# random = { 
-				# chance = 50
-				# change_intrigue = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Need some space
-		# name = EVTOPTCHFP20008
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = gregarious } 
-			# random = { 
-				# chance = 50
-				# remove_trait = gregarious
-				# hidden_tooltip = { character_event = { id = 38297 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = shy
-					# trait = gregarious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = shy
-				# hidden_tooltip = { character_event = { id = 38263 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = shy } 
-			# random = { 
-				# chance = 50
-				# change_intrigue = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-# }
+	option = { #Listen and plot
+		name = EVTOPTAHFP20008
+		trigger = { trait = deceitful }
+		tooltip_info = deceitful
+		change_intrigue = 1
+		ai_chance = { factor = 80 }
+	}
+	option = { #Envy
+		name = EVTOPTBHFP20008
+		if = { 
+			limit = { trait = kind } 
+			random = { 
+				chance = 50
+				remove_trait = kind
+				hidden_tooltip = { character_event = { id = 38307 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = kind
+					trait = envious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = envious
+				hidden_tooltip = { character_event = { id = 38271 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = envious } 
+			random = { 
+				chance = 50
+				change_intrigue = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Need some space
+		name = EVTOPTCHFP20008
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = gregarious } 
+			random = { 
+				chance = 50
+				remove_trait = gregarious
+				hidden_tooltip = { character_event = { id = 38297 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = shy
+					trait = gregarious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = shy
+				hidden_tooltip = { character_event = { id = 38263 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = shy } 
+			random = { 
+				chance = 50
+				change_intrigue = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+}
 
-# #Mother: pampered during gossiping.
-# character_event = {
-	# id = HFP.20009
-	# desc = EVTDESCHFPA20009
-	# picture = GFX_evt_princess_byzantine
+#Mother: pampered during gossiping.
+character_event = {
+	id = HFP.20009
+	desc = EVTDESCHFPA20009
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-		# NOT = { has_character_modifier = pregnancy_gossip_cooldown }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+		NOT = { has_character_modifier = pregnancy_gossip_cooldown }
+	}
 
-	# option = { #Do your part
-		# name = EVTOPTAHFP20009
-		# trigger = { trait = diligent }
-		# tooltip_info = diligent
-		# change_stewardship = 1
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Becoming content
-		# name = EVTOPTBHFP20009
-		# if = { 
-			# limit = { trait = ambitious } 
-			# random = { 
-				# chance = 50
-				# remove_trait = ambitious
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = content
-					# trait = ambitious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = content
-				# hidden_tooltip = { character_event = { id = 38279 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = content } 
-			# random = { 
-				# chance = 50
-				# change_stewardship = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 40 }
-	# }
-	# option = { #Becoming gluttonous
-		# name = EVTOPTCHFP20009
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = temperate } 
-			# random = { 
-				# chance = 50
-				# remove_trait = temperate
-				# hidden_tooltip = { character_event = { id = 38276 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = temperate
-					# trait = gluttonous 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = gluttonous
-				# gain_weight_small_effect = yes
-				# weight_trait_check_effect = yes
-				# hidden_tooltip = { character_event = { id = 38277 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = gluttonous } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-				# gain_weight_medium_effect = yes
-				# weight_trait_check_effect = yes
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-# }
+	option = { #Do your part
+		name = EVTOPTAHFP20009
+		trigger = { trait = diligent }
+		tooltip_info = diligent
+		change_stewardship = 1
+		ai_chance = { factor = 80 }
+	}
+	option = { #Becoming content
+		name = EVTOPTBHFP20009
+		if = { 
+			limit = { trait = ambitious } 
+			random = { 
+				chance = 50
+				remove_trait = ambitious
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = content
+					trait = ambitious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = content
+				hidden_tooltip = { character_event = { id = 38279 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = content } 
+			random = { 
+				chance = 50
+				change_stewardship = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 40 }
+	}
+	option = { #Becoming gluttonous
+		name = EVTOPTCHFP20009
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = temperate } 
+			random = { 
+				chance = 50
+				remove_trait = temperate
+				hidden_tooltip = { character_event = { id = 38276 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = temperate
+					trait = gluttonous 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = gluttonous
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
+				hidden_tooltip = { character_event = { id = 38277 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = gluttonous } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+				gain_weight_medium_effect = yes
+				weight_trait_check_effect = yes
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+}
 
-# #Relative: you have been invited to the gossiping.
-# character_event = {
-	# id = HFP.20010
-	# desc = EVTDESCHFPA20010
-	# picture = GFX_evt_princess_byzantine
-	# show_from_from = yes
+#Relative: you have been invited to the gossiping.
+character_event = {
+	id = HFP.20010
+	desc = EVTDESCHFPA20010
+	picture = GFX_evt_princess_byzantine
+	show_from_from = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# FROMFROM = {
-			# is_alive = yes 
-			# NOT = { trait = incapable }
-			# NOT = { trait = troubled_pregnancy }
-		# }
-	# }
+	trigger = { 
+		FROMFROM = {
+			is_alive = yes 
+			NOT = { trait = incapable }
+			NOT = { trait = troubled_pregnancy }
+		}
+	}
 
-	# option = { #Very well
-		# name = EVTOPTAHFP20010
-		# hidden_tooltip = { 
-			# random_list = { 
-					# 90 = { character_event = { id = HFP.20011 days = 12 random = 5 } } #Gossip imput
-					# 10 = { 
-						# modifier = { 
-							# factor = 0
-							# num_of_friends = 3
-						# }
-						# modifier = { 
-							# factor = 0
-							# is_friend = FROMFROM
-						# }
-						# modifier = { 
-							# factor = 0
-							# is_rival = FROMFROM
-						# }
-						# modifier = { 
-							# factor = 0
-							# is_lover = FROMFROM
-						# }
-						# modifier = { 
-							# factor = 0
-							# NOT = {
-								# opinion = {
-									# who = FROMFROM
-									# value = -30
-								# }  
-							# }
-						# }
-						# modifier = { 
-							# factor = 0
-							# FROMFROM = { num_of_friends = 3 }
-						# }
-						# modifier = { 
-							# factor = 1.5
-							# trait = kind
-						# }
-						# modifier = { 
-							# factor = 1.5
-							# trait = charitable
-						# }
-						# modifier = { 
-							# factor = 1.5
-							# trait = gregarious
-						# }
-						# modifier = { 
-							# factor = 0.5
-							# trait = shy
-						# }
-						# modifier = { 
-							# factor = 0.5
-							# FROMFROM = { trait = shy }
-						# }
-						# FROMFROM = { character_event = { id = HFP.20016 days = 12 random = 5 } } #Becoming friends with mother.
-					# }
-			# }  
-		# }
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #No time for it.
-		# name = EVTOPTBHFP20010
-		# trigger = { 
-			# OR = {
-				# ai = no
-				# trait = shy
-				# trait = cruel
-			# } 
-		# }
-		# piety = -5
-		# FROM = { 
-			# show_scope_change = no
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_disappointed
-				# years = 5 
-			# }
-		# }
-		# FROMFROM = { 
-			# show_scope_change = no
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_offended
-				# years = 5 
-			# }
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-# }
+	option = { #Very well
+		name = EVTOPTAHFP20010
+		hidden_tooltip = { 
+			random_list = { 
+					90 = { character_event = { id = HFP.20011 days = 12 random = 5 } } #Gossip imput
+					10 = { 
+						modifier = { 
+							factor = 0
+							num_of_friends = 3
+						}
+						modifier = { 
+							factor = 0
+							is_friend = FROMFROM
+						}
+						modifier = { 
+							factor = 0
+							is_rival = FROMFROM
+						}
+						modifier = { 
+							factor = 0
+							is_lover = FROMFROM
+						}
+						modifier = { 
+							factor = 0
+							NOT = {
+								opinion = {
+									who = FROMFROM
+									value = -30
+								}  
+							}
+						}
+						modifier = { 
+							factor = 0
+							FROMFROM = { num_of_friends = 3 }
+						}
+						modifier = { 
+							factor = 1.5
+							trait = kind
+						}
+						modifier = { 
+							factor = 1.5
+							trait = charitable
+						}
+						modifier = { 
+							factor = 1.5
+							trait = gregarious
+						}
+						modifier = { 
+							factor = 0.5
+							trait = shy
+						}
+						modifier = { 
+							factor = 0.5
+							FROMFROM = { trait = shy }
+						}
+						FROMFROM = { character_event = { id = HFP.20016 days = 12 random = 5 } } #Becoming friends with mother.
+					}
+			}  
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = { #No time for it.
+		name = EVTOPTBHFP20010
+		trigger = { 
+			OR = {
+				ai = no
+				trait = shy
+				trait = cruel
+			} 
+		}
+		piety = -5
+		FROM = { 
+			show_scope_change = no
+			opinion = { 
+				who = ROOT
+				modifier = opinion_disappointed
+				years = 5 
+			}
+		}
+		FROMFROM = { 
+			show_scope_change = no
+			opinion = { 
+				who = ROOT
+				modifier = opinion_offended
+				years = 5 
+			}
+		}
+		ai_chance = { factor = 20 }
+	}
+}
 
-# #Relative: gossiping input.
-# character_event = {
-	# id = HFP.20011
-	# desc = EVTDESCHFPA20011
-	# picture = GFX_evt_princess_byzantine
-	# show_from_from_from = yes
+#Relative: gossiping input.
+character_event = {
+	id = HFP.20011
+	desc = EVTDESCHFPA20011
+	picture = GFX_evt_princess_byzantine
+	show_from_from_from = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# FROMFROMFROM = {
-			# is_alive = yes 
-			# NOT = { trait = incapable }
-			# NOT = { trait = troubled_pregnancy }
-		# }
-	# }
-	# immediate = { 
-		# FROMFROMFROM = { 
-			# add_character_modifier = { #Prevents the solo-events from firing instead of these.
-				# name = pregnancy_gossip_cooldown
-				# hidden = yes 
-				# duration = 60 
-			# }
-		# }
-	# }
+	trigger = { 
+		FROMFROMFROM = {
+			is_alive = yes 
+			NOT = { trait = incapable }
+			NOT = { trait = troubled_pregnancy }
+		}
+	}
+	immediate = { 
+		FROMFROMFROM = { 
+			add_character_modifier = { #Prevents the solo-events from firing instead of these.
+				name = pregnancy_gossip_cooldown
+				hidden = yes 
+				duration = 60 
+			}
+		}
+	}
 
-	# option = { #Be talkative
-		# name = EVTOPTAHFP20011
-		# custom_tooltip = { text = tooltip_evt20011_A }
-		# hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20012 } } }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = gregarious
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = socializer
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = patient
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = shrewd
-			# }
-		# }
-	# }
-	# option = { #Be supportive
-		# name = EVTOPTBHFP20011
-		# custom_tooltip = { text = tooltip_evt20011_B }
-		# hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20013 } } }
-		# ai_chance = { 
-			# factor = 40 
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = hedonist
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = charitable
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = dull
-			# }
-		# }
-	# }
-	# option = { #Be mean
-		# name = EVTOPTCHFP20011
-		# custom_tooltip = { text = tooltip_evt20011_C }
-		# hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20014 } } }
-		# ai_chance = { 
-			# factor = 20 
-			# modifier = { 
-				# factor = 0.1 
-				# is_friend = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# is_lover = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 0.1 
-				# is_rival = FROMFROMFROM
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = cruel
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.5 
-				# trait = stubborn
-			# }
-		# }
-	# }
-# }
+	option = { #Be talkative
+		name = EVTOPTAHFP20011
+		custom_tooltip = { text = tooltip_evt20011_A }
+		hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20012 } } }
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = gregarious
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = socializer
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = patient
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = shrewd
+			}
+		}
+	}
+	option = { #Be supportive
+		name = EVTOPTBHFP20011
+		custom_tooltip = { text = tooltip_evt20011_B }
+		hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20013 } } }
+		ai_chance = { 
+			factor = 40 
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = hedonist
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = charitable
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = dull
+			}
+		}
+	}
+	option = { #Be mean
+		name = EVTOPTCHFP20011
+		custom_tooltip = { text = tooltip_evt20011_C }
+		hidden_tooltip = { FROMFROMFROM = { character_event = { id = HFP.20014 } } }
+		ai_chance = { 
+			factor = 20 
+			modifier = { 
+				factor = 0.1 
+				is_friend = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 0.1 
+				is_lover = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 0.1 
+				is_rival = FROMFROMFROM
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = cruel
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = envious
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.5 
+				trait = stubborn
+			}
+		}
+	}
+}
 
-# #Mother: enjoying the gossiping. - Relative version
-# character_event = {
-	# id = HFP.20012
-	# desc = EVTDESCHFPA20012
-	# picture = GFX_evt_princess_byzantine
+#Mother: enjoying the gossiping. - Relative version
+character_event = {
+	id = HFP.20012
+	desc = EVTDESCHFPA20012
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# option = { #Listen and learn
-		# name = EVTOPTAHFP20007
-		# trigger = { trait = patient }
-		# tooltip_info = patient
-		# change_learning = 1
-		# set_character_flag = mother_gossip_listening
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Becoming gregarious
-		# name = EVTOPTBHFP20007
-		# set_character_flag = mother_gossip_talking
-		# if = { 
-			# limit = { trait = shy } 
-			# random = { 
-				# chance = 50
-				# remove_trait = shy
-				# hidden_tooltip = { character_event = { id = 38295 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = shy
-					# trait = gregarious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = gregarious
-				# hidden_tooltip = { character_event = { id = 38265 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = gregarious } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Relaxed and trusting
-		# name = EVTOPTCHFP20007
-		# set_character_flag = mother_gossip_trusting
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = paranoid } 
-			# random = { 
-				# chance = 50
-				# remove_trait = paranoid
-				# hidden_tooltip = { character_event = { id = 38305 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = trusting
-					# trait = paranoid 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = trusting
-				# hidden_tooltip = { character_event = { id = 38250 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = trusting } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-	# after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
-# }
+	option = { #Listen and learn
+		name = EVTOPTAHFP20007
+		trigger = { trait = patient }
+		tooltip_info = patient
+		change_learning = 1
+		set_character_flag = mother_gossip_listening
+		ai_chance = { factor = 80 }
+	}
+	option = { #Becoming gregarious
+		name = EVTOPTBHFP20007
+		set_character_flag = mother_gossip_talking
+		if = { 
+			limit = { trait = shy } 
+			random = { 
+				chance = 50
+				remove_trait = shy
+				hidden_tooltip = { character_event = { id = 38295 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = shy
+					trait = gregarious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = gregarious
+				hidden_tooltip = { character_event = { id = 38265 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = gregarious } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Relaxed and trusting
+		name = EVTOPTCHFP20007
+		set_character_flag = mother_gossip_trusting
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = paranoid } 
+			random = { 
+				chance = 50
+				remove_trait = paranoid
+				hidden_tooltip = { character_event = { id = 38305 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = trusting
+					trait = paranoid 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = trusting
+				hidden_tooltip = { character_event = { id = 38250 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = trusting } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+	after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
+}
 
-# #Mother: not enjoying the gossiping. - Relative version
-# character_event = {
-	# id = HFP.20013
-	# desc = EVTDESCHFPA20013
-	# picture = GFX_evt_princess_byzantine
+#Mother: not enjoying the gossiping. - Relative version
+character_event = {
+	id = HFP.20013
+	desc = EVTDESCHFPA20013
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# option = { #Listen and plot
-		# name = EVTOPTAHFP20008
-		# set_character_flag = mother_gossip_plotting
-		# trigger = { trait = deceitful }
-		# tooltip_info = deceitful
-		# change_intrigue = 1
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Envy
-		# name = EVTOPTBHFP20008
-		# set_character_flag = mother_gossip_envious
-		# if = { 
-			# limit = { trait = kind } 
-			# random = { 
-				# chance = 50
-				# remove_trait = kind
-				# hidden_tooltip = { character_event = { id = 38307 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = kind
-					# trait = envious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = envious
-				# hidden_tooltip = { character_event = { id = 38271 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = envious } 
-			# random = { 
-				# chance = 50
-				# change_intrigue = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { #Need some space
-		# name = EVTOPTCHFP20008
-		# set_character_flag = mother_gossip_shy
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = gregarious } 
-			# random = { 
-				# chance = 50
-				# remove_trait = gregarious
-				# hidden_tooltip = { character_event = { id = 38297 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = shy
-					# trait = gregarious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = shy
-				# hidden_tooltip = { character_event = { id = 38263 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = shy } 
-			# random = { 
-				# chance = 50
-				# change_intrigue = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-	# after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
-# }
+	option = { #Listen and plot
+		name = EVTOPTAHFP20008
+		set_character_flag = mother_gossip_plotting
+		trigger = { trait = deceitful }
+		tooltip_info = deceitful
+		change_intrigue = 1
+		ai_chance = { factor = 80 }
+	}
+	option = { #Envy
+		name = EVTOPTBHFP20008
+		set_character_flag = mother_gossip_envious
+		if = { 
+			limit = { trait = kind } 
+			random = { 
+				chance = 50
+				remove_trait = kind
+				hidden_tooltip = { character_event = { id = 38307 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = kind
+					trait = envious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = envious
+				hidden_tooltip = { character_event = { id = 38271 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = envious } 
+			random = { 
+				chance = 50
+				change_intrigue = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { #Need some space
+		name = EVTOPTCHFP20008
+		set_character_flag = mother_gossip_shy
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = gregarious } 
+			random = { 
+				chance = 50
+				remove_trait = gregarious
+				hidden_tooltip = { character_event = { id = 38297 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = shy
+					trait = gregarious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = shy
+				hidden_tooltip = { character_event = { id = 38263 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = shy } 
+			random = { 
+				chance = 50
+				change_intrigue = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+	after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
+}
 
-# #Mother: pampered during gossiping. - Relative version
-# character_event = {
-	# id = HFP.20014
-	# desc = EVTDESCHFPA20014
-	# picture = GFX_evt_princess_byzantine
+#Mother: pampered during gossiping. - Relative version
+character_event = {
+	id = HFP.20014
+	desc = EVTDESCHFPA20014
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# option = { #Do your part
-		# name = EVTOPTAHFP20009
-		# set_character_flag = mother_gossip_learning
-		# trigger = { trait = diligent }
-		# tooltip_info = diligent
-		# change_learning = 1
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #Becoming content
-		# name = EVTOPTBHFP20009
-		# set_character_flag = mother_gossip_content
-		# if = { 
-			# limit = { trait = ambitious } 
-			# random = { 
-				# chance = 50
-				# remove_trait = ambitious
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = content
-					# trait = ambitious 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = content
-				# hidden_tooltip = { character_event = { id = 38279 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = content } 
-			# random = { 
-				# chance = 50
-				# change_stewardship = 1 
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 40 }
-	# }
-	# option = { #Becoming gluttonous
-		# name = EVTOPTCHFP20009
-		# set_character_flag = mother_gossip_gluttonous
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# }
-		# if = { 
-			# limit = { trait = temperate } 
-			# random = { 
-				# chance = 50
-				# remove_trait = temperate
-				# hidden_tooltip = { character_event = { id = 38276 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = temperate
-					# trait = gluttonous 
-				# }  
-			# } 
-			# random = { 
-				# chance = 50
-				# add_trait = gluttonous
-				# gain_weight_small_effect = yes
-				# weight_trait_check_effect = yes
-				# hidden_tooltip = { character_event = { id = 38277 } } 
-			# }
-			# break = yes
-		# }
-		# if = { 
-			# limit = { trait = gluttonous } 
-			# random = { 
-				# chance = 50
-				# change_diplomacy = 1 
-				# gain_weight_medium_effect = yes
-				# weight_trait_check_effect = yes
-			# }
-			# break = yes
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-	# after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
-# }
+	option = { #Do your part
+		name = EVTOPTAHFP20009
+		set_character_flag = mother_gossip_learning
+		trigger = { trait = diligent }
+		tooltip_info = diligent
+		change_learning = 1
+		ai_chance = { factor = 80 }
+	}
+	option = { #Becoming content
+		name = EVTOPTBHFP20009
+		set_character_flag = mother_gossip_content
+		if = { 
+			limit = { trait = ambitious } 
+			random = { 
+				chance = 50
+				remove_trait = ambitious
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = content
+					trait = ambitious 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = content
+				hidden_tooltip = { character_event = { id = 38279 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = content } 
+			random = { 
+				chance = 50
+				change_stewardship = 1 
+			}
+			break = yes
+		}
+		ai_chance = { factor = 40 }
+	}
+	option = { #Becoming gluttonous
+		name = EVTOPTCHFP20009
+		set_character_flag = mother_gossip_gluttonous
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		}
+		if = { 
+			limit = { trait = temperate } 
+			random = { 
+				chance = 50
+				remove_trait = temperate
+				hidden_tooltip = { character_event = { id = 38276 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = temperate
+					trait = gluttonous 
+				}  
+			} 
+			random = { 
+				chance = 50
+				add_trait = gluttonous
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
+				hidden_tooltip = { character_event = { id = 38277 } } 
+			}
+			break = yes
+		}
+		if = { 
+			limit = { trait = gluttonous } 
+			random = { 
+				chance = 50
+				change_diplomacy = 1 
+				gain_weight_medium_effect = yes
+				weight_trait_check_effect = yes
+			}
+			break = yes
+		}
+		ai_chance = { factor = 20 }
+	}
+	after = { hidden_tooltip = { FROM = { character_event = { id = HFP.20015 } } } } #Notification to relative
+}
 
-# #Relative: notified of mother's reaction
-# character_event = {
-	# id = HFP.20015
-	# desc = {
-		# text = EVTDESCHFPA20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_listening
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_talking
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_trusting
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPD20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_plotting
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPE20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_envious
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPF20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_shy
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPG20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_learning
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPH20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_content
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPI20015
-		# trigger = {
-			# FROM = { 
-				# has_character_flag = mother_gossip_gluttonous
-			# }
-		# }
-	# }
-	# picture = GFX_evt_princess_byzantine
+#Relative: notified of mother's reaction
+character_event = {
+	id = HFP.20015
+	desc = {
+		text = EVTDESCHFPA20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_listening
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_talking
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_trusting
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPD20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_plotting
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPE20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_envious
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPF20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_shy
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPG20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_learning
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPH20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_content
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPI20015
+		trigger = {
+			FROM = { 
+				has_character_flag = mother_gossip_gluttonous
+			}
+		}
+	}
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
 
-	# option = {
-		# name = {
-			# text = EVTOPTAHFP20015_A
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_listening }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_B
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_talking }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_C
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_trusting }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_D
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_plotting }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_E
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_envious }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_F
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_shy }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_G
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_learning }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_H
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_content }
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20015_I
-			# trigger = {
-				# FROM = { has_character_flag = mother_gossip_gluttonous }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# has_character_flag = mother_gossip_listening #Mother took the reward instead.
-				# }
-			# }
-			# prestige = 20
-			# reverse_opinion = { 
-				# modifier = opinion_delighted
-				# who = FROM
-				# years = 3
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# OR = { 
-						# has_character_flag = mother_gossip_talking 
-						# has_character_flag = mother_gossip_trusting 
-					# } 
-				# }
-			# }
-			# random = {
-				# chance = 25 
-				# change_diplomacy = 1 
-			# }
-			# reverse_opinion = { 
-				# modifier = opinion_delighted
-				# who = FROM
-				# years = 3
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# has_character_flag = mother_gossip_plotting #Mother took the reward instead.
-				# }
-			# }
-			# prestige = 20
-			# reverse_opinion = { 
-				# modifier = opinion_irritated
-				# who = FROM
-				# years = 3
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# OR = { 
-						# has_character_flag = mother_gossip_envious 
-						# has_character_flag = mother_gossip_shy 
-					# } 
-				# }
-			# }
-			# random = {
-				# chance = 25 
-				# change_intrigue = 1 
-			# }
-			# reverse_opinion = { 
-				# modifier = opinion_irritated
-				# who = FROM
-				# years = 3
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# has_character_flag = mother_gossip_learning #Mother took the reward instead.
-				# }
-			# }
-			# piety = 10
-			# reverse_opinion = { 
-				# modifier = opinion_delighted
-				# who = FROM
-				# years = 3
-			# }
-		# }
-		# if = {
-			# limit = {
-				# FROM = { 
-					# OR = { 
-						# has_character_flag = mother_gossip_content 
-						# has_character_flag = mother_gossip_gluttonous 
-					# } 
-				# }
-			# }
-			# random = {
-				# chance = 25 
-				# change_stewardship = 1 
-			# }
-			# reverse_opinion = { 
-				# modifier = opinion_delighted
-				# who = FROM
-				# years = 3
-			# }
-		# }
+	option = {
+		name = {
+			text = EVTOPTAHFP20015_A
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_listening }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_B
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_talking }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_C
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_trusting }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_D
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_plotting }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_E
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_envious }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_F
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_shy }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_G
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_learning }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_H
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_content }
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20015_I
+			trigger = {
+				FROM = { has_character_flag = mother_gossip_gluttonous }
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					has_character_flag = mother_gossip_listening #Mother took the reward instead.
+				}
+			}
+			prestige = 20
+			reverse_opinion = { 
+				modifier = opinion_delighted
+				who = FROM
+				years = 3
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					OR = { 
+						has_character_flag = mother_gossip_talking 
+						has_character_flag = mother_gossip_trusting 
+					} 
+				}
+			}
+			random = {
+				chance = 25 
+				change_diplomacy = 1 
+			}
+			reverse_opinion = { 
+				modifier = opinion_delighted
+				who = FROM
+				years = 3
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					has_character_flag = mother_gossip_plotting #Mother took the reward instead.
+				}
+			}
+			prestige = 20
+			reverse_opinion = { 
+				modifier = opinion_irritated
+				who = FROM
+				years = 3
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					OR = { 
+						has_character_flag = mother_gossip_envious 
+						has_character_flag = mother_gossip_shy 
+					} 
+				}
+			}
+			random = {
+				chance = 25 
+				change_intrigue = 1 
+			}
+			reverse_opinion = { 
+				modifier = opinion_irritated
+				who = FROM
+				years = 3
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					has_character_flag = mother_gossip_learning #Mother took the reward instead.
+				}
+			}
+			piety = 10
+			reverse_opinion = { 
+				modifier = opinion_delighted
+				who = FROM
+				years = 3
+			}
+		}
+		if = {
+			limit = {
+				FROM = { 
+					OR = { 
+						has_character_flag = mother_gossip_content 
+						has_character_flag = mother_gossip_gluttonous 
+					} 
+				}
+			}
+			random = {
+				chance = 25 
+				change_stewardship = 1 
+			}
+			reverse_opinion = { 
+				modifier = opinion_delighted
+				who = FROM
+				years = 3
+			}
+		}
 
-		# ai_chance = { factor = 80 }
-	# }
-	# after = {
-		# FROM = { 
-			# clr_character_flag = mother_gossip_listening
-			# clr_character_flag = mother_gossip_talking
-			# clr_character_flag = mother_gossip_trusting
-			# clr_character_flag = mother_gossip_plotting
-			# clr_character_flag = mother_gossip_envious
-			# clr_character_flag = mother_gossip_shy
-			# clr_character_flag = mother_gossip_learning
-			# clr_character_flag = mother_gossip_content
-			# clr_character_flag = mother_gossip_gluttonous
-		# }
-	# }
-# }
-# #Mother: becoming friend with relative
-# character_event = {
-	# id = HFP.20016
-	# desc = EVTDESCHFPA20016
-	# picture = GFX_evt_princess_byzantine
+		ai_chance = { factor = 80 }
+	}
+	after = {
+		FROM = { 
+			clr_character_flag = mother_gossip_listening
+			clr_character_flag = mother_gossip_talking
+			clr_character_flag = mother_gossip_trusting
+			clr_character_flag = mother_gossip_plotting
+			clr_character_flag = mother_gossip_envious
+			clr_character_flag = mother_gossip_shy
+			clr_character_flag = mother_gossip_learning
+			clr_character_flag = mother_gossip_content
+			clr_character_flag = mother_gossip_gluttonous
+		}
+	}
+}
+#Mother: becoming friend with relative
+character_event = {
+	id = HFP.20016
+	desc = EVTDESCHFPA20016
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = { 
-		# FROM = { 
-			# is_alive = yes 
-			# NOT = { trait = incapable }
-		# }
-		# NOT = { trait = incapable }
-		# NOT = { trait = troubled_pregnancy }
-	# }
+	trigger = { 
+		FROM = { 
+			is_alive = yes 
+			NOT = { trait = incapable }
+		}
+		NOT = { trait = incapable }
+		NOT = { trait = troubled_pregnancy }
+	}
 
-	# option = { #Yes
-		# name = EVTOPTAHFP20016
-		# add_friend = FROM
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20017 } } } #Notification to relative
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { #No
-		# name = EVTOPTBHFP20016
-		# trigger = { ai = no }
-		# ai_chance = { factor = 0 }
-	# }
-# }
+	option = { #Yes
+		name = EVTOPTAHFP20016
+		add_friend = FROM
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20017 } } } #Notification to relative
+		ai_chance = { factor = 80 }
+	}
+	option = { #No
+		name = EVTOPTBHFP20016
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Relative: becoming friend with mother
-# character_event = {
-	# id = HFP.20017
-	# desc = EVTDESCHFPA20017
-	# picture = GFX_evt_princess_byzantine
+#Relative: becoming friend with mother
+character_event = {
+	id = HFP.20017
+	desc = EVTDESCHFPA20017
+	picture = GFX_evt_princess_byzantine
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
 
-	# option = { #Yes
-		# name = EVTOPTAHFP20017
-		# add_friend = FROM
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { #Yes
+		name = EVTOPTAHFP20017
+		add_friend = FROM
+		ai_chance = { factor = 100 }
+	}
+}
 
 # ##############################################
 # #Post-partum Churching of the Mother (one month after on_birth) - Only for Catholic Rulers (or main spouses of Rulers) who are married and have produced a(n apparently) legitimate child.
@@ -14328,523 +14328,523 @@ character_event = {
 
 # #Duplicate id fix: HFP.20029 taken for notification.
 
-# #Dark rest. Fires for female rulers, or, if unlanded, for their spouse.
-# character_event = {
-	# id = HFP.20030
-	# desc = {
-		# text = EVTDESCHFPA20030
-		# trigger = {
-			# trait = pregnant
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20030
-		# trigger = {
-			# NOT = { trait = pregnant }
-		# }
-	# }
-	# picture = GFX_evt_woman_praying_hf
+#Dark rest. Fires for female rulers, or, if unlanded, for their spouse.
+character_event = {
+	id = HFP.20030
+	desc = {
+		text = EVTDESCHFPA20030
+		trigger = {
+			trait = pregnant
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20030
+		trigger = {
+			NOT = { trait = pregnant }
+		}
+	}
+	picture = GFX_evt_woman_praying_hf
 
-	# trigger = { 
-		# FROM = {
-			# trait = pregnant
-			# is_alive = yes
-			# OR = {
-				# is_married = ROOT
-				# character = ROOT
-			# }
-			# NOR = {
-				# trait = incapable
-				# trait = troubled_pregnancy
-				# trait = on_hajj
-				# trait = on_pilgrimage
-				# trait = on_indian_pilgrimage
-				# trait = kow_tow_travels
-				# trait = travelling
-			# }
-		# }
-	# }
+	trigger = { 
+		FROM = {
+			trait = pregnant
+			is_alive = yes
+			OR = {
+				is_married = ROOT
+				character = ROOT
+			}
+			NOR = {
+				trait = incapable
+				trait = troubled_pregnancy
+				trait = on_hajj
+				trait = on_pilgrimage
+				trait = on_indian_pilgrimage
+				trait = kow_tow_travels
+				trait = travelling
+			}
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = { #Resting in the dark
-		# name = {
-			# text = EVTOPTAHFP20030_A
-			# trigger = {
-				# trait = pregnant
-			# }
-		# }
-		# name = {
-			# text = EVTOPTAHFP20030_B
-			# trigger = {
-				# NOT = { trait = pregnant }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# NOT = { trait = pregnant }
-			# }
-			# FROM = { #Wife scope
-				# add_character_modifier = {
-					# modifier = mother_dark_rest
-					# months = 5
-				# }
-				# set_character_flag = flag_mother_dark_rest #Reduces chance of child being born sickly.
-				# hidden_tooltip = { 
-					# random_list = { 
-						# 25 = { character_event = { id = HFP.20031 days = 10 random = 10 } #Becomes learned
-						# } 
-						# 25 = { 
-							# modifier = {
-								# factor = 0.5
-								# trait = shy
-							# }
-							# character_event = { id = HFP.20033 days = 10 random = 10 } #Becomes paranoid
-						# } 
-						# 25 = { 
-							# modifier = {
-								# factor = 0.5
-								# trait = gregarious
-							# }
-							# character_event = { id = HFP.20035 days = 10 random = 10 } #Becomes calmer
-						# } 
-						# 25 = { #Nothing 
-						# } 
-					# } 
-				# }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# trait = pregnant
-			# }
-			# add_character_modifier = {
-				# modifier = mother_dark_rest
-				# months = 5
-			# }
-			# set_character_flag = flag_mother_dark_rest
-			# hidden_tooltip = { 
-				# random_list = { 
-					# 25 = { character_event = { id = HFP.20031 days = 10 random = 10 } #Becomes learned
-					# } 
-					# 25 = { 
-						# modifier = {
-							# factor = 0.5
-							# trait = shy
-						# }
-						# character_event = { id = HFP.20033 days = 10 random = 10 } #Becomes paranoid
-					# } 
-					# 25 = { 
-						# modifier = {
-							# factor = 0.5
-							# trait = gregarious
-						# }
-						# character_event = { id = HFP.20035 days = 10 random = 10 } #Becomes calmer
-					# } 
-					# 25 = { #Nothing 
-					# } 
-				# } 
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 30
-			# modifier =  {
-				# factor = 0.1
-				# trait = gregarious 
-			# } 
-			# modifier =  {
-				# factor = 0.1
-				# trait = wroth 
-			# } 
-		# }
-	# }
-	# option = { #Talking 
-		# name = {
-			# text = EVTOPTBHFP20030_A
-			# trigger = {
-				# trait = pregnant
-			# }
-		# }
-		# name = {
-			# text = EVTOPTBHFP20030_B
-			# trigger = {
-				# NOT = { trait = pregnant }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# NOT = { trait = pregnant }
-			# }
-			# FROM = { #Wife scope
-				# add_character_modifier = {
-					# modifier = mother_chatting
-					# months = 5
-				# }
-				# hidden_tooltip = { 
-					# random_list = { 
-						# 35 = { character_event = { id = HFP.20037 days = 10 random = 10 } #Becomes more gregarious
-						# } 
-						# 35 = { character_event = { id = HFP.20039 days = 10 random = 10 } #Becomes more popular
-						# } 
-						# 5 = { 
-							# modifier = {
-								# factor = 0 
-								# NOR = { 
-									# trait = kind
-									# has_focus = focus_family
-									# trait = socializer
-									# trait = gregarious 
-								# }
-							# }
-							# modifier = {
-								# factor = 0 
-								# ROOT = { 
-									# NOR = { 
-										# trait = kind
-										# has_focus = focus_family
-										# trait = socializer
-										# trait = gregarious 
-									# }
-								# }
-							# }
-							# modifier = {
-								# factor = 0 
-								# ROOT = { 
-									# num_of_lovers = 1 
-								# }
-							# }
-							# modifier = {
-								# factor = 0 
-								# prefers_men_trigger = yes
-							# }
-							# modifier = {
-								# factor = 0
-								# ROOT = { prefers_men_trigger = no }
-							# }
-							# modifier = {
-								# factor = 0 
-								# is_main_spouse = no
-							# }
-							# modifier = {
-								# factor = 0 
-								# num_of_lovers = 1 
-							# }
-							# character_event = { id = HFP.20041 days = 10 random = 10 } #Falls in love with husband
-						# } 
-						# 25 = { #Nothing 
-						# } 
-					# } 
-				# }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# trait = pregnant
-			# }
-			# add_character_modifier = {
-				# modifier = mother_chatting
-				# months = 5
-			# }
-			# hidden_tooltip = { 
-				# random_list = { 
-					# 35 = { character_event = { id = HFP.20037 days = 10 random = 10 } #Becomes more gregarious
-					# } 
-					# 35 = { character_event = { id = HFP.20039 days = 10 random = 10 } #Becomes more popular
-					# } 
-					# 5 = { 
-						# modifier = {
-							# factor = 0 
-							# NOR = { 
-								# trait = kind
-								# has_focus = focus_family
-								# trait = socializer
-								# trait = gregarious 
-							# }
-						# }
-						# modifier = {
-							# factor = 0 
-							# spouse = { 
-								# NOR = { 
-									# trait = kind
-									# has_focus = focus_family
-									# trait = socializer
-									# trait = gregarious 
-								# }
-							# }
-						# }
-						# modifier = {
-							# factor = 0 
-							# prefers_men_trigger = no
-						# }
-						# modifier = {
-							# factor = 0
-							# spouse = { prefers_men_trigger = yes }
-						# }
-						# modifier = {
-							# factor = 0 
-							# is_main_spouse = no
-						# }
-						# modifier = {
-							# factor = 0 
-							# spouse = { 
-								# num_of_lovers = 1 
-							# }
-						# }
-						# modifier = {
-							# factor = 0 
-							# num_of_lovers = 1 
-						# }
-						# character_event = { id = HFP.20041 days = 10 random = 10 } #Falls in love with husband
-					# } 
-					# 25 = { #Nothing 
-					# } 
-				# } 
-			# }
-		# }
-		# ai_chance = { 
-			# factor = 30
-			# modifier =  {
-				# factor = 0.1
-				# trait = shy 
-			# } 
-			# modifier =  {
-				# factor = 0.1
-				# trait = paranoid 
-			# } 
-		# }
-	# }
-	# option = { #Keep working
-		# trigger = {
-			# trait = pregnant
-		# }
-		# name = EVTOPTCHFP20030
-		# ai_chance = { factor = 0 }
-	# }
-# }
+	option = { #Resting in the dark
+		name = {
+			text = EVTOPTAHFP20030_A
+			trigger = {
+				trait = pregnant
+			}
+		}
+		name = {
+			text = EVTOPTAHFP20030_B
+			trigger = {
+				NOT = { trait = pregnant }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = pregnant }
+			}
+			FROM = { #Wife scope
+				add_character_modifier = {
+					modifier = mother_dark_rest
+					months = 5
+				}
+				set_character_flag = flag_mother_dark_rest #Reduces chance of child being born sickly.
+				hidden_tooltip = { 
+					random_list = { 
+						25 = { character_event = { id = HFP.20031 days = 10 random = 10 } #Becomes learned
+						} 
+						25 = { 
+							modifier = {
+								factor = 0.5
+								trait = shy
+							}
+							character_event = { id = HFP.20033 days = 10 random = 10 } #Becomes paranoid
+						} 
+						25 = { 
+							modifier = {
+								factor = 0.5
+								trait = gregarious
+							}
+							character_event = { id = HFP.20035 days = 10 random = 10 } #Becomes calmer
+						} 
+						25 = { #Nothing 
+						} 
+					} 
+				}
+			}
+		}
+		if = {
+			limit = {
+				trait = pregnant
+			}
+			add_character_modifier = {
+				modifier = mother_dark_rest
+				months = 5
+			}
+			set_character_flag = flag_mother_dark_rest
+			hidden_tooltip = { 
+				random_list = { 
+					25 = { character_event = { id = HFP.20031 days = 10 random = 10 } #Becomes learned
+					} 
+					25 = { 
+						modifier = {
+							factor = 0.5
+							trait = shy
+						}
+						character_event = { id = HFP.20033 days = 10 random = 10 } #Becomes paranoid
+					} 
+					25 = { 
+						modifier = {
+							factor = 0.5
+							trait = gregarious
+						}
+						character_event = { id = HFP.20035 days = 10 random = 10 } #Becomes calmer
+					} 
+					25 = { #Nothing 
+					} 
+				} 
+			}
+		}
+		ai_chance = { 
+			factor = 30
+			modifier =  {
+				factor = 0.1
+				trait = gregarious 
+			} 
+			modifier =  {
+				factor = 0.1
+				trait = wroth 
+			} 
+		}
+	}
+	option = { #Talking 
+		name = {
+			text = EVTOPTBHFP20030_A
+			trigger = {
+				trait = pregnant
+			}
+		}
+		name = {
+			text = EVTOPTBHFP20030_B
+			trigger = {
+				NOT = { trait = pregnant }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = pregnant }
+			}
+			FROM = { #Wife scope
+				add_character_modifier = {
+					modifier = mother_chatting
+					months = 5
+				}
+				hidden_tooltip = { 
+					random_list = { 
+						35 = { character_event = { id = HFP.20037 days = 10 random = 10 } #Becomes more gregarious
+						} 
+						35 = { character_event = { id = HFP.20039 days = 10 random = 10 } #Becomes more popular
+						} 
+						5 = { 
+							modifier = {
+								factor = 0 
+								NOR = { 
+									trait = kind
+									has_focus = focus_family
+									trait = socializer
+									trait = gregarious 
+								}
+							}
+							modifier = {
+								factor = 0 
+								ROOT = { 
+									NOR = { 
+										trait = kind
+										has_focus = focus_family
+										trait = socializer
+										trait = gregarious 
+									}
+								}
+							}
+							modifier = {
+								factor = 0 
+								ROOT = { 
+									num_of_lovers = 1 
+								}
+							}
+							modifier = {
+								factor = 0 
+								prefers_men_trigger = yes
+							}
+							modifier = {
+								factor = 0
+								ROOT = { prefers_men_trigger = no }
+							}
+							modifier = {
+								factor = 0 
+								is_main_spouse = no
+							}
+							modifier = {
+								factor = 0 
+								num_of_lovers = 1 
+							}
+							character_event = { id = HFP.20041 days = 10 random = 10 } #Falls in love with husband
+						} 
+						25 = { #Nothing 
+						} 
+					} 
+				}
+			}
+		}
+		if = {
+			limit = {
+				trait = pregnant
+			}
+			add_character_modifier = {
+				modifier = mother_chatting
+				months = 5
+			}
+			hidden_tooltip = { 
+				random_list = { 
+					35 = { character_event = { id = HFP.20037 days = 10 random = 10 } #Becomes more gregarious
+					} 
+					35 = { character_event = { id = HFP.20039 days = 10 random = 10 } #Becomes more popular
+					} 
+					5 = { 
+						modifier = {
+							factor = 0 
+							NOR = { 
+								trait = kind
+								has_focus = focus_family
+								trait = socializer
+								trait = gregarious 
+							}
+						}
+						modifier = {
+							factor = 0 
+							spouse = { 
+								NOR = { 
+									trait = kind
+									has_focus = focus_family
+									trait = socializer
+									trait = gregarious 
+								}
+							}
+						}
+						modifier = {
+							factor = 0 
+							prefers_men_trigger = no
+						}
+						modifier = {
+							factor = 0
+							spouse = { prefers_men_trigger = yes }
+						}
+						modifier = {
+							factor = 0 
+							is_main_spouse = no
+						}
+						modifier = {
+							factor = 0 
+							spouse = { 
+								num_of_lovers = 1 
+							}
+						}
+						modifier = {
+							factor = 0 
+							num_of_lovers = 1 
+						}
+						character_event = { id = HFP.20041 days = 10 random = 10 } #Falls in love with husband
+					} 
+					25 = { #Nothing 
+					} 
+				} 
+			}
+		}
+		ai_chance = { 
+			factor = 30
+			modifier =  {
+				factor = 0.1
+				trait = shy 
+			} 
+			modifier =  {
+				factor = 0.1
+				trait = paranoid 
+			} 
+		}
+	}
+	option = { #Keep working
+		trigger = {
+			trait = pregnant
+		}
+		name = EVTOPTCHFP20030
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Dark rest: mother's learning increases.
-# character_event = {
-	# id = HFP.20031
-	# desc = EVTDESCHFPA20031
-	# picture = GFX_evt_woman_praying_hf
+#Dark rest: mother's learning increases.
+character_event = {
+	id = HFP.20031
+	desc = EVTDESCHFPA20031
+	picture = GFX_evt_woman_praying_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20031
-		# change_learning = 1
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20032 } } }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20031
+		change_learning = 1
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20032 } } }
+	}
+}
 
-# #Dark rest: mother's learning increases. - Spouse notified.
-# character_event = {
-	# id = HFP.20032
-	# desc = EVTDESCHFPA20032
-	# picture = GFX_evt_woman_praying_hf
+#Dark rest: mother's learning increases. - Spouse notified.
+character_event = {
+	id = HFP.20032
+	desc = EVTDESCHFPA20032
+	picture = GFX_evt_woman_praying_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20032
-	# }
-# }
-# #Dark rest: mother becomes paranoid due to seclusion.
-# character_event = {
-	# id = HFP.20033
-	# desc = EVTDESCHFPA20033
-	# picture = GFX_evt_woman_praying_hf
+	option = {
+		name = EVTOPTAHFP20032
+	}
+}
+#Dark rest: mother becomes paranoid due to seclusion.
+character_event = {
+	id = HFP.20033
+	desc = EVTDESCHFPA20033
+	picture = GFX_evt_woman_praying_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20033
-		# if = { 
-			# limit = { trait = paranoid } 
-			# custom_tooltip = { text = tooltip_health_deteriorates }
-			# hidden_tooltip = { health = -0.25 }
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = trusting
-					# trait = paranoid 
-				# } 
-			# }
-			# add_trait = paranoid 
-		# }
-		# if = { 
-			# limit = { 
-				# trait = trusting
-			# }
-			# remove_trait = trusting 
-		# }
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20034 } } }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20033
+		if = { 
+			limit = { trait = paranoid } 
+			custom_tooltip = { text = tooltip_health_deteriorates }
+			hidden_tooltip = { health = -0.25 }
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = trusting
+					trait = paranoid 
+				} 
+			}
+			add_trait = paranoid 
+		}
+		if = { 
+			limit = { 
+				trait = trusting
+			}
+			remove_trait = trusting 
+		}
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20034 } } }
+	}
+}
 
-# #Dark rest: mother becomes paranoid due to seclusion. - Spouse notified.
-# character_event = {
-	# id = HFP.20034
-	# desc = EVTDESCHFPA20034
-	# picture = GFX_evt_woman_praying_hf
+#Dark rest: mother becomes paranoid due to seclusion. - Spouse notified.
+character_event = {
+	id = HFP.20034
+	desc = EVTDESCHFPA20034
+	picture = GFX_evt_woman_praying_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20034
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20034
+	}
+}
 
-# #Dark rest: mother becomes calmer due to seclusion.
-# character_event = {
-	# id = HFP.20035
-	# desc = EVTDESCHFPA20035
-	# picture = GFX_evt_recovery
+#Dark rest: mother becomes calmer due to seclusion.
+character_event = {
+	id = HFP.20035
+	desc = EVTDESCHFPA20035
+	picture = GFX_evt_recovery
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20035
-		# if = { 
-			# limit = { NOT = { trait = stressed } } 
-			# custom_tooltip = { text = tooltip_health_improves }
-			# hidden_tooltip = { health = 0.25 } 
-		# } 
-		# if = { 
-			# limit = { trait = stressed } 
-			# remove_trait = stressed
-		# } 
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20036 } } }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20035
+		if = { 
+			limit = { NOT = { trait = stressed } } 
+			custom_tooltip = { text = tooltip_health_improves }
+			hidden_tooltip = { health = 0.25 } 
+		} 
+		if = { 
+			limit = { trait = stressed } 
+			remove_trait = stressed
+		} 
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20036 } } }
+	}
+}
 
-# #Dark rest: mother becomes calmer due to seclusion. - Spouse notified.
-# character_event = {
-	# id = HFP.20036
-	# desc = EVTDESCHFPA20036
-	# picture = GFX_evt_recovery
+#Dark rest: mother becomes calmer due to seclusion. - Spouse notified.
+character_event = {
+	id = HFP.20036
+	desc = EVTDESCHFPA20036
+	picture = GFX_evt_recovery
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20036
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20036
+	}
+}
 
-# #Dark rest: mother becomes more gregarious.
-# character_event = {
-	# id = HFP.20037
-	# desc = EVTDESCHFPA20037
-	# picture = GFX_evt_state_diplomacy
+#Dark rest: mother becomes more gregarious.
+character_event = {
+	id = HFP.20037
+	desc = EVTDESCHFPA20037
+	picture = GFX_evt_state_diplomacy
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20037
-		# if = { 
-			# limit = { trait = gregarious } 
-			# change_diplomacy = 1
-		# }
-		# if = { 
-			# limit = { 
-				# NOR = { 
-					# trait = shy
-					# trait = gregarious 
-				# } 
-			# }
-			# add_trait = gregarious 
-		# }
-		# if = { 
-			# limit = { 
-				# trait = shy
-			# }
-			# remove_trait = shy 
-		# }
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20038 } } }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20037
+		if = { 
+			limit = { trait = gregarious } 
+			change_diplomacy = 1
+		}
+		if = { 
+			limit = { 
+				NOR = { 
+					trait = shy
+					trait = gregarious 
+				} 
+			}
+			add_trait = gregarious 
+		}
+		if = { 
+			limit = { 
+				trait = shy
+			}
+			remove_trait = shy 
+		}
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20038 } } }
+	}
+}
 
-# #Dark rest:  mother becomes more gregarious. - Spouse notified.
-# character_event = {
-	# id = HFP.20038
-	# desc = EVTDESCHFPA20038
-	# picture = GFX_evt_state_diplomacy
+#Dark rest:  mother becomes more gregarious. - Spouse notified.
+character_event = {
+	id = HFP.20038
+	desc = EVTDESCHFPA20038
+	picture = GFX_evt_state_diplomacy
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20038
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20038
+	}
+}
 
-# #Dark rest: mother becomes more popular.
-# character_event = {
-	# id = HFP.20039
-	# desc = EVTDESCHFPA20039
-	# picture = GFX_evt_homage_hf
+#Dark rest: mother becomes more popular.
+character_event = {
+	id = HFP.20039
+	desc = EVTDESCHFPA20039
+	picture = GFX_evt_homage_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20039
-		# add_character_modifier = {
-			# modifier = mother_popular
-			# years = 5
-		# }
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20040 } } }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20039
+		add_character_modifier = {
+			modifier = mother_popular
+			years = 5
+		}
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20040 } } }
+	}
+}
 
-# #Dark rest:  mother becomes more popular. - Spouse notified.
-# character_event = {
-	# id = HFP.20040
-	# desc = EVTDESCHFPA20040
-	# picture = GFX_evt_homage_hf
+#Dark rest:  mother becomes more popular. - Spouse notified.
+character_event = {
+	id = HFP.20040
+	desc = EVTDESCHFPA20040
+	picture = GFX_evt_homage_hf
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20040
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20040
+	}
+}
 
-# #Dark rest: mother falls in love with husband.
-# character_event = {
-	# id = HFP.20041
-	# desc = EVTDESCHFPA20041
-	# picture = GFX_evt_lovers
+#Dark rest: mother falls in love with husband.
+character_event = {
+	id = HFP.20041
+	desc = EVTDESCHFPA20041
+	picture = GFX_evt_lovers
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# immediate = {
-		# spouse = { save_event_target_as = scoped_spouse }
-	# }
-	# option = {
-		# name = EVTOPTAHFP20041
-		# add_lover = event_target:scoped_spouse	
-		# hidden_tooltip = { spouse = { character_event = { id = HFP.20042 } } }
-	# }
-# }
+	immediate = {
+		spouse = { save_event_target_as = scoped_spouse }
+	}
+	option = {
+		name = EVTOPTAHFP20041
+		add_lover = event_target:scoped_spouse	
+		hidden_tooltip = { spouse = { character_event = { id = HFP.20042 } } }
+	}
+}
 
-# #Dark rest: mother falls in love with husband. - Spouse notified.
-# character_event = {
-	# id = HFP.20042
-	# desc = EVTDESCHFPA20042
-	# picture = GFX_evt_lovers
+#Dark rest: mother falls in love with husband. - Spouse notified.
+character_event = {
+	id = HFP.20042
+	desc = EVTDESCHFPA20042
+	picture = GFX_evt_lovers
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTAHFP20042
-		# add_lover = FROM
-	# }
-	# option = {
-		# name = EVTOPTBHFP20042
-		# trigger = { ai = no }
-		# FROM = { remove_lover = ROOT }
-	# }
-# }
+	option = {
+		name = EVTOPTAHFP20042
+		add_lover = FROM
+	}
+	option = {
+		name = EVTOPTBHFP20042
+		trigger = { ai = no }
+		FROM = { remove_lover = ROOT }
+	}
+}
 
 # #############################################################
 # #Pagan festival of fertility
@@ -15814,649 +15814,649 @@ character_event = {
 	# }
 # }
 
-# ####################################
+####################################
 
-# #Father: mother dies before birth, child is born weakly and pale.
-# character_event = {
-	# id = HFP.20056
-	# desc = {
-		# text = EVTDESCHFPA20056
-		# trigger = {
-			# NOT = { has_character_flag = flag_loved_dead_mother }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20056
-		# trigger = {
-			# has_character_flag = flag_loved_dead_mother
-		# }
-	# }
-	# picture = GFX_evt_death
+#Father: mother dies before birth, child is born weakly and pale.
+character_event = {
+	id = HFP.20056
+	desc = {
+		text = EVTDESCHFPA20056
+		trigger = {
+			NOT = { has_character_flag = flag_loved_dead_mother }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20056
+		trigger = {
+			has_character_flag = flag_loved_dead_mother
+		}
+	}
+	picture = GFX_evt_death
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20056
-		# ai_chance = { 
-			# factor = 50 
-			# modifier =  {
-				# factor = 1.5
-				# trait = patient
-			# }
-			# modifier =  {
-				# factor = 0.1
-				# has_character_flag = flag_loved_dead_mother
-			# }
-		# }
-		# ai_chance = { factor = 50 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20056
-		# trigger = { NOT = { trait = kind } }
-		# opinion = {
-			# modifier = opinion_killed_wife
-			# years = 50
-			# who = event_target:hollow_baby
-		# }
+	option = { 
+		name = EVTOPTAHFP20056
+		ai_chance = { 
+			factor = 50 
+			modifier =  {
+				factor = 1.5
+				trait = patient
+			}
+			modifier =  {
+				factor = 0.1
+				has_character_flag = flag_loved_dead_mother
+			}
+		}
+		ai_chance = { factor = 50 }
+	}
+	option = { 
+		name = EVTOPTBHFP20056
+		trigger = { NOT = { trait = kind } }
+		opinion = {
+			modifier = opinion_killed_wife
+			years = 50
+			who = event_target:hollow_baby
+		}
 
-		# ai_chance = { factor = 50 }
-	# }
-	# after = { clr_character_flag = flag_loved_dead_mother }
-# }
+		ai_chance = { factor = 50 }
+	}
+	after = { clr_character_flag = flag_loved_dead_mother }
+}
 
-# #Hollow child gains specific trait.
-# character_event = {
-	# id = HFP.20057
-	# desc = EVTDESCHFPA20057
-	# picture = GFX_evt_child_reading
-	# hide_from = yes
+#Hollow child gains specific trait.
+character_event = {
+	id = HFP.20057
+	desc = EVTDESCHFPA20057
+	picture = GFX_evt_child_reading
+	hide_from = yes
 
-	# has_character_flag = flag_hollow_child_primed
+	has_character_flag = flag_hollow_child_primed
 
-	# min_age = 7
-	# max_age = 10
+	min_age = 7
+	max_age = 10
 
-	# trigger = { 
-		# trait = is_malnourished 
-		# NOR = { 
-			# has_nickname = nick_the_pale_prince
-			# has_nickname = nick_the_hollow
-			# has_character_flag = flag_hollow_child
-		# }
-	# }
+	trigger = { 
+		trait = is_malnourished 
+		NOR = { 
+			has_nickname = nick_the_pale_prince
+			has_nickname = nick_the_hollow
+			has_character_flag = flag_hollow_child
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20057
-		# if = { 
-			# limit = { OR = { trait = brooding trait = envious } }
-			# change_intrigue = 2 
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = brooding } 
-				# has_dlc = "Conclave"
-				# }
-			# add_trait = brooding 
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = brooding } 
-				# NOT = { has_dlc = "Conclave" }
-				# }
-			# add_trait = envious 
-		# }
-		# ai_chance = { factor = 80 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20057
-		# if = { 
-			# limit = { OR = { trait = timid trait = shy } }
-			# change_intrigue = 2 
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = timid } 
-				# has_dlc = "Conclave"
-			# }
-			# add_trait = timid 
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = timid } 
-				# NOT = { has_dlc = "Conclave" }
-			# }
-			# add_trait = shy 
-		# }
-		# ai_chance = { factor = 20 }
-	# }
-	# after = { 
-		# ROOT = { 
-			# clr_character_flag = flag_hollow_child_primed
-			# set_character_flag = flag_hollow_child
-			# if = { 
-				# limit = { has_minor_title = title_prince } 
-				# give_nickname = nick_the_pale_prince
-			# }
-			# if = { 
-				# limit = { NOT = { has_minor_title = title_prince } } 
-				# give_nickname = nick_the_hollow
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20057
+		if = { 
+			limit = { OR = { trait = brooding trait = envious } }
+			change_intrigue = 2 
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = brooding } 
+				has_dlc = "Conclave"
+				}
+			add_trait = brooding 
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = brooding } 
+				NOT = { has_dlc = "Conclave" }
+				}
+			add_trait = envious 
+		}
+		ai_chance = { factor = 80 }
+	}
+	option = { 
+		name = EVTOPTBHFP20057
+		if = { 
+			limit = { OR = { trait = timid trait = shy } }
+			change_intrigue = 2 
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = timid } 
+				has_dlc = "Conclave"
+			}
+			add_trait = timid 
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = timid } 
+				NOT = { has_dlc = "Conclave" }
+			}
+			add_trait = shy 
+		}
+		ai_chance = { factor = 20 }
+	}
+	after = { 
+		ROOT = { 
+			clr_character_flag = flag_hollow_child_primed
+			set_character_flag = flag_hollow_child
+			if = { 
+				limit = { has_minor_title = title_prince } 
+				give_nickname = nick_the_pale_prince
+			}
+			if = { 
+				limit = { NOT = { has_minor_title = title_prince } } 
+				give_nickname = nick_the_hollow
+			}
+		}
+	}
+}
 
-# #On_adolescence. Hollow child gains adulthood trait and modifier.
-# character_event = {
-	# id = HFP.20058
-	# desc = EVTDESCHFPA20058
-	# picture = GFX_evt_child_reading
+#On_adolescence. Hollow child gains adulthood trait and modifier.
+character_event = {
+	id = HFP.20058
+	desc = EVTDESCHFPA20058
+	picture = GFX_evt_child_reading
 
-	# has_character_flag = flag_hollow_child
-	# trigger = { trait = is_malnourished }
+	has_character_flag = flag_hollow_child
+	trigger = { trait = is_malnourished }
 	
-	# capable_only = yes
+	capable_only = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20058
-		# if = { 
-			# limit = { trait = brave }
-			# change_martial = 2 
-		# }
-		# if = { 
-			# limit = { NOT = { trait = brave } }
-			# add_trait = brave 
-		# }
-		# add_character_modifier = { 
-			# modifier = hollow_child_brave
-			# duration = -1
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20059 days = 5 } 
-		# } 
-		# ai_chance = { factor = 30 }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20058
-		# if = { 
-			# limit = { trait = erudite }
-			# change_learning = 2 
-		# }
-		# if = { 
-			# limit = { NOT = { trait = erudite } }
-			# add_trait = erudite 
-		# }
-		# add_character_modifier = { 
-			# modifier = hollow_child_erudite
-			# duration = -1
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20059 days = 5 } 
-		# } 
-		# ai_chance = { factor = 30 }
-	# }
-	# option = { 
-		# name = EVTOPTCHFP20058
-		# if = { 
-			# limit = { trait = cruel }
-			# change_intrigue = 2 
-		# }
-		# if = { 
-			# limit = { NOT = { trait = cruel } }
-			# add_trait = cruel 
-		# }
-		# add_character_modifier = { 
-			# modifier = hollow_child_cruel
-			# duration = -1
-		# }
-		# hidden_tooltip = { 
-			# character_event = { id = HFP.20059 days = 5 } 
-		# } 
-		# ai_chance = { factor = 30 }
-	# }
-	# after = { clr_character_flag = flag_hollow_child }
-# }
+	option = { 
+		name = EVTOPTAHFP20058
+		if = { 
+			limit = { trait = brave }
+			change_martial = 2 
+		}
+		if = { 
+			limit = { NOT = { trait = brave } }
+			add_trait = brave 
+		}
+		add_character_modifier = { 
+			modifier = hollow_child_brave
+			duration = -1
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20059 days = 5 } 
+		} 
+		ai_chance = { factor = 30 }
+	}
+	option = { 
+		name = EVTOPTBHFP20058
+		if = { 
+			limit = { trait = erudite }
+			change_learning = 2 
+		}
+		if = { 
+			limit = { NOT = { trait = erudite } }
+			add_trait = erudite 
+		}
+		add_character_modifier = { 
+			modifier = hollow_child_erudite
+			duration = -1
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20059 days = 5 } 
+		} 
+		ai_chance = { factor = 30 }
+	}
+	option = { 
+		name = EVTOPTCHFP20058
+		if = { 
+			limit = { trait = cruel }
+			change_intrigue = 2 
+		}
+		if = { 
+			limit = { NOT = { trait = cruel } }
+			add_trait = cruel 
+		}
+		add_character_modifier = { 
+			modifier = hollow_child_cruel
+			duration = -1
+		}
+		hidden_tooltip = { 
+			character_event = { id = HFP.20059 days = 5 } 
+		} 
+		ai_chance = { factor = 30 }
+	}
+	after = { clr_character_flag = flag_hollow_child }
+}
 
-# #Hollow child modifier notification.
-# character_event = {
-	# id = HFP.20059
-	# desc = {
-		# text = EVTDESCHFPA20059
-		# picture = GFX_evt_child_bully
-		# trigger = {
-			# has_character_modifier = hollow_child_brave
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20059
-		# picture = GFX_evt_child_reading
-		# trigger = {
-			# has_character_modifier = hollow_child_erudite
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20059
-		# picture = GFX_evt_child_bully
-		# trigger = {
-			# has_character_modifier = hollow_child_cruel
-		# }
-	# }
-	# picture = GFX_evt_child_reading
+#Hollow child modifier notification.
+character_event = {
+	id = HFP.20059
+	desc = {
+		text = EVTDESCHFPA20059
+		picture = GFX_evt_child_bully
+		trigger = {
+			has_character_modifier = hollow_child_brave
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20059
+		picture = GFX_evt_child_reading
+		trigger = {
+			has_character_modifier = hollow_child_erudite
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20059
+		picture = GFX_evt_child_bully
+		trigger = {
+			has_character_modifier = hollow_child_cruel
+		}
+	}
+	picture = GFX_evt_child_reading
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = {
-		# has_character_flag = flag_hollow_child
-	# }
+	trigger = {
+		has_character_flag = flag_hollow_child
+	}
 
-	# option = { 
-		# name = EVTOPTAHFP20059
-		# hidden_tooltip = { 
-			# father = { character_event = { id = HFP.20060 days = 5 } }
-			# if = { 
-				# limit = { educator = { NOT = { is_father = ROOT } } }
-				# educator = { character_event = { id = HFP.20060 days = 5 } }
-			# }
-		# } 
-		# ai_chance = { factor = 100 }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20059
+		hidden_tooltip = { 
+			father = { character_event = { id = HFP.20060 days = 5 } }
+			if = { 
+				limit = { educator = { NOT = { is_father = ROOT } } }
+				educator = { character_event = { id = HFP.20060 days = 5 } }
+			}
+		} 
+		ai_chance = { factor = 100 }
+	}
+}
 
-# #Educator/Father notified of strange behavior.
-# character_event = {
-	# id = HFP.20060
-	# desc = {
-		# text = EVTDESCHFPA20060
-		# picture = GFX_evt_child_bully
-		# trigger = {
-			# FROM = { has_character_modifier = hollow_child_brave }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20060
-		# picture = GFX_evt_child_reading
-		# trigger = {
-			# FROM = { has_character_modifier = hollow_child_erudite }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPC20060
-		# picture = GFX_evt_child_bully
-		# trigger = {
-			# FROM = { has_character_modifier = hollow_child_cruel }
-		# }
-	# }
-	# picture = GFX_evt_child_reading
+#Educator/Father notified of strange behavior.
+character_event = {
+	id = HFP.20060
+	desc = {
+		text = EVTDESCHFPA20060
+		picture = GFX_evt_child_bully
+		trigger = {
+			FROM = { has_character_modifier = hollow_child_brave }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20060
+		picture = GFX_evt_child_reading
+		trigger = {
+			FROM = { has_character_modifier = hollow_child_erudite }
+		}
+	}
+	desc = {
+		text = EVTDESCHFPC20060
+		picture = GFX_evt_child_bully
+		trigger = {
+			FROM = { has_character_modifier = hollow_child_cruel }
+		}
+	}
+	picture = GFX_evt_child_reading
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20060
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20060
+	}
+}
 
-# #Spouse: Mother aborted child to avoid hard pregnancy.
-# character_event = {
-	# id = HFP.20061
-	# desc = {
-		# text = EVTDESCHFPA20061
-		# trigger = {
-			# FROM = { 
-				# OR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# }
-		# }
-	# }
-	# desc = {
-		# text = EVTDESCHFPB20061
-		# trigger = {
-			# FROM = { 
-				# NOR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# }
-		# }
-	# }
-	# picture = GFX_evt_quarrel
+#Spouse: Mother aborted child to avoid hard pregnancy.
+character_event = {
+	id = HFP.20061
+	desc = {
+		text = EVTDESCHFPA20061
+		trigger = {
+			FROM = { 
+				OR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCHFPB20061
+		trigger = {
+			FROM = { 
+				NOR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			}
+		}
+	}
+	picture = GFX_evt_quarrel
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { #Not my problem.
-		# name = EVTOPTAHFP20061
-		# trigger = { 
-			# FROM = {
-				# OR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# } 
-		# }
-		# ai_chance = { factor = 100 }
-	# }
-	# option = { #Denounce her.
-		# name = EVTOPTBHFP20061
-		# trigger = {
-			# NOT = { trait = kind }
-			# FROM = {
-				# NOR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# } 
-		# }
-		# opinion = { 
-			# who = ROOT
-			# modifier = opinion_executed_child
-			# years = 10
-		# } 
+	option = { #Not my problem.
+		name = EVTOPTAHFP20061
+		trigger = { 
+			FROM = {
+				OR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			} 
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = { #Denounce her.
+		name = EVTOPTBHFP20061
+		trigger = {
+			NOT = { trait = kind }
+			FROM = {
+				NOR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			} 
+		}
+		opinion = { 
+			who = ROOT
+			modifier = opinion_executed_child
+			years = 10
+		} 
 		
-		# FROM = { 
-			# tooltip = {
-				# add_character_modifier = {
-					# modifier = cowardly_infanticide
-					# years = 100
-				# } 
-				# tiered_prestige_negative_effect = yes
-			# } 
-			# hidden_tooltip = { character_event = { id = HFP.20062 } } 
-		# }
-		# ai_chance = { 
-			# factor = 80 
-			# modifier = { 
-				# factor = 1.25
-				# trait = proud
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# religion_group = christian
-				# trait = zealous
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = envious
-			# }
-			# modifier = { 
-				# factor = 1.25
-				# trait = paranoid
-			# }
-		# }
-	# }
-	# option = { #Forgive her.
-		# name = EVTOPTCHFP20061
-		# trigger = {
-			# NOT = { trait = cruel }
-			# FROM = {
-				# NOR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# } 
-		# }
-		# FROM = {
-			# show_scope_change = no 
-			# opinion = { 
-				# who = ROOT
-				# modifier = opinion_forgiven
-				# years = 10
-			# } 
-		# }
-		# tiered_piety_reward_effect = yes
-		# hidden_tooltip = { FROM = { character_event = { id = HFP.20063 } } } 
-		# ai_chance = { 
-			# factor = 30 
-			# modifier = { 
-				# factor = 1.25
-				# trait = humble
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = kind
-			# }
-			# modifier = { 
-				# factor = 1.5
-				# trait = trusting
-			# }
-		# }
-	# }
-	# option = { #Do not care.
-		# name = EVTOPTDHFP20061
-		# trigger = {
-			# FROM = {
-				# NOR = { 
-					# has_character_modifier = adulteress 
-					# has_character_modifier = incestuous_adulteress 
-				# } 
-			# } 
-		# }
-		# ai_chance = { 
-			# factor = 0
-		# }
-	# }
-# }
+		FROM = { 
+			tooltip = {
+				add_character_modifier = {
+					modifier = cowardly_infanticide
+					years = 100
+				} 
+				tiered_prestige_negative_effect = yes
+			} 
+			hidden_tooltip = { character_event = { id = HFP.20062 } } 
+		}
+		ai_chance = { 
+			factor = 80 
+			modifier = { 
+				factor = 1.25
+				trait = proud
+			}
+			modifier = { 
+				factor = 1.5
+				religion_group = christian
+				trait = zealous
+			}
+			modifier = { 
+				factor = 1.5
+				trait = envious
+			}
+			modifier = { 
+				factor = 1.25
+				trait = paranoid
+			}
+		}
+	}
+	option = { #Forgive her.
+		name = EVTOPTCHFP20061
+		trigger = {
+			NOT = { trait = cruel }
+			FROM = {
+				NOR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			} 
+		}
+		FROM = {
+			show_scope_change = no 
+			opinion = { 
+				who = ROOT
+				modifier = opinion_forgiven
+				years = 10
+			} 
+		}
+		tiered_piety_reward_effect = yes
+		hidden_tooltip = { FROM = { character_event = { id = HFP.20063 } } } 
+		ai_chance = { 
+			factor = 30 
+			modifier = { 
+				factor = 1.25
+				trait = humble
+			}
+			modifier = { 
+				factor = 1.5
+				trait = kind
+			}
+			modifier = { 
+				factor = 1.5
+				trait = trusting
+			}
+		}
+	}
+	option = { #Do not care.
+		name = EVTOPTDHFP20061
+		trigger = {
+			FROM = {
+				NOR = { 
+					has_character_modifier = adulteress 
+					has_character_modifier = incestuous_adulteress 
+				} 
+			} 
+		}
+		ai_chance = { 
+			factor = 0
+		}
+	}
+}
 
-# #Mother's crime exposed.
-# character_event = {
-	# id = HFP.20062
-	# desc = EVTDESCHFPA20062
-	# picture = GFX_evt_quarrel
+#Mother's crime exposed.
+character_event = {
+	id = HFP.20062
+	desc = EVTDESCHFPA20062
+	picture = GFX_evt_quarrel
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20062
-		# add_character_modifier = {
-			# modifier = cowardly_infanticide
-			# years = 100
-		# }
-	# }
-# }
-# #Mother was forgiven.
-# character_event = {
-	# id = HFP.20063
-	# desc = EVTDESCHFPA20063
-	# picture = GFX_evt_lovers
+	option = { 
+		name = EVTOPTAHFP20062
+		add_character_modifier = {
+			modifier = cowardly_infanticide
+			years = 100
+		}
+	}
+}
+#Mother was forgiven.
+character_event = {
+	id = HFP.20063
+	desc = EVTDESCHFPA20063
+	picture = GFX_evt_lovers
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20063
-		# tooltip = { 
-			# opinion = { 
-				# who = FROM
-				# modifier = opinion_forgiven
-				# years = 10
-			# }
-			# tiered_prestige_negative_effect = yes
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20063
+		tooltip = { 
+			opinion = { 
+				who = FROM
+				modifier = opinion_forgiven
+				years = 10
+			}
+			tiered_prestige_negative_effect = yes
+		}
+	}
+}
 
-# #Mother becomes depressed/insane after abortion.
-# character_event = {
-	# id = HFP.20064
-	# desc = EVTDESCHFPA20064
-	# picture = GFX_evt_bad_news
+#Mother becomes depressed/insane after abortion.
+character_event = {
+	id = HFP.20064
+	desc = EVTDESCHFPA20064
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20064
-		# if = { 
-			# limit = { 
-				# trait = depressed	
-				# trait = lunatic
-			# }
-			# health = -1.0
-		# }
-		# if = { 
-			# limit = { 
-				# trait = depressed	
-				# NOT = { trait = lunatic }
-			# }
-			# add_trait = lunatic
-		# }
-		# if = { 
-			# limit = { 
-				# NOT = { trait = depressed }
-			# }
-			# add_trait = depressed
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20064
+		if = { 
+			limit = { 
+				trait = depressed	
+				trait = lunatic
+			}
+			health = -1.0
+		}
+		if = { 
+			limit = { 
+				trait = depressed	
+				NOT = { trait = lunatic }
+			}
+			add_trait = lunatic
+		}
+		if = { 
+			limit = { 
+				NOT = { trait = depressed }
+			}
+			add_trait = depressed
+		}
+	}
+}
 
-# #Mother inadvertedly reveals her crime during night terror.
-# character_event = {
-	# id = HFP.20065
-	# desc = EVTDESCHFPA20065
-	# picture = GFX_evt_bad_news
+#Mother inadvertedly reveals her crime during night terror.
+character_event = {
+	id = HFP.20065
+	desc = EVTDESCHFPA20065
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = { NOT = { has_character_modifier = cowardly_infanticide } } #Not if husband discovered and denounced the crime in the meantime already.
+	trigger = { NOT = { has_character_modifier = cowardly_infanticide } } #Not if husband discovered and denounced the crime in the meantime already.
 
-	# option = { 
-		# name = EVTOPTAHFP20065
-		# add_character_modifier = {
-			# modifier = cowardly_infanticide
-			# years = 100
-		# } 
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20065
+		add_character_modifier = {
+			modifier = cowardly_infanticide
+			years = 100
+		} 
+	}
+}
 
-# #Mother bleeds, loses fertility.
-# character_event = {
-	# id = HFP.20066
-	# desc = EVTDESCHFPA20066
-	# picture = GFX_evt_bad_news
+#Mother bleeds, loses fertility.
+character_event = {
+	id = HFP.20066
+	desc = EVTDESCHFPA20066
+	picture = GFX_evt_bad_news
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20066
-		# fertility = -0.25
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20066
+		fertility = -0.25
+	}
+}
 
-# #Notify lover that his lover is pregnant.
-# character_event = {
-	# id = HFP.20067
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# OR = {
-					# is_married = no
-					# is_married = ROOT
-				# }
-			# }
-		# }
-		# text = EVTDESCHFPA20067
-	# }
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# is_married = yes
-				# NOT = { is_married = ROOT }
-			# }
-		# }
-		# text = EVTDESCHFPB20067
-	# }
-	# picture = GFX_evt_pregnancy
+#Notify lover that his lover is pregnant.
+character_event = {
+	id = HFP.20067
+	desc = {
+		trigger = {
+			FROM = {
+				OR = {
+					is_married = no
+					is_married = ROOT
+				}
+			}
+		}
+		text = EVTDESCHFPA20067
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				is_married = yes
+				NOT = { is_married = ROOT }
+			}
+		}
+		text = EVTDESCHFPB20067
+	}
+	picture = GFX_evt_pregnancy
 
-	# trigger = {
-		# FROM = {
-			# NOT = { is_married = ROOT } #Otherwise double notification.
-		# }
-	# }
-	# is_triggered_only = yes
+	trigger = {
+		FROM = {
+			NOT = { is_married = ROOT } #Otherwise double notification.
+		}
+	}
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20067
-		# trigger = {
-			# FROM = {
-				# OR = {
-					# is_married = no
-					# is_married = ROOT
-				# }
-			# }
-		# }
-	# }
-	# option = { 
-		# name = EVTOPTBHFP20067
-		# trigger = {
-			# FROM = {
-				# is_married = yes
-				# NOT = { is_married = ROOT }
-			# }
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20067
+		trigger = {
+			FROM = {
+				OR = {
+					is_married = no
+					is_married = ROOT
+				}
+			}
+		}
+	}
+	option = { 
+		name = EVTOPTBHFP20067
+		trigger = {
+			FROM = {
+				is_married = yes
+				NOT = { is_married = ROOT }
+			}
+		}
+	}
+}
 
-# #Cleanup on_birth event to remove illegitimate trait gained when a wife gives birth after the death of her husband.
-# character_event = {
-	# id = HFP.20068
-	# hide_window = yes
+#Cleanup on_birth event to remove illegitimate trait gained when a wife gives birth after the death of her husband.
+character_event = {
+	id = HFP.20068
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = { 
-		# NOR = { 
-			# mother_even_if_dead = { has_character_modifier = adulteress }
-			# mother_even_if_dead = { has_character_modifier = incestuous_adulteress }
-			# father_even_if_dead = { is_alive = yes }
-			# father_even_if_dead = { trait = eunuch }
-		# }
-	# }
-	# immediate = { 
-		# remove_trait = bastard
-		# remove_trait = legit_bastard
-	# }
-# }
+	trigger = { 
+		NOR = { 
+			mother_even_if_dead = { has_character_modifier = adulteress }
+			mother_even_if_dead = { has_character_modifier = incestuous_adulteress }
+			father_even_if_dead = { is_alive = yes }
+			father_even_if_dead = { trait = eunuch }
+		}
+	}
+	immediate = { 
+		remove_trait = bastard
+		remove_trait = legit_bastard
+	}
+}
 
-# #Wife notified of kindred spirit I.
-# character_event = {
-	# id = HFP.20069
-	# desc = EVTDESCHFPA20069
-	# picture = GFX_evt_fancy_feast
+#Wife notified of kindred spirit I.
+character_event = {
+	id = HFP.20069
+	desc = EVTDESCHFPA20069
+	picture = GFX_evt_fancy_feast
 
-	# trigger = {
-		# FROM = {
-			# is_married = ROOT
-		# }
-	# }
-	# is_triggered_only = yes
+	trigger = {
+		FROM = {
+			is_married = ROOT
+		}
+	}
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20069
-		# tooltip = {
-			# opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20069
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+		}
+	}
+}
 
-# #Wife notified of kindred spirit II.
-# character_event = {
-	# id = HFP.20070
-	# desc = EVTDESCHFPA20070
-	# picture = GFX_evt_homage_hf
+#Wife notified of kindred spirit II.
+character_event = {
+	id = HFP.20070
+	desc = EVTDESCHFPA20070
+	picture = GFX_evt_homage_hf
 
-	# trigger = {
-		# FROM = {
-			# is_married = ROOT
-		# }
-	# }
+	trigger = {
+		FROM = {
+			is_married = ROOT
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = { 
-		# name = EVTOPTAHFP20070
-		# tooltip = {
-			# opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
-		# }
-	# }
-# }
+	option = { 
+		name = EVTOPTAHFP20070
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_kindred_spirit years = 10 } 
+		}
+	}
+}
