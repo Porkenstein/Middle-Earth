@@ -5468,7 +5468,10 @@ dunedain_ranger = {
 	vassal_opinion = 10
 	sex_appeal_opinion = 10	
 	potential = {
-		culture = culture_dunedain
+		OR = {
+			culture = culture_arnorian
+			culture = culture_gondorian
+		}
 	}
 	command_modifier = {
 		light_infantry = 0.5
@@ -6207,4 +6210,58 @@ staff_of_alatar = {
 	combat_rating = 1
 	random = no	
 	# cached = yes # Keep a cache of all trait holders, to use with the corresponding event trigger
+}
+giant = {
+	birth = 50
+	inherit_chance = 5
+	
+	opposites =  {
+	}
+	
+	fertility = -0.20
+	health = -0.5
+	combat_rating = 10
+	
+	vassal_opinion = 5
+	tribal_opinion = 10
+	sex_appeal_opinion = -5
+	
+	male_insult = INSULT_ABOMINATION
+	female_insult = INSULT_FREAK
+	child_insult = INSULT_TROLL
+	male_insult_adj = INSULT_MONSTROUS
+	female_insult_adj = INSULT_HIDEOUS
+	child_insult_adj = INSULT_UGLY
+	male_compliment_adj = COMPL_STRONG
+}
+groomed = {
+	sex_appeal_opinion = 15
+	
+	opposites =  {
+		uncouth
+	}
+
+	opposite_opinion = -5
+	
+	female_compliment = COMPL_BEAUTY
+	female_compliment_adj = COMPL_FAIR
+	male_compliment = COMPL_CHARMER
+	male_compliment_adj = COMPL_HANDSOME
+	child_compliment_adj = COMPL_PRETTY
+}
+
+uncouth = {
+	sex_appeal_opinion = -10
+	
+	opposites =  {
+		groomed
+	}
+	
+	opposite_opinion = -5
+
+	male_insult = INSULT_FILTHY
+	female_insult = INSULT_HARPY
+	male_insult_adj = INSULT_ROUGH
+	female_insult_adj = INSULT_ROUGH
+	child_insult_adj = INSULT_UGLY
 }

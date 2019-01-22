@@ -44,7 +44,6 @@
 # mep_orc_culture
 # mep_orc_goblin_culture
 # mep_orc_troll_culture
-# mep_is_black_numenorean_culture
 # mep_is_good_numenorean_culture
 # mep_evil_religion
 # mep_any_religion
@@ -345,7 +344,6 @@ mep_never_councillor_trigger = {
 		trait = incapable
 		trait = elf_childhood
 		trait = saruman_spell
-		trait = huntforring
 		trait = journey_to_valinor
 		trait = sailed_west
 		trait = at_east
@@ -363,7 +361,6 @@ mep_pick_good_side_trigger = {
 		mep_is_evil_side_trigger = yes
 		has_character_flag = sidechosen
 		has_landed_title  = d_mornaugrim
-		culture = culture_adunaic
 		culture = culture_black_numenorean
 	}
 	NOT = { religion_group = religion_group_melkor }
@@ -645,7 +642,7 @@ mep_winter_culture = {
 		culture = culture_wight
 		culture = culture_arnorian
 		culture = culture_arnorian_middlemen
-		culture = culture_dunedain
+		culture_group = culture_group_dunedain
 		culture = culture_breelander
 		culture = culture_barding
 		culture = culture_northmen
@@ -725,18 +722,9 @@ mep_orc_troll_culture = {
 	}
 }
 
-mep_is_black_numenorean_culture = {
-	OR = {
-		culture = culture_black_numenorean
-		culture = culture_adunaic
-	}
-}
 mep_is_good_numenorean_culture = {
 	culture_group = culture_group_numenorean
-	NOR = {
-		culture = culture_black_numenorean
-		culture = culture_adunaic
-	}
+	NOT = {	culture = culture_black_numenorean }
 }
 
 mep_evil_religion = {
@@ -979,7 +967,6 @@ mep_good_side_province = {
 		religion_group = religion_group_khazad  # Dwarves
 		AND = {
 			religion = religion_numenorean
-			NOT = { culture = culture_adunaic }
 			NOT = { culture = culture_black_numenorean }
 		}
 		religion = religion_dunedain
@@ -1013,7 +1000,6 @@ mep_pop_always_evil_purge_culture = {
 		religion_group = religion_group_periannath  # Hobbits
 		AND = {
 			religion = religion_numenorean
-			NOT = { culture = culture_adunaic }
 			NOT = { culture = culture_black_numenorean }
 		}
 		religion = religion_dunedain
@@ -1199,7 +1185,6 @@ mep_char_leader_usable = {
 		# top_liege = PREV
 		is_incapable = no
 		NOT = { trait = ringsearch }
-		NOT = { trait = huntforring }
 	}
 }
 
@@ -1209,14 +1194,12 @@ mep_theodred_and_eomer_are_okay = {
 		prisoner = no
 		# top_liege = PREV
 		NOT = { trait = ringsearch }
-		NOT = { trait = huntforring }
 	}
 	event_target:mep_chartarget_eomer = {
 		is_alive = yes
 		prisoner = no
 		# top_liege = PREV
 		NOT = { trait = ringsearch }
-		NOT = { trait = huntforring }
 	}
 }
 

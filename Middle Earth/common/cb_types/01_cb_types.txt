@@ -2931,23 +2931,6 @@ matriarchal_deposition_war = {
 	
 	ai_will_do = { 
 		factor = 1
-		modifier = { #Focus on Coronation first.
-			factor = 0.1
-			has_dlc = "Holy Fury"
-			ROOT = {
-				is_feudal = yes
-				OR = {
-					religion = catholic
-					religion = fraticelli
-				}
-				NOR = {
-					trait = crowned_by_priest
-					trait = crowned_by_bishop
-					trait = crowned_by_pope
-					trait = crowned_by_myself
-				}
-			}
-		}
 		modifier = { 
 			factor = 10
 			ROOT = { religion = FROM } #Intolerable circumstances.

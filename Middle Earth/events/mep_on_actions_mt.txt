@@ -8,11 +8,8 @@ character_event = {	#Maintenance
 		trait = trait_old_age
 	}
 
-	immediate = {
-		remove_trait = trait_old_age
-	}
-
 	option  = {
+		remove_trait = trait_old_age
 		add_trait = trait_old_age
 	}
 }
@@ -1192,11 +1189,9 @@ character_event = {	#Assign Race Traits
 			culture_group = culture_group_quendi
 			# Men
 			culture = culture_numenorean
-			culture = culture_adunaic
 			culture = culture_arnorian
 			culture = culture_gondorian
 			culture = culture_black_numenorean
-			culture = culture_dunedain
 			# Dwarves
 			culture_group = culture_group_dwarves
 			# Hobbits
@@ -1309,10 +1304,7 @@ character_event = {	#Assign Race Traits
 		}
 		IF = {
 			limit = {
-				OR = {
-					culture = culture_numenorean
-					culture = culture_adunaic
-				}
+				culture = culture_numenorean
 			}
 			add_trait = numenorean
 		}
@@ -1322,7 +1314,6 @@ character_event = {	#Assign Race Traits
 					culture = culture_arnorian
 					culture = culture_gondorian
 					culture = culture_black_numenorean
-					culture = culture_dunedain
 				}
 			}
 			add_trait = numenor_blood
