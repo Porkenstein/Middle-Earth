@@ -142,6 +142,8 @@ NDefines.NMilitary.CAPITAL_WARSCORE_MULTIPLIER = 3 -- sacking the capital is alw
 NDefines.NMilitary.ARMY_MOVEMENT_SPEED = 9
 NDefines.NMilitary.NAVY_MOVEMENT_SPEED = 30
 
+NDefines.NMilitary.MAX_LEADERSHIP_TRAITS = 3
+
 NDefines.NMilitary.LOOTED_MODIFIER_MONTHS = 60			-- How long pagan looting lasts
 NDefines.NMilitary.LOOT_TAX_MULTIPLIER = 2			-- Base gold looted from raided holdings is (tax * LOOT_TAX_MULTIPLIER) + (total building value * LOOT_BUILDING_MULTIPLIER)
 NDefines.NMilitary.LOOT_BUILDING_MULTIPLIER = 0.2		-- Extra gold looted from raided holdings, from buildings (LOOT_BUILDING_MULTIPLIER * building built cost)
@@ -150,11 +152,13 @@ NDefines.NMilitary.LOOT_HOLDING_DESTRUCTION_ODDS = 0		-- a holding with less tha
 NDefines.NMilitary.LOOT_HOLDING_BUILDING_DEST_ODDS = 1		-- there is a 1 in this chance a random building is destroyed when looted
 NDefines.NMilitary.SETTLED_ADVENTURER_MODIFIER_YEARS = 5	-- How long provinces are spared from raiding after settling a raider adventurer.
 	
-NDefines.NMilitary.MIN_RETINUE = 200
-NDefines.NMilitary.RETINUE_HIRE_COST_MULTIPLIER = 0.25		-- Retinues are free to hire atm, but they cost a lot to reinforce
-NDefines.NMilitary.RETINUE_REINFORCE_RATE = 0.01
-NDefines.NMilitary.RETINUE_REINFORCE_COST = 2			-- Retinues cost while reinforcing.
-NDefines.NMilitary.RETINUE_CONSTANT_COST = 0.15			-- was 0.25
+NDefines.NMilitary.MIN_RETINUE = 1000
+NDefines.NMilitary.RETINUE_FROM_REALMSIZE = 1.5		-- was 2.0
+NDefines.NMilitary.RETINUE_HIRE_COST_MULTIPLIER = 0.1		-- was 0.14
+NDefines.NMilitary.RETINUE_REINFORCE_RATE = 0.05		-- was 0.025
+NDefines.NMilitary.RETINUE_REINFORCE_COST = 1.0			-- was 3.0
+NDefines.NMilitary.RETINUE_CONSTANT_COST = 0.1			-- was 0.25
+NDefines.NMilitary.RETINUE_INCREASE_PER_TECH = 1.1      -- was 1.5
 
 NDefines.NMilitary.TERRAIN_SPEC_BONUS = 0.3		-- was 0.2
 
@@ -163,8 +167,7 @@ NDefines.NMilitary.TERRAIN_SPEC_BONUS = 0.3		-- was 0.2
 NDefines.NTechnology.DONT_EXECUTE_TECH_BEFORE = 4280
 
 NDefines.NTechnology.IDEAL_YEAR_LEVEL_0 = 4200
-NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 5100
-NDefines.NTechnology.IDEAL_YEAR_AHEAD_PENALTY_INVEST = 0.2
+NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 5300
 
 ----- NDisease -----
 

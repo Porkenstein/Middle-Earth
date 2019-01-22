@@ -1114,3 +1114,35 @@ character_event = {
 		}
 	}
 }
+
+# apply the hidden modifier
+character_event = {
+    id = provinceinit.21
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		if = {
+			limit = {
+				NOT = { year = 4822 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { year = 4807 }
+			}
+		}
+		any_demesne_province = {
+			limit = {
+				religion = religion_wilderness
+				de_jure_liege_or_above = k_gondolin
+				de_jure_liege_or_above = d_nargothrond
+			}
+			add_province_modifier = { name = hidden_place duration = -1 }
+		}
+	}
+}

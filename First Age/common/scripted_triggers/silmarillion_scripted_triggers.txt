@@ -378,8 +378,11 @@ is_hidden_realm = {
 
 is_unattractive_colonisation_target = {
 	OR = {
-		de_jure_liege_or_above = k_lothlann
+		region = custom_lothlann_steppe
+		region = custom_anach
+		region = world_iron_mountains
 		has_province_modifier = tainted
+		has_province_modifier = hidden_place
 		has_province_modifier = girdle_of_melian
 		has_province_modifier = infested
 	}
@@ -459,5 +462,42 @@ has_sorcerer_skill = {
 		trait = master_sorcerer
 		trait = sorcerer
 		trait = witch
+	}
+}
+
+is_not_player_capital_province = {
+	NOT = {
+		any_player = {
+			capital_scope = {
+				county = {
+					title = PREVPREVPREV
+				}
+			}
+		}
+	}
+}
+
+is_not_owner_capital_province = {
+	NOT = {
+		owner = {
+			capital_scope = {
+				county = {
+					title = PREVPREVPREV
+				}
+			}
+		}
+	}
+}
+
+is_edain_entry_province = {
+	OR = {
+		province_id = 187
+		province_id = 186
+		province_id = 181
+		province_id = 178
+		province_id = 184
+		province_id = 259
+		province_id = 257
+		province_id = 188
 	}
 }

@@ -274,48 +274,7 @@ province_event = {
 	option = {
 		clr_province_flag = abandoned_by_morgoth
 		
-		if = {
-			limit = {
-				NOT = { num_of_settlements = 1 }
-			}
-			build_holding = {
-				type = castle
-			}
-		}
-		else_if = {
-			limit = {
-				num_of_settlements = 2
-			}
-			ruin_province = yes
-		}
-
-		create_character = {
-			random_traits = no
-			name = "Wilderness"
-			religion = religion_wilderness
-			culture = culture_wilderness
-			dynasty = 19013
-			female = no
-			age = 4000
-			trait = wilderness
-			#disallow_random_traits = yes
-		}
-
-		county = {
-			new_character = {
-				usurp_title = PREV
-				set_defacto_liege = THIS
-
-				capital_holding = {
-					convert_to = CASTLE
-				}
-				set_government_type = feudal_government
-			}
-			location = {
-				culture = culture_wilderness
-				religion = religion_wilderness
-			}
-		}
+		abandon_province = yes
 	}
 }
 

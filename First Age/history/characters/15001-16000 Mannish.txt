@@ -1468,6 +1468,7 @@
         add_trait = elf_friend
         add_trait = trusting # a good vassal
         effect = {
+			set_character_flag = balan
             add_artifact = dagmor
             add_friend = 3146 # Finrod Felagund
 
@@ -1480,8 +1481,8 @@
 
 				troops = {
 					archers = { 1200 1200 }
-					light_infantry = { 1700 1700 }
-					heavy_infantry = { 100 100 }
+					light_infantry = { 1900 1900 }
+					heavy_infantry = { 200 200 }
 					light_cavalry = { 200 200 }
 					pikemen = { 200 200 }
 				}
@@ -2870,8 +2871,33 @@
 	4594.1.1={
 			birth="4594.1.1"
 	}
+	4626.1.1={
+		effect = {
+			set_character_flag = marach
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_marach
+				province = 105 # Bar Marach
+
+				troops = {
+					archers = { 1800 1800 }
+					light_infantry = { 2900 2900 }
+					heavy_infantry = { 300 300 }
+					light_cavalry = { 250 250 }
+					pikemen = { 300 300 }
+				}
+				attrition = 0.5
+			}
+        }
+	}
 	4688.1.1={
-			death="4688.1.1"
+		effect = {
+			disband_event_forces = host_of_marach
+		}
+		death="4688.1.1"
 	}
 }
 
@@ -2896,12 +2922,60 @@
 			type = malach
 			has_dlc = "Holy Fury"
 		}
+		effect = {
+			set_character_flag = marach
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_malach
+				province = 152 # Ost in Arudan
+
+				troops = {
+					archers = { 200 200 }
+					light_infantry = { 500 500 }
+					heavy_infantry = { 50 50 }
+					light_cavalry = { 50 50 }
+					pikemen = { 50 50 }
+				}
+				attrition = 0.5
+			}
+        }
+	}
+	4649.1.1={
+		effect = {
+			disband_event_forces = host_of_malach
+		}
 	}
 	4650.1.1={
-			add_spouse=15175
+		add_spouse=15175
+	}
+	4688.1.1={
+		effect = {
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_marach_2
+				province = 105 # Bar Marach
+
+				troops = {
+					archers = { 1200 1200 }
+					light_infantry = { 2000 2000 }
+					heavy_infantry = { 100 100 }
+					light_cavalry = { 100 100 }
+					pikemen = { 100 100 }
+				}
+				attrition = 0.5
+			}
+        }
 	}
 	4710.1.1={
-			death="4710.1.1"
+		effect = {
+			disband_event_forces = host_of_marach_2
+		}
+		death="4710.1.1"
 	}
 }
 
@@ -2973,8 +3047,33 @@
 	4653.1.1={
 			birth="4653.1.1"
 	}
+	4677.1.1={
+		effect = {
+			set_character_flag = magor
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_magor
+				province = 172 # Ost in Arudan
+
+				troops = {
+					archers = { 200 200 }
+					light_infantry = { 500 500 }
+					heavy_infantry = { 50 50 }
+					light_cavalry = { 50 50 }
+					pikemen = { 50 50 }
+				}
+				attrition = 0.5
+			}
+        }
+	}
 	4724.1.1={
-			death="4724.1.1"
+		effect = {
+			disband_event_forces = host_of_magor
+		}
+		death="4724.1.1"
 	}
 }
 
@@ -3936,7 +4035,32 @@
 	4626.1.1={
 		birth="4626.1.1"
 	}
+	4669.5.1={
+		effect = {
+			set_character_flag = haldad
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_haldad
+				province = 259 # Cerin Haleth
+
+				troops = {
+					archers = { 1200 1200 }
+					light_infantry = { 1400 1400 }
+					heavy_infantry = { 400 400 }
+					light_cavalry = { 50 50 }
+					pikemen = { 200 200 }
+				}
+				attrition = 0.5
+			}
+        }
+	}
 	4687.1.1={
+		effect = {
+			disband_event_forces = host_of_haldad
+		}
 		death={
 			death_reason=death_battle
 			killer=10015
@@ -3967,9 +4091,98 @@
 			type = haleth
 			has_dlc = "Holy Fury"
 		}
+		effect = {
+			set_character_flag = haleth
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_haldad_2
+				province = 259 # Cerin Haleth
+
+				troops = {
+					archers = { 1200 1200 }
+					light_infantry = { 1400 1400 }
+					heavy_infantry = { 400 400 }
+					light_cavalry = { 50 50 }
+					pikemen = { 200 200 }
+				}
+				attrition = 0.5
+			}
+        }
+	}
+	4688.5.1={
+		effect = {
+			disband_event_forces = host_of_haldad_2
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_haldad_3
+				province = 106 # Dor Halethrim
+
+				troops = {
+					archers = { 1100 1100 }
+					light_infantry = { 1300 1300 }
+					heavy_infantry = { 300 300 }
+					light_cavalry = { 50 50 }
+					pikemen = { 100 100 }
+				}
+				attrition = 0.5
+			}
+		}
+	}
+	4698.5.1={
+		effect = {
+			disband_event_forces = host_of_haldad_3
+		
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_haldad_4
+				province = 226 # Talath Dirnen
+
+				troops = {
+					archers = { 1000 1000 }
+					light_infantry = { 1200 1200 }
+					heavy_infantry = { 200 200 }
+					light_cavalry = { 50 50 }
+					pikemen = { 50 50 }
+				}
+				attrition = 0.5
+			}
+		}
+	}
+	4730.1.1={
+		effect = {
+			disband_event_forces = host_of_haldad_4
+
+			spawn_unit = {
+				owner = ROOT
+				leader = ROOT
+				maintenance = no
+				earmark = host_of_haldad_5
+				province = 34 # Amon Obel
+
+				troops = {
+					archers = { 900 900 }
+					light_infantry = { 1100 1100 }
+					heavy_infantry = { 100 100 }
+					light_cavalry = { 50 50 }
+					pikemen = { 50 50 }
+				}
+				attrition = 0.5
+			}
+		}
 	}
 	4732.1.1={
-			death="4732.1.1"
+		effect = {
+			disband_event_forces = host_of_haldad_5
+		}
+		death="4732.1.1"
 	}
 }
 
