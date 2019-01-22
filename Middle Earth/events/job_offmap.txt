@@ -15,6 +15,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_statecraft
@@ -292,7 +293,7 @@ character_event = {
 			}
 			set_character_flag = statecraft_pop_ruler
 			job_chancellor = {
-				character_event = { id = MNM.78006 }
+				letter_event = { id = MNM.78006 }
 			}
 		}
 	}
@@ -426,6 +427,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_improve_relations
@@ -514,6 +516,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_administer_realm
@@ -701,6 +704,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_administer_realm
@@ -829,6 +833,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
@@ -837,6 +842,7 @@ character_event = {
 		NOT = { trait = incapable }
 		liege = {
 			any_courtier_or_vassal = {
+				NOT = { character = PREV } #so it does not pick the liege themselves...
 				has_minor_title = title_commander
 				NAND = {
 					martial = 20
@@ -874,6 +880,7 @@ character_event = {
 		liege = {
 			random_courtier_or_vassal = {
 				limit = {
+					NOT = { character = PREV } #so it does not pick the liege themselves...
 					has_minor_title = title_commander
 					NAND = {
 						martial = 20
@@ -1206,6 +1213,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
@@ -1343,12 +1351,40 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			female = no
-			attributes = {
-				martial = 10
+		if = {
+			limit = {
+				gender_equality_trigger = yes
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 50
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 90
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else = {
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = no
+				attributes = {
+					martial = 10
+				}
 			}
 		}
 		new_character = {
@@ -1431,7 +1467,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				OR = {
+				OR = { 
 					AND = {
 						tier = COUNT
 						NOT = {
@@ -1615,6 +1651,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_organize_army
@@ -1757,6 +1794,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_sabotage_province
@@ -1764,7 +1802,7 @@ character_event = {
 		NOT = { has_character_modifier = bedridden_illness }
 		NOT = { trait = incapable }
 		location = {
-			can_be_sabotaged_trigger = yes #TODO maybe have intimidate check and give letter if all done
+			can_be_sabotaged_trigger = yes
 		}
 	}
 	
@@ -1826,7 +1864,7 @@ character_event = {
 				100 = {
 					modifier = {
 						factor = 0
-						has_province_modifier = sabotaged_buildings	#TODO Maybe hide list, have letter events telling liege what happened			
+						has_province_modifier = sabotaged_buildings		
 					}
 					add_province_modifier = { 					
 						name = sabotaged_buildings
@@ -1861,7 +1899,7 @@ character_event = {
 letter_event = {
 	id = MNM.70021
 	desc = MNM.70021.d
-	# picture = GFX_evt_council
+	picture = GFX_evt_council
 	border = GFX_event_letter_frame_intrigue
 	
 	is_triggered_only = yes
@@ -1882,6 +1920,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap
@@ -1980,6 +2019,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap
@@ -2132,6 +2172,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots_offmap

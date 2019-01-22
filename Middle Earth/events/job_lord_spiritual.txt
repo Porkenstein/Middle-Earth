@@ -1803,6 +1803,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_advance_cul_tech
@@ -1820,6 +1821,14 @@ character_event = {
 				has_focus = focus_scholarship
 				liege = { has_focus = focus_scholarship }
 			}
+		}
+		modifier = {
+			factor = 2
+			has_religion_feature = religion_dogmatic
+		}
+		modifier = {
+			factor = 0.75
+			has_religion_feature = religion_cosmopolitan
 		}
 		modifier = {
 			factor = 1.25
@@ -1852,6 +1861,23 @@ character_event = {
 		modifier = {
 			factor = 0.75
 			learning = 13
+		}
+		modifier = {
+			factor = 0.5
+			liege = {
+				any_owned_bloodline = {
+					has_bloodline_flag = bloodline_more_philosophers
+					bloodline_is_active_for = PREV
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			#If chaplain is also your relative.
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_more_philosophers
+				bloodline_is_active_for = PREV
+			}
 		}
 	}
 	
@@ -2496,6 +2522,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_build_zeal
@@ -2503,6 +2530,10 @@ character_event = {
 		NOT = { has_character_modifier = bedridden_illness }
 		NOT = { trait = incapable }
 		liege = {
+			OR = { # The AI pretty much always just let their warriors stand around, getting a piety hit when they disband
+				war = yes
+				ai = no
+			}
 			is_adult = yes
 			prisoner = no
 			piety = 10
@@ -2679,14 +2710,21 @@ character_event = {
 	trigger = {
 		has_earmarked_regiments = tribal_build_zeal
 		
-		NOT = {
+		NOR = {
 			any_war = {
-				OR = {
-					using_cb = good_attack_evil_duchy
-					using_cb = evil_attack_good_duchy
-					using_cb = kingdom_good_attack_evil
-					using_cb = muslim_county_conquest
-					using_cb = viking_invasion
+				defender = { character = ROOT }
+				attacker = {
+					NOT = {
+						religion = ROOT
+					}		
+				}
+			}
+			any_war = {
+				attacker = { character = ROOT }
+				defender = {
+					NOT = {
+						religion = ROOT
+					}				
 				}
 			}
 		}
