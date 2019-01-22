@@ -6265,3 +6265,64 @@ uncouth = {
 	female_insult_adj = INSULT_ROUGH
 	child_insult_adj = INSULT_UGLY
 }
+sturdy = {
+	
+	opposites = { 
+		feeble
+		robust 
+	}
+
+	health = 0.25
+	
+	combat_rating = 2
+	
+}
+lefthanded = {
+	inherit_chance = 25
+	birth = 75
+
+	combat_rating = 15
+	same_opinion = 5
+	
+	customizer = yes
+	
+	#christian_church_opinion = -10
+	#muslim_opinion = -10
+
+	male_insult_adj = INSULT_LEFTHANDED
+	female_insult_adj = INSULT_LEFTHANDED
+}
+pregnancy_finishing = {
+	in_hiding = yes # Will need a regent, but can still be guardian to children
+	is_health = yes
+	customizer = no
+}
+hard_pregnancy = {
+	#in_hiding = yes # Will need a regent
+	is_health = yes
+	# Highly event driven
+	opposites = { troubled_pregnancy
+	}
+	
+	combat_rating = -50
+	spouse_opinion = 15
+
+	customizer = no
+
+	
+	ai_rationality = -5
+}
+
+troubled_pregnancy = {
+	incapacitating = yes # Will need a regent
+	is_health = yes
+	# Highly event driven
+	opposites = { hard_pregnancy }
+	
+	combat_rating = -100
+	spouse_opinion = 15
+
+	customizer = no
+
+	ai_rationality = -15
+}

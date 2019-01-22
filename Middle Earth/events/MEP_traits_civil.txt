@@ -445,16 +445,16 @@ character_event = {
 	trigger = {
 		guardian = {
 			OR = {			
-				trait = craftsman
+				trait = novice_craftsman
+				trait = adept_craftsman
 				trait = skilled_craftsman
 				trait = master_craftsman
-				trait = legendary_craftman
 			}
 		}
-		NOT = { trait = craftsman }
+		NOT = { trait = novice_craftsman }
+		NOT = { trait = adept_craftsman }
 		NOT = { trait = skilled_craftsman }
 		NOT = { trait = master_craftsman }
-		NOT = { trait = legendary_craftman }
 		OR = {
 			culture_group = culture_group_dwarves
 			culture = culture_noldor				
@@ -467,7 +467,7 @@ character_event = {
 		# Mentor Effects
 		modifier = {
 			factor = 0.85
-			guardian = { trait = craftsman }
+			guardian = { trait = novice_craftsman }
 		}
 		modifier = {
 			factor = 0.85
@@ -868,23 +868,22 @@ character_event = {
 	trigger = {
 		guardian = {
 			OR = {			
-				trait = poet_2
-				trait = composer
-				trait = skilled_composer
-				trait = legendary_musician
+				trait = novice_musician
+				trait = adept_musician
+				trait = skilled_musician
+				trait = master_musician
 			}
 		}
-		NOT = { trait = poet_2 }
-		NOT = { trait = composer }
-		NOT = { trait = skilled_composer }
-		NOT = { trait = legendary_musician }
+		NOT = { trait = novice_musician }
+		NOT = { trait = adept_musician }
+		NOT = { trait = skilled_musician }
+		NOT = { trait = master_musician }
 		OR = {
 			culture_group = culture_group_dwarves
 			mep_is_elf_culture = yes
 			culture_group = culture_group_numenorean	
 			culture_group = culture_group_halfling
 			culture_group = culture_group_middlemen
-			# culture_group = culture_group_northmen
 		}			
 	}
 
@@ -894,19 +893,19 @@ character_event = {
 		# Mentor Effects
 		modifier = {
 			factor = 0.85
-			guardian = { trait = poet_2 }
+			guardian = { trait = novice_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = composer }
+			guardian = { trait = adept_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = skilled_composer }
+			guardian = { trait = skilled_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = legendary_musician }
+			guardian = { trait = master_musician }
 		}
 
 		# Personality Effects
@@ -967,7 +966,7 @@ character_event = {
 	option = {
 		name = "EVTOPTAciviltraits.10" # Stick 'em with the pointy end!
 		hidden_tooltip = { guardian = { character_event = {id = civiltraits.5} } } #Guardian Notification.
-		add_trait = poet_2 
+		add_trait = novice_musician
 	}
 }
 
@@ -982,24 +981,23 @@ character_event = {
 
 	trigger = {
 		guardian = {
-			OR = {
-				trait = poet_2
-				trait = composer
-				trait = skilled_composer
-				trait = legendary_musician
+			OR = {			
+				trait = novice_musician
+				trait = adept_musician
+				trait = skilled_musician
+				trait = master_musician
 			}
 		}
-		trait = poet_2
-		NOT = { trait = composer }
-		NOT = { trait = skilled_composer }
-		NOT = { trait = legendary_musician }
+		trait = novice_musician
+		NOT = { trait = adept_musician }
+		NOT = { trait = skilled_musician }
+		NOT = { trait = master_musician }
 		OR = {
 			culture_group = culture_group_dwarves
 			mep_is_elf_culture = yes
 			culture_group = culture_group_numenorean	
 			culture_group = culture_group_halfling
 			culture_group = culture_group_middlemen
-			# culture_group = culture_group_northmen
 		}		
 	}
 
@@ -1009,15 +1007,15 @@ character_event = {
 		# Mentor Effects
 		modifier = {
 			factor = 0.85
-			guardian = { trait = composer }
+			guardian = { trait = adept_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = skilled_composer }
+			guardian = { trait = skilled_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = legendary_musician }
+			guardian = { trait = master_musician }
 		}
 
 		# Personality Effects
@@ -1078,8 +1076,8 @@ character_event = {
 	option = {
 		name = "EVTOPTAciviltraits.11"
 		hidden_tooltip = { guardian = { character_event = {id = civiltraits.5} } } #Guardian Notification.
-		remove_trait = poet_2 
-		add_trait = composer
+		remove_trait = novice_musician
+		add_trait = adept_musician
 	}
 	
 }
@@ -1095,22 +1093,21 @@ character_event = {
 	trigger = {
 		guardian = {
 			OR = {			
-				trait = poet_2
-				trait = composer
-				trait = skilled_composer
-				trait = legendary_musician
+				trait = novice_musician
+				trait = adept_musician
+				trait = skilled_musician
+				trait = master_musician
 			}
 		}
-		trait = composer
-		NOT = { trait = skilled_composer }
-		NOT = { trait = legendary_musician }
+		trait = adept_musician
+		NOT = { trait = skilled_musician }
+		NOT = { trait = master_musician }
 		OR = {
 			culture_group = culture_group_dwarves
 			mep_is_elf_culture = yes
 			culture_group = culture_group_numenorean	
 			culture_group = culture_group_halfling
 			culture_group = culture_group_middlemen
-			# culture_group = culture_group_northmen
 		}		
 	}
 
@@ -1120,11 +1117,11 @@ character_event = {
 		# Mentor Effects
 		modifier = {
 			factor = 0.85
-			guardian = { trait = skilled_composer }
+			guardian = { trait = skilled_musician }
 		}
 		modifier = {
 			factor = 0.85
-			guardian = { trait = legendary_musician }
+			guardian = { trait = master_musician }
 		}
 
 		# Personality Effects
@@ -1186,8 +1183,8 @@ character_event = {
 	option = {
 		name = "EVTOPTAciviltraits.12"
 		hidden_tooltip = { guardian = { character_event = {id = civiltraits.5} } } #Guardian Notification.
-		remove_trait = composer 
-		add_trait = skilled_composer
+		remove_trait = adept_musician
+		add_trait = skilled_musician
 	}
 }
 
@@ -1202,22 +1199,20 @@ character_event = {
 	trigger = {
 		guardian = {
 			OR = {		
-				trait = poet_2
-				trait = composer
-				trait = skilled_composer
-				trait = legendary_musician
+				trait = novice_musician
+				trait = adept_musician
+				trait = skilled_musician
+				trait = master_musician
 			}
 		}
-		trait = skilled_composer
-
-		NOT = { trait = legendary_musician }		
+		trait = skilled_musician
+		NOT = { trait = master_musician }		
 		OR = {
 			culture_group = culture_group_dwarves
 			mep_is_elf_culture = yes
 			culture_group = culture_group_numenorean	
 			culture_group = culture_group_halfling
 			culture_group = culture_group_middlemen
-			# culture_group = culture_group_northmen
 		}			
 	}
 
@@ -1227,7 +1222,7 @@ character_event = {
 		# Mentor Effects
 		modifier = {
 			factor = 0.85
-			guardian = { trait = legendary_musician }
+			guardian = { trait = master_musician }
 		}
 
 		# Personality Effects
@@ -1289,8 +1284,8 @@ character_event = {
 	option = {
 		name = "EVTOPTAciviltraits.13"
 		hidden_tooltip = { guardian = { character_event = {id = civiltraits.5} } } #Guardian Notification.
-		remove_trait = skilled_composer
-		add_trait = legendary_musician
+		remove_trait = skilled_musician
+		add_trait = master_musician
 	}
 	
 }

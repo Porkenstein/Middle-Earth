@@ -939,17 +939,17 @@ character_event = {
 				add_trait = lunatic
 			}
 		}
+		# if = { 
+			# limit = { 
+				# this_has_super_cool_nickname_trigger = no 
+				# culture_group = latin
+			# }
+			# ROOT = { give_nickname = nick_the_ferrante }
+		# }
 		if = { 
 			limit = { 
 				this_has_super_cool_nickname_trigger = no 
-				culture_group = latin
-			}
-			ROOT = { give_nickname = nick_the_ferrante }
-		}
-		if = { 
-			limit = { 
-				this_has_super_cool_nickname_trigger = no 
-				NOT = { culture_group = latin }
+				# NOT = { culture_group = latin }
 			}
 			ROOT = { give_nickname = nick_the_iron_heart }
 		}
@@ -1353,7 +1353,7 @@ character_event = {
 	option = {
 		name = EVTOPTAHF24033
 		trigger = { 
-			religion_group = christian 
+			# religion_group = christian 
 			is_evil_trigger = no 
 			OR = {
 				is_female = no
@@ -1669,7 +1669,7 @@ narrative_event = {
 				limit = { this_has_super_cool_nickname_trigger = no }
 				random_list = { 
 					10 = { 
-						trigger = { religion_group = christian }
+						# trigger = { religion_group = christian }
 						give_nickname = nick_the_angel 
 					} 
 					10 = { 
@@ -1977,17 +1977,17 @@ narrative_event = {
 	
 	option = { #Gain Monumental bloodline.
 		name = EVTOPTAHF24044
-		if = { 
-			limit = { 
-				this_has_super_cool_nickname_trigger = no 
+		# if = { 
+			# limit = { 
+				# this_has_super_cool_nickname_trigger = no 
 				religion_group = christian
-			}
-			ROOT = { give_nickname = nick_the_carpenter }
-		}
+			# }
+			# ROOT = { give_nickname = nick_the_carpenter }
+		# }
 		if = { 
 			limit = { 
 				this_has_super_cool_nickname_trigger = no 
-				NOT = { religion_group = christian }
+				# NOT = { religion_group = christian }
 			}
 			ROOT = { give_nickname = nick_the_grandiose }
 		}
