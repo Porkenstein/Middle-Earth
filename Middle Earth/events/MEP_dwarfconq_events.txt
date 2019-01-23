@@ -4,70 +4,7 @@ namespace = dwarfconq
 # Set one: attack or buy azanulbizar for Longbeard Kings/Emporer
 # To beseige Moria, this is almost an absolute necessity, so I make these a natural pre-req for attacking Moria
 #-------------------------------------------------------------------
-# Azanulbizar is Wilderness, launch a 'seize wilderness' war
-character_event = {
-    id = dwarfconq.10
-	title = EVTTITdwarfconq.10
-    desc = EVTDESCdwarfconq.10
-    picture = "GFX_evt_dwarves"
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		c_azanulbizar = {
-			holder_scope = {
-				if = {
-					limit = { independent = yes }
-					save_event_target_as = mep_moria_overlord_target
-				}
-				if = {
-					limit = { independent = no }
-					top_liege = {
-						save_event_target_as = mep_moria_overlord_target
-					}
-				}
-			}
-		}
-
-	}
-	
-	option = {
-		name = EVTOPAdwarfconq.10
-		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 0.1
-				NOT = { wealth = 105 }
-			}
-		}
-		wealth = -100
-		if = {
-			limit = { has_character_modifier = retaking_khazaddum }
-			remove_character_modifier = retaking_khazaddum
-		}
-		add_character_modifier = { name = retaking_khazaddum duration = 3650}
-		if = {
-			limit = { NOT = { has_global_flag = retaking_khazad_dum } }
-			set_global_flag = retaking_khazad_dum
-		}		
-		c_azanulbizar = {
-			event_target:mep_moria_overlord_target = {
-				reverse_war = {
-					target = ROOT
-					casus_belli = claim
-					thirdparty_title = PREV
-					infamy = 0
-				}
-			}
-		}
-	}
-	
-	option = {
-		ai_chance = { factor = 1 }
-		name = dwarfconq_later		
-	}
-	
-}
+# Wilderness war removed due to new pop and colonization mechanics - tsf4 1/2019
 
 # Launch a war to take Azanulbizar from Evil
 character_event = {

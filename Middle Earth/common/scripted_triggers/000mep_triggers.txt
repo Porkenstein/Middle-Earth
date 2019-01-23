@@ -1,23 +1,19 @@
 #  some MEP stuff to include in 00_scripted_triggers (and elsewhere)
 
 mep_is_good_side_trigger = {
+	NOT = { mep_is_evil_side_trigger = yes}
 	OR = {
-		AND = {
-			NOT = { mep_is_evil_side_trigger = yes}
-			OR = {
-				religion_group = religion_group_eldar   # Elves
-				religion_group = religion_group_khazad  # Dwarves
-				religion = religion_rhovanion
-				religion = religion_numenorean
-				religion = religion_dunedain
-				religion = religion_edain
-				religion = religion_druedain
-				religion_group = religion_group_eruhini # Ainur (like Eagles)
-				religion_group = religion_group_enyd    # Ents							
-			}
-			NOT = { culture = culture_black_numenorean }
-		}
+		religion_group = religion_group_eldar   # Elves
+		religion_group = religion_group_khazad  # Dwarves
+		religion = religion_rhovanion
+		religion = religion_numenorean
+		religion = religion_dunedain
+		religion = religion_edain
+		religion = religion_druedain
+		religion_group = religion_group_eruhini # Ainur (like Eagles)
+		religion_group = religion_group_enyd    # Ents							
 	}
+	NOT = { culture = culture_black_numenorean }
 }
 
 mep_is_evil_side_trigger = {
@@ -37,22 +33,6 @@ mep_infertile_trait = {
 		trait = spiritform
 		trait = wilderness
 	}			
-}
-
-mep_traits_adding_stewardship = {
-	OR = {
-		trait = craftsman
-		trait = skilled_craftsman
-		trait = master_craftsman
-		trait = legendary_craftman
-		trait = ship_builder
-		trait = trader
-		trait = tradesman
-		trait = great_merchant
-		trait = mushroom_farmer
-		trait = hop_farmer
-		trait = pipe_weed_farmer
-	}
 }
 
 mep_can_be_merc_leader_mixin = {
