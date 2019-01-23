@@ -718,8 +718,8 @@ religion_doctrine = {
 	religion_haruspicy = { #Gives option to divinate the future before waging a war.
 		picture = GFX_religion_feature_haruspicy
 		potential = {
-			NOT = { religion = hellenic_pagan } #Core feature of the religion itself.
-			NOT = { religion = hellenic_pagan_reformed } #Core feature of the religion itself.
+			# NOT = { religion = hellenic_pagan } #Core feature of the religion itself.
+			# NOT = { religion = hellenic_pagan_reformed } #Core feature of the religion itself.
 		}
 
 		effect = {
@@ -732,8 +732,8 @@ religion_doctrine = {
 	religion_astrology = {
 		picture = GFX_religion_feature_astrology
 		potential = {
-			NOT = { religion = hellenic_pagan } #Core feature of the religion itself.
-			NOT = { religion = hellenic_pagan_reformed } #Core feature of the religion itself.
+			# NOT = { religion = hellenic_pagan } #Core feature of the religion itself.
+			# NOT = { religion = hellenic_pagan_reformed } #Core feature of the religion itself.
 		}
 
 		effect = {
@@ -1074,10 +1074,10 @@ religion_doctrine = {
 	religion_animistic = {
 		picture = GFX_religion_feature_animistic
 		potential = {
-			NOR = {
-				religion = west_african_pagan #Redundant
-				religion = west_african_pagan_reformed #Redundant
-			}
+			# NOR = {
+				# religion = west_african_pagan #Redundant
+				# religion = west_african_pagan_reformed #Redundant
+			# }
 		}
 		effect = {
 			custom_tooltip = { text = tooltip_religion_feature_land_morale }
@@ -1091,20 +1091,20 @@ religion_doctrine = {
 		}
 		ai_will_do = {
 			factor = 1
-			modifier = { 	
-				factor = 1.5
-				FROM = { 
-					character = yes 
-					religion = aztec
-				}
-			}
-			modifier = { 	
-				factor = 1.5
-				FROM = { 
-					character = yes 
-					religion = tengri_pagan
-				}
-			}
+			# modifier = { 	
+				# factor = 1.5
+				# FROM = { 
+					# character = yes 
+					# religion = aztec
+				# }
+			# }
+			# modifier = { 	
+				# factor = 1.5
+				# FROM = { 
+					# character = yes 
+					# religion = tengri_pagan
+				# }
+			# }
 		}
 	}
 	religion_beatification = {
@@ -1112,7 +1112,7 @@ religion_doctrine = {
 		trigger = {
 			NOR = {
 				has_selected_religion_feature = religion_no_leader
-				religion_group = christian #Random World redundancy.
+				# religion_group = christian #Random World redundancy.
 			}
 		}
 		effect = {
@@ -1132,13 +1132,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_norse
 		potential = {
 			has_game_started = yes
-			religion = norse_pagan_reformed
+			# religion = norse_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = norse_pagan_reformed
+			# religion = norse_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_adventuring
 				has_selected_religion_feature = religion_seafaring
@@ -1163,13 +1163,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_tengri
 		potential = {
 			has_game_started = yes
-			religion = tengri_pagan_reformed
+			# religion = tengri_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = tengri_pagan_reformed
+			# religion = tengri_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_relentless
 				has_selected_religion_feature = religion_harems
@@ -1205,13 +1205,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_baltic
 		potential = {
 			has_game_started = yes
-			religion = baltic_pagan_reformed
+			# religion = baltic_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = baltic_pagan_reformed
+			# religion = baltic_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_meritocratic
 			}
@@ -1231,13 +1231,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_slavic
 		potential = {
 			has_game_started = yes
-			religion = slavic_pagan_reformed
+			# religion = slavic_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = slavic_pagan_reformed
+			# religion = slavic_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_stable
 			}
@@ -1259,13 +1259,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_finnish
 		potential = {
 			has_game_started = yes
-			religion = finnish_pagan_reformed
+			# religion = finnish_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = finnish_pagan_reformed
+			# religion = finnish_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_stable
 			}
@@ -1287,13 +1287,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_west_african
 		potential = {
 			has_game_started = yes
-			religion = west_african_pagan_reformed
+			# religion = west_african_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = west_african_pagan_reformed
+			# religion = west_african_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_monastic
 				has_selected_religion_feature = religion_jizya
@@ -1318,13 +1318,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_zun
 		potential = {
 			has_game_started = yes
-			religion = zun_pagan_reformed
+			# religion = zun_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = zun_pagan_reformed
+			# religion = zun_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_harems
 				has_selected_religion_feature = religion_holy_family
@@ -1352,13 +1352,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_bon
 		potential = {
 			has_game_started = yes
-			religion = bon_reformed
+			# religion = bon_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = bon_reformed
+			# religion = bon_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_holy_family
 				has_selected_religion_feature = religion_meritocratic
@@ -1390,13 +1390,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_aztec
 		potential = {
 			has_game_started = yes
-			religion = aztec_reformed
+			# religion = aztec_reformed
 			NOR = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = aztec_reformed
+			# religion = aztec_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_seafaring #Redundant
 				has_selected_religion_feature = religion_ritual_sacrifice #Redundant
@@ -1437,13 +1437,13 @@ religion_doctrine = {
 		picture = GFX_religion_feature_hellenic
 		potential = {
 			has_game_started = yes
-			religion = hellenic_pagan_reformed
+			# religion = hellenic_pagan_reformed
 			NOT = {
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 		}
 		trigger = {
-			religion = hellenic_pagan_reformed
+			# religion = hellenic_pagan_reformed
 			NOR = { 
 				has_selected_religion_feature = religion_syncretic
 				has_selected_religion_feature = religion_dogmatic
@@ -1489,15 +1489,15 @@ religion_leadership = {
 		}
 		ai_will_do = {
 			factor = 50
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					NOR = { 
-						religion = norse_pagan
-						religion = aztec
-					}
-				}
-			}
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# NOR = { 
+						# religion = norse_pagan
+						# religion = aztec
+					# }
+				# }
+			# }
 		}
 	}
 	religion_theocratic_head = {
@@ -1516,16 +1516,16 @@ religion_leadership = {
 		}
 		ai_will_do = {
 			factor = 50
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					character = yes 
-					NOR = { 
-						religion = tengri_pagan
-						religion = zun_pagan
-					}
-				}
-			}
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# character = yes 
+					# NOR = { 
+						# religion = tengri_pagan
+						# religion = zun_pagan
+					# }
+				# }
+			# }
 		}
 	}
 	religion_autocephaly = {
@@ -1545,18 +1545,18 @@ religion_leadership = {
 		}
 		ai_will_do = {
 			factor = 50
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					character = yes 
-					NOR = { 
-						religion = finnish_pagan
-						religion = slavic_pagan
-						religion = baltic_pagan
-						religion = hellenic_pagan
-					}
-				}
-			}
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# character = yes 
+					# NOR = { 
+						# religion = finnish_pagan
+						# religion = slavic_pagan
+						# religion = baltic_pagan
+						# religion = hellenic_pagan
+					# }
+				# }
+			# }
 		}
 	}
 
@@ -1582,186 +1582,186 @@ religion_leadership = {
 				set_can_call_crusade = no
 				set_religious_branch = pagan_reformation
 			}
-			if = {
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = norse_pagan 
-							religion = tengri_pagan 
-						} 
-					}
-					has_selected_religion_feature = religion_monastic
-				}
-				set_character_modifier = {
-					martial = 2
-					learning = 2
-					key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			else_if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = norse_pagan 
-							religion = tengri_pagan 
-						} 
-					} 
-				}
-				set_character_modifier = {
-					martial = 2
-					key = "AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = baltic_pagan 
-							religion = slavic_pagan 
-						} 
-					}
-					has_selected_religion_feature = religion_monastic
-				}
-				set_character_modifier = {
-					diplomacy = 2
-					learning = 2
-					key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			else_if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = baltic_pagan 
-							religion = slavic_pagan 
-						} 
-					}
-				}
-				set_character_modifier = {
-					diplomacy = 2
-					key = "AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						religion = finnish_pagan
-					}
-					has_selected_religion_feature = religion_monastic
-				}
-				set_character_modifier = {
-					intrigue = 2
-					learning = 2
-					key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			else_if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						religion = finnish_pagan
-					}
-				}
-				set_character_modifier = {
-					intrigue = 2
-					key = "AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = west_african_pagan
-							religion = zun_pagan
-						}
-					}
-					has_selected_religion_feature = religion_monastic
-				}
-				set_character_modifier = {
-					stewardship = 2
-					learning = 2
-					key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			else_if = { 
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = west_african_pagan
-							religion = zun_pagan
-						}
-					}
-				}
-				set_character_modifier = {
-					stewardship = 2
-					key = "AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			if = {
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = hellenic_pagan
-							religion = bon
-						}
-					}
-					has_selected_religion_feature = religion_monastic
-				}
-				set_character_modifier = {
-					learning = 4
-					key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
-			else_if = {
-				limit = { 
-					FROM = { 
-						character = yes 
-						OR = { 
-							religion = hellenic_pagan
-							religion = bon
-						}
-					}
-				}
-				set_character_modifier = {
-					learning = 2
-					key = "AUTONOMOUS_ATTR_RELIGION"
-				}
-			}
+			# if = {
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = norse_pagan 
+							# religion = tengri_pagan 
+						# } 
+					# }
+					# has_selected_religion_feature = religion_monastic
+				# }
+				# set_character_modifier = {
+					# martial = 2
+					# learning = 2
+					# key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# else_if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = norse_pagan 
+							# religion = tengri_pagan 
+						# } 
+					# } 
+				# }
+				# set_character_modifier = {
+					# martial = 2
+					# key = "AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = baltic_pagan 
+							# religion = slavic_pagan 
+						# } 
+					# }
+					# has_selected_religion_feature = religion_monastic
+				# }
+				# set_character_modifier = {
+					# diplomacy = 2
+					# learning = 2
+					# key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# else_if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = baltic_pagan 
+							# religion = slavic_pagan 
+						# } 
+					# }
+				# }
+				# set_character_modifier = {
+					# diplomacy = 2
+					# key = "AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# religion = finnish_pagan
+					# }
+					# has_selected_religion_feature = religion_monastic
+				# }
+				# set_character_modifier = {
+					# intrigue = 2
+					# learning = 2
+					# key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# else_if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# religion = finnish_pagan
+					# }
+				# }
+				# set_character_modifier = {
+					# intrigue = 2
+					# key = "AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = west_african_pagan
+							# religion = zun_pagan
+						# }
+					# }
+					# has_selected_religion_feature = religion_monastic
+				# }
+				# set_character_modifier = {
+					# stewardship = 2
+					# learning = 2
+					# key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# else_if = { 
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = west_african_pagan
+							# religion = zun_pagan
+						# }
+					# }
+				# }
+				# set_character_modifier = {
+					# stewardship = 2
+					# key = "AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# if = {
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = hellenic_pagan
+							# religion = bon
+						# }
+					# }
+					# has_selected_religion_feature = religion_monastic
+				# }
+				# set_character_modifier = {
+					# learning = 4
+					# key = "MONASTIC_AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
+			# else_if = {
+				# limit = { 
+					# FROM = { 
+						# character = yes 
+						# OR = { 
+							# religion = hellenic_pagan
+							# religion = bon
+						# }
+					# }
+				# }
+				# set_character_modifier = {
+					# learning = 2
+					# key = "AUTONOMOUS_ATTR_RELIGION"
+				# }
+			# }
 		}
 		ai_will_do = {
 			factor = 50
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					character = yes 
-					NOR = { 
-						religion = bon
-						religion = west_african_pagan
-					}
-				}
-			}
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					character = yes 
-					religion = zun_pagan 
-				}
-			}
-			modifier = { 	
-				factor = 0.1
-				FROM = { 
-					character = yes 
-					religion = norse_pagan 
-				}
-			}
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# character = yes 
+					# NOR = { 
+						# religion = bon
+						# religion = west_african_pagan
+					# }
+				# }
+			# }
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# character = yes 
+					# religion = zun_pagan 
+				# }
+			# }
+			# modifier = { 	
+				# factor = 0.1
+				# FROM = { 
+					# character = yes 
+					# religion = norse_pagan 
+				# }
+			# }
 			modifier = { 	
 				factor = 0.1
 				FROM = { 
@@ -1806,158 +1806,158 @@ religion_leadership = {
 			custom_tooltip = { text = tooltip_religion_feature_default_invasion_dynamic }
 			custom_tooltip = { text = tooltip_religion_feature_default_claim_dynamic }
 			hidden_tooltip = {
-				if = {
-					limit = { 
-						religion_group = christian 
-					}
-					set_can_excommunicate = yes
-				}
-				if = {
-					limit = { 
-						OR = { 
-							religion = orthodox 
-							religion = monothelite
-							religion = iconoclast
-							religion = paulician
-							religion = miaphysite
-							religion = monophysite
-						} 
-					}
-					set_autocephaly = yes
-				}
-				if = {
-					limit = { 
-						OR = { 
-							religion_group = christian
-							religion_group = zoroastrian_group
-							religion_group = jewish_group
-							religion_group = indian_group
-						} 
-						NOR = {
-							religion = cathar
-							religion = waldensian
-							religion = lollard
-							religion = bogomilist
-							religion = messalian
-						}
-					}
-					set_can_grant_divorce = yes
-				}
-				if = {
-					limit = { 
-						OR = { 
-							religion = catholic
-							religion = fraticelli
-							religion = orthodox
-							religion = miaphysite
-							religion = monophysite
-							religion = monothelite
-							religion = iconoclast
-							religion = paulician
-							religion = nestorian
-							religion_group = zoroastrian_group
-							religion_group = jewish_group
-						} 
-					}
-					set_can_grant_invasion_cb = yes
-				}
-				if = {
-					limit = { 
-						OR = { 
-							religion = catholic
-							religion = fraticelli
-						} 
-					}
-					set_can_grant_claim = yes
-				}
-				if = {
-					limit = { 
-						religion = taoist
-						NOT = {
-							has_alternate_start_parameter = { key = religion_names value = random }
-						}
-					}
-					set_character_modifier = {
-						stewardship = 2
-					}
-				}
-				if = {
-					limit = { 
-						religion = buddhist
-						NOT = {
-							has_alternate_start_parameter = { key = religion_names value = random }
-						}
-					}
-					set_character_modifier = {
-						learning = 4
-					}
-				}
-				if = {
-					limit = {
-						religion = taoist
-						has_alternate_start_parameter = { key = religion_names value = random }
-					}
-					random_list = {
-						10 = {
-							set_character_modifier = {
-								diplomacy = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								martial = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								intrigue = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								stewardship = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								learning = 4
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						religion = buddhist
-						has_alternate_start_parameter = { key = religion_names value = random }
-					}
-					random_list = {
-						10 = {
-							set_character_modifier = {
-								diplomacy = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								martial = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								intrigue = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								stewardship = 2
-							}
-						}
-						10 = {
-							set_character_modifier = {
-								learning = 4
-							}
-						}
-					}
-				}
+				# if = {
+					# limit = { 
+						# religion_group = christian 
+					# }
+					# set_can_excommunicate = yes
+				# }
+				# if = {
+					# limit = { 
+						# OR = { 
+							# religion = orthodox 
+							# religion = monothelite
+							# religion = iconoclast
+							# religion = paulician
+							# religion = miaphysite
+							# religion = monophysite
+						# } 
+					# }
+					# set_autocephaly = yes
+				# }
+				# if = {
+					# limit = { 
+						# OR = { 
+							# religion_group = christian
+							# religion_group = zoroastrian_group
+							# religion_group = jewish_group
+							# religion_group = indian_group
+						# } 
+						# NOR = {
+							# religion = cathar
+							# religion = waldensian
+							# religion = lollard
+							# religion = bogomilist
+							# religion = messalian
+						# }
+					# }
+					# set_can_grant_divorce = yes
+				# }
+				# if = {
+					# limit = { 
+						# OR = { 
+							# religion = catholic
+							# religion = fraticelli
+							# religion = orthodox
+							# religion = miaphysite
+							# religion = monophysite
+							# religion = monothelite
+							# religion = iconoclast
+							# religion = paulician
+							# religion = nestorian
+							# religion_group = zoroastrian_group
+							# religion_group = jewish_group
+						# } 
+					# }
+					# set_can_grant_invasion_cb = yes
+				# }
+				# if = {
+					# limit = { 
+						# OR = { 
+							# religion = catholic
+							# religion = fraticelli
+						# } 
+					# }
+					# set_can_grant_claim = yes
+				# }
+				# if = {
+					# limit = { 
+						# religion = taoist
+						# NOT = {
+							# has_alternate_start_parameter = { key = religion_names value = random }
+						# }
+					# }
+					# set_character_modifier = {
+						# stewardship = 2
+					# }
+				# }
+				# if = {
+					# limit = { 
+						# religion = buddhist
+						# NOT = {
+							# has_alternate_start_parameter = { key = religion_names value = random }
+						# }
+					# }
+					# set_character_modifier = {
+						# learning = 4
+					# }
+				# }
+				# if = {
+					# limit = {
+						# religion = taoist
+						# has_alternate_start_parameter = { key = religion_names value = random }
+					# }
+					# random_list = {
+						# 10 = {
+							# set_character_modifier = {
+								# diplomacy = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# martial = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# intrigue = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# stewardship = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# learning = 4
+							# }
+						# }
+					# }
+				# }
+				# if = {
+					# limit = {
+						# religion = buddhist
+						# has_alternate_start_parameter = { key = religion_names value = random }
+					# }
+					# random_list = {
+						# 10 = {
+							# set_character_modifier = {
+								# diplomacy = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# martial = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# intrigue = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# stewardship = 2
+							# }
+						# }
+						# 10 = {
+							# set_character_modifier = {
+								# learning = 4
+							# }
+						# }
+					# }
+				# }
 			}
 		}
 	}
