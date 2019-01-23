@@ -1,5 +1,3 @@
-
-
 # Heren Issëon 'Order of Secret Lore' are basically renamed Hermetics
 # Because the astrology, potion mixing, and other events related to the Hermetics make them seem
 # pathetic compared to Elves or istari, I see them as non-evil wannabes who are viewed with
@@ -46,13 +44,6 @@ heren_isseon = {
 		age = 16
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
-		}
-		hidden_trigger = {
-			NOR = {
-				trait = skilled_craftsman
-				trait = master_craftsman
-				trait = legendary_craftman
-			}
 		}
 		trigger_if = {
 			limit = { prisoner = yes }
@@ -284,6 +275,7 @@ the_satanists = {
 	opinion_per_rank_above = +10
 	sound = devil_worshippers_interface
 	society_ranks_gfx = devil_ranks
+	society_influence = no				   
 	
 	active = {
 		has_dlc = "Mystics"
@@ -315,6 +307,10 @@ the_satanists = {
 		has_satanists_prerequisites = yes
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 
