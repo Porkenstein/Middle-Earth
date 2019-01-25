@@ -7,6 +7,22 @@ character_event = {	#One Ring - A Choice to be Made
 
 	trigger = {
 		has_game_rule = { name = wotr_lore  value = sandbox }
+		FROM = {
+			artifact = artifact_ring
+		}
+	}
+
+	immediate = {
+		any_player = {
+			limit = {
+				NOT = {
+					character = ROOT
+				}
+			}
+			character_event = {
+				id = mep_onering_events.10
+			}
+		}
 	}
 
 	option = {	#It must be Destroyed
@@ -29,6 +45,16 @@ character_event = {	#One Ring - A Choice to be Made
 			factor = 100
 		}
 		name = EVTOPTB_mep_onering_events.0
+	}
+}
+character_event = {	#One Ring Transferred
+	id = mep_onering_events.10
+	desc = EVTDESC_mep_onering_events.10
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {	#Alright
+		name = EVTOPTA_mep_onering_events.10
 	}
 }
 character_event = {	#One Ring - Warg Riders
