@@ -110,13 +110,10 @@ character_event = {
 	is_married = yes
 	
 	trigger = {
-		trait = orc
+		mep_orc_culture = yes
 		any_spouse = {
 			is_landed = no
-			NOR = {
-				trait = orc
-				mep_orc_troll_culture = yes
-			}
+			NOT = { mep_orc_culture = yes }
 		}
 		NOT = { has_character_flag = wrongmarriage1 }
 		NOT = { has_character_flag = orchumanmarriage }
@@ -129,13 +126,9 @@ character_event = {
 		any_spouse = {
 			limit = {
 				is_landed = no
-				NOR = {
-					trait = orc
-					mep_orc_troll_culture = yes
-				}
+				NOT = { mep_orc_culture = yes }
 			}
 			remove_spouse = ROOT
-			# banish = yes
 		}
 	}	
 	
@@ -197,13 +190,7 @@ character_event = {
 	
 	trigger = {
 		spouse = {
-			OR = {
-				mep_orc_goblin_culture = yes
-				culture = culture_troll
-				culture = culture_spider
-				religion = religion_orkish
-				culture = culture_wight
-			}
+			mep_orc_culture = yes
 		}
 		ROOT = {
 			OR = {
@@ -221,13 +208,7 @@ character_event = {
 			any_spouse = {
 				limit = {
 					is_landed = no
-					OR = {
-						mep_orc_goblin_culture = yes
-						culture = culture_troll
-						culture = culture_spider
-						religion = religion_orkish
-						culture = culture_wight
-					}
+					mep_orc_culture = yes
 				}
 			death = {
 				death_reason = death_suicide
@@ -573,7 +554,7 @@ character_event = {
 
 	option = {# Orcs/Goblins
 		trigger = {
-			mep_orc_goblin_culture = yes
+			mep_orc_culture = yes
 		}
 		if = {
 			limit = { age = 45 }
