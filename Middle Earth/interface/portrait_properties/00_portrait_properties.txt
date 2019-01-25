@@ -1,13 +1,15 @@
 # The choice is made based on a weighted random, but the first factor that evaluates to >= 100 will be automatically chosen
+# Two passes are done when choosing properties; first from lowest to highest, then from highest to lowest. Be aware of this if you reference other properties, as the old properties will still be active in the first pass
+# hide_layers is interpreted from bottom to top. Hidden layers won't hide other layers, but if a lower layer hides a higher layer, the higher layer won't be rechecked, so it might still be hiding other layers despite being hidden itself
 
 # p0 background
 0 = {
 	0 = { # castle 1
 		factor = 1
-		modifier = {
-			factor = 0
-			NOT = { religion_group = christian }
-		}
+		# modifier = {
+			# factor = 0
+			# NOT = { religion_group = christian }
+		# }
 		modifier = {
 			factor = 0
 			is_nomadic = yes
@@ -15,16 +17,25 @@
 	}
 
 	1 = { #throne room
-		factor = 50
+		factor = 15
 		modifier = {
 			factor = 0
 			NOT = { real_tier = king }
 			NOT = { real_tier = emperor }
 		}
 		modifier = {
+			factor = 5
+			OR = { 
+				real_tier = emperor 
+				spouse = { real_tier = emperor }
+			}
+		}
+		modifier = {
 			factor = 0
-			is_nomadic = yes
-			is_tribal = yes
+			OR = {
+				is_nomadic = yes
+				is_tribal = yes
+			}
 		}
 	}
 
@@ -33,48 +44,65 @@
 		modifier = {
 			factor = 0
 			prisoner = no
+			NOT = { death_reason = death_dungeon }
 		}
 	}
 
 	3 = { # forest
 		factor = 1
 		modifier = {
-			factor = 0
-			religion_group = muslim
-		}
-		modifier = {
 			factor = 0.01
 			is_nomadic = yes
 		}
-		modifier = {
-			factor = 10
-			is_tribal = yes
-		}
+	#	modifier = {
+	#		factor = 10
+	#		is_tribal = yes
+	#	}
 	}
 
 	4 = { # bed
 		factor = 100
 		modifier = {
 			factor = 0
+			is_alive = yes
 			NOT = { trait = incapable }
 			NOT = { trait = infirm }
 		}
 		modifier = {
+			factor = 0.001
+			OR = {
+				death_sacrificed_trigger = yes
+				death_reason = death_battle
+				death_execution_trigger = yes
+				death_reason = death_dungeon
+			}
+		}
+		modifier = {
 			factor = 0.02
 			trait = infirm
+			is_alive = yes
 		}
 	}
 	
-	5 = { # tavern
+	5 = { # secret room
 		factor = 100
 		modifier = {
 			factor = 0
-			NOT = { 
-				OR = {
-					trait = drunkard
-					trait = hedonist
-					trait = lustful
-				}
+			religion = religion_southron
+		}
+		modifier = {
+			factor = 0
+			NOR = { 
+				trait = drunkard
+				trait = hedonist
+				trait = lustful
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				higher_real_tier_than = DUKE
+				spouse = { higher_real_tier_than = DUKE } 
 			}
 		}
 	}
@@ -83,95 +111,144 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			in_command = no
-			NOT = { has_job_title  = job_marshal }
+			OR = {
+				AND = {
+					is_alive = yes
+					in_command = no
+					NOT = { has_job_title  = job_marshal }
+				}
+				AND = {
+					is_alive = no
+					NOT = { death_reason = death_battle }
+				}
+			}
 		}
 		modifier = {
 			factor = 0.02
 			has_job_title = job_marshal
 		}
 	}
+	
 	7 = { # Dolmen
 		factor = 5
 		modifier = {
 			factor = 0
-			NOT = { religion_group = pagan_group }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		modifier = {
+			factor = 100
+			is_alive = no
 		}
 		modifier = {
 			factor = 2
 			is_priest = yes
 		}
 	}
+	
 	8 = { # Gallows
-			factor = 5
+		factor = 5
 		modifier = {
 			factor = 0
 			NOT = { trait = cruel }
 			NOT = { trait = impaler }
+			NOT = { death_execution_trigger = yes }
 		}
 		modifier = {
 			factor = 20
-			trait = impaler
-		}
-	}
-	9 = { # Church
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { religion_group = christian }
-		}
-		modifier = {
-			factor = 0
 			OR = {
-				is_ruler = no
-				is_theocracy = no
+				trait = impaler
+				death_execution_trigger = yes
 			}
 		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				higher_real_tier_than = DUKE
+				spouse = { higher_real_tier_than = DUKE } 
+			}
+		}
+	}
+	
+	9 = { # Church
+		factor = 0
 	}
 	10 = { # Desert
 		factor = 5
 		modifier = {
 			factor = 0
-			NOT = { culture_group = culture_group_southron }
-			#NOT = { capital_scope = { terrain = desert } }
-			#NOT = { capital_scope = { terrain = coastal_desert } }
+			location = { 
+				NOT = { region = world_south } 
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				higher_real_tier_than = COUNT
+				spouse = { higher_real_tier_than = COUNT } 
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
 		}
 	}
+	
 	11 = { # Steppe
 		factor = 1
 		modifier = {
 			factor = 0
-
-			NOT = { culture_group = culture_group_easterling }
+			location = { 
+				NOT = { region = world_east } 
+			}
 		}
 		modifier = {
 			factor = 10
-			culture_group = culture_group_easterling
+			OR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
 		}
 		modifier = {
-			factor = 10
-			is_nomadic = yes
+			factor = 0
+			OR = {
+				higher_real_tier_than = COUNT
+				spouse = { higher_real_tier_than = COUNT } 
+			}
 		}
 	}
+	
 	12 = { # Ocean w ships
 		factor = 10
 		modifier = {
 			factor = 0
-			is_patrician = no
+			capital_scope = { 
+				NOT = { 
+					port = yes 
+				} 
+			}
+			location = { 
+				NOT = { 
+					terrain = coastal_desert 
+				} 
+			}
 		}
 	}
 	13 = { # Muslim interior
-		factor = 1
+		factor = 2
 		modifier = {
 			factor = 0
-			NOT = { culture_group = culture_group_southron }
+			NOT = { religion = religion_southron }
 		}
 	}
+	
 	14 = { # Harem
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { religion_group = muslim }
+			NOT = { religion = religion_southron }
 		}
 		modifier = {
 			factor = 100
@@ -181,11 +258,19 @@
 			}
 		}
 	}
+	
 	15 = { # Muslim interior 2
-		factor = 5
+		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { religion_group = muslim }
+			location = { 
+				NOT = { region = world_south } 
+			}
+		}
+		modifier = {
+			factor = 0
+			lower_real_tier_than = DUKE
+			spouse = { lower_real_tier_than = DUKE } 
 		}
 	}
 
@@ -193,15 +278,30 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOT = { culture = mongol }
+			is_nomadic = no
+		}
+		modifier = {
+			factor = 2
+			culture_group = culture_group_easterling
 		}
 	}
 
 	17 = { # Mongol camp 2
-		factor = 1
+		factor = 10
 		modifier = {
 			factor = 0
-			NOT = { culture = mongol }
+			location = { 
+				NOT = { region = world_east } 
+			}
+		}
+		modifier = {
+			factor = 2
+			culture_group = culture_group_easterling
+		}
+		modifier = {
+			factor = 0
+			lower_real_tier_than = DUKE
+			spouse = { lower_real_tier_than = DUKE } 
 		}
 	}
 
