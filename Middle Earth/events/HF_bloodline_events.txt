@@ -1980,7 +1980,7 @@ narrative_event = {
 		# if = { 
 			# limit = { 
 				# this_has_super_cool_nickname_trigger = no 
-				religion_group = christian
+				# religion_group = christian
 			# }
 			# ROOT = { give_nickname = nick_the_carpenter }
 		# }
@@ -4953,28 +4953,28 @@ character_event = {
 		name = EVTOPTAHF24116
 		FROM = { death = { death_reason = death_murder_unknown killer = event_target:assassin_plot_owner } } 
 		#If quest holder, clear quest and reward
-		if = {
-			limit = {
-				society_member_of = the_assassins
-				has_quest = quest_the_assassins_assassination
-				quest_target = { character = event_target:plot_target }
-			}
-			clr_quest = quest_the_assassins_assassination
-			sound_effect = assassins_assassinate_character
+		# if = {
+			# limit = {
+				# society_member_of = the_assassins
+				# has_quest = quest_the_assassins_assassination
+				# quest_target = { character = event_target:plot_target }
+			# }
+			# clr_quest = quest_the_assassins_assassination
+			# sound_effect = assassins_assassinate_character
 
-			if = {
-				limit = { event_target:plot_target = { higher_tier_than = DUKE } }
-				add_society_currency_major_effect = yes
-			}
-			if = {
-				limit = { event_target:plot_target = { tier = DUKE } } 
-				add_society_currency_medium_effect = yes
-			}
-			if = {
-				limit = { event_target:plot_target = { lower_tier_than = DUKE } }
-				add_society_currency_minor_effect = yes
-			}
-		}
+			# if = {
+				# limit = { event_target:plot_target = { higher_tier_than = DUKE } }
+				# add_society_currency_major_effect = yes
+			# }
+			# if = {
+				# limit = { event_target:plot_target = { tier = DUKE } } 
+				# add_society_currency_medium_effect = yes
+			# }
+			# if = {
+				# limit = { event_target:plot_target = { lower_tier_than = DUKE } }
+				# add_society_currency_minor_effect = yes
+			# }
+		# }
 		clr_character_flag = murder_in_motion
 	}
 }
@@ -5044,28 +5044,28 @@ character_event = {
 		name = EVTOPTAHF24119
 		FROM = { death = { death_reason = death_murder killer = event_target:assassin_plot_owner } }
 		#If quest holder, clear quest and reward
-		if = {
-			limit = {
-				society_member_of = the_assassins
-				has_quest = quest_the_assassins_assassination
-				quest_target = { character = event_target:plot_target }
-			}
-			clr_quest = quest_the_assassins_assassination
-			sound_effect = assassins_assassinate_character
+		# if = {
+			# limit = {
+				# society_member_of = the_assassins
+				# has_quest = quest_the_assassins_assassination
+				# quest_target = { character = event_target:plot_target }
+			# }
+			# clr_quest = quest_the_assassins_assassination
+			# sound_effect = assassins_assassinate_character
 
-			if = {
-				limit = { event_target:plot_target = { higher_tier_than = DUKE } }
-				add_society_currency_major_effect = yes
-			}
-			if = {
-				limit = { event_target:plot_target = { tier = DUKE } } 
-				add_society_currency_medium_effect = yes
-			}
-			if = {
-				limit = { event_target:plot_target = { lower_tier_than = DUKE } }
-				add_society_currency_minor_effect = yes
-			}
-		}
+			# if = {
+				# limit = { event_target:plot_target = { higher_tier_than = DUKE } }
+				# add_society_currency_major_effect = yes
+			# }
+			# if = {
+				# limit = { event_target:plot_target = { tier = DUKE } } 
+				# add_society_currency_medium_effect = yes
+			# }
+			# if = {
+				# limit = { event_target:plot_target = { lower_tier_than = DUKE } }
+				# add_society_currency_minor_effect = yes
+			# }
+		# }
 		clr_character_flag = murder_in_motion
 	}
 }

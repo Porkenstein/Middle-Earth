@@ -855,7 +855,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				}
 				OR = {
 					has_character_flag = is_battlefield_duel
-					is_member_of_any_warrior_lodge_trigger = yes
+					# is_member_of_any_warrior_lodge_trigger = yes
 					has_focus = focus_war
 					event_target:combatant_1 = { has_character_flag = flag_duel_no_draws } #Special triggered event duels.
 					event_target:combatant_2 = { has_character_flag = flag_duel_no_draws } 
@@ -917,7 +917,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				OR = {
 					has_character_flag = claim_duel@event_target:combatant_2
 					has_character_flag = is_battlefield_duel
-					is_member_of_any_warrior_lodge_trigger = yes
+					# is_member_of_any_warrior_lodge_trigger = yes
 					has_focus = focus_war
 					event_target:combatant_1 = { has_character_flag = flag_duel_no_draws } #Special triggered event duels.
 					event_target:combatant_2 = { has_character_flag = flag_duel_no_draws } 
@@ -992,7 +992,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				OR = {
 					has_character_flag = claim_duel@event_target:combatant_2
 					has_character_flag = is_battlefield_duel
-					is_member_of_any_warrior_lodge_trigger = yes
+					# is_member_of_any_warrior_lodge_trigger = yes
 					has_focus = focus_war
 					event_target:combatant_1 = { has_character_flag = flag_duel_no_draws } #Special triggered event duels.
 					event_target:combatant_2 = { has_character_flag = flag_duel_no_draws } 
@@ -1647,7 +1647,7 @@ send_duel_result_event_effect = { # Runs via the attacker/combatant_1
 				NOT = { has_character_flag = is_legendary_duel }
 				NOT = { has_character_flag = claim_duel@event_target:combatant_2 }
 				OR = {
-					is_member_of_any_warrior_lodge_trigger = yes
+					# is_member_of_any_warrior_lodge_trigger = yes
 					has_focus = focus_war
 					event_target:combatant_1 = { has_character_flag = flag_duel_no_draws } #Special triggered event duels.
 					event_target:combatant_2 = { has_character_flag = flag_duel_no_draws } 
@@ -2762,7 +2762,7 @@ clean_up_after_duel_effect = { #Runs for both combatant_1 and 2
 				value = 0 #set to zero so can be cleared on save
 			}
 
-			handle_warrior_lodge_induction_effect = yes
+			# handle_warrior_lodge_induction_effect = yes
 		}
 	}
 
