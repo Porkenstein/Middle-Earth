@@ -256,7 +256,6 @@ character_event = {
 			}
 			is_plot_active = no
 			OR = {
-				NOT = { mep_cant_get_drunk_trigger = yes }
 				trait = hedonist
 				trait = drunkard
 			}
@@ -1186,7 +1185,7 @@ letter_event = {
 		}
 		FROM = {
 			faction_succ_feudal_elective = { # The target (title) of the faction
-				succession = feudal_elective
+				add_law_w_cooldown = succ_feudal_elective
 			}
 		}
 	}
@@ -7228,7 +7227,24 @@ character_event = {
 # Archer Ambush - Initiator informs other plotter
 character_event = {
 	id = 7712
-	desc = "EVTDESC7712"
+	desc = {
+		trigger = {
+			event_target:plot_target = {
+				NOT = {
+					is_inaccessible_trigger = yes
+				}
+			}
+		}
+		text = EVTDESC7712
+	}
+	desc = {
+		trigger = {
+			event_target:plot_target = {
+				is_inaccessible_trigger = yes
+			}
+		}
+		text = EVTDESC7712_B
+	}
 	picture = GFX_evt_longbowman
 	border = GFX_event_normal_frame_intrigue
 	
