@@ -8,7 +8,6 @@
 # mep_wont_hire_physician_trigger
 # mep_prestige_dynasty_trigger 
 # mep_numenorean_traits_trigger
-# mep_elven_blood_tigger
 # mep_disease_resistant_trigger
 # mep_has_disease_trigger
 # mep_is_genuine_elf
@@ -319,19 +318,12 @@ mep_numenorean_traits_trigger = {
 	}
 }
 
-mep_elven_blood_tigger = {
-	OR = {
-		trait = elven_blood
-		trait = half_elf
-	}
-}
-
 mep_disease_resistant_trigger = {
 	OR = {
 		religion_group = religion_group_khazad
 		religion_group = religion_group_periannath
 		mep_numenorean_traits_trigger = yes
-		mep_elven_blood_tigger = yes
+		trait = elf
 	}
 }
 
