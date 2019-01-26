@@ -42,30 +42,6 @@ title_decisions = {
 					has_province_modifier = being_colonised
 				}
 			}
-			holder_scope = {
-				OR = {
-					AND = {
-						culture = culture_wilderness
-						NOT = {
-							FROM = {
-								culture_group = culture_group_dwarves
-							}
-						}
-					}
-					culture = culture_mountains
-				}
-				OR = {
-					any_neighbor_independent_ruler = {
-						character = FROM
-					}
-					AND = {
-						FROM = {
-							culture_group = culture_group_dwarves
-						}
-						culture = culture_mountains
-					}
-				}
-			}
 		}
 		allow = {
 			FROM = {
@@ -87,16 +63,32 @@ title_decisions = {
 			}
 			holder_scope = {
 				OR = {
-					culture = culture_wilderness
 					AND = {
-						culture = culture_mountains
-						FROM = {
-							OR = {
+						culture = culture_wilderness
+						NOT = {
+							FROM = {
 								culture_group = culture_group_dwarves
-								mep_orc_culture = yes
-								culture = culture_balrog
-								culture = culture_dragons
-								culture = culture_spider
+							}
+						}
+					}
+					culture = culture_mountains
+				}
+				OR = {
+					any_neighbor_independent_ruler = {
+						character = FROM
+					}
+					AND = {
+						FROM = {
+							culture_group = culture_group_dwarves
+						}
+						OR = {
+							culture = culture_mountains
+							ROOT = {
+								location = {
+									any_neighbor_province = {
+										mep_is_mountain_trigger = yes
+									}
+								}
 							}
 						}
 					}
