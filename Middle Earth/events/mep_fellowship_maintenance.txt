@@ -31,6 +31,9 @@ character_event = {	#Assign Important Character's Traits
 		c_1944 = {	#Boromir
 			add_trait = trait_nooo
 		}
+		c_2038 = {	#Aragorn
+			add_trait = trait_nooo
+		}
 		c_3106 = {	#Legolas
 			add_trait = trait_nooo
 		}
@@ -124,28 +127,6 @@ character_event = {	#The Charge of Rohan
 	id = mep_fellowship_mt.2
 	hide_window = yes
 	is_triggered_only = yes
-
-	trigger ={
-		has_global_flag = rohan_notthreatened
-		NOR = {
-			has_global_flag = gondor_notthreatened
-			has_global_flag = gondor_conquered
-		}
-		has_landed_title = k_rohan
-		k_rohan = {
-			holder_scope = {
-				war = yes
-				NOT = {
-					has_character_flag = theodens_charge
-				}
-			}
-		}
-		e_steward_gondor = {
-			holder_scope = {
-				war = yes
-			}
-		}
-	}
 
 	immediate = {
 		e_steward_gondor = {
