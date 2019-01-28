@@ -166,20 +166,12 @@ character_event = {
 	option = {
 		trigger = {
 			any_vassal = {
-				OR = {
-					trait = great_axeman
-					trait = dragon_slayer
-				}
 				NOT = { trait = mithril }
 			}
 		}
 		name = "EVTOPTDmoria.5" ## For one of my vassals
 		any_vassal = {
 			limit = {
-					OR = {
-						trait = great_axeman
-						trait = dragon_slayer
-					}
 					NOT = { trait = mithril }
 				}
 			add_trait = mithril
@@ -432,24 +424,7 @@ character_event = {
 			modifier = {
 				factor = 6
 				FROMFROM = { trait = brilliant_strategist }
-			}
-			### Dwarves Skills ###
-			modifier = {
-				factor = 2
-				FROMFROM = { trait = dwarf_warrior }
-			}
-			modifier = {
-				factor = 4
-				FROMFROM = { trait = trained_dwarf }
-			}
-			modifier = {
-				factor = 5
-				FROMFROM = { trait = great_axeman }
-			}
-			modifier = {
-				factor = 7
-				FROMFROM = { trait = dragon_slayer }
-			}							
+			}						
 			
 			### Weapons Modifier ###
 			modifier = {
@@ -594,11 +569,7 @@ character_event = {
 			# Body Shape Effects
 			modifier = {
 				factor = 1.5
-				FROMFROM = { trait = agile }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { trait = absentminded }
+				FROMFROM = { trait = quick }
 			}
 			modifier = {
 				factor = 4
@@ -614,12 +585,8 @@ character_event = {
 			}
 			modifier = {
 				factor = 2
-				OR = {
-					FROMFROM = { trait = lefthanded }
-					FROMFROM = { trait = ambidextrous }
-				}
+				FROMFROM = { trait = lefthanded }
 				NOT = { FROM = { trait = lefthanded } }
-				NOT = { FROM = { trait = ambidextrous } }
 			}		
 		}
 	
@@ -649,23 +616,6 @@ character_event = {
 				factor = 6
 				FROM = { trait = brilliant_strategist }
 			}
-			### Dwarves Skills ###
-			modifier = {
-				factor = 2
-				FROM = { trait = dwarf_warrior }
-			}
-			modifier = {
-				factor = 4
-				FROM = { trait = trained_dwarf }
-			}
-			modifier = {
-				factor = 5
-				FROM = { trait = great_axeman }
-			}
-			modifier = {
-				factor = 7
-				FROM = { trait = dragon_slayer }
-			}	
 						
 			
 			### Weapons Modifier ###
@@ -807,11 +757,7 @@ character_event = {
 			# Body Shape Effects
 			modifier = {
 				factor = 1.5
-				FROM = { trait = agile }
-			}
-			modifier = {
-				factor = 1.5
-				FROMFROM = { trait = absentminded }
+				FROM = { trait = quick }
 			}
 			modifier = {
 				factor = 4
@@ -827,12 +773,8 @@ character_event = {
 			}
 			modifier = {
 				factor = 2
-				OR = {
-					FROM = { trait = lefthanded }
-					FROM = { trait = ambidextrous }
-				}
+				FROM = { trait = lefthanded }
 				NOT = { FROMFROM = { trait = lefthanded } }
-				NOT = { FROMFROM = { trait = ambidextrous } }
 			}
 
 		}
