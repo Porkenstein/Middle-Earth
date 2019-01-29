@@ -896,6 +896,7 @@ character_event = {
 			limit = {
 				prisoner = no
 				NOT = { trait = incapable }
+				NOT = { is_senior_consort_party = yes }
 			}
 			hidden_tooltip = {
 				if = {
@@ -2665,6 +2666,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = new_roads
 				duration = 730
@@ -2818,6 +2820,7 @@ character_event = {
 		piety = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = new_shrines
 				duration = 730
@@ -2971,6 +2974,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = peasants_protected
 				duration = 730
@@ -3124,6 +3128,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = messenger_stations
 				duration = 730
@@ -3277,6 +3282,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = harvest_festivals
 				duration = 730
@@ -3414,6 +3420,7 @@ character_event = {
 		prestige = 25
 		
 		event_target:prosperity_target = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = inspired_peasantry
 				duration = 730
@@ -3659,7 +3666,12 @@ character_event = {
 			}
 
 			random_list = {
-				75 = { character_event = { id = RIP.29005 days = 30 } }
+				75 = { 
+					trigger = {
+						NOT = { event_target:rip_dead = { killer = { character = event_target:rip_friend_1 } } } #Prevent crocodile tears.
+					}
+					character_event = { id = RIP.29005 days = 30 } 
+				}
 				25 = { 
 					modifier = {
 						factor = 0
@@ -4575,11 +4587,10 @@ character_event = {
 	id = RIP.29014
 	border = GFX_event_normal_frame_intrigue
 	desc = EVTDSC_RIP_29014
-	portrait = event_target:rip_dead
+	show_from_from_from = yes
 	picture = GFX_evt_bloody_tools
 
 	is_triggered_only = yes
-	hide_from = yes
 
 	trigger = { NOT = { character = FROM } }
 
@@ -4753,13 +4764,13 @@ character_event = {
 				limit = { any_child = { ai = no } }
 
 				random_child = {
-					limit = { ai = no NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+					limit = { ai = no NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 					save_event_target_as = rip_heir
 				}
 				break = yes
 			}
 			if = {
-				limit = { any_child = { is_heir = yes } NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+				limit = { any_child = { is_heir = yes } NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 
 				random_child = {
 					limit = { is_heir = yes }
@@ -4768,7 +4779,7 @@ character_event = {
 				break = yes
 			}
 			random_child = {
-				limit = { age = 12 NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT } }
+				limit = { age = 12 NOR = { is_rival = ROOT is_friend = ROOT is_lover = ROOT character = ROOT } }
 				save_event_target_as = rip_heir
 			}
 		}
@@ -4809,7 +4820,7 @@ character_event = {
 
 			#Root must be motivated
 			OR = { 
-				event_target:rip_heir = { trait = fair }
+				event_target:rip_heir = { has_fair_trait_trigger = yes }
 				trait = lustful 
 				trait = seducer 
 				trait = seductress 
@@ -7403,7 +7414,18 @@ character_event = {
 
 character_event = {
 	id = RIP.29801
-	desc = EVTDESC_RIP_29801
+	desc = {
+		trigger = {
+			event_target:reincarnation_target = { is_female = no }
+		}
+		text = EVTDESC_RIP_29801
+	}
+	desc = {
+		trigger = {
+			event_target:reincarnation_target = { is_female = yes }
+		}
+		text = EVTDESC_RIP_29801_B
+	}
 	picture = GFX_evt_into_the_dungeon
 
 	ai = no
@@ -7422,9 +7444,8 @@ character_event = {
 	}
 
 	immediate = {
-		event_target:reincarnation_target = {
-			ROOT = { set_reincarnation = PREV }
-		}
+			ROOT = { set_reincarnation = event_target:reincarnation_target }
+
 	}
 
 	is_triggered_only = yes
@@ -9641,23 +9662,23 @@ letter_event = {
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 1 }
+						FROM = { combat_rating = 10 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 2 }
+						FROM = { combat_rating = 20 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 3 }
+						FROM = { combat_rating = 30 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 4 }
+						FROM = { combat_rating = 40 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 5 }
+						FROM = { combat_rating = 50 }
 					}
 
 					set_character_flag = lost_suicide_duel
@@ -9665,23 +9686,23 @@ letter_event = {
 				20 = {
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 1 }
+						FROM = { combat_rating = 10 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 2 }
+						FROM = { combat_rating = 20 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 3 }
+						FROM = { combat_rating = 30 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 4 }
+						FROM = { combat_rating = 40 }
 					}
 					modifier = {
 						factor = 1.5
-						FROM = { combat_rating = 5 }
+						FROM = { combat_rating = 50 }
 					}
 					set_character_flag = incapable_suicide_duel
 				}
@@ -12963,6 +12984,7 @@ character_event = { # trick
 		name = placeholdername_13 #RIP.30310.b	
 		tooltip_info = stewardship
 		capital_scope = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = trapped_immortal
 				duration = -1
@@ -13021,6 +13043,7 @@ character_event = { # the power of money
 			death = { death_reason = death_missing killer = ROOT }
 		}
 		capital_scope = {
+			show_scope_change = no
 			add_province_modifier = {
 				name = trapped_immortal
 				duration = -1

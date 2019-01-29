@@ -129,9 +129,12 @@ character_event = {
 							flag = physician_village_drunkard
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = temperate
 							remove_trait = scholar
 							remove_trait = mystic
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Is the Physician a Quack?
 								90 = {
 								}
@@ -188,6 +191,7 @@ character_event = {
 							flag = physician_ships_physician
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = charitable
 							remove_trait = mystic
 							remove_trait = poet
@@ -206,15 +210,12 @@ character_event = {
 							remove_trait = seductress
 							remove_trait = theologian
 							remove_trait = scholar
+							remove_trait = imbecile
+							remove_trait = slow
 							add_character_modifier = {
 								modifier = pet_parrot
 								duration = -1
 							}
-							if = {
-								limit = {
-									mep_temp_muslim_standin_trigger = yes
-								}
-								remove_trait = scholar
 							}
 							random_list = { # Is the Physician a Quack?
 								90 = {
@@ -281,7 +282,9 @@ character_event = {
 					flag = ai_flag_refuse_conversion
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = fair
+					remove_trait = giant
 					remove_trait = gregarious
 					remove_trait = slow
 					remove_trait = imbecile
@@ -303,12 +306,6 @@ character_event = {
 					remove_trait = theologian
 					remove_trait = scholar
 					become_heretic = yes
-					if = {
-						limit = {
-							mep_temp_muslim_standin_trigger = yes
-						}
-						remove_trait = scholar
-					}
 					random_list = { # Is the Physician a Quack?
 						90 = {
 						}
@@ -320,7 +317,7 @@ character_event = {
 					character_event = { id = RIP.11052 }
 				}
 				
-			}
+			} 
 			5 = { # Condemned Sorcerer (Mystic)
 				modifier = {
 					factor = 0
@@ -379,6 +376,7 @@ character_event = {
 							flag = physician_condemned_sorcerer
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = scholar
 							remove_trait = socializer
 							remove_trait = gamer
@@ -394,6 +392,8 @@ character_event = {
 							remove_trait = seducer
 							remove_trait = seductress
 							remove_trait = theologian
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Is the Physician a Quack?
 								80 = {
 								}
@@ -457,6 +457,7 @@ character_event = {
 					flag = physician_cynical_clergyman
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = zealous
 					remove_trait = scholar
 					remove_trait = socializer
@@ -473,6 +474,8 @@ character_event = {
 					remove_trait = seducer
 					remove_trait = seductress
 					remove_trait = theologian
+					remove_trait = imbecile
+					remove_trait = slow
 					random_list = { # Random chance to add Physician
 						50 = {
 							add_trait = physician
@@ -533,6 +536,7 @@ character_event = {
 							flag = physician_beloved_wise_man
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = greedy
 							remove_trait = wroth
 							remove_trait = cruel
@@ -556,6 +560,8 @@ character_event = {
 							remove_trait = seductress
 							remove_trait = theologian
 							remove_trait = scholar
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Random chance to add Scholar
 								30 = {
 									add_trait = scholar
@@ -564,12 +570,6 @@ character_event = {
 								70 = {
 									
 								}
-							}
-							if = {
-								limit = {
-									mep_temp_muslim_standin_trigger = yes
-								}
-								remove_trait = scholar
 							}
 							random_list = { # Is the Physician a Quack?
 								90 = {
@@ -605,6 +605,7 @@ character_event = {
 							flag = physician_beloved_wise_man
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = greedy
 							remove_trait = wroth
 							remove_trait = cruel
@@ -628,6 +629,8 @@ character_event = {
 							remove_trait = seductress
 							remove_trait = theologian
 							remove_trait = scholar
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Random chance to add Scholar
 								30 = {
 									add_trait = scholar
