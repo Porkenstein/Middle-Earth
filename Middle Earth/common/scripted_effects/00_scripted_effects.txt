@@ -17324,237 +17324,237 @@ check_likes_or_dislikes_THIS_effect = {
 #    }
 }
 
-print_china_status_update_effect = {
-	log = "----------------"
-	log = "China Logging:"
-	log = "China's status of [This.GetPrevStatus] ended after [global_temp_status_years.GetValue] years."
-	log = "China's new status is [This.GetStatus]."
-	log = "----------------"
-	set_variable = {
-		which = global_temp_status_years
-		value = 0
-	}
-	random_list = {
-		10 = {
-			trigger = {
-				has_status = china_stable
-			}
-			change_variable = {
-				which = global_amount_of_times_china_stable
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_unrest
-			}
-			change_variable = {
-				which = global_amount_of_times_china_unrest
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_civil_war
-			}
-			change_variable = {
-				which = global_amount_of_times_china_civil_war
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_mongol_invasion
-			}
-			change_variable = {
-				which = global_amount_of_times_china_mongol_invasion
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_jurchen_invasion
-			}
-			change_variable = {
-				which = global_amount_of_times_china_jurchen_invasion
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_famine
-			}
-			change_variable = {
-				which = global_amount_of_times_china_famine
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_plague
-			}
-			change_variable = {
-				which = global_amount_of_times_china_plague
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_golden_age
-				NOT = { has_policy = china_expansionist }
-			}
-			change_variable = {
-				which = global_amount_of_times_china_golden_age
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_status = china_golden_age
-				has_policy = china_expansionist
-			}
-			change_variable = {
-				which = global_amount_of_times_china_golden_age_expansionist
-				value = 1
-			}
-		}
-	}
-}
+# print_china_status_update_effect = {
+	# log = "----------------"
+	# log = "China Logging:"
+	# log = "China's status of [This.GetPrevStatus] ended after [global_temp_status_years.GetValue] years."
+	# log = "China's new status is [This.GetStatus]."
+	# log = "----------------"
+	# set_variable = {
+		# which = global_temp_status_years
+		# value = 0
+	# }
+	# random_list = {
+		# 10 = {
+			# trigger = {
+				# has_status = china_stable
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_stable
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_unrest
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_unrest
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_civil_war
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_civil_war
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_mongol_invasion
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_mongol_invasion
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_jurchen_invasion
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_jurchen_invasion
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_famine
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_famine
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_plague
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_plague
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_golden_age
+				# NOT = { has_policy = china_expansionist }
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_golden_age
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_status = china_golden_age
+				# has_policy = china_expansionist
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_golden_age_expansionist
+				# value = 1
+			# }
+		# }
+	# }
+# }
 
-print_china_policy_update_effect = {
-	log = "----------------"
-	log = "China Logging:"
-	log = "China's policy of [This.GetPrevPolicy] ended after [global_temp_policy_years.GetValue] years."
-	log = "China's new policy is [This.GetPolicy]."
-	log = "----------------"
-	set_variable = {
-		which = global_temp_policy_years
-		value = 0
-	}
-	random_list = {
-		10 = {
-			trigger = {
-				has_policy = china_open
-			}
-		}
-		10 = {
-			trigger = {
-				has_policy = china_isolationist
-			}
-			change_variable = {
-				which = global_amount_of_times_china_isolationist_policy
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				has_policy = china_expansionist
-			}
-			change_variable = {
-				which = global_amount_of_times_china_expansionist_policy
-				value = 1
-			}
-		}
-	}
-}
+# print_china_policy_update_effect = {
+	# log = "----------------"
+	# log = "China Logging:"
+	# log = "China's policy of [This.GetPrevPolicy] ended after [global_temp_policy_years.GetValue] years."
+	# log = "China's new policy is [This.GetPolicy]."
+	# log = "----------------"
+	# set_variable = {
+		# which = global_temp_policy_years
+		# value = 0
+	# }
+	# random_list = {
+		# 10 = {
+			# trigger = {
+				# has_policy = china_open
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_policy = china_isolationist
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_isolationist_policy
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# has_policy = china_expansionist
+			# }
+			# change_variable = {
+				# which = global_amount_of_times_china_expansionist_policy
+				# value = 1
+			# }
+		# }
+	# }
+# }
 
 
-china_war_modify_variables_by_century_effect = {
-	random_list = {
-		10 = {
-			trigger = {
-				year = 700
-				NOT = { year = 800 }
-			}
-		}
-		10 = {
-			trigger = {
-				year = 800
-				NOT = { year = 900 }
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 2
-			}
-		}
-		10 = {
-			trigger = {
-				year = 900
-				NOT = { year = 1000 }
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 3
-			}
-		}
-		10 = {
-			trigger = {
-				year = 1000
-				NOT = { year = 1100 }
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 4
-			}
-		}
-		10 = {
-			trigger = {
-				year = 1100
-				NOT = { year = 1200 }
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 5
-			}
-			change_variable = {
-				which = china_war_target_match_mult
-				value = 0.05
-			}
-		}
-		10 = {
-			trigger = {
-				year = 1200
-				NOT = { year = 1300 }
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 7
-			}
-			change_variable = {
-				which = china_war_target_match_mult
-				value = 0.05
-			}
-			change_variable = {
-				which = china_war_troop_quality
-				value = 1
-			}
-		}
-		10 = {
-			trigger = {
-				year = 1300
-			}
-			change_variable = {
-				which = china_war_troop_quantity
-				value = 8
-			}
-			change_variable = {
-				which = china_war_target_match_mult
-				value = 0.05
-			}
-			change_variable = {
-				which = china_war_troop_quality
-				value = 1
-			}
-		}
-	}
-}
+# china_war_modify_variables_by_century_effect = {
+	# random_list = {
+		# 10 = {
+			# trigger = {
+				# year = 700
+				# NOT = { year = 800 }
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 800
+				# NOT = { year = 900 }
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 2
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 900
+				# NOT = { year = 1000 }
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 3
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 1000
+				# NOT = { year = 1100 }
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 4
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 1100
+				# NOT = { year = 1200 }
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 5
+			# }
+			# change_variable = {
+				# which = china_war_target_match_mult
+				# value = 0.05
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 1200
+				# NOT = { year = 1300 }
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 7
+			# }
+			# change_variable = {
+				# which = china_war_target_match_mult
+				# value = 0.05
+			# }
+			# change_variable = {
+				# which = china_war_troop_quality
+				# value = 1
+			# }
+		# }
+		# 10 = {
+			# trigger = {
+				# year = 1300
+			# }
+			# change_variable = {
+				# which = china_war_troop_quantity
+				# value = 8
+			# }
+			# change_variable = {
+				# which = china_war_target_match_mult
+				# value = 0.05
+			# }
+			# change_variable = {
+				# which = china_war_troop_quality
+				# value = 1
+			# }
+		# }
+	# }
+# }
 
-print_china_ruler_update_effect = {
-	log = "----------------"
-	log = "Ruler of China died at the age of [From.GetAgeYears]."
-	log = "New Ruler of China is [Root.GetBestName] ([From.GetCulture], [From.GetReligion])."
-	log = "----------------"
-}
+# print_china_ruler_update_effect = {
+	# log = "----------------"
+	# log = "Ruler of China died at the age of [From.GetAgeYears]."
+	# log = "New Ruler of China is [Root.GetBestName] ([From.GetCulture], [From.GetReligion])."
+	# log = "----------------"
+# }
 
 # THIS is getting the trait added, the kinslayer_target target is the person dying
 # Save the event target before running this effect any time you publicly kill someone, the effect automatically checks they are a relative so you don't need to

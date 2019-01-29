@@ -567,7 +567,6 @@ mep_eligible_elf_marriage = {
 	can_marry  = yes
 	has_concubinage = no
 	age = 300
-	NOT = { trait = elven_infertility }
 	prisoner = no
 } 
 mep_eligible_dwarf_marriage = {
@@ -579,7 +578,6 @@ mep_eligible_dwarf_marriage = {
 		NOT = { age = 140 }
 		is_female = no
 	}
-	NOT = { trait = dwarven_infertility }
 	prisoner = no
 }
 
@@ -1209,7 +1207,6 @@ mep_char_leader_usable = {
 		prisoner = no
 		# top_liege = PREV
 		is_incapable = no
-		NOT = { trait = ringsearch }
 	}
 }
 
@@ -1218,13 +1215,11 @@ mep_theodred_and_eomer_are_okay = {
 		is_alive = yes
 		prisoner = no
 		# top_liege = PREV
-		NOT = { trait = ringsearch }
 	}
 	event_target:mep_chartarget_eomer = {
 		is_alive = yes
 		prisoner = no
 		# top_liege = PREV
-		NOT = { trait = ringsearch }
 	}
 }
 
