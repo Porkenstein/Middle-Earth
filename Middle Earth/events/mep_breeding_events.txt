@@ -1,0 +1,285 @@
+namespace = mep_breeding_events
+character_event = {
+	id = mep_breeding_events.0
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		is_female = yes
+		OR = {
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+		}
+	}
+
+	immediate = {
+		abdicate = yes
+		any_claim = {
+			remove_claim = ROOT
+		}
+		k_breeding_pits = {
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+				character_event = {
+					id = mep_breeding_events.10
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_breeding_events.1
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		OR = {
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+		}
+	}
+
+	immediate = {
+		any_claim = {
+			remove_claim = ROOT
+		}
+		k_breeding_pits = {
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_breeding_events.11
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		OR = {
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+		}
+	}
+
+	immediate = {
+		any_claim = {
+			remove_claim = ROOT
+		}
+		remove_trait = bastard
+		remove_trait = legit_bastard
+	}
+}
+character_event = {
+	id = mep_breeding_events.12
+	hide_window  = yes
+	only_rulers = no
+	only_men = yes
+	min_age = 16
+	capable_only = yes
+
+	trigger = {
+		OR = {
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+		}
+		father = {
+			ai = yes
+		}
+		NOT = {
+			prisoner = yes
+		}
+		employer = {
+			has_landed_title = k_breeding_pits
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	immediate = {
+		random_landed_title = {
+			limit = {
+				holder_scope = {
+					OR = {
+						culture = culture_urukhai
+						culture = culture_goblin
+						culture = culture_orkish
+					}
+				}
+			}
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+				if = {
+					limit = {
+						NOT = {
+							ai = yes
+						}
+					}
+					character_event = {
+						id = mep_breeding_events.121
+					}
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_breeding_events.121
+	desc = EVTDESCmep_breeding_events.121
+	picture = GFX_evt_uncomfortable
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_breeding_events.121
+	}
+}
+character_event = {
+	id = mep_breeding_events.2
+	desc = EVTDESCmep_breeding_events.2
+	picture = GFX_evt_uncomfortable
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:mare = {
+			random_list = {
+				4 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							event_target:stud = {
+								fertility = 0.01
+							}
+						}
+					}
+					impregnate = event_target:stud
+				}
+				1 = {
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_breeding_events.2
+	}
+}
+character_event = {
+	id = mep_breeding_events.21
+	hide_window = yes
+	only_rulers = no
+	only_women = yes
+	min_age = 16
+	capable_only = yes
+
+	trigger = {
+		NOT = {
+			prisoner = yes
+		}
+		NOT = {
+			is_pregnant = yes
+		}
+		employer = {
+			has_landed_title = k_breeding_pits
+		}
+		fertility = 0.01
+		num_of_children < 1
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+				}
+				is_adult = yes
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				fertility = 0.01
+			}
+			ROOT = {
+				impregnate = PREV
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_breeding_events.10
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		has_landed_title = k_breeding_pits
+		NOT = {
+			any_courtier = {
+				prisoner = no
+				is_female = yes
+				count = 5
+			}
+		}
+	}
+
+	immediate = {
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+	}
+}

@@ -1,0 +1,217 @@
+targetted_decisions = {
+	visit_breeding_pits = {
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		third_party = ROOT
+		third_party_filter = home_court
+		ai_third_party_filter = home_court
+		show_third_party_potential = yes
+
+		from_potential = {
+			OR = {
+				culture = culture_urukhai
+				culture = culture_goblin
+				culture = culture_orkish
+			}
+			is_adult = yes
+			NOT = {
+				is_female = yes
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+			NOT = {
+				has_character_modifier = visited_chambers
+			}
+		}
+		potential = {
+			has_landed_title = k_breeding_pits
+		}
+		third_party_potential = {
+			is_female = yes
+			is_adult = yes
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+			NOT = {
+				is_pregnant = yes
+			}
+			fertility = 0.01
+		}
+		allow = {
+			has_landed_title = k_breeding_pits
+			FROM = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+				}
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					war = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		third_party_allow = {
+			is_female = yes
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+		}
+		effect = {
+			FROMFROM = {
+				save_event_target_as = mare
+			}
+			FROM = {
+				save_event_target_as = stud
+				add_character_modifier = {
+					modifier = visited_chambers
+					days = 60
+				}
+			}
+			event_target:stud = {
+				character_event = {
+					id = mep_breeding_events.2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.01
+			}
+			modifier = {
+				factor = 0.01
+				num_of_children > 1
+			}
+			modifier = {
+				factor = 10
+				age = 30
+			}
+			modifier = {
+				factor = 10
+				age = 30
+				num_of_children < 1
+			}
+			modifier = {
+				factor = 20
+				age = 40
+				num_of_children < 1
+			}
+			modifier = {
+				factor = 20
+				age = 50
+				num_of_children < 1
+			}
+		}
+	}
+	pull_from_pits = {
+		only_rulers = yes
+		filter = all
+		ai_target_filter = self
+		third_party = ROOT
+		third_party_filter = home_court
+		ai_third_party_filter = self
+		show_third_party_potential = yes
+
+		from_potential = {
+			NOT = {
+				ai = yes
+			}
+			is_adult = yes
+			OR = {
+				culture = culture_urukhai
+				culture = culture_goblin
+				culture = culture_orkish
+			}
+			NOT = {
+				is_female = yes
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+		}
+		potential = {
+			has_landed_title = k_breeding_pits
+		}
+		third_party_potential = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+			NOT = {
+				is_female = yes
+			}
+		}
+		allow = {
+			has_landed_title = k_breeding_pits
+			FROM = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+				}
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					war = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		third_party_allow = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+		}
+		effect = {
+			FROM = {
+				save_event_target_as = master
+			}
+			FROMFROM = {
+				move_character = event_target:master
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

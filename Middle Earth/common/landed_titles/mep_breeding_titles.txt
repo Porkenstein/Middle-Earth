@@ -1,0 +1,44 @@
+k_breeding_pits = {
+	color={ 139 69 19 }
+	color2={ 139 69 19 }
+
+	title_female = "SPAWNMARE"
+	foa = "SPAWNMARE_FOA"
+	dignity = 1000
+	short_name = yes
+
+	capital = 654 #Barad-Dur
+
+	culture = culture_orkish
+	religion = religion_orkish
+
+	landless = yes
+	primary = yes
+	can_be_claimed = no
+	can_be_usurped = no
+
+	gain_effect = {
+		if = {
+			limit = {
+				k_breeding_pits = {
+					holder_scope = {
+						NOT = {
+							is_female = yes
+						}
+					}
+				}
+			}
+			create_random_priest = {
+				female = yes
+				dynasty = none
+				culture = culture_orkish
+				religion = religion_orkish
+				random_traits = yes
+				trait = dark_creature
+			}
+			new_character = {
+				grant_title_no_opinion = k_breeding_pits
+			}
+		}
+	}
+}
