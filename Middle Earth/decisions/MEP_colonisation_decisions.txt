@@ -63,23 +63,28 @@ title_decisions = {
 			}
 			holder_scope = {
 				OR = {
+					culture = culture_wilderness
 					AND = {
-						culture = culture_wilderness
-						NOT = {
-							FROM = {
-								culture_group = culture_group_dwarves
-							}
+						FROM = {
+							mep_is_mountain_dweller_trigger = yes
 						}
+						culture = culture_mountains
 					}
-					culture = culture_mountains
 				}
 				OR = {
 					any_neighbor_independent_ruler = {
 						character = FROM
+						NOR = {
+							culture_group = culture_group_dwarves
+							culture = culture_dragons
+						}
 					}
 					AND = {
 						FROM = {
-							culture_group = culture_group_dwarves
+							OR = {
+								culture_group = culture_group_dwarves
+								culture = culture_dragons
+							}
 						}
 						OR = {
 							culture = culture_mountains
