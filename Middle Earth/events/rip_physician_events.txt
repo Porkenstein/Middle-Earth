@@ -639,12 +639,6 @@ character_event = {
 									
 								}
 							}
-							if = {
-								limit = {
-									mep_temp_muslim_standin_trigger = yes
-								}
-								remove_trait = scholar
-							}
 							random_list = { # Is the Physician a Quack?
 								90 = {
 								}
@@ -687,18 +681,13 @@ character_event = {
 					flag = ai_flag_refuse_conversion
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = dull
 					remove_trait = slow
 					remove_trait = imbecile
 					remove_trait = quick
 					remove_trait = lustful
 					give_nickname = nick_the_wise
-					if = {
-						limit = {
-							mep_temp_muslim_standin_trigger = yes
-						}
-						remove_trait = scholar
-					}
 					random_list = { # Is the Physician a Quack?
 						90 = {
 						}
@@ -738,6 +727,7 @@ character_event = {
 							flag = physician_erudite_herbalist
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = mystic
 							remove_trait = scholar
 							remove_trait = socializer
@@ -753,12 +743,8 @@ character_event = {
 							remove_trait = seducer
 							remove_trait = seductress
 							remove_trait = theologian
-							if = {
-								limit = {
-									mep_temp_muslim_standin_trigger = yes
-								}
-								remove_trait = scholar
-							}
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Is the Physician a Quack?
 								90 = {
 								}
@@ -789,6 +775,7 @@ character_event = {
 							flag = physician_erudite_herbalist
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = mystic
 							remove_trait = scholar
 							remove_trait = socializer
@@ -804,12 +791,6 @@ character_event = {
 							remove_trait = seducer
 							remove_trait = seductress
 							remove_trait = theologian
-							if = {
-								limit = {
-									mep_temp_muslim_standin_trigger = yes
-								}
-								remove_trait = scholar
-							}
 							random_list = { # Is the Physician a Quack?
 								90 = {
 								}
@@ -875,6 +856,7 @@ character_event = {
 					flag = physician_insane_zealot
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = cynical
 					remove_trait = kind
 					remove_trait = mystic
@@ -892,6 +874,8 @@ character_event = {
 					remove_trait = seducer
 					remove_trait = seductress
 					remove_trait = theologian
+					remove_trait = imbecile
+					remove_trait = slow	
 					random_list = { # Random chance to add Physician
 						50 = {
 							add_trait = physician
@@ -900,12 +884,6 @@ character_event = {
 						50 = {
 							
 						}
-					}
-					if = {
-						limit = {
-							mep_temp_muslim_standin_trigger = yes
-						}
-						remove_trait = scholar
 					}
 					random_list = { # Is the Physician a Quack?
 						90 = {
@@ -940,12 +918,13 @@ character_event = {
 					trait = scholarly_theologian 
 					trait = mystic
 					# trait = pilgrim
-					trait = scarred
 					trait = humble
 					flag = is_court_physician
 					flag = physician_well_traveled_pilgrim
 				}
 				new_character = {
+					add_scarred_medium_effect = yes
+					set_character_flag = no_court_invites
 					remove_trait = scholar
 					remove_trait = proud
 					remove_trait = socializer
@@ -962,6 +941,8 @@ character_event = {
 					remove_trait = seducer
 					remove_trait = seductress
 					remove_trait = theologian
+					remove_trait = imbecile
+					remove_trait = slow
 					random_list = { # Random chance to add Physician
 						50 = {
 							add_trait = physician
@@ -1030,6 +1011,7 @@ character_event = {
 					flag = physician_student_of_medicine
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = mystic
 					remove_trait = scholar
 					remove_trait = socializer
@@ -1046,6 +1028,8 @@ character_event = {
 					remove_trait = seducer
 					remove_trait = seductress
 					remove_trait = theologian
+					remove_trait = imbecile
+					remove_trait = slow
 					random_list = { # Flavor Randomization
 						80 = { 
 							# Nothing
@@ -1056,12 +1040,6 @@ character_event = {
 						10 = { 
 							add_trait = drunkard
 						}
-					}
-					if = {
-						limit = {
-							mep_temp_muslim_standin_trigger = yes
-						}
-						remove_trait = scholar
 					}
 					random_list = { # Is the Physician a Quack?
 						90 = {
@@ -1102,6 +1080,7 @@ character_event = {
 							flag = physician_blind_miracle_worker
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = scholar
 							remove_trait = socializer
 							remove_trait = gamer
@@ -1117,6 +1096,8 @@ character_event = {
 							remove_trait = seducer
 							remove_trait = seductress
 							remove_trait = theologian
+							remove_trait = imbecile
+							remove_trait = slow
 							give_nickname = nick_the_blind
 							random_list = { # Is the Physician a Quack?
 								90 = {
@@ -1153,7 +1134,6 @@ character_event = {
 					health = 6
 					trait = tough_soldier 
 					trait = physician
-					trait = scarred
 					trait = robust
 					trait = wroth
 					trait = cruel
@@ -1161,6 +1141,8 @@ character_event = {
 					flag = physician_field_surgeon
 				}
 				new_character = {
+					add_scarred_medium_effect = yes
+					set_character_flag = no_court_invites
 					remove_trait = mystic
 					remove_trait = scholar
 					remove_trait = socializer
@@ -1181,6 +1163,8 @@ character_event = {
 					remove_trait = feeble
 					remove_trait = kind
 					remove_trait = patient
+					remove_trait = imbecile
+					remove_trait = slow
 					random_list = { # Flavor Randomization
 						20 = { 
 							# Nothing
@@ -1197,12 +1181,6 @@ character_event = {
 						20 = { 
 							add_trait = drunkard
 						}
-					}
-					if = {
-						limit = {
-							mep_temp_muslim_standin_trigger = yes
-						}
-						remove_trait = scholar
 					}
 					random_list = { # Is the Physician a Quack?
 						90 = {
@@ -1244,6 +1222,7 @@ character_event = {
 					flag = ai_flag_refuse_conversion
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					remove_trait = mystic
 					remove_trait = scholar
 					remove_trait = socializer
@@ -1305,6 +1284,7 @@ character_event = {
 							flag = physician_witch
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = scholar
 							remove_trait = socializer
 							remove_trait = gamer
@@ -1321,6 +1301,8 @@ character_event = {
 							remove_trait = seductress
 							remove_trait = theologian
 							remove_trait = ugly
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Random chance to add Physician
 								10 = {
 									add_trait = physician
@@ -1361,6 +1343,7 @@ character_event = {
 							flag = physician_witch
 						}
 						new_character = {
+							set_character_flag = no_court_invites
 							remove_trait = scholar
 							remove_trait = socializer
 							remove_trait = gamer
@@ -1377,6 +1360,8 @@ character_event = {
 							remove_trait = seductress
 							remove_trait = theologian
 							remove_trait = fair
+							remove_trait = imbecile
+							remove_trait = slow
 							random_list = { # Random chance to add Physician
 								50 = {
 									add_trait = physician
@@ -1417,7 +1402,7 @@ character_event = {
 						ai = yes
 						NOT = {
 							has_game_rule = {
-								name = supernatural_events
+								name = silly_events
 								value = unrestricted
 							}
 						}
@@ -1426,7 +1411,7 @@ character_event = {
 				modifier = {
 					factor = 0
 					has_game_rule = {
-						name = supernatural_events
+						name = silly_events
 						value = off
 					}
 				}
@@ -1446,6 +1431,7 @@ character_event = {
 					flag = physician_horse_md
 				}
 				new_character = {
+					set_character_flag = no_court_invites
 					save_event_target_as = recruited_physician_target
 					character_event = { id = RIP.11052 }
 				}
@@ -1459,7 +1445,7 @@ character_event = {
 	id = RIP.11052
 
 	hide_window = yes
-	
+	hide_new = yes
 	is_triggered_only = yes
 
 	immediate = {
@@ -1472,9 +1458,14 @@ character_event = {
 	id = RIP.11053
 	picture = GFX_evt_bishop
 	border = GFX_event_normal_frame_religion
+
+	hide_new = yes
 	
+	portrait = event_target:recruited_physician_target
+
 	is_triggered_only = yes
 	
+
 	desc = {
 		text = EVTDESC_RIP_11053_VILLAGE_DRUNKARD
 		picture = GFX_evt_drunk
@@ -1696,6 +1687,7 @@ character_event = {
 			value = 0.1
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1734,6 +1726,7 @@ character_event = {
 			value = 0.3
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1773,6 +1766,7 @@ character_event = {
 			value = 0.05
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1811,6 +1805,7 @@ character_event = {
 			value = 0.2
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1846,6 +1841,7 @@ character_event = {
 		prestige = -25
 		piety = -25
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_very_grateful
 				who = ROOT
@@ -1883,6 +1879,7 @@ character_event = {
 			years = 1
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1921,6 +1918,7 @@ character_event = {
 			value = 0.2
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -1958,18 +1956,8 @@ character_event = {
 			min = 10
 			value = 0.15
 		}
-		if = {
-			limit = {
-				NOT = {
-					mep_temp_muslim_standin_trigger = yes
-				}
-			}
-			add_character_modifier = {
-				name = annoyed_religious
-				years = 1
-			}
-		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2004,6 +1992,7 @@ character_event = {
 		}
 		scaled_wealth = { value = -0.2 min = -10 }
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2042,6 +2031,7 @@ character_event = {
 			value = 0.35
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2080,6 +2070,7 @@ character_event = {
 			value = 0.05
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2119,6 +2110,7 @@ character_event = {
 			value = 0.05
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2158,6 +2150,7 @@ character_event = {
 			value = 0.05
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2196,6 +2189,7 @@ character_event = {
 			value = 0.15
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2234,6 +2228,7 @@ character_event = {
 			value = 0.03
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2272,6 +2267,7 @@ character_event = {
 			value = 0.2
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2310,6 +2306,7 @@ character_event = {
 			value = 0.3
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2348,6 +2345,7 @@ character_event = {
 			value = 0.15
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2382,6 +2380,7 @@ character_event = {
 		}
 		scaled_wealth = { value = -0.3 min = -10 }
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2426,6 +2425,7 @@ character_event = {
 			}
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2506,6 +2506,7 @@ character_event = {
 			value = 0.2
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2544,6 +2545,7 @@ character_event = {
 			value = 0.25
 		}
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_glad
 				who = ROOT
@@ -2579,6 +2581,7 @@ character_event = {
 		prestige = -25
 		piety = -25
 		event_target:recruited_physician_target = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_very_grateful
 				who = ROOT
