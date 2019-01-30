@@ -35,18 +35,20 @@ targetted_decisions = {
 			has_landed_title = k_breeding_pits
 		}
 		third_party_potential = {
-			is_female = yes
-			is_adult = yes
-			NOT = {
-				prisoner = yes
+			FROMFROM = {
+				is_female = yes
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+				NOT = {
+					is_pregnant = yes
+				}
+				fertility = 0.01
 			}
-			NOT = {
-				is_incapable = yes
-			}
-			NOT = {
-				is_pregnant = yes
-			}
-			fertility = 0.01
 		}
 		allow = {
 			has_landed_title = k_breeding_pits
@@ -71,12 +73,14 @@ targetted_decisions = {
 			}
 		}
 		third_party_allow = {
-			is_female = yes
-			NOT = {
-				prisoner = yes
-			}
-			NOT = {
-				is_incapable = yes
+			FROMFROM = {
+				is_female = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
 			}
 		}
 		effect = {
@@ -162,14 +166,17 @@ targetted_decisions = {
 			has_landed_title = k_breeding_pits
 		}
 		third_party_potential = {
-			NOT = {
-				prisoner = yes
-			}
-			NOT = {
-				is_incapable = yes
-			}
-			NOT = {
-				is_female = yes
+			FROMFROM = {
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+				NOT = {
+					is_female = yes
+				}
 			}
 		}
 		allow = {
@@ -195,11 +202,14 @@ targetted_decisions = {
 			}
 		}
 		third_party_allow = {
-			NOT = {
-				prisoner = yes
-			}
-			NOT = {
-				is_incapable = yes
+			FROMFROM = {
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
 			}
 		}
 		effect = {
