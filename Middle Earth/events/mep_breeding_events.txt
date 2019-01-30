@@ -6,6 +6,9 @@ character_event = {
 
 	trigger = {
 		is_female = yes
+		NOT = {
+			has_landed_title = k_breeding_pits
+		}
 		OR = {
 			culture = culture_urukhai
 			culture = culture_goblin
@@ -15,6 +18,9 @@ character_event = {
 
 	immediate = {
 		abdicate = yes
+		any_spouse = {
+			remove_spouse = ROOT
+		}
 		any_claim = {
 			remove_claim = ROOT
 		}
