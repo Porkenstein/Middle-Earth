@@ -216,13 +216,7 @@ character_event = {
 			trait = humble
 		}
 	}
-	
-	option = {
-		name = EVTOPTA3005
-		trigger = {
-			is_married = no
-		}
-		prestige = 15
+	immediate = {
 		random_courtier = {
 			limit = {
 				age = 16
@@ -236,6 +230,26 @@ character_event = {
 					is_inaccessible_trigger = yes
 				}
 			}
+			preferred_limit = {
+				is_attractive_trigger = yes
+			}
+			save_event_target_as = scoped_lady
+		}
+
+		random = {
+			chance = 10
+			add_trait = wounded
+			hidden_tooltip = { character_event = { id = 38280 } }
+		}		
+	}
+	
+	option = {
+		name = EVTOPTA3005
+		trigger = {
+			is_married = no
+		}
+		prestige = 15
+		event_target:scoped_lady = {
 			opinion = {
 				modifier = opinion_tourney_boost
 				who = ROOT
@@ -547,10 +561,12 @@ character_event = {
 	option = {
 		name = EVTOPTA3021
 		create_character = {
-			learning = 9
+			attributes = {
+				learning = 9
+			}
 			dynasty = random
 			age = 55
-			is_female = no
+			female = no
 			trait = chaste
 			trait = zealous
 			trait = celibate
@@ -675,8 +691,7 @@ character_event = {
 		}
 	}
 	
-	option = {
-		name = EVTOPTA3025
+	immediate = {
 		random_courtier = {
 			limit = {
 				is_female = yes
@@ -684,6 +699,13 @@ character_event = {
 				is_married = no
 				NOT = { is_close_relative = ROOT }
 			}
+			save_event_target_as = scoped_lady
+		}
+	}
+	option = {
+		name = EVTOPTA3025
+		event_target:scoped_lady = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_admire_chaste
 				who = ROOT
@@ -694,13 +716,8 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB3025
-		random_courtier = {
-			limit = {
-				is_female = yes
-				age = 16
-				is_married = no
-				NOT = { is_close_relative = ROOT }
-			}
+		event_target:scoped_lady = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_admire_chaste
 				who = ROOT
@@ -755,6 +772,7 @@ character_event = {
 				is_female = yes
 				age = 18
 				is_pregnant = no
+				fertility = 0.4
 				NOR = {
 					trait = celibate
 					age = 35
@@ -925,6 +943,19 @@ character_event = {
 			trait = mystic
 		}		
 	}
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_female = yes
+				age = 16
+				NOR = {
+					age = 35
+					is_close_relative = ROOT
+				}
+			}
+			save_event_target_as = scoped_lady
+		}	
+	}
 	
 	option = {
 		name = EVTOPTB3035
@@ -936,15 +967,7 @@ character_event = {
 			add_trait = lustful
 			hidden_tooltip = { character_event = { id = 38272 } }
 		}	
-		random_courtier = {
-			limit = {
-				is_female = yes
-				age = 16
-				NOR = {
-					age = 35
-					is_close_relative = ROOT
-				}
-			}
+		event_target:scoped_lady = {
 			add_trait = lustful
 			hidden_tooltip = { character_event = { id = 38272 } }
 			opinion = {
@@ -1606,6 +1629,12 @@ character_event = {
 				character = ROOT
 				trait = incapable
 			}
+			OR = {
+				is_female = no
+				has_religion_feature = religion_matriarchal
+				has_religion_feature = religion_equal
+				has_religion_feature = religion_feature_bon
+			}
 		}
 	}
 	
@@ -1619,9 +1648,7 @@ character_event = {
 		modifier = {
 			factor = 5.0
 			trait = proud
-		}
-
-		
+		}		
 		modifier = {
 			factor = 0.4
 			trait = patient
@@ -1631,12 +1658,7 @@ character_event = {
 			trait = humble
 		}
 	}
-	
-	option = {
-		name = EVTOPTA3070
-		ai_chance = {
-			factor = 99
-		}
+	immediate = {
 		random_courtier = {
 			limit = {
 				age = 20
@@ -1646,7 +1668,34 @@ character_event = {
 					character = ROOT
 					trait = incapable
 				}
+				OR = {
+					is_female = no
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+				}
 			}
+			preferred_limit = {
+				trait = hunter
+			}
+			preferred_limit = {
+				trait = brave
+			}
+			preferred_limit = {
+				NOT = { trait = craven }
+			}
+			save_event_target_as = hunting_partner
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3070
+		ai_chance = {
+			factor = 99
+		}
+		show_portrait = event_target:hunting_partner
+		event_target:hunting_partner = {
+			show_scope_change = no
 			character_event = {
 				id = 3071
 				tooltip = EVTTOOLTIP3071
@@ -4166,7 +4215,85 @@ character_event = {
 }
 
 ### Wroth: Start ###
+character_event = {
+	id = 3190
+	desc = EVTDESC3190
+	picture = GFX_evt_bishop
+	
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		trait = wroth
+		in_command = no
+		any_courtier = {
+			age = 16
+			prisoner = no
+			NOR = {
+				trait = incapable
+				trait = wroth
+				trait = patient
+			}
+			OR = {
+				trait = kind
+				trait = charitable
+				prestige = 60
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
 
+		modifier = {
+			factor = 4.0
+			is_priest = no
+		}
+		modifier = {
+			factor = 5.0
+			trait = weak
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = scholarly_theologian
+		}
+		modifier = {
+			factor = 0.3
+			trait = mastermind_theologian
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3190
+		random_courtier = {
+			limit = {
+				age = 16
+				prisoner = no
+				NOR = {
+					trait = incapable
+					trait = wroth
+					trait = patient
+				}
+				OR = {
+					trait = kind
+					trait = charitable
+					prestige = 60
+				}
+			}
+			character_event = {
+				id = 3191
+				days = 1
+				tooltip = EVTTOOLTIP3191
+			}
+		}
+	}
+}
 
 #Wroth: Courtier
 character_event = {
@@ -5435,7 +5562,9 @@ character_event = {
 ####################################
 character_event = {
 	id = 3260
-	desc = EVTDESC3264
+	desc = {
+		text = EVTDESC3264
+	}
 	picture = GFX_evt_spymaster
 	
 	only_playable = yes
@@ -6118,6 +6247,101 @@ character_event = {
 	}
 }
 
+### Craven ###
+character_event = {
+	id = 3305
+	desc = EVTDESC3305
+	picture = GFX_evt_bishop
+	
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		in_command = no
+		NOT = { is_inaccessible_trigger = yes }
+		trait = craven
+		OR = {
+			NOT = { demesne_size = 1 }
+			tier = count
+		}
+		any_courtier = {
+			age = 16
+			prisoner = no
+			OR = {
+				is_priest = yes
+				has_job_title = job_spiritual
+			}
+			NOR = {
+				character = ROOT
+				trait = incapable
+				is_inaccessible_trigger = yes }
+			OR = {
+				trait = craven
+				NOT = {
+					trait = brave
+				}
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		factor = 1
+
+		modifier = {
+			factor = 0.4
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 0.4
+			trait = wroth
+		}
+
+		modifier = {
+			factor = 2.0
+			trait = kind
+		}
+		modifier = {
+			factor = 5.0
+			trait = humble
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3305
+		random_courtier = {
+			limit = {
+				age = 16
+				prisoner = no
+				OR = {
+					is_priest = yes
+					has_job_title = job_spiritual
+				}
+				NOR = {
+					character = ROOT
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+				OR = {
+					trait = craven
+					NOT = {
+						trait = brave
+					}
+				}
+			}
+			character_event = {
+				id = 3306
+				days = 1
+				random = 2
+				tooltip = EVTTOOLTIP3306
+			}
+		}
+	}
+}
 
 #Courtier
 character_event = {
@@ -6524,7 +6748,53 @@ character_event = {
 }
 	
 ### Brave negative ###
+character_event = {
+	id = 3330
+	desc = EVTDESC3330
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_war
+	
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		trait = brave
+		in_command = no
+		NOT = { is_inaccessible_trigger = yes }
+	}
+	
+	weight_multiplier = {
+		factor = 1
 
+		modifier = {
+			factor = 5.0
+			trait = proud
+		}
+		modifier = {
+			factor = 5.0
+			trait = lustful
+		}
+
+		modifier = {
+			factor = 0.4
+			trait = patient
+		}
+		modifier = {
+			factor = 0.5
+			trait = humble
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3330
+		scaled_wealth = -0.1
+	}
+}
 	
 ### Brave negative ###
 character_event = {
@@ -7169,7 +7439,62 @@ character_event = {
 }
 	
 ### Ambitious ###
+character_event = {
+	id = 3370
+	desc = EVTDESC3370
+	picture = GFX_evt_bishop
+	
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	war = no
+	
+	is_triggered_only = yes 
+	
+	trigger = {
+		trait = ambitious
+		in_command = no
+		is_priest = no
+		NOT = { is_inaccessible_trigger = yes }
+		any_courtier = {
+			opinion = { who = ROOT value = 75 }
+			reverse_opinion = { who = ROOT value = 50 }
+			NOT = { is_inaccessible_trigger = yes }
+			OR = {
+				is_priest = yes
+				has_job_title = job_spiritual
+			}
+		}				
+	}
+	
+	weight_multiplier = {
+		factor = 1
 
+		modifier = {
+			factor = 3.0
+			trait = envious
+		}
+		modifier = {
+			factor = 4.0
+			trait = wroth
+		}
+
+		modifier = {
+			factor = 0.3
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+	}
+	
+	option = {
+		name = EVTOPTA3370
+		piety = 15
+	}
+}
 
 ### Ambitious - Muslim ###
 
@@ -16444,7 +16769,9 @@ character_event = {
 		name = EVTOPTA3660 #Demand
 		piety = -10
 		create_character = {
-			diplomacy = 10
+			attributes = {
+				diplomacy = 10
+			}
 			dynasty = random
 			trait = poet
 			age = 30
@@ -16464,7 +16791,9 @@ character_event = {
 		name = EVTOPTB3660 #Ask nicely
 		prestige = -10
 		create_character = {
-			diplomacy = 10
+			attributes = {
+				diplomacy = 10
+			}
 			dynasty = random
 			trait = poet
 			age = 30
@@ -16484,7 +16813,9 @@ character_event = {
 		name = EVTOPTC3660 #Bribe
 		scaled_wealth = -0.10
 		create_character = {
-			diplomacy = 10
+			attributes = {
+				diplomacy = 10
+			}
 			dynasty = random
 			trait = poet
 			age = 30
@@ -16504,7 +16835,9 @@ character_event = {
 		name = EVTOPTD3660 #Ignore
 		add_trait = content
 		create_character = {
-			diplomacy = 10
+			attributes = {
+				diplomacy = 10
+			}
 			dynasty = random
 			trait = poet
 			age = 30
