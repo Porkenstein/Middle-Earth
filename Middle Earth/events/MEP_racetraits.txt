@@ -8,11 +8,13 @@ character_event = {
 	trigger = {
 		OR = {
 			#Numenors
-			culture = culture_numenorean
+			father_even_if_dead = {
+				trait = numenorean
+			}
 			#Half Blood
-			culture = culture_gondorian
-			culture = culture_black_numenorean
-			culture = culture_arnorian
+			father_even_if_dead = {
+				trait = numenor_blood
+			}
 			#Skin Changer
 			culture = culture_beorning
 			#Hobbit
@@ -53,16 +55,25 @@ character_event = {
 	immediate = {
 		if = {
 			limit = {
-				culture = culture_numenorean
+				father_even_if_dead = {
+					trait = numenorean
+				}
+				NOT = {
+					has_global_flag = numenor_sunk
+				}
 			}
 			add_trait = numenorean
 		}
 		if = {
 			limit = {
-				OR = {
-					culture = culture_gondorian
-					culture = culture_black_numenorean
-					culture = culture_arnorian
+				father_even_if_dead = {
+					OR = {
+						AND = {
+							trait = numenorean
+							has_global_flag = numenor_sunk
+						}
+						trait = numenor_blood
+					}
 				}
 			}
 			add_trait = numenor_blood
