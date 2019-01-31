@@ -13,6 +13,7 @@ character_event = {	#Startup Pull Female Orcs to Pits
 			culture = culture_urukhai
 			culture = culture_goblin
 			culture = culture_orkish
+			culture = culture_half_orc
 		}
 	}
 
@@ -47,6 +48,7 @@ character_event = {	#On Birth, Pull Children Orks to pits
 				culture = culture_urukhai
 				culture = culture_goblin
 				culture = culture_orkish
+				culture = culture_half_orc
 			}
 		}
 	}
@@ -80,7 +82,7 @@ character_event = {	#On Birth, Pull Children Orks to pits
 					}
 				}
 			}
-			culture = half_orc
+			culture = culture_half_orc
 		}
 		any_claim = {
 			remove_claim = ROOT
@@ -109,6 +111,7 @@ character_event = {	#Move Male Orc to a court
 			culture = culture_urukhai
 			culture = culture_goblin
 			culture = culture_orkish
+			culture = culture_half_orc
 		}
 		father = {
 			ai = yes
@@ -133,6 +136,7 @@ character_event = {	#Move Male Orc to a court
 						culture = culture_urukhai
 						culture = culture_goblin
 						culture = culture_orkish
+						culture = culture_half_orc
 					}
 				}
 			}
@@ -170,11 +174,12 @@ character_event = {	#Breeding event
 		text = EVTDESCAmep_breeding_events.2
 		trigger = {
 			event_target:mare = {
-					OR = {
-						culture = culture_urukhai
-						culture = culture_goblin
-						culture = culture_orkish
-					}
+				OR = {
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
 			}
 		}
 	}
@@ -182,11 +187,12 @@ character_event = {	#Breeding event
 		text = EVTDESCBmep_breeding_events.2
 		trigger = {
 			event_target:mare = {
-					NOR = {
-						culture = culture_urukhai
-						culture = culture_goblin
-						culture = culture_orkish
-					}
+				NOR = {
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
 			}
 		}
 	}
@@ -235,6 +241,22 @@ character_event = {	#Randomly Impregnate Females in Breeding Pits
 		employer = {
 			has_landed_title = k_breeding_pits
 		}
+		any_character = {
+			OR = {
+				culture = culture_urukhai
+				culture = culture_goblin
+				culture = culture_orkish
+				culture = culture_half_orc
+			}
+			is_adult = yes
+			NOT = {
+				is_female = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+			fertility = 0.01
+		}
 		fertility = 0.01
 		num_of_children < 1
 	}
@@ -250,6 +272,7 @@ character_event = {	#Randomly Impregnate Females in Breeding Pits
 					culture = culture_urukhai
 					culture = culture_goblin
 					culture = culture_orkish
+					culture = culture_half_orc
 				}
 				is_adult = yes
 				NOT = {
