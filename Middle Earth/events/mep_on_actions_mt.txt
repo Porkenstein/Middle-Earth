@@ -23,6 +23,8 @@ character_event = {	#Old age Trait for Characters
 			#Long Lived
 			culture_group = culture_group_dwarves
 			culture_group = culture_group_numenorean
+			trait = numenorean
+			trait = numenorean_blood
 			culture_group = culture_group_halfling
 			#Sail West
 			culture_group = culture_group_amanyar
@@ -47,7 +49,11 @@ character_event = {	#Old age Death for Characters
 	desc = {
 		text = EVTDESCAmep_on_actions_mt.11
 		trigger = {
-			culture_group = culture_group_numenorean
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenorean_blood
+			}
 		}
 	}
 	desc = {
@@ -146,7 +152,11 @@ character_event = {	#Old age Death for Characters
 		}
 		modifier = {
 			factor = 0.75
-			culture_group = culture_group_numenorean
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenorean_blood
+			}
 			year = 8343
 		}
 		modifier = {
@@ -162,7 +172,11 @@ character_event = {	#Old age Death for Characters
 	option = {	#Give up the Ghost
 		name = EVTOPTAmep_on_actions_mt.11
 		trigger = {
-			culture_group = culture_group_numenorean
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenorean_blood
+			}
 		}
 		death = {
 			death_reason = death_old_age
@@ -191,6 +205,8 @@ character_event = {	#Old age Death for Characters
 				culture_group = culture_group_amanyar
 				culture_group = culture_group_moriquendi
 				culture_group = culture_group_umanyar
+				trait = numenorean
+				trait = numenorean_blood
 			}
 		}
 		death = yes
