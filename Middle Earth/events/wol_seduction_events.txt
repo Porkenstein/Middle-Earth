@@ -241,7 +241,6 @@ character_event = {
 	id = WoL.40
 	picture = GFX_evt_bad_news
 	border = GFX_event_normal_frame_religion
-	desc = EVTDESC_WOL_40_NC
 	
 	is_triggered_only = yes
 	
@@ -250,6 +249,10 @@ character_event = {
 			has_character_modifier = minor_disease_herpes
 			trait = lovers_pox
 		}
+	}
+	
+	desc = {
+		text = EVTDESC_WOL_40_NC
 	}
 	
 	option = {
@@ -276,6 +279,21 @@ character_event = {
 				NOT = { trait = blinded }
 				NOT = { character = FROM }
 				NOT = { character = ROOT }
+				NOR = {
+					any_spouse = {
+						OR = {
+							character = FROM
+							character = ROOT
+						}
+					}
+					any_consort = {
+						NOT = { is_senior_consort_party = yes }
+						OR = {
+							character = FROM
+							character = ROOT
+						}
+					}
+				}
 				OR = {
 					is_close_relative = ROOT
 					is_close_relative = FROM
@@ -284,18 +302,6 @@ character_event = {
 					is_rival = ROOT
 					is_lover = FROM
 					is_lover = ROOT
-					any_spouse = {
-						OR = {
-							character = FROM
-							character = ROOT
-						}
-					}
-					any_consort = {
-						OR = {
-							character = FROM
-							character = ROOT
-						}
-					}
 					has_opinion_modifier = {
 						who = FROM
 						modifier = opinion_chasing_friend
@@ -394,6 +400,7 @@ character_event = {
 						character = FROM
 					}
 					any_consort = {
+						NOT = { is_senior_consort_party = yes }
 						character = FROM
 					}
 				}
@@ -446,6 +453,7 @@ character_event = {
 						character = FROMFROM
 					}
 					any_consort = {
+						NOT = { is_senior_consort_party = yes }
 						character = FROMFROM
 					}
 				}
@@ -551,7 +559,7 @@ character_event = {
 					is_female = yes
 					OR = {
 						is_married = yes
-						is_consort = yes
+						NOT = { is_senior_consort_party = yes }
 					}
 				}
 			}
@@ -582,14 +590,14 @@ character_event = {
 		text = EVTDESC_WOL_55_AGE_YOUNG
 		trigger = {
 			has_character_flag = scandal_temp_age 
-			FROM = { NOT = { is_older_than = FROMFROM } }
+			FROM = { NOT = { is_older_than = ROOT_FROMFROM } }
 		}
 	}
 	desc = {
 		text = EVTDESC_WOL_55_AGE_OLD
 		trigger = {
 			has_character_flag = scandal_temp_age 
-			FROM = { is_older_than = FROMFROM }
+			FROM = { is_older_than = ROOT_FROMFROM }
 		}
 	}
 	desc = {
@@ -612,6 +620,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_WOL_55 # Expose them!
+		show_portrait = FROMFROM
 		trigger = {
 			NOT = {
 				OR = {
@@ -649,6 +658,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_WOL_55_UNHOLY # Expose the unholy sinners!
+		show_portrait = FROMFROM
 		trigger = {
 			OR = {
 				has_character_flag = scandal_temp_incest
@@ -749,6 +759,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_WOL_55 # Blackmail the seducer
+		show_portrait = FROMFROM
 		trigger = {
 			NOT = { is_father = FROM }
 			NOT = { is_mother = FROM }
@@ -842,9 +853,11 @@ letter_event = {
 		ai_chance = {
 			factor = 100
 		}
-		transfer_scaled_wealth = {
-			to = FROM
-			value = 0.2
+		tooltip = {
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 0.2
+			}
 		}
 		FROM = { letter_event = { id = WoL.57 days = 3 tooltip = EVTTOOLTIP_WoL_57 } }
 	}
@@ -881,6 +894,12 @@ letter_event = {
 	
 	option = {
 		name = EVTOPTA_WOL_57
+		FROM = {
+			transfer_scaled_wealth = {
+				to = ROOT
+				value = 0.2
+			}
+		}
 	}
 }
 
@@ -1133,6 +1152,7 @@ character_event = {
 		}
 		any_consort = {
 			limit = {
+				is_senior_consort_party = yes
 				NOT = { character = FROMFROM }
 				NOT = { character = FROM }
 			}
