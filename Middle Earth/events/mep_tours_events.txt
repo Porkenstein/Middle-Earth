@@ -126,19 +126,19 @@ character_event = {	#Where to go?
 
 	option = {	#More
 		name = EVTOPTZZmep_tours_events.0
-		IF = {
+		if = {
 			limit = { has_character_flag = tours1 }
 			clr_character_flag = tours1
 			set_character_flag = tours2
 			break = yes
 		}
-		IF = {
+		if = {
 			limit = { has_character_flag = tours2 }
 			clr_character_flag = tours2
 			set_character_flag = tours3
 			break = yes
 		}
-		IF = {
+		if = {
 			limit = { has_character_flag = tours3 }
 			clr_character_flag = tours3
 			set_character_flag = tours1
@@ -185,6 +185,7 @@ narrative_event = {	#First Tour Target
 	immediate = {
 		clr_character_flag = tours1
 		clr_character_flag = tours2
+		clr_character_flag = tours3
 	}
 
 	option = {	#On to Osgiliath
