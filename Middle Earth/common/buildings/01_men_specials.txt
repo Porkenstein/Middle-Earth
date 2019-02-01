@@ -16,4 +16,40 @@ castle = {
 			has_global_flag = tharbad_bridge
         }
 	}
+	
+	ca_minas_ithil_ruins = {
+		desc = ca_minas_ithil_ruins_desc
+		gold_cost = 1
+		build_time = 1
+		tax_income = -1
+		heavy_infantry = -100
+		pikemen = -100
+		archers = -100
+		fort_level = -1.0
+		not_if_x_exists = { ca_tower_of_moon }
+		ai_creation_factor = 80	
+		add_number_to_name = no
+        potential = {
+            FROMFROM = { title = b_minas_morgul }
+			NOT = { has_global_flag = minas_ithil_rebuilded_finally }
+			year = 9980
+		}
+	}
+	
+	ca_tower_of_moon = {
+		desc = ca_tower_of_moon_desc
+		not_if_x_exists	= { ca_minas_ithil_ruins }
+		gold_cost = 1500
+		build_time = 2190
+		ai_creation_factor = 80
+		tax_income = 6
+		heavy_infantry = 500
+		pikemen = 500
+		archers = 500
+		add_number_to_name = no
+        potential = {
+			FROMFROM = { title = b_minas_morgul }
+			culture_group = culture_group_numenorean
+        }
+	}
 }
