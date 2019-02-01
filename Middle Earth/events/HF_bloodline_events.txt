@@ -1476,13 +1476,13 @@ narrative_event = {
 	
 	option = { #Gain War bloodline.
 		name = EVTOPTAHF24034
-		hidden_tooltip = {
-		add_artifact = crown_winged_helmet
-			new_artifact = {
-				set_description = crown_winged_helmet_bloodline_desc_1
-				set_name = crown_winged_helmet_bloodline_name_1
-			}
-		}
+		# hidden_tooltip = {
+		# add_artifact = crown_winged_helmet
+			# new_artifact = {
+				# set_description = crown_winged_helmet_bloodline_desc_1
+				# set_name = crown_winged_helmet_bloodline_name_1
+			# }
+		# }
 		if = { 
 			limit = { is_female = no }
 			create_bloodline = {
@@ -3342,284 +3342,6 @@ narrative_event = {
 			limit = { is_female = yes }
 			create_bloodline = {
 				type = event_family_bloodline_01
-				inheritance = matrilineal
-			}		
-		}
-		ai_chance = { 
-			factor = 100
-		}
-	}
-}
-
-#Gaining Technology Bloodline.
-#First Row. - Find artists and philosophers.
-character_event = {
-	id = HF.24065
-	title = EVTTITLEHF24065
-	desc  = EVTDESCAHF24065
-	picture = GFX_evt_library
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-
-	trigger = { 
-		has_dlc = "Holy Fury"
-		NOT = {
-			any_owned_bloodline = { 
-				has_bloodline_flag = created_bloodline
-			}
-		}
-		has_ambition = obj_forge_bloodline
-	}
-
-	#Special stewardship option. - Lead research yourself.
-	#Scour foreign lands.
-	#Scour homeland.
-	#Try private research.
-	#Abandon quest for Bloodline.
-	
-	option = { 
-		name = EVTOPTAHF24065
-		trigger = { 
-			stewardship = 18 
-		}
-		tooltip_info = stewardship
-		custom_tooltip = { text = TT_EVTOPTAHF24056 }
-		if = { 
-			limit = { trait = dull }
-			remove_trait = dull
-		}
-		add_character_modifier = {
-			name = forging_legend_searching_philosophers_3
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24066 days = 150 random = 250 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTBHF24065
-		custom_tooltip = { text = TT_EVTOPTBHF24056 }
-		scaled_wealth = { value = -5 min = -350 max = -750 }
-		add_character_modifier = {
-			name = forging_legend_searching_philosophers_1
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24066 days = 500 random = 500 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTCHF24065
-		custom_tooltip = { text = TT_EVTOPTCHF24056 }
-		if = { 
-			limit = { trait = dull }
-			remove_trait = dull
-		}
-		scaled_wealth = { value = -5 min = -250 max = -500 }
-		add_character_modifier = {
-			name = forging_legend_searching_philosophers_2
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24066 days = 1000 random = 1000 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTDHF24065
-		trigger = { 
-			NOT = { stewardship = 18 }
-		}
-		custom_tooltip = { text = TT_EVTOPTDHF24056 }
-		add_character_modifier = {
-			name = forging_legend_searching_philosophers_3
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24066 days = 2000 random = 2000 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTEHF24065
-		custom_tooltip = { text = TT_EVTOPTEHF24056 }
-		if = { 
-			limit = {
-				NOT = { trait = content }
-			}
-			random = {
-				chance = 25
-				add_trait = content
-			}
-		}
-		ai_chance = { 
-			factor = 0
-		}
-	}
-}
-
-#Second Row. - Build infrastructure.
-character_event = {
-	id = HF.24066
-	title = EVTTITLEHF24065
-	desc  = EVTDESCAHF24066
-	picture = GFX_evt_busy_trading_dock_republic
-	border = GFX_event_normal_frame_economy
-	
-	is_triggered_only = yes
-
-	trigger = { 
-		has_dlc = "Holy Fury"
-		NOT = {
-			any_owned_bloodline = { 
-				has_bloodline_flag = created_bloodline
-			}
-		}
-		has_ambition = obj_forge_bloodline
-	}
-
-	#Special stewardship option. - Lead construction efforts.
-	#Grandiose library.
-	#Research study.
-	#Host within own palace.
-	#Abandon quest for Bloodline.
-	
-	option = { 
-		name = EVTOPTAHF24066
-		trigger = { 
-			stewardship = 18 
-		}
-		tooltip_info = stewardship
-		custom_tooltip = { text = TT_EVTOPTAHF24056 }
-		if = { 
-			limit = { trait = dull }
-			remove_trait = dull
-		}
-		add_character_modifier = {
-			name = forging_legend_building_infrastructure_3
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24067 days = 150 random = 250 } 
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTBHF24066
-		custom_tooltip = { text = TT_EVTOPTBHF24056 }
-		add_character_modifier = {
-			name = forging_legend_building_infrastructure_1
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24067 days = 500 random = 500 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTCHF24066
-		custom_tooltip = { text = TT_EVTOPTCHF24056 }
-		add_character_modifier = {
-			name = forging_legend_building_infrastructure_2
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24067 days = 1000 random = 1000 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTDHF24066
-		trigger = { 
-			NOT = { stewardship = 18 }
-		}
-		custom_tooltip = { text = TT_EVTOPTDHF24056 }
-		add_character_modifier = {
-			name = forging_legend_searching_philosophers_3
-			years = 5
-		}
-		hidden_tooltip = { 
-			character_event = { id = HF.24067 days = 2000 random = 2000 }
-		}
-		ai_chance = { 
-			factor = 30
-		}
-	}
-	option = {
-		name = EVTOPTEHF24066
-		custom_tooltip = { text = TT_EVTOPTEHF24056 }
-		if = { 
-			limit = {
-				NOT = { trait = content }
-			}
-			random = {
-				chance = 25
-				add_trait = content
-			}
-		}
-		ai_chance = { 
-			factor = 0
-		}
-	}
-}
-
-#Technology Bloodline gained.
-narrative_event = {
-	id = HF.24067
-	title = EVTTITLEHF24065
-	desc = EVTDESCAHF24067
-	picture = GFX_evt_victory_arch_byzantine
-	border = GFX_event_narrative_frame_economy
-	sound = bloodline_added
-	
-	is_triggered_only = yes
-
-	trigger = { 
-		has_dlc = "Holy Fury"
-		NOT = {
-			any_owned_bloodline = { 
-				has_bloodline_flag = created_bloodline
-			}
-		}
-		has_ambition = obj_forge_bloodline
-	}
-	
-	option = { 
-		name = EVTOPTAHF24067
-		if = { 
-			limit = { 
-				this_has_cool_nickname_trigger = no 
-				this_has_super_cool_nickname_trigger = no 
-			}
-			ROOT = { give_nickname = nick_the_philosopher }
-		}
-		if = { 
-			limit = { is_female = no }
-			create_bloodline = {
-				type = event_technology_bloodline_01
-			}		
-		}
-		if = { 
-			limit = { is_female = yes }
-			create_bloodline = {
-				type = event_technology_bloodline_01
 				inheritance = matrilineal
 			}		
 		}
@@ -5988,7 +5710,8 @@ character_event = {
 				90 = { }
 				3 = { 
 					trigger = { 
-						NOT = { 
+						NOR = { 
+							trait = uncouth
 							trait = robust
 						}
 					}
@@ -6389,7 +6112,8 @@ character_event = {
 				90 = { }
 				3 = { 
 					trigger = { 
-						NOT = { 
+						NOR = { 
+							trait = groomed
 							trait = dull
 						}
 					}

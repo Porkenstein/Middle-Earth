@@ -833,57 +833,6 @@ character_event = {
 	}
 }
 
-#Prisoner receives event informing that enemy_liege has decided to sacrifice you to the gods instead of simply taking you prisoner. Shiiiit.
-character_event = {
-	id = 50021
-	title = sacrificed_in_battle
-	desc = "EVTDESC50021"
-	picture = "GFX_evt_battle"
-	border = GFX_event_normal_frame_war
-	
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = { multiplayer = yes } #insta-death in MP
-			death = {
-				death_reason = death_sacrificed
-				killer = FROM
-			}
-		}
-	}
-	
-	option = {
-		name = {
-			text = EVTOPTA50021 #I can't believe this is how it ends
-			trigger = { NOT = { same_society_as = FROM } }
-		}
-		name = {
-			text = EVTOPTB50021 #Noo..! For [society], why?
-			trigger = { same_society_as = FROM }
-		}
-		tooltip = {
-			FROM = {
-				show_scope_change = no
-				add_character_modifier = {
-					name = sacrificed_prisoner
-					duration = 1000
-					stacking = yes
-				}
-			}
-		}
-		if = {
-			limit = { multiplayer = no }
-			death = {
-				death_reason = death_sacrificed
-				killer = event_target:enemy_liege
-			}
-		}
-		#TODO_CD_MILLA: if not independent: Add notification sent to this character's liege
-	}
-}
-
-
 ###############################################
 
 #Petition liege to release prisoner
