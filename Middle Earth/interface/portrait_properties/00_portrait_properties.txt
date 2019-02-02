@@ -306,30 +306,11 @@
 	}
 
 	18 = { # Papal palace
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { has_landed_title = k_papal_state }
-			NOT = { has_landed_title = d_fraticelli }
-			NOT = { has_claim = k_papal_state }
-			NOT = { has_claim = d_fraticelli }
-		}
+		factor = 0
 	}
 
 	19 = { # Muslim mosque
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = { religion_group = muslim }
-		}
-
-		modifier = {
-			factor = 0
-			OR = {
-				is_ruler = no
-				is_theocracy = no
-			}
-		}
+		factor = 0
 	}
 
 	20 = { # Pagan human sacrifice
@@ -667,7 +648,7 @@
 			factor = 10
 			is_ruler = yes
 			is_theocracy = yes
-			religion_group = pagan_group
+			# # religion_group = pagan_group
 		}
 		modifier = {
 			factor = 20000
@@ -971,13 +952,13 @@
 			factor = 0
 			culture = culture_wight
 			OR = {
-				NOT = { trait = ring_murazor }
+				NOT = { has_artifact = nazgul_ring }
 			}
 		}	
 		modifier = {
 			factor = 5000
 			culture = culture_wight
-			trait = ring_murazor
+			has_artifact = nazgul_ring
 		}		
 		modifier = {
 			factor = 0
@@ -1021,16 +1002,16 @@
 			is_feudal = no
 		}
 		modifier = {
-			factor = 50000
-			culture = culture_wight
-			trait = ring_khamul
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_khamul
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
+		}	
+		modifier = {
+			factor = 5000
+			culture = culture_wight
+			has_artifact = nazgul_ring
 		}		
 		modifier = {
 			factor = 0
@@ -1078,15 +1059,16 @@
 			}
 		}	
 		modifier = {
-			factor = 100000
-			trait = ring_akhorahil
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_akhorahil
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
+		}	
+		modifier = {
+			factor = 100000
+			culture = culture_wight
+			has_artifact = nazgul_ring
 		}			
 		modifier = {
 			factor = 0.002
@@ -1124,15 +1106,16 @@
 			}
 		}	
 		modifier = {
-			factor = 100000
-			trait = ring_adunaphazor
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_adunaphazor
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
+		}	
+		modifier = {
+			factor = 100000
+			culture = culture_wight
+			has_artifact = nazgul_ring
 		}				
 		modifier = {
 			factor = 0.002
@@ -1150,7 +1133,7 @@
 			OR = {
 				trait = staff_of_saruman
 				trait = staff_of_radagast
-				trait = staff_of_gandalf
+				has_artifact = staff_of_gandalf
 			}
 		}		
 	}
@@ -1180,16 +1163,17 @@
 			}
 		}	
 		modifier = {
-			factor = 50000
-			trait = ring_dwar
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_dwarf
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
-		}		
+		}	
+		modifier = {
+			factor = 50000
+			culture = culture_wight
+			has_artifact = nazgul_ring
+		}	
 		modifier = {
 			factor = 0
 			is_republic = yes
@@ -1218,7 +1202,7 @@
 			OR = {
 				trait = staff_of_saruman
 				trait = staff_of_radagast
-				trait = staff_of_gandalf
+				has_artifact = staff_of_gandalf
 			}
 		}		
 	}
@@ -1253,29 +1237,29 @@
 			}
 		}
 		modifier = {
-			factor = 5000
-			culture = culture_wight
-			trait = ring_uvatha
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_uvatha
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
-		}			
+		}	
+		modifier = {
+			factor = 5000
+			culture = culture_wight
+			has_artifact = nazgul_ring
+		}		
 		modifier = {
 			factor = 10
 			is_ruler = yes
 			is_theocracy = yes
-			religion_group = pagan_group
+			# religion_group = pagan_group
 		}
 		modifier = {
 			factor = 0
 			OR = {
 				trait = staff_of_saruman
 				trait = staff_of_radagast
-				trait = staff_of_gandalf
+				has_artifact = staff_of_gandalf
 			}
 		}		
 	}
@@ -1298,17 +1282,17 @@
 			}
 		}		
 		modifier = {
-			factor = 5000
-			culture = culture_wight
-			trait = ring_ren
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_ren
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
-		}			
+		}	
+		modifier = {
+			factor = 5000
+			culture = culture_wight
+			has_artifact = nazgul_ring
+		}		
 		modifier = {
 			factor = 0
 			NOT = { trait = peasant_leader }
@@ -1331,7 +1315,7 @@
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
 			OR = {
-				NOT = { religion = orthodox }
+				# NOT = { religion = orthodox }
 				is_ruler = yes
 				has_minor_title = title_prince
 				spouse = { real_tier = emperor }
@@ -1354,19 +1338,20 @@
 			}
 		}	
 		modifier = {
-			factor = 100000
-			trait = ring_abrazir
-		}	
-		modifier = {
 			factor = 0
 			culture = culture_wight
-			NOT = {
-				trait = ring_abrazir
+			OR = {
+				NOT = { has_artifact = nazgul_ring }
 			}
-		}		
+		}	
 		modifier = {
 			factor = 10000
-			trait = staff_of_gandalf
+			culture = culture_wight
+			has_artifact = nazgul_ring
+		}	
+		modifier = {
+			factor = 10000
+			has_artifact = staff_of_gandalf
 		}	
 		modifier = {
 			factor = 0
@@ -1444,7 +1429,7 @@
 			OR = {
 				trait = staff_of_saruman
 				trait = staff_of_radagast
-				trait = staff_of_gandalf
+				has_artifact = staff_of_gandalf
 			}
 		}		
 	}
@@ -1840,7 +1825,7 @@
 					NOR = {
 						is_tribal = yes
 						is_nomadic = yes
-						religion_group = pagan_group
+						# religion_group = pagan_group
 					}
 				}
 				has_character_modifier = golden_mask
@@ -1873,17 +1858,17 @@
 				}
 				is_tribal = yes
 				is_nomadic = yes
-				religion_group = pagan_group
+				# religion_group = pagan_group
 				has_character_modifier = golden_mask
 			}
 		}
-		modifier = {
-			factor = 0
-			OR = {
-				culture = manden
-				culture = berber
-			}
-		}
+		# modifier = {
+			# factor = 0
+			# OR = {
+				# culture = manden
+				# culture = berber
+			# }
+		# }
 	}
 
 	3 = { # mask 3 iron
@@ -1907,7 +1892,7 @@
 				}
 				is_tribal = yes
 				is_nomadic = yes
-				religion_group = pagan_group
+				# religion_group = pagan_group
 				has_character_modifier = golden_mask
 			}
 		}
@@ -1928,7 +1913,7 @@
 					NOR = {
 						is_tribal = yes
 						is_nomadic = yes
-						religion_group = pagan_group
+						# religion_group = pagan_group
 					}
 				}
 				has_character_modifier = golden_mask
@@ -1951,7 +1936,7 @@
 					NOR = {
 						is_tribal = yes
 						is_nomadic = yes
-						religion_group = pagan_group
+						# religion_group = pagan_group
 					}
 				}
 				has_character_modifier = golden_mask
@@ -1986,15 +1971,15 @@
 				is_nomadic = yes
 			}
 		}
-		modifier = {
-			factor = 0
-			NOR = {
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
-				culture = manden
-				culture_group = east_african
-			}
-		}
+		# modifier = {
+			# factor = 0
+			# NOR = {
+				# religion = west_african_pagan
+				# religion = west_african_pagan_reformed
+				# culture = manden
+				# culture_group = east_african
+			# }
+		# }
 	}
 	
 	7 = { # mask 7 bone - black stripes
@@ -2024,15 +2009,15 @@
 				is_nomadic = yes
 			}
 		}
-		modifier = {
-			factor = 0
-			NOR = {
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
-				culture = manden
-				culture_group = east_african
-			}
-		}
+		# modifier = {
+			# factor = 0
+			# NOR = {
+				# religion = west_african_pagan
+				# religion = west_african_pagan_reformed
+				# culture = manden
+				# culture_group = east_african
+			# }
+		# }
 	}
 	
 	8 = { # mask 8 bone - red stripes/eyes
@@ -2050,7 +2035,7 @@
 					NOR = {
 						is_tribal = yes
 						is_nomadic = yes
-						religion_group = pagan_group
+						# religion_group = pagan_group
 					}
 				}
 				has_character_modifier = golden_mask
@@ -2073,7 +2058,7 @@
 					NOR = {
 						is_tribal = yes
 						is_nomadic = yes
-						religion_group = pagan_group
+						# religion_group = pagan_group
 					}
 				}
 				has_character_modifier = golden_mask
@@ -2106,17 +2091,17 @@
 				}
 				is_tribal = yes
 				is_nomadic = yes
-				religion_group = pagan_group
+				# religion_group = pagan_group
 				has_character_modifier = golden_mask
 			}
 		}
-		modifier = {
-			factor = 0
-			OR = {
-				culture = manden
-				culture = berber
-			}
-		}
+		# modifier = {
+			# factor = 0
+			# OR = {
+				# culture = manden
+				# culture = berber
+			# }
+		# }
 	}
 	
 	11 = { # mask 11 - decorated gold
@@ -2144,7 +2129,7 @@
 				}
 				is_tribal = yes
 				is_nomadic = yes
-				religion_group = pagan_group
+				# religion_group = pagan_group
 			}
 			NOT = { has_character_modifier = golden_mask }
 		}
@@ -2155,15 +2140,15 @@
 				trait = proud
 				trait = ambitious
 				trait = envious
-				culture = manden
-				culture = berber
+				# culture = manden
+				# culture = berber
 			}
 			NOT = { has_character_modifier = golden_mask }
 		}
-		modifier = {
-			factor = 5
-			has_landed_title = k_papal_state
-		}
+		# modifier = {
+			# factor = 5
+			# has_landed_title = k_papal_state
+		# }
 		modifier = {
 			factor = 1000
 			has_character_modifier = golden_mask
@@ -2193,7 +2178,7 @@
 					is_married = yes
 					spouse = { NOT = { higher_tier_than = DUKE } }
 				}
-				religion_group = pagan_group
+				# religion_group = pagan_group
 				has_character_modifier = golden_mask
 			}
 		}
@@ -2222,7 +2207,7 @@
 					is_married = yes
 					spouse = { NOT = { higher_tier_than = DUKE } }
 				}
-				# religion_group = pagan_group
+				# # religion_group = pagan_group
 				has_character_modifier = golden_mask
 			}
 		}
