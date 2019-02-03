@@ -1,0 +1,38 @@
+decisions = {
+	## Assemble a mining expedition ##
+	assemble_mining_expedition = {
+		
+		potential = {
+			can_send_mining_expedition = yes
+			ai = no
+		}
+
+		allow = {
+			in_command = no
+			prisoner = no
+			prestige = 400
+			wealth = 100
+		}
+
+		effect = {
+            set_character_flag = sending_mining_expedition
+            wealth = -100
+
+            random_courtier_or_vassal = {
+                limit = {
+                    is_councillor = yes
+					NOT = { has_character_flag = sending_mining_expedition }
+                }
+                character_event = { id = dwarf_colonisation.19 }
+            }
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

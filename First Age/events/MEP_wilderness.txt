@@ -1,0 +1,450 @@
+namespace = colonisation
+
+# TODO: store the ID of the province from which colonists are being sent in a variable, then reference it to set the colonized province to that culture and religion
+
+# apply the colonising modifier as people begin to move into the province
+character_event = {
+	id = colonisation.0
+	hide_window = yes
+	
+	trigger = {
+		has_job_action = action_colonize_province
+		location = {
+			NOT = { has_province_modifier = being_colonised }
+			county = {
+				is_occupied = no
+			}
+			owner = {
+				job_treasurer = {
+					character = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		liege = {
+			random_demesne_province = {
+				limit = {
+					can_send_colonists = yes
+				}
+				add_province_modifier = { name = sending_colonists duration = 7200 }
+			}
+		}
+        
+		location = {
+			add_province_modifier = {
+				name = being_colonised
+				duration = -1
+			}
+		}
+	}
+}
+
+
+#Now the province has the modifier, MTTH of 1 year for one population tick up, for men.  # TODO, slow down for colonist sending provinces of elf and dwarf race
+province_event = {
+	id = colonisation.1
+	hide_window = yes
+
+	trigger = {
+        has_province_modifier = being_colonised
+	}
+
+	mean_time_to_happen = {
+        years = 1
+        modifier = {
+            factor = 2 # Dwarves are slow
+            owner = { religion_group = religion_group_khazad }
+        }
+        modifier = {
+            factor = 4 # Elves are slower
+            owner = { religion_group = religion_group_eldar }
+        }
+        modifier = {
+            factor = 4 # Initial population is costly
+            has_province_modifier = depopulated_3
+        }
+	}
+
+	option = {		
+        # stop sending colonists
+		remove_province_modifier = sending_colonists
+
+		# if this is initial population, update this province with the source province's culture and race
+		if = {
+			limit = {
+				has_province_modifier = depopulated_3
+			}
+			owner = {
+				PREV = {
+					culture = PREV
+					religion = PREV
+				}
+			}
+		}
+
+		# reduce depopulation
+		colonise = yes
+		
+		# the steward receives an event if colonisation is finished
+		if = {
+			limit = {
+				can_be_colonised = no
+			}
+			owner = {
+				job_treasurer = {
+					character_event = { id = colonisation.6 days = 1 }
+				}
+			}
+		}
+		
+		# stop colonising
+		remove_province_modifier = being_colonised
+	}
+}
+
+
+# The steward receives an event
+character_event = {
+	id = colonisation.6
+	desc = "colonisation6desc"
+	picture = GFX_edain_travel
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "colonisation6A"
+		liege = { letter_event = { id = colonisation.3 days = 1 } }
+	}
+}
+
+# The liege is informed
+letter_event = {
+	id = colonisation.3
+	desc = "colonisation3desc"
+	border = GFX_event_letter_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "colonisation3A"
+	}
+}
+
+# When no possible steward is sending colonists to a province, remove colonising flag
+province_event = {
+	id = colonisation.4
+	hide_window = yes
+
+	trigger = {
+		has_province_modifier = being_colonised
+		owner = {
+			job_treasurer = {
+				NOT = { has_job_action = action_colonize_province }
+			}
+			NOT = {
+				any_liege = {
+					job_treasurer = {
+						has_job_action = action_colonize_province
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		remove_province_modifier = being_colonised
+	}
+}
+
+
+# When the steward isn't sending colonists, remove sending colonists flag
+province_event = {
+	id = colonisation.5
+	hide_window = yes
+
+	trigger = {
+		has_province_modifier = sending_colonists
+		owner = {
+			job_treasurer = {
+				NOT = { has_job_action = action_colonize_province }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		remove_province_modifier = sending_colonists
+	}
+}
+
+
+########################
+# ambitious courtier builds a barony, populates the province with his race & culture, and becomes your vassal here
+########################
+
+# steward's efforts are noticed
+character_event = {
+	id = colonisation.7
+	desc = "colonisation7desc"
+	picture = GFX_elf_noldor
+	
+	trigger = {
+		has_job_action = action_colonize_province
+		location = { NOT = { num_of_settlements = 1 } } # must be an empty province
+		liege = { higher_tier_than = COUNT } # this character can't be your vassal if he's landed and you're only a count
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+	}
+	
+	option = {
+		name = "colonisation7A"
+		liege = {
+			random_courtier = { # if nobody fits the bill, so be it
+				limit = {
+					# "...dreamed of a realm of our own..."
+					OR = {
+						is_landed = no
+						tier = BARON
+					}
+					OR = {
+						is_female = no
+						trait = ambitious
+					}
+					# "long have my folk and I..."
+					OR = {
+						AND = {
+							NOT = { trait = elf }
+							age = 40
+						}
+						AND = {
+							trait = elf
+							age = 200
+						}
+					}
+					#is_capable_in_court = yes
+					NOT = { has_character_flag = flag_refused_colonisation }
+					NOT = { trait = content }
+				}
+				character_event = { id = colonisation.8 }
+			}
+		}
+	}
+}
+
+# bounce off the unlanded subject
+character_event = {
+	id = colonisation.8
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		liege = { letter_event = { id = colonisation.9 } }
+	}
+}
+
+# the liege is asked by the unlanded subject
+letter_event = {
+	id = colonisation.9
+	desc = "colonisation9desc"
+	
+	is_triggered_only = yes
+	
+	option = { # no
+		name = "colonisation9A"
+		FROM = {
+			opinion = { modifier = opinion_very_disappointed who = ROOT years = 2 }
+			set_character_flag = flag_refused_colonisation
+		}
+	}
+	
+	option = { # yes
+		name = "colonisation9B"
+		
+		random_demesne_province = { # build a castle and grant the county
+			limit = {
+				has_province_modifier = being_colonised
+				NOT = { num_of_settlements = 1 }
+			}
+			build_holding = { type = castle holder = FROM }
+			colonise = yes
+			
+			culture = FROM
+			religion = FROM
+			
+			remove_province_modifier = being_colonised
+		}
+		FROM = {
+			opinion = { modifier = opinion_very_grateful who = ROOT years = 2 }
+			set_defacto_liege = ROOT
+		}
+	}
+	
+	option = { # for a favor
+		tooltip_info = diplomacy
+		name = "colonisation9C"
+		
+		trigger = {
+			diplomacy = 15
+		}
+		
+		random_demesne_province = { # build a castle and grant the county
+			limit = {
+				has_province_modifier = being_colonised
+				NOT = { num_of_settlements = 1 }
+			}
+			build_holding = { type = castle holder = FROM }
+			colonise = yes
+			
+			culture = FROM
+			religion = FROM
+			
+			remove_province_modifier = being_colonised
+		}
+		FROM = {
+			opinion = { modifier = opinion_grateful who = ROOT years = 1 }
+			set_defacto_liege = ROOT
+		}
+		add_favor = FROM
+	}
+}
+
+
+###################################################################################
+## AI won't use targetted decisions properly.  Have them colonise via event instead
+###################################################################################
+########################
+# AI colonisation events
+########################
+
+# look for a wilderness to claim, if I can/want to
+character_event = {
+	id = colonisation.10
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	ai = yes
+	only_playable = yes
+
+	trigger = {
+		is_incapable = no
+		NOT = { government = nomadic_government }
+		NOT = { religion = religion_umaiar } # umaiar AI characters auto-claim every adjacent wilderness (colonisation.11)
+		NOT = { religion_group = religion_group_wilderness }
+		NOT = {	ROOT = { has_character_flag = no_settling } }
+		prestige = 200
+		wealth = 0
+		OR = {
+			trait = ambitious
+			trait = oath_of_feanor
+			has_character_flag = flag_expanding
+			is_human_culture = yes
+		}
+	}
+
+	option = {
+		random_neighbor_independent_ruler = {
+			limit = {
+				religion_group = religion_group_wilderness
+
+				OR = {
+					# only certain AI groups should try colonising lothlann
+					location = {
+						NOT = { is_unattractive_colonisation_target = yes }
+					}
+					ROOT = { is_human_culture = yes	}
+				}
+			}
+			ROOT = {
+				scaled_prestige = -3.0
+				scaled_wealth = -0.75
+			}
+			capital_holding = {
+				county = {
+					usurp_title = { target = ROOT type = claim } # gain control of the province
+				}
+				destroy_settlement = THIS # remove the wilderness barony
+			}
+		}
+	}
+
+	option = {
+		# nothing happens
+	}
+}
+
+# claim everything! muahaha
+character_event = {
+	id = colonisation.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	ai = yes
+	only_playable = yes
+
+	trigger = {
+		is_incapable = no
+		NOT = { government = nomadic_government }
+		religion = religion_umaiar
+		has_global_flag = broken_siege_of_angband
+		NOT = {	has_character_flag = no_settling }
+		year = 4400 # don't start overrunning everything until we have enough manpower (not before the siege of angband, unless the siege never happens)
+	}
+
+	option = {
+		random_neighbor_independent_ruler = {
+			limit = {
+				religion_group = religion_group_wilderness
+			}
+			capital_holding = {
+				county = {
+					usurp_title = { target = ROOT type = claim } # gain control of the province
+				}
+				destroy_settlement = THIS # remove the wilderness barony
+			}
+		}
+	}
+}
+
+# AI men colonise lands via event, not jobs
+
+character_event = {
+	id = colonisation.12
+	hide_window = yes
+
+	ai = yes
+	only_playable = yes
+
+	trigger = {
+		is_human_culture = yes
+		any_demesne_province = {
+			num_of_settlements = 1
+			has_depopulation_effect = yes
+		}
+	}
+	mean_time_to_happen = {
+		years = 1
+	}
+	option = {
+		random_demesne_province = {
+			decrease_depopulation_effect = yes
+		}
+	}
+}

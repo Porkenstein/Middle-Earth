@@ -1,0 +1,399 @@
+
+#####################################################
+##### Warrior Lodge work...
+#####################################################
+
+
+is_member_of_roots_warrior_lodge_trigger = {
+	custom_tooltip = {
+		text = is_member_of_roots_warrior_lodge_tt
+		hidden_trigger = {
+			is_member_of_any_warrior_lodge_trigger = yes
+			same_society_as = ROOT
+		}
+	}
+}
+
+is_member_of_any_warrior_lodge_trigger = {
+	custom_tooltip = {
+		text = is_member_of_any_warrior_lodge_tt
+		hidden_trigger = {
+			OR = {
+				society_member_of = warrior_lodge_forodwaith
+				society_member_of = warrior_lodge_easterling
+				society_member_of = warrior_lodge_edain
+				society_member_of = warrior_lodge_anach
+				society_member_of = warrior_lodge_avari
+				society_member_of = warrior_lodge_orkish
+				society_member_of = warrior_lodge_mahal
+			}
+		}
+	}
+}
+
+
+has_any_warrior_lodge_training_trait_trigger = {
+	OR = {
+		trait = forodwaith_leader
+		trait = easterling_leader
+		trait = edain_leader
+		trait = anach_leader
+		trait = avari_leader
+		trait = orkish_leader
+		trait = mahal_leader
+	}
+}
+
+has_current_warrior_lodge_leader_trait_trigger = {
+	custom_tooltip = {
+		text = has_warrior_training_with_current_society_tt
+		OR = {
+			AND = {
+				trait = forodwaith_leader
+				society_member_of = warrior_lodge_forodwaith
+			}
+			AND = {
+				trait = easterling_leader
+				society_member_of = warrior_lodge_easterling
+			}
+			AND = {
+				trait = edain_leader
+				society_member_of = warrior_lodge_edain
+			}
+			AND = {
+				trait = anach_leader
+				society_member_of = warrior_lodge_anach
+			}
+			AND = {
+				trait = avari_leader
+				society_member_of = warrior_lodge_avari
+			}
+			AND = {
+				trait = orkish_leader
+				society_member_of = warrior_lodge_orkish
+			}
+			AND = {
+				trait = mahal_leader
+				society_member_of = warrior_lodge_mahal
+			}
+		}
+	}
+}
+
+has_religion_matching_joined_warrior_lodge_trigger = {
+	custom_tooltip = {
+		text = has_religion_matching_joined_warrior_lodge_tt
+		OR = {
+			AND = {
+				religion = religion_lossoth
+				society_member_of = warrior_lodge_forodwaith
+			}
+			AND = {
+				religion = religion_easterlings
+				society_member_of = warrior_lodge_easterling
+			}
+			AND = {
+				religion = religion_edain
+				society_member_of = warrior_lodge_edain
+			}
+			AND = {
+				religion = religion_anach
+				society_member_of = warrior_lodge_anach
+			}
+			AND = {
+				religion = religion_moriquendi
+				society_member_of = warrior_lodge_avari
+			}
+			AND = {
+				religion = religion_orkish
+				society_member_of = warrior_lodge_orkish
+			}
+			AND = {
+				religion = religion_mahal
+				society_member_of = warrior_lodge_mahal
+			}
+		}
+	}
+}
+
+has_religion_matching_available_warrior_lodge_trigger = {
+	OR = {
+		AND = {
+			religion = religion_lossoth
+			warrior_lodge_forodwaith = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_easterlings
+			warrior_lodge_easterling = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_edain
+			warrior_lodge_edain = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_anach
+			warrior_lodge_anach = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_moriquendi
+			warrior_lodge_avari = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_orkish
+			warrior_lodge_orkish = { society_has_members = yes }
+		}
+		AND = {
+			religion = religion_mahal
+			warrior_lodge_mahal = { society_has_members = yes }
+		}
+	}
+}
+
+has_religion_matching_warrior_lodge_in_need_of_members_trigger = {
+	OR = {
+		AND = {
+			religion = religion_lossoth
+			warrior_lodge_forodwaith = { num_of_society_members < 30 }
+		}
+		AND = {
+			religion = religion_edain
+			warrior_lodge_edain = { num_of_society_members < 30 }
+		}
+		AND = {
+			religion = religion_anach
+			warrior_lodge_anach = { num_of_society_members < 30 }
+		}
+		AND = {
+			religion = religion_moriquendi
+			warrior_lodge_avari = { num_of_society_members < 30 }
+		}
+		AND = {
+			religion = religion_orkish
+			warrior_lodge_orkish = { num_of_society_members < 30 }
+		}
+		AND = {
+			religion = religion_mahal
+			warrior_lodge_mahal = { num_of_society_members < 30 }
+		}
+		AND = {
+			OR = {
+				religion = religion_easterlings
+				is_nomadic = yes
+			}
+			warrior_lodge_easterling = { num_of_society_members < 30 }
+		}
+	}
+}
+has_religion_matching_empty_warrior_lodge_trigger = {
+	OR = {
+		AND = {
+			religion = religion_lossoth
+			NOT = { warrior_lodge_forodwaith = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_easterlings
+			NOT = { warrior_lodge_easterling = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_edain
+			NOT = { warrior_lodge_edain = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_anach
+			NOT = { warrior_lodge_anach = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_moriquendi
+			NOT = { warrior_lodge_avari = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_orkish
+			NOT = { warrior_lodge_orkish = { society_has_members = yes } }
+		}
+		AND = {
+			religion = religion_mahal
+			NOT = { warrior_lodge_mahal = { society_has_members = yes } }
+		}
+	}
+}
+
+#Can be used on a character too -- will then default to look at the society a character is member of.
+this_society_is_a_warrior_lodge_trigger = {
+	OR = {
+	    is_society = warrior_lodge_forodwaith
+	    is_society = warrior_lodge_easterling
+	    is_society = warrior_lodge_edain
+	    is_society = warrior_lodge_anach
+	    is_society = warrior_lodge_avari
+	    is_society = warrior_lodge_orkish
+	    is_society = warrior_lodge_mahal
+	}
+}
+
+has_religion_matching_any_warrior_lodge_trigger = {
+	OR = {
+		religion = religion_lossoth
+		religion = religion_easterlings
+		religion = religion_edain
+		religion = religion_anach
+		religion = religion_moriquendi
+		religion = religion_orkish
+		religion = religion_mahal
+	}
+}
+
+has_religion_matching_warrior_lodge_to_revive_trigger = {
+	OR = {
+		AND = {
+			religion = religion_lossoth
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_forodwaith
+			}
+		}
+		AND = {
+			religion = religion_easterlings
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_easterling
+			}
+		}
+		AND = {
+			religion = religion_edain
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_edain
+			}
+		}
+		AND = {
+			religion = religion_anach
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_anach
+			}
+		}
+		AND = {
+			religion = religion_moriquendi
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_avari
+			}
+		}
+		AND = {
+			religion = religion_orkish
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_orkish
+			}
+		}
+		AND = {
+			religion = religion_mahal
+			event_target:warrior_lodge_to_revive = {
+				is_society = warrior_lodge_mahal
+			}
+		}
+	}
+}
+
+special_join_warrior_lodge_trigger = {
+	custom_tooltip = {
+		text = special_join_warrior_lodge_trigger_tt
+		OR = {
+			AND = {
+				FROM = { is_society = warrior_lodge_forodwaith }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_forodwaith_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_lossoth }
+							any_liege = { religion = religion_lossoth }
+							any_neighbor_independent_ruler = { religion = religion_lossoth }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_easterling }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_easterling_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_easterlings }
+							any_liege = { religion = religion_easterlings }
+							any_neighbor_independent_ruler = { religion = religion_easterlings }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_edain }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_edain_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_edain }
+							any_liege = { religion = religion_edain }
+							any_neighbor_independent_ruler = { religion = religion_edain }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_anach }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_anach_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_anach }
+							any_liege = { religion = religion_anach }
+							any_neighbor_independent_ruler = { religion = religion_anach }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_avari }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_avari_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_moriquendi }
+							any_liege = { religion = religion_moriquendi }
+							any_neighbor_independent_ruler = { religion = religion_moriquendi }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_orkish }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_orkish_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_orkish }
+							any_liege = { religion = religion_orkish }
+							any_neighbor_independent_ruler = { religion = religion_orkish }
+						}
+					}
+				}
+			}
+			AND = {
+				FROM = { is_society = warrior_lodge_mahal }
+				custom_tooltip = {
+					text = has_liege_vassal_or_neighbor_of_mahal_religion_tt
+					hidden_trigger = {
+						OR = {
+							any_vassal = { religion = religion_mahal }
+							any_liege = { religion = religion_mahal }
+							any_neighbor_independent_ruler = { religion = religion_mahal }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+is_available_fellow_society_member_trigger = {
+	same_society_as = ROOT
+    NOR = {
+		is_inaccessible_or_incapable_trigger = yes #in prison, incapable, etc...
+		character = ROOT
+		has_character_flag = do_not_disturb
+	}
+	in_command = no
+}

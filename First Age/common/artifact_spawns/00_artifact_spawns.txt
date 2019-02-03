@@ -1,0 +1,824 @@
+####################
+####  GENERIC   ####
+####################
+
+generic_dwarven_artifact = {
+	max_amount = 50
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 10
+			religion_group = religion_group_khazad
+			is_female = no
+			NOT = { num_of_artifacts = 2 }
+		}
+		additive_modifier = {
+			value = 100
+			religion_group = religion_group_khazad
+			is_female = no
+			is_landed = yes
+			NOT = { num_of_artifacts = 3 }
+		}
+	}
+
+	artifacts = {
+		ancient_elvish_sword = {
+			value = 1
+		}
+		ancient_dwarven_sword = {
+			value = 5
+		}
+		dwarvish_sword = {
+			value = 5
+		}
+		mace_tier_1_new = {
+			value = 1
+		}
+		mace_tier_2_new = {
+			value = 1
+		}
+		axe_tier_1_new = {
+			value = 5
+		}
+		axe_tier_2_new = {
+			value = 5
+		}
+		basic_staff = {
+			value = 1
+		}
+		basic_brooch = {
+			value = 1
+		}
+		basic_necklace = {
+			value = 1
+		}
+		good_cookbook = {
+			value = 1
+		}
+		big_book_of_meat = {
+			value = 1
+		}
+		military_strategy_guide = {
+			value = 1
+		}
+		a_history_of_armor = {
+			value = 1
+		}
+		book_of_lore = {
+			value = 1
+		}
+	}
+}
+
+dwarf_mask = {
+	max_amount = 20
+	spawn_date = 4600.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { has_dlc = "Mystics" }
+				NOT = { year = 4600 }
+			}
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			religion_group = religion_group_khazad
+			NOT = { num_of_artifacts = 3 }
+			is_female = no
+			NOT = { trait = evil_side }
+			OR = {
+				is_landed = yes
+				martial = 10
+				trait = brave
+			}
+			is_adult = yes
+		}
+	}
+
+	artifacts = {
+		dwarf_mask = {
+			value = 10
+		}
+		runic_dwarf_mask = {
+			value = 1
+		}
+		ornate_dwarf_mask = {
+			value = 1
+		}
+	}
+}
+
+generic_gondolindrim_artifact = {
+	max_amount = 20
+	spawn_date = 4500.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 10
+			culture = culture_gondolindrim
+			is_female = no
+			NOT = { num_of_artifacts = 2 }
+		}
+		additive_modifier = {
+			value = 100
+			culture = culture_gondolindrim
+			is_female = no
+			is_landed = yes
+			NOT = { num_of_artifacts = 3 }
+		}
+	}
+
+	artifacts = {
+		gondolin_sword = {
+			value = 5
+		}
+		horse_armor_tier_2 = {
+			value = 1
+		}
+		lance_tier_2_new = {
+			value = 1
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+		mace_tier_2_new = {
+			value = 1
+		}
+		armor_tier_2 = {
+			value = 1
+		}
+	}
+}
+
+generic_egledhrim_artifact = {
+	max_amount = 30
+	spawn_date = 4500.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 10
+			culture = culture_egledhrim
+			is_female = no
+			NOT = { num_of_artifacts = 2 }
+		}
+		additive_modifier = {
+			value = 100
+			age = 45
+			culture = culture_egledhrim
+			is_female = no
+			is_landed = yes
+			NOT = { num_of_artifacts = 3 }
+		}
+	}
+
+	artifacts = {
+		gondolin_sword = {
+			value = 5
+		}
+		noldorin_fell_sword = {
+			value = 1
+		}
+		ornate_dwarf_mask = {
+			value = 1
+		}
+		dwarf_mask = {
+			value = 5
+		}
+		himling_armour = {
+			value = 50
+		}
+		himling_sword = {
+			value = 50
+		}
+		horse_armor_tier_2 = {
+			value = 10
+		}
+		lance_tier_2_new = {
+			value = 10
+		}
+		armor_tier_2 = {
+			value = 10
+		}
+	}
+}
+
+generic_noldor_artifact = {
+	max_amount = 30
+	spawn_date = 4500.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 45
+			OR = {
+				culture = culture_noldor
+				culture = culture_golodhrim
+			}
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		noldorin_fell_sword = {
+			value = 1
+		}
+		ancient_elvish_sword = {
+			value = 5
+		}
+		elvish_sword = {
+			value = 50
+		}
+		horse_armor_tier_2 = {
+			value = 10
+		}
+		lance_tier_2_new = {
+			value = 10
+		}
+		mace_tier_2_new = {
+			value = 10
+		}
+	}
+}
+
+generic_amanyar_artifact = {
+	max_amount = 40
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 45
+			culture_group = culture_group_amanyar
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		ancient_elvish_sword = {
+			value = 1
+		}
+		elvish_sword = {
+			value = 5
+		}
+		horse_armor_tier_1 = {
+			value = 1
+		}
+		horse_armor_tier_2 = {
+			value = 1
+		}
+		lance_tier_1_new = {
+			value = 5
+		}
+		lance_tier_2_new = {
+			value = 1
+		}
+		mace_tier_1_new = {
+			value = 5
+		}
+		mace_tier_2_new = {
+			value = 1
+		}
+		ainulindale = {
+			value = 1
+		}
+		how_to_hold_a_sword = {
+			value = 1
+		}
+		court_etiquette_1 = {
+			value = 1
+		}
+		how_to_make_allies = {
+			value = 1
+		}
+		valaquenta = {
+			value = 1
+		}
+	}
+}
+
+generic_umanyar_artifact = {
+	max_amount = 50
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 45
+			culture_group = culture_group_umanyar
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		elvish_sword = {
+			value = 5
+		}
+		book_of_lore = {
+			value = 1
+		}
+		the_book_of_healing = {
+			value = 1
+		}
+		court_etiquette_1 = {
+			value = 1
+		}
+		ancient_dwarven_sword = {
+			value = 1
+		}
+		dwarvish_sword = {
+			value = 3
+		}
+		horse_armor_tier_2 = {
+			value = 1
+		}
+		axe_tier_1_new = {
+			value = 3
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+		mace_tier_1_new = {
+			value = 5
+		}
+		mace_tier_2_new = {
+			value = 1
+		}
+		book_of_keels = {
+			value = 1
+		}
+	}
+}
+
+generic_aumanyar_artifact = {
+	max_amount = 40
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 45
+			OR = {
+				culture_group = culture_group_aumanyar
+				culture_group = culture_group_moriquendi
+			}
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		bow_tier_1_new = {
+			value = 5
+		}
+		bow_tier_2_new = {
+			value = 5
+		}
+		axe_tier_1_new = {
+			value = 5
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+		ancient_dwarven_sword = {
+			value = 1
+		}
+		dwarvish_sword = {
+			value = 2
+		}
+	}
+}
+
+
+generic_elven_artifact = {
+	max_amount = 50
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 45
+			religion_group = religion_group_eldar
+			NOT = { num_of_artifacts = 2 }
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		basic_harp = {
+			value = 2
+		}
+		maladies_and_remedies = {
+			value = 1
+		}
+		a_book_of_vegetables = {
+			value = 1
+		}
+		fruits_the_book = {
+			value = 1
+		}
+		basic_flute = {
+			value = 2
+		}
+		basic_staff = {
+			value = 2
+		}
+		basic_brooch = {
+			value = 2
+		}
+		basic_necklace = {
+			value = 2
+		}
+		horse_armor_tier_1 = {
+			value = 1
+		}
+		elvish_bow = {
+			value = 5
+		}
+		axe_tier_1_new = {
+			value = 2
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+	}
+}
+
+generic_orkish_artifact = {
+	max_amount = 20
+	spawn_date = -1.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			religion = religion_orkish
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		rival_skull = {
+			value = 3
+		}
+		bow_tier_1_new = {
+			value = 2
+		}
+		bow_tier_2_new = {
+			value = 1
+		}
+		loot_axe = {
+			value = 1
+		}
+		scimitar_tier_1_new = {
+			value = 5
+		}
+		scimitar_tier_2_new = {
+			value = 1
+		}
+		axe_tier_1_new = {
+			value = 5
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+		mace_tier_1_new = {
+			value = 5
+		}
+		mace_tier_2_new = {
+			value = 1
+		}
+		ancient_dwarven_sword = {
+			value = 1
+		}
+		dwarvish_sword = {
+			value = 2
+		}
+	}
+}
+
+generic_easterling_artifact = {
+	max_amount = 30
+	spawn_date = 4600.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			culture_group = culture_group_easterling
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		rival_skull = {
+			value = 1
+		}
+		bow_tier_1_new = {
+			value = 7
+		}
+		bow_tier_2_new = {
+			value = 2
+		}
+		elvish_bow = {
+			value = 1
+		}
+		sword_tier_1_new = {
+			value = 5
+		}
+		sword_tier_2_new = {
+			value = 2
+		}
+		axe_tier_1_new = {
+			value = 2
+		}
+		axe_tier_2_new = {
+			value = 1
+		}
+		lance_tier_1_new = {
+			value = 2
+		}
+		lance_tier_2_new = {
+			value = 1
+		}
+		dwarvish_sword = {
+			value = 1
+		}
+		ancient_dwarven_sword = {
+			value = 1
+		}
+		horse_armor_tier_1 = {
+			value = 7
+		}
+		horse_armor_tier_2 = {
+			value = 1
+		}
+	}
+}
+
+generic_edain_artifact = {
+	max_amount = 40
+	spawn_date = 4600.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			culture_group = culture_group_edain
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		rival_skull = {
+			value = 1
+		}
+		bow_tier_1_new = {
+			value = 2
+		}
+		bow_tier_2_new = {
+			value = 1
+		}
+		sword_tier_1_new = {
+			value = 5
+		}
+		sword_tier_2_new = {
+			value = 2
+		}
+		axe_tier_1_new = {
+			value = 5
+		}
+		axe_tier_2_new = {
+			value = 2
+		}
+		dwarvish_sword = {
+			value = 2
+		}
+		ancient_dwarven_sword = {
+			value = 1
+		}
+		horse_armor_tier_1 = {
+			value = 2
+		}
+	}
+}
+
+generic_forodwaith_artifact = {
+	max_amount = 40
+	spawn_date = 4400.1.1
+
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			culture_group = culture_group_forodwaith
+			NOT = { num_of_artifacts = 2 }
+			is_female = no
+			is_landed = yes
+		}
+	}
+
+	artifacts = {
+		rival_skull = {
+			value = 5
+		}
+		bow_tier_1_new = {
+			value = 5
+		}
+		bow_tier_2_new = {
+			value = 5
+		}
+		sword_tier_1_new = {
+			value = 25
+		}
+		sword_tier_2_new = {
+			value = 10
+		}
+		axe_tier_1_new = {
+			value = 50
+		}
+		axe_tier_2_new = {
+			value = 20
+		}
+		dwarvish_sword = {
+			value = 20
+		}
+		ancient_dwarven_sword = {
+			value = 10
+		}
+		horse_armor_tier_1 = {
+			value = 1
+		}
+		book_of_icelore = {
+			value = 1
+		}
+	}
+}
+
+generic_artifact = {
+	max_amount = 50
+	spawn_date = -1.1.1
+	
+	spawn_chance = {
+		value = 100
+		modifier = {
+			factor = 0
+			NOT = { has_dlc = "Mystics" }
+		}
+	}
+
+	weight = {
+		value = 0
+		additive_modifier = {
+			value = 100
+			age = 16
+			is_landed = yes
+			is_female = no
+			NOT = { num_of_artifacts = 2 }
+			NOT = { religion = religion_wilderness }
+			NOT = { religion = religion_dragons }
+		}
+	}
+
+	artifacts = {
+		famous_ancient_weapon = {
+			value = 1
+		}
+		armor_tier_1 = {
+			value = 25
+		}
+		armor_tier_2 = {
+			value = 5
+		}
+		basic_helm = {
+			value = 25
+		}
+		basic_shield = {
+			value = 25
+		}
+	}
+}

@@ -1,0 +1,166 @@
+namespace = purge
+
+#First for the goodies, purging the baddies
+character_event = {
+	id = purge.0
+	desc = purge0desc #There are hostile creatures in your realm, they must be purged and the threat removed. It's time to send in the troops...
+	picture = GFX_abandoned_lands
+	
+	is_triggered_only = yes #annual pulse
+	
+	trigger = {
+		age = 1
+		higher_tier_than = baron
+		NOT = { has_character_flag = purge_in_progress }
+		NOT = { trait = evil_side }
+		NOT = { has_character_flag = very_tolerant_of_evil } 
+		NOT = {	religion_group = religion_group_melkor }
+		any_demesne_province = {
+			religion_group = religion_group_melkor
+		}
+	}
+	
+	option = {
+		name = purge0A #Yes, send them at once!
+		set_character_flag = purge_in_progress
+		ROOT = { character_event = { id = purge.2 days = 3690 } }
+		any_demesne_province = {
+			limit = {
+				religion_group = religion_group_melkor
+			}
+			add_province_modifier = { name = being_purged duration = -1 }
+			province_event = { id = purge.1 days = 3650 }
+		}
+	}
+	
+}
+	
+province_event = {
+	id = purge.1
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	option = {
+		if = {
+			limit = {
+				ROOT = {
+					has_province_modifier = being_purged
+					owner = {
+						# still owned by a good guy
+						NOT = { trait = evil_side }
+						NOT = { has_character_flag = very_tolerant_of_evil } 
+						NOT = {	religion_group = religion_group_melkor }
+					}
+				}
+			}
+			ROOT = {
+				owner = {
+					ROOT = {
+						culture = PREV
+						religion = PREV
+					}
+				}
+			}
+		}
+		remove_province_modifier = being_purged
+	}
+}
+	
+#hidden event to clear the purge flag after 10 years so the ruler can purge again
+character_event = {
+	id = purge.2
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		clr_character_flag = purge_in_progress
+	}
+	
+}
+	
+#Now for the baddies
+character_event = {
+	id = purge.3
+	
+	desc = purge3desc #There are enemies living in your demesne who will never submit to you. It's time to send in the troops and get rid of them once and for all.
+	picture = GFX_abandoned_lands
+	
+	is_triggered_only = yes #annual pulse
+	
+	trigger = {
+		age = 1
+		higher_tier_than = baron
+		NOT = { has_character_flag = purge_in_progress } 
+		NOT = { has_character_flag = very_tolerant_of_good } 
+		religion_group = religion_group_melkor
+		OR = {
+			any_demesne_province = { religion_group = religion_group_edain  }
+			any_demesne_province = { religion_group = religion_group_hildor  }
+			any_demesne_province = { religion_group = religion_group_khazad }
+			any_demesne_province = { religion_group = religion_group_eldar  }
+			any_demesne_province = { religion_group = religion_group_periannath }
+			any_demesne_province = { religion_group = religion_group_forodwaith }
+		}
+	}
+	
+	option = {
+		name = purge0A #Yes, send them at once!
+		set_character_flag = purge_in_progress
+		ROOT = { character_event = { id = purge.5 days = 3690 } }
+		any_demesne_province = {
+			limit = {
+				OR = {
+					religion_group = religion_group_edain 
+					religion_group = religion_group_hildor
+					religion_group = religion_group_khazad
+					religion_group = religion_group_eldar
+					religion_group = religion_group_periannath
+					religion_group = religion_group_forodwaith
+				}
+			}
+			province_event = { id = purge.4 days = 3650 }
+			add_province_modifier = { name = being_purged duration = -1 }
+		}
+	}
+}
+	
+province_event = {
+	id = purge.4
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	option = {
+		if = {
+			limit = {
+				ROOT = {
+					has_province_modifier = being_purged
+					owner = {
+						# still owned by a bad guy
+						NOT = { has_character_flag = very_tolerant_of_good } 
+						religion_group = religion_group_melkor
+					}
+				}
+			}
+			ROOT = {
+				culture = culture_orkish
+				religion = religion_orkish
+			}
+		}
+		remove_province_modifier = being_purged
+	}
+}
+
+#hidden event to clear the purge flag after 10 years so the ruler can purge again
+character_event = {
+	id = purge.5
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		clr_character_flag = purge_in_progress
+	}	
+}

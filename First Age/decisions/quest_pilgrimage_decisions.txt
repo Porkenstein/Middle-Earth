@@ -1,0 +1,89 @@
+########################################################
+# QUEST DECISIONS - minor pilgrimages
+########################################################
+
+targetted_decisions = {
+	visit_character_decision = {
+		ai_target_filter = self
+		filter = all
+		only_independent = yes
+		from_potential = {		
+			ai = no #uses yearly event for optimisation
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { religion = religion_wilderness }
+
+			is_ruler = yes
+			has_regent = no
+			is_adult = yes
+			prisoner = no
+			is_ill = no
+			war = no
+		}
+		potential = {
+			NOT = { trait = evil_side }
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { religion = religion_wilderness }
+			NOT = { character = FROM }
+
+			is_ruler = yes
+			has_regent = no
+			is_adult = yes
+			prisoner = no
+			is_ill = no
+			war = no
+		}
+		allow = {
+			is_ruler = yes
+			has_regent = no
+			is_adult = yes
+			prisoner = no
+			is_ill = no
+			war = no
+			
+			hidden_tooltip = {
+				NOT = { character = FROM }
+			}
+			
+			is_within_diplo_range = FROM
+			
+			# one does not simply ask to hang out with some higher lord
+			OR = {
+				real_tier = FROM
+				lower_tier_than = FROM
+				is_close_relative = FROM
+			}
+			
+			# we already work together!
+			NOT = { any_spouse = { character = FROM } }
+			NOT = { is_vassal_or_below = FROM }
+			NOT = { is_liege_or_above = FROM }
+			NOT = { trait = evil_side } # no making friends with the orcs
+			NOT = { religion_group = religion_group_melkor }
+			NOT = { religion = religion_wilderness }
+			
+			NOT = { reverse_has_opinion_modifier = { who = FROM modifier = opinion_rejected_visitation } }
+			NOT = { reverse_has_opinion_modifier = { who = FROM modifier = opinion_accepted_visitation } }
+			NOT = { has_character_flag = hosting_visiting_character }
+			NOT = { has_character_modifier = in_seclusion }
+			
+			FROM = {
+				war = no
+				custom_tooltip = {
+					text = TOOLTIPvisit_character_recently_done
+					hidden_tooltip = {
+						NOT = { has_character_flag = recently_visited_character }
+					}
+				}
+				NOT = { trait = incapable }
+				NOT = { has_character_modifier = in_seclusion }
+			}
+		}
+		effect = {
+			character_event = { id = visit_character.15 tooltip = TOOLTIPvisit_character.2 days = 10 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

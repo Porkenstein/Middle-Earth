@@ -1,0 +1,289 @@
+#################################################
+#
+# CULTURAL CONVERSION EVENTS
+#
+#################################################
+
+# Province culture changes
+province_event = {
+	id = 55000
+	desc = "EVTDESC55000"
+	picture = GFX_evt_stone_church
+	
+	trigger = {
+		owner = {
+			top_liege = {
+				culture = PREV
+			}
+			religion_group = ROOT # only people of my race should adopt my customs/language
+			NOT = { culture = ROOT }
+			NOR = {
+				culture_group = culture_group_eru
+				culture_group = culture_group_melkor
+			}
+		}
+		any_neighbor_province = {
+			has_owner = yes
+			ROOT = {
+				owner = {
+					culture = PREVPREV
+				}
+			}
+			owner = {
+				ROOT = {
+					owner = {
+						culture = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 5.0 # local elves rarely become valian
+			owner = { culture_group = culture_group_amanyar }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 2 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 3 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 4 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 5 } }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 9 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 11 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 13 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 15 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = {
+				OR = {
+					primary_title = {
+						conquest_culture = PREV
+					}
+					ROOT = {
+						county = {
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						duchy = {
+							holder_scope = {
+								character = PREVPREVPREV
+							}
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						kingdom = {
+							holder_scope = {
+								character = PREVPREVPREV
+							}
+							conquest_culture = PREVPREV
+						}
+					}
+					ROOT = {
+						empire = {
+							holder_scope = {
+								character = PREVPREVPREV
+							}
+							conquest_culture = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA55000"
+		owner = {
+			ROOT = {
+				culture = PREV
+			}
+		}
+	}
+}
+
+# Bring in some settlers
+province_event = {
+	id = 55001
+	hide_window = yes
+	
+	trigger = {
+		owner = {
+			top_liege = {
+				OR = {
+					culture = PREV
+					religion = PREV
+				}
+			}
+			NOR = {
+				culture = ROOT
+				religion = ROOT
+			}
+			NOR = {
+				culture_group = culture_group_eru
+				culture_group = culture_group_melkor
+			}
+			capital_scope = {
+				province_id = ROOT
+			}
+			
+			OR = {
+				primary_title = {
+					conquest_culture = PREV
+				}
+				ROOT = {
+					county = {
+						conquest_culture = PREVPREV
+					}
+				}
+				ROOT = {
+					duchy = {
+						holder_scope = {
+							character = PREVPREVPREV
+						}
+						conquest_culture = PREVPREV
+					}
+				}
+				ROOT = {
+					kingdom = {
+						holder_scope = {
+							character = PREVPREVPREV
+						}
+						conquest_culture = PREVPREV
+					}
+				}
+				ROOT = {
+					empire = {
+						holder_scope = {
+							character = PREVPREVPREV
+						}
+						conquest_culture = PREVPREV
+					}
+				}
+			}
+		}
+		
+		NOT = { # Exclude provinces covered by event 55000
+			any_neighbor_province = {
+				has_owner = yes
+				ROOT = {
+					owner = {
+						culture = PREVPREV
+					}
+				}
+				owner = {
+					ROOT = {
+						owner = {
+							culture = PREVPREV
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 2 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 3 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 4 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { NOT = { stewardship = 5 } }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 9 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 11 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 13 }
+		}
+		modifier = {
+			factor = 0.75
+			owner = { stewardship = 15 }
+		}
+		modifier = {
+			factor = 0.5 # culture_group_easterling nomad steppe bonus vs non-easterlings
+			owner = {
+				culture_group = culture_group_easterling
+			}
+			OR = {
+				owner = {
+					is_capital = ROOT
+				}
+				AND = {
+					NOT = { culture_group = culture_group_easterling }
+					terrain = steppe
+				}
+			}
+		}
+	}
+	
+	option = {
+		owner = {
+			ROOT = {
+				culture = PREV
+				religion = PREV
+			}
+		}
+	}
+}
+
+# Used to notify a liege that a Tribal Vassal has converted to Feudual
+# Nothing to do with culture at all.
+character_event = {
+	id = 55100
+	desc = EVTDESC55100
+	picture = GFX_evt_courier
+	
+	notification = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}

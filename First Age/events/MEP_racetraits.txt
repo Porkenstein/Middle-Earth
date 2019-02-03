@@ -1,0 +1,211 @@
+namespace = birthevent
+
+# Elf, half-Elf, Half-Orc, Maiar
+character_event = {
+	id = birthevent.0
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { age = 1 }
+		NOT = { has_character_flag = racetrait_given }
+	}
+	
+	option = {
+		
+		set_character_flag = racetrait_given
+
+		# Dwarves
+		
+		if = { # a dwarf always makes a dwarf (plus a half-blooded trait).  This should be okay since dwarves won't be breeding with outsiders too much...
+			limit = {
+				OR = {
+					father = { trait = dwarven }
+					mother = { trait = dwarven }
+				}
+			}
+			add_trait = dwarven
+		}
+		
+		# Elves
+		
+		if = { # child of elf and elf or maia or half elf makes an elf
+			limit = {
+				OR = {
+					AND = {
+						father = { trait = elf }
+						mother = { trait = elf }
+					}
+					AND = {
+						father = { trait = elf }
+						mother = { trait = maiar }
+					}
+					AND = {
+						father = { trait = maiar }
+						mother = { trait = elf }
+					}
+					AND = {
+						father = { trait = elf }
+						mother = { trait = half_elf }
+					}
+					AND = {
+						father = { trait = half_elf }
+						mother = { trait = elf }
+					}
+				}
+			}
+			add_trait = elf
+			add_trait = elf_childhood
+		}
+		else_if = { # only have half elf trait if born from an elf and non-ainu, or two half-elves
+			limit = {
+				OR = {
+					father = { trait = elf }
+					mother = { trait = elf }
+					AND = {
+						father = { trait = half_elf }
+						mother = { trait = half_elf }
+					}
+				}
+			}
+			add_trait = half_elf
+		}
+		else_if = { # mortals and half-elves (or two elf-blooded) make elven blood
+			limit = {
+				OR = {
+					father = { trait = half_elf }
+					mother = { trait = half_elf }
+					AND = {
+						father = { trait = elven_blood }
+						mother = { trait = elven_blood }
+					}
+				}
+			}
+			add_trait = elven_blood
+		}
+		else_if = { # mortal and elf-blood makes elf blood (usually)
+			limit = {
+				OR = {
+					father = { trait = elven_blood }
+					mother = { trait = elven_blood }
+				}
+			}
+			random_list = {
+                70 = {
+                    add_trait = elven_blood
+                }
+                30 = {
+					add_trait = fair
+                }
+			}
+		}
+		
+		#Maiar
+		
+		if = { # two maiar or 3/4 maiar make a maia
+			limit = {
+				OR = {
+					AND = {
+						father = { trait = maiar }
+						mother = { trait = maiar }
+					}
+					AND = {
+						father = { trait = maiar }
+						mother = { trait = half_maiar }
+					}
+					AND = {
+						father = { trait = half_maiar }
+						mother = { trait = maiar }
+					}
+				}
+			}
+			add_trait = maiar
+		}
+		else_if = { # a maia and a non-maia, or two half-maia, make a half-maia
+			limit = {
+				OR = {
+					father = { trait = maiar }
+					mother = { trait = maiar }
+					AND = {
+						father = { trait = half_maiar }
+						mother = { trait = half_maiar }
+					}
+				}
+			}
+			add_trait = half_maiar
+		}
+		else_if = { # non-ainu and half-maiar (or two maiar-blooded) make maiar blood
+			limit = {
+				OR = {
+					father = { trait = half_maiar }
+					mother = { trait = half_maiar }
+					AND = {
+						father = { trait = maiar_blood }
+						mother = { trait = maiar_blood }
+					}
+				}
+			}
+			add_trait = maiar_blood
+		}
+		else_if = { # non-ainu and maiar-blood makes maiar blood (usually)
+			limit = {
+				OR = {
+					father = { trait = maiar_blood }
+					mother = { trait = maiar_blood }
+				}
+			}
+			random_list = {
+                70 = {
+                    add_trait = maiar_blood
+                }
+                30 = {
+					add_trait = perceptive
+					add_trait = strong
+					add_trait = fair
+				}
+			}
+		}
+		
+		# Orcs
+		
+		if = { # two orcs make an orc. surprise!
+			limit = {
+				father = { trait = orkish }
+				mother = { trait = orkish }
+			}
+			add_trait = orkish
+		}
+		else_if = { # two half-orcs, or one orc and one non-orc, make a half-orc
+			limit = {
+				OR = {
+					father = { trait = orkish }
+					mother = { trait = orkish }
+					AND = {
+						father = { trait = half_orc }
+						mother = { trait = half_orc }
+					}
+				}
+			}
+			add_trait = half_orc
+		}
+		else_if = { # can lose half-orkishness in lineage.  Just ugly and grumpy.
+			limit = {
+				OR = {
+					father = { trait = half_orc }
+					mother = { trait = half_orc }
+				}
+			}
+			random_list = {
+				50 = {
+					add_trait = ugly
+					add_trait = wroth
+                }
+                50 = {
+                    add_trait = half_orc
+                }
+            }
+		}
+	}
+}

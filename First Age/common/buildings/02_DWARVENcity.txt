@@ -1,0 +1,398 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+
+# City
+city = {
+
+####################### Inner fortification (Watchtowers and walls merged), give garrison size and fort level ######################
+	ct_DInnerFortification_1 = {
+		desc = ct_DInnerFortification_1_desc
+		gold_cost = 150
+		build_time = 545
+		garrison_size = 0.05
+		fort_level = 1
+		ai_creation_factor = 90
+        	potential = {
+      			#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+		}
+		extra_tech_building_start = 0.2
+	}
+	ct_DInnerFortification_2 = {
+		desc = ct_DInnerFortification_1_desc
+		upgrades_from = ct_DInnerFortification_1
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
+		gold_cost = 200
+		build_time = 730
+		garrison_size = 0.1
+		fort_level = 1
+		ai_creation_factor = 89
+        	potential = {
+			#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+		}
+		extra_tech_building_start = 0.2
+	}
+	ct_DInnerFortification_3 = {
+		desc = ct_DInnerFortification_1_desc
+		upgrades_from = ct_DInnerFortification_2
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
+		gold_cost = 250
+		build_time = 920
+		garrison_size = 0.15
+		fort_level = 1
+		ai_creation_factor = 88
+        	potential = {
+           		#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+		}
+		extra_tech_building_start = 1.0
+	}
+	ct_DInnerFortification_4 = {
+		desc = ct_DInnerFortification_1_desc
+		upgrades_from = ct_DInnerFortification_3
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
+		gold_cost = 325
+		build_time = 1335
+		garrison_size = 0.2
+		fort_level = 1
+		ai_creation_factor = 87
+        	potential = {
+           		#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+		}
+		extra_tech_building_start = 1.0
+	}
+	ct_DInnerFortification_5 = {
+		desc = ct_DInnerFortification_1_desc
+		upgrades_from = ct_DInnerFortification_4
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
+		gold_cost = 390
+		build_time = 1565
+		garrison_size = 0.2
+		fort_level = 1.5
+		ai_creation_factor = 87
+        	potential = {
+           		#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+		}
+		extra_tech_building_start = 2.0
+	}
+	ct_DInnerFortification_6 = {
+		desc = ct_DInnerFortification_1_desc
+		upgrades_from = ct_DInnerFortification_5
+		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
+		gold_cost = 490
+		build_time = 1760
+		garrison_size = 0.2
+		fort_level = 1.5
+		ai_creation_factor = 87
+        	potential = {
+        	   	#has_global_flag = building
+			FROM = { 
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_melkor
+				}
+			}
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+		}
+		extra_tech_building_start = 3.0
+	}
+
+####################### Water system : levy reinforce rate and land organisation #######################
+	ct_Dwater_system_0 = { #no water system
+		desc = ca_Dwater_system_0_desc
+		gold_cost = 0
+		build_time = 0
+		levy_reinforce_rate = -0.1
+		fertility = -0.2
+		ai_creation_factor = 102
+		potential = {
+			FROM = { culture_group = culture_group_dwarves }
+           }
+	    extra_tech_building_start = 0.0
+	}
+	ct_Dwater_system_1 = {
+		desc = ca_Dwater_system_1_desc
+		prerequisites = { ct_DInnerFortification_1 }
+		upgrades_from = ct_Dwater_system_0
+		gold_cost = 85
+		build_time = 365
+		levy_reinforce_rate =  0.1
+		fertility = 0.2
+		ai_creation_factor = 102
+		potential = {
+			#has_global_flag = building
+			FROM = { culture_group = culture_group_dwarves }
+            	}
+		extra_tech_building_start = 0.2
+	}
+	ct_Dwater_system_2 = {
+		desc = ca_Dwater_system_1_desc
+		prerequisites = { ct_DInnerFortification_3 }
+		upgrades_from = ct_Dwater_system_1
+		gold_cost = 100
+		build_time = 550
+		levy_reinforce_rate = 0.1
+		ai_creation_factor = 102
+		potential = {
+			#has_global_flag = building
+			FROM = { culture_group = culture_group_dwarves }
+            	}
+		extra_tech_building_start = 3.0
+	}
+
+
+### MINES ###
+
+	ct_dwarfmines_1 = {
+		desc = ct_dwarfmines_1_desc
+		start = { always = yes }
+		gold_cost = 35
+		build_time = 120
+		tax_income = 1
+		ai_creation_factor = 110
+		add_number_to_name = yes
+		potential = {
+			#has_global_flag = building
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				has_known_resources = yes
+				province_id = 216 # Nargothrond
+			}
+	    	FROM = { culture_group = culture_group_dwarves }
+		}
+		extra_tech_building_start = 0.1
+	}
+	ct_dwarfmines_2 = {
+		desc = ct_dwarfmines_2_desc
+		prerequisites = { ct_DInnerFortification_1 }
+		trigger = { TECH_CITY_CONSTRUCTION = 1 }
+		upgrades_from = ct_dwarfmines_1
+		gold_cost = 80
+		build_time = 360
+		tax_income = 2
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+		}
+        extra_tech_building_start = 0.8
+	}
+	ct_dwarfmines_3 = {
+		desc = ct_dwarfmines_3_desc
+		prerequisites = { ct_DInnerFortification_2 }
+		upgrades_from = ct_dwarfmines_2
+		gold_cost = 200
+		build_time = 730
+		tax_income = 3
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+        }
+		extra_tech_building_start = 1.2
+	}
+	ct_dwarfmines_4 = {
+		desc = ct_dwarfmines_4_desc
+		prerequisites = { ct_DInnerFortification_3 }
+		upgrades_from = ct_dwarfmines_3
+		gold_cost = 400
+		build_time = 1460
+		tax_income = 4
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+       	}
+		extra_tech_building_start = 2.0
+	}
+	ct_dwarfmines_5 = {
+		desc = ct_dwarfmines_5_desc
+		prerequisites = { ct_DInnerFortification_4 }
+		upgrades_from = ct_dwarfmines_4
+		gold_cost = 670
+		build_time = 3650
+		tax_income = 5
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+        }
+		extra_tech_building_start = 2.0
+	}
+	ct_dwarfmines_6 = {
+		desc = ct_dwarfmines_6_desc
+		prerequisites = {
+            ct_DInnerFortification_5
+            ct_Dwater_system_2
+        }
+		upgrades_from = ct_dwarfmines_5
+		gold_cost = 1500
+		build_time = 6570
+		tax_income = 9
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+        }
+		extra_tech_building_start = 2.0
+	}
+	ct_dwarfmines_7 = {
+		desc = ct_dwarfmines_7_desc
+		prerequisites = { ct_DInnerFortification_6 }
+		upgrades_from = ct_dwarfmines_6
+		gold_cost = 2000
+		build_time = 6570
+		tax_income = 15
+		ai_creation_factor = 109
+		add_number_to_name = yes
+		monthly_character_prestige = 1.0
+        potential = {
+           	#has_global_flag = building
+	    	FROM = { culture_group = culture_group_dwarves }
+			OR = {
+				terrain = hills
+				terrain = mountain
+				terrain = forest
+				province_id = 216 # Nargothrond
+			}
+        }
+		extra_tech_building_start = 4.2
+	}
+
+
+################## Jeweler : extra income ###############################
+
+	ct_jeweler_1 = {
+		desc = ct_jeweler_desc
+		trigger = { TECH_TRADE_PRACTICES = 1 }
+		gold_cost = 20
+		build_time = 73
+		tax_income = 1
+		liege_prestige = 0.5
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        	potential = {
+			#has_global_flag = building
+			FROM = { culture_group = culture_group_dwarves }
+            	}
+		extra_tech_building_start = 0.8
+	}
+	ct_jeweler_2 = {
+		desc = ct_jeweler_desc
+		trigger = { TECH_TRADE_PRACTICES = 3 }
+		upgrades_from = ct_jeweler_1
+		gold_cost = 24
+		build_time = 109
+		tax_income = 2
+		liege_prestige = 1.0
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        	potential = {
+			#has_global_flag = building
+			FROM = { culture_group = culture_group_dwarves }
+            	}
+		extra_tech_building_start = 0.8
+	}
+	ct_jeweler_3 = {
+		desc = ct_jeweler_desc
+		trigger = { TECH_TRADE_PRACTICES = 5 }
+		upgrades_from = ct_jeweler_2
+		gold_cost = 40
+		build_time = 146
+		tax_income = 3
+		liege_prestige = 2.0
+		ai_creation_factor = 109
+		add_number_to_name = yes
+        	potential = {
+			#has_global_flag = building
+			FROM = { culture_group = culture_group_dwarves }
+       	}
+		extra_tech_building_start = 1.8
+	}
+}

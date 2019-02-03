@@ -1,0 +1,204 @@
+### Havens ###
+
+castle = {
+
+####################### Unique Castle buildings #######################
+
+	ca_grey_havens = { ## Great Havens of Brithon
+	
+		prerequisites = { ca_wall_q_1 }
+		
+		desc = ca_grey_havens_desc
+		gold_cost = 850
+		build_time = 1460
+		fort_level = 2.0
+		galleys = 100
+		tax_income = 5		
+		ai_creation_factor = 106
+        	potential = {
+            	FROMFROM = { title = b_brithombar }
+			OR = {
+				culture = culture_falathrim
+                culture = culture_sindar
+			}
+        }
+	}
+	
+### Havens ###
+	
+	ca_Vport_1 = {
+		desc = ca_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ca_wall_q_1 }
+		
+		gold_cost = 100
+		build_time = 365
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 110
+		potential = {
+			#has_global_flag = building
+			culture = culture_falathrim
+		}
+	}
+	ca_Vport_2 = {
+		desc = ca_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ca_wall_q_2 }
+		
+		upgrades_from = ca_Vport_1
+		gold_cost = 120
+		build_time = 547
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 109
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+	ca_Vport_3 = {
+		desc = ca_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ca_wall_q_3 }
+		
+		upgrades_from = ca_Vport_2
+		gold_cost = 200
+		build_time = 730
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 108
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+		}
+	}
+	ca_Vport_4 = {
+		desc = ca_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ca_wall_q_4 }
+		
+		upgrades_from = ca_Vport_3
+		gold_cost = 300
+		build_time = 1095
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 107
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+	ca_Vport_5 = {
+		desc = ca_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ca_wall_q_4 }
+		
+		upgrades_from = ca_Vport_4
+		gold_cost = 500
+		build_time = 3650
+		tax_income = 3
+		galleys = 10
+		vassal_opinion = 5
+		max_tradeposts = 1
+		monthly_character_prestige = 0.1
+		ai_creation_factor = 106
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+}
+
+city = {
+	
+### Havens ###
+	
+	ct_Vport_1 = {
+		desc = ct_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ct_wall_q_1 }
+		gold_cost = 100
+		build_time = 365
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 110
+		potential = {
+			#has_global_flag = building
+			culture = culture_falathrim
+		}
+	}
+	ct_Vport_2 = {
+		desc = ct_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ct_wall_q_2 }
+		upgrades_from = ct_Vport_1
+		gold_cost = 120
+		build_time = 547
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 109
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+	ct_Vport_3 = {
+		desc = ct_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ct_wall_q_3 }
+		upgrades_from = ct_Vport_2
+		gold_cost = 200
+		build_time = 730
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 108
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+		}
+	}
+	ct_Vport_4 = {
+		desc = ct_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ct_wall_q_4 }
+		upgrades_from = ct_Vport_3
+		gold_cost = 300
+		build_time = 1095
+		tax_income = 3
+		galleys = 10
+		ai_creation_factor = 107
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+	ct_Vport_5 = {
+		desc = ct_Vport_1_desc
+		port = yes
+		
+		prerequisites = { ct_wall_q_4 }
+		upgrades_from = ct_Vport_4
+		gold_cost = 500
+		build_time = 3650
+		tax_income = 3
+		galleys = 10
+		vassal_opinion = 5
+		max_tradeposts = 1
+		monthly_character_prestige = 0.1
+		ai_creation_factor = 106
+        	potential = {
+            	#has_global_flag = building
+				culture = culture_falathrim
+        	}
+	}
+}

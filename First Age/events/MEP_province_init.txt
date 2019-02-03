@@ -1,0 +1,1148 @@
+namespace = provinceinit
+
+# apply dwarf ruins modifiers
+character_event = {
+    id = provinceinit.0
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 265 # Rerir
+					province_id = 56 # Iant Iaur
+					province_id = 187 # Dor-Beor
+					province_id = 422 # Narthalf
+				}
+			}
+			add_province_modifier = { name = dwarf_ruins_2 duration = -1 }
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 78 # Foen
+					province_id = 394 # Rhugrod
+					province_id = 7 # Andram Rhunen
+					province_id = 202 # Lhunorodrim
+					province_id = 136 # Aglon Pass
+					province_id = 209 # Bar en nibn noeg
+					province_id = 208 # Amon Rudh
+					province_id = 264 # Ohtar
+					
+					# only ever one level of dwarf ruin
+					province_id = 14 # Ereb
+					province_id = 15 # Ramdal
+					province_id = 12 # Sarn Athrad
+					province_id = 216 # Nargothrond
+					province_id = 126 # Dolmed
+					province_id = 261 # Vinyathrad
+					province_id = 102 # Forodathrad
+					province_id = 370 # Tharpennath
+					province_id = 259 # Cerin Haleth
+					province_id = 120 # Harost
+					province_id = 367 # Lanthiriath
+					province_id = 109 # Edenathrad
+					province_id = 196 # Forochel
+				}
+			}
+			add_dwarf_ruins = yes
+		}
+		if = {
+			limit = { NOT = { year = 4300 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 189 # Amon Draug
+					province_id = 78 # Foen
+					province_id = 394 # Rhugrod
+					province_id = 209 # Bar en nibn noeg
+					province_id = 208 # Amon Rudh
+					province_id = 7 # Andram Rhunen
+					province_id = 202 # Lhunorodrim
+					province_id = 136 # Aglon Pass
+					province_id = 264 # Ohtar
+				}
+			}
+			add_dwarf_ruins = yes
+		}
+		if = {
+			limit = { NOT = { year = 4500 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 189 # Amon Draug
+					province_id = 78 # Foen
+					province_id = 394 # Rhugrod
+					province_id = 209 # Bar en nibn noeg
+					province_id = 208 # Amon Rudh
+					province_id = 267 # Men-i-Naugrim
+					province_id = 202 # Lhunorodrim
+					province_id = 369 # Mallost
+					province_id = 264 # Ohtar
+				}
+			}
+			add_dwarf_ruins = yes
+		}
+		if = {
+			limit = { NOT = { year = 4650 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 189 # Amon Draug
+					province_id = 78 # Foen
+					province_id = 394 # Rhugrod
+					province_id = 209 # Bar en nibn noeg
+					province_id = 208 # Amon Rudh
+					province_id = 202 # Lhunorodrim
+					province_id = 369 # Mallost
+					province_id = 136 # Aglon Pass
+				}
+			}
+			add_dwarf_ruins = yes
+		}
+		if = {
+			limit = { NOT = { year = 4850 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 208 # Amon Rudh
+					province_id = 202 # Lhunorodrim
+				}
+			}
+			add_dwarf_ruins = yes
+		}
+	}
+}
+
+# apply the tainted modifier
+character_event = {
+    id = provinceinit.1
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+
+        any_demesne_province = {
+			limit = {
+				OR = {
+					AND = { # Helevorn is tainted after the Bragollach
+						year = 4770
+						de_jure_liege_or_above = d_helevorn
+					}
+					AND = { # Ard-Galen is turned to barren ash during the Bragollach
+						year = 4767
+						de_jure_liege_or_above = d_ard_galen
+					}
+					AND = { # Ivrin is tainted by Glaurung during his assault on Nargothrond
+						year = 4807
+						de_jure_liege_or_above = d_ivrin
+					}
+				}
+			}
+			add_province_modifier = { name = tainted duration = -1 }
+		}
+	}
+}
+
+
+# apply the cavern system modifier
+character_event = {
+    id = provinceinit.2
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+			    OR = {
+					province_id = 142 # Androth
+					province_id = 45 # Menegroth
+					province_id = 154 # Gate of the Noldor
+					province_id = 216 # Nargothrond
+					province_id = 75 # Gates of Sirion
+					province_id = 82 # Aeluin
+					province_id = 271 # Cape Balar
+					province_id = 421 # Pendrath Iaur
+					province_id = 414 # Mundrasse
+					province_id = 412 # Minnui Annui Eryn
+					province_id = 413 # Minnui Edwyn Eryn
+				}
+			}
+			add_province_modifier = { name = cavern_system duration = -1 }
+		}
+	}
+}
+
+# apply the under-deeps modifier
+character_event = {
+    id = provinceinit.3
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 411 # Angband
+					province_id = 19 # Thangorodrim
+				}
+			}
+			add_province_modifier = { name = under_deeps duration = -1 }
+		}
+	}
+}
+
+# apply the ent-home modifier
+character_event = {
+    id = provinceinit.4
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 64 # Taur-na-Neldor
+					province_id = 76 # Taur-na-Foen
+					province_id = 178 # Eithel Rathloriel
+					province_id = 395 # Onodrimdor
+				}
+			}
+			add_province_modifier = { name = ent_home duration = -1 }
+		}
+	}
+}
+
+
+# apply the eagle-home modifier
+character_event = {
+    id = provinceinit.5
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 50 # Crissaegrim
+					province_id = 77 # Echoriath
+				}
+			}
+			add_province_modifier = { name = eagle_home duration = -1 }
+		}
+	}
+}
+
+
+# apply the infested modifier
+character_event = {
+    id = provinceinit.6
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 130 # Nan Dungortheb
+					province_id = 384 # Dungorthim
+					province_id = 56 # Iant Iaur
+				}
+			}
+			add_province_modifier = { name = infested duration = -1 }
+		}
+	}
+}
+
+# apply the girdle of melian
+character_event = {
+    id = provinceinit.7
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	trigger = {
+		year = 4286 # in the 4286th year of Arda, Melian wove the girdle and cut off Doriath from the rest of Eglador
+		NOT = { year = 4814 } # Melian leaves after thingol dies, the girdle disappears
+	}
+
+	option = {
+        
+		any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = k_doriath
+			}
+			add_province_modifier = { name = girdle_of_melian duration = -1 }
+		}
+	}
+}
+
+# apply resource flags
+character_event = {
+    id = provinceinit.8
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+
+        # IRON
+		any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 363 # Eryd Echor
+                    province_id = 189 # Amon Draug
+					province_id = 148 # Taendol
+                    province_id = 411 # Angband
+                    province_id = 428 # Burgûl-Iarn
+					province_id = 415 # Tavar Ulca
+					province_id = 417 # Lugongushar
+					province_id = 424 # Burzum Doraz
+					province_id = 425 # Aeglir Arvethed
+					province_id = 416 # Roquen-Lipte
+					province_id = 420 # Lugku
+					province_id = 430 # Angorodin
+					province_id = 169 # Hisilome
+					province_id = 370 # Tharpennath
+					province_id = 86 # Angrodardh
+					province_id = 33 # Sir-cabed
+					province_id = 68 # Fuir-Wethrim
+					province_id = 394 # Rhugrod
+					province_id = 213 # Emyn Faroth
+					province_id = 118 # Emyn Eglain
+					province_id = 7 # Andram-Rhuven
+					province_id = 184 # Lanthir Lamath
+					province_id = 375 # Calenia
+					province_id = 25 # Harfalad
+					province_id = 200 # Edennogrod
+					province_id = 178 # Eithel Rathloriel
+					province_id = 130 # Nan Dungortheb
+				}
+			}
+			set_province_flag = flag_iron
+            province_event = { id = provinceinit.9  } # this province may have already revealed this resource
+		}
+
+        # MAGMA
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 14  # Amon Ereb
+                    province_id = 405 # Amon Elu
+                    province_id = 19  # Thangorodrim
+                    province_id = 126 # Dolmed
+                    province_id = 208 # Amon Rûdh
+					province_id = 189 # Amon Draug
+					province_id = 264 # Ohtar
+					province_id = 78 # Foen
+				}
+			}
+			set_province_flag = flag_magma
+            province_event = { id = provinceinit.10  } # this province may have already revealed this resource
+		}
+
+        # COPPER
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 268 # Nogrod
+                    province_id = 125 # Belegost
+					province_id = 200 # Edennogrod
+					province_id = 404 # Nornhabar
+					province_id = 266 # Lune
+					province_id = 265 # Rerir
+					province_id = 202 # Lhunorodrim
+					province_id = 192 # Harlothlann
+					province_id = 181 # Mirilgasir
+					province_id = 184 # Lanthir Lamath
+					province_id = 195 # Caranthir's Pass
+					province_id = 136 # Aglon Pass
+					province_id = 79 # Ered Gorgoroth
+					province_id = 255 # Bar Erib
+					province_id = 405 # Amon Elu
+				}
+			}
+			set_province_flag = flag_copper
+            province_event = { id = provinceinit.11  } # this province may have already revealed this resource
+		}
+
+        # TIN
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 403 # Harnauglim
+                    province_id = 404 # Nornhabar
+					province_id = 257 # Forthargelion
+					province_id = 126 # Dolmed
+					province_id = 187 # Dor-Beor
+					province_id = 15 # Ramdal
+					province_id = 155 # Ered Mithrim
+					province_id = 78 # Foen
+					province_id = 158 # Emyn Edrain
+					province_id = 425 # Aeglir Arvethed
+				}
+			}
+			set_province_flag = flag_tin
+            province_event = { id = provinceinit.12  } # this province may have already revealed this resource
+		}
+
+        # STONE
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 125 # Belegost
+                    province_id = 128 # Amon Gwareth
+					province_id = 123 # Ras Mewrim
+					province_id = 186 # Lindon
+					province_id = 388 # Narogardh
+					province_id = 244 # Taras
+					province_id = 233 # Falasquil
+					province_id = 164 # Emyn Mithrum
+					province_id = 34 # Amon Obel
+					province_id = 54 # Falls of Esgalduin
+					province_id = 376 # Forodram
+					province_id = 6 # Andram-Annun
+					province_id = 50 # Crissaegrim
+					province_id = 372 # Emyn Glaindor
+					province_id = 133 # Dor Dinen
+					province_id = 131 # Pass of Anach
+					province_id = 19 # Thangorodrim
+					province_id = 418 # Gonardh
+					province_id = 201 # Himring
+				}
+			}
+			set_province_flag = flag_stone
+            province_event = { id = provinceinit.13  } # this province may have already revealed this resource
+		}
+
+        # GOLD
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 268 # Nogrod
+                    province_id = 369 # Mallost
+					province_id = 98 # Nalda Imbe Siryat
+					province_id = 264 # Ohtar
+					province_id = 262 # Taur Iaur in-Enyd
+					province_id = 177 # Ascar
+					province_id = 381 # Penladen
+					province_id = 10 # Talath-or-Andram
+					province_id = 377 # Eithel Ringwil
+					province_id = 99 # Nunaluksor
+				}
+			}
+			set_province_flag = flag_gold
+            province_event = { id = provinceinit.14  } # this province may have already revealed this resource
+		}
+
+        # SILVER
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 146 # Eithel Sirion
+                    province_id = 7   # Andram-Rhuven
+					province_id = 8   # Tauriath
+					province_id = 147 # Magor's Watch
+					province_id = 166 # Mithrum
+					province_id = 139 # Amon Darthir
+					province_id = 172 # Rond Magor
+					province_id = 36 # Eithel Celebros
+					province_id = 124 # Lond Lothlim
+				}
+			}
+			set_province_flag = flag_silver
+            province_event = { id = provinceinit.15  } # this province may have already revealed this resource
+		}
+
+        # GEMSTONES
+        any_demesne_province = {
+			limit = {
+				OR = {
+                    province_id = 216 # Nargothrond
+                    province_id = 45  # Menegroth
+					province_id = 75 # Gates of Sirion
+					province_id = 218 # Emyn Nuath
+					province_id = 402 # Telenaug
+					province_id = 423 # Torogmar
+					province_id = 80 # Gorothress
+					province_id = 24 # Tol Balar
+				}
+			}
+			set_province_flag = flag_gemstones
+            province_event = { id = provinceinit.16  } # this province may have already revealed this resource
+		}
+
+        # LAPIS
+        any_demesne_province = {
+			limit = {
+				OR = {
+                    province_id = 271 # Cape Balar
+					province_id = 26 # Lhostesgar
+                    province_id = 266 # Annûduin
+					province_id = 392 # Aiwenor
+					province_id = 156 # Cirith Ninniach
+					province_id = 167 # Ered Lomin
+					province_id = 46 # Thargrod
+					province_id = 135 # Himlad
+					province_id = 196 # Forochel
+					province_id = 425 # Aeglir Arvethed
+				}
+			}
+			set_province_flag = flag_lapis
+            province_event = { id = provinceinit.17  } # this province may have already revealed this resource
+		}
+
+        # SALT
+        any_demesne_province = {
+			limit = {
+				OR = {
+                    province_id = 203 # Dor Maglor
+                    province_id = 107 # Dunestolad
+					province_id = 232 # Tumhalad
+					province_id = 89  # Fornatumba
+					province_id = 20  # Arvernien
+					province_id = 105 # Bar Marach
+					province_id = 108 # Barad Annun
+					province_id = 96 # Alat-Nortil
+					province_id = 60 # Mindeb
+					province_id = 51 # Dry River
+					province_id = 191 # Forlothlann
+					province_id = 84 # Ladros
+					province_id = 143 # Dor-Lomin
+					province_id = 407 # Imladrain
+					province_id = 120 # Harost
+                    #... other random mineable areas
+				}
+			}
+			set_province_flag = flag_salt
+            province_event = { id = provinceinit.18  } # this province may have already revealed this resource
+		}
+	}
+}
+
+# reveal iron modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.9
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+				AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_iron
+            add_province_modifier = { name = resource_iron duration = -1 }
+        }
+	}
+}
+
+# reveal magma modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.10
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_magma
+            add_province_modifier = { name = resource_magma duration = -1 }
+        }
+	}
+}
+
+# reveal copper modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.11
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_copper
+            add_province_modifier = { name = resource_copper duration = -1 }
+        }
+	}
+}
+
+# reveal tin modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.12
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_tin
+            add_province_modifier = { name = resource_tin duration = -1 }
+        }
+	}
+}
+
+# reveal stone modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.13
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_stone
+            add_province_modifier = { name = resource_stone duration = -1 }
+        }
+	}
+}
+
+# reveal gold modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.14
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_gold
+            add_province_modifier = { name = resource_gold duration = -1 }
+        }
+	}
+}
+
+# reveal silver modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.15
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_silver
+            add_province_modifier = { name = resource_silver duration = -1 }
+        }
+	}
+}
+
+# reveal gemstones modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.16
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_gemstones
+            add_province_modifier = { name = resource_gemstones duration = -1 }
+        }
+	}
+}
+
+# reveal lapis modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.17
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_lapis
+            add_province_modifier = { name = resource_lapis duration = -1 }
+        }
+	}
+}
+
+# reveal salt modifier
+# apply a visible modifier if the province is non-empty and owned by a race which can mine
+province_event = {
+    id = provinceinit.18
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+
+	option = {
+        
+        if = {
+            limit = {
+                AND = {
+					random = 50
+					owner = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_melkor
+						}
+					}
+				}
+            }
+            clr_province_flag = flag_salt
+            add_province_modifier = { name = resource_salt duration = -1 }
+        }
+	}
+}
+
+
+# apply elf ruins modifiers
+character_event = {
+    id = provinceinit.19
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+
+        any_demesne_province = {	# ruins from the time of the great journey
+			limit = {
+				OR = {
+					province_id = 195 # Caranthir's Pass
+					province_id = 385 # Lond Balar
+				}
+			}
+			add_province_modifier = { name = elf_ruins_2 duration = -1 }
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					province_id = 23 # Balar Niben
+					province_id = 21 # Cape Balar
+					province_id = 24 # Tol Balar
+				}
+			}
+			add_elf_ruins = yes
+		}
+		
+		if = {
+			limit = { NOT = { year = 4286 } }
+			break = yes
+		}
+		any_demesne_province = {	# lindon collapses
+			limit = {
+				OR = {
+					province_id = 177 # Ascar
+					province_id = 182 # Duilwen
+					province_id = 186 # Lindon
+					province_id = 174 # Adurant
+					province_id = 188 # Thalos
+					province_id = 179 # Brilthor
+				}
+			}
+			add_elf_ruins = yes
+		}
+		
+		if = {
+			limit = { NOT = { year = 4768 } }
+			break = yes
+		}
+		any_demesne_province = {	# dorthonion falls
+			limit = {
+				de_jure_liege_or_above = k_dorthonion
+				NOT = { province_id = 78 } # Foen (dwarf ruins instead)
+			}
+			add_province_modifier = { name = elf_ruins_2 duration = -1 }
+		}
+		
+		if = {
+			limit = { NOT = { year = 4785 } }
+			break = yes
+		}
+		any_demesne_province = {	# the falas fall
+			limit = {
+				de_jure_liege_or_above = k_falas
+				NOT = { province_id = 394 } # Rhugrod (dwarf ruins instead)
+			}
+			add_province_modifier = { name = elf_ruins_3 duration = -1 }
+		}
+		
+		if = {
+			limit = { NOT = { year = 4814 } }
+			break = yes
+		}
+		any_demesne_province = {	# menegroth falls
+			limit = {
+				OR = {
+					province_id = 58
+					province_id = 59
+					province_id = 57
+				}
+			}
+			add_province_modifier = { name = elf_ruins_2 duration = -1 }
+		}
+		
+		if = {
+			limit = { NOT = { year = 4818 } }
+			break = yes
+		}
+		any_demesne_province = {	# menegroth falls
+			limit = {
+				province_id = 45 # menegroth
+			}
+			add_province_modifier = { name = elf_ruins_6 duration = -1 }
+		}
+		any_demesne_province = {	# the rest of thingol's demesne is razed
+			limit = {
+				OR = {
+					province_id = 46 # thargrod
+					province_id = 43 # artanor
+				}
+			}
+			add_province_modifier = { name = elf_ruins_3 duration = -1 }
+		}
+	}
+}
+
+# apply noldor ruins modifiers
+character_event = {
+    id = provinceinit.20
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+
+        if = {		# Nevrast is abandoned
+			limit = { NOT = { year = 4438 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = k_nevrast
+				NOT = { province_id = 244 } # Taras (6 instead)
+				NOT = { de_jure_liege_or_above = d_lammoth } # nobody here
+			}
+			add_noldor_ruins = yes
+		}
+        any_demesne_province = {
+			limit = {
+				province_id = 244 # Taras
+			}
+			add_province_modifier = { name = noldor_ruins_6 duration = -1 }
+		}
+		
+		
+		if = {		# Minas Tirith is destroyed
+			limit = { NOT = { year = 4770 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = d_sereach
+				NOT = { province_id = 223 } # Eithel Sirion (4 instead)
+			}
+			add_noldor_ruins = yes
+		}
+        any_demesne_province = {
+			limit = {
+				province_id = 223 # Eithel Sirion
+			}
+			add_province_modifier = { name = noldor_ruins_4 duration = -1 }
+		}
+		
+
+		if = {		# Helevorn and Himlad are tainted and abandoned
+			limit = { NOT = { year = 4770 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					de_jure_liege_or_above = d_helevorn
+					de_jure_liege_or_above = d_himlad
+					de_jure_liege_or_above = d_watch_of_aglon
+				}
+			}
+			add_province_modifier = { name = noldor_ruins_3 duration = -1 }
+		}
+		
+		
+		if = {		# Thargelion is destroyed
+			limit = { NOT = { year = 4785 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = k_thargelion
+				NOT = { de_jure_liege_or_above = d_helevorn }
+			}
+			add_noldor_ruins = yes
+		}
+		
+		if = {		# Hithlum is destroyed
+			limit = { NOT = { year = 4784 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = k_hithlum
+				NOT = { province_id = 146 } # Eithel Sirion (6 instead)
+				NOT = { de_jure_liege_or_above = d_dor_lomin }
+				NOT = { de_jure_liege_or_above = d_forlum }
+				NOT = { de_jure_liege_or_above = d_fingonardh }
+				NOT = { de_jure_liege_or_above = d_darthir }
+			}
+			add_province_modifier = { name = noldor_ruins_2 duration = -1 }
+		}
+        any_demesne_province = {
+			limit = {
+				province_id = 146 # Eithel Sirion
+			}
+			add_province_modifier = { name = noldor_ruins_6 duration = -1 }
+		}
+		
+		
+		if = {		# Nargothrond is destroyed
+			limit = { NOT = { year = 4807 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				OR = {
+					de_jure_liege_or_above = d_faroth
+					de_jure_liege_or_above = d_talath_i_sirion
+					de_jure_liege_or_above = d_tumhalad
+					de_jure_liege_or_above = d_nargothrond
+				}
+				NOT = { province_id = 216 } # Nargothrond (6 instead)
+			}
+			add_province_modifier = { name = noldor_ruins_2 duration = -1 }
+		}
+        any_demesne_province = {
+			limit = {
+				province_id = 216 # Nargothrond
+			}
+			add_province_modifier = { name = noldor_ruins_6 duration = -1 }
+		}
+		
+		
+		if = {		# Gondolin is destroyed
+			limit = { NOT = { year = 4822 } }
+			break = yes
+		}
+        any_demesne_province = {
+			limit = {
+				de_jure_liege_or_above = k_gondolin
+				NOT = { province_id = 128 } # Gondolin (6 instead)
+			}
+			add_province_modifier = { name = noldor_ruins_5 duration = -1 }
+		}
+        any_demesne_province = {
+			limit = {
+				province_id = 128 # Gondolin
+			}
+			add_province_modifier = { name = noldor_ruins_6 duration = -1 }
+		}
+	}
+}
+
+# apply the hidden modifier
+character_event = {
+    id = provinceinit.21
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+        
+		if = {
+			limit = {
+				NOT = { year = 4822 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { year = 4807 }
+			}
+		}
+		any_demesne_province = {
+			limit = {
+				religion = religion_wilderness
+				de_jure_liege_or_above = k_gondolin
+				de_jure_liege_or_above = d_nargothrond
+			}
+			add_province_modifier = { name = hidden_place duration = -1 }
+		}
+	}
+}

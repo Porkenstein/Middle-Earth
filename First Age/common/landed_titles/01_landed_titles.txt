@@ -1,0 +1,6795 @@
+
+e_dor_daedeloth = {
+	color={ 40 0 0 }
+	color2={ 255 0 0 }
+
+	capital = 411 # c_angband
+	
+	religion = religion_orkish
+	culture = culture_orkish
+	
+	religion_group_eldar = 900
+	assimilate = no # don't de jure drift the thangoridrim out of angband
+	duchy_revokation = yes
+
+	dignity = 30
+	primary = yes
+
+	allow = {
+        OR = {
+            religion_group = religion_group_melkor
+            trait = evil_side # I guess an evil elf could be the dark lord
+        }
+	}
+
+	k_angband = {
+		color={ 114 6 21 }
+		color2={ 255 255 255 }
+
+		capital = 17 # c_angband
+		culture = culture_orkish
+
+		culture_noldor = "Angamando"
+        culture_stonefoot = "Thangorodrim"
+        culture_firebeard = "Thangorodrim"
+		culture_broadbeam = "Thangorodrim"
+		culture_longbeard = "Thangorodrim"
+        culture_petty_dwarves = "Thangorodrim"
+
+		d_thangorodrim = {
+
+			color={ 94 26 11 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 411 province_id = 19 } }
+				}
+			}
+			capital = 411 # c_angband
+
+			c_thangorodrim = { # 19
+				color={ 154 46 61 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_lossoth
+				holy_site = religion_eruhini
+				holy_site = religion_umaiar
+				holy_site = religion_orkish
+				holy_site = religion_dragons
+
+				b_thangorodrim = {
+				}
+				b_thangorodrim_2 = {
+				}
+				b_thangorodrim_3 = {
+				}
+				b_thangorodrim_4 = {
+				}
+				b_thangorodrim_5 = {
+				}
+				b_thangorodrim_6 = {
+				}
+				b_thangorodrim_7 = {
+				}
+			}
+			
+            c_angband= { # 411
+                color={ 104 0 11 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_umaiar
+				holy_site = religion_orkish
+				holy_site = religion_dragons
+				
+				b_angband = {
+				}
+				b_osamel = {
+				}
+				b_mvya_dorei = {
+				}
+				b_millalion = {
+				}
+				b_omyhe_belanore = {
+				}
+				b_nahonora = {
+				}
+				b_wlanore = {
+				}
+            }
+		}
+		d_dor_na_daerachas = {
+
+			color={ 104 46 31 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 18 province_id = 17 province_id = 430 province_id = 431 } }
+				}
+			}
+			capital = 17 # c_annon_daer
+			
+			c_annon_daer = { # 17
+                color={ 94 0 1 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_umaiar
+				holy_site = religion_orkish
+				holy_site = religion_dragons
+				
+				b_annon_daer = {
+				}
+				b_barad_daer = {
+				}
+				b_morgrond = {
+				}
+				b_udunost = {
+				}
+				b_ost_in_gorthaur = {
+				}
+				b_morgawin = {
+				}
+				b_barad_belegoth = {
+				}
+			}
+			
+			c_dor_daedeloth = { # 18
+                color={ 134 26 41 }
+                color2={ 255 255 255 }
+
+				b_dor_daedeloth = {
+				}
+				b_melve_elunore = {
+				}
+				b_nylha_themar = {
+				}
+				b_dor_daedeloth_4 = {
+				}
+				b_dor_daedeloth_5 = {
+				}
+				b_dor_daedeloth_6 = {
+				}
+				b_dor_daedeloth_7 = {
+				}
+			}
+			c_angorodin = { #430
+                color={ 134 36 6 }
+                color2={ 255 255 255 }
+
+				b_angorodin = {
+				}
+				b_angorodin_2 = {
+				}
+				b_angorodin_3 = {
+				}
+				b_angorodin_4 = {
+				}
+				b_angorodin_5 = {
+				}
+			}
+			c_thimbalt = { #431
+                color={ 114 46 41 }
+                color2={ 255 255 255 }
+
+				b_thimbalt = {
+				}
+				b_thimbalt_2 = {
+				}         
+				b_thimbalt_3 = {
+				}         
+				b_thimbalt_4 = {
+				}         
+				b_thimbalt_5 = {
+				}
+				b_thimbalt_6 = {
+				}
+			}
+		}
+	}
+}
+e_duvenbeleriand = {
+	color={ 186 208 109 }
+	color2={ 255 255 20 }
+
+	capital = 20 # c_nargothrond
+	culture = culture_eglath
+
+	culture_golodhrim = "Valariande"
+	culture_gondolindrim = "Valariande"
+	culture_egledhrim = "Valariande"
+	culture_noldor = "Valariande"
+	culture_nandor = "Golodhinand"
+	culture_avari = "Golodhinand"
+	culture_laegrim = "Golodhinand"
+	culture_hwendim = "Golodhinand"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+	k_arvernien = {
+		color={ 96 240 154 }
+		color2={ 255 255 255 }
+
+		capital = 20 # c_arvernien
+		culture = culture_falathrim
+
+		d_arvernien = {
+			color={ 116 220 164 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 20 province_id = 21 province_id = 22 } }
+				}
+			}
+			capital = 20 # c_arvernien
+
+			c_arvernien = { # 20
+				color={ 126 210 169 }
+				color2={ 255 255 255 }
+
+				b_arvernien = {
+				}
+				b_arvernien_2 = {
+				}
+				b_arvernien_3 = {
+				}
+				b_arvernien_4 = {
+				}
+				b_arvernien_5 = {
+				}
+				b_arvernien_6 = {
+				}
+			}
+			c_cape_balar = { # 21
+				color={ 168 183 37 }
+				color2={ 255 255 255 }
+
+				b_cape_balar = {
+				}
+				b_cape_balar_2 = {
+				}
+				b_cape_balar_3 = {
+				}
+				b_cape_balar_4 = {
+				}
+			}
+			c_nimbrethil = { # 22
+				color={ 168 168 162 }
+				color2={ 255 255 255 }
+
+				b_nimbrethil = {
+				}
+				b_nimbrethil_2 = {
+				}
+				b_nimbrethil_3 = {
+				}
+			}
+		}
+		d_bay_of_balar = {
+			color={ 136 32 54 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Toll Balar"
+			culture_falathrim = "Balar"
+			culture_nandor = "Ossë"
+			culture_avari = "Ossë"
+			culture_laegrim = "Ossë"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 23 province_id = 24 province_id = 385 } }
+				}
+			}
+			capital = 24 # c_tol_balar
+
+			c_balar_niben = { # 23
+				color={ 126 42 49 }
+				color2={ 255 255 255 }
+
+				b_balar_niben = {
+				}
+				b_aerond = {
+				}
+				b_lond_calenhad = {
+				}
+			}
+			c_tol_balar = { # 24
+				color={ 84 207 41 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_eruhini
+
+				b_tol_balar = {
+				}
+				b_tol_balar_2 = {
+				}
+				b_tol_balar_3 = {
+				}
+				b_tol_balar_4 = {
+				}
+				b_tol_balar_5 = {
+				}
+				b_tol_balar_6 = {
+				}
+			}
+
+            c_lond_balar = { #385
+				color={ 126 42 49 }
+				color2={ 255 255 255 }
+
+				b_lond_balar = {
+				}
+				b_lond_balar_2 = {
+				}
+				b_lond_balar_3 = {
+				}
+                b_lond_balar_4 = {
+				}
+            }
+
+		}
+		d_lhostesgar = {
+			color={ 136 26 174 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 409 province_id = 25 province_id = 26 province_id = 27 } }
+				}
+			}
+			capital = 25 # c_harfalad
+
+			c_harfalad = { # 25
+				color={ 126 36 169 }
+				color2={ 255 255 255 }
+
+				b_harfalad = {
+				}
+				b_harfalad_2 = {
+				}
+				b_harfalad_3 = {
+				}
+				b_harfalad_4 = {
+				}
+				b_harfalad_5 = {
+				}
+			}
+
+            c_nimrawdor = { # 409
+				b_nimrawdor = {
+				}
+				b_nimrawdor_2 = {
+				}
+				b_nimrawdor_3 = {
+				}
+				b_nimrawdor_4 = {
+				}
+            }
+
+			c_lhostesgar = { # 26
+				color={ 128 138 59 }
+				color2={ 255 255 255 }
+
+				b_lhostesgar = {
+				}
+				b_lhostesgar_2 = {
+				}
+				b_lhostesgar_3 = {
+				}
+				b_lhostesgar_4 = {
+				}
+				b_lhostesgar_5 = {
+				}
+			}
+			c_nan_narog = { # 27
+				color={ 84 63 46 }
+				color2={ 255 255 255 }
+
+				b_nan_narog = {
+				}
+				b_nan_narog_2 = {
+				}
+				b_nan_narog_3 = {
+				}
+				b_nan_narog_4 = {
+				}
+				b_nan_narog_5 = {
+				}
+				b_nan_narog_6 = {
+				}
+			}
+		}
+	}
+	k_falas = {
+		color={ 30 229 185 }
+		color2={ 255 255 255 }
+
+		capital = 111 # c_brithombar
+		culture = culture_falathrim
+
+		culture_noldor = "Falasse"
+		culture_nandor = "Habad"
+		culture_avari = "Habad"
+
+		d_brithon = {
+			color={ 10 249 175 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 111 province_id = 112 } }
+				}
+			}
+			capital = 111 # c_brithombar
+
+			c_brithombar = { # 111
+				color={ 0 3 170 }
+				color2={ 255 255 255 }
+
+				b_brithombar = {
+				}
+				b_brithombar_2 = {
+				}
+				b_brithombar_3 = {
+				}
+				b_brithombar_4 = {
+				}
+				b_brithombar_5 = {
+				}
+				b_brithombar_6 = {
+				}
+			}
+			c_eithel_brithon = { # 112
+				color={ 42 159 33 }
+				color2={ 255 255 255 }
+
+				b_eithel_brithon = {
+				}
+				b_eithel_brithon_2 = {
+				}
+				b_eithel_brithon_3 = {
+				}
+				b_eithel_brithon_4 = {
+				}
+			}
+		}
+		d_eglamar = {
+            color={ 128 0 22 }
+            color2={ 255 255 255 }
+
+			culture_golodhrim = "Eldamar"
+			culture_noldor = "Ingildon"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 113 province_id = 114 province_id = 115 province_id = 389 } }
+				}
+			}
+			capital = 114 # c_eglarest
+
+			c_eglamar_2 = { # 113
+				color={ 188 20 62 }
+				color2={ 255 255 255 }
+
+				b_eglamar_4 = {
+				}
+				b_eglamar_5 = {
+				}
+				b_eglamar_6 = {
+				}
+				b_eglamar_7 = {
+				}
+			}
+			c_eglarest = { # 114
+				color={ 208 40 82 }
+				color2={ 255 255 255 }
+
+				b_eglarest = {
+				}
+				b_eglarest_2 = {
+				}
+				b_eglarest_3 = {
+				}
+				b_eglarest_4 = {
+				}
+				b_eglarest_5 = {
+				}
+			}
+			c_eithel_nenning = { # 115
+				color={ 168 0 42 }
+				color2={ 255 255 255 }
+
+				b_eithel_nenning = {
+				}
+				b_eithel_nenning_2 = {
+				}
+				b_eithel_nenning_3 = {
+				}
+				b_eithel_nenning_4 = {
+				}
+			}
+
+            c_eglahir = { # 389
+				color={ 128 0 2 }
+				color2={ 255 255 255 }
+
+				b_eglahir = {
+				}
+				b_eglahir_2 = {
+				}
+				b_eglahir_3 = {
+				}
+				b_eglahir_4 = {
+				}
+            }
+		}
+        d_nimras = {
+            color={ 250 250 255 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 116 province_id = 408 } }
+				}
+			}
+			capital = 116 # c_falas
+
+			c_falas = { # 116
+                color={ 215 160 205 }
+				color2={ 255 255 255 }
+
+				b_falas = {
+				}
+				b_falas_2 = {
+				}
+				b_falas_3 = {
+				}
+				b_falas_4 = {
+				}
+				b_falas_5 = {
+				}
+			}
+            c_arcof = { # 408
+                color={ 235 180 225 }
+				color2={ 255 255 255 }
+
+				b_arcof = {
+				}
+				b_arcof_2 = {
+				}
+				b_arcof_3 = {
+				}
+				b_arcof_4 = {
+				}
+			}
+        }
+		d_eglandor = {
+            color={ 0 156 160 }
+            color2={ 255 255 255 }
+
+			culture_noldor = "Eldandor"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 390 province_id = 117 province_id = 118 } }
+				}
+			}
+			capital = 117 # c_eglandor
+
+			c_eglandor = { # 117
+				color={ 0 156 160 }
+				color2={ 255 255 255 }
+
+				b_eglandor = {
+				}
+				b_eglandor_2 = {
+				}
+				b_eglandor_3 = {
+				}
+				b_eglandor_4 = {
+				}
+			}
+            c_tharlonn = { #390
+				color={ 20 176 180 }
+				color2={ 255 255 255 }
+				b_tharlonn = {
+				}
+				b_tharlonn_2 = {
+				}
+				b_tharlonn_3 = {
+				}
+				b_tharlonn_4 = {
+				}
+            }
+
+			c_emyn_eglain = { # 118
+				color={ 0 136 140 }
+				color2={ 255 255 255 }
+
+				b_emyn_eglain = {
+				}
+				b_emyn_eglain_2 = {
+				}
+				b_emyn_eglain_3 = {
+				}
+				b_emyn_eglain_4 = {
+				}
+			}
+		}
+		d_forfalas = {
+			color={ 116 160 154 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Formalasse"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 394 province_id = 119 province_id = 120 province_id = 121 } }
+				}
+			}
+			capital = 119 # c_forfalas
+
+			c_forfalas = { # 119
+                color={ 126 170 164 }
+                color2={ 255 255 255 }
+
+				b_forfalas = {
+				}
+				b_forfalas_2 = {
+				}
+				b_forfalas_3 = {
+				}
+				b_forfalas_4 = {
+				}
+				b_forfalas_5 = {
+				}
+			}
+			c_miwbunn = { # 121
+                color={ 76 120 114 }
+                color2={ 255 255 255 }
+
+				b_miwbunn = {
+				}
+				b_miwbunn_2 = {
+				}
+				b_miwbunn_3 = {
+				}
+				b_miwbunn_4 = {
+				}
+				b_miwbunn_5 = {
+				}
+			}
+		}
+        d_uzlamazahar = {
+			color={ 116 60 54 }
+			color2={ 255 255 255 }
+
+            culture_nandor = "Rhugrôd"
+            culture_laegrim = "Rhugrôd"
+            culture_avari = "Rhugrôd"
+            culture_eglath = "Rhugrôd"
+            culture_egledhrim = "Rhugrôd"
+            culture_doriathrim = "Rhugrôd"
+            culture_falathrim = "Rhugrôd"
+            culture_mithrim = "Rhugrôd"
+            culture_golodhrim = "Rhugrôd"
+            culture_noldor = "Haenrot"
+
+			c_harost = { # 120
+                color={ 96 140 134 }
+                color2={ 255 255 255 }
+
+				b_harost = {
+				}
+				b_harost_2 = {
+				}
+				b_harost_3 = {
+				}
+				b_harost_4 = {
+				}
+			}
+            c_rhugrod = { #394
+                color={ 56 100 94 }
+                color2={ 255 255 255 }
+                b_rhugrod = {
+				}
+				b_rhugrod_2 = {
+				}
+				b_rhugrod_3 = {
+				}
+				b_rhugrod_4 = {
+				}
+				b_rhugrod_5 = {
+				}
+            }
+        }
+		d_harfalas = {
+			color={ 74 148 181 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Harmalasse"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 122 province_id = 123 province_id = 124 } }
+				}
+			}
+			capital = 123 # c_harfalas
+
+			c_annunland = { # 122
+				color={ 84 138 186 }
+				color2={ 255 255 255 }
+
+				b_annunland = {
+				}
+				b_annunland_2 = {
+				}
+				b_annunland_3 = {
+				}
+				b_annunland_4 = {
+				}
+			}
+			c_harfalas = { # 123
+				color={ 84 147 31 }
+				color2={ 255 255 255 }
+
+				b_harfalas = {
+				}
+				b_harfalas_2 = {
+				}
+				b_harfalas_3 = {
+				}
+				b_harfalas_4 = {
+				}
+				b_harfalas_5 = {
+				}
+			}
+			c_lond_gondolin = { # 124
+				color={ 42 66 53 }
+				color2={ 255 255 255 }
+
+				b_lond_gondolin = {
+				}
+				b_lond_gondolin_2 = {
+				}
+				b_lond_gondolin_3 = {
+				}
+				b_lond_gondolin_4 = {
+				}
+				b_lond_gondolin_5 = {
+				}
+			}
+		}
+	}
+	k_nargothrond = {
+		color={ 138 228 152 }
+		color2={ 255 255 255 }
+
+		capital = 216 # c_nargothrond
+		culture = culture_eglath
+
+		culture_firebeard = "Narkathan"
+		culture_petty_dwarves = "Nulukkhizdîn"
+		culture_longbeard = "Narkathan"
+		culture_broadbeam = "Narkathan"
+		culture_stonefoot = "Narkathan"
+		culture_blacklock = "Narkathan"
+		culture_ironfist = "Narkathan"
+		culture_stiffbeard = "Narkathan"
+
+        d_ivrin = {
+			color={ 94 26 216 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 396 province_id = 171 province_id = 172 province_id = 173 } }
+				}
+			}
+			capital = 171 # c_ivrin
+
+			culture_noldor = "Ivrineithil"
+			culture_eglath = "Eithel Ivrin"
+            culture_egledhrim = "Eithel Ivrin"
+			culture_doriathrim = "Eithel Ivrin"
+			culture_avari = "Eithel Ivrin"
+			culture_nandor = "Eithel Ivrin"
+			culture_mithrim = "Eithel Ivrin"
+            culture_golodhrim = "Eithel Ivrin"
+			culture_laegrim = "Eithel Ivrin"
+
+			c_glithui = { #396
+				color={ 84 36 211 }
+				color2={ 255 255 255 }
+
+				b_glithui = {
+				}
+				b_glithui_2 = {
+				}
+				b_glithui_3 = {
+				}
+			}
+			c_ivrin = { # 171
+				color={ 84 36 211 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_moriquendi
+
+				b_ivrin = {
+				}
+				b_ivrin_2 = {
+				}
+				b_ivrin_3 = {
+				}
+			}
+			c_rond_magor = { # 172
+
+				holy_site = religion_edain
+				holy_site = religion_druedain
+
+				color={ 168 42 212 }
+				color2={ 255 255 255 }
+
+				b_rond_magor = {
+				}
+				b_rond_magor_2 = {
+				}
+			}
+			c_tum_ivrin = { # 173
+				color={ 126 39 84 }
+				color2={ 255 255 255 }
+
+				b_tum_ivrin = {
+				}
+				b_tum_ivrin_2 = {
+				}
+				b_tum_ivrin_3 = {
+				}
+				b_tum_ivrin_4 = {
+				}
+			}
+		}
+
+		d_dor_cuarthol = {
+			color={ 158 208 162 }
+			color2={ 255 255 255 }
+			dignity = 1
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 208 province_id = 209 province_id = 210 province_id = 231 } }
+				}
+			}
+			capital = 208 # c_amon_rudh
+
+			culture_doriathrim = "Dor-Cúarthol"
+			culture_eglath = "Amon Rûdh"
+            culture_egledhrim = "Amon Rûdh"
+			culture_falathrim = "Amon Rûdh"
+			culture_mithrim = "Amon Rûdh"
+			culture_nandor = "Amon Rûdh"
+			culture_avari = "Amon Rûdh"
+			culture_laegrim = "Amon Rûdh"
+			culture_orkish = "Amon Rûdh"
+			culture_noldor = "Amun Rûdh"
+
+            c_tum_en_duirroe = { # 231
+				color={ 168 9 37 }
+				color2={ 255 255 255 }
+
+				b_tum_en_duirroe = {
+				}
+				b_tum_en_duirroe_2 = {
+				}
+				b_tum_en_duirroe_3 = {
+				}
+				b_tum_en_duirroe_4 = {
+				}
+				b_tum_en_duirroe_5 = {
+				}
+			}
+
+			c_amon_rudh = { # 208
+				color={ 168 198 167 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_mahal
+
+				b_amon_rudh = {
+				}
+				b_amon_rudh_2 = {
+				}
+				b_amon_rudh_3 = {
+				}
+				b_amon_rudh_4 = {
+				}
+				b_amon_rudh_5 = {
+				}
+				b_amon_rudh_6 = {
+				}
+				b_amon_rudh_7 = {
+				}
+			}
+			c_bar_en_nibin_noeg = { # 209
+				color={ 126 195 39 }
+				color2={ 255 255 255 }
+
+				b_bar_en_nibin_noeg = {
+				}
+				b_bar_en_nibin_noeg_2 = {
+				}
+				b_bar_en_nibin_noeg_3 = {
+				}
+				b_bar_en_nibin_noeg_4 = {
+				}
+				b_bar_en_nibin_noeg_5 = {
+				}
+				b_bar_en_nibin_noeg_6 = {
+				}
+			}
+			c_dor_cuarthol = { # 210
+				color={ 0 186 165 }
+				color2={ 255 255 255 }
+
+				short_name = yes
+				
+				b_dor_cuarthol = {
+				}
+				b_dor_cuarthol_2 = {
+				}
+				b_dor_cuarthol_3 = {
+				}
+				b_dor_cuarthol_4 = {
+				}
+			}
+		}
+        d_gaurwaithbardh = {
+            color={ 42 123 148 }
+            color2={ 255 255 255 }
+
+            allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 211 province_id = 212 province_id = 406 } }
+				}
+			}
+			capital = 211 # c_amon_rudh
+
+			c_gaurwaithbardh = { # 211
+				color={ 42 78 148 }
+				color2={ 255 255 255 }
+
+				b_gaurwaithbardh = {
+				}
+				b_gaurwaithbardh_2 = {
+				}
+				b_gaurwaithbardh_3 = {
+				}
+				b_gaurwaithbardh_4 = {
+				}
+				b_gaurwaithbardh_5 = {
+				}
+			}
+
+            c_methed_en_glad = { # 212
+				color={ 42 78 218 }
+				color2={ 255 255 255 }
+
+				b_methed_en_glad = {
+				}
+				b_methed_en_glad_2 = {
+				}
+				b_methed_en_glad_3 = {
+				}
+				b_methed_en_glad_4 = {
+				}
+				b_methed_en_glad_5 = {
+				}
+			}
+
+			c_holgwaith = {# 406
+				color={ 64 130 218 }
+				color2={ 255 255 255 }
+
+				b_holgwaith = {
+				}
+				b_holgwaith_2 = {
+				}
+				b_holgwaith_3 = {
+				}
+			}
+
+        }
+		d_faroth = {
+			color={ 52 5 43 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 213 province_id = 214 province_id = 215 } }
+				}
+			}
+			capital = 215 # c_taur_en_faroth
+
+			c_emyn_faroth = { # 213
+				color={ 42 15 38 }
+				color2={ 255 255 255 }
+
+				b_emyn_faroth = {
+				}
+				b_emyn_faroth_2 = {
+				}
+				b_emyn_faroth_3 = {
+				}
+				b_emyn_faroth_4 = {
+				}
+			}
+			c_high_faroth = { # 214
+				color={ 42 108 223 }
+				color2={ 255 255 255 }
+
+				b_high_faroth = {
+				}
+				b_high_faroth_2 = {
+				}
+				b_high_faroth_3 = {
+				}
+				b_high_faroth_4 = {
+				}
+				b_high_faroth_5 = {
+				}
+			}
+			c_taur_en_faroth = { # 215
+				color={ 42 93 93 }
+				color2={ 255 255 255 }
+
+				b_taur_en_faroth = {
+				}
+				b_taur_en_faroth_2 = {
+				}
+				b_taur_en_faroth_3 = {
+				}
+				b_taur_en_faroth_4 = {
+				}
+				b_taur_en_faroth_5 = {
+				}
+			}
+		}
+		d_nargothrond = {
+			color={ 158 112 217 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 216 }
+				}
+			}
+			capital = 216 # c_nargothrond
+
+			culture_firebeard = "Narkathan"
+			culture_petty_dwarves = "Nulukkhizdîn"
+			culture_longbeard = "Narkathan"
+			culture_broadbeam = "Narkathan"
+			culture_stonefoot = "Narkathan"
+			culture_blacklock = "Narkathan"
+			culture_ironfist = "Narkathan"
+			culture_stiffbeard = "Narkathan"
+
+            c_eithel_ringwil = { # 377
+				color={ 148 82 202 }
+				color2={ 255 255 255 }
+
+				b_eithel_ringwil = {
+				}
+				b_eithel_ringwil_2 = {
+				}
+				b_eithel_ringwil_3 = {
+				}
+            }
+
+			c_nargothrond = { # 216
+				color={ 168 102 222 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_eruhini
+
+				b_nargothrond = {
+				}
+				b_nargothrond_2 = {
+				}
+				b_nargothrond_3 = {
+				}
+				b_nargothrond_4 = {
+				}
+				b_nargothrond_5 = {
+				}
+				b_nargothrond_6 = {
+				}
+			}
+
+			c_lanthiriath = { # 367
+				color={ 188 122 242 }
+				color2={ 255 255 255 }
+
+				b_lanthiriath = {
+				}
+				b_lanthiriath_2 = {
+				}
+				b_lanthiriath_3 = {
+				}
+				b_lanthiriath_4 = {
+                }
+			}
+		}
+		d_nuath = {
+			color={ 178 59 52 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 217 province_id = 218 province_id = 219 province_id = 220 } }
+				}
+			}
+			capital = 220 # c_tofnuath
+
+			culture_noldor = "Nuhuinenna"
+
+			c_emyn_nuath = { # 218
+				color={ 168 60 52 }
+				color2={ 255 255 255 }
+
+				b_emyn_nuath = {
+				}
+				b_emyn_nuath_2 = {
+				}
+				b_emyn_nuath_3 = {
+				}
+			}
+			c_ornuath = { # 219
+				color={ 42 33 83 }
+				color2={ 255 255 255 }
+
+				b_ornuath = {
+				}
+				b_ornuath_2 = {
+				}
+				b_ornuath_3 = {
+				}
+			}
+			c_tofnuath = { # 220
+				color={ 0 63 180 }
+				color2={ 255 255 255 }
+
+				b_tofnuath = {
+				}
+				b_tofnuath_2 = {
+				}
+				b_tofnuath_3 = {
+				}
+			}
+		}
+		d_sereach = {
+			color={ 10 170 35 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 221 province_id = 222 province_id = 223 } }
+				}
+			}
+			capital = 223 # c_tol_sirion
+
+			culture_noldor = "Serech"
+			culture_orkish = "Tol-in-Gaurhoth"
+			culture_umaiar = "Tol-in-Gaurhoth"
+			culture_balrog = "Tol-in-Gaurhoth"
+			culture_valar = "Tol-in-Gaurhoth"
+
+			c_fen_of_sereach = { # 221
+				color={ 0 180 30 }
+				color2={ 255 255 255 }
+
+				b_fen_of_sereach = {
+				}
+				b_fen_of_sereach_2 = {
+				}
+				b_fen_of_sereach_3 = {
+				}
+			}
+			c_pass_of_sirion = { # 222
+				color={ 84 96 16 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_pass_of_sirion = {
+				}
+				b_pass_of_sirion_2 = {
+				}
+				b_pass_of_sirion_3 = {
+				}
+			}
+			c_tol_sirion = { # 223
+				color={ 168 72 12 }
+				color2={ 255 255 255 }
+
+				b_tol_sirion = {
+				}
+				b_tol_sirion_2 = {
+				}
+				b_tol_sirion_3 = {
+				}
+				b_tol_sirion_4 = {
+				}
+			}
+		}
+		d_talath_dirnen = {
+            color={ 42 204 168 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 388 province_id = 224 province_id = 225 province_id = 226 } }
+				}
+			}
+			capital = 224 # c_amon_ethir
+
+			culture_noldor = "Dalath Dirnen"
+
+            c_narogardh = { # 388
+				color={ 62 224 188 }
+				color2={ 255 255 255 }
+				b_narogardh = {
+				}
+				b_narogardh_2 = {
+				}
+				b_narogardh_3 = {
+				}
+            }
+
+			c_amon_ethir = { # 224
+				color={ 82 244 208 }
+				color2={ 255 255 255 }
+
+				b_amon_ethir = {
+				}
+				b_amon_ethir_2 = {
+				}
+				b_amon_ethir_3 = {
+				}
+			}
+			c_bar_erib = { # 225
+				color={ 22 184 148 }
+				color2={ 255 255 255 }
+
+				b_bar_erib = {
+				}
+				b_bar_erib_2 = {
+				}
+				b_bar_erib_3 = {
+				}
+			}
+			c_talath_dirnen = { # 226
+				color={ 42 204 168 }
+				color2={ 255 255 255 }
+
+				b_talath_dirnen = {
+				}
+				b_talath_dirnen_2 = {
+				}
+				b_talath_dirnen_3 = {
+				}
+			}
+		}
+		d_talath_i_sirion = {
+			color={ 94 23 46 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 227 province_id = 228 province_id = 229 } }
+				}
+			}
+			capital = 228 # c_plains_of_sirion
+
+			culture_noldor = "Palar Sirion"
+
+			c_dor_im_toer = { # 227
+				color={ 84 33 41 }
+				color2={ 255 255 255 }
+
+				b_dor_im_toer = {
+				}
+				b_dor_im_toer_2 = {
+				}
+				b_dor_im_toer_3 = {
+				}
+				b_dor_im_toer_4 = {
+				}
+				b_dor_im_toer_5 = {
+				}
+			}
+			c_plains_of_sirion = { # 228
+				color={ 0 27 40 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_plains_of_sirion = {
+				}
+				b_plains_of_sirion_2 = {
+				}
+				b_plains_of_sirion_3 = {
+				}
+				b_plains_of_sirion_4 = {
+				}
+				b_plains_of_sirion_5 = {
+				}
+			}
+			c_raw_narog = { # 229
+				color={ 168 24 167 }
+				color2={ 255 255 255 }
+
+				b_raw_narog = {
+				}
+				b_raw_narog_2 = {
+				}
+				b_raw_narog_3 = {
+				}
+				b_raw_narog_4 = {
+				}
+				b_raw_narog_5 = {
+				}
+			}
+		}
+		d_tumhalad = {
+			color={ 118 163 184 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 230 province_id = 217 province_id = 232 } }
+				}
+			}
+			capital = 232 # c_tumhalad
+
+			culture_noldor = "Tum-halad"
+
+            c_beleg_dun_falad = { # 217
+				color={ 168 69 47 }
+				color2={ 255 255 255 }
+
+				b_beleg_dun_falad = {
+				}
+				b_beleg_dun_falad_2= {
+				}
+				b_beleg_dun_falad_3 = {
+				}
+				b_beleg_dun_falad_4 = {
+				}
+				b_beleg_dun_falad_5 = {
+				}
+			}
+
+			c_ginglith = { # 230
+				color={ 128 153 189 }
+				color2={ 255 255 255 }
+
+				b_ginglith = {
+				}
+				b_ginglith_2 = {
+				}
+				b_ginglith_3 = {
+				}
+				b_ginglith_4 = {
+				}
+			}
+			c_tumhalad = { # 232
+				color={ 0 201 40 }
+				color2={ 255 255 255 }
+
+				b_tumhalad = {
+				}
+				b_tumhalad_2 = {
+				}
+				b_tumhalad_3 = {
+				}
+			}
+		}
+	}
+}
+e_eglador = {
+	color={ 124 71 166 }
+	color2={ 255 255 20 }
+
+	capital = 45 # c_menegroth
+	
+	religion = religion_moriquendi
+	culture = culture_doriathrim
+	
+	culture_noldor = "Dor Athro"
+	culture_egledhrim = "Dor Athro"
+	culture_golodhrim = "Dor Athro"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+	k_brethil = {
+		color={ 114 81 161 }
+		color2={ 255 255 255 }
+
+		capital = 34 # c_amon_obel
+		culture = culture_doriathrim
+
+		d_dimbar = {
+			color={ 10 80 20 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 383 province_id = 50 province_id = 51 province_id = 52 province_id = 53 } }
+				}
+			}
+			capital = 53 # c_hardimbar
+
+			c_crissaegrim = { # 50
+				color={ 0 90 15 }
+				color2={ 255 255 255 }
+				
+				holy_site = religion_perian #Placeholder
+				holy_site = religion_dunedain #Placeholder
+				holy_site = religion_numenorean #Placeholder
+				holy_site = religion_rhovanion #Placeholder
+				holy_site = religion_haldadian #Placeholder
+				holy_site = religion_ishmalogim #Placeholder
+				holy_site = religion_angmarim #Placeholder
+				holy_site = religion_nurning #Placeholder
+				holy_site = religion_southron #Placeholder
+				holy_site = religion_black_numenorean #Placeholder
+				holy_site = religion_uruk #Placeholder
+				holy_site = religion_wilderness #Placeholder
+
+				b_crissaegrim = {
+				}
+				b_crissaegrim_2 = {
+				}
+			}
+			c_dry_river = { # 51
+				color={ 126 6 164 }
+				color2={ 255 255 255 }
+
+				b_dry_river = {
+				}
+				b_dry_river_2 = {
+				}
+				b_dry_river_3 = {
+				}
+				b_dry_river_4 = {
+				}
+			}
+			c_fordimbar = { # 52
+				color={ 84 66 11 }
+				color2={ 255 255 255 }
+
+				b_fordimbar = {
+				}
+				b_fordimbar_2 = {
+				}
+				b_fordimbar_3 = {
+				}
+			}
+			c_hardimbar = { # 53
+				color={ 168 192 32 }
+				color2={ 255 255 255 }
+
+				b_hardimbar = {
+				}
+				b_hardimbar_2 = {
+				}
+				b_hardimbar_3 = {
+				}
+				b_hardimbar_4 = {
+				}
+			}
+		}
+
+		d_brithiac = { # Harniach
+			color={ 94 101 151 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 28 province_id = 29 province_id = 30 } }
+				}
+			}
+			capital = 28 # c_brithiac
+
+			c_brithiac = { # 28
+                color={ 84 91 141 }
+                color2={ 255 255 255 }
+
+				b_brithiac = {
+				}
+				b_brithiac_2 = {
+				}
+				b_brithiac_3 = {
+				}
+				b_brithiac_4 = {
+				}
+				b_brithiac_5 = {
+				}
+				b_brithiac_6 = {
+				}
+			}
+			c_northmarch = { # 29
+                color={ 134 151 191 }
+                color2={ 255 255 255 }
+
+				b_northmarch = {
+				}
+				b_northmarch_2 = {
+				}
+				b_northmarch_3 = {
+				}
+				b_northmarch_4 = {
+				}
+				b_northmarch_5 = {
+				}
+			}
+			c_tavrobel = { # 30
+                color={ 64 71 121 }
+                color2={ 255 255 255 }
+
+				b_tavrobel = {
+				}
+				b_tavrobel_2 = {
+				}
+				b_tavrobel_3 = {
+				}
+				b_tavrobel_4 = {
+				}
+				b_tavrobel_5 = {
+				}
+				b_tavrobel_6 = {
+				}
+			}
+		}
+		d_lithir_malduin = {
+			color={ 10 65 145 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 31 province_id = 32 province_id = 33 } }
+				}
+			}
+			capital = 31 # c_lithir
+
+			c_lithir = { # 31
+				color={ 0 75 140 }
+				color2={ 255 255 255 }
+
+				b_lithir = {
+				}
+				b_lithir_2 = {
+				}
+				b_lithir_3 = {
+				}
+				b_lithir_4 = {
+				}
+			}
+			c_malduin = { # 32
+				color={ 0 12 165 }
+				color2={ 255 255 255 }
+
+				b_malduin = {
+				}
+				b_malduin_2 = {
+				}
+				b_malduin_3 = {
+				}
+				b_malduin_4 = {
+				}
+			}
+			c_sir_cabed = { # 33
+				color={ 42 78 13 }
+				color2={ 255 255 255 }
+
+				b_sir_cabed = {
+				}
+				b_sir_cabed_2 = {
+				}
+				b_sir_cabed_3 = {
+				}
+				b_sir_cabed_4 = {
+				}
+			}
+		}
+        d_brethil = { # Brithiac
+			color={ 108 94 102 }
+			color2={ 255 255 255 }
+
+   			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 35 province_id = 38 province_id = 36 } }
+				}
+			}
+			capital = 35 # Britiac (c_brethil)
+
+        	c_brethil = { # 35
+				color={ 168 177 157 }
+				color2={ 255 255 255 }
+
+				b_brethil = {
+				}
+				b_brethil_2 = {
+				}
+				b_brethil_3 = {
+				}
+				b_brethil_4 = {
+				}
+			}
+            c_menathrad = { # 38
+				color={ 0 135 150 }
+				color2={ 255 255 255 }
+
+				b_menathrad = {
+				}
+				b_menathrad_2 = {
+				}
+				b_menathrad_3 = {
+				}
+			}
+			c_eithel_celebros = { # 36
+				color={ 126 159 154 }
+				color2={ 255 255 255 }
+
+				b_eithel_celebros = {
+				}
+				b_eithel_celebros_2 = {
+				}
+				b_eithel_celebros_3 = {
+				}
+			}
+        }
+		d_obel = {
+			color={ 158 94 172 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 34 province_id = 37 province_id = 391 } }
+				}
+			}
+			capital = 34 # c_amon_obel
+			culture_noldor = "Amun Obel"
+
+            c_angbor = { #391
+                color={ 114 121 171 }
+                color2={ 255 255 255 }
+
+				b_angbor = {
+				}
+				b_angbor_2 = {
+				}
+				b_angbor_3 = {
+				}
+            }
+
+			c_amon_obel = { # 34
+				color={ 168 84 177 }
+				color2={ 255 255 255 }
+
+				b_amon_obel = {
+				}
+				b_amon_obel_2 = {
+				}
+				b_amon_obel_3 = {
+				}
+			}
+
+			c_eryn_en_haladin = { # 37
+				color={ 84 141 151 }
+				color2={ 255 255 255 }
+
+				b_eryn_en_haladin = {
+				}
+				b_eryn_en_haladin_2 = {
+				}
+				b_eryn_en_haladin_3 = {
+				}
+				b_eryn_en_haladin_4 = {
+				}
+				b_eryn_en_haladin_5 = {
+				}
+			}
+		}
+		d_taeglin = {
+			color={ 116 124 219 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 39 province_id = 40 province_id = 41 province_id = 42 } }
+				}
+			}
+			capital = 39 # c_crossings_of_taeglin
+
+			culture_noldor = "Teiglin"
+
+			c_crossings_of_taeglin = { # 39
+				color={ 126 114 224 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				holy_site = religion_edain # Talbor, the stone of the hapless
+				holy_site = religion_druedain
+
+				b_crossings_of_taeglin = {
+				}
+				b_crossings_of_taeglin_2 = {
+				}
+				b_crossings_of_taeglin_3 = {
+				}
+			}
+			c_dimrost = { # 40
+				color={ 126 174 29 }
+				color2={ 255 255 255 }
+
+				b_dimrost = {
+				}
+				b_dimrost_2 = {
+				}
+				b_dimrost_3 = {
+				}
+			}
+			c_nen_girith = { # 41
+				color={ 0 165 155 }
+				color2={ 255 255 255 }
+
+				b_nen_girith = {
+				}
+				b_nen_girith_2 = {
+				}
+				b_nen_girith_3 = {
+				}
+			}
+			c_tur_haretha = { # 42
+				color={ 168 117 147 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_edain # Haleth's resting place
+				holy_site = religion_druedain
+
+				b_tur_haretha = {
+				}
+				b_tur_haretha_2 = {
+				}
+				b_tur_haretha_3 = {
+				}
+			}
+		}
+	}
+	k_doriath = {
+		color={ 150 150 170 }
+		color2={ 255 255 255 }
+
+		capital = 45 # c_menegroth
+		culture = culture_doriathrim
+
+		culture_noldor = "Lestanórë"
+
+		d_umboth_muilin = {
+			color={ 94 101 101 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 73 province_id = 74 province_id = 75 } }
+				}
+			}
+			capital = 73 # c_aelin_uial
+
+			culture_noldor = "Oelinuial"
+
+			c_aelin_uial = { # 73
+				color={ 84 111 96 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_moriquendi
+
+				b_aelin_uial = {
+				}
+				b_aelin_uial_2 = {
+				}
+				b_aelin_uial_3 = {
+				}
+				b_aelin_uial_4 = {
+				}
+				b_aelin_uial_5 = {
+				}
+			}
+			c_fens_of_sirion = { # 74
+				color={ 126 84 219 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_fens_of_sirion = {
+				}
+				b_fens_of_sirion_2 = {
+				}
+				b_fens_of_sirion_3 = {
+				}
+			}
+			c_gates_of_sirion = { # 75
+				color={ 84 81 91 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_gates_of_sirion = {
+				}
+				b_gates_of_sirion_2 = {
+				}
+				b_gates_of_sirion_3 = {
+				}
+			}
+		}
+
+		d_artanor = {
+			color={ 116 73 204 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 43 province_id = 44 province_id = 45 province_id = 46 } }
+				}
+			}
+			capital = 43 # c_menegroth
+
+			c_artanor = { # 43
+				color={ 126 63 209 }
+				color2={ 255 255 255 }
+
+				b_artanor = {
+				}
+				b_artanor_2 = {
+				}
+				b_artanor_3 = {
+				}
+				b_artanor_4 = {
+				}
+				b_artanor_5 = {
+				}
+			}
+			c_gur_doriath = { # 44
+				color={ 0 129 220 }
+				color2={ 255 255 255 }
+
+				b_gur_doriath = {
+				}
+				b_gur_doriath_2 = {
+				}
+				b_gur_doriath_3 = {
+				}
+				b_gur_doriath_4 = {
+				}
+				b_gur_doriath_5 = {
+				}
+			}
+			c_menegroth = { # 45
+				color={ 168 66 82 }
+				color2={ 255 255 255 }
+
+				b_menegroth = {
+				}
+				b_menegroth_2 = {
+				}
+				b_menegroth_3 = {
+				}
+				b_menegroth_4 = {
+				}
+				b_menegroth_5 = {
+				}
+				b_menegroth_6 = {
+				}
+			}
+			c_thargrod = { # 46
+				color={ 168 189 22 }
+				color2={ 255 255 255 }
+
+				b_thargrod = {
+				}
+				b_thargrod_2 = {
+				}
+				b_thargrod_3 = {
+				}
+				b_thargrod_4 = {
+				}
+			}
+		}
+		d_arthorien = {
+			color={ 136 68 89 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 47 province_id = 48 province_id = 49 } }
+				}
+			}
+			capital = 47 # c_arthorien
+
+			culture_noldor = "Garthúrian"
+
+			c_arthorien = { # 47
+				color={ 126 78 84 }
+				color2={ 255 255 255 }
+
+				b_arthorien = {
+				}
+				b_arthorien_2 = {
+				}
+				b_arthorien_3 = {
+				}
+				b_arthorien_4 = {
+				}
+			}
+			c_eglamar = { # 48
+				color={ 84 120 91 }
+				color2={ 255 255 255 }
+
+				b_eglamar = {
+				}
+				b_eglamar_2 = {
+				}
+				b_eglamar_3 = {
+				}
+			}
+			c_laegrimdor = { # 49
+				color={ 84 75 211 }
+				color2={ 255 255 255 }
+
+				b_laegrimdor = {
+				}
+				b_laegrimdor_2 = {
+				}
+				b_laegrimdor_3 = {
+				}
+				b_laegrimdor_4 = {
+				}
+			}
+		}
+		d_esgaliant = {
+			color={ 116 133 214 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 54 province_id = 55 province_id = 56 } }
+				}
+			}
+			capital = 56 # c_iant_iaur
+
+			c_falls_of_esgalduin = { # 54
+				color={ 126 123 219 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_falls_of_esgalduin = {
+				}
+				b_falls_of_esgalduin_2 = {
+				}
+				b_falls_of_esgalduin_3 = {
+				}
+			}
+			c_fords_of_aros = { # 55
+				color={ 42 72 83 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_fords_of_aros = {
+				}
+				b_fords_of_aros_2 = {
+				}
+				b_fords_of_aros_3 = {
+				}
+				b_fords_of_aros_4 = {
+				}
+			}
+			c_iant_iaur = { # 56
+				color={ 42 138 23 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_mahal # going with the interpretation that iant iaur was built by dwarves
+
+				b_iant_iaur = {
+				}
+				b_iant_iaur_2 = {
+				}
+				b_iant_iaur_3 = {
+				}
+				b_iant_iaur_4 = {
+				}
+			}
+		}
+		d_nan_elmoth = {
+			color={ 10 104 95 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 57 province_id = 58 province_id = 59 } }
+				}
+			}
+			capital = 58 # c_nan_elmoth
+
+			culture_noldor = "Nandë Elmoth"
+
+			c_east_march = { # 57
+				color={ 0 114 90 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_east_march = {
+				}
+				b_east_march_2 = {
+				}
+				b_east_march_3 = {
+				}
+				b_east_march_4 = {
+				}
+			}
+			c_nan_elmoth = { # 58
+				color={ 0 99 215 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_moriquendi
+
+				b_nan_elmoth = {
+				}
+				b_nan_elmoth_2 = {
+				}
+				b_nan_elmoth_3 = {
+				}
+				b_nan_elmoth_4 = {
+				}
+			}
+			c_radhrim = { # 59
+				color={ 42 117 218 }
+				color2={ 255 255 255 }
+
+				b_radhrim = {
+				}
+				b_radhrim_2 = {
+				}
+				b_radhrim_3 = {
+				}
+				b_radhrim_4 = {
+				}
+			}
+		}
+        d_mindeb = {
+            color={ 108 104 107 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 383 province_id = 60 province_id = 62 } }
+				}
+			}
+			capital = 60 # mindeb
+
+            c_sirthanc = { # 62
+				color={ 188 194 167 }
+				color2={ 255 255 255 }
+
+				b_sirthanc = {
+				}
+				b_sirthanc_2 = {
+				}
+				b_sirthanc_3 = {
+				}
+			}
+
+            c_forthanc = { #383
+				color={ 84 66 11 }
+				color2={ 255 255 255 }
+
+                b_forthanc = {
+                }
+                b_forthanc_2 = {
+                }
+                b_forthanc_3 = {
+                }
+            }
+
+			c_mindeb = { # 60
+				color={ 148 154 127 }
+				color2={ 255 255 255 }
+
+				b_mindeb = {
+				}
+				b_mindeb_2 = {
+				}
+				b_mindeb_3 = {
+				}
+				b_mindeb_4 = {
+				}
+				b_mindeb_5 = {
+				}
+			}
+        }
+		d_neldoreth = {
+            color={ 168 174 147 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 382 province_id = 61 province_id = 63 province_id = 64 } }
+				}
+			}
+			capital = 64 # c_taur_na_neldor
+
+            c_pherenost = { #382
+				color={ 128 134 107 }
+				color2={ 255 255 255 }
+
+                b_pherenost = {
+				}
+				b_pherenost_2 = {
+				}
+				b_pherenost_3 = {
+				}
+				b_pherenost_4 = {
+				}
+				b_pherenost_5 = {
+				}
+            }
+			c_neldoreth = { # 61
+				color={ 208 214 187 }
+				color2={ 255 255 255 }
+
+				b_neldoreth = {
+				}
+				b_neldoreth_2 = {
+				}
+				b_neldoreth_3 = {
+				}
+				b_neldoreth_4 = {
+				}
+                b_neldoreth_5 = {
+                }
+			}
+			c_taur_na_guruthos = { # 63
+				color={ 108 114 87 }
+				color2={ 255 255 255 }
+
+				b_taur_na_guruthos = {
+				}
+				b_taur_na_guruthos_2 = {
+				}
+			}
+			c_taur_na_neldor = { # 64
+				color={ 168 174 147 }
+				color2={ 255 255 255 }
+
+				b_taur_na_neldor = {
+				}
+				b_taur_na_neldor_2 = {
+				}
+				b_taur_na_neldor_3 = {
+				}
+				b_taur_na_neldor_4 = {
+				}
+			}
+		}
+		d_nivrim = {
+				color={ 44 110 56 }
+				color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 65 province_id = 66 province_id = 67 } }
+				}
+			}
+			capital = 67 # c_tharnivrim
+
+			c_andiath = { # 65
+				color={ 84 150 96 }
+				color2={ 255 255 255 }
+
+				b_andiath = {
+				}
+				b_andiath_2 = {
+				}
+				b_andiath_3 = {
+				}
+			}
+			c_nivrim = { # 66
+				color={ 104 170 116 }
+				color2={ 255 255 255 }
+
+				b_nivrim = {
+				}
+				b_nivrim_2 = {
+				}
+				b_nivrim_3 = {
+				}
+			}
+			c_tharnivrim = { # 67
+				color={ 44 110 56 }
+				color2={ 255 255 255 }
+
+				b_tharnivrim = {
+				}
+				b_tharnivrim_2 = {
+				}
+				b_tharnivrim_3 = {
+				}
+				b_tharnivrim_4 = {
+				}
+			}
+		}
+		d_region = {
+            color={ 168 51 207 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = {  province_id = 386 province_id = 68 province_id = 69 province_id = 70 province_id = 71 province_id = 72 } }
+				}
+			}
+			capital = 68 # c_fuir_region
+
+			culture_eglath = "Eregion"
+            culture_egledhrim = "Eregion"
+			culture_avari = "Eregion"
+			culture_mithrim = "Eregion"
+            culture_golodhrim = "Eregion"
+			culture_laegrim = "Eregion"
+
+            c_hollin = { # 386
+                color={ 148 31 187 }
+				color2={ 255 255 255 }
+                b_hollin = {
+                }
+                b_hollin_2 = {
+                }
+                b_hollin_3 = {
+                }
+                b_hollin_4 = {
+                }
+                b_hollin_5 = {
+                }
+            }
+
+			c_fuir_region = { # 68
+				color={ 168 51 207 }
+				color2={ 255 255 255 }
+
+				b_fuir_region = {
+				}
+				b_fuir_region_2 = {
+				}
+				b_fuir_region_3 = {
+				}
+				b_fuir_region_4 = {
+				}
+				b_fuir_region_5 = {
+				}
+			}
+			c_garthurian = { # 69
+                color={ 128 11 167 }
+				color2={ 255 255 255 }
+
+				b_garthurian = {
+				}
+				b_garthurian_2 = {
+				}
+				b_garthurian_3 = {
+				}
+				b_garthurian_4 = {
+				}
+			}
+			c_harn_region = { # 70
+                color={ 188 71 227 }
+				color2={ 255 255 255 }
+
+				b_harn_region = {
+				}
+				b_harn_region_2 = {
+				}
+				b_harn_region_3 = {
+				}
+				b_harn_region_4 = {
+				}
+			}
+			c_region = { # 71
+                color={ 228 111 255 }
+				color2={ 255 255 255 }
+
+				b_region = {
+				}
+				b_region_2 = {
+				}
+				b_region_3 = {
+				}
+				b_region_4 = {
+				}
+			}
+			c_taur_aros = { # 72
+                color={ 208 91 247 }
+				color2={ 255 255 255 }
+
+				b_taur_aros = {
+				}
+				b_taur_aros_2 = {
+				}
+				b_taur_aros_3 = {
+				}
+				b_taur_aros_4 = {
+				}
+				b_taur_aros_5 = {
+				}
+			}
+		}
+	}
+}
+e_harn_baland = {
+	color={ 128 205 177 }
+	color2={ 255 255 20 }
+
+	capital = 126 # c_dolmed
+	culture = culture_longbeard
+
+	culture_nandor = "Ered Luin"
+	culture_laegrim = "Ered Luin"
+	culture_avari = "Ered Luin"
+	culture_eglath = "Ered Luin"
+    culture_egledhrim = "Ered Luin"
+	culture_doriathrim = "Ered Luin"
+	culture_falathrim = "Ered Luin"
+	culture_mithrim = "Ered Luin"
+    culture_golodhrim = "Ered Luin"
+	culture_noldor = "Lhúndirien"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+
+	k_gabilgathol = {
+		color={ 138 195 182 }
+		color2={ 255 255 255 }
+
+		capital = 125 # c_belegost
+		culture = culture_broadbeam
+
+		culture_nandor = "Balagosod"
+		culture_laegrim = "Balagosod"
+		culture_avari = "Balagosod"
+		culture_eglath = "Belegost"
+        culture_egledhrim = "Belegost"
+		culture_doriathrim = "Belegost"
+		culture_falathrim = "Belegost"
+		culture_mithrim = "Belegost"
+        culture_golodhrim = "Belegost"
+		culture_noldor = "Túrosto"
+
+		d_gabilgathol = {
+            color={ 128 125 157 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 125 }
+				}
+			}
+			capital = 125 # c_belegost
+
+			culture_nandor = "Balagosod"
+			culture_laegrim = "Balagosod"
+			culture_avari = "Balagosod"
+			culture_eglath = "Belegost"
+            culture_egledhrim = "Belegost"
+			culture_doriathrim = "Belegost"
+			culture_falathrim = "Belegost"
+			culture_mithrim = "Belegost"
+            culture_golodhrim = "Belegost"
+			culture_noldor = "Túrosto"
+
+			c_belegost = { # 125
+				color={ 148 145 177 }
+				color2={ 255 255 255 }
+
+				b_belegost = {
+				}
+				b_belegost_2 = {
+				}
+				b_belegost_3 = {
+				}
+				b_belegost_4 = {
+				}
+				b_belegost_5 = {
+				}
+				b_belegost_6 = {
+				}
+				b_belegost_7 = {
+				}
+			}
+
+        	c_lune = { # 266
+				color={ 168 165 197 }
+				color2={ 255 255 255 }
+
+				b_lune = {
+				}
+				b_lune_2 = {
+				}
+				b_lune_3 = {
+				}
+				b_lune_4 = {
+				}
+			}
+		}
+        d_shulukbund = { # Shulukbund
+        	color={ 58 75 92 }
+			color2={ 255 255 255 }
+
+            culture_nandor = "Nûlmid"
+            culture_laegrim = "Nûlmid"
+            culture_avari = "Nûlmid"
+            culture_eglath = "Dolmed"
+            culture_doriathrim = "Dolmed"
+            culture_falathrim = "Dolmed"
+            culture_mithrim = "Dolmed"
+            culture_golodhrim = "Dolmed"
+            culture_egledhrim = "Dolmed"
+            culture_noldor = "Nûlamistel"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 126 }
+				}
+			}
+			capital = 126 # c_dolmed
+
+        	c_dolmed = { # 126
+                color={ 158 175 192 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_mahal
+
+				b_dolmed = {
+				}
+				b_dolmed_2 = {
+				}
+				b_dolmed_3 = {
+				}
+				b_dolmed_4 = {
+				}
+				b_dolmed_5 = {
+				}
+				b_dolmed_6 = {
+				}
+			}
+            c_men_i_naugrim = { # 267
+                color={ 178 195 212 }
+                color2={ 255 255 255 }
+
+				b_men_i_naugrim = {
+				}
+				b_men_i_naugrim_2 = {
+				}
+				b_men_i_naugrim_3 = {
+				}
+			}
+        }
+        d_khazadbizar = {
+            color={ 126 177 199 }
+            color2={ 255 255 255 }
+
+            culture_nandor = "Nan-i-Naugrim"
+            culture_laegrim = "Nan-i-Naugrim"
+            culture_avari = "Nan-i-Naugrim"
+            culture_eglath = "Nan-i-Naugrim"
+            culture_egledhrim = "Nan-i-Naugrim"
+            culture_doriathrim = "Nan-i-Naugrim"
+            culture_falathrim = "Nan-i-Naugrim"
+            culture_mithrim = "Nan-i-Naugrim"
+            culture_golodhrim = "Nan-i-Naugrim"
+            culture_noldor = "Nanda Naukolieo"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 127 }
+				}
+			}
+			capital = 127 # c_nan_i_naugrim
+
+			c_nan_i_naugrim = { # 127
+				color={ 126 177 199 }
+				color2={ 255 255 255 }
+
+				b_nan_i_naugrim = {
+				}
+				b_nan_i_naugrim_2 = {
+				}
+				b_nan_i_naugrim_3 = {
+				}
+				b_nan_i_naugrim_4 = {
+				}
+				b_nan_i_naugrim_5 = {
+				}
+				b_nan_i_naugrim_6 = {
+				}
+			}
+
+            c_edennogrod = { # 401
+				b_edennogrod = {
+				}
+				b_edennogrod_2 = {
+				}
+				b_edennogrod_3 = {
+				}
+				b_edennogrod_4 = {
+				}
+				b_edennogrod_5 = {
+				}
+            }
+        }
+	}
+	k_tumunzahar = {
+		color={ 200 1 3 }
+		color2={ 255 255 255 }
+
+		capital = 268 # c_nogrod
+		culture = culture_longbeard
+
+		culture_nandor = "Mbar-kold"
+		culture_laegrim = "Mbar-kold"
+		culture_avari = "Mbar-kold"
+		culture_eglath = "Nogrod"
+        culture_egledhrim = "Nogrod"
+		culture_doriathrim = "Nogrod"
+		culture_falathrim = "Nogrod"
+		culture_mithrim = "Nogrod"
+        culture_golodhrim = "Nogrod"
+		culture_noldor = "Návarot"
+
+		d_tumunzahar = {
+            color={ 180 0 0 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 268 }
+				}
+			}
+			capital = 268 # Nogrod
+
+            culture_nandor = "Mbar-kold"
+            culture_laegrim = "Mbar-kold"
+            culture_avari = "Mbar-kold"
+			culture_eglath = "Nogrod"
+            culture_egledhrim = "Nogrod"
+			culture_doriathrim = "Nogrod"
+			culture_falathrim = "Nogrod"
+			culture_mithrim = "Nogrod"
+            culture_golodhrim = "Nogrod"
+			culture_noldor = "Návarot"
+
+
+            c_khalarazum = { # 400
+
+                holy_site = religion_mahal
+
+				b_khalarazum = {
+				}
+				b_khalarazum_2 = {
+				}
+				b_khalarazum_3 = {
+				}
+				b_khalarazum_4 = {
+				}
+            }
+
+			c_nogrod = { # 268
+                color={ 200 1 3 }
+                color2={ 255 255 255 }
+
+				b_nogrod = {
+				}
+				b_nogrod_2 = {
+				}
+				b_nogrod_3 = {
+				}
+				b_nogrod_4 = {
+				}
+				b_nogrod_5 = {
+				}
+				b_nogrod_6 = {
+				}
+				b_nogrod_7 = {
+				}
+			}
+		}
+        d_khazad_zahar = {
+			color={ 32 181 193 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { province_id = 404 }
+				}
+			}
+			capital = 404 # Nornhabar
+
+			culture_nandor = "Nornhabar"
+			culture_laegrim = "Nornhabar"
+			culture_avari = "Nornhabar"
+			culture_eglath = "Nornhabar"
+            culture_egledhrim = "Nornhabar"
+			culture_doriathrim = "Nornhabar"
+			culture_falathrim = "Nornhabar"
+			culture_mithrim = "Nornhabar"
+            culture_golodhrim = "Nornhabar"
+			culture_noldor = "Nornokhabma"
+
+			c_nornhabar = { # 404
+                color={ 32 181 193 }
+                color2={ 255 255 255 }
+
+				b_nornhabar = {
+				}
+				b_nornhabar_2 = {
+				}
+				b_nornhabar_3 = {
+				}
+				b_nornhabar_4 = {
+				}
+				b_nornhabar_5 = {
+				}
+			}
+
+			c_telenaug = { # 402
+				b_telenaug = {
+				}
+				b_telenaug_2 = {
+				}
+				b_telenaug_3 = {
+				}
+				b_telenaug_4 = {
+				}
+				b_telenaug_5 = {
+				}
+            }
+
+			c_harnauglim = { # 403
+                color={ 52 201 213 }
+                color2={ 255 255 255 }
+
+				b_harnauglim = {
+				}
+				b_harnauglim_2 = {
+				}
+				b_harnauglim_3 = {
+				}
+				b_harnauglim_4 = {
+				}
+			}
+        }
+	}
+}
+
+e_aryador = {
+    color = { 100 0 50 }
+    color2 = { 255 255 255 }
+
+    capital = 244 # c_taras
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+    k_nevrast = {
+		color={ 72 6 63 }
+		color2={ 255 255 255 }
+
+		capital = 244 # c_taras
+		culture = culture_eglath
+
+		culture_doriathrim = "Nivrost"
+
+		d_falasquil = {
+			color={ 52 26 53 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 393 province_id = 156 province_id = 233 province_id = 234 province_id = 235 } }
+				}
+			}
+			capital = 233 # c_falasquil
+
+			c_falasquil = { # 233
+				color={ 42 36 48 }
+				color2={ 255 255 255 }
+
+				b_falasquil = {
+				}
+				b_falasquil_2 = {
+				}
+				b_falasquil_3 = {
+				}
+				b_falasquil_4 = {
+				}
+			}
+			c_losgar = { # 234
+				color={ 126 180 164 }
+				color2={ 255 255 255 }
+
+				b_losgar = {
+				}
+				b_losgar_2 = {
+				}
+				b_losgar_3 = {
+				}
+			}
+            c_cirith_ninniach = { # 156
+				color={ 84 177 36 }
+				color2={ 255 255 255 }
+
+				b_cirith_ninniach = {
+				}
+				b_cirith_ninniach_2 = {
+				}
+			}
+			c_toll_glambr = { # 235
+				color={ 127 132 19 }
+				color2={ 255 255 255 }
+
+				b_toll_glambr = {
+				}
+				b_toll_glambr_2 = {
+				}
+			}
+            c_ilbranteloth = { #393
+            	color={ 127 132 19 }
+				color2={ 255 255 255 }
+
+				b_ilbranteloth = {
+				}
+				b_ilbranteloth_2 = {
+				}
+                b_ilbranteloth_3 = {
+				}
+                b_ilbranteloth_4 = {
+				}
+            }
+		}
+		d_forlinaewen = {
+			color={ 158 55 172 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 392 province_id = 236 province_id = 238 } }
+				}
+			}
+			capital = 236 # c_forlinaewen
+
+			c_forlinaewen = { # 236
+				color={ 168 45 177 }
+				color2={ 255 255 255 }
+
+				b_forlinaewen = {
+				}
+				b_forlinaewen_2 = {
+				}
+				b_forlinaewen_3 = {
+				}
+				b_forlinaewen_4 = {
+				}
+			}
+			c_nivrost = { # 238
+				color={ 84 54 51 }
+				color2={ 255 255 255 }
+
+				b_nivrost = {
+				}
+				b_nivrost_2 = {
+				}
+				b_nivrost_3 = {
+				}
+			}
+            c_aiwenor = { #392
+				color={ 84 54 51 }
+				color2={ 255 255 255 }
+
+				b_aiwenor = {
+				}
+				b_aiwenor_2 = {
+				}
+				b_aiwenor_3 = {
+				}
+				b_aiwenor_4 = {
+				}
+			}
+		}
+		d_harlinaewen = {
+			color={ 95 119 151 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 407 province_id = 239 province_id = 240 province_id = 241 } }
+				}
+			}
+			capital = 240 # c_harlinaewen
+
+			c_ered_wethrin = { # 239
+				color={ 85 129 146 }
+				color2={ 255 255 255 }
+
+				b_ered_wethrin = {
+				}
+				b_ered_wethrin_2 = {
+				}
+			}
+			c_harlinaewen = { # 240
+				color={ 84 39 176 }
+				color2={ 255 255 255 }
+
+				b_harlinaewen = {
+				}
+				b_harlinaewen_2 = {
+				}
+				b_harlinaewen_3 = {
+				}
+				b_harlinaewen_4 = {
+				}
+			}
+			c_marshes_of_nevrast = { # 241
+				color={ 126 57 179 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_marshes_of_nevrast = {
+				}
+				b_marshes_of_nevrast_2 = {
+				}
+				b_marshes_of_nevrast_3 = {
+				}
+			}
+            c_imladrain = { #407
+				color={ 126 72 54 }
+				color2={ 255 255 255 }
+
+				b_imladrain = {
+				}
+				b_imladrain_2 = {
+				}
+				b_imladrain_3 = {
+				}
+                b_imladrain_4 = {
+				}
+            }
+		}
+		d_lammoth = {
+			color={ 136 17 179 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 242 province_id = 243 } }
+				}
+			}
+			capital = 243 # c_lammoth
+
+			c_bay_of_tuor = { # 242
+				color={ 126 27 174 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_bay_of_tuor = {
+				}
+				b_bay_of_tuor_2 = {
+				}
+			}
+			c_lammoth = { # 243
+				color={ 42 189 38 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_umaiar
+				holy_site = religion_orkish
+				holy_site = religion_dragons
+				holy_site = religion_anach
+
+				b_lammoth = {
+				}
+				b_lammoth_2 = {
+				}
+			}
+		}
+		d_vinyamar = {
+			color={ 178 20 52 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 244 province_id = 245 province_id = 237 } }
+				}
+			}
+			capital = 244 # c_taras
+
+			culture_avari = "Taras"
+			culture_eglath = "Taras"
+			culture_doriathrim = "Taras"
+			culture_mithrim = "Taras"
+			culture_laegrim = "Taras"
+			culture_falathrim = "Taras"
+			culture_nandor = "Taras"
+
+			c_taras = { # 244
+				color={ 168 30 47 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_calaquendi
+
+				b_taras = {
+				}
+				b_taras_2 = {
+				}
+				b_taras_3 = {
+				}
+				b_taras_4 = {
+				}
+				b_taras_5 = {
+				}
+				b_taras_6 = {
+				}
+				b_taras_7 = {
+				}
+			}
+			c_nevrast = { # 237
+				color={ 0 33 175 }
+				color2={ 255 255 255 }
+
+				b_nevrast = {
+				}
+				b_nevrast_2 = {
+				}
+				b_nevrast_3 = {
+				}
+				b_nevrast_4 = {
+				}
+				b_nevrast_5 = {
+				}
+			}
+			c_taurcil = { # 245
+				color={ 126 72 54 }
+				color2={ 255 255 255 }
+
+				b_taurcil = {
+				}
+				b_taurcil_2 = {
+				}
+				b_taurcil_3 = {
+				}
+			}
+		}
+	}
+	k_hithlum = {
+		color={ 30 0 225 }
+		color2={ 255 255 255 }
+
+		capital = 146 # eithel sirion
+		
+		culture = culture_mithrim
+		culture_avari="Hithlu"
+		culture_laegrim="Hithlu"
+		culture_doriathrim="Hithlu"
+		culture_eglath="Hithlu"
+        culture_egledhrim = "Hithlu"
+		culture_nandor="Hithlu"
+		culture_maradin="Aryador"
+		culture_hadoran="Aryador"
+		culture_valar="Hísilómë"
+		culture_noldor="Hísilómë"
+
+		
+		d_darthir = {
+			color={ 10 20 215 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 138 province_id = 139 province_id = 140 } }
+				}
+			}
+			capital = 140 # c_nen_lalaith
+
+			c_adan_aradan = { # 138
+				color={ 0 30 210 }
+				color2={ 255 255 255 }
+
+				b_adan_aradan = {
+				}
+				b_adan_aradan_2 = {
+				}
+				b_adan_aradan_3 = {
+				}
+			}
+			c_amon_darthir = { # 139
+				color={ 0 45 85 }
+				color2={ 255 255 255 }
+
+				b_amon_darthir = {
+				}
+				b_amon_darthir_2 = {
+				}
+			}
+			c_nen_lalaith = { # 140
+				color={ 168 9 142 }
+				color2={ 255 255 255 }
+
+				b_nen_lalaith = {
+				}
+				b_nen_lalaith_2 = {
+				}
+				b_nen_lalaith_3 = {
+				}
+				b_nen_lalaith_4 = {
+				}
+			}
+		}
+		d_dor_lomin = {
+			color={ 10 68 60 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 141 province_id = 143 province_id = 144 province_id = 145 } }
+				}
+			}
+			capital = 143 # c_dor_lomin
+            dignity = 1
+
+            culture_noldor = "Lóminórë"
+			culture_avari="Dor Lómen"
+			culture_laegrim="Dor Lómen"
+			culture_doriathrim="Dor Lómen"
+			culture_eglath="Dor Lómen"
+            culture_egledhrim = "Dor Lómen"
+			culture_nandor="Dor Lómen"
+			culture_valar = "Lóminórë"
+
+			c_andrath = { # 141
+				color={ 0 78 55 }
+				color2={ 255 255 255 }
+
+				b_andrath = {
+				}
+				b_andrath_2 = {
+				}
+				b_andrath_3 = {
+				}
+				b_andrath_4 = {
+				}
+				b_andrath_5 = {
+				}
+			}
+			c_dor_lomin = { # 143
+				color={ 126 51 44 }
+				color2={ 255 255 255 }
+
+				b_dor_lomin = {
+				}
+				b_dor_lomin_2 = {
+				}
+				b_dor_lomin_3 = {
+				}
+				b_dor_lomin_4 = {
+				}
+				b_dor_lomin_5 = {
+				}
+			}
+			c_duven_taur = { # 144
+				color={ 0 147 60 }
+				color2={ 255 255 255 }
+
+				b_duven_taur = {
+				}
+				b_duven_taur_2 = {
+				}
+				b_duven_taur_3 = {
+				}
+				b_duven_taur_4 = {
+				}
+				b_duven_taur_5 = {
+				}
+			}
+			c_fuir_wethrin = { # 145
+				color={ 42 81 183 }
+				color2={ 255 255 255 }
+
+				b_fuir_wethrin = {
+				}
+				b_fuir_wethrin_2 = {
+				}
+				b_fuir_wethrin_3 = {
+				}
+				b_fuir_wethrin_4 = {
+				}
+				b_fuir_wethrin_5 = {
+				}
+			}
+		}
+		d_eithel_sirion = {
+			color={ 10 92 185 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 146 province_id = 147 province_id = 148 } }
+				}
+			}
+			capital = 146 # c_eithel_sirion
+
+			c_eithel_sirion = { # 146
+				color={ 0 102 180 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_easterlings
+
+				b_eithel_sirion = {
+				}
+				b_eithel_sirion_2 = {
+				}
+				b_eithel_sirion_3 = {
+				}
+				b_eithel_sirion_4 = {
+				}
+				b_eithel_sirion_5 = {
+				}
+			}
+			c_magors_watch = { # 147
+				color={ 42 105 53 }
+				color2={ 255 255 255 }
+
+				b_magors_watch = {
+				}
+				b_magors_watch_2 = {
+				}
+				b_magors_watch_3 = {
+				}
+				b_magors_watch_4 = {
+				}
+			}
+			c_taendol = { # 148
+				color={ 84 108 181 }
+				color2={ 255 255 255 }
+
+				b_taendol = {
+				}
+				b_taendol_2 = {
+				}
+				b_taendol_3 = {
+				}
+				b_taendol_4 = {
+				}
+			}
+		}
+		d_fingolfinardh = {
+			color={ 106 106 174 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 151 province_id = 152 province_id = 153 } }
+				}
+			}
+			capital = 153 # c_rond_fingolfin
+			culture_baradhrim = "Dor Fingolfin"
+			culture_valar = "Dor Fingolfin"
+			culture_umaiar = "Dor Fingolfin"
+            culture_golodhrim = "Dor Fingolfin"
+			culture_avari="Rhûndor"
+			culture_laegrim="Rhûndor"
+			culture_doriathrim="Rhûndor"
+			culture_eglath="Rhûndor"
+            culture_egledhrim="Rhûndor"
+			culture_nandor="Rhûndor"
+			culture_mithrim="Rhûndor"
+
+			c_echad_feanor = { # 151
+				color={ 126 96 179 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_calaquendi
+
+				b_echad_feanor = {
+				}
+				b_echad_feanor_2 = {
+				}
+				b_echad_feanor_3 = {
+				}
+				b_echad_feanor_4 = {
+				}
+			}
+			c_ost_in_arudan = { # 152
+				color={ 84 78 176 }
+				color2={ 255 255 255 }
+
+				b_ost_in_arudan = {
+				}
+				b_ost_in_arudan_2 = {
+				}
+				b_ost_in_arudan_3 = {
+				}
+			}
+			c_rond_fingolfin = { # 153
+				color={ 168 99 52 }
+				color2={ 255 255 255 }
+
+				b_rond_fingolfin = {
+				}
+				b_rond_fingolfin_2 = {
+				}
+				b_rond_fingolfin_3 = {
+				}
+				b_rond_fingolfin_4 = {
+				}
+			}
+		}
+		d_fingonardh = {
+			color={ 52 164 168 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 410 province_id = 142 province_id = 154 province_id = 155 province_id = 157 } }
+				}
+			}
+			culture_baradhrim="Dor Helvin"
+			culture_avari="Dor Helvin"
+			culture_laegrim="Dor Helvin"
+			culture_doriathrim="Dor Helvin"
+			culture_eglath="Dor Helvin"
+            culture_egledhrim="Dor Helvin"
+			culture_nandor="Dor Helvin"
+			culture_mithrim="Dor Helvin"
+            culture_golodhrim="Dor Helvin"
+			capital = 157 # c_dor_fingon
+
+            c_androth = { # 142
+				color={ 42 15 143 }
+				color2={ 255 255 255 }
+
+				b_androth = {
+				}
+				b_androth_2 = {
+				}
+				b_androth_3 = {
+				}
+				b_androth_4 = {
+				}
+			}
+
+            c_glanduin = { # 410
+				b_glanduin = {
+				}
+				b_glanduin_2 = {
+				}
+				b_glanduin_3 = {
+				}
+            }
+			c_aryador = { # 155
+				color={ 168 87 142 }
+				color2={ 255 255 255 }
+
+				b_aryador = {
+				}
+				b_aryador_2 = {
+				}
+				b_aryador_3 = {
+				}
+				b_aryador_4 = {
+				}
+			}
+			c_annon_in_gelydh = { # 154
+				color={ 42 174 163 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_calaquendi
+
+				b_annon_in_gelydh = {
+				}
+				b_annon_in_gelydh_2 = {
+				}
+				b_annon_in_gelydh_3 = {
+				}
+			}
+
+			c_dor_fingon = { # 157
+				color={ 42 129 28 }
+				color2={ 255 255 255 }
+
+				b_dor_fingon = {
+				}
+				b_dor_fingon_2 = {
+				}
+				b_dor_fingon_3 = {
+				}
+				b_dor_fingon_4 = {
+				}
+			}
+		}
+		d_forlum = {
+			color={ 52 53 143 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 158 province_id = 159 province_id = 160 } }
+				}
+			}
+			capital = 159 # c_forlum
+
+			c_emyn_edrain = { #158
+				color={ 42 63 138 }
+				color2={ 255 255 255 }
+
+				b_emyn_edrain = {
+				}
+				b_emyn_edrain_2 = {
+				}
+				b_emyn_edrain_3 = {
+				}
+			}
+			c_forlum = { # 159
+				color={ 84 81 141 }
+				color2={ 255 255 255 }
+
+				b_forlum = {
+				}
+				b_forlum_2 = {
+				}
+			}
+			c_ringimrath = { # 160
+				color={ 84 51 136 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_lossoth
+
+				b_ringimrath = {
+				}
+			}
+		}
+		d_formithrim = {
+			color={ 52 83 148 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 161 province_id = 162 province_id = 163 } }
+				}
+			}
+			capital = 162 # c_fornrast
+
+			culture_noldor = "Hísilómë"
+
+			c_eithem_mithrum = { # 161
+				color={ 42 93 143 }
+				color2={ 255 255 255 }
+
+				b_eithem_mithrum = {
+				}
+				b_eithem_mithrum_2 = {
+				}
+			}
+			c_fornrast = { # 162
+				color={ 0 207 70 }
+				color2={ 255 255 255 }
+
+				b_fornrast = {
+				}
+				b_fornrast_2 = {
+				}
+				b_fornrast_3 = {
+				}
+			}
+			c_nan_sindeldi = { # 163
+				color={ 126 84 14 }
+				color2={ 255 255 255 }
+
+				b_nan_sindeldi = {
+				}
+				b_nan_sindeldi_2 = {
+				}
+				b_nan_sindeldi_3 = {
+				}
+				b_nan_sindeldi_4 = {
+				}
+			}
+		}
+		d_harmithrum = {
+			color={ 10 77 55 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 164 province_id = 165 province_id = 166 } }
+				}
+			}
+			capital = 166 # c_mithrum
+
+			c_emyn_mithrum = { # 164
+				color={ 0 87 50 }
+				color2={ 255 255 255 }
+
+				b_emyn_mithrum = {
+				}
+				b_emyn_mithrum_2 = {
+				}
+				b_emyn_mithrum_3 = {
+				}
+				b_emyn_mithrum_4 = {
+				}
+			}
+			c_grey_plains = { # 165
+				color={ 42 90 178 }
+				color2={ 255 255 255 }
+
+				b_grey_plains = {
+				}
+				b_grey_plains_2 = {
+				}
+				b_grey_plains_3 = {
+				}
+				b_grey_plains_4 = {
+				}
+			}
+			c_mithrum = { # 166
+				color={ 84 93 51 }
+				color2={ 255 255 255 }
+
+				b_mithrum = {
+				}
+				b_mithrum_2 = {
+				}
+				b_mithrum_3 = {
+				}
+				b_mithrum_4 = {
+				}
+			}
+		}
+		d_harnlum = {
+			color={ 52 65 53 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 167 province_id = 168 province_id = 169 province_id = 170 } }
+				}
+			}
+			capital = 168 # c_harnlum
+
+			c_ered_lomin = { # 167
+				color={ 42 75 48 }
+				color2={ 255 255 255 }
+
+				b_ered_lomin = {
+				}
+				b_ered_lomin_2 = {
+				}
+			}
+			c_harnlum = { # 168
+				color={ 126 54 9 }
+				color2={ 255 255 255 }
+
+				b_harnlum = {
+				}
+				b_harnlum_2 = {
+				}
+			}
+			c_hisilome = { # 169
+				color={ 168 57 137 }
+				color2={ 255 255 255 }
+
+				b_hisilome = {
+				}
+				b_hisilome_2 = {
+				}
+			}
+			c_hithlu = { # 170
+				color={ 0 60 10 }
+				color2={ 255 255 255 }
+
+				b_hithlu = {
+				}
+				b_hithlu_2 = {
+				}
+			}
+		}
+	}
+}
+
+e_noldogwaith = { # TODO need a better name
+	color={ 82 249 153 }
+	color2={ 255 255 20 }
+
+	capital = 201 # himring
+	culture = culture_eglath
+
+	culture_noldor="Forostar"
+	culture_orkish = "Udûnain"
+	culture_umaiar = "Udûnain"
+	culture_balrog = "Udûnain"
+	culture_valar = "Udûnain"
+    culture_baradhrim = "Baradhrimdor"
+    culture_ulbandim = "Ubandimdor"
+	culture_helmivalmistajat = "Talven-Mâ"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+	k_forodwaith = { # land east of Angband and north of Lothlann. See http://merp.wikia.com/wiki/Category:Forochel
+
+        culture_noldor="Forostar"
+        culture_orkish = "Udûnain"
+        culture_umaiar = "Udûnain"
+        culture_balrog = "Udûnain"
+        culture_valar = "Udûnain"
+        culture_baradhrim = "Barl Syrnac"
+        culture_ulbandim = "Barl Syrnac"
+        culture_lossoth = "Talven-Mâ"
+        culture_helmivalmistajat = "Talven-Mâ"
+		
+		culture_longbeard = "The Akgundîm"
+		culture_firebeard = "The Akgundîm"
+		culture_broadbeam = "The Akgundîm"
+		culture_petty_dwarves = "The Akgundîm"
+		culture_blacklock = "The Akgundîm"
+		culture_stiffbeard = "The Akgundîm"
+		culture_ironfist = "The Akgundîm"
+
+        color={ 102 255 173 }
+		color2={ 255 255 20 }
+
+		capital = 420 # Lugku
+		culture = culture_hwendim
+
+
+        d_ered_rhivamar = { # Ered Rhivamar
+
+			color={ 122 235 153 }
+			color2={ 255 255 20 }
+		
+            culture_lossoth = "Norsu-Mâ"
+            culture_helmivalmistajat = "Norsu-Mâ"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 417 province_id = 418 province_id = 419 } }
+				}
+			}
+			capital = 417 # Lugongushar
+			
+            c_lugongushar = { # 417
+                # orkish mountain hold / iron mine (has underdeep)
+
+				color={ 122 235 103 }
+				color2={ 255 255 20 }
+				
+                b_lugongushar = {
+                }
+                b_lugongushar_2 = {
+                }
+                b_lugongushar_3 = {
+                }
+                b_lugongushar_4 = {
+                }
+                b_lugongushar_5 = {
+                }
+                b_lugongushar_6 = {
+                }
+            }
+
+            c_gonardh = { # 418
+
+				color={ 122 235 200 }
+				color2={ 255 255 20 }
+				
+                b_gonardh = {
+                }
+                b_gonardh_2 = {
+                }
+                b_gonardh_3 = {
+                }
+            }
+
+            c_cheldolath = { # 419
+
+				color={ 122 225 180 }
+				color2={ 255 255 20 }
+				
+                b_cheldolath = {
+                }
+                b_cheldolath_2 = {
+                }
+            }
+        }
+
+
+        d_ered_umarth = {
+
+			color={ 102 255 123 }
+			color2={ 255 255 20 }
+		
+            culture_lossoth = "Tûli-Mâ"
+            culture_helmivalmistajat = "Tûli-Mâ"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 427 province_id = 420 province_id = 421 province_id = 422 province_id = 426 } }
+				}
+			}
+			capital = 420 # Lugku
+			
+            c_lugku = { #420
+                
+                # orkish mountain hold (has underdeep) Lugkû
+                
+				color={ 112 255 173 }
+				color2={ 255 255 20 }
+				
+                b_lugku = {
+                }
+                b_lugku_2 = {
+                }
+                b_lugku_3 = {
+                }
+                b_lugku_4 = {
+                }
+                b_lugku_5 = {
+                }
+            }
+
+            c_pendrath_iaur = { # 421
+                # Pendrath Iaur - northmost province (has underdeep), once an opening to Utumno
+
+				color={ 122 240 173 }
+				color2={ 255 255 20 }
+				
+                holy_site = religion_umaiar
+                holy_site = religion_orkish
+                holy_site = religion_dragons
+
+                b_pendrath_iaur = {
+                }
+                b_pendrath_iaur_2 = {
+                }
+            }
+
+            c_narthalf = { # 422
+
+				color={ 132 235 173 }
+				color2={ 255 255 20 }
+				
+                b_narthalf = {
+                }
+                b_narthalf_2 = {
+                }              
+            }
+
+            c_bariannen = { # 427
+
+				color={ 142 225 173 }
+				color2={ 255 255 20 }
+				
+                b_bariannen = {
+                }
+                b_bariannen_2 = {
+                }
+				b_bariannen_3 = {
+                }
+            }
+			
+			
+            c_nan_losnaeth = { # 426
+
+				color={ 152 215 173 }
+				color2={ 255 255 20 }
+				
+                b_nan_losnaeth = {
+                }
+                b_nan_losnaeth_2 = {
+                }
+                b_nan_losnaeth_3 = {
+                }
+            }
+        }
+
+
+        d_ered_muil = {
+
+			color={ 102 215 173 }
+			color2={ 255 255 20 }
+			
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 412 province_id = 425 province_id = 423 province_id = 196 } }
+				}
+			}
+			capital = 424 # Burzum-Doraz
+				
+            culture_lossoth = "Itä-Mâ"
+            culture_helmivalmistajat = "Itä-Mâ"
+
+            c_burzum_doraz = { # 424
+                #orkish mountain hold (has underdeep) Burzum-Doraz
+
+				color={ 102 215 163 }
+				color2={ 255 255 20 }
+				
+                b_burzum_doraz = {
+                }
+                b_burzum_doraz_2 = {
+                }
+                b_burzum_doraz_3 = {
+                }
+                b_burzum_doraz_4 = {
+                }
+            }
+
+			c_torogmar = { # 423
+            
+				color={ 102 205 153 }
+				color2={ 255 255 20 }
+				
+                b_torogmar = {
+                }
+                b_torogmar_2 = {
+                }
+            }
+			
+            c_aeglir_arvethed = { # 425
+
+				color={ 102 195 143 }
+				color2={ 255 255 20 }
+				
+                b_aeglir_arvethed = {
+                }
+                b_aeglir_arvethed_2 = {
+                }
+                b_aeglir_arvethed_3 = {
+                }
+            }
+			
+			c_forodwaith = { # 196
+                color={ 0 189 135 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_lossoth
+
+				b_forodwaith = {
+				}
+				b_forodwaith_2 = {
+				}
+			}
+        }
+
+        d_minui_edwyn_eryn = {
+            color={ 54 246 76 }
+            color2={ 255 255 255 }
+
+            culture_lossoth = "Hiisi-Mâ"
+            culture_helmivalmistajat = "Hiisi-Mâ"
+
+            allow = {
+                OR = {
+                    lower_tier_than = KING
+                    any_demesne_province = { OR = { province_id = 413 province_id = 428 province_id = 429 } }
+                }
+            }
+            capital = 428 # Burgûl-Iarn
+
+            c_burgul_iarn = { # 428
+                # orkish mountain hold (has underdeep) Burgûl-Iarn
+                
+				color={ 44 246 66 }
+				color2={ 255 255 255 }
+                
+                b_burgul_iarn = {
+                }
+                b_burgul_iarn_2 = {
+                }
+                b_burgul_iarn_3 = {
+                }
+                b_burgul_iarn_4 = {
+                }
+                b_burgul_iarn_5 = {
+                }
+                b_burgul_iarn_6 = {
+                }
+            }
+
+            c_minheldolath = { # 429
+                
+                color={ 40 245 56 }
+                color2={ 255 255 255 }
+                
+                b_minheldolath = {
+                }
+                b_minheldolath_2 = {
+                }
+                b_minheldolath_3 = {
+                }
+            }
+
+            c_minui_edwyn_eryn = { # 413
+
+                color={ 30 245 46 }
+                color2={ 255 255 255 }
+
+                b_minui_edwyn_eryn = {
+                }
+                b_minui_edwyn_eryn_2 = {
+                }
+                b_minui_edwyn_eryn_3 = {
+                }
+                b_minui_edwyn_eryn_4 = {
+                }
+            }
+        }
+    }
+
+	k_iron_mountains = {
+		color={ 102 255 173 }
+		color2={ 255 255 20 }
+
+		capital = 412 # Minui Annui Eryn
+		culture = culture_hwendim
+
+		short_name = yes
+
+		culture_noldor = "The Orodengri"
+		culture_mithrim = "The Ered Engrin"
+		culture_golodhrim = "The Ered Engrin"
+		culture_egledhrim = "The Ered Engrin"
+		culture_gondolindrim = "The Ered Engrin"
+		culture_orkish = "The Orodengri"
+		culture_umaiar = "The Orodengri"
+		culture_balrog = "The Orodengri"
+		culture_valar = "The Orodengri"
+		culture_baradhrim = "Azjan"
+		culture_ulbandim = "Azjan"
+        culture_lossoth = "Länsi-Mâ"
+		culture_helmivalmistajat = "Länsi-Mâ"
+		culture_longbeard = "The Akgundîm"
+		culture_firebeard = "The Akgundîm"
+		culture_broadbeam = "The Akgundîm"
+		culture_petty_dwarves = "The Akgundîm"
+		culture_blacklock = "The Akgundîm"
+		culture_stiffbeard = "The Akgundîm"
+		culture_ironfist = "The Akgundîm"
+
+		d_ered_engrin = { # TODO need a better name
+			color={ 94 246 76 }
+			color2={ 255 255 255 }
+
+            culture_orkish = "The Orodengri"
+            culture_umaiar = "The Orodengri"
+            culture_balrog = "The Orodengri"
+            culture_valar = "The Orodengri"
+
+            culture_lossoth = "Länsi-Mâ"
+            culture_helmivalmistajat = "Länsi-Mâ"
+
+            culture_longbeard = "The Akgundîm"
+            culture_firebeard = "The Akgundîm"
+            culture_broadbeam = "The Akgundîm"
+            culture_petty_dwarves = "The Akgundîm"
+            culture_blacklock = "The Akgundîm"
+            culture_stiffbeard = "The Akgundîm"
+            culture_ironfist = "The Akgundîm"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 149 province_id = 150 } }
+				}
+			}
+			capital = 149 # c_edrain_duath
+
+			c_edrain_duath = { # 149
+				color={ 84 0 71 }
+				color2={ 255 255 255 }
+
+				b_edrain_duath = {
+				}
+				b_edrain_duath_2 = {
+				}
+			}
+			c_ringeru = { # 150
+				color={ 42 210 198 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_lossoth
+				holy_site = religion_perian #Placeholder
+				holy_site = religion_dunedain #Placeholder
+				holy_site = religion_numenorean #Placeholder
+				holy_site = religion_rhovanion #Placeholder
+				holy_site = religion_haldadian #Placeholder
+				holy_site = religion_ishmalogim #Placeholder
+				holy_site = religion_angmarim #Placeholder
+				holy_site = religion_nurning #Placeholder
+				holy_site = religion_southron #Placeholder
+				holy_site = religion_black_numenorean #Placeholder
+				holy_site = religion_uruk #Placeholder
+				holy_site = religion_wilderness #Placeholder
+
+				b_ringeru = {
+				}
+				b_ringeru_2 = {
+				}
+			}
+		}
+
+        d_minui_annui_eryn = {
+			color={ 199 230 146 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 412 province_id = 414 province_id = 415 province_id = 416 } }
+				}
+			}
+			capital = 412 # Minui Annui Eryn
+
+            culture_lossoth = "Peikko-Mâ"
+            culture_helmivalmistajat = "Peikko-Mâ"
+
+            culture_orkish = ""
+            culture_umaiar = ""
+            culture_balrog = ""
+            culture_valar = ""
+
+            culture_longbeard = ""
+            culture_firebeard = ""
+            culture_broadbeam = ""
+            culture_petty_dwarves = ""
+            culture_blacklock = ""
+            culture_stiffbeard = ""
+            culture_ironfist = ""
+
+            c_minui_annui_eryn = { # 412
+                color={ 210 185 12 }
+                color2={ 255 255 255 }
+
+				b_minui_annui_eryn = {
+				}
+				b_minui_annui_eryn_2 = {
+				}
+				b_minui_annui_eryn_3 = {
+				}
+				b_minui_annui_eryn_4 = {
+				}
+			}
+			c_mundrasse = { # 414
+				color={ 199 230 146 }
+				color2={ 255 255 255 }
+
+				b_mundrasse = {
+				}
+				b_mundrasse_2 = {
+				}
+				b_mundrasse_3 = {
+				}
+				b_mundrasse_4 = {
+				}
+			}
+			c_tavar_ulca = { # 415
+				color={ 92 8 97 }
+				color2={ 255 255 255 }
+
+				b_tavar_ulca = {
+				}
+				b_tavar_ulca_2 = {
+				}
+				b_tavar_ulca_3 = {
+				}
+				b_tavar_ulca_4 = {
+				}
+			}
+			c_roquen_lipte = { # 416
+				color={ 126 77 8 }
+				color2={ 255 255 255 }
+
+				b_roquen_lipte = {
+				}
+				b_roquen_lipte_2 = {
+				}
+				b_roquen_lipte_3 = {
+				}
+			}
+		}
+	}
+	k_lothlann = {
+		color={ 114 150 16 }
+		color2={ 255 255 255 }
+
+		capital = 189 # c_amon_draug
+		culture = culture_lossoth
+
+		culture_noldor = "Losslatinê"
+		culture_avari="Lothlann-i-Tirithí"
+		culture_falathrim="Lothlann-i-Tirithí"
+		culture_laegrim="Lothlann-i-Tirithí"
+		culture_doriathrim="Lothlann-i-Tirithí"
+		culture_nandor="Lothlann-i-Tirithí"
+		culture_eglath="Lothlann-i-Tirithí"
+        culture_egledhrim="Lothlann-i-Tirithí"
+		culture_mithrim="Lothlann-i-Tirithí"
+        culture_golodhrim = "Lothlann-i-Tirithí"
+
+		d_forlothlann = {
+			color={ 94 170 6 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Forlhothlann"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 378 province_id = 189 province_id = 190 province_id = 191 } }
+				}
+			}
+			capital = 190 # c_bors_seat
+
+			c_amon_draug = { # 189
+                color={ 54 130 50 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_mahal
+				holy_site = religion_easterlings
+
+				b_amon_draug = {
+				}
+				b_amon_draug_2 = {
+				}
+				b_amon_draug_3 = {
+				}
+			}
+			c_bors_seat = { # 190
+                color={ 134 180 0 }
+                color2={ 255 255 255 }
+
+				b_bors_seat = {
+				}
+				b_bors_seat_2 = {
+				}
+				b_bors_seat_3 = {
+				}
+			}
+            c_lostladen = { # 378
+                color={ 104 120 36 }
+                color2={ 255 255 255 }
+
+				b_lostladen = {
+				}
+				b_lostladen_2 = {
+				}
+            }
+
+			c_forlothlann = { # 191
+                color={ 74 150 0 }
+                color2={ 255 255 255 }
+
+				b_forlothlann = {
+				}
+				b_forlothlann_2 = {
+				}
+				b_forlothlann_3 = {
+				}
+			}
+		}
+		d_harlothlann = {
+			color={ 178 176 7 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Harlhothlann"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 192 province_id = 193 province_id = 194 } }
+				}
+			}
+			capital = 194 # c_uldors_seat
+
+			c_harlothlann = { # 192
+				color={ 168 186 2 }
+				color2={ 255 255 255 }
+
+				b_harlothlann = {
+				}
+				b_harlothlann_2 = {
+				}
+				b_harlothlann_3 = {
+				}
+			}
+			c_lothlann = { # 193
+				color={ 168 201 132 }
+				color2={ 255 255 255 }
+
+				b_lothlann = {
+				}
+				b_lothlann_2 = {
+				}
+				b_lothlann_3 = {
+				}
+			}
+			c_uldors_seat = { # 194
+				color={ 126 0 134 }
+				color2={ 255 255 255 }
+
+				b_uldors_seat = {
+				}
+				b_uldors_seat_2 = {
+				}
+				b_uldors_seat_3 = {
+				}
+			}
+		}
+		d_lossoth = {
+			color={ 10 179 135 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 379 province_id = 195 province_id = 197 } }
+				}
+			}
+			capital = 195 # c_caranthirs_pass
+
+			c_caranthirs_pass = { # 195
+                color={ 80 189 145 }
+                color2={ 255 255 255 }
+
+				holy_site = religion_lossoth
+				holy_site = religion_easterlings
+
+				b_caranthirs_pass = {
+				}
+				b_caranthirs_pass_2 = {
+				}
+			}
+            c_dor_gwasgonin = { #379
+                color={ 0 209 155 }
+                color2={ 255 255 255 }
+
+				b_dor_gwasgonin = {
+				}
+				b_dor_gwasgonin_2 = {
+				}
+            }
+
+			c_lossotil = { # 197
+                color={ 50 139 95 }
+                color2={ 255 255 255 }
+
+				b_lossotil = {
+				}
+				b_lossotil_2 = {
+				}
+			}
+		}
+	}
+	k_march_of_maedhros = {
+		color={ 255 80 150 }
+		color2={ 255 255 255 }
+
+		capital = 201 # c_himring
+		culture = culture_eglath
+
+        short_name = yes
+
+		culture_avari="Ard-Galen"
+		culture_falathrim="Ard-Galen"
+		culture_laegrim="Ard-Galen"
+		culture_doriathrim="Ard-Galen"
+		culture_nandor="Ard-Galen"
+		culture_eglath="Ard-Galen"
+		culture_mithrim="Ard-Galen"
+		culture_orkish="Anfauglith"
+		culture_balrog="Anfauglith"
+		culture_lossoth="Ard-Galen"
+		culture_firebeard="Himring"
+		culture_stonefoot="Himring"
+        culture_broadbeam="Himring"
+        culture_longbeard="Himring"
+        culture_petty_dwarves="Himring"
+        culture_baradhrim="Himring"
+        culture_anach="Himring"
+        culture_ulbandim="Himring"
+		culture_valar="Anfauglith"
+		culture_umaiar = "Angfauglith"
+
+		d_ard_galen = {
+			color={ 136 29 139 }
+			color2={ 255 255 255 }
+
+			culture_orkish = "Angfauglith"
+			culture_umaiar = "Angfauglith"
+			culture_balrog = "Angfauglith"
+			culture_valar = "Angfauglith"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 198 province_id = 199 province_id = 200 } }
+				}
+			}
+			capital = 198 # c_anfauglith_rhunen
+
+			c_anfauglith_rhunen = { # 198
+				color={ 126 39 134 }
+				color2={ 255 255 255 }
+
+				b_anfauglith_rhunen = {
+				}
+				b_anfauglith_rhunen_2 = {
+				}
+			}
+			c_ard_galen = { # 199
+				color={ 0 45 135 }
+				color2={ 255 255 255 }
+
+                holy_site = religion_calaquendi # the site of many battles where noldor have been slain, also the hill of the slain itself
+
+				b_ard_galen = {
+				}
+				b_ard_galen_2 = {
+				}
+				b_ard_galen_3 = {
+				}
+			}
+			c_fangros = { # 200
+				color={ 168 42 7 }
+				color2={ 255 255 255 }
+				
+				holy_site = religion_perian #Placeholder
+				holy_site = religion_dunedain #Placeholder
+				holy_site = religion_numenorean #Placeholder
+				holy_site = religion_rhovanion #Placeholder
+				holy_site = religion_haldadian #Placeholder
+				holy_site = religion_ishmalogim #Placeholder
+				holy_site = religion_angmarim #Placeholder
+				holy_site = religion_nurning #Placeholder
+				holy_site = religion_southron #Placeholder
+				holy_site = religion_black_numenorean #Placeholder
+				holy_site = religion_uruk #Placeholder
+				holy_site = religion_wilderness #Placeholder
+
+				b_fangros = {
+				}
+				b_fangros_2 = {
+				}
+				b_fangros_3 = {
+				}
+			}
+		}
+
+        d_zirakbhund = {
+        	color={ 136 255 0 }
+			color2={ 255 255 255 }
+
+			culture_avari="Forered Luin"
+			culture_falathrim="Forered Luin"
+			culture_laegrim="Forered Luin"
+			culture_doriathrim="Forered Luin"
+			culture_nandor="Forered Luin"
+			culture_eglath="Forered Luin"
+			culture_mithrim="Forered Luin"
+			culture_orkish="Forered Luin"
+			culture_balrog="Forered Luin"
+			culture_baradhrim="Forered Luin"
+			culture_lossoth="Forered Luin"
+            culture_ulbandim="Forered Luin"
+			culture_noldor="Lhúnorodrim"
+
+            capital = 369
+
+            c_mallost = { #369
+                color={ 156 255 0 }
+                color2={ 255 255 255 }
+                b_mallost = {
+                }
+                b_mallost_2 = {
+                }
+                b_mallost_3 = {
+                }
+                b_mallost_4 = {
+                }
+                b_mallost_5 = {
+                }
+            }
+
+			c_lhunorodrim = { # 202
+                color={ 76 235 0 }
+                color2={ 255 255 255 }
+
+				b_lhunorodrim = {
+				}
+				b_lhunorodrim_2 = {
+				}
+				b_lhunorodrim_3 = {
+				}
+			}
+
+        }
+
+		d_maglors_gap = {
+			color={ 136 255 134 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 380 province_id = 369 province_id = 202 province_id = 203 province_id = 204 } }
+				}
+			}
+			capital = 203
+
+            c_eithel_i_nuin = { # 134
+                color={ 148 92 0 }
+                color2={ 255 255 255 }
+
+				b_amrodgarth = {
+				}
+				b_ost_i_nuin = {
+				}
+				b_marto_valar = {
+				}
+				b_amrasarta = {
+				}
+				b_tormen_minasse = {
+				}
+				b_gorthland = {
+				}
+			}
+
+            c_gelduin = { # 380
+                color={ 116 235 114 }
+                color2={ 255 255 255 }
+				b_gelduin = {
+				}
+				b_gelduin_2 = {
+				}
+				b_gelduin_3 = {
+				}
+            }
+
+			c_maglors_gap = { # 203
+                color={ 126 245 124 }
+                color2={ 255 255 255 }
+
+				b_maglors_gap = {
+				}
+				b_maglors_gap_2 = {
+				}
+				b_maglors_gap_3 = {
+				}
+			}
+			c_passes_of_maglor = { # 204
+                color={ 76 195 74 }
+                color2={ 255 255 255 }
+
+				b_passes_of_maglor = {
+				}
+				b_passes_of_maglor_2 = {
+				}
+			}
+		}
+		d_marches_of_maedhros = {
+			color={ 32 157 218 }
+			color2={ 255 255 255 }
+
+            short_name = yes
+
+			culture_avari="Himring"
+			culture_falathrim="Himring"
+			culture_laegrim="Himring"
+			culture_doriathrim="Himring"
+			culture_nandor="Himring"
+			culture_eglath="Himring"
+			culture_mithrim="Himring"
+			culture_orkish="Himring"
+			culture_balrog="Himring"
+			culture_baradhrim="Himring"
+			culture_valar="Himring"
+            culture_anach="Himring"
+            culture_lossoth="Himring"
+            culture_ulbandim="Himring"
+            culture_firebeard="Himring"
+            culture_stonefoot="Himring"
+            culture_broadbeam="Himring"
+            culture_longbeard="Himring"
+            culture_petty_dwarves="Himring"
+
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 205 province_id = 206 province_id = 207 } }
+				}
+			}
+			capital = 201 # c_himring
+
+			c_himring = { # 201
+				color={ 126 9 129 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_easterlings
+
+				b_himring = {
+				}
+				b_himring_2 = {
+				}
+				b_himring_3 = {
+				}
+				b_himring_4 = {
+				}
+			}
+
+			c_maedhros_hills = { # 205
+				color={ 42 147 223 }
+				color2={ 255 255 255 }
+
+				b_maedhros_hills = {
+				}
+				b_maedhros_hills_2 = {
+				}
+			}
+			c_maedros_march = { # 206
+				color={ 126 138 94 }
+				color2={ 255 255 255 }
+
+				b_maedros_march = {
+				}
+				b_maedros_march_2 = {
+				}
+			}
+			c_northern_marches = { # 207
+				color={ 126 48 79 }
+				color2={ 255 255 255 }
+
+                short_name = yes
+
+				b_northern_marches = {
+				}
+				b_northern_marches_2 = {
+				}
+			}
+		}
+	}
+}
+
+e_ossiriand = {
+	color={ 82 170 68 }
+	color2={ 255 255 20 }
+
+	capital = 182 # c_duilwen
+	culture = culture_nandor
+    culture_noldor="Otssiriande"
+	culture_golodhrim = "Lassiriand"
+	culture_longbeard = "Haded'ainîn"
+	culture_firebeard = "Haded'ainîn"
+	culture_petty_dwarves = "Haded'ainîn"
+	culture_broadbeam = "Haded'ainîn"
+	culture_stonefoot = "Haded'ainîn"
+	culture_blacklock = "Haded'ainîn"
+	culture_ironfist = "Haded'ainîn"
+	culture_stiffbeard = "Haded'ainîn"
+    culture_nandor = "Ossîrin"
+    culture_laegrim = "Ossîrin"
+    culture_avari = "Ossîrin"
+    culture_ulbandim = "Kainvuld"
+    culture_baradhrim = "Kainvuld"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+    k_thargelion = {
+		color={ 54 189 181 }
+		color2={ 255 255 255 }
+
+		capital = 263 # Helevorn
+		culture = culture_nandor
+
+        culture_ulbandim = "Kainvuld"
+        culture_baradhrim = "Kainvuld"
+		culture_doriathrim = "Radhrost"
+		culture_noldor = "Talath Rhúnen"
+        culture_longbeard = "Narag-zâram"
+        culture_firebeard = "Narag-zâram"
+        culture_petty_dwarves = "Narag-zâram"
+        culture_broadbeam = "Narag-zâram"
+        culture_stonefoot = "Narag-zâram"
+        culture_blacklock = "Narag-zâram"
+        culture_ironfist = "Narag-zâram"
+        culture_stiffbeard = "Narag-zâram"
+
+
+		d_forthargelion = {
+			color={ 74 169 191 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 256 province_id = 399 province_id = 257 province_id = 258 } }
+				}
+			}
+			capital = 256 # c_eithel_gelion
+
+			c_eithel_gelion = { # 256
+                color={ 114 209 231 }
+                color2={ 255 255 255 }
+
+				b_eithel_gelion = {
+				}
+				b_eithel_gelion_2 = {
+				}
+				b_eithel_gelion_3 = {
+				}
+			}
+			c_forthargelion = { # 257
+                color={ 94 189 211 }
+                color2={ 255 255 255 }
+
+				b_forthargelion = {
+				}
+				b_forthargelion_2 = {
+				}
+				b_forthargelion_3 = {
+				}
+				b_forthargelion_4 = {
+				}
+			}
+			c_talath_rhunen = { # 258
+                color={ 64 159 181 }
+                color2={ 255 255 255 }
+
+				b_talath_rhunen = {
+				}
+				b_talath_rhunen_2 = {
+				}
+				b_talath_rhunen_3 = {
+				}
+				b_talath_rhunen_4 = {
+				}
+			}
+
+            c_gwanim_taur= { #399
+                color={ 44 139 161 }
+                color2={ 255 255 255 }
+
+				b_gwanim_taur = {
+				}
+				b_gwanim_taur_2 = {
+				}
+				b_gwanim_taur_3 = {
+				}
+            }
+		}
+		d_harthargelion = {
+			color={ 94 83 11 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 259 province_id = 260 province_id = 261 } }
+				}
+			}
+			capital = 261 # c_vinyathrad
+
+			c_cerin_haleth = { # 259
+				color={ 84 93 6 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_edain
+				holy_site = religion_druedain
+
+				b_cerin_haleth = {
+				}
+				b_cerin_haleth_2 = {
+				}
+				b_cerin_haleth_3 = {
+				}
+			}
+			c_harthargelion = { # 260
+				color={ 43 138 183 }
+				color2={ 255 255 255 }
+
+				b_harthargelion = {
+				}
+				b_harthargelion_2 = {
+				}
+				b_harthargelion_3 = {
+				}
+			}
+			c_vinyathrad = { # 261
+				color={ 42 156 68 }
+				color2={ 255 255 255 }
+
+				b_vinyathrad = {
+				}
+				b_vinyathrad_2 = {
+				}
+				b_vinyathrad_3 = {
+				}
+			}
+		}
+		d_helevorn = {
+			color={ 136 98 94 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 262 province_id = 398 province_id = 263 province_id = 264 province_id = 265 } }
+				}
+			}
+			capital = 262 # c_dor_caranthir
+			culture_avari = "Helevorn"
+			culture_eglath = "Helevorn"
+			culture_doriathrim = "Helevorn"
+			culture_mithrim = "Helevorn"
+            culture_golodhrim = "Helevorn"
+			culture_laegrim = "Helevorn"
+			culture_falathrim = "Helevorn"
+			culture_nandor = "Helevorn"
+            culture_noldor = "Elivorn"
+			culture_longbeard = "Narag-zâram"
+			culture_firebeard = "Narag-zâram"
+			culture_petty_dwarves = "Narag-zâram"
+			culture_broadbeam = "Narag-zâram"
+			culture_stonefoot = "Narag-zâram"
+			culture_blacklock = "Narag-zâram"
+			culture_ironfist = "Narag-zâram"
+			culture_stiffbeard = "Narag-zâram"
+
+			c_dor_caranthir = { # 262
+                color={ 166 118 114 }
+                color2={ 255 255 255 }
+
+				b_dor_caranthir = {
+				}
+				b_dor_caranthir_2 = {
+				}
+				b_dor_caranthir_3 = {
+				}
+				b_dor_caranthir_4 = {
+				}
+			}
+            c_goriadlim = { # 398
+                color={ 146 108 104 }
+                color2={ 255 255 255 }
+				b_goriadlim = {
+				}
+				b_goriadlim_2 = {
+				}
+				b_goriadlim_3 = {
+				}
+				b_goriadlim_4 = {
+				}
+            }
+
+			c_helevorn = { # 263
+                color={ 126 88 84 }
+                color2={ 255 255 255 }
+
+				b_helevorn = {
+				}
+				b_helevorn_2 = {
+				}
+				b_helevorn_3 = {
+				}
+				b_helevorn_4 = {
+				}
+			}
+			c_ohtar = { # 264
+                color={ 96 58 54 }
+                color2={ 255 255 255 }
+
+				b_ohtar = {
+				}
+				b_ohtar_2 = {
+				}
+				b_ohtar_3 = {
+				}
+			}
+			c_rerir = { # 265
+                color={ 116 78 74 }
+                color2={ 255 255 255 }
+
+				b_rerir = {
+				}
+				b_rerir_2 = {
+				}
+				b_rerir_3 = {
+				}
+                b_rerir_4 = {
+				}
+                b_rerir_5 = {
+				}
+			}
+		}
+	}
+
+	k_ellinsire = { # Todo: give duchies more sindarin names.  The current avarin ones do not line up with the notion club archive's history.
+		color={ 72 180 63 }
+		color2={ 255 255 255 }
+
+		capital = 96 # c_alat_nortil
+		culture = culture_nandor
+		culture_longbeard = "Gabilân"
+		culture_firebeard = "Gabilân"
+		culture_petty_dwarves = "Gabilân"
+		culture_broadbeam = "Gabilân"
+		culture_stonefoot = "Gabilân"
+		culture_blacklock = "Gabilân"
+		culture_ironfist = "Gabilân"
+		culture_stiffbeard = "Gabilân"
+		culture_avari = "Avarindore"
+		culture_eglath = "Gelionan"
+		culture_doriathrim = "Gelionan"
+		culture_mithrim = "Gelionan"
+        culture_golodhrim = "Gelionan"
+		culture_laegrim = "Gelionand"
+		culture_falathrim = "Gelionan"
+		culture_nandor = "Gelionand"
+
+		d_avandor = {
+			color={ 52 200 53 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 88 province_id = 89 } }
+				}
+			}
+			capital = 88 # c_avandor
+
+			c_avandor = { # 88
+				color={ 42 210 48 }
+				color2={ 255 255 255 }
+
+				b_avandor = {
+				}
+				b_avandor_2 = {
+				}
+				b_avandor_3 = {
+				}
+			}
+			c_fornatumba = { # 89
+				color={ 84 0 176 }
+				color2={ 255 255 255 }
+
+				b_fornatumba = {
+				}
+				b_fornatumba_2 = {
+				}
+				b_fornatumba_3 = {
+				}
+			}
+		}
+		d_calensta = {
+			color={ 52 2 183 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 90 province_id = 91 } }
+				}
+			}
+			capital = 90 # c_calensta
+			culture_avari = "Windanbar-ndor"
+			culture_hwendim = "Windanbar-ndor"
+			culture_falathrim = "Windanbar-ndor"
+			culture_nandor = "Windanbar-ndor"
+			culture_eglath = "Windandor"
+			culture_doriathrim = "Windandor"
+			culture_mithrim = "Windandor"
+			culture_golodhrim = "Windandor"
+			culture_laegrim = "Windandor"
+
+			c_calensta = { # 90
+				color={ 42 12 178 }
+				color2={ 255 255 255 }
+
+				b_calensta = {
+				}
+				b_calensta_2 = {
+				}
+				b_calensta_3 = {
+				}
+				b_calensta_4 = {
+				}
+				b_calensta_5 = {
+				}
+			}
+			c_calensta_ambalar = { # 91
+				color={ 84 30 181 }
+				color2={ 255 255 255 }
+
+				b_calensta_ambalar = {
+				}
+				b_calensta_ambalar_2 = {
+				}
+				b_calensta_ambalar_3 = {
+				}
+			}
+		}
+		d_enwinanuine = {
+			color={ 116 211 169 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 92 province_id = 93 } }
+				}
+			}
+			capital = 92 # c_enwinanuine
+			culture_avari = "Pennimbar-ndor"
+			culture_hwendim = "Pennimbar-ndor"
+			culture_nandor = "Pennimbar-ndor"
+			culture_eglath = "Pendimdor"
+			culture_doriathrim = "Pendimdor"
+			culture_mithrim = "Pendimdor"
+			culture_golodhrim = "Pendimdor"
+			culture_laegrim = "Pendimdor"
+			culture_falathrim = "Pendimdor"
+
+			c_enwinanuine = { # 92
+				color={ 126 201 174 }
+				color2={ 255 255 255 }
+
+				b_enwinanuine = {
+				}
+				b_enwinanuine_2 = {
+				}
+				b_enwinanuine_3 = {
+				}
+				b_enwinanuine_4 = {
+				}
+			}
+			c_tanta_celu = { # 93
+				color={ 0 207 175 }
+				color2={ 255 255 255 }
+
+				b_tanta_celu = {
+				}
+				b_tanta_celu_2 = {
+				}
+				b_tanta_celu_3 = {
+				}
+				b_tanta_celu_4 = {
+				}
+			}
+		}
+		d_hiswatuna = {
+			color={ 158 214 42 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 94 province_id = 95 } }
+				}
+			}
+			capital = 94 # c_falin_malos
+			culture_avari = "Erlimbar-ndor"
+			culture_hwendim = "Erlimbar-ndor"
+			culture_nandor = "Erlimbar-ndor"
+			culture_eglath = "Erlindor"
+			culture_doriathrim = "Erlindor"
+			culture_mithrim = "Erlindor"
+			culture_golodhrim = "Erlindor"
+			culture_laegrim = "Erlindor"
+			culture_falathrim = "Erlindor"
+
+			c_falin_malos = { # 94
+				color={ 168 204 47 }
+				color2={ 255 255 255 }
+
+				b_falin_malos = {
+				}
+				b_falin_malos_2 = {
+				}
+				b_falin_malos_3 = {
+				}
+				b_falin_malos_4 = {
+				}
+			}
+			c_hiswatuna = { # 95
+				color={ 126 3 49 }
+				color2={ 255 255 255 }
+
+				b_hiswatuna = {
+				}
+				b_hiswatuna_2 = {
+				}
+				b_hiswatuna_3 = {
+				}
+			}
+		}
+		d_hyallondie = {
+			color={ 158 139 157 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 96 province_id = 97 province_id = 397 } }
+				}
+			}
+			capital = 96 # c_alat_nortil
+			culture_avari = "Hvettimbar-ndor"
+			culture_hwendim = "Hvettimbar-ndor"
+			culture_nandor = "Hvettimbar-ndor"
+			culture_eglath = "Hvettimdor"
+			culture_doriathrim = "Hvettimdor"
+			culture_mithrim = "Hvettimdor"
+			culture_golodhrim = "Hvettimdor"
+			culture_laegrim = "Hvettimdor"
+			culture_falathrim = "Hvettimdor"
+
+			c_alat_nortil = { # 96
+				color={ 168 129 162 }
+				color2={ 255 255 255 }
+
+				b_alat_nortil = {
+				}
+				b_alat_nortil_2 = {
+				}
+				b_alat_nortil_3 = {
+				}
+				b_alat_nortil_4 = {
+				}
+				b_alat_nortil_5 = {
+				}
+			}
+            c_ethir_gelion = { # 397
+				color={ 168 111 217 }
+				color2={ 255 255 255 }
+
+				b_ethir_gelion = {
+				}
+				b_ethir_gelion_2 = {
+				}
+				b_ethir_gelion_3 = {
+				}
+				b_ethir_gelion_4 = {
+				}
+			}
+			c_hallonnas = { # 97
+				color={ 168 111 217 }
+				color2={ 255 255 255 }
+
+				b_hallonnas = {
+				}
+				b_hallonnas_2 = {
+				}
+				b_hallonnas_3 = {
+				}
+				b_hallonnas_4 = {
+				}
+				b_hallonnas_5 = {
+				}
+			}
+		}
+		d_nunaluksor = {
+			color={ 178 252 182 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 98 province_id = 405 province_id = 99 } }
+				}
+			}
+			capital = 99 # c_nunaluksor
+			culture_avari = "Tauro Meldyrn"
+			culture_hwendim = "Tauro Meldyrn"
+			culture_nandor = "Tauro Meldyrn"
+			culture_eglath = "Taur-na-Chardhîn"
+			culture_doriathrim = "Taur-na-Chardhîn"
+			culture_mithrim = "Taur-na-Chardhîn"
+			culture_golodhrim = "Taur-na-Chardhîn"
+			culture_laegrim = "Taur-na-Chardhîn"
+			culture_falathrim = "Taur-na-Chardhîn"
+
+			c_nalda_imbe_siryat = { # 98
+				color={ 168 6 177 }
+				color2={ 255 255 255 }
+
+				b_nalda_imbe_siryat = {
+				}
+				b_nalda_imbe_siryat_2 = {
+				}
+				b_nalda_imbe_siryat_3 = {
+				}
+				b_nalda_imbe_siryat_4 = {
+				}
+			}
+            c_amon_elu = { # 405
+				b_amon_elu = {
+				}
+				b_amon_elu_2 = {
+				}
+				b_amon_elu_3 = {
+				}
+				b_amon_elu_4 = {
+				}
+            }
+			c_nunaluksor = { # 99
+				color={ 84 15 51 }
+				color2={ 255 255 255 }
+
+				b_nunaluksor = {
+				}
+				b_nunaluksor_2 = {
+				}
+				b_nunaluksor_3 = {
+				}
+				b_nunaluksor_4 = {
+				}
+				b_nunaluksor_5 = {
+				}
+			}
+		}
+	}
+	k_lindon = {
+		color={ 30 210 30 }
+		color2={ 255 255 255 }
+
+		capital = 182 # c_duilwen
+		culture = culture_laegrim
+
+		culture_noldor = "Lindónë"
+		culture_avari = "Lindana"
+		culture_hwendim = "Lindana"
+
+		culture_longbeard = "Zudnûakamâth"
+		culture_firebeard = "Zudnûakamâth"
+		culture_petty_dwarves = "Zudnûakamâth"
+		culture_broadbeam = "Zudnûakamâth"
+		culture_stonefoot = "Zudnûakamâth"
+		culture_blacklock = "Zudnûakamâth"
+		culture_ironfist = "Zudnûakamâth"
+		culture_stiffbeard = "Zudnûakamâth"
+
+
+		d_adurant = {
+			color={ 158 145 187 }
+			color2={ 255 255 255 }
+
+			culture_beodin = "Cuilwarthien"
+			
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 174 province_id = 175 province_id = 176 } }
+				}
+			}
+			capital = 174 # c_adurant
+
+			c_adurant = { # 174
+				color={ 168 135 192 }
+				color2={ 255 255 255 }
+
+				b_adurant = {
+				}
+				b_adurant_2 = {
+				}
+				b_adurant_3 = {
+				}
+				b_adurant_4 = {
+				}
+			}
+			c_dor_firn_i_guinar = { # 175
+				color={ 0 207 25 }
+				color2={ 255 255 255 }
+
+				b_dor_firn_i_guinar = {
+				}
+				b_dor_firn_i_guinar_2 = {
+				}
+				b_dor_firn_i_guinar_3 = {
+				}
+				b_dor_firn_i_guinar_4 = {
+				}
+			}
+			c_tol_galen = { # 176
+				color={ 168 93 77 }
+				color2={ 255 255 255 }
+
+                holy_site = religion_moriquendi
+
+				b_tol_galen = {
+				}
+				b_tol_galen_2 = {
+				}
+				b_tol_galen_3 = {
+				}
+			}
+		}
+		d_ascar = {
+			color={ 136 95 84 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 177 province_id = 178 } }
+				}
+			}
+			capital = 177 # c_ascar
+
+			c_ascar = { # 177
+				color={ 126 105 79 }
+				color2={ 255 255 255 }
+
+				b_ascar = {
+				}
+				b_ascar_2 = {
+				}
+				b_ascar_3 = {
+				}
+				b_ascar_4 = {
+				}
+			}
+			c_eithel_rathloriel = { # 178
+				color={ 84 114 61 }
+				color2={ 255 255 255 }
+
+				b_eithel_rathloriel = {
+				}
+				b_eithel_rathloriel_2 = {
+				}
+				b_eithel_rathloriel_3 = {
+				}
+				b_eithel_rathloriel_4 = {
+				}
+			}
+		}
+		d_brilthor = {
+			color={ 27 30 245 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 179 province_id = 180 province_id = 181 } }
+				}
+			}
+			capital = 179 # c_brilthor
+
+			c_brilthor = { # 179
+				color={ 17 40 240 }
+				color2={ 255 255 255 }
+
+				b_brilthor = {
+				}
+				b_brilthor_2 = {
+				}
+				b_brilthor_3 = {
+				}
+				b_brilthor_4 = {
+				}
+			}
+			c_enaid_brilthor = { # 180
+				color={ 168 63 17 }
+				color2={ 255 255 255 }
+
+				b_enaid_brilthor = {
+				}
+				b_enaid_brilthor_2 = {
+				}
+				b_enaid_brilthor_3 = {
+				}
+			}
+			c_taer_brilthor = { # 181
+				color={ 126 60 144 }
+				color2={ 255 255 255 }
+
+				b_taer_brilthor = {
+				}
+				b_taer_brilthor_2 = {
+				}
+				b_taer_brilthor_3 = {
+				}
+			}
+		}
+		d_duilwen = {
+			color={ 159 115 137 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 182 province_id = 183 province_id = 184 } }
+				}
+			}
+			capital = 182 # c_duilwen
+
+			c_duilwen = { # 182
+				color={ 169 105 142 }
+				color2={ 255 255 255 }
+
+				b_duilwen = {
+				}
+				b_duilwen_2 = {
+				}
+				b_duilwen_3 = {
+				}
+				b_duilwen_4 = {
+				}
+				b_duilwen_5 = {
+				}
+			}
+			c_galerant = { # 183
+				color={ 126 117 189 }
+				color2={ 255 255 255 }
+
+				b_galerant = {
+				}
+				b_galerant_2 = {
+				}
+				b_galerant_3 = {
+				}
+				b_galerant_4 = {
+				}
+			}
+			c_lanthir_lamath = { # 184
+				color={ 42 201 203 }
+				color2={ 255 255 255 }
+
+				b_lanthir_lamath = {
+				}
+				b_lanthir_lamath_2 = {
+				}
+				b_lanthir_lamath_3 = {
+				}
+			}
+		}
+		d_legolin = {
+			color={ 179 110 22 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 185 province_id = 186 } }
+				}
+			}
+			capital = 185 # c_legolin
+
+			c_legolin = { # 185
+				color={ 169 120 17 }
+				color2={ 255 255 255 }
+
+				b_legolin = {
+				}
+				b_legolin_2 = {
+				}
+				b_legolin_3 = {
+				}
+				b_legolin_4 = {
+				}
+			}
+			c_lindon = { # 186
+				color={ 84 57 16 }
+				color2={ 255 255 255 }
+
+				b_lindon = {
+				}
+				b_lindon_2 = {
+				}
+				b_lindon_3 = {
+				}
+				b_lindon_4 = {
+				}
+			}
+		}
+		d_thalos = {
+			color={ 158 220 72 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 187 province_id = 188 } }
+				}
+			}
+			capital = 188 # c_thalos
+
+			c_dor_beor = { # 187
+				color={ 168 210 77 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_edain
+				holy_site = religion_druedain
+
+				b_dor_beor = {
+				}
+				b_dor_beor_2 = {
+				}
+				b_dor_beor_3 = {
+				}
+			}
+			c_thalos = { # 188
+				color={ 42 99 78 }
+				color2={ 255 255 255 }
+
+				b_thalos = {
+				}
+				b_thalos_2 = {
+				}
+				b_thalos_3 = {
+				}
+				b_thalos_4 = {
+				}
+			}
+		}
+	}
+}
+e_runenbeleriand = {
+	color={ 124 5 226 }
+	color2={ 255 255 20 }
+
+	capital = 6 # c_andram_annun
+	culture = culture_eglath
+
+	culture_longbeard = "Zelemzudnu"
+	culture_firebeard = "Zelemzudnu"
+	culture_petty_dwarves = "Zelemzudnu"
+	culture_broadbeam = "Zelemzudnu"
+	culture_stonefoot = "Zelemzudnu"
+	culture_blacklock = "Zelemzudnu"
+	culture_ironfist = "Zelemzudnu"
+	culture_stiffbeard = "Zelemzudnu"
+
+	allow = {
+		primary_title = {
+			NAND = {
+				tier = emperor
+				is_primary_type_title = yes # if high kingdom is flagged with primary = yes, can't create other high kingdoms because AI will destroy the old one
+			}
+		}
+	}
+	
+	k_andram = {
+		color={ 114 15 221 }
+		color2={ 255 255 255 }
+
+		capital = 6 # c_andram_annun
+		culture = culture_eglath
+
+		d_andram = {
+			color={ 94 35 211 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 6 province_id = 7 province_id = 8 } }
+				}
+			}
+			capital = 6 # c_andram_annun
+
+			c_andram_annun = { # 6
+				color={ 84 45 206 }
+				color2={ 255 255 255 }
+
+				b_andram_annun = {
+				}
+				b_ost_aram = {
+				}
+				b_kenbel = {
+				}
+			}
+			c_andram_rhuven = { # 7
+				color={ 168 141 222 }
+				color2={ 255 255 255 }
+
+				b_andram_rhuven = {
+				}
+				b_shhe_themar = {
+				}
+				b_han_elunore = {
+				}
+				b_eralion = {
+				}
+				b_nilelsari = {
+				}
+			}
+			c_tauriath = { # 8
+				color={ 86 135 186 }
+				color2={ 255 255 255 }
+
+				b_tauriath = {
+				}
+				b_asysehone = {
+				}
+			}
+			c_penladen = { # 381
+                color={ 94 35 211 }
+                color2={ 255 255 255 }
+
+                b_penladen = {
+				}
+				b_penladen_2 = {
+				}
+				b_penladen_3 = {
+				}
+            }
+		}
+		d_daertelaith = {
+			color={ 52 185 28 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 376 province_id = 9 province_id = 10 } }
+				}
+			}
+			capital = 9 # c_talath_im_teliath
+
+			c_talath_im_teliath = { # 9
+				color={ 42 195 23 }
+				color2={ 255 255 255 }
+
+				b_talath_im_teliath = {
+				}
+				b_shren_caelora = {
+				}
+				b_ymalean = {
+				}
+			}
+			c_talath_or_andram = { # 10
+				color={ 0 192 150 }
+				color2={ 255 255 255 }
+
+				b_talath_or_andram = {
+				}
+				b_uyran_alora = {
+				}
+				b_umyenthas = {
+				}
+			}
+            c_forodram = { #376
+				color={ 22 155 0 }
+				color2={ 255 255 255 }
+
+                b_forodram = {
+                }
+                b_forodram_2 = {
+                }
+                b_forodram_3 = {
+                }
+            }
+		}
+		d_fornagelion = {
+			color={ 52 83 203 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Sarnathrod"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 11 province_id = 12 province_id = 13 } }
+				}
+			}
+			capital = 12 # c_sarn_athrad
+
+			c_belegraw_gelion = { # 11
+				color={ 42 93 198 }
+				color2={ 255 255 255 }
+
+				b_belegraw_gelion = {
+				}
+				b_emelrius = {
+				}
+				b_emyvanaes = {
+				}
+				b_isnelin = {
+				}
+			}
+			c_sarn_athrad = { # 12
+				color={ 126 33 204 }
+				color2={ 255 255 255 }
+
+				b_sarn_athrad = {
+				}
+				b_sarn_athrad_2 = {
+				}
+				b_sarn_athrad_3 = {
+				}
+			}
+			c_tharascar = { # 13
+				color={ 84 30 76 }
+				color2={ 255 255 255 }
+
+				b_tharascar = {
+				}
+				b_tharascar_2 = {
+				}
+				b_tharascar_3 = {
+				}
+				b_tharascar_4 = {
+				}
+			}
+		}
+		d_ramdal = {
+			color={ 178 26 82 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Rhamdal"
+			culture_longbeard = "Azsâlul'abad"
+			culture_firebeard = "Azsâlul'abad"
+			culture_petty_dwarves = "Azsâlul'abad"
+			culture_broadbeam = "Azsâlul'abad"
+			culture_stonefoot = "Azsâlul'abad"
+			culture_blacklock = "Azsâlul'abad"
+			culture_ironfist = "Azsâlul'abad"
+			culture_stiffbeard = "Azsâlul'abad"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = {  province_id = 375 province_id = 14 province_id = 15 province_id = 16 } }
+				}
+			}
+			capital = 14 # c_ereb
+
+			c_ereb = { # 14
+				color={ 168 36 77 }
+				color2={ 255 255 255 }
+
+				b_ereb = {
+				}
+				b_ereb_2 = {
+				}
+				b_ereb_3 = {
+				}
+				b_ereb_4 = {
+				}
+			}
+
+            c_calenia = { # 375
+				b_calenia = {
+				}
+				b_calenia_2 = {
+				}
+				b_calenia_3 = {
+				}
+            }
+
+			c_ramdal = { # 15
+				color={ 0 39 205 }
+				color2={ 255 255 255 }
+
+				b_ramdal = {
+				}
+				b_ramdal_2 = {
+				}
+				b_ramdal_3 = {
+				}
+				b_ramdal_4 = {
+				}
+			}
+			c_thorarhovan = { # 16
+				color={ 0 144 95 }
+				color2={ 255 255 255 }
+
+				b_thorarhovan = {
+				}
+				b_thorarhovan_2 = {
+				}
+				b_thorarhovan_3 = {
+				}
+			}
+		}
+	}
+	k_estolad = {
+		color={ 31 93 160 }
+		color2={ 255 255 255 }
+
+		capital = 106 # c_dor_halethrim
+		culture = culture_nandor
+
+		d_farestolad = {
+			color={ 11 113 150 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 100 province_id = 101 province_id = 102 province_id = 103 } }
+				}
+			}
+			culture_noldor = "Amrodardh"
+			capital = 101 # c_estolad
+
+			c_dor_i_celon = { # 100
+				color={ 1 123 145 }
+				color2={ 255 255 255 }
+				
+				holy_site = religion_perian #Placeholder
+				holy_site = religion_dunedain #Placeholder
+				holy_site = religion_numenorean #Placeholder
+				holy_site = religion_rhovanion #Placeholder
+				holy_site = religion_haldadian #Placeholder
+				holy_site = religion_ishmalogim #Placeholder
+				holy_site = religion_angmarim #Placeholder
+				holy_site = religion_nurning #Placeholder
+				holy_site = religion_southron #Placeholder
+				holy_site = religion_black_numenorean #Placeholder
+				holy_site = religion_uruk #Placeholder
+				holy_site = religion_wilderness #Placeholder
+
+				b_dor_i_celon = {
+				}
+				b_dor_i_celon_2 = {
+				}
+				b_dor_i_celon_3 = {
+				}
+			}
+			c_estolad = { # 101
+				color={ 127 117 144 }
+				color2={ 255 255 255 }
+
+				b_estolad = {
+				}
+				b_estolad_2 = {
+				}
+				b_estolad_3 = {
+				}
+				b_estolad_4 = {
+				}
+				b_estolad_5 = {
+				}
+			}
+			c_northern_ford = { # 102
+				color={ 84 45 161 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_easterlings
+
+                short_name = yes
+
+				b_northern_ford = {
+				}
+				b_northern_ford_2 = {
+				}
+				b_northern_ford_3 = {
+				}
+				b_northern_ford_4 = {
+				}
+			}
+			c_rhunestolad = { # 103
+				color={ 84 9 226 }
+				color2={ 255 255 255 }
+
+				b_rhunestolad = {
+				}
+				b_rhunestolad_2 = {
+				}
+				b_rhunestolad_3 = {
+				}
+				b_rhunestolad_4 = {
+				}
+			}
+		}
+		d_harestolad = {
+			color={ 94 246 31 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 104 province_id = 105 province_id = 106 province_id = 107 } }
+				}
+			}
+			capital = 106 # c_dor_halethrim
+			culture_noldor = "Amrasardh"
+
+			c_bar_baran = { # 104
+				color={ 84 0 26 }
+				color2={ 255 255 255 }
+
+				b_bar_baran = {
+				}
+				b_bar_baran_2 = {
+				}
+				b_bar_baran_3 = {
+				}
+				b_bar_baran_4 = {
+				}
+			}
+			c_bar_marach = { # 105
+				color={ 127 102 14 }
+				color2={ 255 255 255 }
+
+				b_bar_marach = {
+				}
+				b_bar_marach_2 = {
+				}
+				b_bar_marach_3 = {
+				}
+			}
+			c_dor_halethrim = { # 106
+				color={ 85 99 141 }
+				color2={ 255 255 255 }
+
+				b_dor_halethrim = {
+				}
+				b_dor_halethrim_2 = {
+				}
+				b_dor_halethrim_3 = {
+				}
+				b_dor_halethrim_4 = {
+				}
+				b_dor_halethrim_5 = {
+				}
+				b_dor_halethrim_6 = {
+				}
+			}
+			c_dunestolad = { # 107
+				color={ 126 48 34 }
+				color2={ 255 255 255 }
+
+				b_dunestolad = {
+				}
+				b_dunestolad_2 = {
+				}
+				b_dunestolad_3 = {
+				}
+				b_dunestolad_4 = {
+				}
+			}
+		}
+		d_talath_annui = {
+			color={ 95 29 136 }
+			color2={ 255 255 255 }
+
+			culture_noldor = "Numalatina"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 108 province_id = 109 province_id = 110 } }
+				}
+			}
+			capital = 108 # c_barad_annun
+
+			c_barad_annun = { # 108
+				color={ 85 39 131 }
+				color2={ 255 255 255 }
+
+				b_barad_annun = {
+				}
+				b_barad_annun_2 = {
+				}
+				b_barad_annun_3 = {
+				}
+				b_barad_annun_4 = {
+				}
+			}
+			c_edenathrad = { # 109
+				color={ 85 114 16 }
+				color2={ 255 255 255 }
+
+				b_edenathrad = {
+				}
+				b_edenathrad_2 = {
+				}
+				b_edenathrad_3 = {
+				}
+				b_edenathrad_4 = {
+				}
+			}
+			c_talath_or_ramdal = { # 110
+				color={ 84 198 151 }
+				color2={ 255 255 255 }
+
+				b_talath_or_ramdal = {
+				}
+				b_talath_or_ramdal_2 = {
+				}
+				b_talath_or_ramdal_3 = {
+				}
+				b_talath_or_ramdal_4 = {
+				}
+			}
+		}
+	}
+	k_siriombar = {
+		color={ 138 105 167 }
+		color2={ 255 255 255 }
+
+		capital = 249 # c_mouths_of_sirion
+		culture = culture_nandor
+
+		culture_falathrim = "Siriolonn"
+		culture_eglath = "Siriolonn"
+		culture_doriathrim = "Siriolonn"
+		culture_mithrim = "Siriolonn"
+        culture_golodhrim = "Siriolonn"
+		culture_noldor = "Siriolondë"
+
+		d_lond_sirion = {
+			color={ 158 85 177 }
+			color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 246 province_id = 247 province_id = 248 province_id = 249 } }
+				}
+			}
+			capital = 249 # c_mouths_of_sirion
+
+			c_arvernien_rhuven = { # 247
+				color={ 0 84 85 }
+				color2={ 255 255 255 }
+
+				b_arvernien_rhuven = {
+				}
+				b_arvernien_rhuven_2 = {
+				}
+				b_arvernien_rhuven_3 = {
+				}
+			}
+			c_lisgardh = { # 248
+				color={ 0 171 35 }
+				color2={ 255 255 255 }
+
+				b_lisgardh = {
+				}
+				b_lisgardh_2 = {
+				}
+				b_lisgardh_3 = {
+				}
+				b_lisgardh_4 = {
+				}
+			}
+			c_mouths_of_sirion = { # 249
+				color={ 168 87 92 }
+				color2={ 255 255 255 }
+
+				holy_site = religion_eruhini
+
+                short_name = yes
+
+				b_mouths_of_sirion = {
+				}
+				b_mouths_of_sirion_2 = {
+				}
+				b_mouths_of_sirion_3 = {
+				}
+				b_mouths_of_sirion_4 = {
+				}
+				b_mouths_of_sirion_5 = {
+				}
+				b_mouths_of_sirion_6 = {
+				}
+			}
+		}
+		d_nan_tathren = {
+            color={ 36 165 34 }
+            color2={ 255 255 255 }
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 250 province_id = 251 province_id = 252 province_id = 395 } }
+				}
+			}
+			capital = 250 # c_nan_tathren
+
+			culture_noldor = "Nan-Tasarion"
+			culture_egledhrim = "Nan-Tasarion"
+			culture_golodhrim = "Nan-Tasarion"
+
+            c_onodrimdor = { #395
+                color={ 66 225 64 }
+                color2={ 255 255 255 }
+				b_onodrimdor = {
+				}
+				b_onodrimdor_2 = {
+				}
+				b_onodrimdor_3 = {
+				}
+            }
+
+			c_nan_tathren = { # 250
+                color={ 46 175 44 }
+                color2={ 255 255 255 }
+				
+				holy_site = religion_perian #Placeholder
+				holy_site = religion_dunedain #Placeholder
+				holy_site = religion_numenorean #Placeholder
+				holy_site = religion_rhovanion #Placeholder
+				holy_site = religion_haldadian #Placeholder
+				holy_site = religion_ishmalogim #Placeholder
+				holy_site = religion_angmarim #Placeholder
+				holy_site = religion_nurning #Placeholder
+				holy_site = religion_southron #Placeholder
+				holy_site = religion_black_numenorean #Placeholder
+				holy_site = religion_uruk #Placeholder
+				holy_site = religion_wilderness #Placeholder
+
+				b_nan_tathren = {
+				}
+				b_nan_tathren_2 = {
+				}
+				b_nan_tathren_3 = {
+				}
+				b_nan_tathren_4 = {
+				}
+			}
+			c_rond_tuor = { # 251
+                color={ 16 145 14 }
+                color2={ 255 255 255 }
+
+				b_rond_tuor = {
+				}
+				b_rond_tuor_2 = {
+				}
+			}
+			c_tasarinan = { # 252
+                color={ 0 125 0 }
+                color2={ 255 255 255 }
+
+				b_tasarinan = {
+				}
+				b_tasarinan_2 = {
+				}
+				b_tasarinan_3 = {
+				}
+			}
+		}
+		d_siriombar = {
+			color={ 11 50 25 }
+			color2={ 255 255 255 }
+
+			culture_falathrim = "Siriolonn"
+			culture_eglath = "Siriolonn"
+			culture_doriathrim = "Siriolonn"
+			culture_mithrim = "Siriolonn"
+            culture_golodhrim = "Siriolonn"
+			culture_noldor = "Siriolondë"
+
+			allow = {
+				OR = {
+					lower_tier_than = KING
+					any_demesne_province = { OR = { province_id = 253 province_id = 254 province_id = 255 } }
+				}
+			}
+			capital = 255 # c_siriombar
+
+            c_arlisgion = { # 246
+				color={ 168 75 182 }
+				color2={ 255 255 255 }
+
+				b_arlisgion = {
+				}
+				b_arlisgion_2 = {
+				}
+				b_arlisgion_3 = {
+				}
+				b_arlisgion_4 = {
+				}
+			}
+
+			c_cu_nan_eilch = { # 253
+				color={ 1 60 20 }
+				color2={ 255 255 255 }
+
+				b_cu_nan_eilch = {
+				}
+				b_cu_nan_eilch_2 = {
+				}
+				b_cu_nan_eilch_3 = {
+				}
+				b_cu_nan_eilch_4 = {
+				}
+				b_cu_nan_eilch_5 = {
+				}
+			}
+			c_falad_ar_taur = { # 254
+				color={ 168 39 42 }
+				color2={ 255 255 255 }
+
+				b_falad_ar_taur = {
+				}
+				b_falad_ar_taur_2 = {
+				}
+			}
+			c_siriombar = { # 255
+				color={ 126 135 29 }
+				color2={ 255 255 255 }
+
+				b_siriombar = {
+				}
+				b_siriombar_2 = {
+				}
+				b_siriombar_3 = {
+				}
+				b_siriombar_4 = {
+				}
+			}
+		}
+	}
+}
+
+# Kingdoms with no de jure High Kingdom
+
+k_dorthonion = {
+	color={ 72 3 148 }
+	color2={ 255 255 255 }
+
+	capital = 85 # c_aegnorardh
+	culture = culture_eglath
+
+	culture_orkish = "Taur-nu-Fuin"
+	culture_umaiar = "Taur-nu-Fuin"
+	culture_valar = "Taur-nu-Fuin"
+	culture_balrog = "Taur-nu-Fuin"
+	culture_nandor = "Taur-na-Foen"
+	culture_laegrim = "Taur-na-Foen"
+	culture_avari = "Taur-na-Foen"
+	culture_hwendim = "Taur-na-Foen"
+
+	d_enaid_dorthonion = {
+		color={ 52 23 138 }
+		color2={ 255 255 255 }
+
+		culture_orkish = "Enaid Taur-nu-Fuin"
+		culture_umaiar = "Enaid Taur-nu-Fuin"
+		culture_valar = "Enaid Taur-nu-Fuin"
+		culture_balrog = "Enaid Taur-nu-Fuin"
+		culture_avari = "Palandorthonion"
+		culture_nandor="Palandorthonion"
+		culture_hwendim="Palandorthonion"
+		culture_doriathrim="Palandorthonion"
+		culture_eglath="Palandorthonion"
+		culture_laegrim="Palandorthonion"
+		culture_falathrim="Palandorthonion"
+		culture_noldor = "Dor Angrod"
+		culture_golodhrim = "Dor Angrod"
+		culture_egledhrim = "Dor Angrod"
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 371 province_id = 76 province_id = 77 province_id = 78 } }
+			}
+		}
+		capital = 86 # c_angrodardh
+
+		c_angrodardh = { # 86
+			color={ 126 24 4 }
+			color2={ 255 255 255 }
+
+			b_angrodardh = {
+			}
+			b_angrodardh_2 = {
+			}
+			b_angrodardh_3 = {
+			}
+			b_angrodardh_4 = {
+			}
+		}
+
+		c_dorthonian = { # 76, really taur na foen
+			color={ 42 33 133 }
+			color2={ 255 255 255 }
+
+			b_dorthonian = {
+			}
+			b_dorthonian_2 = {
+			}
+			b_dorthonian_3 = {
+			}
+			b_dorthonian_4 = {
+			}
+			b_dorthonian_5 = {
+			}
+		}
+		c_taur_na_foen = { # 371, really orod na thon
+			color={ 42 33 133 }
+			color2={ 255 255 255 }
+
+			b_taur_na_foen = {
+			}
+			b_taur_na_foen_2 = {
+			}
+			b_taur_na_foen_3 = {
+			}
+			b_taur_na_foen_4 = {
+			}
+		}
+		c_orod_na_thon = { # 78, really Foen
+			color={ 42 42 78 }
+			color2={ 255 255 255 }
+
+			holy_site = religion_anach
+
+			b_orod_na_thon = {
+			}
+			b_orod_na_thon_2 = {
+			}
+			b_orod_na_thon_3 = {
+			}
+		}
+	}
+	d_ladros = {
+		color={ 64 0 0 }
+		color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 373 province_id = 82 province_id = 83 province_id = 84 } }
+			}
+		}
+		capital = 84 # c_ladros
+
+		c_tardor = { # 373
+			color={ 104 26 21 }
+			color2={ 255 255 255 }
+
+			b_tardor = {
+			}
+			b_tardor_2 = {
+			}
+			b_tardor_3 = {
+			}
+		}
+
+		c_aeluin = { # 82
+			color={ 84 6 1 }
+			color2={ 255 255 255 }
+
+			holy_site = religion_moriquendi
+
+			b_aeluin = {
+			}
+			b_aeluin_2 = {
+			}
+			b_aeluin_3 = {
+			}
+			b_aeluin_4 = {
+			}
+		}
+		c_drun = { # 83
+			color={ 124 66 41 }
+			color2={ 255 255 255 }
+
+			b_drun = {
+			}
+			b_drun_2 = {
+			}
+			b_drun_3 = {
+			}
+			b_drun_4 = {
+			}
+		}
+		c_ladros = { # 84
+			color={ 64 0 0 }
+			color2={ 255 255 255 }
+
+			b_ladros = {
+			}
+			b_ladros_2 = {
+			}
+			b_ladros_3 = {
+			}
+			b_ladros_4 = {
+			}
+			b_ladros_5 = {
+			}
+			b_ladros_6 = {
+			}
+		}
+	}
+	d_taer_dorthonion = {
+		color={ 178 17 137 }
+		color2={ 255 255 255 }
+
+		culture_orkish = "Taer Taur-nu-Fuin"
+		culture_valar = "Taer Taur-nu-Fuin"
+		culture_umaiar = "Taer Taur-nu-Fuin"
+		culture_balrog = "Taer Taur-nu-Fuin"
+		culture_nandor = "Taer Taur-na-Foen"
+		culture_avari = "Aglon Sirion"
+		culture_hwendim="Aglon Sirion"
+		culture_doriathrim="Aglon Sirion"
+		culture_eglath="Aglon Sirion"
+		culture_laegrim="Aglon Sirion"
+		culture_falathrim="Aglon Sirion"
+		culture_noldor = "Dor Aegnor"
+		culture_egledhrim = "Dor Aegnor"
+		culture_golodhrim = "Dor Aegnor"
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 372 province_id = 85 province_id = 86 province_id = 87 } }
+			}
+		}
+		capital = 85 # c_aegnorardh
+
+		c_aegnorardh = { # 85
+			color={ 168 27 132 }
+			color2={ 255 255 255 }
+
+			b_aegnorardh = {
+			}
+			b_aegnorardh_2 = {
+			}
+			b_aegnorardh_3 = {
+			}
+			b_aegnorardh_4 = {
+			}
+			b_aegnorardh_5 = {
+			}
+		}
+
+		c_echoriath = { # 77
+			color={ 168 12 2 }
+			color2={ 255 255 255 }
+
+			b_echoriath = {
+			}
+			b_echoriath_2 = {
+			}
+		}
+		c_eithel_rivil = { # 87
+			color={ 42 3 128 }
+			color2={ 255 255 255 }
+
+			b_eithel_rivil = {
+			}
+			b_eithel_rivil_2 = {
+			}
+			b_eithel_rivil_3 = {
+			}
+		}
+		c_emyn_glaindor = { #372
+			color={ 42 3 128 }
+			color2={ 255 255 255 }
+
+			b_emyn_glaindor = {
+			}
+			b_emyn_glaindor_2 = {
+			}
+			b_emyn_glaindor_3 = {
+			}
+		}
+	}
+}
+
+k_anach = {
+	color={ 31 31 31 }
+	color2={ 255 255 255 }
+
+	capital = 131 # c_pass_of_anach
+
+	religion = religion_anach
+	culture = culture_anach
+
+	d_ered_gorgoroth = {
+		color={ 136 194 39 }
+		color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 79 province_id = 80 province_id = 81 } }
+			}
+		}
+		capital = 79 # c_ered_gorgoroth
+
+		c_ered_gorgoroth = { # 79
+			color={ 126 204 34 }
+			color2={ 255 255 255 }
+
+			b_ered_gorgoroth = {
+			}
+			b_ered_gorgoroth_2 = {
+			}
+			b_ered_gorgoroth_3 = {
+			}
+		}
+		c_gorothress = { # 80
+			color={ 126 99 144 }
+			color2={ 255 255 255 }
+
+			b_gorothress = {
+			}
+			b_gorothress_2 = {
+			}
+		}
+		c_orod_ungol = { # 81
+			color={ 127 54 19 }
+			color2={ 255 255 255 }
+
+			holy_site = religion_anach
+
+			b_orod_ungol = {
+			}
+			b_orod_ungol_2 = {
+			}
+		}
+	}
+	d_anach = {
+		color={ 116 139 144 }
+		color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 384 province_id = 130 province_id = 131 } }
+			}
+		}
+		capital = 131 # c_pass_of_anach
+
+		c_nan_dungortheb = { # 130
+			color={ 126 129 149 }
+			color2={ 255 255 255 }
+
+			holy_site = religion_anach
+
+			b_ungolost = {
+			}
+			b_caras_anachrim = {
+			}
+			b_cirith_dumgorthin = {
+			}
+		}
+		c_dumgorthin = { # 384
+			color={ 126 129 149 }
+			color2={ 255 255 255 }
+
+			b_dumgorthin = {
+			}
+			b_dumgorthin_2 = {
+			}
+			b_dumgorthin_3 = {
+			}
+		}
+		c_pass_of_anach = { # 131
+			color={ 84 201 161 }
+			color2={ 255 255 255 }
+
+			b_rambar_nan_anach = {
+			}
+			b_caras_nan_anach = {
+			}
+			b_korda_anach = {
+			}
+		}
+	}
+}
+
+k_himlad = {
+	color={ 96 159 134 }
+	color2={ 255 255 255 }
+
+	capital = 135 # c_himlad
+	culture = culture_eglath
+
+	d_dor_dinen = {
+		color={ 168 112 7 }
+		color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 132 province_id = 133 } }
+			}
+		}
+
+		capital = 133 # c_dor_dinen
+
+		c_arossiach = { # 132
+			color={ 228 172 87 }
+			color2={ 255 255 255 }
+
+			b_arossiant = {
+			}
+			b_caras_arossiach = {
+			}
+			b_cu_edrain = {
+			}
+		}
+		c_dor_dinen = { # 133
+			color={ 188 132 37 }
+			color2={ 255 255 255 }
+
+			b_barad_aros = {
+			}
+			b_minas_dinen = {
+			}
+			b_lostsad = {
+			}
+		}
+	}
+	d_himlad = {
+		color={ 178 122 27 }
+		color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 387 province_id = 370 province_id = 135 } }
+			}
+		}
+		capital = 135 # c_himlad
+
+		c_tharpennath = { #370
+			color={ 238 182 67 }
+			color2={ 255 255 255 }
+
+			b_tharpennath = {
+			}
+			b_tharpennath_2 = {
+			}
+			b_tharpennath_3 = {
+			}
+		}
+
+		c_barandor = { #387
+			color={ 128 72 0 }
+			color2={ 255 255 255 }
+
+			b_barandor = {
+			}
+			b_barandor_2 = {
+			}
+			b_barandor_3 = {
+			}
+		}
+
+		c_himlad = { # 135
+			color={ 168 112 17 }
+			color2={ 255 255 255 }
+
+			b_himost = {
+			}
+			b_bar_maethyr = {
+			}
+			b_corda_curufin = {
+			}
+			b_noldogarth = {
+			}
+			b_noldogwar = {
+			}
+			b_alkarin_himlathrim = {
+			}
+		}
+	}
+	d_watch_of_aglon = {
+			color={ 169 57 147 }
+			color2={ 255 255 255 }
+
+		allow = {
+			OR = {
+				lower_tier_than = KING
+				any_demesne_province = { OR = { province_id = 374 province_id = 136 province_id = 137 } }
+			}
+		}
+
+		short_name = yes
+		capital = 136 # c_aglon_pass
+
+		c_aglon_pass = { # 136
+			color={ 169 57 147 }
+			color2={ 255 255 255 }
+
+			holy_site = religion_anach
+
+			b_cirith_celegorm = {
+			}
+			b_himvran = {
+			}
+			b_horwegwast = {
+			}
+		}
+
+		c_helgwae = { # 374
+			color={ 149 37 127 }
+			color2={ 255 255 255 }
+
+			b_helgwae = {
+			}
+			b_helgwae_2 = {
+			}
+			b_helgwae_3 = {
+			}
+		}
+
+		c_gorge_of_aglon = { # 137
+
+			short_name = yes
+
+			color={ 129 17 107 }
+			color2={ 255 255 255 }
+
+			b_barad_curufin = {
+			}
+			b_aglon_gobel = {
+			}
+			b_alda_linyenwa = {
+			}
+			b_barad_forgwaith = {
+			}
+			b_caras_himwaith = {
+			}
+			b_korda_noldo = {
+			}
+		}
+	}
+}
+
+k_gondolin = {
+    color={ 168 12 3 }
+    color2={ 255 255 255 }
+
+    capital = 128 # c_gondolin
+    culture = culture_noldor
+
+    culture_nandor="Gonnólen"
+    culture_avari="Gonnólen"
+    culture_doriathrim="Gonnólen"
+    culture_eglath="Gonnólen"
+    culture_egledhrim="Gonnólen"
+    culture_laegrim="Gonnólen"
+    culture_falathrim="Gonnólen"
+    culture_valar="Ondolindë"
+
+    d_gondolin = {
+        color={ 148 0 0 }
+        color2={ 255 255 255 }
+
+        allow = {
+            OR = {
+                lower_tier_than = KING
+                any_demesne_province = { OR = { province_id = 368 province_id = 128 province_id = 129 province_id = 365 } }
+            }
+        }
+        capital = 128 # c_gondolin
+
+        culture_nandor="Gonnólen"
+        culture_avari="Gonnólen"
+        culture_doriathrim="Gonnólen"
+        culture_eglath="Gonnólen"
+        culture_egledhrim="Gonnólen"
+        culture_laegrim="Gonnólen"
+        culture_falathrim="Gonnólen"
+        culture_valar="Ondolindë"
+
+        c_gondolin = { # 128
+            color={ 128 0 0 }
+            color2={ 255 255 255 }
+
+            holy_site = religion_eruhini
+
+            b_rambar_gondolin = {
+            }
+            b_caras_gondolin = {
+            }
+            b_gar_ainion = {
+            }
+            b_martotaran = {
+            }
+            b_turabagarth = {
+            }
+            b_eithel_harmen = {
+            }
+            b_amon_gwareth = {
+            }
+            b_garthadaran = {
+            }
+            b_caragdur = {
+            }
+        }
+        c_tumladen = { # 129
+            color={ 168 12 3 }
+            color2={ 255 255 255 }
+
+            b_taras_tumladen = {
+            }
+            b_tumladen = {
+            }
+            b_alkatum = {
+            }
+            b_malkorectele = {
+            }
+            b_nan_i_nandor = {
+            }
+            b_nan_alkarin = {
+            }
+        }
+        c_eithel_ninui = { #368
+            color={ 148 0 0 }
+            color2={ 255 255 255 }
+
+            holy_site = religion_calaquendi
+
+            b_eithel_ninui = {
+            }
+            b_eithel_ninui_2 = {
+            }
+            b_eithel_ninui_3 = {
+            }
+            b_eithel_ninui_4 = {
+            }
+            b_eithel_ninui_5 = {
+            }
+        }
+
+        c_eryd_echor = { #365
+            color={ 188 32 23 }
+            color2={ 255 255 255 }
+
+            b_heborodin = {
+            }
+            b_anghabar = {
+            }
+            b_cordasoron = {
+            }
+            b_ost_in_eryd = {
+            }
+            b_anghabar_niben = {
+            }
+            b_nan_valar = {
+            }
+        }
+        c_orfalch_echor = { # 366
+            color={ 208 52 43 }
+            color2={ 255 255 255 }
+
+            b_ando_turuva = {
+            }
+            b_ando_sarn = {
+            }
+            b_annon_nail = {
+            }
+            b_ando_anganorn = {
+            }
+            b_ando_telemna = {
+            }
+            b_ando_laure = {
+            }
+            b_ando_yaisa = {
+            }
+        }
+    }
+}

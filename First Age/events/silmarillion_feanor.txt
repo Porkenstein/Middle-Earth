@@ -1,0 +1,718 @@
+# FEANOR narrative events ( 2 -> 3 -> 1 -> 4 -> 5 ) in order
+# other feanor events are sub-events
+
+namespace = feanor
+
+##################################################################
+# 0 - index event, fires on game start for feanor. fires the ext event based on the date.
+##################################################################
+
+character_event = {
+	id = feanor.0
+
+	hide_window = yes
+	is_triggered_only = yes
+	notification = no
+    has_character_flag = flag_feanor
+
+	immediate = {
+		population = 10000
+		prestige = 830
+		piety = -100
+		wealth = 100
+
+		if = { # Settle Echad Feanor
+			limit = {
+				AND = {
+					ai = yes
+					NOT = { year = 4287 }
+				}
+			}
+			c_16041 = {
+				reverse_unsafe_war = {
+					casus_belli = abandon_realm_resettle_wilderness #nomad_resettle_wilderness
+					thirdparty_title = c_echad_feanor
+					target = ROOT
+				}
+			}
+		}
+	}
+
+	option = {
+        trigger = {
+			NOT = { has_character_flag = feanor_burned_ships } # asap
+		}
+        narrative_event = { id = feanor.2 days = 1 }
+	}
+
+	option = {
+        trigger = {
+			has_character_flag = feanor_burned_ships
+			NOT = { has_character_flag = feanor_questioned_by_maedhros } # month 7 of '85
+		}
+        any_child  = { # ping maedhros
+			limit = { has_character_flag = flag_maedhros }
+			character_event = { id = feanor.8 days = 1 }
+		}
+	}
+
+	option = {
+        trigger = {
+			has_character_flag = feanor_questioned_by_maedhros
+			NOT = { has_character_flag = feanor_invited_to_feast } # month 1 of '86
+		}
+        any_independent_ruler = { # ping palancund
+			limit = { has_character_flag = flag_palancund }
+			letter_event = { id = feanor.6 days = 1 }
+		}
+	}
+
+	option = {
+        trigger = {
+			has_character_flag = feanor_invited_to_feast
+			NOT = { has_character_flag = feanor_battle_began } # month 1 of '93
+		}
+        narrative_event = { id = feanor.4 days = 1 }
+	}
+
+	option = {
+        trigger = {
+			has_character_flag = feanor_battle_began # month 9 of '93
+		}
+        narrative_event = { id = feanor.5 days = 1 }
+	}
+}
+
+##################################################################
+# 2 - the burning of the ships
+##################################################################
+narrative_event = {
+	id = feanor.2
+    title = "EVTTITfeanor.2"
+    desc = "EVTDESCfeanor.2"
+	picture = GFX_faenor_burning_ships_losgar
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.2"
+		custom_tooltip = { text = EVTOPTATOOLTIPfeanor.2 }
+		prestige = 100
+		piety = -100
+
+		disband_event_forces = falmarin_white_ships
+
+        any_child  = { # ping maedhros
+			limit = { has_character_flag = flag_maedhros }
+			character_event = { id = feanor.8 days = 7 }
+		}
+        any_independent_ruler = { # ping palancund
+			limit = { has_character_flag = flag_palancund }
+			letter_event = { id = feanor.6 months = 1 }
+		}
+	}
+}
+
+##################################################################
+# 3 - maedhros questions your decision
+##################################################################
+
+character_event = { # ping maedhros
+	id = feanor.8
+
+	is_triggered_only = yes
+	notification = no
+	hide_window = yes
+
+	option = { # maedhros sends a letter
+		FROM = { letter_event = { id = feanor.3 days = 1 } }
+	}
+}
+
+letter_event = {
+	id = feanor.3
+    desc = "EVTDESCfeanor.3"
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.3"
+	}
+	option = {
+		name = "EVTOPTBfeanor.3"
+		prestige = 50
+		FROM = {
+			opinion = {
+				modifier = insulted
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTCfeanor.3"
+		prestige = -150
+		remove_trait = proud
+	}
+}
+##################################################################
+# 1 - the feast of cirith ninniach
+##################################################################
+
+character_event = { # ping for Palancund
+	id = feanor.6
+
+	is_triggered_only = yes
+	notification = no
+	hide_window = yes
+
+	option = {
+        FROM = { letter_event = { id = feanor.1 days = 1 } }
+	}
+}
+
+letter_event = { # receive the letter from palancund
+	id = feanor.1
+    desc = "EVTDESCfeanor.1"
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.1"
+		prestige = -20
+		FROM = {
+			opinion = {
+				modifier = opinion_happy
+				who = ROOT
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+			add_trait = on_visit
+            narrative_event = { id = feanor.10 days = 7 }
+        }
+	}
+	option = {
+		name = "EVTOPTBfeanor.1"
+		prestige = 50
+		FROM = {
+			opinion = {
+				modifier = insulted
+				who = ROOT
+				years = 10
+			}
+		}
+		any_independent_ruler = {
+			limit = {
+				religion = religion_moriquendi
+			}
+			opinion = {
+				modifier = opinion_dislike
+				who = ROOT
+				years = 10
+			}
+		}
+		hidden_tooltip = {
+            narrative_event = { id = feanor.4 days = 50 }
+        }
+	}
+}
+
+character_event = { # feast event - feanor arrives
+	id = feanor.10
+    desc = "EVTDESCfeanor.1b"
+
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.1b"
+		hidden_tooltip = {
+            narrative_event = { id = feanor.11 days = 2 }
+        }
+	}
+}
+
+character_event = { # feast event
+	id = feanor.11
+    desc = "EVTDESCfeanor.1c"
+
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.1c"
+		hidden_tooltip = {
+            narrative_event = { id = feanor.12 days = 2 }
+        }
+	}
+	option = {
+		name = "EVTOPTBfeanor.1c"
+		hidden_tooltip = {
+            narrative_event = { id = feanor.12 days = 2 }
+		}
+		if = {
+			limit ={
+				c_echad_feanor = {
+					c_16041 = {
+						has_landed_title = PREV
+					}
+				}
+			}
+			c_16041 = {
+				reverse_unsafe_war = {
+					casus_belli = abandon_realm_resettle_wilderness #nomad_resettle_wilderness
+					thirdparty_title = c_echad_feanor
+					target = ROOT
+				}
+			}
+		}
+	}
+}
+
+character_event = { # feast event
+	id = feanor.12
+    desc = "EVTDESCfeanor.1d"
+
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.1d"
+		hidden_tooltip = {
+            narrative_event = { id = feanor.13 days = 2 }
+        }
+		any_independent_ruler = {
+			limit = { has_character_flag = flag_palancund }
+			set_defacto_liege =  ROOT
+		}
+	}
+	option = {
+		name = "EVTOPTBfeanor.1d"
+		prestige = 200
+		hidden_tooltip = {
+            narrative_event = { id = feanor.13 days = 2 }
+        }
+		any_independent_ruler = {
+			limit = { has_character_flag = flag_palancund }
+			opinion = {
+				modifier = opinion_insulted
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
+
+character_event = { # feast event
+	id = feanor.13
+    desc = "EVTDESCfeanor.1e"
+
+	picture = GFX_evt_feast
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.1e"
+		hidden_tooltip = {
+			remove_trait = on_visit
+            narrative_event = { id = feanor.4 days = 30 }
+        }
+	}
+	option = {
+		name = "EVTOPTBfeanor.1e"
+		prestige = 60
+		piety = -20
+        hidden_tooltip = {
+			remove_trait = on_visit
+            narrative_event = { id = feanor.4 days = 30 }
+        }
+	}
+}
+
+##################################################################
+# 4 - the battle under the stars
+##################################################################
+narrative_event = {
+	id = feanor.4
+    title = "EVTTITfeanor.4"
+    desc = "EVTDESCfeanor.4"
+	picture = GFX_faenor_kinslaying
+	is_triggered_only = yes
+	hide_from = yes
+
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.4"
+		custom_tooltip = { text = EVTOPTATOOLTIPfeanor.4 }
+		prestige = 50
+		capital_scope = {
+			ROOT = {
+				spawn_unit = {
+					province = PREV
+					owner = THIS
+					maintenance = no
+					earmark = host_of_feanor_3
+					troops = {
+						horse_archers = { 200 200 }
+						light_cavalry = { 200 200 }
+						light_infantry = { 200 200 }
+						heavy_infantry = { 100 100 }
+						knights = { 100 100 }
+					}
+				}
+			}
+		}
+		set_character_flag = feanor_battle_began
+	}
+	option = {
+		name = "EVTOPTBfeanor.4"
+		custom_tooltip = { text = EVTOPTBTOOLTIPfeanor.4 }
+		piety = 50
+		capital_scope = {
+			add_province_modifier = {
+				name = on_alert
+				duration = 2
+			}
+		}
+		set_character_flag = feanor_battle_began
+	}
+}
+
+character_event = { # battle win, ping feanor
+	id = feanor.14
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		ROOT = {
+			host = {
+				top_liege = {
+					has_character_flag = feanor_battle_began
+					NOT = { has_character_flag = feanor_battle_ended }
+				}
+			}
+		 }
+	}
+
+	option = {
+		ROOT = {
+			host = {
+				top_liege = {
+					set_character_flag = feanor_won_battle
+				}
+			}
+		}
+	}
+}
+
+character_event = { # we have won a battle!
+	id = feanor.15
+	border = GFX_event_normal_frame_war
+    desc = "EVTDESCfeanor.4b"
+	picture = GFX_noldor_battle_2
+
+	notification = no
+	hide_from = yes
+    has_character_flag = feanor_won_battle
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = "EVTOPTAfeanor.4b"
+		prestige = 200
+		custom_tooltip = { text = EVTOPTATOOLTIPfeanor.4b }
+		set_character_flag = feanor_battle_ended
+        clr_character_flag = feanor_won_battle
+	}
+	option = {
+		trigger = {
+			NOT = { trait = proud }
+		}
+		name = "EVTOPTBfeanor.4b"
+		custom_tooltip = { text = EVTOPTBTOOLTIPfeanor.4b }
+		set_character_flag = flag_feanor_wary
+		set_character_flag = feanor_battle_ended
+        clr_character_flag = feanor_won_battle
+	}
+}
+
+long_character_event = { # Feanor is ambushed
+	id = feanor.16
+    desc = "EVTDESCfeanor.4c"
+	picture = GFX_balrogs
+
+    has_character_flag = feanor_battle_ended
+	notification = no
+
+    trigger = {
+        NOT = { has_character_flag = feanor_reached_gate }
+        any_army = {
+            location = {
+                province_id = 17 # Annon Daer
+            }
+        }
+    }
+    mean_time_to_happen = {
+        days = 2
+    }
+	option = {
+		name = "EVTOPTAfeanor.4c"
+        custom_tooltip = { text = EVTOPTATOOLTIPfeanor.4c }
+        piety = 20
+        set_character_flag = feanor_reached_gate
+        hidden_tooltip = {
+            narrative_event = { id = feanor.17 days = 2 }
+        }
+	}
+	option = {
+		name = "EVTOPTBfeanor.4c"
+        prestige = 100
+        set_character_flag = feanor_reached_gate
+        trigger = {
+            NOT = { trait = craven }
+            NOT = { trait = maimed }
+            NOT = { trait = weak }
+        }
+        random_list = {
+            80 = {
+                custom_tooltip = {
+                    text = EVTOPTB1TOOLTIPfeanor.4c
+                    narrative_event = { id = feanor.17 days = 2 }
+                }
+                modifier = {
+                    factor = 2
+                    NOT = { realm_martial = 50 }
+                }
+            }
+            20 = {
+                custom_tooltip = {
+                    text = EVTOPTB2TOOLTIPfeanor.4c
+                    narrative_event = { id = feanor.18 days = 2 }
+                }
+                modifier = {
+                    factor = 2
+                    realm_martial = 60
+                }
+                modifier = {
+                    factor = 2
+                    realm_martial = 70
+                }
+                modifier = {
+                    factor = 2
+                    realm_martial = 80
+                }
+                modifier = {
+                    factor = 2
+                    realm_martial = 90
+                }
+                modifier = {
+                    factor = 2
+                    realm_martial = 100
+                }
+            }
+        }
+	}
+}
+
+long_character_event = { # Feanor is rescued
+	id = feanor.17
+    desc = "EVTDESCfeanor.4d"
+	picture = GFX_balrog_duel
+
+    is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.4d"
+        set_character_flag = feanor_escaped
+        custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.4d"
+            narrative_event = { id = feanor.5 days = 30 }
+			# move the host back to the encampment
+			disband_event_forces = host_of_feanor
+			disband_event_forces = host_of_feanor_2
+			disband_event_forces = host_of_feanor_3
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						maintenance = no
+						earmark = host_of_feanor
+						troops = {
+						horse_archers = { 1000 1000 }
+						light_cavalry = { 1000 1000 }
+						light_infantry = { 4000 4000 }
+						heavy_infantry = { 2000 2000 }
+						knights = { 500 500 }
+						}
+						attrition = 0.5
+					}
+				}
+		    }
+        }
+        add_trait = maimed
+	}
+}
+
+long_character_event = { # Feanor reaches the gates
+	id = feanor.18
+    desc = "EVTDESCfeanor.4e"
+	picture = GFX_faenor_kinslaying
+
+    is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.4e"
+        custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.4e"
+            narrative_event = { id = feanor.19 days = 2 }
+        }
+	}
+}
+
+long_character_event = { # Feanor reaches the nethermost hall
+	id = feanor.19
+    desc = "EVTDESCfeanor.4f"
+	picture = GFX_evil_gates_3
+
+    is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.4f"
+        custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.4f"
+            narrative_event = { id = feanor.20 days = 2 }
+        }
+	}
+}
+
+long_character_event = { # Feanor is defeated
+	id = feanor.20
+    desc = "EVTDESCfeanor.4g"
+	picture = GFX_elves_death_dungeon
+
+    is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.4g"
+        custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.4g"
+			# move the host back to the encampment
+			disband_event_forces = host_of_feanor
+			disband_event_forces = host_of_feanor_2
+			disband_event_forces = host_of_feanor_3
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						owner = ROOT
+						maintenance = no
+						earmark = host_of_feanor
+						troops = {
+						horse_archers = { 1000 1000 }
+						light_cavalry = { 1000 1000 }
+						light_infantry = { 4000 4000 }
+						heavy_infantry = { 2000 2000 }
+						knights = { 500 500 }
+						}
+						attrition = 0.5
+					}
+				}
+		    }
+            narrative_event = { id = feanor.5 days = 30 }
+		}
+		add_trait = maimed
+	}
+}
+
+##################################################################
+# 5 - the death of feanor
+##################################################################
+narrative_event = {
+	id = feanor.5
+    title = "EVTTITfeanor.5"
+    desc = "EVTDESCfeanor.5"
+	picture = GFX_faenor_kinslaying
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.5"
+		custom_tooltip = {
+			text = "EVTOPTATOOLTIPfeanor.5"
+
+			# lose against morgoth
+			any_war = {
+				limit = {
+					defender = {
+						has_character_flag = morgoth
+					}
+				}
+				end_war = reverse_demand
+			}
+		}
+
+		any_child  = { # inform sons
+			limit = { age = 100 }
+			narrative_event = { id = feanor.9 days = 1 }
+		}
+	}
+}
+
+narrative_event = { # son's perspective
+	id = feanor.9
+    title = "EVTTITfeanor.9"
+    desc = "EVTDESCfeanor.9"
+	picture = GFX_death2
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.9"
+        add_trait = ruthless
+		custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.9"
+            narrative_event = { id = feanor.21 days = 1 }
+        }
+	}
+}
+
+long_character_event = {
+	id = feanor.21
+    desc = "EVTDESCfeanor.9b"
+	picture = GFX_death2
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAfeanor.9b"
+        custom_tooltip = {
+            text = "EVTOPTATOOLTIPfeanor.9b"
+            c_10015 = { # Morgoth
+                c_3238 = { # Feanor
+                    death = {
+                        death_reason = death_battle
+                        killer = PREV
+                    }
+                }
+            }
+        }
+	}
+}

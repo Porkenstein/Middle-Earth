@@ -1,0 +1,625 @@
+########################################################
+# CHARACTER COURT VISIT PILGRIMATE EVENTS
+########################################################
+
+namespace = visit_character
+
+# AI looks for characters to visit
+character_event = {
+	id = visit_character.1
+
+	hide_window = yes
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	trigger = {
+		is_ill = no
+		ai = yes
+		
+		NOT = { trait = sailed_west }
+		NOT = { religion = religion_eruhini }
+		NOT = { trait = at_east }
+		NOT = { trait = shy }
+		NOT = {trait = evil_side } # evil folks don't 'visit' each other!
+		NOT = { religion_group = religion_group_melkor }
+	}
+	
+	immediate = {
+		random_playable_ruler = {
+			limit = {
+				has_regent = no
+				is_ruler = yes
+				is_ill = no
+				NOT = { character = ROOT }
+				is_within_diplo_range = ROOT
+				reverse_opinion = { who = ROOT value = 10 }
+				
+				NOT = { has_character_modifier = recently_asked_by_visitor }
+
+				# kings shouldn't be spammed by counts, and kings don't bother visiting counts
+				# this compensates well for the bloat in neighbor counts when bigger
+				OR = {
+					real_tier = ROOT
+					is_close_relative = ROOT
+				}
+				
+				# we already work together!
+				NOT = { is_married = ROOT }
+				NOT = { is_vassal_or_below = ROOT }
+				NOT = { is_liege_or_above = ROOT }
+				NOT = { trait = evil_side } # no making friends with the orcs
+				NOT = { religion_group = religion_group_melkor }
+				
+				# visit a neighbor, relative, ally or a pal
+				OR = {
+					any_realm_province = {
+						any_neighbor_province = {
+							owner = { same_realm = ROOT }
+						}
+					}
+					
+					location = {
+						kingdom = {
+							ROOT = {
+								location = {
+									kingdom = {
+										title = PREVPREVPREV # we live in the same de jure kingdom
+									}
+								}
+							}
+						}
+					}
+					
+					# these confounded relations!
+					dynasty = ROOT
+					
+					reverse_opinion = { who = ROOT value = 100 }
+					
+					has_non_aggression_pact_with = ROOT
+				}
+				war = no
+				NOT = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_rejected_visitation } }
+				NOT = { reverse_has_opinion_modifier = { who = ROOT modifier = opinion_accepted_visitation } }
+				NOT = { has_character_flag = hosting_visiting_character }
+			}
+			character_event = { id = visit_character.2 days = 5 }
+			add_character_modifier = { name = recently_asked_by_visitor duration = 730 } # so we aren't spammed by visitors
+		}
+	}
+
+	option = {
+	}
+}
+
+# An AI wants to visit
+character_event = {
+	id = visit_character.2
+	picture = "GFX_elf_meeting"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.2"
+	
+	trigger = {
+		is_ill = no
+	}
+
+	option = {
+		name = "EVTOPTAvisit_character.2"
+		
+		set_character_flag = hosting_visiting_character
+		
+		FROM = {
+			opinion = { who = ROOT modifier = opinion_accepted_visitation }			
+			hidden_tooltip = { character_event = { id = visit_character.13 } }
+		}
+	}
+	option = {
+		name = "EVTOPTBvisit_character.2"
+		
+		FROM = {
+			opinion = { who = ROOT modifier = opinion_rejected_visitation }
+			hidden_tooltip = { character_event = { id = visit_character.14 } }
+		}
+	}
+}
+
+# A player wants to visit
+character_event = {
+	id = visit_character.15
+	picture = "GFX_elf_meeting"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.2"
+	
+	trigger = {
+		is_ill = no
+	}
+
+	option = {
+		name = "EVTOPTAvisit_character.2"
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				FROMFROM = { wealth = 1000 }
+			}
+			modifier = {
+				factor = 2
+				FROMFROM = { dynastic_prestige = 5000 }
+			}
+			modifier = {
+				factor = 2
+				lower_tier_than = FROMFROM
+			}
+			modifier = {
+				factor = 2
+				has_non_aggression_pact_with = FROMFROM
+			}
+			modifier = {
+				factor = 2
+				dynasty = FROMFROM
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value = 20 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = FROMFROM value = 80 }
+			}
+			modifier = {
+				factor = 2
+				FROMFROM = { prestige = 1000 }
+			}
+			modifier = {
+				factor = 2
+				piety = 1000
+				religion = FROMFROM
+			}
+			
+			modifier = {
+				factor = 0.5
+				distance = { who = FROMFROM value = 1000 }
+			}
+			modifier = {
+				factor = 0.5
+				distance = { who = FROMFROM value = 1500 }
+			}
+			modifier = {
+				factor = 0.5
+				distance = { who = FROMFROM value = 2000 }
+			}
+		}
+		
+		set_character_flag = hosting_visiting_character
+		
+		FROMFROM = {
+			opinion = { who = ROOT modifier = opinion_accepted_visitation }			
+			hidden_tooltip = { character_event = { id = visit_character.13 } }
+		}
+	}
+	option = {
+		name = "EVTOPTBvisit_character.2"
+		
+		ai_chance = {
+			factor = 50
+		}
+		
+		FROMFROM = {
+			opinion = { who = ROOT modifier = opinion_rejected_visitation }
+			hidden_tooltip = { character_event = { id = visit_character.14 } }
+		}
+	}
+}
+
+# The visit was accepted!
+character_event = {
+	id = visit_character.13
+	picture = "GFX_evt_elf_diplomacy"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.13"
+
+	option = {
+		name = "EVTOPTAvisit_character.13"
+		hidden_tooltip = {
+			add_trait = on_visit
+			add_character_modifier = { name = recently_visited_character duration = 365 }
+		}
+		
+		# this could go several ways...
+		hidden_tooltip = {
+			random_list = {
+				30 = { # productive
+					modifier = {
+						factor = 2
+						OR = {
+							opinion = { who = FROM value = 90 }
+							diplomacy = 20
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							has_non_aggression_pact_with = FROM
+							is_friend = FROM
+						}
+					}
+					FROM = { character_event = { id = visit_character.3 days = 25 random = 10 } }
+				}
+				30 = { # unproductive
+					modifier = {
+						factor = 2
+						OR = {
+							trait = slothful
+							NOT = { diplomacy = 8 }
+						}
+					}
+					FROM = { character_event = { id = visit_character.4 days = 25 random = 10 } }
+				}
+				10 = { # friendship
+					modifier = {
+						factor = 0
+						OR = {
+							is_rival = FROM
+							is_friend = FROM
+							NOT = { opinion = { who = FROM value = 10 } }
+							num_of_friends = 4
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							opinion = { who = FROM value = 80 }
+							diplomacy = 20
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							opinion = { who = FROM value = 100 }
+							NOT = { num_of_friends = 1 }
+						}
+					}
+					FROM = { character_event = { id = visit_character.5 days = 25 random = 10 } }
+				}
+				10 = { # rivalry
+					modifier = {
+						factor = 0
+						OR = {
+							is_rival = FROM
+							is_friend = FROM
+							opinion = { who = FROM value = 70 }
+							num_of_rivals = 4
+						}
+					}
+					modifier = {
+						factor = 0.5
+						opinion = { who = FROM value = 30 }
+					}
+					modifier = {
+						factor = 2
+						NOT = { opinion = { who = FROM value = -30 } }
+					}
+					modifier = {
+						factor = 2
+						NOT = { num_of_rivals = 1 }
+					}
+					FROM = { character_event = { id = visit_character.6 days = 15 random = 10 } }
+				}
+				30 = { # fun
+					modifier = {
+						factor = 1.5
+						OR = {
+							trait = gregarious
+							trait = socializer
+							trait = gamer
+							trait = hunter
+							trait = hedonist
+						}
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							opinion = { who = FROM value = 70 }
+							is_friend = FROM
+						}
+					}
+					FROM = { character_event = { id = visit_character.7 days = 35 random = 10 } }
+				}
+			}
+		}
+	}
+}
+
+# The visit was denied!
+character_event = {
+	id = visit_character.14
+	picture = "GFX_evt_elf_diplomacy"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.14"
+
+	option = {
+		name = "EVTOPTAvisit_character.14"
+	}
+}
+
+# The visit goes well!
+
+character_event = { # host
+	id = visit_character.3
+	picture = "GFX_elf_meeting"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.3"
+
+	option = {
+		name = "EVTOPTAvisit_character.3"
+		clr_character_flag = hosting_visiting_character
+		
+		opinion = { who = FROM modifier = opinion_good_relationship }
+		
+		FROM = { character_event = { id = visit_character.8 } }
+	}
+}
+
+character_event = { # visitor
+	id = visit_character.8
+	picture = "GFX_elf_meeting"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.8"
+
+	option = {
+		name = "EVTOPTAvisit_character.8"
+		hidden_tooltip = { remove_trait = on_visit }
+		
+		opinion = { who = FROM modifier = opinion_good_relationship }
+	}
+}
+
+# The visit goes poorly
+
+character_event = { # host
+	id = visit_character.4
+	picture = "GFX_elves_lords"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.4"
+
+	option = {
+		name = "EVTOPTAvisit_character.4"
+		clr_character_flag = hosting_visiting_character
+		
+		opinion = { who = FROM modifier = opinion_bad_relationship }
+		
+		FROM = { character_event = { id = visit_character.9 } }
+	}
+}
+
+character_event = { # visitor
+	id = visit_character.9
+	picture = "GFX_elves_lords"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.9"
+
+	option = {
+		name = "EVTOPTAvisit_character.9"
+		hidden_tooltip = { remove_trait = on_visit }
+		
+		opinion = { who = FROM modifier = opinion_bad_relationship }
+	}
+}
+
+# The visit results in a new friendship
+
+character_event = { # host
+	id = visit_character.5
+	picture = "GFX_elves_riding_fun"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.5"
+
+	option = {
+		name = "EVTOPTAvisit_character.5"
+		clr_character_flag = hosting_visiting_character
+		
+		add_friend = FROM
+		
+		FROM = { character_event = { id = visit_character.10 } }
+	}
+}
+
+character_event = { # visitor
+	id = visit_character.10
+	picture = "GFX_elves_riding_fun"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.10"
+
+	option = {
+		name = "EVTOPTAvisit_character.10"
+		hidden_tooltip = { remove_trait = on_visit }
+		
+		add_friend = FROM
+	}
+}
+
+# The visit results in a new rivalry
+
+character_event = { # host
+	id = visit_character.6
+	picture = "GFX_elves_lords"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.6"
+
+	option = {
+		name = "EVTOPTAvisit_character.6"
+		clr_character_flag = hosting_visiting_character
+		
+		add_rival = FROM
+		
+		FROM = { character_event = { id = visit_character.11 } }
+	}
+}
+
+character_event = { # visitor
+	id = visit_character.11
+	picture = "GFX_elves_lords"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.11"
+
+	option = {
+		name = "EVTOPTAvisit_character.11"
+		hidden_tooltip = { remove_trait = on_visit }
+		
+		add_rival = FROM
+	}
+}
+
+# The visit was fun!
+
+character_event = { # host
+	id = visit_character.7
+	picture = "GFX_elves_riding_fun"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.7"
+
+	option = {
+		name = "EVTOPTAvisit_character.7"
+		clr_character_flag = hosting_visiting_character
+		
+		random = {
+			chance = 10
+			remove_trait = stressed
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+		}
+		random = {
+			chance = 10
+			remove_trait = depressed
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+		}
+		
+		opinion = { who = FROM modifier = opinion_had_fun }
+		
+		FROM = { character_event = { id = visit_character.12 } }
+	}
+}
+
+character_event = { # visitor
+	id = visit_character.12
+	picture = "GFX_elves_riding_fun"
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_playable = yes
+	capable_only = yes
+	min_age = 16
+	
+	desc = "EVTDESCvisit_character.12"
+
+	option = {
+		name = "EVTOPTAvisit_character.12"
+		
+		
+		random = {
+			chance = 10
+			remove_trait = stressed
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+		}
+		random = {
+			chance = 10
+			remove_trait = depressed
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+		}
+		
+		hidden_tooltip = { remove_trait = on_visit }
+		opinion = { who = FROM modifier = opinion_had_fun }
+	}
+}

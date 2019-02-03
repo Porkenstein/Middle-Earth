@@ -1,0 +1,122 @@
+
+## Scripted Triggers adapted from MEP
+
+# these characters can't get drunk
+mep_cant_get_drunk_trigger = {
+	OR = {
+		religion = religion_dragons
+		religion = religion_wilderness
+		religion = religion_umaiar
+		religion_group = religion_group_eruhini
+	}
+}
+
+# these characters aren't attracted to humanoids
+mep_dont_seduce_trigger = {
+	OR = {
+		religion = religion_dragons
+		religion = religion_wilderness
+		religion = religion_umaiar
+		religion_group = religion_group_eruhini
+	}
+}
+
+# through murder and mundane means
+mep_should_be_unkillable_trigger = {
+	OR = {
+		religion = religion_wilderness
+		religion_group = religion_group_eruhini
+		AND = {
+			trait = elf
+			age = 8000
+		}
+		trait = fea_strong
+		is_mighty_trigger = yes
+	}
+}
+
+mep_elven_blood_tigger = {
+	OR = {
+		trait = elven_blood
+		trait = half_elf
+	}
+}
+
+mep_maiar_blood_tigger = {
+	OR = {
+		trait = maiar_blood
+		trait = half_maiar
+	}
+}
+
+mep_disease_resistant_trigger = {
+	OR = {
+		religion_group = religion_group_khazad
+		mep_elven_blood_tigger = yes
+	}
+}
+
+mep_cant_get_disease_trigger = {
+	OR = {
+		religion_group = religion_group_eruhini
+		religion_group = religion_group_eldar
+		religion = religion_umaiar
+		religion = religion_dragons
+		religion_group = religion_group_wilderness
+		mep_maiar_blood_tigger = yes
+	}
+}
+
+# most immortals, and evil races, don't hire physicians/doctors
+mep_wont_hire_physician_trigger = {
+	OR = {
+		religion_group = religion_group_melkor
+		religion_group = religion_group_wilderness
+		religion_group = religion_group_eruhini
+		AND = {
+			religion_group = religion_group_eldar
+			OR = {
+				trait = zealous
+				trait = evil_side
+			}
+		}
+	}
+}
+
+mep_is_immortal_race_trigger = {
+	OR = {
+		religion_group = religion_group_eruhini
+		religion_group = religion_group_eldar
+		religion = religion_umaiar
+		religion = religion_dragons
+	}
+}
+
+mep_is_human_trigger = {
+	OR = {
+		religion_group = religion_group_edain
+		religion_group = religion_group_hildor
+		religion_group = religion_group_forodwaith
+	}
+}
+
+mep_is_evil_side_trigger = {
+    OR = {
+        trait = evil_side
+        religion_group = religion_group_melkor
+    }
+}
+
+mep_temp_muslim_standin_trigger = {
+	always = no
+}
+
+mep_is_evil_overlord = {
+	trait = evil_side
+	OR = {
+		religion = religion_umaiar
+		trait = valar
+		religion_group = religion_group_eldar
+		religion = religion_dragons
+	}
+}

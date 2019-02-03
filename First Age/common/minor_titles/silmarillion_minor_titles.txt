@@ -1,0 +1,131 @@
+# Evil Minor Titles
+
+title_masterofslaves = {
+	dignity = 0.5
+	show_as_title = yes
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 15
+	
+	monthly_salary = 0.2
+	monthly_prestige = 0.1
+	
+	allowed_to_hold = {
+		primary_title = {
+			temporary = no
+			OR = {
+				tier = duke
+				tier = king
+				tier = count
+				tier = baron
+			}
+		}
+		liege = { character = FROM }
+		is_adult = yes
+	}
+	allowed_to_grant = {
+		OR = {
+			religion_group = religion_group_melkor
+			trait = evil_side
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+	
+	message = yes
+}
+
+title_lieutenantofangband = {
+	is_high_prio = yes
+	attribute = martial
+    dignity = 1.0
+	show_as_title = no
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 30
+	#is_voter = yes
+	
+	monthly_salary = 1.0
+	monthly_prestige = 2.0
+	
+	allowed_to_hold = {
+		NOT = { has_job_title = job_marshal }
+		martial = 20
+		liege = { character = FROM }
+		is_adult = yes
+	}
+	allowed_to_grant = {
+		has_landed_title = c_angband
+		religion_group = religion_group_melkor
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+	
+	message = yes
+}
+
+# High Marchwarden
+title_marchwarden = {
+	is_high_prio = yes
+	grant_limit = 4
+	attribute = martial
+	dignity = 0.5
+	opinion_effect = 10
+	realm_in_name = yes
+	show_as_title = yes
+	
+	monthly_salary = 0.5
+	monthly_prestige = 1.00
+	
+	allowed_to_hold = {
+	
+		# is either a skilled warrior or a part of the marchwardens
+		OR = {
+			martial = 15
+			trait = great_elf
+			trait = legendary_warrior
+			#society_member_of = marchwardens
+		}
+	
+		primary_title = {
+			temporary = no
+			OR = {
+				tier = duke
+				tier = king
+				tier = count
+				tier = baron
+			}
+		}
+		liege = { character = FROM }
+		is_adult = yes
+		
+		prisoner = no
+		NOT = { trait = incapable }
+		NOT = { trait = in_hiding }
+		NOT = { has_character_flag = guru }
+	}
+	allowed_to_grant = {
+		primary_title = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+		}
+		culture_group = culture_group_umanyar
+	}
+	
+	gain_effect = {
+		add_trait=marchwarden
+	}
+	lose_effect = {
+		remove_trait=marchwarden
+	}
+	
+	message = yes
+}

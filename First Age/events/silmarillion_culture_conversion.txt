@@ -1,0 +1,1624 @@
+namespace = culture_conversion
+
+#--------------------------------------
+# The Golodhrim Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.0
+	desc = "EVTDESC_culture_conversion_0"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	culture = culture_noldor
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		year = 4400
+		higher_tier_than = DUKE
+		NOT = {
+			# not nos feanor
+			dynasty = 3007
+		}
+		any_realm_province = {
+			region = world_hithlum
+			culture = culture_mithrim
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_0"
+		culture = culture_golodhrim
+		random_demesne_province = {
+			limit = {
+				region = world_hithlum
+				# only start replacing the noldor culture (at first)
+				culture = culture_noldor
+			}
+			culture = culture_golodhrim
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.1
+	desc = "EVTDESC_culture_conversion_1"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 4400
+		OR = {
+			culture = culture_golodhrim
+			top_liege = { culture = culture_golodhrim }
+		}
+		any_demesne_province = {
+			region = world_hithlum
+			OR = {
+				culture = culture_noldor
+				AND = {
+					culture = culture_mithrim
+					ROOT = { culture = culture_golodhrim }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_1"
+		random_demesne_province = {
+			limit = {
+				region = world_hithlum
+				OR = {
+					culture = culture_noldor
+					AND = {
+						culture = culture_mithrim
+						ROOT = { culture = culture_golodhrim }
+					}
+				}
+			}
+			culture = culture_golodhrim
+		}
+	}
+}
+
+#Make my court speak Golodhrim Exilic Quenya
+character_event = {
+	id = culture_conversion.2
+	desc = "EVTDESC_culture_conversion_2"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_golodhrim
+
+	trigger = {
+		year = 4400
+		culture = culture_golodhrim
+		top_liege = {
+			primary_title = {
+				OR = {
+					title = k_hithlum
+					title = e_noldor
+				}
+			}
+		}
+		any_courtier = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_2"
+		random_courtier = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_golodhrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.4 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Golodhrim Exilic Quenya
+character_event = {
+	id = culture_conversion.3
+	desc = "EVTDESC_culture_conversion_3"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_golodhrim
+
+	trigger = {
+		year = 4400
+		culture = culture_golodhrim
+		top_liege = {
+			primary_title = {
+				OR = {
+					title = k_hithlum
+					title = e_noldor
+				}
+			}
+		}
+		any_vassal = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_3"
+		random_vassal = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_golodhrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.4 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Golodhrim
+character_event = {
+	id = culture_conversion.4
+	desc = "EVTDESC_culture_conversion_4"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_4"
+		culture = culture_golodhrim
+	}
+}
+
+
+
+#--------------------------------------
+# The Egledhrim Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.5
+	desc = "EVTDESC_culture_conversion_5"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	culture = culture_noldor
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		year = 4400
+		dynasty = 3007
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_5"
+		culture = culture_egledhrim
+		random_demesne_province = {
+			limit = {
+				# only start by replacing the noldor culture (at first)
+				culture = culture_noldor
+			}
+			culture = culture_egledhrim
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.6
+	desc = "EVTDESC_culture_conversion_6"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 4400
+		OR = {
+			culture = culture_egledhrim
+			top_liege = { culture = culture_egledhrim }
+		}
+		any_demesne_province = {
+			OR = {
+				culture = culture_noldor
+				AND = {
+					culture_group = culture_group_umanyar
+					ROOT = { culture = culture_egledhrim }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_6"
+		random_demesne_province = {
+			limit = {
+				OR = {
+					culture = culture_noldor
+					AND = {
+						culture_group = culture_group_umanyar
+						ROOT = { culture = culture_egledhrim }
+					}
+				}
+			}
+			culture = culture_egledhrim
+		}
+	}
+}
+
+#Make my court speak Egledhrim
+character_event = {
+	id = culture_conversion.7
+	desc = "EVTDESC_culture_conversion_7"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_egledhrim
+
+	trigger = {
+		year = 4400
+		higher_tier_than = DUKE
+		culture = culture_egledhrim
+		any_courtier = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_7"
+		random_courtier = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_egledhrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.9 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Egledhrim
+character_event = {
+	id = culture_conversion.8
+	desc = "EVTDESC_culture_conversion_8"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_egledhrim
+
+	trigger = {
+		year = 4400
+		culture = culture_egledhrim
+		any_vassal = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_8"
+		random_vassal = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_egledhrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.9 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Egledhrim
+character_event = {
+	id = culture_conversion.9
+	desc = "EVTDESC_culture_conversion_9"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_9"
+		culture = culture_egledhrim
+	}
+}
+
+
+
+#--------------------------------------
+# The Gondolindrim Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.10
+	desc = "EVTDESC_culture_conversion_10"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	culture = culture_noldor
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		year = 4400
+		NOT = { dynasty = 3007 }
+		OR = {
+			has_landed_title = k_gondolin
+			has_landed_title = d_gondolin
+			has_landed_title = c_gondolin
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_10"
+		culture = culture_gondolindrim
+		random_demesne_province = {
+			limit = {
+				# only start by replacing the noldor culture (at first)
+				culture = culture_noldor
+				location = {
+					de_jure_liege_or_above = k_gondolin
+				}
+			}
+			culture = culture_gondolindrim
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.11
+	desc = "EVTDESC_culture_conversion_11"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		year = 4400
+		OR = {
+			culture = culture_gondolindrim
+			top_liege = { culture = culture_gondolindrim }
+		}
+		any_demesne_province = {
+			OR = {
+				culture = culture_noldor
+				AND = {
+					location = {
+						de_jure_liege_or_above = k_gondolin
+					}
+					ROOT = { culture = culture_gondolindrim }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_11"
+		random_demesne_province = {
+			limit = {
+				OR = {
+					culture = culture_noldor
+					location = {
+						de_jure_liege_or_above = k_gondolin
+					}
+				}
+			}
+			culture = culture_gondolindrim
+		}
+	}
+}
+
+#Make my court speak Gondolindrim
+character_event = {
+	id = culture_conversion.12
+	desc = "EVTDESC_culture_conversion_12"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_gondolindrim
+
+	trigger = {
+		year = 4400
+		location = {
+			de_jure_liege_or_above = k_gondolin
+		}
+		culture = culture_gondolindrim
+		any_courtier = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_12"
+		random_courtier = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_gondolindrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.14 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Gondolindrim
+character_event = {
+	id = culture_conversion.13
+	desc = "EVTDESC_culture_conversion_13"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_gondolindrim
+
+	trigger = {
+		year = 4400
+		culture = culture_gondolindrim
+		any_vassal = {
+			culture = culture_noldor
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_13"
+		random_vassal = {
+			limit = {
+				culture = culture_noldor
+			}
+			culture = culture_gondolindrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.14 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Gondolindrim
+character_event = {
+	id = culture_conversion.14
+	desc = "EVTDESC_culture_conversion_14"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_14"
+		culture = culture_gondolindrim
+	}
+}
+
+
+
+#--------------------------------------
+# The Hadoran Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.15
+	desc = "EVTDESC_culture_conversion_15"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		culture_group = culture_group_edain
+		any_realm_province = {
+			region = world_hithlum
+			culture_group = culture_group_edain
+		}
+		is_elf_friend = yes
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_15"
+		culture = culture_hadoran
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_edain
+				location = {
+					region = world_hithlum
+				}
+			}
+			culture = culture_hadoran
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.16
+	desc = "EVTDESC_culture_conversion_16"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			culture = culture_hadoran
+			any_liege = { culture = culture_hadoran }
+		}
+		any_demesne_province = {
+			OR = {
+				culture_group = culture_group_edain
+				AND = {
+					location = {
+						region = world_hithlum
+					}
+					ROOT = { culture = culture_hadoran }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_16"
+		random_demesne_province = {
+			limit = {
+				OR = {
+					culture_group = culture_group_edain
+					location = {
+						region = world_hithlum
+					}
+				}
+			}
+			culture = culture_hadoran
+		}
+	}
+}
+
+#Make my court speak Hadoran
+character_event = {
+	id = culture_conversion.17
+	desc = "EVTDESC_culture_conversion_17"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_hadoran
+
+	trigger = {
+		location = {
+			region = world_hithlum
+		}
+		culture = culture_hadoran
+		any_courtier = {
+			culture_group = culture_group_edain
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_17"
+		random_courtier = {
+			limit = {
+				culture_group = culture_group_edain
+			}
+			culture = culture_hadoran
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.19 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Hadoran
+character_event = {
+	id = culture_conversion.18
+	desc = "EVTDESC_culture_conversion_18"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_hadoran
+
+	trigger = {
+		culture = culture_hadoran
+		any_vassal = {
+			culture_group = culture_group_edain
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_18"
+		random_vassal = {
+			limit = {
+				culture_group = culture_group_edain
+			}
+			culture = culture_hadoran
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.19 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Hadoran
+character_event = {
+	id = culture_conversion.19
+	desc = "EVTDESC_culture_conversion_19"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_19"
+		culture = culture_hadoran
+	}
+}
+
+
+
+#--------------------------------------
+# The Brethilrim Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.20
+	desc = "EVTDESC_culture_conversion_20"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		culture_group = culture_group_edain
+		any_realm_province = {
+			region = world_brethil
+			culture_group = culture_group_edain
+		}
+		OR = {		
+			is_elf_friend = yes
+			tier = KING
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_20"
+		culture = culture_brethilrim
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_edain
+				location = {
+					region = world_brethil
+				}
+			}
+			culture = culture_brethilrim
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.21
+	desc = "EVTDESC_culture_conversion_21"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			culture = culture_brethilrim
+			any_liege = { culture = culture_brethilrim }
+		}
+		any_demesne_province = {
+			OR = {
+				culture_group = culture_group_edain
+				AND = {
+					location = {
+						region = world_brethil
+					}
+					ROOT = { culture = culture_brethilrim }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_21"
+		random_demesne_province = {
+			limit = {
+				OR = {
+					culture_group = culture_group_edain
+					location = {
+						region = world_brethil
+					}
+				}
+			}
+			culture = culture_brethilrim
+		}
+	}
+}
+
+#Make my court speak Brethilrim
+character_event = {
+	id = culture_conversion.22
+	desc = "EVTDESC_culture_conversion_22"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_brethilrim
+
+	trigger = {
+		location = {
+			region = world_brethil
+		}
+		culture = culture_brethilrim
+		any_courtier = {
+			culture_group = culture_group_edain
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_22"
+		random_courtier = {
+			limit = {
+				culture_group = culture_group_edain
+			}
+			culture = culture_brethilrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.24 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Brethilrim
+character_event = {
+	id = culture_conversion.23
+	desc = "EVTDESC_culture_conversion_23"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_brethilrim
+
+	trigger = {
+		culture = culture_brethilrim
+		any_vassal = {
+			culture_group = culture_group_edain
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_23"
+		random_vassal = {
+			limit = {
+				culture_group = culture_group_edain
+			}
+			culture = culture_brethilrim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.24 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Brethilrim
+character_event = {
+	id = culture_conversion.24
+	desc = "EVTDESC_culture_conversion_24"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_24"
+		culture = culture_brethilrim
+	}
+}
+
+
+
+
+#--------------------------------------
+# The Boradin Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.25
+	desc = "EVTDESC_culture_conversion_25"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		culture_group = culture_group_easterling
+		any_realm_province = {
+			culture_group = culture_group_easterling
+		}
+		is_elf_friend = yes
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_25"
+		culture = culture_boradin
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_boradin
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.26
+	desc = "EVTDESC_culture_conversion_26"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			culture = culture_boradin
+			any_liege = { culture = culture_boradin }
+		}
+		any_demesne_province = {
+			OR = {
+				culture_group = culture_group_easterling
+				ROOT = { culture = culture_boradin }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_26"
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_boradin
+		}
+	}
+}
+
+#Make my court speak Boradin
+character_event = {
+	id = culture_conversion.27
+	desc = "EVTDESC_culture_conversion_27"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_boradin
+
+	trigger = {
+		culture = culture_boradin
+		any_courtier = {
+			culture_group = culture_group_easterling
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_27"
+		random_courtier = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_boradin
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.29 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Boradin
+character_event = {
+	id = culture_conversion.28
+	desc = "EVTDESC_culture_conversion_28"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_boradin
+
+	trigger = {
+		culture = culture_boradin
+		any_vassal = {
+			culture_group = culture_group_easterling
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_28"
+		random_vassal = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_boradin
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.29 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Boradin
+character_event = {
+	id = culture_conversion.29
+	desc = "EVTDESC_culture_conversion_29"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_29"
+		culture = culture_boradin
+	}
+}
+
+
+
+
+
+#--------------------------------------
+# The Ulbandim Melting Pot
+#--------------------------------------
+character_event = {
+	id = culture_conversion.30
+	desc = "EVTDESC_culture_conversion_30"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		should_evolve_cultures_trigger = yes
+		culture_group = culture_group_easterling
+		any_realm_province = {
+			culture_group = culture_group_easterling
+		}
+		is_evil_friend = yes
+	}
+
+	mean_time_to_happen = {
+		months = 120
+
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			independent = yes
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { learning = 11 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_30"
+		culture = culture_ulbandim
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_ulbandim
+		}
+	}
+}
+
+# It's spreading
+character_event = {
+	id = culture_conversion.31
+	desc = "EVTDESC_culture_conversion_31"
+	picture = GFX_evt_stone_church
+	
+	only_playable = yes
+	
+	trigger = {
+		OR = {
+			culture = culture_ulbandim
+			any_liege = { culture = culture_ulbandim }
+		}
+		any_demesne_province = {
+			OR = {
+				culture_group = culture_group_easterling
+				ROOT = { culture = culture_ulbandim }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_31"
+		random_demesne_province = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_ulbandim
+		}
+	}
+}
+
+#Make my court speak Ulbandim
+character_event = {
+	id = culture_conversion.32
+	desc = "EVTDESC_culture_conversion_32"
+	picture = GFX_evt_throne_room
+	
+	only_rulers = yes
+	culture = culture_ulbandim
+
+	trigger = {
+		culture = culture_ulbandim
+		any_courtier = {
+			culture_group = culture_group_easterling
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_32"
+		random_courtier = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_ulbandim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.34 days = 3 }
+			}
+		}
+	}
+}
+
+#Make my vassal speak Ulbandim
+character_event = {
+	id = culture_conversion.33
+	desc = "EVTDESC_culture_conversion_33"
+	picture = GFX_evt_throne_room
+	
+	only_playable = yes
+	culture = culture_ulbandim
+
+	trigger = {
+		culture = culture_ulbandim
+		any_vassal = {
+			culture_group = culture_group_easterling
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.3
+			OR = {
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots
+				}
+				has_game_rule = {
+					name = culture_conversion
+					value = faster_melting_pots_and_slower_normal
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA_culture_conversion_33"
+		random_vassal = {
+			limit = {
+				culture_group = culture_group_easterling
+			}
+			culture = culture_ulbandim
+			hidden_tooltip = {
+				character_event = { id = culture_conversion.34 days = 3 }
+			}
+		}
+	}
+}
+
+# Conversion to Ulbandim
+character_event = {
+	id = culture_conversion.34
+	desc = "EVTDESC_culture_conversion_34"
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_culture_conversion_34"
+		culture = culture_ulbandim
+	}
+}
