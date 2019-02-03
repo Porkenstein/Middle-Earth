@@ -738,7 +738,6 @@
 		name = "Pallando"
 		culture = "culture_istari"
 		add_trait = at_east
-		add_trait = staff_of_pallando
 		add_trait = gardener
 		add_trait = elusive_shadow
 		add_trait = quick
@@ -749,6 +748,7 @@
 			set_graphical_culture = culture_istari
 			set_character_flag = pallando
 			add_friend = 10030 #Alatar
+			add_artifact = staff_of_pallando
 		}
 	} #The Five Istari arrive in Middle-earth
 }
@@ -769,7 +769,6 @@
 		name = "Alatar"
 		culture = "culture_istari"
 		add_trait = at_east
-		add_trait = staff_of_alatar
 		add_trait = gardener
 		add_trait = elusive_shadow
 		add_trait = mystic
@@ -780,6 +779,7 @@
 			set_graphical_culture = culture_istari
 			set_character_flag = alatar
 			add_friend = 10029 #Pallando
+			add_artifact = staff_of_alatar
 		}
 	} #The Five Istari arrive in Middle-earth
 }
@@ -801,7 +801,6 @@
 	9343.1.1 = {
 		name = "Radagast"
 		culture = "culture_istari"
-		add_trait = staff_of_radagast
 		give_nickname = "nick_the_brown"
 		add_trait = fortune_builder
 		add_trait = lunatic
@@ -813,6 +812,7 @@
 		effect = {
 			set_graphical_culture = culture_istari
 			add_friend = 10033
+			add_artifact = staff_of_radagast
         }
 		employer = 3003 # He does not get Rosgobel until 10818, so I'll stick him with Elrond
 	} #The Five Istari arrive in Middle-earth
@@ -840,10 +840,10 @@
 		culture = "culture_istari"
 		give_nickname = "nick_the_white"
 		add_trait = mastermind_theologian
-		add_trait = staff_of_saruman
 		add_trait = at_east
 		effect = {
 			set_graphical_culture = culture_istari
+			add_artifact = staff_of_saruman
 		}
 	} #The Five Istari arrive in Middle-earth
 	10806.1.1 = {
@@ -858,7 +858,9 @@
 		# add_trait =  palantir_orthanc
 		remove_trait = mastermind_theologian
 		add_trait = intricate_webweaver
-		add_trait = key_of_orthanc
+		effect = {
+			add_artifact = key_of_orthanc
+		}
 	} #Saruman settled in Isengard
 	11296.1.1 = {
 		remove_trait = white_council
