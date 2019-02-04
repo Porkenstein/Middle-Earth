@@ -7,9 +7,20 @@ decisions = {
 			independent = yes
 			higher_real_tier_than = DUKE
 			any_realm_province = {
+				OR = {
+					NOT = {
+						culture = ROOT
+					}
+					AND = {
+						ROOT = {
+							mep_is_evil_side_trigger = yes
+						}
+						NOT = {
+							mep_is_evil_side_trigger = yes
+						}
+					}
+				}
 				NOR = {
-					culture= ROOT
-					religion = ROOT
 					has_province_modifier = being_colonised
 					has_province_modifier = clearing_province
 				}
