@@ -1279,12 +1279,13 @@ narrative_event = {	#The End of the Ring
 				character_event = { id = mep_fellowship_events.914 }
 			}
 			any_character = {
-				limit = { trait = trait_nooo }
-				remove_trait = trait_nooo
-			}
-			any_character = {
-				limit = { trait = nazgul }
-				death = { death_reason = death_battle }
+				if = {
+					limit = { trait = trait_nooo }
+					remove_trait = trait_nooo
+				if = {
+					limit = { trait = nazgul }
+					death = { death_reason = death_battle }
+				}
 			}
 			k_elves = {
 				holder_scope = {
