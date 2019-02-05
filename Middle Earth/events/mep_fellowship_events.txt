@@ -87,7 +87,7 @@ narrative_event = {	#Gandalf Returns
 
 	option = {
 		name = EVTOPTAmep_fellowship_events.111
-		IF = {
+		if = {
 			limit = {
 				has_game_rule = { name = wotr_lore  value = canon }
 			}
@@ -1019,7 +1019,7 @@ narrative_event = {	#Ithilien
 		}
 		k_ringbearer = {
 			holder_scope = {
-				IF = {
+				if = {
 					limit = { prisoner = no }
 					narrative_event = { id = mep_fellowship_events.140 days = 15 random = 10 }
 				}
@@ -1066,7 +1066,7 @@ narrative_event = {	#Minas Morgul and Shelob's Lair
 		}
 		k_ringbearer = {
 			holder_scope = {
-				IF = {
+				if = {
 					limit = { prisoner = no }
 					narrative_event = { id = mep_fellowship_events.141 days = 1 random = 2 }
 				}
@@ -1115,7 +1115,7 @@ narrative_event = {	#Cirith Ungol
 		}
 		k_ringbearer = {
 			holder_scope = {
-				IF = {
+				if = {
 					limit = { prisoner = no }
 					narrative_event = { id = mep_fellowship_events.142 days = 10 random = 2 }
 				}
@@ -1335,7 +1335,7 @@ narrative_event = {	#Return to Hobbiton
 				destroy_landed_title = THIS
 			}
 		}
-		IF = {
+		if = {
 			limit = {
 				k_shire = {
 					has_title_flag = shire_interference
@@ -1916,7 +1916,7 @@ narrative_event = {	#Declare War for Gondor
 				casus_belli = claim
 			}
 		}
-		IF = {
+		if = {
 			limit = {
 				e_isengard = { has_holder = yes }
 			}
@@ -2015,7 +2015,7 @@ narrative_event = {	#The War for Gondor Ended - Darkness Win
 		}
 		hidden_effect = {
 			e_isengard = {
-				IF = {
+				if = {
 					limit = { has_holder = yes }
 					holder_scope = {
 						narrative_event = { id = mep_fellowship_events.33 days = 1 }
@@ -2378,7 +2378,7 @@ narrative_event = {	#Last War, Informer
 			}
 		}
 		k_elves = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 					holder_scope = {
@@ -2391,7 +2391,7 @@ narrative_event = {	#Last War, Informer
 			}
 		}
 		k_mirkwood = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 					holder_scope = {
@@ -2412,7 +2412,7 @@ narrative_event = {	#Last War, Informer
 			ai = no
 		}
 		k_elves = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 					holder_scope = {
@@ -2425,7 +2425,7 @@ narrative_event = {	#Last War, Informer
 			}
 		}
 		k_mirkwood = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 					holder_scope = {
@@ -2630,12 +2630,12 @@ narrative_event = {	#Last War Ended - Darkness Win
 			has_landed_title = e_barad_dur
 		}
 		k_elves = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 				}
 				holder_scope = {
-					IF = {
+					if = {
 						limit = {
 							independent = yes
 						}
@@ -2649,12 +2649,12 @@ narrative_event = {	#Last War Ended - Darkness Win
 			}
 		}
 		k_mirkwood = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 				}
 				holder_scope = {
-					IF = {
+					if = {
 						limit = {
 							independent = yes
 						}
@@ -2669,7 +2669,7 @@ narrative_event = {	#Last War Ended - Darkness Win
 		}
 		e_barad_dur = {
 			e_reunited_kingdom = {
-				IF = {
+				if = {
 					limit = {
 						has_holder = yes
 					}
@@ -2682,7 +2682,7 @@ narrative_event = {	#Last War Ended - Darkness Win
 				}
 			}
 			e_steward_gondor = {
-				IF = {
+				if = {
 					limit = {
 						has_holder = yes
 					}
@@ -2708,12 +2708,12 @@ narrative_event = {	#Last War Ended - Darkness Win
 			has_landed_title = e_isengard
 		}
 		k_elves = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 				}
 				holder_scope = {
-					IF = {
+					if = {
 						limit = {
 							independent = yes
 						}
@@ -2727,12 +2727,12 @@ narrative_event = {	#Last War Ended - Darkness Win
 			}
 		}
 		k_mirkwood = {
-			IF = {
+			if = {
 				limit = {
 					has_holder = yes
 				}
 				holder_scope = {
-					IF = {
+					if = {
 						limit = {
 							independent = yes
 						}
@@ -2747,7 +2747,7 @@ narrative_event = {	#Last War Ended - Darkness Win
 		}
 		e_isengard = {
 			e_reunited_kingdom = {
-				IF = {
+				if = {
 					limit = {
 						has_holder = yes
 					}
@@ -2760,7 +2760,7 @@ narrative_event = {	#Last War Ended - Darkness Win
 				}
 			}
 			e_steward_gondor = {
-				IF = {
+				if = {
 					limit = {
 						has_holder = yes
 					}
@@ -2860,7 +2860,7 @@ narrative_event = {	#Last War Ended - Allied Win
 				death = { death_reason = death_battle }
 			}
 			k_elves = {
-				IF = {
+				if = {
 					limit = { has_holder = yes }
 					holder_scope = {
 						save_event_target_as = celeborn
@@ -2946,7 +2946,7 @@ narrative_event = {	#Last War Ended - Allied Win
 				death = { death_reason = death_battle }
 			}
 			k_elves = {
-				IF = {
+				if = {
 					limit = { has_holder = yes }
 					holder_scope = {
 						save_event_target_as = celeborn
@@ -3200,17 +3200,17 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 			has_landed_title = e_isengard
 		}
 		c_154 = {
-			IF = {
+			if = {
 				limit = { is_alive = yes }
 				save_event_target_as = grima
 				c_28 = {
-					IF = {
+					if = {
 						limit = { is_alive = yes }
 						event_target:grima = {
 							remove_spouse = yes
 						}
 						opinion = { modifier = opinion_forced_consort who = event_target:grima }
-						IF = {
+						if = {
 							limit = { is_married = yes }
 							remove_spouse = yes
 						}
@@ -3277,7 +3277,7 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 			}
 			set_defacto_liege = ROOT
 		}
-		IF = {
+		if = {
 			limit = {
 				NOT = {
 					c_derndingle = {
@@ -3359,7 +3359,7 @@ narrative_event = {	#The War for Rohan Ended - Darkness Win
 			}
 			d_eastfolde = {
 				holder_scope = {
-					IF = {
+					if = {
 						limit = {
 							OR = {
 								character = 27
