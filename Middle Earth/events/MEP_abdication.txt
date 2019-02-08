@@ -70,8 +70,7 @@ character_event = {
 					current_heir = { is_alive = yes }  
 				}
 				current_heir = {
-					mep_transfer_onering_from_root = yes 
-					character_event = { id = 250278 }
+					mep_transfer_onering_from_root = yes
 				}
 			}
 		}
@@ -88,7 +87,6 @@ character_event = {
 				}
 				current_heir = {
 					effect = { add_artifact = narya }
-					character_event = { id = 250279 }
 				}
 			}
 		}
@@ -105,7 +103,6 @@ character_event = {
 				}
 				current_heir = {
 					effect = { add_artifact = nenya }
-					character_event = { id = 250298 }
 				}
 			}
 		}
@@ -122,7 +119,6 @@ character_event = {
 				}
 				current_heir = {
 					effect = { add_artifact = vilya }
-					character_event = { id = 250299 }
 				}
 			}
 		}
@@ -139,7 +135,6 @@ character_event = {
 				}
 				current_heir = {
 					effect = { add_artifact = barahir }
-					character_event = { id = 250299 }
 				}
 			}
 		}	
@@ -437,24 +432,6 @@ character_event = {
 				}
 			}
 		}	
-		## Mithril Chest ##	
-		if = {
-				limit = { trait = mithril }
-				if = { 
-					limit = { 
-						is_ruler = yes
-						current_heir = { 
-							is_alive = yes  
-							NOT = { trait = mithril } 
-						}
-					}
-					current_heir = {
-						character_event = { id = 250295 }
-						add_trait = mithril 
-					}
-					remove_trait = mithril
-				}
-			}	
 		## Armor founded in the ruins of Himling ##	
 		if = {
 				limit = { trait = himling_armour }

@@ -78,10 +78,6 @@ character_event = {
 		name = "EVTOPTAmoria.2" ## I'll sold it for more gold!
 		wealth = 500
 	}
-	option = {
-		name = "EVTOPTBmoria.2" ## I'll make a mithril chest with it !
-		character_event = { id = moria.5 days = 10}
-	}	
 }
 
 #### Your miners didn't find anything... ####
@@ -113,93 +109,6 @@ character_event = {
 		set_global_flag = moria_upper_mines_empty
 	}
 }
-
-
-#### Your can fabricate a mithril chest, but for who ? ####
-character_event = {
-	id = moria.5
-	desc = "EVTDESCmoria.5"
-	picture = GFX_evt_dwarves_mines
-
-	is_triggered_only = yes
-	
-	option = {
-		trigger = {
-			NOT = { trait = mithril }
-		}
-		name = "EVTOPTAmoria.5" ## For me !.
-		add_trait = mithril
-	}
-	
-	option = {
-		trigger = {
-			job_marshal = { NOT = { trait = mithril } }
-		}
-		name = "EVTOPTBmoria.5" ## For my marshal!
-		job_marshal = { 
-			add_trait = mithril
-			character_event = { id = moria.6 }
-			opinion = { modifier = mithril_gift who = ROOT years = 200 }
-		}
-	}
-	
-	option = {
-		trigger = {
-			any_child = {
-				is_landed = yes
-				NOT = { trait = mithril }
-			}
-		}
-		name = "EVTOPTCmoria.5" ## For one of my other sons
-		any_child = { 
-			limit = {
-				is_landed = yes
-				NOT = { trait = mithril }
-			}
-			add_trait = mithril
-			character_event = { id = moria.6 }
-			opinion = { modifier = mithril_gift who = ROOT years = 200 }
-		}
-	}	
-	
-	option = {
-		trigger = {
-			any_vassal = {
-				NOT = { trait = mithril }
-			}
-		}
-		name = "EVTOPTDmoria.5" ## For one of my vassals
-		any_vassal = {
-			limit = {
-					NOT = { trait = mithril }
-				}
-			add_trait = mithril
-			character_event = { id = moria.6 }
-			opinion = { modifier = mithril_gift who = ROOT years = 200 }
-		}
-	}	
-	
-	option = {
-		name = "EVTOPTEmoria.5" ## I prefer some gold.
-		wealth = 500
-	}		
-	
-}
-
-
-#### The holder of the new mithril chest is alerted ####
-character_event = {
-	id = moria.6
-	desc = "EVTDESCmoria.6"
-	picture = GFX_evt_dwarves_mines
-
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVTOPTAmoria.6" ## Thanks a lot!
-	}
-}
-
 
 #### The miners are in the deeps of the Moria ####
 character_event = {
@@ -443,10 +352,6 @@ character_event = {
 				FROM = { has_artifact = dwarvish_sword }
 			}
 			modifier = {
-				factor = 5
-				FROMFROM = { trait = mithril }
-			}
-			modifier = {
 				factor = 30
 				FROMFROM = { trait = balrog }
 			}
@@ -630,10 +535,6 @@ character_event = {
 				factor = 2
 				FROM = { has_artifact = dwarvish_sword }
 			}
-			modifier = {
-				factor = 2
-				FROM = { trait = mithril }
-			}	
 			modifier = {
 				factor = 30
 				FROM = { trait = balrog }
