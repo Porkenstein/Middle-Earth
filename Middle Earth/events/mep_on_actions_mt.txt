@@ -1172,6 +1172,41 @@ character_event = {	#Set Orcs to Open
 		}
 	}
 }
+character_event = {	#Lesser Ring Obtained
+	id = mep_on_actions_mt.16
+	is_triggered_only = yes
+	hide_window - yes
+
+	trigger = {
+		FROM = {
+			artifact = lesser_ring
+		}
+	}
+
+	option = {
+		any_player = {
+			limit = {
+				NOT = {
+					character = ROOT
+				}
+			}
+			character_event = {
+				id = mep_on_actions_mt.161
+			}
+		}
+	}
+}
+
+character_event = {	#Lesser Ring Obtained
+	id = mep_on_actions_mt.161
+	desc = EVTDESCmep_on_actions_mt.161
+	picture = GFX_evt_emissary
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_on_actions_mt.161
+	}
+}
 character_event = {	#Assign Race Traits
 	id = mep_on_actions_mt.21
 	is_triggered_only = yes
