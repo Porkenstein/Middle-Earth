@@ -5,10 +5,7 @@ obj_ring_hunt = {
 
 	potential = {
 		NOT = {
-			any_character = {
-				is_alive = yes
-				has_artifact = artifact_ring
-			}
+			has_global_flag = one_ring_held
 		}
 		c_10016 = {
 			is_alive = yes
@@ -18,6 +15,11 @@ obj_ring_hunt = {
 	allow = {
 		is_ruler = yes
 		independent = yes
+		NOT = {
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
+			}
+		}
 	}
 
 	chance = {
@@ -48,15 +50,14 @@ obj_ring_hunt = {
 	}
 	abort = {
 		OR = {
-			has_artifact = artifact_ring
 			AND = {
+				has_global_flag = one_ring_held
 				NOT = {
 					has_artifact = artifact_ring
 				}
-				any_character = {
-					is_alive = yes
-					has_artifact = artifact_ring
-				}
+			}
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
 			}
 		}
 	}

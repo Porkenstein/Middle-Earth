@@ -1,5 +1,5 @@
 namespace = ring_hunt_events
-character_event = {	#Happen Upon the Ring
+character_event = {	#Happen Upon A Ring
 	id = ring_hunt_events.0
 	desc = EVTDESCring_hunt_events.0
 	picture = GFX_evt_castle_construction
@@ -11,10 +11,11 @@ character_event = {	#Happen Upon the Ring
 		NOT = {
 			is_incapable = yes
 		}
-		NOT = {
-			any_character = {
-				is_alive = yes
-				has_artifact = artifact_ring
+		NOR = {
+			has_global_flag = one_ring_held
+			has_artifact = artifact_ring
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
 			}
 		}
 	}
@@ -25,7 +26,26 @@ character_event = {	#Happen Upon the Ring
 
 	option = {	#Add Ring
 		name = EVTOPTAring_hunt_events.0
-		add_artifact = artifact_ring
+		if = {
+			limit = {
+				has_character_flag = one_ring_info
+			}
+			add_artifact = artifact_ring
+			set_global_flag = one_ring_held
+		}
+		else = {
+			add_artifact = lesser_ring
+			new_artifact = {
+				set_artifact_flag = one_ring_maybe
+				random_list = {
+					1 = {
+						set_artifact_flag = one_ring_hide
+					}
+					4 = {
+					}
+				}
+			}
+		}
 	}
 }
 character_event = {	#How to search?
@@ -41,10 +61,11 @@ character_event = {	#How to search?
 			has_character_flag = search_nazgul
 			has_character_flag = search_fate
 		}
-		NOT = {
-			any_character = {
-				is_alive = yes
-				has_artifact = artifact_ring
+		NOR = {
+			has_global_flag = one_ring_held
+			has_artifact = artifact_ring
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
 			}
 		}
 	}
@@ -121,13 +142,11 @@ character_event = {	#Ring is Found
 				}
 			}
 		}
-		NOT = {
+		NOR = {
+			has_global_flag = one_ring_held
 			has_artifact = artifact_ring
-		}
-		NOT = {
-			any_character = {
-				is_alive = yes
-				has_artifact = artifact_ring
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
 			}
 		}
 	}
@@ -190,7 +209,26 @@ character_event = {	#Ring is Found
 		trigger = {
 			has_ambition = obj_ring_hunt
 		}
-		add_artifact = artifact_ring
+		if = {
+			limit = {
+				has_character_flag = one_ring_info
+			}
+			add_artifact = artifact_ring
+			set_global_flag = one_ring_held
+		}
+		else = {
+			add_artifact = lesser_ring
+			new_artifact = {
+				set_artifact_flag = one_ring_maybe
+				random_list = {
+					1 = {
+						set_artifact_flag = one_ring_hide
+					}
+					4 = {
+					}
+				}
+			}
+		}
 	}
 
 	option = {	#Take the Ring - Vassal
@@ -199,8 +237,10 @@ character_event = {	#Ring is Found
 			any_liege = {
 				has_ambition = obj_ring_hunt
 			}
+			has_character_flag = one_ring_info
 		}
 		add_artifact = artifact_ring
+		set_global_flag = one_ring_held
 		set_defacto_liege = THIS
 	}
 
@@ -212,7 +252,31 @@ character_event = {	#Ring is Found
 			}
 		}
 		top_liege = {
-			add_artifact = artifact_ring
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = one_ring_info
+						PREV = {
+							has_character_flag = one_ring_info
+						}
+					}
+				}
+				add_artifact = artifact_ring
+				set_global_flag = one_ring_held
+			}
+			else = {
+				add_artifact = lesser_ring
+				new_artifact = {
+					set_artifact_flag = one_ring_maybe
+					random_list = {
+						1 = {
+							set_artifact_flag = one_ring_hide
+						}
+						4 = {
+						}
+					}
+				}
+			}
 			character_event = {
 				id = ring_hunt_events.101
 			}
@@ -245,13 +309,149 @@ character_event = {	#Ring is Found
 			NOT = {
 				has_landed_title = e_barad_dur
 			}
+			has_artifact = artifact_ring
+		}
+	}
+
+	option = {	#Take the Ring - Ruler
+		name = EVTOPTBring_hunt_events.101
+		trigger = {
+			NOT = {
+				has_landed_title = e_barad_dur
+			}
+			NOT = {
+				has_artifact = artifact_ring
+			}
 		}
 	}
 
 	option = {	#Take the Ring - Vassal
-		name = EVTOPTBring_hunt_events.101
+		name = EVTOPTCring_hunt_events.101
 		trigger = {
 			has_landed_title = e_barad_dur
+		}
+	}
+}
+character_event = {	#How to search?
+	id = ring_hunt_events.20
+	desc = EVTDESCring_hunt_events.20
+	picture = GFX_evt_castle_construction
+
+	trigger = {
+		OR = {
+			has_ambition = obj_ring_hunt
+			top_liege = {
+				has_ambition = obj_ring_hunt
+			}
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
+			}
+		}
+		NOT = {
+			has_global_flag = one_ring_held
+		}
+		NOT = {
+			has_character_flag = one_ring_info
+		}
+		OR = {
+			ai = yes
+			location = {
+				province_id = 422
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 5
+			ai = yes
+		}
+	}
+
+	option = {
+		name = EVTOPTAring_hunt_events.20
+		set_character_flag = one_ring_info
+	}
+}
+character_event = {	#Discover Ring is One Ring
+	id = ring_hunt_events.21
+	desc = EVTDESCring_hunt_events.21
+	picture = GFX_evt_castle_construction
+
+	trigger = {
+		has_character_flag = one_ring_info
+		NOT = {
+			has_global_flag = one_ring_held
+		}
+		any_artifact = {
+			has_artifact_flag = one_ring_maybe
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 3
+			ai = yes
+		}
+	}
+
+	option = {
+		name = EVTOPTAring_hunt_events.21
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = one_ring_hide
+			}
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = one_ring_hide
+			}
+			ROOT = {
+				add_artifact = artifact_ring
+			}
+			destroy_artifact = ROOT
+			set_global_flag = one_ring_held
+		}
+	}
+
+	option = {
+		name = EVTOPTBring_hunt_events.21
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
+				NOT = {
+					has_artifact_flag = one_ring_hide
+				}
+			}
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = one_ring_maybe
+			}
+			clr_artifact_flag = one_ring_maybe
+		}
+	}
+}
+character_event = {	#Remove all One Rings when 1 Ring is found
+	id = ring_hunt_events.22
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_global_flag = one_ring_held
+		any_artifact = {
+			has_artifact_flag = one_ring_hide
+		}
+	}
+
+	immediate = {
+		any_artifact = {
+			limit = {
+				has_artifact_flag = one_ring_hide
+			}
+			clr_artifact_flag = one_ring_hide
 		}
 	}
 }
