@@ -1,4 +1,60 @@
 namespace = mep_craftables_events
+
+character_event = {
+	id = mep_craftables_events.0
+	desc = EVTDESCmep_craftables_events.0
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Generic Equipment
+		name = EVTOPTAmep_craftables_events.0
+		trigger = {
+			OR = {
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = horse_armor
+					}
+				}
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = art_sword
+					}
+				}
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = art_armor
+					}
+				}
+			}
+		}
+		set_character_flag = generic_craft
+		character_event = {
+			id = mep_craftables_events.1
+		}
+	}
+
+	option = {	#Reforge Equipment
+		name = EVTOPTBmep_craftables_events.0
+		trigger = {
+			OR = {
+				has_artifact = gurthang_broken
+				AND = {
+					has_artifact = narsil_broken
+					has_game_rule = { name = wotr_lore  value = sandbox }
+				}
+			}
+		}
+		set_character_flag = reforge_craft
+		character_event = {
+			id = mep_craftables_events.1
+		}
+	}
+
+	option = {	#Cancel
+		name = EVTOPTCmep_craftables_events.0
+		clr_character_flag = mep_crafting
+	}
+}
 character_event = {
 	id = mep_craftables_events.1
 	desc = EVTDESCmep_craftables_events.1
@@ -13,7 +69,9 @@ character_event = {
 					has_artifact_flag = art_sword
 				}
 			}
+			has_character_flag = generic_craft
 		}
+		clr_character_flag = generic_craft
 		event_target:mep_craftee = {
 			character_event = {
 				id = mep_craftables_events.11
@@ -29,7 +87,9 @@ character_event = {
 					has_artifact_flag = art_armor
 				}
 			}
+			has_character_flag = generic_craft
 		}
+		clr_character_flag = generic_craft
 		event_target:mep_craftee = {
 			character_event = {
 				id = mep_craftables_events.12
@@ -37,9 +97,57 @@ character_event = {
 		}
 	}
 
-	option = {	#Forge a Weapon
+	option = {	#Forge Horse Armor
 		name = EVTOPTCmep_craftables_events.1
-		clr_character_flag = mep_crafting
+		trigger = {
+			OR = {
+				mep_is_western_culture = yes
+				mep_is_eastern_culture = yes
+			}
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = horse_armor
+				}
+			}
+			has_character_flag = generic_craft
+		}
+		clr_character_flag = generic_craft
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.13
+			}
+		}
+	}
+
+	option = {	#Reforge Gurthang
+		name = EVTOPTDmep_craftables_events.1
+		trigger = {
+			has_artifact = gurthang_broken
+			has_character_flag = reforge_craft
+		}
+		clr_character_flag = reforge_craft
+		set_character_flag = reforge_gurthang
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.20
+			}
+		}
+	}
+
+	option = {	#Reforge Narsil
+		name = EVTOPTEmep_craftables_events.1
+		trigger = {
+			has_artifact = narsil_broken
+			has_game_rule = { name = wotr_lore  value = sandbox }
+			has_character_flag = reforge_craft
+		}
+		clr_character_flag = reforge_craft
+		set_character_flag = reforge_narsil
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.20
+			}
+		}
 	}
 }
 
@@ -827,6 +935,498 @@ character_event = {
 		}
 		event_target:mep_crafter = {
 			prestige = -50
+		}
+	}
+}
+
+#Horse Armor
+character_event = {
+	id = mep_craftables_events.13
+	desc = EVTDESCmep_craftables_events.13
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Standard Ore
+		name = EVTOPTAmep_craftables_events.13
+		trigger = {
+			wealth = 100
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_crafter = {
+						character = ROOT
+					}
+				}
+			}
+			wealth = -100
+			event_target:mep_crafter = {
+				wealth = 20
+			}
+		}
+		else = {
+			wealth = -80
+		}
+		event_target:mep_crafter = {
+			character_event = {
+				id = mep_craftables_events.131
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.131
+	desc = EVTDESCmep_craftables_events.131
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.65
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 2
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0
+					mep_is_eastern_culture = yes
+				}
+				event_target:mep_craftee = {
+					add_artifact = western_horse_armor
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0.15
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 0.65
+					trait = adept_craftsman
+				}
+				modifier = {
+					factor = 0.95
+					trait = skilled_craftsman
+				}
+				modifier = {
+					factor = 2
+					trait = master_craftsman
+				}
+				modifier = {
+					factor = 0
+					mep_is_western_culture = yes
+				}
+				event_target:mep_craftee = {
+					add_artifact = eastern_horse_armor
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = novice_craftsman
+				}
+				modifier = {
+					factor = 1.1
+					trait = adept_craftsman
+				}
+			}
+		}
+	}
+
+	option = {	#Success
+		name = EVTOPTAmep_craftables_events.131
+		trigger = {
+			event_target:mep_craftee = {
+				any_artifact = {
+					has_artifact_flag = horse_armor
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_craftee = {
+						character = ROOT
+					}
+				}
+			}
+			event_target:mep_craftee = {
+				character_event = {
+					id = mep_craftables_events.132
+				}
+			}
+		}
+		else = {
+			clr_character_flag = mep_crafting
+		}
+	}
+
+	option = {	#Failure
+		name = EVTOPTBmep_craftables_events.131
+		trigger = {
+			event_target:mep_craftee = {
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = horse_armor
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					event_target:mep_craftee = {
+						character = ROOT
+					}
+				}
+			}
+			event_target:mep_craftee = {
+				character_event = {
+					id = mep_craftables_events.132
+				}
+			}
+		}
+		else = {
+			clr_character_flag = mep_crafting
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.132
+	desc = {
+		text = EVTDESCAmep_craftables_events.132
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = horse_armor
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_craftables_events.132
+		trigger = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = horse_armor
+				}
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = mep_crafting
+	}
+
+	option = {	#Succeeded - Bonus
+		name = EVTOPTAmep_craftables_events.132
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = horse_armor
+			}
+			wealth = 100
+		}
+		transfer_scaled_wealth = {
+			to = event_target:mep_crafter
+			value = 1
+			min = 100
+			max = 200
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	#Succeeded - Nothing
+		name = EVTOPTBmep_craftables_events.132
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = horse_armor
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = 100
+		}
+	}
+
+	option = {	#Failure
+		name = EVTOPTCmep_craftables_events.132
+		trigger = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = horse_armor
+				}
+			}
+		}
+		event_target:mep_crafter = {
+			prestige = -50
+		}
+	}
+
+	option = {	#Failure - Kill
+		name = EVTOPTDmep_craftables_events.132
+		trigger = {
+			trait = cruel
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = horse_armor
+				}
+			}
+		}
+		event_target:mep_crafter = {
+			death = {
+				death_reason = death_murder
+				killer = ROOT
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.20
+	desc = EVTDESCmep_craftables_events.20
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:mep_craftee = {
+			if = {
+				limit = { has_character_flag = reforge_narsil }
+				random_list = {
+					4 = {
+						add_artifact = narsil
+						destroy_artifact = narsil_broken
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							event_target:mep_crafter = {
+								trait = master_craftsman
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { has_character_flag = reforge_gurthang }
+				random_list = {
+					4 = {
+						add_artifact = gurthang
+						destroy_artifact = gurthang_broken
+					}
+					1 = {
+						modifier = {
+							factor = 0
+							event_target:mep_crafter = {
+								trait = master_craftsman
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {	#Narsil Succeeded - Personal Craft
+		name = EVTOPTAmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				character = ROOT
+				has_artifact = narsil
+			}
+		}
+		prestige = 100
+	}
+
+	option = {	#Gurthang Succeeded - Personal Craft
+		name = EVTOPTBmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				character = ROOT
+				has_artifact = gurthang
+			}
+		}
+		prestige = 100
+	}
+
+	option = {	#Failure - Personal Craft
+		name = EVTOPTCmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				character = ROOT
+				NOR = {
+					has_artifact = narsil
+					has_artifact = gurthang
+				}
+			}
+		}
+	}
+
+	option = {	#Narsil Succeeded - Hired Craft
+		name = EVTOPTDmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				NOT = {
+					character = ROOT
+				}
+				has_character_flag = reforge_narsil
+				has_artifact = narsil
+			}
+		}
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.21
+			}
+		}
+	}
+
+	option = {	#Gurthang Succeeded - Hired Craft
+		name = EVTOPTEmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				NOT = {
+					character = ROOT
+				}
+				has_character_flag = reforge_gurthang
+				has_artifact = gurthang
+			}
+		}
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.21
+			}
+		}
+	}
+
+	option = {	#Failed - Hired Craft
+		name = EVTOPTFmep_craftables_events.20
+		trigger = {
+			event_target:mep_craftee = {
+				NOT = {
+					character = ROOT
+				}
+				OR = {
+					AND = {
+						has_character_flag = reforge_narsil
+						NOT = { has_artifact = narsil }
+					}
+					AND = {
+						has_character_flag = reforge_gurthang
+						NOT = { has_artifact = gurthang }
+					}
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			character_event = {
+				id = mep_craftables_events.21
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_craftables_events.21
+	desc = {
+		text = EVTDESCAmep_craftables_events.21
+		trigger = {
+			has_character_flag = reforge_narsil
+			has_artifact = narsil
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_craftables_events.21
+		trigger = {
+			has_character_flag = reforge_gurthang
+			has_artifact = gurthang
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_craftables_events.21
+		trigger = {
+			has_character_flag = reforge_narsil
+			NOT = { has_artifact = narsil }
+		}
+	}
+	desc = {
+		text = EVTDESCDmep_craftables_events.21
+		trigger = {
+			has_character_flag = reforge_gurthang
+			NOT = { has_artifact = gurthang }
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Crafter Succeeded
+		name = EVTOPTAmep_craftables_events.21
+		trigger = {
+			OR = {
+				AND = {
+					has_character_flag = reforge_narsil
+					has_artifact = narsil
+				}
+				AND = {
+					has_character_flag = reforge_gurthang
+					has_artifact = gurthang
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			prestige = 100
+		}
+	}
+
+	option = {	#Crafter Failed
+		name = EVTOPTBmep_craftables_events.21
+		trigger = {
+			OR = {
+				AND = {
+					has_character_flag = reforge_narsil
+					NOT = { has_artifact = narsil }
+				}
+				AND = {
+					has_character_flag = reforge_gurthang
+					NOT = { has_artifact = gurthang }
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			prestige = -100
+		}
+	}
+
+	option = {	#Crafter Failed
+		name = EVTOPTBmep_craftables_events.21
+		trigger = {
+			trait = cruel
+			OR = {
+				AND = {
+					has_character_flag = reforge_narsil
+					NOT = { has_artifact = narsil }
+				}
+				AND = {
+					has_character_flag = reforge_gurthang
+					NOT = { has_artifact = gurthang }
+				}
+			}
+		}
+		event_target:mep_craftee = {
+			prestige = -100
+			death = {
+				death_reason = death_murder
+				killer = ROOT
+			}
 		}
 	}
 }

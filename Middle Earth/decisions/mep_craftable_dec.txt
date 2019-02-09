@@ -9,12 +9,32 @@ targetted_decisions = {
 			NOT = {
 				has_character_flag = mep_crafting
 			}
-			NAND = {
-				any_artifact = {
-					has_artifact_flag = art_sword
+			OR = {
+				AND = {
+					OR = {
+						mep_is_western_culture = yes
+						mep_is_eastern_culture = yes
+					}
+					NOT = {
+						any_artifact = {
+							has_artifact_flag = horse_armor
+						}
+					}
 				}
-				any_artifact = {
-					has_artifact_flag = art_armor
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = art_sword
+					}
+				}
+				NOT = {
+					any_artifact = {
+						has_artifact_flag = art_armor
+					}
+				}
+				has_artifact = gurthang_broken
+				AND = {
+					has_artifact = narsil_broken
+					has_game_rule = { name = wotr_lore  value = sandbox }
 				}
 			}
 			wealth = 100
@@ -39,7 +59,7 @@ targetted_decisions = {
 				save_event_target_as = mep_craftee
 				set_character_flag = mep_crafting
 				character_event = {
-					id = mep_craftables_events.1
+					id = mep_craftables_events.0
 				}
 			}
 		}

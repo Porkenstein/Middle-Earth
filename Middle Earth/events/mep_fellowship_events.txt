@@ -1456,12 +1456,19 @@ narrative_event = {	#Aragorn Sets out to Bree
 		}
 		any_demesne_title = {
 			limit = {
+				tier = DUKE
 				NOT = { title = d_fellowship_aragorn }
 			}
 			grant_title_no_opinion = event_target:aragornfellowship_heir
 		}
-		event_target:aragornfellowship_heir = {
-			set_defacto_liege = THIS
+		any_vassal = {
+			set_defacto_liege = event_target:aragornfellowship_heir
+		}
+		any_demesne_title = {
+			limit = {
+				NOT = { title = d_fellowship_aragorn }
+			}
+			grant_title_no_opinion = event_target:aragornfellowship_heir
 		}
 		set_defacto_liege = THIS
 			add_character_modifier = {
