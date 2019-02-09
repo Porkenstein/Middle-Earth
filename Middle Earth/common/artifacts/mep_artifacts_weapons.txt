@@ -10,7 +10,7 @@ daggerwesternesse = {
 	stacking = yes
 }
 
-morgul_blade = {  # for NazgÃ»l
+morgul_blade = {  # for Nazgûl
 	martial = 2
 	monthly_character_prestige = 0.3
 	combat_rating = 10
@@ -40,26 +40,36 @@ sting = {  # used by Bilbo, then Frodo, then Samwise
 # Narsil, the sword of Elendil, as it was before it was broken
 narsil_elendil = {
 	martial = 4
-	stewardship = 2
 	monthly_character_prestige = 0.5
-	combat_rating = 10
-	quality = 5
+	combat_rating = 15
+	vassal_opinion = 5
+	liege_opinion = -1
+	monthly_character_wealth = 0.05
+    command_modifier = {
+		morale_offence = 0.05
+	}
+	quality = 4
 	picture = "GFX_narsil_anduril"
 	slot = weapon
 	flags = { aflag_narsil_sword sword} 
 	stacking = no
+	active = { is_adult = yes }
 }
 
 # Narsil, broken
 narsil_broken = {
-	martial = 1
+	martial = 2
 	monthly_character_prestige = 0.25
-	combat_rating = 1
-	quality = 5
+	combat_rating = 5
+	quality = 2
+	vassal_opinion = 1
+	liege_opinion = -2
+	monthly_character_wealth = 0.02
 	picture = "GFX_narsil_broken"
 	slot = weapon
 	flags = { aflag_narsil_sword sword} 
 	stacking = no
+	active = { is_adult = yes }
 }
 
 anduril = {  # Aragorn's sword, made from the shards of Narsil
@@ -77,14 +87,24 @@ anduril = {  # Aragorn's sword, made from the shards of Narsil
 
 glamdring = {  # sword of gandalf
 	martial = 4
+	learning = 1
 	vassal_opinion = 2
-	monthly_character_prestige = 0.5
-	combat_rating = 10
-	quality = 5
+    command_modifier = {
+		morale_offence = 0.05
+		heavy_infantry = 0.05
+	}
+	attrition = -0.2
+	monthly_character_prestige = 0.75
+	combat_rating = 15
+	quality = 4
 	picture = "GFX_glamdring"
 	slot = weapon
 	flags = { aflag_glamdring sword} 
 	stacking = no
+	active = {
+		is_adult = yes
+		mep_is_good_side_trigger = yes
+	}
 }
 
 orcrist = {   # briefly used by Thorin II (before he died)
@@ -134,7 +154,7 @@ amroth_sword = {  # Sword belonging to Amroth, Silvan elf-ruler of 3rd age Lorie
 	stacking = no
 }
 
-aranruth = {  # Sword of Thingol, later picked up by the Kings of NÃºmenor
+aranruth = {  # Sword of Thingol, later picked up by the Kings of Númenor
     martial = 3
 	vassal_opinion = 10
 	monthly_character_prestige = 1.0
@@ -171,7 +191,7 @@ dagmor = {  # Beren's Sword
 	stacking = no
 }
 
-anguirel = {  # EÃ¶l's sword of Meteoric Iron, stolen by Maeglin (and taken to Gondolin). Presumably not a nice sword, possibly sentient
+anguirel = {  # Eöl's sword of Meteoric Iron, stolen by Maeglin (and taken to Gondolin). Presumably not a nice sword, possibly sentient
     martial = 3
 	vassal_opinion = -5
 	monthly_character_prestige = 1.0
