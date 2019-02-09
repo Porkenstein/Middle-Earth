@@ -348,14 +348,25 @@ character_event = {
 		NOT = { religion = religion_umaiar } # umaiar AI characters auto-claim every adjacent wilderness (colonisation.11)
 		NOT = { religion_group = religion_group_wilderness }
 		NOT = {	ROOT = { has_character_flag = no_settling } }
-		prestige = 200
-		wealth = 0
 		OR = {
-			trait = ambitious
+			has_character_flag = flag_expanding
+			AND = {
+				prestige = 200
+				wealth = 0
+			}
+		}
+		OR = {
+			AND = {
+				trait = ambitious
+				independent = yes
+			}
 			trait = oath_of_feanor
 			has_character_flag = flag_expanding
 			is_human_culture = yes
 		}
+
+		# dwarves send mining expeditions instead
+		NOT = { culture_group = culture_group_dwarves }
 	}
 
 	option = {

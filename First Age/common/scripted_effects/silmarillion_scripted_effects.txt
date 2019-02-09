@@ -403,11 +403,106 @@ abandon_province = {
 			capital_holding = {
 				convert_to = CASTLE
 			}
-			set_government_type = feudal_government
+			set_government_type = wilderness_nongovernment
 		}
 		location = {
 			culture = culture_wilderness
 			religion = religion_wilderness
+		}
+	}
+}
+
+abandon_province_to_wood_elves = {
+	if = {
+		limit = {
+			NOT = { num_of_settlements = 1 }
+		}
+		build_holding = {
+			type = castle
+		}
+	}
+	else_if = {
+		limit = {
+			num_of_settlements = 2
+		}
+		ruin_province = yes
+	}
+
+	random_switch = {
+		10 = {
+			create_character = {
+				culture = culture_laegrim
+				religion = religion_moriquendi
+				age = 310
+				trait = elf
+			}
+		}
+		10 = {
+			create_character = {
+				culture = culture_laegrim
+				religion = religion_moriquendi
+				age = 400
+				trait = elf
+			}
+		}
+		10 = {
+			create_character = {
+				culture = culture_laegrim
+				religion = religion_moriquendi
+				age = 680
+				trait = elf
+			}
+		}
+		10 = {
+			create_character = {
+				culture = culture_laegrim
+				religion = religion_moriquendi
+				age = 940
+				trait = elf
+			}
+		}
+		10 = {
+			create_character = {
+				culture = culture_laegrim
+				religion = religion_moriquendi
+				age = 1420
+				trait = elf
+			}
+		}
+		5 = {
+			create_character = {
+				culture = culture_nandor
+				religion = religion_moriquendi
+				age = 1050
+				trait = elf
+			}
+		}
+		5 = {
+			create_character = {
+				culture = culture_avari
+				religion = religion_moriquendi
+				age = 1230
+				trait = elf
+			}
+		}
+	}
+
+	county = {
+		location = {
+			new_character = {
+				usurp_title = PREVPREV
+				set_defacto_liege = THIS
+
+				capital_holding = {
+					convert_to = CASTLE
+				}
+				set_government_type = feudal_government
+
+				PREV = {
+					culture = PREV
+					religion = PREV
+				}
+			}
 		}
 	}
 }

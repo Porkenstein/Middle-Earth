@@ -4,7 +4,6 @@ theocracy_governments = {
 		preferred_holdings = { TEMPLE }
 		allowed_holdings = {
 			TEMPLE
-			CASTLE
 			FORT
 			HOSPITAL
 		}
@@ -20,10 +19,12 @@ theocracy_governments = {
 			merchant_republic_government
 			theocratic_feudal_government
 			chinese_imperial_government
+			angband_government
 		}
 		frame_suffix = "_theocracy"
 		title_prefix = "temple_"
 		potential = {
+			NOT = { religion_group = religion_group_wilderness }
 			holy_order = no
 			is_patrician = no
 			OR = {

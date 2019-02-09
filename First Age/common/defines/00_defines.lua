@@ -35,6 +35,9 @@ NDefines.NDiplomacy.OTHER_DEFENSIVE_PACT_JOIN_THREAT = 0.4
 NDefines.NInfamy.MIN_INFAMY_PER_WAR_PROVINCE = 5
 NDefines.NInfamy.MAX_INFAMY_PER_WAR_PROVINCE = 30
 NDefines.NInfamy.REALM_SIZE_BASE_MODIFIER = 2
+NDefines.NInfamy.MIN_INFAMY_DECAY = 0.1
+NDefines.NInfamy.MAX_INFAMY_DECAY = 0.3
+NDefines.NInfamy.INFAMY_DECAY_BASE = 0.8
 
 ----- NCharacter -----
 

@@ -234,6 +234,7 @@ force_vassalization = { # New2
 	can_use_gui = {
 		
 		not_both_elves_no_kinslaying = yes
+		NOT = { is_ai_elf = yes }
 	
 		FROM = {
 			show_scope_change = no
@@ -488,7 +489,7 @@ great_realm_conflict = { # New3
 				tier = EMPEROR
 			}
 		}
-		
+
 		OR = { # This ensures that the AI doesn't declare this type of war against someone who only holds a few counties within the targeted title...
 			ROOT = {
 				ai = no
@@ -686,6 +687,7 @@ ducal_county_conquest = { # New4
 	can_use_gui = {
 	
 		not_both_elves_no_kinslaying = yes
+		NOT = { is_ai_elf = yes }
 	
 		ROOT = {
 			show_scope_change = no
@@ -1774,6 +1776,7 @@ unjust_conquest = { # New7
 	can_use_gui = {
 	
 		not_both_elves_no_kinslaying = yes
+		NOT = { is_ai_elf = yes }
 	
 		ROOT = {
 			show_scope_change = no
@@ -2418,6 +2421,7 @@ tributary_permanent_cb = { # New8
 			FROM = { trait = evil_side }
 		}
 		ROOT = {
+			is_tributary = no
 			relative_realm_size = {
 				who = FROM 
 				size > 1
@@ -2448,12 +2452,7 @@ tributary_permanent_cb = { # New8
 			is_nomadic = no
 			independent = yes
 			mercenary = no
-			OR = {
-				is_tributary = no
-				is_tributary = {
-					type = offmap
-				}
-			}
+			is_tributary = no
 			NOT = { is_vassal_or_below = FROM }
 			NOT = { is_liege_or_above = FROM }
 			NOT = {

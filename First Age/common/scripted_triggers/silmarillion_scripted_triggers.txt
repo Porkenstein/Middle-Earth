@@ -465,7 +465,7 @@ has_sorcerer_skill = {
 	}
 }
 
-is_not_player_capital_province = {
+is_not_player_capital_county = {
 	NOT = {
 		any_player = {
 			capital_scope = {
@@ -499,5 +499,26 @@ is_edain_entry_province = {
 		province_id = 259
 		province_id = 257
 		province_id = 188
+	}
+}
+
+same_de_jure_kingdom_as_root = {
+	capital_scope = {
+		kingdom = {
+			ROOT = {
+				capital_scope = {
+					kingdom = {
+						title = PREVPREVPREV
+					}
+				}
+			}
+		}
+	}
+}
+
+is_ai_elf = {
+	AND = {
+		ai = yes
+		religion_group = religion_group_eldar
 	}
 }

@@ -1634,7 +1634,8 @@
 	}
     4200.1.1 = {
         effect = {
-            destroy_artifact = nimphelos # given to the king of belegost for alliance
+			set_government_type = merchant_republic_government
+			destroy_artifact = nimphelos # given to the king of belegost for alliance
         }
     }
 	4332.1.1={
@@ -3641,12 +3642,22 @@
     4500.1.1 = {
         culture = culture_golodhrim
     }
+	4634.1.1={
+		effect = {
+			set_character_flag = offered_edain_service
+			add_trait = man_friend
+			add_friend = 15174 # Malach
+		}
+	}
     4712.1.1 = {
         effect = { add_artifact = dragon_helm }
     }
     4728.1.1 = {
-        add_trait = man_friend
-        effect = { destroy_artifact = dragon_helm }
+        effect = {
+			add_friend = 15185
+			destroy_artifact = dragon_helm
+			set_character_flag = offered_edain_vassalage
+		}
     }
 	4768.1.1 = {
 		effect = {
@@ -6671,6 +6682,12 @@
 	4365.1.1 = {
 		add_spouse=3216
 	}
+	4377.1.1 = {
+		effect = {
+			# becomes haven-lord of Barad Nimras
+			set_government_type = merchant_republic_government
+		}
+	}
 	4785.1.1 = { # leaves beleriand, with Balrogs in pursuit
 		add_trait=at_east
 	}
@@ -7377,6 +7394,7 @@
 		add_spouse=3127
 		dynasty=3007
 		effect = {
+			set_character_flag = flag_expanding
 			add_artifact = silmaril
 			add_artifact = silmaril
 			add_artifact = silmaril
@@ -7536,6 +7554,7 @@
 			add_artifact = silmaruth
 			add_artifact = heruannon
 			set_character_flag = plot_armor # don't get kicked by a mule and die
+			set_character_flag = flag_expanding
 		}
 	}
 	4294.1.1 = {

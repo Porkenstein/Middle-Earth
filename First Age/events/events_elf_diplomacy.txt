@@ -24,39 +24,58 @@ character_event = {
 	
 	trigger = {
 		is_ill = no
-		prestige = 100
+		OR = {
+			prestige = 200
+			has_character_flag = flag_expanding
+		}
 		
 		OR = { # so the elven AI doesn't blob so much
 			prestige = 1000
 			trait = ambitious
+			has_character_flag = flag_expanding
 		}
-		primary_title = { # stop the AI after he gets big
-			PREV = {
-				NOT = { num_of_realm_counties = { value = 30 title = PREV } }
-			}
-		}
+		#primary_title = { # stop the AI after he gets big
+		#	PREV = {
+		#		NOT = { num_of_realm_counties = { value = 30 title = PREV } }
+		#	}
+		#}
 		NOT = { trait = content }
 	}
 	
 	option = {
 		random_neighbor_independent_ruler = {
 			limit = {
+				NOT = { is_any_kinslayer_trigger = yes } # ew
 				religion_group = religion_group_eldar
 				has_regent = no
 				NOT = { higher_tier_than = duke } # don't try to subjugate a king or emperor
-				NOT = { is_tributary = { suzerain = ROOT } } # not already my subject
+				OR = {
+					NOT = { is_tributary = { suzerain = ROOT } } # not already my subject
+					ROOT = { has_character_flag = flag_expanding }
+				}
+				OR = {
+					ROOT = { lower_tier_than = KING } # doesn't need unusual ways to expand
+					same_de_jure_kingdom_as_root = yes
+				}
 				OR = {
 					ai = no
 					opinion = { who = ROOT value = 20 }
 					AND = {
+						ai = yes
+						ROOT = { has_character_flag = flag_expanding }
+					}
+					AND = {
 						prisoner = yes
 						host = { character = ROOT }
 					}
-				}	
-				NOT = {
-					any_vassal = {
-						ai = yes
-						NOT = { opinion = { who = ROOT value = 0 } }
+				}
+				OR = {
+					ROOT = { has_character_flag = flag_expanding }
+					NOT = {
+						any_vassal = {
+							ai = yes
+							NOT = { opinion = { who = ROOT value = 0 } }
+						}
 					}
 				}
 				OR = {
@@ -620,6 +639,7 @@ character_event = {
 					has_non_aggression_pact_with = FROM
 					is_friend = FROM
 					opinion = { who = FROM value = 50 }
+					FROM = { has_character_flag = flag_expanding }
 					#AND = {
 					#	ROOT = { num_of_count_titles_in_realm = 3 }
 					#	NOT = { num_of_count_titles_in_realm = 2 }
@@ -627,6 +647,12 @@ character_event = {
 				}
 			}
 			
+			# Are you expanding?
+			modifier = {
+				factor = 20
+				FROM = { has_character_flag = flag_expanding }
+			}
+
 			# How scary is Morgoth?
 			modifier = {
 				factor = 2

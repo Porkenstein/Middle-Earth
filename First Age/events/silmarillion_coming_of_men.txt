@@ -6,16 +6,9 @@ narrative_event = {
 	title = EVTTITcomingofmen.1
 	desc = EVTDESCcomingofmen.1
 	picture = GFX_elves_scouting
+	hide_from = yes
 
-	trigger = {
-		ai = no
-        year = 4320
-        NOT = { has_global_flag = coming_of_men_awakening }
-	}
-
-	mean_time_to_happen = {
-		years = 20
-	}
+	is_triggered_only = yes
 	
 	option = {
 		trigger = {
@@ -54,10 +47,6 @@ narrative_event = {
 		}
 		name = EVTOPTDcomingofmen.1
 	}
-
-	after = {
-		set_global_flag = coming_of_men_awakening
-	}
 }
 
 # The Forodwaith
@@ -67,15 +56,7 @@ narrative_event = {
 	desc = EVTDESCcomingofmen.2
 	picture = GFX_edain_settlement
 
-	trigger = {
-		ai = no
-        year = 4390
-        NOT = { has_global_flag = coming_of_men_forodwaith }
-	}
-
-	mean_time_to_happen = {
-		years = 10
-	}
+	is_triggered_only = yes
 	
 	option = {
 		trigger = {
@@ -84,7 +65,7 @@ narrative_event = {
 		}
 		name = EVTOPTAcomingofmen.2
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = zealous
 		}
 		prestige = 200
@@ -97,7 +78,7 @@ narrative_event = {
 		}
 		name = EVTOPTBcomingofmen.2
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = man_friend
 		}
 		piety = 100
@@ -112,10 +93,6 @@ narrative_event = {
 		}
 		name = EVTOPTCcomingofmen.2
 	}
-
-	after = {
-		set_global_flag = coming_of_men_forodwaith
-	}
 }
 
 # The Anachrim
@@ -125,10 +102,10 @@ narrative_event = {
 	desc = EVTDESCcomingofmen.3
 	picture = GFX_evt_abandoned_lands
 
+	is_triggered_only = yes
+
 	trigger = {
-		ai = no
-        year = 4410
-        NOT = { has_global_flag = coming_of_men_anachrim }
+		NOT = { religion = religion_lossoth }
 	}
 
 	mean_time_to_happen = {
@@ -138,10 +115,6 @@ narrative_event = {
 	option = {
 		name = EVTOPTAcomingofmen.3
 	}
-
-	after = {
-		set_global_flag = coming_of_men_anachrim
-	}
 }
 
 # The Battle of Palisor
@@ -150,16 +123,9 @@ narrative_event = {
 	title = EVTTITcomingofmen.4
 	desc = EVTDESCcomingofmen.4
 	picture = GFX_shadows_coming
+	hide_from = yes
 
-	trigger = {
-		ai = no
-        year = 4412
-        NOT = { has_global_flag = coming_of_men_battle_of_palisor }
-	}
-
-	mean_time_to_happen = {
-		years = 40
-	}
+	is_triggered_only = yes
 	
 	option = {
 		trigger = {
@@ -168,7 +134,7 @@ narrative_event = {
 		}
 		name = EVTOPTAcomingofmen.4
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = stressed
 		}
 	}
@@ -191,14 +157,10 @@ narrative_event = {
 		}
 		name = EVTOPTCcomingofmen.4
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = cynical
 		}
 		remove_trait = man_friend
-	}
-
-	after = {
-		set_global_flag = coming_of_men_battle_of_palisor
 	}
 }
 
@@ -209,15 +171,7 @@ narrative_event = {
 	desc = EVTDESCcomingofmen.5
 	picture = GFX_elves_and_men_2
 
-	trigger = {
-		ai = no
-        year = 4590
-        NOT = { has_global_flag = coming_of_men_edain }
-	}
-
-	mean_time_to_happen = {
-		years = 10
-	}
+	is_triggered_only = yes
 	
 	option = {
 		trigger = {
@@ -246,7 +200,7 @@ narrative_event = {
 		name = EVTOPTCcomingofmen.5
 		prestige = 100
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = zealous
 		}
 	}
@@ -267,10 +221,6 @@ narrative_event = {
 			# todo try exterminating the edain
 		}
 	}
-
-	after = {
-		set_global_flag = coming_of_men_edain
-	}
 }
 
 # The Easterlings
@@ -280,15 +230,7 @@ narrative_event = {
 	desc = EVTDESCcomingofmen.6
 	picture = GFX_edain_travel
 
-	trigger = {
-		ai = no
-        year = 4640
-        NOT = { has_global_flag = coming_of_men_easterlings }
-	}
-
-	mean_time_to_happen = {
-		years = 40
-	}
+	is_triggered_only = yes
 	
 	option = {
 		trigger = {
@@ -298,7 +240,7 @@ narrative_event = {
 		}
 		name = EVTOPTAcomingofmen.6
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = zealous
 		}
 		prestige = 200
@@ -312,7 +254,7 @@ narrative_event = {
 		}
 		name = EVTOPTBcomingofmen.6
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = man_friend
 		}
 		piety = 50
@@ -327,11 +269,6 @@ narrative_event = {
 		}
 		name = EVTOPTCcomingofmen.6
 	}
-
-	after = {
-		set_global_flag = coming_of_men_easterlings
-		# todo give provinces to random easterlings
-	}
 }
 
 # announcement of the kingdom of brethil
@@ -340,6 +277,7 @@ long_character_event = {
 	title = EVTTITcomingofmen.10
 	desc = EVTDESCcomingofmen.10
 	picture = GFX_edain_leader_female
+
 	is_triggered_only = yes
 
 	option = {
@@ -359,7 +297,7 @@ long_character_event = {
 		}
 		name = EVTOPTBcomingofmen.10
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = zealous
 		}
 	}
@@ -381,10 +319,11 @@ character_event = {
 	desc = EVTDESCcomingofmen.11
 	picture = GFX_elves_scouting
 
+	has_character_flag = flag_dan
+
 	trigger = {
 		has_global_flag = coming_of_men_edain
         NOT = { has_global_flag = coming_of_men_letter }
-		has_character_flag = flag_dan
 	}
 
 	mean_time_to_happen = {
@@ -423,6 +362,9 @@ long_character_event = {
 				NOT = {
 					has_landed_title = k_doriath
 				}
+				NOT = {
+					has_landed_title = e_eglador
+				}
 			}
 		}
 		name = EVTOPTAcomingofmen.13
@@ -440,11 +382,14 @@ long_character_event = {
 				NOT = {
 					has_landed_title = k_doriath
 				}
+				NOT = {
+					has_landed_title = e_eglador
+				}
 			}
 		}
 		name = EVTOPTBcomingofmen.13
 		random = {
-			chance = 10
+			chance = 20
 			add_trait = zealous
 		}
 	}
@@ -456,6 +401,7 @@ long_character_event = {
 					any_liege = { character = FROM }
 					any_neighbor_independent_ruler = { character = FROM }
 					has_landed_title = k_doriath
+					has_landed_title = e_eglador
 				}
 			}
 		}
@@ -520,12 +466,13 @@ narrative_event = {
 	desc = EVTDESCcomingofmen.1
 	picture = GFX_elves_scouting
 
+	has_character_flag = morgoth
+
 	trigger = {
 		ai = yes
 		has_global_flag = coming_of_men_awakening
 
         NOT = { has_character_flag = coming_of_men_awakening_ai_morgoth }
-		has_character_flag = morgoth
 	}
 
 	mean_time_to_happen = {
@@ -579,9 +526,14 @@ long_character_event = {
 	desc = EVTDESCcomingofmen.20
 	picture = GFX_elves_scouting
 
+	only_independent = yes
+	has_global_flag = coming_of_men_edain
+
 	trigger = {
-		has_landed_title = k_doriath
-		has_global_flag = coming_of_men_edain
+		OR = {
+			has_landed_title = k_doriath
+			has_landed_title = e_eglador
+		}
         NOT = { has_global_flag = coming_of_men_brethil }
 
 		any_independent_ruler = {
@@ -592,10 +544,13 @@ long_character_event = {
 					year = 4750 # at this point take what we can get
 				}
 			}
-			capital_scope = {
-				empire = {
-					NOT = { title = e_ossiriand }
-					NOT = { title = e_harn_baland }
+			OR = {
+				year = 4720
+				capital_scope = {
+					empire = {
+						NOT = { title = e_ossiriand }
+						NOT = { title = e_harn_baland }
+					}
 				}
 			}
 		}
@@ -651,7 +606,7 @@ letter_event = {
 			if = {
 				limit = {
 					c_amon_obel = {
-						is_not_player_capital_province = yes
+						is_not_player_capital_county = yes
 					}
 				}
 				c_amon_obel = {
@@ -666,7 +621,7 @@ letter_event = {
 			if = {
 				limit = { 
 					c_eryn_en_haladin = {
-						is_not_player_capital_province = yes
+						is_not_player_capital_county = yes
 					}
 				}
 				c_eryn_en_haladin = {
@@ -681,7 +636,7 @@ letter_event = {
 			if = {
 				limit = { 
 					c_angbor = {
-						is_not_player_capital_province = yes
+						is_not_player_capital_county = yes
 					}
 				}
 				c_angbor = {
@@ -696,7 +651,7 @@ letter_event = {
 			if = {
 				limit = { 
 					c_brethil = {
-						is_not_player_capital_province = yes
+						is_not_player_capital_county = yes
 					}
 				}
 				c_brethil = {
@@ -720,7 +675,7 @@ letter_event = {
 				if = {
 					limit = { 
 						c_eithel_celebros = {
-							is_not_player_capital_province = yes
+							is_not_player_capital_county = yes
 						}
 					}
 					c_eithel_celebros = {
@@ -819,12 +774,17 @@ long_character_event = {
 	id = comingofmen.22
 	desc = EVTDESCcomingofmen.22
 	picture = GFX_edain_meet_elves
+
 	only_independent = yes
+	has_global_flag = coming_of_men_edain
 
 	trigger = {
 		culture_group = culture_group_edain
-		lower_tier_than = duke
-		k_doriath = { has_holder = yes }
+		lower_tier_than = KING
+		OR = {
+			k_doriath = { has_holder = yes }
+			e_eglador = { has_holder = yes }
+		}
 
 		# only receive an offer once per life
 		NOT = { has_character_flag = edain_offered_settlement }
@@ -922,7 +882,7 @@ long_character_event = {
 				limit = {
 					de_jure_liege_or_above = event_target:target_settle_duchy
 					higher_tier_than = baron
-					is_not_player_capital_province = yes
+					is_not_player_capital_county = yes
 				}
 				PREV = {
 					grant_title_no_opinion = PREV
@@ -936,12 +896,12 @@ long_character_event = {
 				}
 			}
 
-			# abandon the old lands
+			# abandon the old lands to the wood elves
 			any_realm_province = {
 				limit = {
 					NOT = { de_jure_liege_or_above = event_target:target_settle_duchy }
 				}
-				abandon_province = yes
+				abandon_province_to_wood_elves = yes
 			}
 		
 			# settle the host
@@ -978,15 +938,17 @@ province_event = {
 	id = comingofmen.23
 	
 	hide_window = yes
+	has_global_flag = coming_of_men_awakening
 	
 	trigger = {
-		has_global_flag = coming_of_men_forodwaith
+		year = 4395
 		NOT = { year = 4500 }
 		OR = {
 			region = custom_lothlann_steppe
 			AND = {
 				region = world_iron_mountains
-				religion = religion_wilderness
+				NOT = { religion_group = religion_group_melkor }
+				NOT = { culture_group = culture_group_moriquendi }
 			}
 			AND = {
 				region = world_ard_galen
@@ -995,10 +957,17 @@ province_event = {
 					culture = culture_kul_uruk
 				}
 			}
+			AND = {
+				region = world_lothlann
+				OR = {
+					religion = religion_wilderness
+					religion_group = religion_group_melkor
+				}
+			}
 		}
 		# exceptions
-		NOT = { province_id = 189 } # c_amon_draug }
-		NOT = { num_of_settlements = 3 }
+		NOT = { province_id = 189 }
+		county = { is_not_player_capital_county = yes }
 		NOT = { is_human_culture = yes }
 	}
 
@@ -1054,6 +1023,19 @@ province_event = {
 			duration = 7300
 		}
 	}
+
+	after = {
+		# if this is the first time
+		if = {
+			limit = {
+				NOT = { has_global_flag = coming_of_men_forodwaith }
+			}
+			any_player = {
+				character_event = { id = comingofmen.2 }
+			}
+			set_global_flag = coming_of_men_forodwaith
+		}
+	}
 }
 
 # character is informed
@@ -1093,19 +1075,21 @@ province_event = {
 	id = comingofmen.25
 	
 	hide_window = yes
-	
+	has_global_flag = coming_of_men_forodwaith
+
 	trigger = {
-		has_global_flag = coming_of_men_anachrim
+		year = 4415
 		NOT = { year = 4500 }
 		region = custom_anach
 		OR = {
 			religion = religion_wilderness
 			religion_group = religion_group_melkor
 		}
+		county = { is_not_player_capital_county = yes }
 	}
 
 	mean_time_to_happen = {
-		years = 10
+		years = 15
 	}
 
 	option = {
@@ -1152,6 +1136,19 @@ province_event = {
 			duration = 7300
 		}
 	}
+
+	after = {
+		# if this is the first time
+		if = {
+			limit = {
+				NOT = { has_global_flag = coming_of_men_anachrim }
+			}
+			any_player = {
+				character_event = { id = comingofmen.3 }
+			}
+			set_global_flag = coming_of_men_anachrim
+		}
+	}
 }
 
 # THE BEODIN ARRIVE
@@ -1160,13 +1157,14 @@ province_event = {
 	id = comingofmen.26
 	
 	hide_window = yes
+	has_global_flag = coming_of_men_battle_of_palisor
 	
 	trigger = {
-		has_global_flag = coming_of_men_edain
+		year = 4595
 
 		NOT = { has_global_flag = coming_of_men_beodin }
 		is_edain_entry_province = yes
-		is_not_player_capital_province = yes
+		county = { is_not_player_capital_county = yes }
 
 		NOT = { is_human_culture = yes }
 	}
@@ -1245,6 +1243,17 @@ province_event = {
 	}
 	after = {
 		set_global_flag = coming_of_men_beodin
+
+		# if this is the first time
+		if = {
+			limit = {
+				NOT = { has_global_flag = coming_of_men_edain }
+			}
+			any_player = {
+				character_event = { id = comingofmen.5 }
+			}
+			set_global_flag = coming_of_men_edain
+		}
 	}
 }
 
@@ -1254,14 +1263,14 @@ province_event = {
 	id = comingofmen.27
 	
 	hide_window = yes
+	has_global_flag = coming_of_men_beodin
 	
 	trigger = {
-		has_global_flag = coming_of_men_beodin
 		year = 4620
 
 		NOT = { has_global_flag = coming_of_men_maradin }
 		is_edain_entry_province = yes
-		is_not_player_capital_province = yes
+		county = { is_not_player_capital_county = yes }
 
 		NOT = { is_human_culture = yes }
 	}
@@ -1342,14 +1351,14 @@ province_event = {
 	id = comingofmen.28
 	
 	hide_window = yes
+	has_global_flag = coming_of_men_maradin
 	
 	trigger = {
-		has_global_flag = coming_of_men_maradin
 		year = 4640
 
 		NOT = { has_global_flag = coming_of_men_haladin }
 		is_edain_entry_province = yes
-		is_not_player_capital_province = yes
+		county = { is_not_player_capital_county = yes }
 
 		NOT = { is_human_culture = yes }
 	}
@@ -1454,19 +1463,19 @@ province_event = {
 	id = comingofmen.29
 	
 	hide_window = yes
-	
+	has_global_flag = coming_of_men_beodin
+
 	trigger = {
-		has_global_flag = coming_of_men_haladin
 		NOT = { year = 4700 }
 
 		is_edain_entry_province = yes
-		is_not_player_capital_province = yes
+		county = { is_not_player_capital_county = yes }
 
 		NOT = { is_human_culture = yes }
 	}
 
 	mean_time_to_happen = {
-		years = 60 # per province
+		years = 70 # per province
 	}
 	
 	option = {
@@ -1496,15 +1505,9 @@ province_event = {
 				religion = religion_edain
 				random_list = {
 					10 = { culture = culture_beodin }
-				}
-				random_list = {
 					10 = { culture = culture_haladin }
-				}
-				random_list = {
 					10 = { culture = culture_maradin }
-				}
-				random_list = {
-					10 = { culture = culture_druedain }
+					5 = { culture = culture_druedain }
 				}
 
 				owner = {
@@ -1535,10 +1538,372 @@ province_event = {
 	}
 }
 
-# A mannish lord enters service of an elf lord
+# pinging events
+# The Awakening of Men
+narrative_event = {
+	id = comingofmen.30
+	hide_window = yes
+
+	only_independent = yes
+
+	trigger = {
+		has_landed_title = e_dor_daedeloth
+        year = 4320
+        NOT = { has_global_flag = coming_of_men_awakening }
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+	
+	option = {
+		set_global_flag = coming_of_men_awakening
+
+		any_player = {
+			character_event = { id = comingofmen.1 }
+		}
+	}
+}
+
+# pinging events
+# The Battle of Palisor
+narrative_event = {
+	id = comingofmen.31
+	hide_window = yes
+
+	only_independent = yes
+
+	trigger = {
+		has_landed_title = e_dor_daedeloth
+        year = 4412
+        NOT = { has_global_flag = coming_of_men_battle_of_palisor }
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+	
+	option = {
+		set_global_flag = coming_of_men_battle_of_palisor
+
+		any_player = {
+			character_event = { id = comingofmen.4 }
+		}
+	}
+}
+
+# THE EASTERLINGS ARRIVE
+province_event = {
+	id = comingofmen.32
+	hide_window = yes
+
+	only_independent = yes
+	has_global_flag = coming_of_men_edain
+
+	trigger = {
+        year = 4680
+		NOT = { year = 4720 }
+		region = custom_lothlann_steppe
+
+		# exceptions
+		NOT = { province_id = 189 } # c_amon_draug
+		county = { is_not_player_capital_county = yes }
+		NOT = { religion = religion_easterlings }
+	}
+	mean_time_to_happen = {
+		years = 10
+	}
+	
+	option = {
+		build_tribal_effect = yes
+
+		create_character = {
+			religion = religion_easterlings
+			culture = culture_baradhrim
+			female = no
+		}
+
+		owner = {
+			character_event = { id = comingofmen.24 }
+		}
+
+		county = {
+			new_character = {
+				usurp_title = PREV
+				set_defacto_liege = THIS
+
+				set_government_type = tribal_government
+			}
+			location = {
+				culture = culture_baradhrim
+				religion = religion_easterlings
+
+				owner = {
+					spawn_unit = {
+						owner = THIS
+						leader = THIS
+						maintenance = no
+						province = PREV
+
+						troops = {
+							archers = { 200 200 }
+							light_infantry = { 400 400 }
+							light_cavalry = { 1000 1000 }
+							horse_archers = { 800 800 }
+						}
+						attrition = 0.5
+					}
+				}
+			}
+		}
+
+		populate_effect = yes
+		add_province_modifier = {
+			name = settled_by_refugees
+			duration = 7300
+		}
+	}
+
+	after = {
+		# if this is the first time
+		if = {
+			limit = {
+				NOT = { has_global_flag = coming_of_men_easterlings }
+			}
+			any_player = {
+				character_event = { id = comingofmen.6 }
+			}
+			set_global_flag = coming_of_men_easterlings
+		}
+	}
+}
+
+# I can offer service to a strong mannish lord
+character_event = {
+	id = comingofmen.33
+	title = EVTTITcomingofmen.33
+	desc = EVTDESCcomingofmen.33
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.33
+		set_character_flag = offered_edain_service
+
+		event_target:target_edain_offer_target = {
+			letter_event = { id = EVTOPTBcomingofmen.35 days = 5 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.33
+	}
+}
+
+# I can offer an entire high lordship to a strong mannish lord
+character_event = {
+	id = comingofmen.34
+	title = EVTTITcomingofmen.34
+	desc = EVTDESCcomingofmen.34
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.34
+		set_character_flag = offered_edain_vassalage
+
+		event_target:target_edain_offer_target = {
+			letter_event = { id = EVTOPTBcomingofmen.36 days = 5 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.34
+	}
+}
+
+# letter offer of service
+letter_event = {
+	id = comingofmen.35
+	desc = EVTDESCcomingofmen.35
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.35
+		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
+
+		# join the elves
+
+	}
+	option = {
+		name = EVTOPTBcomingofmen.35
+		reverse_opinion = { who = FROM modifier = opinion_insulted }
+	}
+}
+
+# letter offer of vassalage
+letter_event = {
+	id = comingofmen.36
+	desc = EVTDESCcomingofmen.36
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcomingofmen.36
+		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
+
+		# join the elves
+
+	}
+	option = {
+		name = EVTOPTBcomingofmen.36
+		reverse_opinion = { who = FROM modifier = opinion_insulted }
+	}
+}
+
+# pinging events
+# I should offer service or vassalage to one of the edain
+narrative_event = {
+	id = comingofmen.37
+	hide_window = yes
+
+	only_independent = yes
+	has_global_flag = coming_of_men_edain
+
+	trigger = {
+		NOT = {
+			AND ={
+				has_character_flag = offered_edain_service
+				has_character_flag = offered_edain_vassalage
+			}
+		}
+		demesne_size = 2 # so I can give something away
+		higher_tier_than = DUKE
+		OR = {
+			religion = religion_calaquendi # on the frontlines
+			trait = man_friend
+		}
+		any_independent_ruler = {
+			AND = {
+				religion = religion_edain
+				higher_tier_than = COUNT
+				mercenary = no
+				holy_order = no
+				age = 16
+			}
+		}
+		OR = {
+			# one of the two options need to be possible
+			NOT = { has_character_flag = offered_edain_service }
+			any_realm_province = {
+				AND = {
+					duchy = {
+						ROOT = {
+							capital_scope = {
+								duchy = {
+									# not the capital duchy
+									NOT = { title = PREVPREVPREV }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 4
+	}
+	
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				AND = {
+					religion = religion_edain
+					higher_tier_than = COUNT
+					mercenary = no
+					holy_order = no
+					age = 16
+				}
+			}
+			save_event_target_as = target_edain_offer_target
+		}
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_character_flag = offered_edain_service }
+		}
+
+		random_demesne_title = {
+			limit = {
+				tier = COUNT
+				ROOT = {
+					capital_scope = {
+						county = {
+							# not the capital county
+							NOT = { title = PREVPREVPREV }
+						}
+					}
+				}
+			}
+			save_event_target_as = target_edain_offer_title
+		}
+
+		character_event = { id = comingofmen.33 }
+	}
+
+	option = {
+		trigger = {
+			has_character_flag = offered_edain_service
+			NOT = { has_character_flag = offered_edain_vassalage }
+
+			any_realm_province = {
+				AND = {
+					duchy = {
+						ROOT = {
+							capital_scope = {
+								duchy = {
+									# not the capital duchy
+									NOT = { title = PREVPREVPREV }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		random_realm_province = {
+			limit = {
+				duchy = {
+					ROOT = {
+						capital_scope = {
+							duchy = {
+								# not the capital duchy
+								NOT = { title = PREVPREVPREV }
+							}
+						}
+					}
+				}
+			}
+			duchy = {
+				save_event_target_as = target_edain_offer_title
+			}
+		}
+
+		any_player = {
+			character_event = { id = comingofmen.34 }
+		}
+	}
+}
 
 # The mannish servant dies. His descendant can decide to be a permanent vassal, or leave service of the elf-lord
 
-# your father was an elf-friend. Are you? (this prevents elves from attacking you unjustly)
+# your predecessor was an elf-friend. Are you? (this prevents elves from attacking you unjustly)
 
-# your father was a dwarf-friend. Are you? (this prevents dwarves from attacking you unjustly)
+# your predecessor was a dwarf-friend. Are you? (this prevents dwarves from attacking you unjustly)
+
+# a mighty easterling host has appeared! (bor nos bor)

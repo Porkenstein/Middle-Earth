@@ -21,6 +21,10 @@ character_event = { # Somebody wants to colonise some wilderness. random yearly 
             NOT = { has_character_modifier = dwarf_colonist }
             prestige = 200
             wealth = 200
+            OR = {
+                liege = { ai = no }
+                liege = { independent = yes }
+            }
             can_send_mining_expedition = yes
             any_independent_ruler = {
                 religion = religion_wilderness
@@ -913,7 +917,7 @@ character_event = { # One year since the mining expedition - lets check up on th
     }
 
     immediate = {
-        add_character_modifier = { name = dwarf_colonist duration = 730 }
+        add_character_modifier = { name = dwarf_colonist duration = 3650 }
 
         if = {
             limit = {
