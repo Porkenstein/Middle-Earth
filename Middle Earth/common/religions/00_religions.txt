@@ -14,9 +14,9 @@ religion_group_eruhini = {
 
 		icon = 1
 		color = { 0.70 0.82 0.81 }
-		
+
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU
 		}
@@ -27,30 +27,17 @@ religion_group_eruhini = {
 
 		female_temple_holders = yes
 		defensive_attrition = yes
+		max_wives = 0
 		
 	}
-
-}
-
-religion_group_enyd = {
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	ai_peaceful = yes # Will make Hordes lose their super aggressiveness 
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.51 0.17 0.68 }
-
 	religion_enyd = {
 		graphical_culture = westerngfx
 
 		icon = 6
 		color = { 0.51 0.17 0.68 }
-		
+
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU GOD_YAVANNA
 		}
@@ -61,30 +48,15 @@ religion_group_enyd = {
 
 		female_temple_holders = yes
 		defensive_attrition = yes
-		
 	}
-
-}
-
-religion_group_khazad = {
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	ai_peaceful = yes # Will make Hordes lose their super aggressiveness 
-		
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.57 0.72 0.96 }
-	
-	religion_mahal = {
+	religion_khazad = {
 		graphical_culture = norsegfx
 
 		icon = 2
 		color = { 0.57 0.72 0.96 }
 		
 		high_god_name = GOD_MAHAL
-		
+
 		god_names = {
 			GOD_ERU GOD_MAHAL
 		}
@@ -92,120 +64,50 @@ religion_group_khazad = {
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
+
 		priests_can_marry = yes
 		raised_vassal_opinion_loss = no
-
 	}
-}
-
-religion_group_eldar = {
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.81 0.63 0.90 }
-	
-	religion_moriquendi = {
+	religion_eldar = {
 		graphical_culture = westerngfx
 
 		icon = 9
 		color = { 0.81 0.63 0.90 }
-		
+
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
 		}
-		
+
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
+
 		feminist = yes   
 		priests_can_marry = yes
 		female_temple_holders = yes
 		allow_rivermovement = yes
 
-		intermarry = religion_dunedain 
 		intermarry = religion_edain 
-		intermarry = religion_haldadian
 	}
-	
-}
-
-religion_group_periannath = {
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	ai_peaceful = yes # Will make Hordes lose their super aggressiveness 
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.69 1 0.39 }
-	
 	religion_perian = {
 		graphical_culture = westerngfx
 
 		icon = 5
 		color = { 0.69 1 0.39 }
-		
+
 		high_god_name = GOD_THE_POWERS
-		
+
 		god_names = {
 			GOD_THE_POWERS
 		}
-		
+
 		evil_god_names = {
 			GOD_THE_POWERS
 		}
-		
+
 		priests_can_marry = yes
-	}
-}
-
-religion_group_edain = {
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	ai_peaceful = yes # Will make Hordes lose their super aggressiveness 
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.69 0.1 0.39 }
-	
-	religion_druedain = {
-		graphical_culture = westerngfx
-
-		icon = 1
-		color = { 0.49 0.75 0.22 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		defensive_attrition = yes
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_edain
-		intermarry = religion_numenorean
-		intermarry = religion_moriquendi
-
 	}
 	religion_edain = {
 		graphical_culture = westerngfx
@@ -214,7 +116,7 @@ religion_group_edain = {
 		color = { 0.46 0.35 0.05 }
 		
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
 		}
@@ -222,25 +124,22 @@ religion_group_edain = {
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
+
 		priests_can_marry = yes
 		female_temple_holders = yes
 		allow_rivermovement = yes
-		
+
 		aggression = 1.0 # AI aggression factor
 
-		intermarry = religion_druedain
-		intermarry = religion_numenorean
-		intermarry = religion_moriquendi
+		intermarry = religion_eldar
 	}
-	religion_dunedain = {
+	religion_corrupted_wight = {
 		graphical_culture = westerngfx
+		icon = 4
+		color = { 0.80 0.25 0.25 }
 
-		icon = 1
-		color = { 0.29 0.47 0.68 }
-		
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
 		}
@@ -248,31 +147,28 @@ religion_group_edain = {
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
-		
-		aggression = 1.0 # AI aggression factor
 
-		intermarry = religion_numenorean
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
+		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
+		allow_looting = yes
+		raised_vassal_opinion_loss = no
+		priests_can_marry = no
+		short_reign_opinion_year_mult = 5 # The default is 2
+		aggression = 9.0 # AI aggression factor
+		female_temple_holders = no
+		defensive_attrition = yes
+		peace_prestige_loss = yes
+		max_wives = 0
+		max_consorts  = 0
+		pc_marriage = no
+		bs_marriage = no
 	}
-	religion_numenorean = {
+	religion_corrupted_olog = {
 		graphical_culture = westerngfx
+		icon = 4
+		color = { 0.83 0.10 0.5 }
 
-		icon = 1
-		color = { 0.14 0.16 0.83 }
-		
 		high_god_name = GOD_ERU
-		
+
 		god_names = {
 			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
 		}
@@ -280,386 +176,68 @@ religion_group_edain = {
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
+
+		allow_looting = yes
+		priests_can_marry = no
+		raised_vassal_opinion_loss = no
+		short_reign_opinion_year_mult = 5 # The default is 2	
+		aggression = 9.0 # AI aggression factor
+		female_temple_holders = no
+		defensive_attrition = yes
+		peace_prestige_loss = yes
+		max_wives = 1
+		max_consorts = 0
+		pc_marriage = no
+		bs_marriage = no
+	}
+	religion_corrupted_orkish = {
+		graphical_culture = norsegfx
+		icon = 4
+		color = { 0.74 0.27 0.09 }
+
+		high_god_name = GOD_ERU
+
+		god_names = {
+			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
+		}
+
+		evil_god_names = {
+			GOD_MORGOTH
+		}
+
 		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
 		allow_looting = yes
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_druedain
-		intermarry = religion_edain
-		intermarry = religion_dunedain
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-		intermarry = religion_moriquendi
-	}
-
-	religion_rhovanion = {
-		graphical_culture = norsegfx
-
-		icon = 1
-		color = { 0.29 0.45 0.04 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
-		allow_looting = yes
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_dunedain
-		intermarry = religion_numenorean
-		intermarry = religion_black_numenorean
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-	}
-
-	religion_haldadian = {
-		graphical_culture = celticgfx
-
-		icon = 1
-		color = { 0.90 0.87 0.23 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
-		allow_looting = yes
-		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
-
-		max_consorts = 3 # Can take concubines
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_dunedain
-		intermarry = religion_numenorean
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-	}
-
-
-	religion_ishmalogim = {
-		graphical_culture = persiangfx
-
-		icon = 3
-		color = { 0.67 0.67 0.83 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
-		allow_looting = yes
 		raised_vassal_opinion_loss = no
-		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
-
-		max_consorts = 3 # Can take concubines
-
-		divine_blood = yes # Sacred Xwedodah close-kin marriage mechanics
-		pc_marriage = yes
-		bs_marriage = yes
-
-		short_reign_opinion_year_mult = 2 # The default is 2
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_dunedain
-		intermarry = religion_numenorean
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_angmarim
+		priests_can_marry = no
+		short_reign_opinion_year_mult = 5 # The default is 2
+		aggression = 9.0 # AI aggression factor
+		female_temple_holders = no
+		defensive_attrition = yes
+		peace_prestige_loss = yes
+		max_wives = 0
+		max_consorts  = 0
 	}
-
-	religion_lossoth = {
-		graphical_culture = norsegfx
-
-		icon = 1
-		color = { 0.46 0.35 0.05 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_rivermovement = yes
-		allow_looting = yes
-		raised_vassal_opinion_loss = no
-
-		max_consorts = 3 # Can take concubines
-		
-		aggression = 1.0 # AI aggression factor
-	}
-
-	
-}
-
-religion_group_hildor = {  #Men of Darkness
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.29 0.1 0.32 }
-	
-	religion_nurning = {
-		graphical_culture = norsegfx
-
-		icon = 3
-		color = { 0.29 0.37 0.32 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		allow_looting = yes
-		pc_marriage = yes
-		bs_marriage = yes
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_dunedain
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-	}
-	religion_angmarim = {
-		graphical_culture = norsegfx
-
-		icon = 3
-		color = { 0.76 0.35 0.76 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-		
-		priests_can_marry = yes
-		female_temple_holders = yes
-		allow_looting = yes
-		raised_vassal_opinion_loss = no
-
-		max_consorts = 3 # Can take concubines
-
-		short_reign_opinion_year_mult = 4 # The default is 2
-		
-		aggression = 1.0 # AI aggression factor
-
-		intermarry = religion_dunedain
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-	}
-	
-	religion_southron = {
-		graphical_culture = muslimgfx
-
-		icon = 8
-		color = { 0.85 0.11 0.18 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-
-		unit_modifier = {
-			levy_size = 0.3
-			light_cavalry_offensive = 0.3
-			light_cavalry_defensive = 0.3
-			key = "OFF_RELIGION"
-		}
-		
-		priests_can_marry = yes
-		allow_looting = yes
-		allow_rivermovement = yes
-		raised_vassal_opinion_loss = no
-		max_consorts = 2 # Can take concubines
-		max_wives = 2
-		pc_marriage = yes
-		bs_marriage = yes
-		short_reign_opinion_year_mult = 2 # The default is 2
-		aggression = 2.0 # AI aggression factor
-		intermarry = religion_dunedain
-		intermarry = religion_numenorean
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-	}
-	
-	religion_easterlings = {
-		graphical_culture = mongolgfx
-
-		icon = 7
-		color = { 0.71 0.28 0.32 }
-		
-		high_god_name = GOD_THE_POWERS
-		
-		god_names = {
-			GOD_THE_POWERS
-		}
-		
-		evil_god_names = {
-			GOD_THE_POWERS
-		}
-
-		unit_modifier = {
-			levy_size = 0.3
-			light_cavalry_offensive = 0.3
-			light_cavalry_defensive = 0.3
-			key = "OFF_RELIGION"
-		}
-		
-		priests_can_marry = yes
-		allow_looting = yes
-		allow_rivermovement = yes
-		raised_vassal_opinion_loss = no
-		max_consorts = 2 # Can take concubines
-		max_wives = 2
-		pc_marriage = yes
-		bs_marriage = yes
-		short_reign_opinion_year_mult = 2 # The default is 2
-		
-		aggression = 1.0 # AI aggression factor
-		
-		intermarry = religion_dunedain
-		intermarry = religion_black_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
-	}
-	
-	religion_black_numenorean = {
+	religion_corrupted_dragons = {
 		graphical_culture = westerngfx
+		icon = 4
+		color = { 0.83 0.10 0.10 }
 
-		icon = 3
-		color = { 0.33 0.28 0.32 }
-		
-		high_god_name = GOD_THE_POWERS
-		
+		high_god_name = GOD_ERU
+
 		god_names = {
-			GOD_POWER GOD_WEALTH
+			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
 		}
 
 		evil_god_names = {
-			GOD_THE_POWERS
+			GOD_MORGOTH
 		}
-		
-		unit_modifier = {
-			levy_size = 0.3
-			key = "OFF_RELIGION"
-		}
-		
-		priests_can_marry = yes
-		allow_looting = yes
-		allow_rivermovement = yes
-		seafarer = yes
-		raised_vassal_opinion_loss = no
-		max_consorts = 2 # Can take concubines
-		max_wives = 2
-		pc_marriage = yes
-		bs_marriage = yes
-		short_reign_opinion_year_mult = 2 # The default is 2
-		
-		aggression = 1.0 # AI aggression factor
 
-		intermarry = religion_dunedain
-		intermarry = religion_numenorean
-		intermarry = religion_rhovanion
-		intermarry = religion_easterlings
-		intermarry = religion_nurning
-		intermarry = religion_haldadian
-		intermarry = religion_southron
-		intermarry = religion_ishmalogim
-		intermarry = religion_angmarim
+		raised_vassal_opinion_loss = no
+		short_reign_opinion_year_mult = 5 # The default is 2
+		aggression = 5.0 # AI aggression factor
+		female_temple_holders = no
+		max_wives = 1
+		defensive_attrition = yes
 	}
 }
 
@@ -675,7 +253,7 @@ religion_group_melkor = {
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 0	# never try to convert
 	
-	religion_umaiar = {
+	religion_melkor = {
 		graphical_culture = westerngfx
 
 		icon = 3
@@ -695,7 +273,122 @@ religion_group_melkor = {
 		max_wives = 0
 		
 	}
-	
+	religion_dark_enyd = {
+		graphical_culture = westerngfx
+
+		icon = 6
+		color = { 0.51 0.17 0.68 }
+		
+		high_god_name = GOD_MORGOTH
+		
+		god_names = {
+			GOD_MORGOTH GOD_SAURON 
+		}
+		
+		evil_god_names = {
+			GOD_ERU
+		}
+
+		female_temple_holders = yes
+		defensive_attrition = yes
+		
+	}
+	religion_dark_khazad = {
+		graphical_culture = norsegfx
+
+		icon = 2
+		color = { 0.57 0.72 0.96 }
+		
+		high_god_name = GOD_MORGOTH
+		
+		god_names = {
+			GOD_MORGOTH GOD_SAURON 
+		}
+		
+		evil_god_names = {
+			GOD_ERU
+		}
+		
+		priests_can_marry = yes
+		raised_vassal_opinion_loss = no
+
+	}
+	religion_dark_eldar = {
+		graphical_culture = westerngfx
+
+		icon = 9
+		color = { 0.81 0.63 0.90 }
+		
+		high_god_name = GOD_MORGOTH
+		
+		god_names = {
+			GOD_MORGOTH GOD_SAURON 
+		}
+		
+		evil_god_names = {
+			GOD_ERU
+		}
+		
+		feminist = yes   
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_rivermovement = yes
+
+		intermarry = religion_hildor
+	}
+	religion_dark_perian = {
+		graphical_culture = westerngfx
+
+		icon = 5
+		color = { 0.69 1 0.39 }
+		
+		high_god_name = GOD_MORGOTH
+		
+		god_names = {
+			GOD_MORGOTH GOD_SAURON 
+		}
+		
+		evil_god_names = {
+			GOD_ERU
+		}
+		
+		priests_can_marry = yes
+	}
+	religion_hildor = {
+		graphical_culture = muslimgfx
+
+		icon = 8
+		color = { 0.85 0.11 0.18 }
+		
+		high_god_name = GOD_MORGOTH
+		
+		god_names = {
+			GOD_MORGOTH GOD_SAURON 
+		}
+		
+		evil_god_names = {
+			GOD_ERU
+		}
+
+		unit_modifier = {
+			levy_size = 0.3
+			light_cavalry_offensive = 0.3
+			light_cavalry_defensive = 0.3
+			key = "OFF_RELIGION"
+		}
+		
+		priests_can_marry = yes
+		allow_looting = yes
+		allow_rivermovement = yes
+		raised_vassal_opinion_loss = no
+		max_consorts = 2 # Can take concubines
+		max_wives = 2
+		pc_marriage = yes
+		bs_marriage = yes
+		short_reign_opinion_year_mult = 2 # The default is 2
+		aggression = 2.0 # AI aggression factor
+		intermarry = religion_dark_eldar
+	}
 	religion_wight = {
 		graphical_culture = westerngfx
 		icon = 4
@@ -781,67 +474,29 @@ religion_group_melkor = {
 		max_wives = 0
 		max_consorts  = 0
 	}
-
-	religion_corrupted_orkish = {
-		graphical_culture = norsegfx
-		icon = 10
-		color = { 0.74 0.27 0.09 }
-		
-		high_god_name = GOD_ERU
-		
-		god_names = {
-			GOD_MORGOTH PROPHET_SAURON
-		}
-	
-		evil_god_names = {
-			GOD_MORGOTH PROPHET_SAURON
-		}
-		
-		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
-		allow_looting = yes
-		raised_vassal_opinion_loss = no
-		priests_can_marry = no
-		short_reign_opinion_year_mult = 5 # The default is 2
-		aggression = 9.0 # AI aggression factor
-		female_temple_holders = no
-		defensive_attrition = yes
-		peace_prestige_loss = yes
-		max_wives = 0
-		max_consorts  = 0
-	}
-
-
-	religion_uruk = {
+	religion_dragons = {
 		graphical_culture = westerngfx
 		icon = 4
-		color = { 0.83 0.10 0.5 }
+		color = { 0.83 0.10 0.10 }
 		
 		high_god_name = GOD_MORGOTH
 		
 		god_names = {
-			GOD_MORGOTH PROPHET_SAURON
+			GOD_MORGOTH GOD_ANCALAGON PROPHET_SAURON
 		}
 	
 		evil_god_names = {
 			GOD_ERU
 		}
-		
-		allow_viking_invasion = yes # Allows the "Prepare Invasion" diplo action
-		allow_looting = yes
+
 		raised_vassal_opinion_loss = no
-		priests_can_marry = no
 		short_reign_opinion_year_mult = 5 # The default is 2
-		aggression = 9.0 # AI aggression factor
+		aggression = 5.0 # AI aggression factor
 		female_temple_holders = no
+		max_wives = 1
 		defensive_attrition = yes
-		peace_prestige_loss = yes
-		max_wives = 0
-		max_consorts  = 0
-		pc_marriage = no
-		bs_marriage = no
 	}
-	
-	
+
 }
 
 # Spiders should not be able to intermmarry with non-spiders
@@ -879,44 +534,6 @@ religion_group_ungoliant = {
 		max_consorts = 0
 		max_wives = 1
 	}
-}
-
-# Dragons should not be able to intermmarry with non-dragons
-religion_group_dragon = {
-
-	has_coa_on_barony_only = yes
-	graphical_culture = westerngfx
-	playable = yes
-	
-	color = { 0.83 0.10 0.10 }
-	
-	ai_convert_same_group = 0 # never try to convert
-	ai_convert_other_group = 0	# never try to convert
-	ai_fabricate_claims = no
-
-	religion_dragons = {
-		graphical_culture = westerngfx
-		icon = 4
-		color = { 0.83 0.10 0.10 }
-		
-		high_god_name = GOD_MORGOTH
-		
-		god_names = {
-			GOD_MORGOTH GOD_ANCALAGON PROPHET_SAURON
-		}
-	
-		evil_god_names = {
-			GOD_ERU
-		}
-
-		raised_vassal_opinion_loss = no
-		short_reign_opinion_year_mult = 5 # The default is 2
-		aggression = 5.0 # AI aggression factor
-		female_temple_holders = no
-		max_wives = 1
-		defensive_attrition = yes
-	}
-
 }
 
 #Wilderness
