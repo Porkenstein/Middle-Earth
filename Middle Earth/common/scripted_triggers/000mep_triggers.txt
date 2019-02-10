@@ -1,28 +1,17 @@
 #  some MEP stuff to include in 00_scripted_triggers (and elsewhere)
 
 mep_is_good_side_trigger = {
-	NOT = { mep_is_evil_side_trigger = yes}
-	OR = {
-		religion_group = religion_group_eldar   # Elves
-		religion_group = religion_group_khazad  # Dwarves
-		religion = religion_rhovanion
-		religion = religion_numenorean
-		religion = religion_dunedain
-		religion = religion_edain
-		religion = religion_druedain
-		religion_group = religion_group_eruhini # Ainur (like Eagles)
-		religion_group = religion_group_enyd    # Ents							
+	NOT = {
+		mep_is_evil_side_trigger = yes
 	}
-	NOT = { culture = culture_black_numenorean }
+	religion_group = religion_group_eruhini
 }
 
 mep_is_evil_side_trigger = {
-	OR = {
-		religion_group = religion_group_melkor
-		religion_group = religion_group_ungoliant
-		religion_group = religion_group_dragon
-		# has_character_flag = corrupted
+	NOT = {
+		mep_is_good_side_trigger = yes
 	}
+	religion_group = religion_group_melkor
 }
 
 mep_infertile_trait = {
