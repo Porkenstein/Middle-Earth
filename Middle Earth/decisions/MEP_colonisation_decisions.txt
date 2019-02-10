@@ -8,10 +8,23 @@ decisions = {
 			independent = yes
 			higher_real_tier_than = DUKE
 			any_realm_province = {
-				NOT = {
-					ROOT = {
-						capital_scope = {
-							culture = PREVPREV
+				OR = {
+					AND = {
+						mep_is_good_side_trigger = yes
+						ROOT = {
+							OR = {
+								mep_is_evil_side_trigger = yes
+								religion_group = religion_group_ungoliant
+							}
+						}
+					}
+					AND = {
+						OR = {
+							mep_is_evil_side_trigger = yes
+							religion_group = religion_group_ungoliant
+						}
+						ROOT = {
+							mep_is_good_side_trigger = yes
 						}
 					}
 				}

@@ -312,9 +312,25 @@ character_event = {	#Start the Slaughter
 		name = EVTOPTAcolonisation.5
 		any_realm_province = {
 			limit = {
-				NOR = {
-					culture = ROOT
-					religion = ROOT
+				OR = {
+					AND = {
+						mep_is_good_side_trigger = yes
+						ROOT = {
+							OR = {
+								mep_is_evil_side_trigger = yes
+								religion_group = religion_group_ungoliant
+							}
+						}
+					}
+					AND = {
+						OR = {
+							mep_is_evil_side_trigger = yes
+							religion_group = religion_group_ungoliant
+						}
+						ROOT = {
+							mep_is_good_side_trigger = yes
+						}
+					}
 				}
 			}
 			add_province_modifier = {
