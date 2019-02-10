@@ -492,3 +492,48 @@ narrative_event = {	#Osgiliath Reclaimed by Gondor
 		}
 	}
 }
+
+##############################
+#	Special Items
+##############################
+character_event = {	#Find Gurthang
+	id = mep_flavor_events.101
+	desc = EVTDESCmep_flavor_events.101
+	picture = GFX_evt_ring_craft
+
+	trigger = {
+		NOT = {
+			has_global_flag = gurthang_held
+		}
+		NOR = {
+			has_artifact = gurthang
+			has_artifact = gurthang_broken
+			has_character_flag = refused_gurthang
+		}
+		OR = {
+			ai = yes
+			location = {
+				province_id = 786
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			ai = yes
+			factor = 500
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.101
+		add_artifact = gurthang_broken
+		set_global_flag = gurthang_held
+	}
+
+	option = {
+		name = EVTOPTBmep_flavor_events.101
+		has_character_flag = refused_gurthang
+	}
+}
