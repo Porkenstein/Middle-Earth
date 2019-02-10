@@ -70,7 +70,15 @@ title_decisions = {
 			}
 			holder_scope = {
 				OR = {
-					culture = culture_wilderness
+					AND = {
+						culture = culture_wilderness
+						FROM = {
+							NOR = {
+								culture_group = culture_group_dwarves
+								culture = culture_dragons
+							}
+						}
+					}
 					AND = {
 						FROM = {
 							mep_is_mountain_dweller_trigger = yes
@@ -86,30 +94,10 @@ title_decisions = {
 							culture = culture_dragons
 						}
 					}
-					AND = {
-						FROM = {
-							OR = {
-								culture_group = culture_group_dwarves
-								culture = culture_dragons
-							}
-						}
+					FROM = {
 						OR = {
-							culture = culture_mountains
-							ROOT = {
-								location = {
-									any_neighbor_province = {
-										owner = {
-											OR = {
-												character = FROM
-												any_liege = {
-													character = FROM
-												}
-											}
-										}
-										mep_is_mountain_trigger = yes
-									}
-								}
-							}
+							culture_group = culture_group_dwarves
+							culture = culture_dragons
 						}
 					}
 				}
