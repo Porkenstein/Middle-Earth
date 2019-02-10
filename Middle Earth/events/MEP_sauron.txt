@@ -592,63 +592,6 @@ character_event = {
 		primary_title = { add_law = feudal_tax_3 }
 	}
 }
-	
-##AI Mordor is too inactive, we will give it a random claim on a neighboring duchy held by hostile culture every 10 years##
-	
-character_event = {
-    id = sauron.20
-    title = "EVTTITsauron.20"#Expand your Realm
-    desc = "EVTDESCsauron.20"#The lands of Middle-Earth are yours, you have but to send forth your armies and take what is rightfully yours! This neighboring duchy, for example...
-    picture = "GFX_sauron_commands"
-	only_rulers = yes
-	only_independent = yes
-
-	trigger = {
-		OR = {
-			has_landed_title = c_barad_dur
-			has_landed_title = k_mordor
-		}	
-		dynasty = 10012
-		num_of_claims = 0
-		year = 11375
-	}
-	
-	mean_time_to_happen = {
-		months = 60
-	}
-		
-	option = { 
-		name = "EVTOPTAsauron.20"#It will be mine.
-		random_realm_province = {
-			limit = {
-				any_neighbor_province = {
-					OR = {
-						owner = { religion = religion_dunedain }
-						owner = { religion = religion_rhovanion }
-						owner = { religion = religion_mahal }
-						owner = { religion_group = religion_group_eldar }
-						owner = { religion = religion_haldadian }
-					}					
-				}
-			}
-			random_neighbor_province = {
-				limit = {
-					OR = {
-						owner = { religion = religion_dunedain }
-						owner = { religion = religion_rhovanion }
-						owner = { religion = religion_mahal }
-						owner = { religion_group = religion_group_eldar }
-						owner = { religion = religion_haldadian }
-					}
-				}
-				county = { add_claim = ROOT }
-				duchy = { add_claim = ROOT }
-			}
-		}
-	}				  
-}
-
-
 
 ##Option for Sauron to command the Nazgul##
 character_event = {
