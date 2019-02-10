@@ -2,13 +2,14 @@ religion_group_eruhini = {
 	has_coa_on_barony_only = yes
 	graphical_culture = westerngfx
 	playable = yes
+
+	color = { 0.70 0.82 0.81 }
+
 	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
-		
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 0	# never try to convert
-	
-	color = { 0.70 0.82 0.81 }
-	
+	hostile_within_group = yes
+
 	religion_eruhini = {
 		graphical_culture = westerngfx
 
@@ -245,14 +246,13 @@ religion_group_melkor = {
 	has_coa_on_barony_only = yes
 	graphical_culture = westerngfx
 	playable = yes
-	hostile_within_group = yes
-	
+
 	color = { 0.71 0.82 0.81 }
 
-	
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 0	# never try to convert
-	
+	hostile_within_group = yes
+
 	religion_melkor = {
 		graphical_culture = westerngfx
 
@@ -501,13 +501,12 @@ religion_group_melkor = {
 
 # Spiders should not be able to intermmarry with non-spiders
 religion_group_ungoliant = {
-
 	has_coa_on_barony_only = yes
 	graphical_culture = easterngfx
 	playable = yes
-	
+
 	color = { 0.83 0.10 0.5 }
-	
+
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 0	# never try to convert
 	ai_fabricate_claims = no
@@ -541,36 +540,34 @@ religion_group_wilderness = {
 	has_coa_on_barony_only = yes
 	graphical_culture = westerngfx
 	playable = no
-	
+
 	color = { 0.59 0.48 0.46 }
-	
+
 	ai_convert_same_group = 0 # never try to convert
 	ai_convert_other_group = 0	# never try to convert
 
 	religion_wilderness = {
 		graphical_culture = westerngfx
-		
+
 		alternate_start = {
 			year < 17000
 		}
 
 		icon = 6
 		color = { 0.59 0.48 0.46 }
-		
+
 		high_god_name = GOD_TREE
-		
+
 		god_names = {
 			GOD_TREE
 		}
-	
+
 		evil_god_names = {
 			GOD_MORGOTH
 		}
-		
+
 		female_temple_holders = no
 		max_wives = 0
 		max_consorts = 0
 	}
-	
-	
 }
