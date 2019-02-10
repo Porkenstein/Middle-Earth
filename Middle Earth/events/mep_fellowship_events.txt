@@ -1781,11 +1781,55 @@ narrative_event = {	#Declare War on Mordor
 			has_landed_title = e_gondor
 		}
 		add_claim = c_morannon
-
 		random_claim = {
-			limit = { title = c_morannon
+			limit = {
+				title = c_morannon
+			}
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		hidden_effect = {
+			k_rohan = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+			e_barad_dur = {
+				holder_scope = {
+					narrative_event = { id = mep_fellowship_events.25 }
+				}
+			}
+			any_player = {	#Inform Player March on Black Gate
+				limit = {
+					NOT = {
+						trait = trait_nooo
+					}
+				}
+				character_event = { id = mep_fellowship_events.922 }
+			}
+		}
+	}
 
- }
+	option = {	#YOLO
+		name = EVTOPTAAmep_fellowship_events.25
+		trigger = {
+			has_landed_title = e_gondor
+			NOT = {
+				ai = yes
+			}
+		}
+		add_claim = c_morannon
+		random_claim = {
+			limit = {
+				title = c_morannon
+			}
 			reverse_war = {
 				target = ROOT
 				casus_belli = claim
