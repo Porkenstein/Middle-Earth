@@ -53,8 +53,9 @@ mep_has_important_trait = {
 		trait = enigma
 		trait = maiar
 		trait = nazgul
-		religion_group = religion_group_dragon
-		religion = religion_umaiar
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion = religion_melkor
 		trait = white_council
 		trait = onering
 		trait = master_healer
@@ -88,20 +89,25 @@ mep_attraction_compatible_root = {
 		# humans, elves, hobbits, and the like
 		AND = {
 			OR = {
-				religion_group = religion_group_edain
-				religion_group = religion_group_hildor
-				religion_group = religion_group_periannath
-				religion_group = religion_group_eldar
+				religion = religion_edain
+				religion = religion_hildor
+				religion = religion_perian
+				religion = religion_dark_perian
+				religion = religion_eldar
+				religion = religion_dark_eldar
 				trait = valar
 				trait = enigma
 				trait = maiar
 			}
 			ROOT = {
 				OR = {
-					religion_group = religion_group_edain
-					religion_group = religion_group_hildor
-					religion_group = religion_group_periannath
-					religion_group = religion_group_eldar
+					religion = religion_edain
+					religion = religion_hildor
+					religion = religion_perian
+					religion = religion_eldar
+					religion = religion_dark_perian
+					religion = religion_eldar
+					religion = religion_dark_eldar
 					trait = valar
 					trait = enigma
 					trait = maiar
@@ -112,12 +118,12 @@ mep_attraction_compatible_root = {
 		AND = {
 			OR = {
 				religion = religion_orkish
-				religion = religion_uruk
+				religion = religion_corrupted_orkish
 			}
 			ROOT = {
 				OR = {
 					religion = religion_orkish
-					religion = religion_uruk
+					religion = religion_corrupted_orkish
 				}
 			}
 		}
