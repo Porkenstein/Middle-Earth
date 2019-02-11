@@ -601,7 +601,10 @@ obj_amass_wealth = {
 		}
 		modifier = {
 			factor = 1.5
-			religion_group = religion_group_khazad
+			OR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
 		}
 		modifier = {
 			factor = 2
@@ -779,7 +782,10 @@ obj_become_exalted = {
 		}
 		modifier = {
 			factor = 0.3
-			religion_group = religion_group_periannath
+			OR = {
+				religion = religion_perian
+				religion = religion_dark_perian
+			}
 		}
 		modifier = {
 			factor = 0.01
@@ -1850,9 +1856,12 @@ obj_become_king = {
 		modifier = {
 			factor = 0
 			OR = {
-				religion_group = religion_group_eldar
-				religion_group = religion_group_enyd
-				religion_group = religion_group_periannath
+				religion = religion_perian
+				religion = religion_dark_perian
+				religion = religion_eldar
+				religion = religion_dark_eldar
+				religion = religion_enyd
+				religion = religion_dark_enyd
 			}
 			NOT = { trait = ambitious }
 		}

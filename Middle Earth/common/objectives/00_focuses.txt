@@ -179,7 +179,10 @@ focus_seduction = {
 		}
 		modifier = {
 			factor = 0.1
-			religion_group = religion_group_eldar
+			OR = {
+				religion = religion_eldar
+				religion = religion_dark_eldar
+			}
 		}
 		modifier = {
 			factor = 0
@@ -331,7 +334,7 @@ focus_intrigue = {
 		}
 		modifier = {
 			factor = 0
-			religion_group = religion_group_eldar
+			religion = religion_eldar
 		}
 		modifier = {
 			factor = 0.25
@@ -595,7 +598,7 @@ focus_carousing = {
 			trait = hedonist
 			trait = drunkard
 		}
-		NOT = { religion = religion_umaiar }
+		NOT = { religion = religion_melkor }
 	}
 	
 	# AI Pick chance
@@ -856,8 +859,10 @@ focus_theology = {
 	}
 	
 	allow = {
-		NOT = { religion_group = religion_group_eruhini }
-		NOT = { religion = religion_umaiar }
+		NOR = {
+			religion = religion_eruhini
+			religion = religion_melkor
+		}
 		is_adult = yes
 		NOT = { trait = incapable }
 	}
