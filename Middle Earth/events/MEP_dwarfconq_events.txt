@@ -160,8 +160,10 @@ character_event = {
 				factor = 20
 				event_target:mep_moria_overlord_target = {
 					OR = {
-						religion_group = religion_group_khazad
-						religion_group = religion_group_eldar
+						religion = religion_khazad
+						religion = religion_dark_khazad
+						religion = religion_eldar
+						religion = religion_dark_eldar
 					}
 					ROOT = {
 						NOT = {realm_levy_diff = { who = PREV value = 1000} }
@@ -428,7 +430,10 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				religion_group = religion_group_khazad
+				OR = {
+					religion = religion_khazad
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { same_realm = ROOT }
 			}
@@ -580,7 +585,10 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				religion_group = religion_group_khazad
+				OR = {
+					religion = religion_khazad
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { same_realm = ROOT }
 			}
@@ -698,11 +706,21 @@ character_event = {
 	id = dwarfconq.22
 	title = EVTTITdwarfconq.22
 	desc = {
-		trigger = { religion_group = religion_group_khazad }
+		trigger = { 
+			OR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.22a
 	}
 	desc = {
-		trigger = { NOT = { religion_group = religion_group_khazad } }
+		trigger = { 
+			NOR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.22b
 	}
 	picture = "GFX_evt_dwarves_hall"
@@ -720,11 +738,21 @@ character_event = {
 	id = dwarfconq.23
 	title = EVTTITdwarfconq.23
 	desc = {
-		trigger = { religion_group = religion_group_khazad }
+		trigger = { 
+			OR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.23a
 	}
 	desc = {
-		trigger = { NOT = { religion_group = religion_group_khazad } }
+		trigger = { 
+			NOR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.23b
 	}
 	picture = "GFX_evt_dwarves"
@@ -905,7 +933,7 @@ character_event = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
 				NOR = {
-					religion_group = religion_group_khazad
+					religion = religion_khazad
 					religion_group = religion_group_melkor				
 				}
 			}
@@ -963,7 +991,10 @@ character_event = {
 		any_independent_ruler = {
 			limit = {
 				tier = king
-				religion_group = religion_group_khazad
+				OR = {
+					religion = religion_khazad
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { character = event_target:mep_moria_overlord_target }				
 			}
@@ -975,7 +1006,7 @@ character_event = {
 				create_character = {
 					random_traits = yes
 					dynasty = random
-					religion = religion_rhovanion
+					religion = religion_edain
 					culture = culture_barding
 					female = no
 					age = 29
@@ -1000,7 +1031,7 @@ character_event = {
 				create_character = {
 					random_traits = yes
 					dynasty = random
-					religion = religion_rhovanion
+					religion = religion_edain
 					culture = culture_barding
 					female = no
 					age = 38
@@ -1073,7 +1104,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad 
+				religion = religion_khazad 
 			}
 		}
 		text = EVTDESCdwarfconq.32b
@@ -1082,7 +1113,7 @@ character_event = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
 				NOR = {
-					religion_group = religion_group_khazad
+					religion = religion_khazad
 					religion_group = religion_group_melkor				
 				}
 			}
@@ -1141,7 +1172,10 @@ character_event = {
 		any_independent_ruler = {
 			limit = {
 				tier = king
-				religion_group = religion_group_khazad
+				OR = {
+					religion = religion_khazad
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { character = event_target:mep_moria_overlord_target }				
 			}
@@ -1153,7 +1187,7 @@ character_event = {
 				create_character = {
 					random_traits = yes
 					dynasty = random
-					religion = religion_rhovanion
+					religion = religion_edain
 					culture = culture_barding
 					female = no
 					age = 29
@@ -1178,7 +1212,7 @@ character_event = {
 				create_character = {
 					random_traits = yes
 					dynasty = random
-					religion = religion_rhovanion
+					religion = religion_edain
 					culture = culture_barding
 					female = no
 					age = 38
@@ -1243,7 +1277,10 @@ character_event = {
 	   desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				NOT = { religion_group = religion_group_khazad }
+				NOR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}	
 		}
 		text = EVTDESCdwarfconq.33a
@@ -1251,7 +1288,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad 
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.33b
@@ -1294,7 +1334,10 @@ character_event = {
 			modifier = { # if the enemy is non-dwarven, you will get troops (unless opinion is negative)
 				factor = 0
 				event_target:mep_moria_overlord_target = {
-					NOT = { religion_group = religion_group_khazad }
+					NOR = { 
+						religion = religion_khazad 
+						religion = religion_dark_khazad
+					}
 				}
 				opinion = { who = FROM value = 0 }
 			}
@@ -1320,7 +1363,7 @@ character_event = {
 		create_character = {
 			random_traits = yes
 			dynasty = random
-			religion = religion_mahal
+			religion = religion_khazad
 			culture = FROM
 			female = no
 			age = 132
@@ -1461,7 +1504,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				NOT = { religion_group = religion_group_khazad }
+				NOR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.36a
@@ -1469,7 +1515,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.36b
@@ -1541,7 +1590,10 @@ character_event = {
 			modifier = { # if the enemy is non-dwarven, you will get money (unless opinion is negative)
 				factor = 0
 				event_target:mep_moria_overlord_target = {
-					NOT = { religion_group = religion_group_khazad }
+					NOR = { 
+						religion = religion_khazad 
+						religion = religion_dark_khazad
+					}
 				}
 				opinion = { who = FROM value = 0 }
 			}
@@ -1625,7 +1677,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad 
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.41b
@@ -1634,7 +1689,7 @@ character_event = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
 				NOR = {
-					religion_group = religion_group_khazad
+					religion = religion_khazad
 					religion_group = religion_group_melkor				
 				}
 			}
@@ -1694,7 +1749,10 @@ character_event = {
 		any_independent_ruler = {
 			limit = {
 				tier = king
-				religion_group = religion_group_khazad
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { character = event_target:mep_moria_overlord_target }				
 			}
@@ -1711,8 +1769,10 @@ character_event = {
 				factor = 20
 				event_target:mep_moria_overlord_target = {
 					OR = {
-						religion_group = religion_group_khazad
-						religion_group = religion_group_eldar
+						religion = religion_khazad 
+						religion = religion_dark_khazad
+						religion = religion_eldar
+						religion = religion_dark_eldar
 					}
 					ROOT = {
 						NOT = {realm_levy_diff = { who = PREV value = 1000} }
