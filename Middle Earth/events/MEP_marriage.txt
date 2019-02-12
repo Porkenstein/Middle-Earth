@@ -13,7 +13,10 @@ character_event = {
     title = "EVTTITmepmarriage.0"
     desc = "EVTDESCmepmarriage.0"
     picture = "GFX_good"
-	religion_group = religion_group_khazad
+	OR = {
+		religion = religion_khazad
+		religion = religion_dark_khazad
+	}
 	is_married = yes
 	
 	trigger = {
@@ -51,7 +54,7 @@ character_event = {
     title = "EVTTITmepmarriage.1"
     desc = "EVTDESCmepmarriage.1"
     picture = "GFX_good"
-	religion_group = religion_group_eldar
+	religion = religion_eldar
 	is_married = yes
 	
 	trigger = {
@@ -61,7 +64,7 @@ character_event = {
 				trait = elf
 				AND = {
 					age = 60
-					religion_group = religion_group_eldar
+					religion = religion_eldar
 				}
 			}
 			NOT = { has_character_flag = elfhumanmarriage }

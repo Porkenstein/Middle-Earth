@@ -12,8 +12,8 @@ decisions = {
 			}
 			prisoner = no
 			OR = {
-				religion_group = religion_group_edain
-				religion_group = religion_group_hildor
+				religion = religion_edain
+				religion = religion_hildor
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 			NOR = {
@@ -538,7 +538,7 @@ decisions = {
 		potential = {
 			is_playable = yes
 			OR = {
-				religion_group = religion_group_periannath
+				religion = religion_perian
 				has_alternate_start_parameter = { key = religion_names value = random }
 			}
 			prisoner = no
@@ -653,10 +653,7 @@ decisions = {
 			is_female = no
 			prisoner = no
 			OR = {
-				religion = religion_dunedain
-				religion = religion_rhovanion
-				religion = religion_haldadian
-				religion = religion_ishmalogim
+				religion = religion_edain
 				culture = culture_noldor
 				culture = culture_sindar
 				has_alternate_start_parameter = { key = religion_names value = random }
@@ -995,10 +992,7 @@ decisions = {
 			is_playable = yes
 			has_character_flag = sky_burial
 			NOT = { has_character_flag = performed_sky_burial }
-			OR = {
-				government = nomadic_government
-				religion = religion_easterlings
-			}
+			government = nomadic_government
 			NOT = { mep_is_evil_side_trigger = yes }
 		}
 		allow = {
