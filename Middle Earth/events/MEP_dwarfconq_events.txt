@@ -924,7 +924,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad 
+				religion = religion_khazad
 			}
 		}
 		text = EVTDESCdwarfconq.31b
@@ -1823,7 +1823,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad 
+				religion = religion_khazad 
 			}
 		}
 		text = EVTDESCdwarfconq.42b
@@ -1832,7 +1832,7 @@ character_event = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
 				NOR = {
-					religion_group = religion_group_khazad
+					religion = religion_khazad
 					religion_group = religion_group_melkor				
 				}
 			}
@@ -1892,7 +1892,10 @@ character_event = {
 		any_independent_ruler = {
 			limit = {
 				tier = king
-				religion_group = religion_group_khazad
+				OR = {
+					religion = religion_khazad
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { character = event_target:mep_moria_overlord_target }				
 			}
@@ -1909,8 +1912,10 @@ character_event = {
 				factor = 20
 				event_target:mep_moria_overlord_target = {
 					OR = {
-						religion_group = religion_group_khazad
-						religion_group = religion_group_eldar
+						religion = religion_khazad
+						religion = religion_dark_khazad
+						religion = religion_eldar
+						religion = religion_dark_eldar
 					}
 					PREV = {
 						NOT = {realm_levy_diff = { who = PREV value = 1000} }
@@ -1951,7 +1956,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				NOT = { religion_group = religion_group_khazad }
+				NOR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.43a
@@ -1959,7 +1967,10 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:mep_moria_overlord_target = {
-				religion_group = religion_group_khazad
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 			}
 		}
 		text = EVTDESCdwarfconq.43b
@@ -2031,7 +2042,10 @@ character_event = {
 			modifier = { # if the enemy is non-dwarven, you will get money (unless opinion is negative)
 				factor = 0
 				event_target:mep_moria_overlord_target = {
-					NOT = { religion_group = religion_group_khazad }
+					NOR = { 
+						religion = religion_khazad 
+						religion = religion_dark_khazad
+					}
 				}
 				opinion = { who = FROM value = 0 }
 			}
@@ -2286,7 +2300,10 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				religion_group = religion_group_khazad
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { same_realm = ROOT }
 			}
@@ -2425,7 +2442,10 @@ character_event = {
 		}
 		any_playable_ruler = {
 			limit = {
-				religion_group = religion_group_khazad
+				OR = { 
+					religion = religion_khazad 
+					religion = religion_dark_khazad
+				}
 				NOT = { mep_is_evil_side_trigger = yes }
 				NOT = { same_realm = ROOT }
 			}
@@ -2547,11 +2567,21 @@ character_event = {
 	id = dwarfconq.62
 	title = EVTTITdwarfconq.62
 	desc = {
-		trigger = { religion_group = religion_group_khazad }
+		trigger = { 
+			OR = { 
+				religion = religion_khazad 
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.62a
 	}
 	desc = {
-		trigger = { NOT = { religion_group = religion_group_khazad } }
+		trigger = { 
+			NOR = { 
+				religion = religion_khazad 
+				religion = religion_dark_khazad
+			}
+		}
 		text = EVTDESCdwarfconq.62b
 	}
 	picture = "GFX_evt_dwarves_hall"

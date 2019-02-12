@@ -562,7 +562,10 @@ character_event = {
 	
 	trigger = {
 		NOT = { mep_evil_religion = yes }
-		NOT = { religion_group = religion_group_enyd }
+		NOR = { 
+			religion = religion_enyd 
+			religion = religion_dark_enyd
+		}
 		any_child = {
 			is_married = no
 			is_female = no
@@ -710,7 +713,7 @@ character_event = {
 	option = {
 		name = EVTOPTB73007 #Let's talk a walk in the forest instead, darling
 		trigger = {
-			NOT = { religion = religion_easterlings }
+			NOT = { religion = religion_hildor }
 		}
 		if = {
 			limit = { trait = cynical }
@@ -947,8 +950,11 @@ character_event = {
 	
 	trigger = {
 		year = 1415
-		religion_group = religion_group_eldar
-        	NOT = { mep_is_evil_side_trigger = yes }
+		OR = {
+			religion = religion_eldar
+			religion = religion_dark_eldar
+		}
+        NOT = { mep_is_evil_side_trigger = yes }
 		NOT = { has_character_flag = ars_moriendi }
 	}
 	
