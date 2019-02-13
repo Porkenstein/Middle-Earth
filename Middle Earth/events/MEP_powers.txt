@@ -273,8 +273,9 @@ namespace = powers
 		option={
 			name=EVTOPTApowers.9
 			trigger = {
-				NOT = {
-					religion_group = religion_group_eldar
+				NOR = {
+					religion = religion_eldar
+					religion = religion_dark_eldar
 				}
 				in_command = yes
 				prisoner = no
@@ -284,7 +285,10 @@ namespace = powers
 		option={
 			name=EVTOPTBpowers.9
 			trigger = {
-				religion_group = religion_group_eldar
+				OR = {
+					religion = religion_eldar
+					religion = religion_dark_eldar
+				}
 				in_command = yes
 				prisoner = no
 			}
