@@ -39,10 +39,7 @@ character_event = {
 				prisoner = yes
 				host = { character = ROOT }
 				age = 16
-				OR = {
-					religion = religion_edain
-					religion = religion_hildor
-				}
+				NOT = { religion_orkish }
 			}
 		}
 		set_character_flag = lavishly_food
@@ -52,127 +49,13 @@ character_event = {
 				prisoner = yes
 				host = { character = ROOT }
 				age = 16
-				OR = {
-					religion = religion_edain
-					religion = religion_hildor
-				}
+				NOT = { religion_orkish }
 			}
 			death = {
 				death_reason = death_sacrificed
 				killer = ROOT
 			}
 		}
-		hidden_tooltip = {
-			character_event = {
-				id = orcfeast.1
-				days = 2
-				random = 5
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTBorcfeast.0" #Spend lavishly on food
-		trigger = {
-			any_courtier = {
-				prisoner = yes
-				host = { character = ROOT }
-				age = 16
-				OR = {
-					religion = religion_eldar
-					religion = religion_dark_eldar
-				}
-			}
-		}
-		set_character_flag = lavishly_food
-		scaled_wealth = -0.15
-		any_courtier = {
-			limit = {
-				prisoner = yes
-				host = { character = ROOT }
-				age = 16
-				OR = {
-					religion = religion_eldar
-					religion = religion_dark_eldar
-				}
-			}
-			death = {
-				death_reason = death_sacrificed
-				killer = ROOT
-			}
-		}
-		hidden_tooltip = {
-			character_event = {
-				id = orcfeast.1
-				days = 2
-				random = 5
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTCorcfeast.0" #Spend lavishly on food
-		trigger = {
-			any_courtier = {
-				prisoner = yes
-				host = { character = ROOT }
-				age = 16
-				OR = {
-					religion = religion_khazad
-					religion = religion_dark_khazad
-				}
-			}
-		}
-		set_character_flag = lavishly_food
-		scaled_wealth = -0.15
-		any_courtier = {
-			limit = {
-				prisoner = yes
-				host = { character = ROOT }
-				age = 16
-				OR = {
-					religion = religion_khazad
-					religion = religion_dark_khazad
-				}
-			}
-			death = {
-				death_reason = death_sacrificed
-				killer = ROOT
-			}
-		}
-		hidden_tooltip = {
-			character_event = {
-				id = orcfeast.1
-				days = 2
-				random = 5
-			}
-		}
-	}
-	
-		option = {
-		name = "EVTOPTDorcfeast.0" #Spend lavishly on food
-		trigger = {
-		any_courtier = {
-		prisoner = yes
-		host = { character = ROOT }
-		age = 16
-		religion = religion_perian
-			}
-				}
-		set_character_flag = lavishly_food
-		scaled_wealth = -0.15
-		any_courtier = {
-		limit = {
-		prisoner = yes
-		host = { character = ROOT }
-		age = 16
-		religion = religion_perian
-		}
-		death = {
-		death_reason = death_sacrificed
-		killer = ROOT
-			}
-			}
 		hidden_tooltip = {
 			character_event = {
 				id = orcfeast.1
@@ -184,28 +67,28 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTEorcfeast.0" #Spend medium on food
-			trigger = {
-		any_courtier = {
-		prisoner = yes
-		host = { character = ROOT }
-		age = 16
-		religion = religion_orkish
+		trigger = {
+			any_courtier = {
+				prisoner = yes
+				host = { character = ROOT }
+				age = 16
+				religion = religion_orkish
 			}
-				}
+		}
 		set_character_flag = lavishly_food
 		scaled_wealth = -0.15
 		any_courtier = {
-		limit = {
-		prisoner = yes
-		host = { character = ROOT }
-		age = 16
-		religion = religion_orkish
+			limit = {
+				prisoner = yes
+				host = { character = ROOT }
+				age = 16
+				religion = religion_orkish
+			}
+			death = {
+				death_reason = death_sacrificed
+				killer = ROOT
+			}
 		}
-		death = {
-		death_reason = death_sacrificed
-		killer = ROOT
-			}
-			}
 		hidden_tooltip = {
 			character_event = {
 				id = orcfeast.1
