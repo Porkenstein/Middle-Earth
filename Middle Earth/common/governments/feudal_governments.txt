@@ -31,6 +31,7 @@ feudal_governments = {
 			NOT = { is_government_potential = darklord_government }
 			NOT = { is_government_potential = orc_government }
 			NOT = { is_government_potential = wilderness_nongovernment }
+			NOT = { is_government_potential = nomadic_government }
 			# government type restrictions
 			NOT = { controls_religion = yes }
 			is_patrician = no
@@ -78,6 +79,13 @@ feudal_governments = {
 			mep_canhave_nice_feudalism = yes
 			NOT = { religion = religion_perian }
 			is_patrician = no
+			religion_group = religion_group_eruhini
+			OR = {
+				culture_group = culture_group_numenorean
+				religion = religion_enyd
+				religion = religion_khazad
+				religion = religion_eldar
+			}
 		}
 		
 		color = { 169 169 169 }
@@ -196,7 +204,7 @@ feudal_governments = {
 		capital_move_delay = 4500
 	}
 	
-	# Governemnt for Orcs, Trolls, ordinary Wights, and spiders
+	# Governemnt for Orcs and Trolls
 	orc_government = {
 	    preferred_holdings = { CASTLE }
 		allowed_holdings = {
@@ -220,9 +228,7 @@ feudal_governments = {
 		potential = {
 			OR = {
 				religion = religion_olog
-				religion = religion_corrupted_olog
 				religion = religion_orkish
-				religion = religion_corrupted_orkish
 			}
 			is_patrician = no
 		}
@@ -268,7 +274,7 @@ feudal_governments = {
 		}
 		frame_suffix = "_iqta"
 		potential = {
-			religion = religion_hildor
+			culture_group = culture_group_southron
 			is_patrician = no
 		}
 		
