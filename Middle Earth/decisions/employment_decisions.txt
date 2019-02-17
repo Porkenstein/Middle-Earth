@@ -177,4 +177,30 @@ decisions = {
 			factor = 0
 		}
 	}
+	hire_craftsman = {
+		potential = {
+			is_ruler = yes
+			higher_real_tier_than = BARON
+		}
+		allow = {
+			NOT = {
+				any_courtier = {
+					is_craftsman_trigger = yes
+				}
+			}
+			treasury = 10
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			character_event = { id = employ_events.1 }
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.1
+			}
+		}
+	}
 }

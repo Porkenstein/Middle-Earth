@@ -5684,14 +5684,10 @@ master_fighter = {
 
 #Craftsman
 novice_craftsman = {
-	stewardship = 1
-	potential = {
-		OR = {
-			culture_group = culture_group_dwarves
-			culture = culture_noldor
-		}
-	}
 	random = no
+	cached = yes
+
+	stewardship = 1
 	opposites =  {
 		adept_craftsman
 		skilled_craftsman
@@ -5699,14 +5695,10 @@ novice_craftsman = {
 	}
 }
 adept_craftsman = {
-	stewardship = 2
-	potential = {
-		OR = {
-			culture_group = culture_group_dwarves
-			culture = culture_noldor
-		}
-	}
 	random = no
+	cached = yes
+
+	stewardship = 2
 	opposites =  {
 		novice_craftsman
 		skilled_craftsman
@@ -5714,16 +5706,20 @@ adept_craftsman = {
 	}
 }
 skilled_craftsman = {
+	random = no
+	cached = yes
+
 	monthly_character_prestige = 0.2
 	vassal_opinion = 10
 	stewardship = 3
 	potential = {
 		OR = {
-			culture_group = culture_group_dwarves
-			culture = culture_noldor
+			religion_group = religion_khazad
+			religion_group = religion_dark_khazad
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
 		}
 	}
-	random = no
 	opposites =  {
 		novice_craftsman
 		adept_craftsman
@@ -5731,16 +5727,18 @@ skilled_craftsman = {
 	}
 }
 master_craftsman = {
+	random = no
+	cached = yes
+
 	monthly_character_prestige = 0.5
 	vassal_opinion = 15
 	stewardship = 5
 	potential = {
 		OR = {
-			culture_group = culture_group_dwarves
-			culture = culture_noldor
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
 		}
 	}
-	random = no
 	opposites =  {
 		novice_craftsman
 		adept_craftsman
