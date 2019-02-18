@@ -111,10 +111,8 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_150
+				text = popreq_250
 			OR = {
-				has_province_modifier = pop_150
-				has_province_modifier = pop_200
 				has_province_modifier = pop_250
 				has_province_modifier = pop_300
 				has_province_modifier = pop_350
@@ -150,8 +148,9 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_600
+				text = popreq_500
 			OR = {
+				has_province_modifier = pop_500
 				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
@@ -172,6 +171,23 @@ tribal = {	#Generic Tribal Buildings
 		liege_prestige = 1
 		fort_level = 0.5
 		tax_income = 0.25
+		ai_creation_factor = 80
+	}
+	tb_keep_5 = {
+		desc = tb_keep_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_keep_4
+		gold_cost = 100
+		build_time = 365
+		liege_prestige = 1
+		fort_level = 1
+		tax_income = 1.5
 		ai_creation_factor = 80
 	}
 
@@ -198,6 +214,7 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_keep_2
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -219,6 +236,7 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_keep_2
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -239,6 +257,7 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_keep_2
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -259,6 +278,7 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_keep_2
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -278,6 +298,7 @@ tribal = {	#Generic Tribal Buildings
 				OR = {
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -297,6 +318,7 @@ tribal = {	#Generic Tribal Buildings
 				OR = {
 					has_building = tb_keep_3
 					has_building = tb_keep_4
+					has_building = tb_keep_5
 				}
 			}
 		}
@@ -313,7 +335,10 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = { 
 			FROMFROM = {
-				has_building = tb_keep_4
+				OR = {
+					has_building = tb_keep_4
+					has_building = tb_keep_5
+				}
 			}
 		}
 		upgrades_from = tb_defenses_7
@@ -329,13 +354,58 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = {
 			FROMFROM = {
-				has_building = tb_keep_4
+				OR = {
+					has_building = tb_keep_4
+					has_building = tb_keep_5
+				}
 			}
 		}
 		upgrades_from = tb_defenses_8
 		gold_cost = 50
 		build_time = 182
 		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	tb_defenses_10 = {
+		desc = tb_defenses_10_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = tb_keep_4
+					has_building = tb_keep_5
+				}
+			}
+		}
+		upgrades_from = tb_defenses_9
+		gold_cost = 50
+		build_time = 182
+		fort_level = 1
+		ai_creation_factor = 80
+	}
+	tb_defenses_11 = {
+		desc = tb_defenses_11_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = tb_keep_5
+			}
+		}
+		upgrades_from = tb_defenses_10
+		gold_cost = 50
+		build_time = 182
+		fort_level = 1.5
 		ai_creation_factor = 80
 	}
 
@@ -349,8 +419,8 @@ tribal = {	#Generic Tribal Buildings
 		}
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.1
-		garrison_size = 0.1
+		levy_size = 0.3
+		garrison_size = 0.2
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_2 = {
@@ -363,8 +433,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_1
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.1
-		garrison_size = 0.1
+		levy_size = 0.3
+		garrison_size = 0.2
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_3 = {
@@ -377,8 +447,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_2
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.1
-		garrison_size = 0.1
+		levy_size = 0.3
+		garrison_size = 0.2
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_4 = {
@@ -391,8 +461,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_3
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.2
-		garrison_size = 0.2
+		levy_size = 0.6
+		garrison_size = 0.3
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_5 = {
@@ -405,8 +475,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_4
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.2
-		garrison_size = 0.2
+		levy_size = 0.6
+		garrison_size = 0.3
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_6 = {
@@ -419,8 +489,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_5
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.2
-		garrison_size = 0.2
+		levy_size = 0.6
+		garrison_size = 0.3
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_7 = {
@@ -433,8 +503,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_6
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.2
-		garrison_size = 0.2
+		levy_size = 0.6
+		garrison_size = 0.3
 		ai_creation_factor = 80
 	}
 	tb_recruit_post_8 = {
@@ -447,8 +517,8 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_recruit_post_7
 		gold_cost = 50
 		build_time = 182
-		levy_size = 0.3
-		garrison_size = 0.3
+		levy_size = 0.9
+		garrison_size = 0.5
 		ai_creation_factor = 80
 	}
 
@@ -1064,6 +1134,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_1_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1116,6 +1191,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_2_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1165,6 +1245,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_3_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1211,6 +1296,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_4_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1254,6 +1344,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_5_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1294,6 +1389,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_6_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1331,6 +1431,11 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_7_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1365,8 +1470,13 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_8_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
-		trigger = {
+		trigger = { 
 			custom_tooltip = {
 				text = popreq_450
 			OR = {
@@ -1396,17 +1506,24 @@ tribal = {	#Generic Tribal Buildings
 		desc = tb_farms_9_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_700
+				text = popreq_450
 			OR = {
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
 				OR = {
-					culture_group = culture_group_dwarves
 					culture_group = culture_group_amanyar
 					culture_group = culture_group_moriquendi
 					culture_group = culture_group_umanyar
@@ -1418,6 +1535,177 @@ tribal = {	#Generic Tribal Buildings
 		gold_cost = 50
 		build_time = 182
 		tax_income = 2
+		ai_creation_factor = 80
+	}
+
+	#Mines
+	tb_mines_1 = {
+		desc = tb_mines_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	tb_mines_2 = {
+		desc = tb_mines_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_1
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	tb_mines_3 = {
+		desc = tb_mines_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_2
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	tb_mines_4 = {
+		desc = tb_mines_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_3
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	tb_mines_5 = {
+		desc = tb_mines_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_4
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	tb_mines_6 = {
+		desc = tb_mines_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_5
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	tb_mines_7 = {
+		desc = tb_mines_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_6
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
+		ai_creation_factor = 80
+	}
+	tb_mines_8 = {
+		desc = tb_mines_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_7
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
+		ai_creation_factor = 80
+	}
+	tb_mines_9 = {
+		desc = tb_mines_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = tb_mines_8
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
 		ai_creation_factor = 80
 	}
 
@@ -1438,6 +1726,14 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_2
+					has_building = tb_mines_3
+					has_building = tb_mines_4
+					has_building = tb_mines_5
+					has_building = tb_mines_6
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1461,6 +1757,13 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_3
+					has_building = tb_mines_4
+					has_building = tb_mines_5
+					has_building = tb_mines_6
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1484,6 +1787,12 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_4
+					has_building = tb_mines_5
+					has_building = tb_mines_6
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1506,6 +1815,11 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_5
+					has_building = tb_mines_6
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1527,6 +1841,10 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_6
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1547,6 +1865,9 @@ tribal = {	#Generic Tribal Buildings
 					has_building = tb_farms_7
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_7
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1566,6 +1887,8 @@ tribal = {	#Generic Tribal Buildings
 				OR = {
 					has_building = tb_farms_8
 					has_building = tb_farms_9
+					has_building = tb_mines_8
+					has_building = tb_mines_9
 				}
 			}
 		}
@@ -1582,7 +1905,10 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = {
 			FROMFROM = {
-				has_building = tb_farms_9
+				OR = {
+					has_building = tb_farms_9
+					has_building = tb_mines_9
+				}
 			}
 		}
 		upgrades_from = tb_markets_7
@@ -1604,21 +1930,32 @@ tribal = {	#Generic Tribal Buildings
 		}
 		gold_cost = 100
 		build_time = 730
-		land_morale = 0.05
+		land_morale = 0.1
 		ai_creation_factor = 89
 	}
 	tb_training_grounds_2 = {
 		desc = tb_training_grounds_2_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			OR = {
+				religion_group = religion_group_eldar   # Elves
+				religion_group = religion_group_khazad  # Dwarves
+				religion = religion_rhovanion
+				religion = religion_numenorean
+				religion = religion_dunedain
+				religion = religion_edain
+				religion = religion_druedain
+				religion_group = religion_group_eruhini # Ainur (like Eagles)
+				religion_group = religion_group_enyd    # Ents
+			}
 			FROM = {
-				mep_is_good_side_trigger = yes
+				NOT = { has_character_flag = corrupted }
 			}
 		}
 		upgrades_from = tb_training_grounds_1
 		gold_cost = 100
 		build_time = 730
-		land_morale = 0.05
+		land_morale = 0.1
 		ai_creation_factor = 88
 	}
 	tb_training_grounds_3 = {
@@ -1661,7 +1998,7 @@ tribal = {	#Generic Tribal Buildings
 		}
 		gold_cost = 100
 		build_time = 730
-		levy_size = 0.05
+		levy_size = 0.3
 		levy_reinforce_rate = 0.05
 		ai_creation_factor = 89
 	}
@@ -1676,7 +2013,7 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_uruk_pits_1
 		gold_cost = 100
 		build_time = 730
-		levy_size = 0.05
+		levy_size = 0.3
 		levy_reinforce_rate = 0.05
 		ai_creation_factor = 88
 	}
@@ -1691,7 +2028,7 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_uruk_pits_2
 		gold_cost = 100
 		build_time = 730
-		levy_size = 0.1
+		levy_size = 0.5
 		levy_reinforce_rate = 0.05
 		ai_creation_factor = 88
 	}
@@ -1706,7 +2043,7 @@ tribal = {	#Generic Tribal Buildings
 		upgrades_from = tb_uruk_pits_3
 		gold_cost = 100
 		build_time = 730
-		levy_size = 0.1
+		levy_size = 0.5
 		levy_reinforce_rate = 0.05
 		ai_creation_factor = 88
 	}
@@ -1751,13 +2088,11 @@ tribal = {	#Generic Tribal Buildings
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
 			}
 			}
@@ -1800,13 +2135,11 @@ tribal = {	#Generic Tribal Buildings
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
 			}
 			}
@@ -1844,13 +2177,11 @@ tribal = {	#Generic Tribal Buildings
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
 			}
 			}
@@ -1882,13 +2213,11 @@ tribal = {	#Generic Tribal Buildings
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
 			}
 			}
@@ -1907,19 +2236,22 @@ tribal = {	#Generic Tribal Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_700
+				text = popreq_350
 			OR = {
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
 			}
 			}
@@ -1937,16 +2269,22 @@ tribal = {	#Generic Tribal Buildings
 			has_province_modifier = mod_pop_display
 		}
 		trigger = {
+			custom_tooltip = {
+				text = popreq_500
 			OR = {
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
-				FROM = {
-					OR = {
-						culture_group = culture_group_dwarves
-						culture_group = culture_group_amanyar
-						culture_group = culture_group_moriquendi
-						culture_group = culture_group_umanyar
-					}
+				OR = {
+					culture_group = culture_group_dwarves
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
 				}
+			}
 			}
 		}
 		upgrades_from = tb_docks_5

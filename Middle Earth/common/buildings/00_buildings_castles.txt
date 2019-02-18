@@ -111,10 +111,8 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_150
+				text = popreq_250
 			OR = {
-				has_province_modifier = pop_150
-				has_province_modifier = pop_200
 				has_province_modifier = pop_250
 				has_province_modifier = pop_300
 				has_province_modifier = pop_350
@@ -150,8 +148,9 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_600
+				text = popreq_500
 			OR = {
+				has_province_modifier = pop_500
 				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
@@ -172,6 +171,23 @@ castle = { #Generic Castle Buildings
 		liege_prestige = 1
 		fort_level = 0.5
 		tax_income = 0.25
+		ai_creation_factor = 80
+	}
+	ca_keep_5 = {
+		desc = ca_keep_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_keep_4
+		gold_cost = 100
+		build_time = 365
+		liege_prestige = 1
+		fort_level = 1
+		tax_income = 1.5
 		ai_creation_factor = 80
 	}
 
@@ -198,6 +214,7 @@ castle = { #Generic Castle Buildings
 					has_building = ca_keep_2
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -219,6 +236,7 @@ castle = { #Generic Castle Buildings
 					has_building = ca_keep_2
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -239,6 +257,7 @@ castle = { #Generic Castle Buildings
 					has_building = ca_keep_2
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -259,6 +278,7 @@ castle = { #Generic Castle Buildings
 					has_building = ca_keep_2
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -278,6 +298,7 @@ castle = { #Generic Castle Buildings
 				OR = {
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -297,6 +318,7 @@ castle = { #Generic Castle Buildings
 				OR = {
 					has_building = ca_keep_3
 					has_building = ca_keep_4
+					has_building = ca_keep_5
 				}
 			}
 		}
@@ -313,7 +335,10 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = { 
 			FROMFROM = {
-				has_building = ca_keep_4
+				OR = {
+					has_building = ca_keep_4
+					has_building = ca_keep_5
+				}
 			}
 		}
 		upgrades_from = ca_defenses_7
@@ -329,13 +354,58 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = {
 			FROMFROM = {
-				has_building = ca_keep_4
+				OR = {
+					has_building = ca_keep_4
+					has_building = ca_keep_5
+				}
 			}
 		}
 		upgrades_from = ca_defenses_8
 		gold_cost = 50
 		build_time = 182
 		fort_level = 0.5
+		ai_creation_factor = 80
+	}
+	ca_defenses_10 = {
+		desc = ca_defenses_10_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_building = ca_keep_4
+					has_building = ca_keep_5
+				}
+			}
+		}
+		upgrades_from = ca_defenses_9
+		gold_cost = 50
+		build_time = 182
+		fort_level = 1
+		ai_creation_factor = 80
+	}
+	ca_defenses_11 = {
+		desc = ca_defenses_11_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				has_building = ca_keep_5
+			}
+		}
+		upgrades_from = ca_defenses_10
+		gold_cost = 50
+		build_time = 182
+		fort_level = 1.5
 		ai_creation_factor = 80
 	}
 
@@ -1064,6 +1134,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_1_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1116,6 +1191,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_2_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1165,6 +1245,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_3_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1211,6 +1296,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_4_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1254,6 +1344,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_5_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1294,6 +1389,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_6_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1331,6 +1431,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_7_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
@@ -1365,6 +1470,11 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_8_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = { 
 			custom_tooltip = {
@@ -1396,17 +1506,24 @@ castle = { #Generic Castle Buildings
 		desc = ca_farms_9_desc
 		potential = {
 			has_province_modifier = mod_pop_display
+			NOT = {
+				FROM = {
+					religion_group = religion_group_khazad
+				}
+			}
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_700
+				text = popreq_450
 			OR = {
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
 				OR = {
-					culture_group = culture_group_dwarves
 					culture_group = culture_group_amanyar
 					culture_group = culture_group_moriquendi
 					culture_group = culture_group_umanyar
@@ -1418,6 +1535,177 @@ castle = { #Generic Castle Buildings
 		gold_cost = 50
 		build_time = 182
 		tax_income = 2
+		ai_creation_factor = 80
+	}
+
+	#Mines
+	ca_mines_1 = {
+		desc = ca_mines_1_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	ca_mines_2 = {
+		desc = ca_mines_2_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_1
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	ca_mines_3 = {
+		desc = ca_mines_3_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_2
+		gold_cost = 50
+		build_time = 182
+		tax_income = 3
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.03
+		heavy_infantry_defensive = 0.03
+		heavy_infantry_morale = 0.03
+		ai_creation_factor = 80
+	}
+	ca_mines_4 = {
+		desc = ca_mines_4_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_3
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	ca_mines_5 = {
+		desc = ca_mines_5_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_4
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	ca_mines_6 = {
+		desc = ca_mines_6_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_5
+		gold_cost = 50
+		build_time = 182
+		tax_income = 4
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.04
+		heavy_infantry_defensive = 0.04
+		heavy_infantry_morale = 0.04
+		ai_creation_factor = 80
+	}
+	ca_mines_7 = {
+		desc = ca_mines_7_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_6
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
+		ai_creation_factor = 80
+	}
+	ca_mines_8 = {
+		desc = ca_mines_8_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_7
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
+		ai_creation_factor = 80
+	}
+	ca_mines_9 = {
+		desc = ca_mines_9_desc
+		potential = {
+			has_province_modifier = mod_pop_display
+			mep_is_mountain_trigger = yes
+			FROM = {
+				religion_group = religion_group_khazad
+			}
+		}
+		upgrades_from = ca_mines_8
+		gold_cost = 50
+		build_time = 182
+		tax_income = 5
+		heavy_infantry = 100
+		heavy_infantry_offensive = 0.05
+		heavy_infantry_defensive = 0.05
+		heavy_infantry_morale = 0.05
 		ai_creation_factor = 80
 	}
 
@@ -1438,6 +1726,14 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_2
+					has_building = ca_mines_3
+					has_building = ca_mines_4
+					has_building = ca_mines_5
+					has_building = ca_mines_6
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1461,6 +1757,13 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_3
+					has_building = ca_mines_4
+					has_building = ca_mines_5
+					has_building = ca_mines_6
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1484,6 +1787,12 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_4
+					has_building = ca_mines_5
+					has_building = ca_mines_6
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1506,6 +1815,11 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_5
+					has_building = ca_mines_6
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1527,6 +1841,10 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_6
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1547,6 +1865,9 @@ castle = { #Generic Castle Buildings
 					has_building = ca_farms_7
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_7
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1566,6 +1887,8 @@ castle = { #Generic Castle Buildings
 				OR = {
 					has_building = ca_farms_8
 					has_building = ca_farms_9
+					has_building = ca_mines_8
+					has_building = ca_mines_9
 				}
 			}
 		}
@@ -1582,7 +1905,10 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = {
 			FROMFROM = {
-				has_building = ca_farms_9
+				OR = {
+					has_building = ca_farms_9
+					has_building = ca_mines_9
+				}
 			}
 		}
 		upgrades_from = ca_markets_7
@@ -1910,8 +2236,13 @@ castle = { #Generic Castle Buildings
 		}
 		trigger = {
 			custom_tooltip = {
-				text = popreq_700
+				text = popreq_350
 			OR = {
+				has_province_modifier = pop_350
+				has_province_modifier = pop_400
+				has_province_modifier = pop_450
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
 				has_province_modifier = pop_700
 				has_province_modifier = pop_800
 				has_province_modifier = pop_900
@@ -1938,7 +2269,14 @@ castle = { #Generic Castle Buildings
 			has_province_modifier = mod_pop_display
 		}
 		trigger = {
+			custom_tooltip = {
+				text = popreq_500
 			OR = {
+				has_province_modifier = pop_500
+				has_province_modifier = pop_600
+				has_province_modifier = pop_700
+				has_province_modifier = pop_800
+				has_province_modifier = pop_900
 				has_province_modifier = pop_1000
 				OR = {
 					culture_group = culture_group_dwarves
@@ -1946,6 +2284,7 @@ castle = { #Generic Castle Buildings
 					culture_group = culture_group_moriquendi
 					culture_group = culture_group_umanyar
 				}
+			}
 			}
 		}
 		upgrades_from = ca_docks_5
