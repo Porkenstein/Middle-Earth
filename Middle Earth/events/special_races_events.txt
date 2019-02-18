@@ -7,7 +7,7 @@ character_event = {
 		trigger = {
 			FROM = {
 				location = {
-					has_province_modifier = mod_ents
+					has_province_modifier = ent_home
 				}
 			}
 		}
@@ -17,7 +17,17 @@ character_event = {
 		trigger = {
 			FROM = {
 				location = {
-					has_province_modifier = mod_spiders
+					has_province_modifier = spider_home
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.1spiders
+		trigger = {
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
 				}
 			}
 		}
@@ -33,8 +43,9 @@ character_event = {
 		FROM = {
 			location = {
 				OR = {
-					has_province_modifier = mod_ents
-					has_province_modifier = mod_spiders
+					has_province_modifier = ent_home
+					has_province_modifier = spider_home
+					has_province_modifier = eagle_home
 				}
 			}
 		}
@@ -46,7 +57,7 @@ character_event = {
 			mep_is_good_side_trigger = yes
 			FROM = {
 				location = {
-					has_province_modifier = mod_ents
+					has_province_modifier = ent_home
 				}
 			}
 		}
@@ -58,7 +69,7 @@ character_event = {
 			mep_is_evil_side_trigger = yes
 			FROM = {
 				location = {
-					has_province_modifier = mod_ents
+					has_province_modifier = ent_home
 				}
 			}
 		}
@@ -75,7 +86,7 @@ character_event = {
 			mep_is_good_side_trigger = yes
 			FROM = {
 				location = {
-					has_province_modifier = mod_spiders
+					has_province_modifier = spider_home
 				}
 			}
 		}
@@ -92,8 +103,37 @@ character_event = {
 			mep_is_evil_side_trigger = yes
 			FROM = {
 				location = {
-					has_province_modifier = mod_spiders
+					has_province_modifier = spider_home
 				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEspecial_races_events.1
+		trigger = {
+			mep_is_good_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTFspecial_races_events.1
+		trigger = {
+			mep_is_evil_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+		FROM = {
+			location = {
+				set_province_flag = kill_eagles
 			}
 		}
 	}
@@ -104,13 +144,19 @@ province_event = {
 	desc = {
 		text = EVTDESCspecial_races_events.11ents
 		trigger = {
-			has_province_modifier = mod_ents
+			has_province_modifier = ent_home
 		}
 	}
 	desc = {
 		text = EVTDESCspecial_races_events.11spiders
 		trigger = {
-			has_province_modifier = mod_spiders
+			has_province_modifier = spider_home
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.11eagles
+		trigger = {
+			has_province_modifier = eagle_home
 		}
 	}
 	picture = GFX_evt_frodofindsring
@@ -125,6 +171,7 @@ province_event = {
 		OR = {
 			has_province_flag = kill_ents
 			has_province_flag = kill_spiders
+			has_province_flag = kill_eagles
 		}
 	}
 
@@ -135,18 +182,27 @@ province_event = {
 	option = {
 		name = EVTOPTAspecial_races_events.11
 		trigger = {
-			has_province_modifier = mod_ents
+			has_province_modifier = ent_home
 		}
-		remove_province_modifier = mod_ents
+		remove_province_modifier = ent_home
 		clr_province_flag = kill_ents
 	}
 
 	option = {
 		name = EVTOPTBspecial_races_events.11
 		trigger = {
-			has_province_modifier = mod_spiders
+			has_province_modifier = spider_home
 		}
-		remove_province_modifier = mod_spiders
+		remove_province_modifier = spider_home
 		clr_province_flag = kill_spiders
+	}
+
+	option = {
+		name = EVTOPTCspecial_races_events.11
+		trigger = {
+			has_province_modifier = eagle_home
+		}
+		remove_province_modifier = eagle_home
+		clr_province_flag = kill_eagles
 	}
 }
