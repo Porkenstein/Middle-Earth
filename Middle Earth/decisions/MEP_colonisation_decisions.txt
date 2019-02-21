@@ -64,14 +64,20 @@ title_decisions = {
 			}
 		}
 		allow = {
+			NOT = {
+				any_realm_province = {
+					has_province_modifier = being_colonised
+				}
+				count = 3
+			}
 			custom_tooltip = {
 				text = COLONIZERTP
 			FROM = {
-				wealth = 500
-				NOT = {
-					any_realm_province = {
-						has_province_modifier = being_colonised
-						count = 3
+				OR = {
+					wealth = 500
+					AND = {
+						mep_is_evil_side_trigger = yes
+						wealth = 100
 					}
 				}
 				capital_scope = {
@@ -122,14 +128,22 @@ title_decisions = {
 		effect = {
 			grant_title = FROM
 			FROM = {
-				wealth = -500
+				if = {
+					limit = {
+						mep_is_evil_side_trigger = yes
+					}
+					wealth = -100
+				}
+				else = {
+					wealth = -500
+				}
 				capital_scope = {
 					change_variable = {
 						which = sin_pop
 						value = -1000
 					}
 					save_event_target_as = capital
-					IF = {
+					if = {
 						limit = {
 							NOT = {
 								culture = culture_wight
@@ -141,7 +155,7 @@ title_decisions = {
 							}
 						}
 					}
-					IF = {
+					if = {
 						limit = {
 							culture = culture_wight
 						}
@@ -151,7 +165,7 @@ title_decisions = {
 							}
 						}
 					}
-					IF = {
+					if = {
 						limit = {
 							NOT = {
 								religion = religion_wight
@@ -163,7 +177,7 @@ title_decisions = {
 							}
 						}
 					}
-					IF = {
+					if = {
 						limit = {
 							religion = religion_wight
 						}
