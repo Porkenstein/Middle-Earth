@@ -780,8 +780,10 @@ character_event = {
 		NOR = {
 			prisoner = yes
 			event_target:satanists_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -901,8 +903,10 @@ character_event = {
 		NOR = {
 			prisoner = yes
 			event_target:satanists_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1044,8 +1048,10 @@ letter_event = {
 		NOR = {
 			prisoner = yes
 			event_target:satanists_recruiter = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1062,8 +1068,11 @@ letter_event = {
 		if = {
 			limit = {
 				event_target:satanists_recruiter = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+						prisoner = yes
+					}
 				}
 			}
 			event_target:satanists_recruiter = { 
@@ -1227,8 +1236,10 @@ character_event = {
 		NOR = {
 			prisoner = yes
 			event_target:satanists_inductor = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1245,8 +1256,10 @@ character_event = {
 		if = {
 			limit = {
 				event_target:satanists_inductor = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
 			event_target:satanists_inductor = { 
@@ -1436,8 +1449,10 @@ character_event = {
 		NOR = {
 			prisoner = yes
 			event_target:satanists_inductor = {
-				is_alive = no
-				is_devil_worshiper_trigger = no
+				OR = {
+					is_alive = no
+					is_devil_worshiper_trigger = no
+				}
 			}
 		}
 	}
@@ -1454,8 +1469,10 @@ character_event = {
 		if = {
 			limit = {
 				event_target:satanists_inductor = {
-					is_alive = no
-					is_devil_worshiper_trigger = no
+					OR = {
+						is_alive = no
+						is_devil_worshiper_trigger = no
+					}
 				}
 			}
 			event_target:satanists_inductor = { 
@@ -2114,8 +2131,9 @@ character_event = {
     desc = EVTDESC_MNM_7057_NEW
     picture = GFX_evt_illness
     border = GFX_event_normal_frame_intrigue
-
+	
 	notification = yes
+
     is_triggered_only = yes
     hide_from = yes
     
@@ -2139,7 +2157,7 @@ character_event = {
 			stacking = yes
         }
 	}
-
+	
     option = { 
         name = EVTOPTA_MNM_7051
         custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
@@ -2153,8 +2171,9 @@ character_event = {
     desc = EVTDESC_MNM_7057_NEW
     picture = GFX_evt_illness
     border = GFX_event_normal_frame_intrigue
-
+	
 	notification = yes
+
     is_triggered_only = yes
     hide_from = yes
     
@@ -2165,7 +2184,7 @@ character_event = {
 	#		has_character_modifier = corrupting_magic_major
 	#	}
     #}
-
+	
 	immediate = {
 		add_character_modifier = {
         	name = corrupting_magic_minor
@@ -4193,6 +4212,8 @@ character_event = {
 #Result Ping#
 character_event = {
 	id = MNM.7122
+	picture = GFX_evt_dark_prayer
+	border = GFX_event_normal_frame_religion
 
 	is_triggered_only = yes
 	hide_window = yes
@@ -5706,6 +5727,7 @@ character_event = { #birth
 	}
 	
 	immediate = {
+		add_trait = lefthanded
 		set_character_flag = demon_child_non_pagan
 		set_global_flag = demon_child_born
 		add_character_modifier = {
@@ -5723,6 +5745,10 @@ character_event = { #birth
 		}
 		remove_trait = sickly
 		character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
+		#random_list = {
+		#	50 = { set_character_flag = demon_child_non_pagan }
+		#	50 = { set_character_flag = demon_child_fake }
+		#}
 		mother = { 
 			clr_character_flag = DW_unholy_mother 
 			save_event_target_as = unholy_mother
@@ -5730,7 +5756,7 @@ character_event = { #birth
 				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
 				character_event = { id = MNM.7511 days = 10 }
 			}
-		}
+		}	
 	}
 }
 
@@ -6227,10 +6253,12 @@ character_event = {
 		}
 		tooltip_info = martial
 		name = EVTOPT_MNM_7113_MARTIAL
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		event_target:desecration_holder = {
-			death = {
-				death_reason = death_sacrificed
+			if = {
+				death = {
+					death_reason = death_sacrificed
+				}
 			}
 		}
 		hidden_effect = {
@@ -6245,7 +6273,7 @@ character_event = {
 		}
 		tooltip_info = intrigue
 		name = EVTOPT_MNM_7113_INTRIGUE
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		event_target:desecration_holder = {
 			death = {
 				death_reason = death_sacrificed
@@ -6426,7 +6454,7 @@ character_event = {
 		}
 		name = EVTOPT_MNM_7116_STEWARDSHIP
 		tooltip_info = stewardship
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		if = {
 			limit = {
 				event_target:dw_desecration_target = {
@@ -6470,7 +6498,7 @@ character_event = {
 		}
 		tooltip_info = learning
 		name = EVTOPT_MNM_7116_LEARNING
-		add_society_currency_major_effect = yes
+		add_society_currency_medium_effect = yes
 		character_event = { id = MNM.7117 days = 4 }
 	}
 	option = {
@@ -6516,7 +6544,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_MNM_7116
 
-		add_society_currency_minor_effect = yes
+		add_society_currency_trivial_effect = yes
 
 		character_event = { id = MNM.7117 days = 4 }
 	}
@@ -6550,7 +6578,7 @@ character_event = {
 		name = EVTOPT_MNM_7117_VIOLENT
 		
 		clr_quest = quest_devil_worshipers_desecrate_temple
-		add_society_currency_medium_effect = yes
+		add_society_currency_minor_effect = yes
 		
 		event_target:dw_desecration_target = {
 			add_holding_modifier = {
@@ -8176,8 +8204,10 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA_MNM_20015 # Burn everything! No one must know.
 		
+		name = {
+			text = EVTOPTA_MNM_20015 # Burn everything! No one must know.
+		}
 		add_society_currency_minor_effect = yes
 		
 		# Buddy dies
@@ -8325,6 +8355,9 @@ character_event = {
 	option = {
 		name = EVTOPTB_MNM_20015 # Leave it as a monument (risk of revolt)
 		
+		name = {
+			text = EVTOPTB_MNM_20015 # Leave it as a monument (risk of revolt)
+		}
 		add_society_currency_medium_effect = yes
 		
 		# Buddy dies
@@ -8528,7 +8561,7 @@ character_event = {
 	immediate = {
 		location = {
 			set_province_flag = force_peasant_revolt
-			#TODO province_event = { id = TOG.1000 }
+			province_event = { id = TOG.1000 }
 			clr_province_flag = force_peasant_revolt
 		}
 	}
@@ -9728,15 +9761,14 @@ narrative_event = {
 			}
 		}
 		
-		#TODO
-		#if = {
-		#	limit = {
-		#		has_character_flag = ds_epidemic
-		#	}
-		#	location = {
-		#		spawn_disease = typhoid_fever
-		#	}
-		#}
+		if = {
+			limit = {
+				has_character_flag = ds_epidemic
+			}
+			location = {
+				spawn_disease = typhoid_fever
+			}
+		}
 		
 		if = {
 			limit = {
@@ -9806,8 +9838,7 @@ narrative_event = {
 					duration = -1
 				}
 			}
-			
-			if = {
+			else_if = {
 				limit = { has_character_modifier = suspected_witch }
 				remove_character_modifier = suspected_witch
 				add_character_modifier = {
@@ -10381,14 +10412,14 @@ character_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_character_flag = shy }
-					NOT = { has_character_flag = gregarious }
+					NOT = { trait = shy }
+					NOT = { trait = gregarious }
 				}
 				add_trait = gregarious
 			}
 			if = {
 				limit = {
-					has_character_flag = shy
+					trait = shy
 				}
 				remove_trait = shy
 			}
@@ -11291,38 +11322,6 @@ character_event = {
 					}
 				}
 				modifier = {
-					factor = 2.0
-					society_influence < 5
-				}
-				modifier = {
-					factor = 2.0
-					society_influence < 10
-				}
-				modifier = {
-					factor = 0.5
-					society_influence >= 50
-				}
-				modifier = {
-					factor = 0.5
-					society_influence >= 80
-				}
-				modifier = {
-					factor = 2.0
-					society_influence < 5
-				}
-				modifier = {
-					factor = 2.0
-					society_influence < 10
-				}
-				modifier = {
-					factor = 0.5
-					society_influence >= 50
-				}
-				modifier = {
-					factor = 0.5
-					society_influence >= 80
-				}
-				modifier = {
 					factor = 0.25
 					FROMFROM = {
 						is_ruler = no
@@ -11708,10 +11707,11 @@ character_event = {
 
     trigger = {
 	    has_dlc = "Mystics"
-    	is_devil_worshiper_trigger = yes
+    	#is_devil_worshiper_trigger = yes
     	OR = {
    			has_character_modifier = known_satanist
    			has_character_flag = was_ratted_out_by_fellow_member
+			has_character_flag = has_it_coming
     	}
     }
 	
@@ -11728,6 +11728,10 @@ character_event = {
 		modifier = {
 			factor = 2
 			independent = yes
+		}
+		modifier = {
+			factor = 2
+			is_devil_worshiper_trigger = yes
 		}
 	}
 	
@@ -11894,6 +11898,7 @@ character_event = {
     }
     after = {
 		character_event = { id = MNM.7855 }
+		clr_character_flag = has_it_coming
     }
 }
 
@@ -11909,7 +11914,6 @@ character_event = {
 
     trigger = {
     	has_dlc = "Mystics"
-    	is_devil_worshiper_trigger = yes
     	OR = {
    			has_character_modifier = known_satanist
    			has_character_flag = was_ratted_out_by_fellow_member
@@ -12236,7 +12240,7 @@ character_event = {
     			}
     			custom_tooltip = {
     				text = they_drag_you_off_to_burn
-    				hidden_effect = { death = { death_reason = death_execution_thrown } }
+    				hidden_effect = { death = { death_reason = death_execution_burning } }
     			}
     		}
     		10 = { #You are dragged off and burnt as a witch/warlock
@@ -12327,7 +12331,7 @@ character_event = {
 	        	chance = 50
 	        	custom_tooltip = {
     				text = they_drag_you_off_to_burn
-    				hidden_effect = { death = { death_reason = death_execution_thrown } }
+    				hidden_effect = { death = { death_reason = death_execution_burning } }
     			}
 	        }        	
         }
@@ -12383,7 +12387,7 @@ character_event = {
     option = {
     	name = EVTOPTE_MNM_7855
     	trigger = { has_character_flag = DW_was_attacked_is_incapable }
-    	death = { death_reason = death_execution_thrown }
+    	death = { death_reason = death_execution_burning }
     }
 	
     after = {
