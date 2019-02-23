@@ -905,7 +905,7 @@ character_event = {
 	desc = EVTDESC73010
 	picture = GFX_evt_library
 	
-	min_age = 55
+	min_age = 100
 	only_playable = yes
 	prisoner = no
 	capable_only = yes
@@ -913,10 +913,11 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		year = 1415
+		year = 4700
 		religion_group = religion_group_eldar
         NOT = { trait = evil_side }
 		NOT = { has_character_flag = ars_moriendi }
+		NOT = { trait = celibate }
 	}
 	
 	weight_multiplier = {
@@ -1009,7 +1010,7 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTA73011 # Of course not, they will save us from the darkness.
+		name = EVTOPTA73011 # I must live my life in service to my people
 		trigger = {
 			NOT = { trait = cynical }
 			NOT = { trait = lustful }
@@ -1021,30 +1022,28 @@ character_event = {
 			NOT = { trait = proud }
 
 		}
-		health = -1
-		piety = 100
+		add_trait = celibate
+		piety = 500
 	}
 	option = {
-		name = EVTOPTB73011 # Perhaps I can ask my priest what he thinks.
+		name = EVTOPTB73011 # I can do so little!
 		trigger = {
 			trait = cynical
 		}
-		remove_trait = cynical				
+		piety = -100
 	}
 	option = {
-		name = EVTOPTC73011 	# They have abandoned us.  We must determine our own fate.
+		name = EVTOPTC73011 	# I do not fear death
 		tooltip_info = cynical
 		trigger = { 
 			trait = cynical 
 			NOT = { trait = craven }
 		}
-		piety = -5
-		prestige = 5
 		add_trait = stressed
 	}
 	option = {
-		name = EVTOPTD73011 # There is no hope.
-		piety = -10
+		name = EVTOPTD73011 # There is little hope.
+		piety = -50
 		add_trait = depressed
 	}
 }

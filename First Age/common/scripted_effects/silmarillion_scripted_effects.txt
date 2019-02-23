@@ -367,6 +367,15 @@ build_tribal_effect = {
 	}
 }
 
+remove_tribal_effect = {
+	any_province_holding = {
+		limit = {
+			holding_type = tribal
+		}
+		destroy_settlement = THIS
+	}
+}
+
 abandon_province = {
 	if = {
 		limit = {
@@ -428,7 +437,7 @@ abandon_province_to_wood_elves = {
 		ruin_province = yes
 	}
 
-	random_switch = {
+	random_list = {
 		10 = {
 			create_character = {
 				culture = culture_laegrim
@@ -504,5 +513,16 @@ abandon_province_to_wood_elves = {
 				}
 			}
 		}
+	}
+}
+
+silmarillion_become_heretic_effect = {
+	add_trait = evil_side
+}
+
+silmarillion_province_become_heretic_effect = {
+	add_province_modifier = { # the people here have been corrupted by agents of morgoth!
+		modifier = heretic_stronghold
+		years = 10
 	}
 }

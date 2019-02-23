@@ -704,7 +704,7 @@ on_yearly_pulse = {
 
 		health = {
 			delay = 15
-			25000 = 0
+			250000 = 0 # TODO was 25000
 			
 			15 = 6000 # Syphilitic
 			12 = 6001 # Remove Syphilitic
@@ -1496,12 +1496,6 @@ on_siege_pulse = {
 # any leader in battle on winning side (except the leader) is ROOT - opponent army leader is FROM
 on_battle_won = {
 
-	# narrative events that might be triggered by a battle
-	#fingolfin.3
-	events = {
-		feanor.14
-	}
-
 	random_events = {
 		800 = 0
 		10 = 260 # Heroism shown
@@ -1520,6 +1514,13 @@ on_major_battle_won = {
 
 # Winning army leader is ROOT - opponent army leader is FROM
 on_battle_won_leader = {
+
+	# narrative events that might be triggered by winning a battle
+	events = {
+		feanor.14
+		fingolfin.17
+	}
+
 	events = {
 		HFP.41085
 		HF.49121 # Northern Crusade Flavor Randomizer
@@ -1563,6 +1564,10 @@ on_major_battle_lost = {
 
 # Losing army leader ROOT - opponent army leader is FROM
 on_battle_lost_leader = {
+	# narrative events that might be triggered by losing a battle
+	events = {
+		fingolfin.19
+	}
 }
 
 # Losing army leader ROOT - opponent army leader is FROM
@@ -1992,6 +1997,12 @@ on_prepared_invasion_expires = {
 on_death = {
 	events = {
 #		8250
+
+		# First Age death events
+		comingofmen.39
+		comingofmen.40
+		comingofmen.41
+
 		650
 		24500
 		24502

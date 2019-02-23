@@ -51,16 +51,21 @@ character_event = {
 			NOT = { trait = in_helcaraxe }
 			NOT = { has_character_flag = fingolfin_battle_lammoth } # asap
 		}
+		set_character_flag = fingolfin_attacking_gates
         narrative_event = { id = fingolfin.1 days = 1 }
 		
 	}
-	#option = {
-    #    trigger = {
-	#		has_character_flag = fingolfin_battle_lammoth
-	#		NOT = { has_character_flag = fingolfin_at_gates } # asap
-	#	}
-    #    narrative_event = { id = fingolfin.4 days = 1 }
-	#}
+	option = {
+        trigger = {
+			has_character_flag = fingolfin_battle_lammoth
+			NOT = { has_character_flag = fingolfin_at_gates } # asap
+		}
+		set_character_flag = fingolfin_attacking_gates
+
+		c_3240 = {
+        	narrative_event = { id = fingolfin.18 days = 1 }
+		}
+	}
 	#option = {
     #   trigger = {
 	#		has_global_flag = fingolfin_at_gates
@@ -87,18 +92,17 @@ narrative_event = {
 		prestige = 100
 		
 		# start a feud with nos feanor
-		hidden_tooltip = {
-			clan_title = {
-				ROOT = {
-					liege = {
-						clan_title = {
-							create_feud = PREVPREVPREV
-						}
-					}
-				}
-			}
-			#character_event = { id = fingolfin.2 days = 7 }
-		}
+		#hidden_tooltip = {
+		#	clan_title = {
+		#		ROOT = {
+		#			liege = {
+		#				clan_title = {
+		#					create_feud = PREVPREVPREV
+		#				}
+		#			}
+		#		}
+		#	}
+		character_event = { id = fingolfin.2 days = 5 }
 	}
 }
 
@@ -113,30 +117,7 @@ narrative_event = {
 
 	is_triggered_only = yes
 	notification = no
-	has_character_flag = flag_fingolfin
-	
-	immediate = {
-		c_6417 = {  # Orc Commander
-			c_10015 = {  # Morgoth
-				spawn_unit = {
-					owner = THIS
-					province = 243
-					home = 411
-					leader = PREV
-					maintenance = no
-					
-					troops = {
-						archers = { 1000 1000 }
-						light_infantry = { 11000 11000 }
-						heavy_infantry = { 350 350 }
-						monster_infantry = { 50 50 }
-					}
-					attrition = 0.5
-				}
-			}
-		}
-	}
-	
+
 	option = {
 		name = "EVTOPTAfingolfin.2"
 		
@@ -145,6 +126,25 @@ narrative_event = {
 		# a host of orcs spawn
 		hidden_tooltip = {
 			set_character_flag = fingolfin_fighting_battle_lammoth
+
+			c_6417 = {  # Orc Commander
+				c_10015 = {  # Morgoth
+					spawn_unit = {
+						owner = THIS
+						province = 234
+						home = 411
+						leader = PREV
+						maintenance = no
+						earmark = army_of_lammoth
+
+						troops = {
+							archers = { 1000 1000 }
+							light_infantry = { 10000 10000 }
+						}
+						attrition = 0.5
+					}
+				}
+			}
 		}
 	}
 }
@@ -157,12 +157,9 @@ narrative_event = {
     title = "EVTTITfingolfin.3"
     desc = "EVTDESCfingolfin.3"
 	picture = GFX_crossing_helcraxe
-
 	is_triggered_only = yes
-	notification = no
-	has_character_flag = fingolfin_fighting_battle_lammoth
-	
-	immediate = {
+
+	before = {
 		# Argon dies
 		c_6417 = { # Orc Commander
 			c_3134 = { # Argon
@@ -172,18 +169,27 @@ narrative_event = {
 				}
 			}
 		}
-		clr_character_flag = fingolfin_fighting_battle_lammoth
-		set_character_flag = fingolfin_battle_lammoth
 	}
-	
+
 	option = {
 		name = "EVTOPTAfingolfin.3"
 		
+		# become rivals with morgoth, gain piety
+		c_10015 = {
+			ROOT = {
+				add_rival = PREV
+			}
+		}
+
+		piety = 500
+
+		set_character_flag = fingolfin_battle_lammoth
+		set_character_flag = fingolfin_attacking_gates
 		hidden_tooltip = {
-			# become rivals with morgoth, gain piety
-			piety = 100
-			add_rival = 10015
-			# narrative_event = { id = fingolfin.4 days = 1 }
+			# still somewhat friendly to the people of feanor, so receive an invitation
+			c_3240 = {
+				character_event = { id = fingolfin.18 days = 1 }
+			}
 		}
 	}
 	
@@ -192,22 +198,37 @@ narrative_event = {
 		
 		trigger = { ai = no }
 		
+		# clan sentiment gets worse, gain prestige
+		
+		c_3239 = {
+			ROOT = {
+				add_rival = PREV
+			}
+		}
+
+		prestige = 500
+
+		set_character_flag = fingolfin_battle_lammoth
+		set_character_flag = fingolfin_attacking_gates
+		#clan_title = {
+		#	ROOT = {
+		#		liege = {
+		#			clan_title = {
+		#				clan_opinion = {
+		#					who = PREVPREVPREV
+		#					modifier = opinion_angry
+		#					years = 10
+		#				}
+		#			}
+		#		}
+		#	}
+		#	# narrative_event = { id = fingolfin.4 days = 1 }
+		#}
+	}
+	after = {
 		hidden_tooltip = {
-			# clan sentiment gets worse, gain prestige
-			prestige = 100
-			clan_title = {
-				ROOT = {
-					liege = {
-						clan_title = {
-							clan_opinion = {
-								who = PREVPREVPREV
-								modifier = opinion_angry
-								years = 10
-							}
-						}
-					}
-				}
-				# narrative_event = { id = fingolfin.4 days = 1 }
+			c_10015 = {
+				disband_event_forces = army_of_lammoth
 			}
 		}
 	}
@@ -217,13 +238,134 @@ narrative_event = {
 # 4 - Maglor sends an emissary, fingolfin can move his encampment
 ##################################################################
 
+letter_event = {
+	id = fingolfin.4
+    desc = "EVTDESCfingolfin.4"
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAfingolfin.4"
+		reverse_opinion = {
+			modifier = opinion_pleased who = FROM years = 10
+		}
+		hidden_tooltip = {
+			random_independent_ruler = {
+				limit = {
+					capital_scope = { region = custom_mithrim }
+					religion = religion_wilderness
+				}
+				preferred_limit = {
+					capital_scope = { province_id = 153 } # rond fingolfin
+					religion = religion_wilderness
+				}
+				capital_scope = {
+					county = {
+						owner = {
+							reverse_unsafe_war = {
+								casus_belli = abandon_realm_resettle_wilderness #nomad_resettle_wilderness
+								thirdparty_title = PREV
+								target = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBfingolfin.4"
+		reverse_opinion = {
+			modifier = opinion_very_disappointed who = FROM years = 20
+		}
+	}
+}
+
 ##################################################################
 # 5 - Fingolfin's host rides to the Great Gates
 ##################################################################
+long_character_event = { # Fingolfin reaches the gates and is stopped
+	id = feanor.5
+	title = "EVTTITfingolfin.5"
+    desc = "EVTDESCfingolfin.5"
+	picture = GFX_evil_gates_2
+
+    has_character_flag = fingolfin_attacking_gates
+	notification = no
+
+    trigger = {
+        NOT = { has_character_flag = fingolfin_at_gates }
+        any_army = {
+            location = {
+                province_id = 17 # Annon Daer
+            }
+        }
+    }
+    mean_time_to_happen = {
+        days = 2
+    }
+	option = {
+		name = "EVTOPTAfingolfin.5"
+
+		# white peace against morgoth
+		hidden_tooltip = {
+			any_war = {
+				limit = {
+					defender = {
+						has_character_flag = morgoth
+					}
+				}
+				end_war = whitepeace
+			}
+		}
+
+        set_character_flag = fingolfin_at_gates
+		clr_character_flag = fingolfin_attacking_gates
+		c_3131 = {
+			character_event = { id = fingolfin.21 days = 1 }
+		}
+	}
+}
 
 ##################################################################
 # 6 - Fingon begs to assault the Thangorodrim to rescue Maedhros
 ##################################################################
+
+letter_event = {
+	id = fingolfin.6
+    desc = "EVTDESCfingolfin.6"
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAfingolfin.6"
+		reverse_opinion = {
+			modifier = opinion_very_disappointed who = FROM years = 20
+		}
+		# todo fingon goes on a quest to free maedhros
+		# add_trait = on_adventure
+		# character_event = { id = maedhros.1 days = 1 }
+	}
+	option = {
+		name = "EVTOPTBfingolfin.6"
+		reverse_opinion = {
+			modifier = opinion_pleased who = FROM years = 10
+		}
+		#hidden_tooltip = { # todo, apply storming of angband events here?
+		#	c_10015 = {
+		#		capital_scope = {
+		#			duchy = {
+		#				PREVPREV = {
+		#					reverse_unsafe_war = {
+		#						casus_belli = good_invasion
+		#						thirdparty_title = PREV
+		#						target = ROOT
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+	}
+}
 
 ##################################################################
 # 7 - Tensions rise between the two neighboring hosts
@@ -281,6 +423,129 @@ narrative_event = {
 		# start with extra prestige
 		hidden_tooltip = {
 			prestige = 600
+		}
+	}
+}
+
+# vitory at lammoth
+character_event = {
+	id = fingolfin.17
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		c_3129 = {
+			OR = {
+				is_liege_or_above_of = ROOT
+				character = ROOT
+			}
+			has_character_flag = fingolfin_fighting_battle_lammoth
+		}
+	}
+
+	option = {
+		c_3129 ={
+			set_character_flag = fingolfin_react_battle_lammoth
+			clr_character_flag = fingolfin_fighting_battle_lammoth
+			character_event = { id = fingolfin.3 days = 1 }
+		}
+	}
+}
+
+# maglor ping
+character_event = {
+	id = fingolfin.18
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	option = {
+		c_3129 = {
+			letter_event = { id = fingolfin.4 days = 14 }
+		}
+	}
+}
+
+# loss at any point, leading to retreat
+character_event = {
+	id = fingolfin.19
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		c_3129 = {
+			OR = {
+				is_liege_or_above_of = ROOT
+				character = ROOT
+			}
+			NOT = { has_character_flag = fingolfin_at_gates }
+		}
+	}
+
+	option = {
+		c_3129 ={
+			set_character_flag = fingolfin_retreating
+			clr_character_flag = fingolfin_fighting_battle_lammoth
+			character_event = { id = fingolfin.20 days = 1 }
+		}
+	}
+}
+
+##################################################################
+# The Host of Fingolfin Retreats in defeat
+##################################################################
+character_event = {
+	id = fingolfin.20
+    desc = "EVTDESCfingolfin.20"
+	picture = GFX_crossing_helcraxe
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAfingolfin.20"
+
+		# lose against morgoth
+		any_war = {
+			limit = {
+				defender = {
+					has_character_flag = morgoth
+				}
+			}
+			end_war = reverse_demand
+		}
+
+		prestige = -200
+	}
+
+	option = {
+		name = "EVTOPTBfingolfin.20"
+		add_trait = stubborn
+	}
+
+	after = {
+		hidden_tooltip = {
+			# stop fighting, consider the current situation
+			set_character_flag = fingolfin_at_gates
+
+			# disband any of morgoth's event troops
+			c_10015 = {
+				disband_event_forces = army_of_lammoth
+			}
+		}
+	}
+}
+
+# fingon ping when the gates are reached
+character_event = {
+	id = fingolfin.21
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	option = {
+		c_3129 = {
+			letter_event = { id = fingolfin.6 days = 1 }
 		}
 	}
 }

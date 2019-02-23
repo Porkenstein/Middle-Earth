@@ -23,19 +23,10 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		days = 1
+		months = 1
 	}
 
-	option = {
-		liege = {
-			random_demesne_province = {
-				limit = {
-					can_send_colonists = yes
-				}
-				add_province_modifier = { name = sending_colonists duration = 7200 }
-			}
-		}
-        
+	option = {        
 		location = {
 			add_province_modifier = {
 				name = being_colonised
@@ -46,7 +37,7 @@ character_event = {
 }
 
 
-#Now the province has the modifier, MTTH of 1 year for one population tick up, for men.  # TODO, slow down for colonist sending provinces of elf and dwarf race
+#Now the province has the modifier, MTTH of 2 years for one population tick up, for men.
 province_event = {
 	id = colonisation.1
 	hide_window = yes
@@ -56,7 +47,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-        years = 1
+        years = 2
         modifier = {
             factor = 2 # Dwarves are slow
             owner = { religion_group = religion_group_khazad }
@@ -71,10 +62,7 @@ province_event = {
         }
 	}
 
-	option = {		
-        # stop sending colonists
-		remove_province_modifier = sending_colonists
-
+	option = {
 		# if this is initial population, update this province with the source province's culture and race
 		if = {
 			limit = {
@@ -101,10 +89,10 @@ province_event = {
 					character_event = { id = colonisation.6 days = 1 }
 				}
 			}
-		}
-		
+
 		# stop colonising
 		remove_province_modifier = being_colonised
+		}
 	}
 }
 
@@ -158,35 +146,11 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		years = 1
 	}
 
 	option = {
 		remove_province_modifier = being_colonised
-	}
-}
-
-
-# When the steward isn't sending colonists, remove sending colonists flag
-province_event = {
-	id = colonisation.5
-	hide_window = yes
-
-	trigger = {
-		has_province_modifier = sending_colonists
-		owner = {
-			job_treasurer = {
-				NOT = { has_job_action = action_colonize_province }
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 1
-	}
-
-	option = {
-		remove_province_modifier = sending_colonists
 	}
 }
 

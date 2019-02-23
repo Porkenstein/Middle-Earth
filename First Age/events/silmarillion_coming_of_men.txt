@@ -108,10 +108,6 @@ narrative_event = {
 		NOT = { religion = religion_lossoth }
 	}
 
-	mean_time_to_happen = {
-		years = 10
-	}
-
 	option = {
 		name = EVTOPTAcomingofmen.3
 	}
@@ -315,7 +311,6 @@ long_character_event = {
 # dan sends a letter
 character_event = {
 	id = comingofmen.11
-	title = EVTTITcomingofmen.11
 	desc = EVTDESCcomingofmen.11
 	picture = GFX_elves_scouting
 
@@ -352,19 +347,17 @@ long_character_event = {
 
 	option = {
 		trigger = {
-			capital_scope = {
-				NOT = {
-					any_liege = { character = FROM }
-				}
-				NOT = {
-					any_neighbor_independent_ruler = { character = FROM }
-				}
-				NOT = {
-					has_landed_title = k_doriath
-				}
-				NOT = {
-					has_landed_title = e_eglador
-				}
+			NOT = {
+				any_liege = { character = FROM }
+			}
+			NOT = {
+				any_neighbor_independent_ruler = { character = FROM }
+			}
+			NOT = {
+				has_landed_title = k_doriath
+			}
+			NOT = {
+				has_landed_title = e_eglador
 			}
 		}
 		name = EVTOPTAcomingofmen.13
@@ -372,19 +365,17 @@ long_character_event = {
 
 	option = {
 		trigger = {
-			capital_scope = {
-				NOT = {
-					any_liege = { character = FROM }
-				}
-				NOT = {
-					any_neighbor_independent_ruler = { character = FROM }
-				}
-				NOT = {
-					has_landed_title = k_doriath
-				}
-				NOT = {
-					has_landed_title = e_eglador
-				}
+			NOT = {
+				any_liege = { character = FROM }
+			}
+			NOT = {
+				any_neighbor_independent_ruler = { character = FROM }
+			}
+			NOT = {
+				has_landed_title = k_doriath
+			}
+			NOT = {
+				has_landed_title = e_eglador
 			}
 		}
 		name = EVTOPTBcomingofmen.13
@@ -396,13 +387,11 @@ long_character_event = {
 
 	option = {
 		trigger = {
-			capital_scope = {
-				OR = {
-					any_liege = { character = FROM }
-					any_neighbor_independent_ruler = { character = FROM }
-					has_landed_title = k_doriath
-					has_landed_title = e_eglador
-				}
+			OR = {
+				any_liege = { character = FROM }
+				any_neighbor_independent_ruler = { character = FROM }
+				has_landed_title = k_doriath
+				has_landed_title = e_eglador
 			}
 		}
 		name = EVTOPTCcomingofmen.13
@@ -417,10 +406,24 @@ letter_event = {
 
 	option = {
 		name = EVTOPTAcomingofmen.14
+
+		trigger = {
+			OR = {
+				ai = no
+			 	NOT = { trait = zealous }
+			}
+		}
 		reverse_opinion = { who = FROM modifier = opinion_insulted }
 	}
 	option = {
 		name = EVTOPTBcomingofmen.14
+
+		trigger = {
+			OR = {
+				ai = no
+				NOT = { trait = man_friend }
+			}
+		}
 		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
 
 		# send a letter that pisses off the edain
@@ -462,10 +465,7 @@ letter_event = {
 # The Awakening of Men - for AI Morgoth
 narrative_event = {
 	id = comingofmen.16
-	title = EVTTITcomingofmen.16
-	desc = EVTDESCcomingofmen.1
-	picture = GFX_elves_scouting
-
+	hide_window = yes
 	has_character_flag = morgoth
 
 	trigger = {
@@ -480,7 +480,6 @@ narrative_event = {
 	}
 
 	option = {
-		name = EVTOPTCcomingofmen.1
 		c_10106 = { # Fankil
 			letter_event = { id = comingofmen.15 days = 5 }
 		}
@@ -1041,8 +1040,6 @@ province_event = {
 # character is informed
 character_event = {
 	id = comingofmen.24
-	desc = EVTDESCcomingofmen.24
-	picture = GFX_edain_settlement
 
 	is_triggered_only = yes
 	
@@ -1053,7 +1050,6 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTBcomingofmen.24
 		random = {
 			chance = 20
 			add_trait = man_friend
@@ -1061,7 +1057,6 @@ character_event = {
 	}
 	
 	option = {
-		name = EVTOPTBcomingofmen.24
 		random = {
 			chance = 20
 			add_trait = zealous
@@ -1288,11 +1283,11 @@ province_event = {
 			religion = religion_edain
 			culture = culture_maradin
 			female = no
-			add_trait=poet
-			add_trait=proud
-			add_trait=stubborn
-			add_trait=honorable
-			add_trait=zealous
+			trait=poet
+			trait=proud
+			trait=stubborn
+			trait=honorable
+			trait=zealous
 		}
 
 		owner = {
@@ -1377,11 +1372,11 @@ province_event = {
 			religion = religion_edain
 			culture = culture_haladin
 			female = no
-			add_trait=charismatic_negotiator
-			add_trait=just
-			add_trait=craven
-			add_trait=kind
-			add_trait=dwarf_friend
+			trait=charismatic_negotiator
+			trait=just
+			trait=craven
+			trait=kind
+			trait=dwarf_friend
 		}
 
 		owner = {
@@ -1428,11 +1423,11 @@ province_event = {
 						religion = religion_edain
 						culture = culture_haladin
 						female = yes
-						add_trait=fair
-						add_trait=proud
-						add_trait=brave
-						add_trait=quick
-						add_trait=skilled_tactician
+						trait=fair
+						trait=proud
+						trait=brave
+						trait=quick
+						trait=skilled_tactician
 					}
 					new_character = {
 						prestige = 500
@@ -1597,7 +1592,6 @@ province_event = {
 	id = comingofmen.32
 	hide_window = yes
 
-	only_independent = yes
 	has_global_flag = coming_of_men_edain
 
 	trigger = {
@@ -1692,7 +1686,7 @@ character_event = {
 		set_character_flag = offered_edain_service
 
 		event_target:target_edain_offer_target = {
-			letter_event = { id = EVTOPTBcomingofmen.35 days = 5 }
+			letter_event = { id = comingofmen.35 days = 5 }
 		}
 	}
 
@@ -1715,7 +1709,7 @@ character_event = {
 		set_character_flag = offered_edain_vassalage
 
 		event_target:target_edain_offer_target = {
-			letter_event = { id = EVTOPTBcomingofmen.36 days = 5 }
+			letter_event = { id = comingofmen.36 days = 5 }
 		}
 	}
 
@@ -1735,9 +1729,26 @@ letter_event = {
 		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
 
 		# join the elves
-
+		event_target:target_edain_offer_title = {
+			set_title_flag = temporary_edain_title
+			location = {
+				culture = ROOT
+				religion = ROOT
+				build_tribal_effect = yes
+				populate_effect = yes
+				increase_depopulation_effect = yes
+			}
+			PREV = {
+				usurp_title = PREV
+			}
+		}
+		set_defacto_liege = FROM
+		add_trait = elf_friend
+		change_martial = 2
+		set_character_flag = vassalage_ends_on_death
 	}
 	option = {
+		trigger = { ai = no }
 		name = EVTOPTBcomingofmen.35
 		reverse_opinion = { who = FROM modifier = opinion_insulted }
 	}
@@ -1754,9 +1765,33 @@ letter_event = {
 		reverse_opinion = { who = FROM modifier = opinion_very_grateful }
 
 		# join the elves
-
+		event_target:target_edain_offer_title = {
+			any_de_jure_vassal_title = {
+				location = {
+					culture = ROOT
+					religion = ROOT
+					build_tribal_effect = yes
+					populate_effect = yes
+					increase_depopulation_effect = yes
+				}
+				PREVPREV = {
+					usurp_title = PREV
+				}
+			}
+			PREV = {
+				usurp_title = PREV
+			}
+		}
+		set_defacto_liege = FROM
+		add_trait = elf_friend
+		change_martial = 2
+		create_bloodline = {
+			type = pure_war_bloodline_01
+			has_dlc = "Holy Fury"
+		}
 	}
 	option = {
+		trigger = { ai = no }
 		name = EVTOPTBcomingofmen.36
 		reverse_opinion = { who = FROM modifier = opinion_insulted }
 	}
@@ -1773,7 +1808,7 @@ narrative_event = {
 
 	trigger = {
 		NOT = {
-			AND ={
+			AND = {
 				has_character_flag = offered_edain_service
 				has_character_flag = offered_edain_vassalage
 			}
@@ -1788,6 +1823,7 @@ narrative_event = {
 			AND = {
 				religion = religion_edain
 				higher_tier_than = COUNT
+				lower_tier_than = KING
 				mercenary = no
 				holy_order = no
 				age = 16
@@ -1816,13 +1852,14 @@ narrative_event = {
 	mean_time_to_happen = {
 		years = 4
 	}
-	
+
 	immediate = {
 		random_independent_ruler = {
 			limit = {
 				AND = {
 					religion = religion_edain
 					higher_tier_than = COUNT
+					lower_tier_than = KING
 					mercenary = no
 					holy_order = no
 					age = 16
@@ -1894,16 +1931,211 @@ narrative_event = {
 			}
 		}
 
-		any_player = {
-			character_event = { id = comingofmen.34 }
-		}
+		character_event = { id = comingofmen.34 }
 	}
 }
 
 # The mannish servant dies. His descendant can decide to be a permanent vassal, or leave service of the elf-lord
+character_event = {
+	id = comingofmen.38
+	desc = EVTDESCcomingofmen.38
+	picture = GFX_edain_death
+	
+	has_character_flag = end_vassalage
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		clr_character_flag = end_vassalage
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				NOT = { trait = zealous }
+				ai = no
+			}
+		}
+		name = EVTOPTAcomingofmen.38
+		remove_trait = zealous
+		add_trait = elf_friend
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.38
+
+		# leave service of the elves
+		any_demesne_title = {
+			limit = {
+				has_title_flag = temporary_edain_title
+			}
+			clr_title_flag = temporary_edain_title
+			location = {
+				remove_tribal_effect = yes
+				ROOT = {
+					liege = {
+						PREVPREV = { # TODO not working?
+							culture = PREV
+							religion = PREV
+						}
+					}
+				}
+			}
+			any_de_jure_vassal_title = {
+				ROOT = {
+					liege = {
+						usurp_title = PREVPREV
+					}
+				}
+			}
+			ROOT = {
+				liege = {
+					usurp_title = PREVPREV
+				}
+			}
+		}
+		set_defacto_liege = THIS
+	}
+}
+
+# on_death event (end vassalage)
+character_event = {
+	id = comingofmen.39
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = vassalage_ends_on_death
+		any_liege = {
+			religion_group = religion_group_eldar
+		}
+	}
+
+	immediate = {
+		current_heir = {
+			set_character_flag = end_vassalage
+		}
+	}
+}
+
+# on_death event (end elf friendship)
+character_event = {
+	id = comingofmen.40
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		religion = religion_edain
+		trait = elf_friend
+	}
+
+	immediate = {
+		current_heir = {
+			set_character_flag = gain_elf_friend
+		}
+	}
+}
+
+# on_death event (end dwarf friendship)
+character_event = {
+	id = comingofmen.41
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		religion = religion_edain
+		trait = dwarf_friend
+	}
+
+	immediate = {
+		current_heir = {
+			set_character_flag = gain_dwarf_friend
+		}
+	}
+}
 
 # your predecessor was an elf-friend. Are you? (this prevents elves from attacking you unjustly)
+character_event = {
+	id = comingofmen.42
+	desc = EVTDESCcomingofmen.42
+	picture = GFX_death
+	
+	has_character_flag = gain_elf_friend
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		clr_character_flag = gain_elf_friend
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				NOT = { trait = zealous }
+				ai = no
+			}
+		}
+		name = EVTOPTAcomingofmen.42
+
+		add_trait = elf_friend
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.42
+		trigger = {
+			OR = {
+				trait = zealous
+				ai = no
+			}
+		}
+
+		# leave friendship of the elves
+		remove_trait = elf_friend
+	}
+}
 
 # your predecessor was a dwarf-friend. Are you? (this prevents dwarves from attacking you unjustly)
+character_event = {
+	id = comingofmen.43
+	desc = EVTDESCcomingofmen.43
+	picture = GFX_death
+	
+	has_character_flag = gain_dwarf_friend
 
-# a mighty easterling host has appeared! (bor nos bor)
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		clr_character_flag = gain_dwarf_friend
+	}
+
+	option = {
+		trigger = {
+			OR = {
+				NOT = { trait = zealous }
+				ai = no
+			}
+		}
+		name = EVTOPTAcomingofmen.43
+
+		add_trait = dwarf_friend
+	}
+
+	option = {
+		name = EVTOPTBcomingofmen.43
+		trigger = {
+			OR = {
+				trait = zealous
+				ai = no
+			}
+		}
+
+		# leave friendship of the dwarves
+		remove_trait = dwarf_friend
+	}
+}

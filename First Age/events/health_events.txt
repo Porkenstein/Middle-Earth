@@ -22,6 +22,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	lacks_dlc = "Reapers"
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -44,41 +45,42 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 20000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 10
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 5
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 5
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.1
 			spouse = { 
 				trait = syphilitic 
 			}
 		}
 		modifier = {
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
+		}
+		modifier = {
 			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 2
 			in_command = yes
 		}		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = lustful
 		}
 		modifier = {
-			factor = 0.6
+			factor = 1.7
 			trait = hedonist
 		}
 		
 		modifier = {
-			factor = 5.0
+			factor = 0.2
 			trait = chaste
 		}
 	}
@@ -102,34 +104,23 @@ character_event = {
 	is_sick = yes
 	only_capable = yes
 	lacks_dlc = "Reapers"
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 6
 		trait = syphilitic
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 8
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 9
-		}
-		modifier = {
-			factor = 0.2
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 0.4
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 0.4
-			mep_elven_blood_tigger = yes
 		}
 	}
 	
@@ -145,6 +136,7 @@ character_event = {
 	desc = EVTDESC6010
 	picture = GFX_evt_illness
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	min_age = 10
 	only_capable = yes
@@ -157,42 +149,43 @@ character_event = {
 		NOT = { health = 5 }
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 10
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 5
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 5
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { 
 				health = 4 
 			}
 		}
 		modifier = {
-			factor = 0.5
-			in_command = yes
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
 		}
 		modifier = {
 			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 2
+			in_command = yes
+		}
+		modifier = {
+			factor = 2
 			any_courtier = {
 				trait = leper
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			OR = {
 				trait = infection
 				trait = severely_injured
@@ -200,7 +193,7 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = charitable
 		}
 		
@@ -267,6 +260,7 @@ character_event = {
 	min_age = 16
 	is_sick = yes
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 4
@@ -280,22 +274,8 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 25000
-		# The Silmarilien Mod has revovery from Illness being faster for disease-resistant
-		# I'll copy that here, but I think they overdo it
-		modifier = {
-			factor = 0.2
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 0.4
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 0.4
-			mep_elven_blood_tigger = yes
-		}
+	weight_multiplier = {
+		days = 1
 	}
 	
 	option = {
@@ -310,6 +290,7 @@ character_event = {
 	id = 6020
 	picture = GFX_evt_lunatic
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	desc = {
 		text = EVTDESC6020
@@ -373,43 +354,36 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 48000 # once in 4000 years on average
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 2
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 6
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.003 # 12 years on average
+			factor = 333 # 24 years on average
 			OR = {
 				trait = syphilitic
 				trait = has_aztec_disease
 			}
 		}
 		modifier = {
-			factor = 0.006 # 24 years on average
+			factor = 167 # 24 years on average
 			prisoner = yes
 			has_character_modifier = the_oubliette
 		}
 		modifier = {
-			factor = 0.02 # 80 years on average
+			factor = 50 # 80 years on average
 			OR = {
 				trait = has_typhoid_fever
 				trait = has_typhus
 			}
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			prisoner = yes
 			NOT = { has_character_modifier = the_oubliette }
 			NOT = { has_character_modifier = house_arrest }
 		}
 		modifier = {
-			factor = 0.2 # 800 years on average
+			factor = 5 # 800 years on average
 			is_ill = yes
 			NOR = {
 				trait = has_typhoid_fever
@@ -419,50 +393,62 @@ character_event = {
 			}
 		}
 		modifier = {
-			factor = 0.0025 # 1 year on average, rabies will also be ill
+			factor = 40 # 1 year on average, rabies will also be ill
 			trait = rabies
 		}
 		modifier = {
-			factor = 0.1
+			factor = 40
 			trait = incapable # Coma due to brain damage. Wakes up a lunatic.
 		}
 		modifier = {
-			factor = 0.1
+			factor = 40
 			AND = {
 				trait = incapable
 				immortal = yes # Incapable immortals more likely to wake up nuts
 			}
 		}
 		modifier = {
-			factor = 0.25
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 4
 			trait = paranoid
 		}
 		modifier = {
-			factor = 0.25
+			factor = 4
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = depressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = zealous
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = inbred
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = imbecile
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = genius
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			trait = drunkard
 		}
 	}
@@ -537,6 +523,7 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		health = 4
@@ -549,15 +536,11 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 12000
+	weight_multiplier = {
+		days = 1
 		modifier = {
-			factor = 0.5
+			factor = 2
 			health = 6
-		}
-		modifier = {
-			factor = 0.6
-			religion_group = religion_group_periannath
 		}
 	}
 	
@@ -567,6 +550,7 @@ character_event = {
 	}
 }
 
+# Possessed - no way to gain randomly
 
 #Stressed
 character_event = {
@@ -577,6 +561,7 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		OR = {
@@ -589,37 +574,33 @@ character_event = {
 		NOT = { culture_group = culture_group_eru }
 	}
 	
-	mean_time_to_happen = {
-		months = 2000
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 4
-			religion_group = religion_group_periannath
+			factor = 1.333
+			trait = diligent
 		}
 		modifier = {
-			factor = 2
-			religion_group = religion_group_khazad
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
 		}
 		modifier = {
-			factor = 3
+			factor = 0.5
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
-			factor = 0.75
-			trait = diligent
+			factor = 0.5
+			religion_group = religion_group_khazad
 		}
 		
 		modifier = {
-			factor = 50 # this can be deadly, so don't make it happen often
-			trait = elf
-		}
-		
-		modifier = {
-			factor = 0.8
+			factor = 1.25
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 10.0
+			factor = 0.1
 			trait = slothful
 		}
 	}
@@ -639,39 +620,36 @@ character_event = {
 	
 	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = stressed
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.005
+			factor = 200
 			is_ruler = no
 			is_councillor = no
 			in_command = no
 			NOT = { has_minor_title = title_regent }
 		}
 		modifier = {
-			factor = 0.5
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 0.75
+			factor = 1.333
 			is_ruler = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			is_councillor = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			in_command = no
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.333
 			NOT = { has_minor_title = title_regent }
 		}
 	}
@@ -689,8 +667,9 @@ character_event = {
 	picture = GFX_evt_bad_news
 	border = GFX_event_normal_frame_religion
 	
-	min_age = 10
+	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { trait = depressed }
@@ -698,62 +677,55 @@ character_event = {
 		NOT = { trait = content }
 	}
 	
-	mean_time_to_happen = {
-		months = 12000
-		modifier = {
-			factor = 4
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 6
-			mep_is_immortal_race_trigger = yes
-		}
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
 			factor = 2
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.5
 			NOT = { age = 20 }
 			mother_even_if_dead = { is_alive = no } 
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.33
 			NOT = { age = 20 }
 			father_even_if_dead = { is_alive = no } 
 		}
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = cynical
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_ill = yes
 		}
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			trait = slothful
 		}
 		modifier = {
-			factor = 0.7
-			trait = ugly
+			factor = 1.4
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
-			factor = 0.8
-			trait = ambitious
-		}
-		modifier = {
-			factor = 0.8
-			in_command = yes
-		}
-		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = diligent
+		}
+		modifier = {
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion_group = religion_group_khazad
 		}
 	}
 	
@@ -770,66 +742,60 @@ character_event = {
 	picture = GFX_evt_recovery
 	border = GFX_event_normal_frame_religion
 	
-	min_age = 10
+	min_age = 16
 	only_capable = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		trait = depressed
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 0.35
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 3 #Dwarves recover sooner from depression than elves but more slowly than humans.
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 10.0 #Takes longer for elves and immortals to recover from depression.
-			mep_is_immortal_race_trigger = yes
-		}
-		modifier = {
-			factor = 0.1
+			factor = 10
 			trait = content
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			trait = zealous
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = diligent
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = cynical
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = stressed
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			is_ill = yes
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			trait = slothful
 		}
 		modifier = {
-			factor = 1.5
-			trait = ugly
+			factor = 0.666
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
-			factor = 1.3
-			trait = ambitious
+			factor = 0.1
+			mep_is_immortal_race_trigger = yes
 		}
 		modifier = {
-			factor = 1.3
-			in_command = yes
+			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			religion_group = religion_group_khazad
 		}
 	}
 	
@@ -847,6 +813,10 @@ character_event = {
 	desc = EVTDESC6060
 	
 	is_triggered_only = yes
+
+	trigger = {
+		NOT = { mep_cant_get_disease_trigger = yes }
+	}
 	
 	option = {
 		name = EVTOPTA6060
@@ -855,11 +825,6 @@ character_event = {
 		blessing_removes_disease_effect = yes
 		deaths_gift_removes_disease_effect = yes
 	}
-	
-	option = {
-		name = "Nothing Happens"
-		trigger = { mep_cant_get_disease_trigger = yes }
-	}
 }
 
 #Meta ill
@@ -867,6 +832,7 @@ character_event = {
 	id = 6063
 
 	hide_window = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -881,74 +847,63 @@ character_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 360
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 10
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 5
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 5
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = depressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = stressed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.33
 			prisoner = yes
 			has_character_modifier = the_oubliette
 		}
 		modifier = {
-			factor = 0.9
+			factor = 1.1
 			prisoner = yes
 			has_character_modifier = the_dungeon
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			base_health = 6
 		}
 		modifier = {
-			factor = 1.5
+			factor = 0.666
 			is_strong_trigger = yes
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 7
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 8
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = more
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 0.5
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = fewer
 			}
 		}
 		modifier = {
-			factor = 4
+			factor = 0.25
 			has_game_rule = {
 				name = non_epidemic_diseases
 				value = rare
@@ -1163,18 +1118,13 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 4
-		# The Silmarilien Mod has revovery from Illness being faster for disease-resistant
-		# I'll copy that here, but I think they overdo it
+		
 		modifier = {
-			factor = 0.2
+			factor = 0.8
 			religion_group = religion_group_khazad
 		}
 		modifier = {
-			factor = 0.4
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 0.4
+			factor = 0.8
 			mep_elven_blood_tigger = yes
 		}
 		modifier = {
@@ -1297,19 +1247,15 @@ character_event = {
 			base_health = 6
 		}
 		modifier = {
-			factor = 0.1
+			factor = 0.8
 			mep_is_immortal_race_trigger = yes
 		}
 		modifier = {
-			factor = 0.3
+			factor = 0.8
 			religion_group = religion_group_khazad
 		}
 		modifier = {
-			factor = 0.4
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 0.4
+			factor = 0.8
 			mep_elven_blood_tigger = yes
 		}
 	}
@@ -1328,6 +1274,7 @@ character_event = {
 	desc = EVTDESC6082
 	picture = GFX_evt_illness
 	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { mep_cant_get_disease_trigger = yes }
@@ -1336,40 +1283,37 @@ character_event = {
 		is_ill = no
 	}
 	
-	mean_time_to_happen = {
-		months = 240
+	weight_multiplier = {
+		days = 1
+		
 		modifier = {
-			factor = 10
-			religion_group = religion_group_khazad
-		}
-		modifier = {
-			factor = 5
-			religion_group = religion_group_periannath
-		}
-		modifier = {
-			factor = 5
-			mep_elven_blood_tigger = yes
-		}
-		modifier = {
-			factor = 0.9
+			factor = 1.1
 			in_command = yes
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			trait = leper
 		}
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			NOT = { base_health = 6 }
 		}
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			age = 60
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.5
+			religion_group = religion_group_khazad
+		}
+		modifier = {
+			factor = 0.5
+			mep_elven_blood_tigger = yes
+		}
+		modifier = {
+			factor = 1.25
 			age = 70
 		}
 	}
@@ -1405,139 +1349,70 @@ character_event = {
 	picture = GFX_evt_illness
 	border = GFX_event_normal_frame_religion
 	
-	min_age = 45
+	min_age = 50
 	only_capable = yes
 	
+	is_triggered_only = yes
+
 	trigger = {
 		NOT = { trait = infirm }
 		immortal = no
 		mep_is_human_trigger = yes # uses religion_group			
-		NOT = { mep_elven_blood_tigger = yes }			
+		NOT = { mep_elven_blood_tigger = yes }		
+		NOT = { trait = dwarven }	
 	}
 	
-	mean_time_to_happen = {
-		months = 1200
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.8
+			factor = 1.25
 			age = 60
 		}
 		modifier = {
-			factor = 0.7
+			factor = 1.4
 			age = 70
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			age = 80
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			age = 90
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			trait = cancer
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			is_weak_trigger = yes
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.3
 			NOT = { base_health = 5.0 }
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.3
 			NOT = { base_health = 4.0 }
-		}
-		modifier = {
-			factor = 2.0
-			base_health = 5.1
-		}
-		modifier = {
-			factor = 2.0
-			base_health = 6.0
-		}
-	}
-	
-	option = {
-		name = EVTOPTA6100
-		add_trait = infirm
-	}
-}
-
-#Infirm - FOR  HALF-ELVES ONLY #
-character_event = {
-	id = 6498
-	desc = EVTDESC6100
-	picture = GFX_evt_illness
-	
-	min_age = 165
-	
-	trigger = {
-		OR = {
-			trait = elven_blood
-			trait = half_elf
-		}
-		NOT = { trait = infirm }
-		NOT = { trait = incapable }		
-	}
-	
-	mean_time_to_happen = {
-		days = 4800
-
-		modifier = {
-			factor = 4
-			year = 8200
-		}		
-		modifier = {
-			factor = 3
-			year = 8500
-		}
-		modifier = {
-			factor = 2
-			year = 9000
-		}
-		modifier = {
-			factor = 1.5
-			year = 10000
-		}
-		modifier = {
-			factor = 0.9
-			age = 175
-		}
-		modifier = {
-			factor = 0.8
-			age = 185
-		}
-		modifier = {
-			factor = 0.7
-			age = 195
-		}
-		modifier = {
-			factor = 0.6
-			age = 210
 		}
 		modifier = {
 			factor = 0.5
-			age = 240
+			base_health = 5.1
 		}
 		modifier = {
-			factor = 0.75
-			NOT = { base_health = 5.0 }
+			factor = 0.5
+			base_health = 6.0
 		}
 		modifier = {
-			factor = 0.75
-			NOT = { base_health = 4.0 }
+			factor = 0.5
+			religion_group = religion_group_khazad
 		}
 		modifier = {
-			factor = 2.0
-			health = 15.0
+			factor = 0.5
+			mep_elven_blood_tigger = yes
 		}
-		modifier = {
-			factor = 3.0
-			health = 20.0
-		}		
 	}
 	
 	option = {
@@ -1604,6 +1479,8 @@ character_event = {
 	picture = GFX_evt_recovery
 	border = GFX_event_normal_frame_religion
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		OR = {
 			trait = infirm
@@ -1613,27 +1490,27 @@ character_event = {
 		immortal = no
 	}
 	
-	mean_time_to_happen = {
-		months = 120
+	weight_multiplier = {
+		days = 1
 		
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { health = 3.0 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 2
 			NOT = { base_health = 5.0 }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			NOT = { trait = infirm }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 5.1
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			base_health = 6.0
 		}
 	}
@@ -2109,6 +1986,887 @@ character_event = {
 
 
 ### Lunacy Events
+
+#I hear the voice of Manwe
+character_event = {
+	id = 6200
+	desc = EVTDESC6200
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 10
+	only_capable = yes
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		is_devil_worshiper_trigger = no
+		NOT = {
+			has_game_rule = {
+				name = supernatural_events
+				value = off
+			}
+		}
+		trait = lunatic
+		NOT = { has_character_modifier = voice_of_jesus }
+		NOT = { has_character_modifier = voice_of_satan }
+		NOT = { has_character_modifier = holy_comet }
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 2
+			NOT = {
+				piety = 0
+			}
+		}
+
+		modifier = {
+			factor = 0.9
+			piety = 100
+		}
+		
+		modifier = {
+			factor = 0.9
+			piety = 250
+		}
+		
+		modifier = {
+			factor = 0.9
+			piety = 500
+		}
+
+		
+		modifier = {
+			factor = 0.9
+			piety = 1000
+		}
+
+		modifier = {
+			factor = 0.75
+			trait = zealous
+		}
+
+		modifier = {
+			factor = 1.2
+			trait = cynical
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = crusader
+		}
+
+		modifier = {
+			factor = 1.2
+			trait = homosexual
+		}
+		
+		modifier = {
+			factor = 0.9
+			trait = celibate
+		}
+
+		modifier = {
+			factor = 1.2
+			trait = hedonist 
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = mystic
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA6200
+		add_character_modifier = {
+			name = voice_of_jesus 
+			duration = -1
+		}
+	}
+}
+
+#I give to the poor 
+character_event = {
+	id = 6201
+	desc = EVTDESC6201
+	picture = GFX_evt_stone_church
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6201
+		wealth = -50
+		piety = 100
+	}
+}
+
+# I will abdicate
+character_event = {
+	id = 6202
+	desc = EVTDESC6202
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = { has_character_flag = plot_armor }
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+	}
+
+	option = {
+		name = EVTOPTA6202
+		prestige = -500
+		piety = 1000
+		abdicate = yes
+	}
+}
+
+# Comet Sighted
+character_event = {
+	id = 6203
+	desc = EVTDESC6203
+	picture = GFX_evt_comet
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		OR = {
+			has_character_modifier = voice_of_jesus
+			has_character_modifier = voice_of_satan
+		}
+		NOT = { has_character_modifier = holy_comet }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6203
+		add_character_modifier = {
+			name = holy_comet
+			duration = -1
+		}
+	}
+}
+
+# I must leave behind my lust
+character_event = {
+	id = 6204
+	desc = EVTDESC6204
+	picture = GFX_evt_brothel
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = lustful
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6204
+		remove_trait = lustful 
+	}
+}
+
+# I must lead life of the celibate
+character_event = {
+	id = 6205
+	desc = EVTDESC6205
+	picture =  GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = lustful
+				trait = celibate
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6205
+		add_trait = celibate
+	}
+}
+
+# I must leave behind my gluttony
+character_event = {
+	id = 6206
+	desc = EVTDESC6206
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = gluttonous
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6206
+		remove_trait = gluttonous
+		lose_weight_small_effect = yes
+		weight_trait_check_effect = yes
+	}
+}
+
+# I must show temperance
+character_event = {
+	id = 6207
+	desc = EVTDESC6207
+	picture =  GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = gluttonous
+				trait = temperate
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6207
+		add_trait = temperate
+		lose_weight_medium_effect = yes
+		weight_trait_check_effect = yes
+	}
+}
+
+# I must leave behind my greed
+character_event = {
+	id = 6208
+	desc = EVTDESC6208
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = greedy
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6208
+		remove_trait = greedy
+	}
+}
+
+# I must show charity
+character_event = {
+	id = 6209
+	desc = EVTDESC6209
+	picture =  GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = greedy
+				trait = charitable
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6209
+		add_trait = charitable
+	}
+}
+
+# I must leave behind my sloth
+character_event = {
+	id = 6210
+	desc = EVTDESC6210
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = slothful
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6210
+		remove_trait = slothful
+	}
+}
+#I must be more diligent
+character_event = {
+	id = 6211
+	desc = EVTDESC6211
+	picture =  GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = slothful
+				trait = diligent
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = GLORY_TO_HIGHGOD
+		add_trait = diligent
+	}
+}
+
+# I must stop being envious
+character_event = {
+	id = 6212
+	desc = EVTDESC6212
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = envious
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6212
+		remove_trait = envious
+	}
+}
+
+#I must be kind
+character_event = {
+	id = 6213
+	desc = EVTDESC6213
+	picture =  GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = envious
+				trait = kind
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6213
+		add_trait = kind
+	}
+}
+
+# My anger is consuming me
+character_event = {
+	id = 6214
+	desc = EVTDESC6214
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = wroth
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6214
+		remove_trait = wroth
+	}
+}
+
+# I must be more patient
+character_event = {
+	id = 6215
+	desc = EVTDESC6215
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = wroth
+				trait = patient
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6215
+		add_trait = patient
+	}
+}
+
+# My pride is too great
+character_event = {
+	id = 6216
+	desc = EVTDESC6216
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		trait = proud
+		has_character_modifier = voice_of_jesus
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6216
+		remove_trait = proud
+	}
+}
+
+# I must be more patient
+character_event = {
+	id = 6217
+	desc = EVTDESC6217
+	picture = GFX_evt_garden
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+
+	trigger = {
+		trait = lunatic
+		has_character_modifier = voice_of_jesus
+		NOT = {
+			OR = {
+				trait = proud
+				trait = humble
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6217
+		add_trait = humble
+	}
+}
+
+# Manwe admits that the Bible is not 100% accurate
+character_event = {
+	id = 6218
+	desc = EVTDESC6218
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = holy_comet
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6218
+		silmarillion_become_heretic_effect = yes
+	}
+}
+
+# Manwe hands out military advice
+character_event = {
+	id = 6219
+	desc = EVTDESC6219
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = holy_comet
+		NOT = {
+			OR = {
+				has_character_modifier = military_jesus
+				has_character_modifier = speaking_in_tounges
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6219
+		add_character_modifier = {
+			name = military_jesus
+			duration = -1
+		}
+	}
+}
+
+#Manwe falls silent on military matters
+character_event = {
+	id = 6220
+	desc = EVTDESC6220
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = military_jesus
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6220
+		remove_character_modifier = military_jesus
+	}
+}
+
+#The Valar Fill me
+character_event = {
+	id = 6221
+	desc = EVTDESC6221
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = holy_comet
+		NOT = {
+			OR = {
+				has_character_modifier = military_jesus
+				has_character_modifier = speaking_in_tounges
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6221
+		add_character_modifier = {
+			name = speaking_in_tounges
+			duration = -1
+		}
+	}
+}
+
+#The Valar leave me
+character_event = {
+	id = 6222
+	desc = EVTDESC6222
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		has_character_modifier = speaking_in_tounges
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = EVTOPTA6222
+		remove_character_modifier = speaking_in_tounges
+	}
+}
+
+#I hear the voice, but I don't think it is Manwe
+character_event = {
+	id = 6223
+	desc = EVTDESC6223
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_religion
+	
+	only_playable = yes
+	min_age = 10
+	only_capable = yes
+	prisoner = no
+	religion_group = religion_group_eldar
+	
+	trigger = {
+		trait = lunatic
+		NOT = { has_character_modifier = voice_of_jesus }
+		NOT = { has_character_modifier = voice_of_satan }
+		NOT = { has_character_modifier = holy_comet }
+	}
+	
+	mean_time_to_happen = {
+		months = 1200
+
+		modifier = {
+			factor = 0.3
+			is_devil_worshiper_trigger = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			NOT = {
+				piety = 0
+			}
+		}
+
+		modifier = {
+			factor = 2
+			piety = 100
+		}
+		
+		modifier = {
+			factor = 1.2
+			trait = zealous
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = cynical
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = homosexual
+		}
+		
+		modifier = {
+			factor = 1.2
+			trait = celibate
+		}
+
+		modifier = {
+			factor = 0.9
+			trait = hedonist 
+		}
+
+		modifier = {
+			factor = 0.5
+			trait = mystic
+		}
+		
+	}
+	
+	option = {
+		name = EVTOPTA6223
+		add_character_modifier = {
+			name = voice_of_satan
+			duration = -1
+		}
+	}
+}
 
 # Ruler Implements New Law
 character_event = {
