@@ -632,7 +632,6 @@ mep_is_elf_culture = {
 		culture_group = culture_group_amanyar
 		culture_group = culture_group_umanyar
 		culture_group = culture_group_moriquendi
-		#culture_group = culture_group_aumanyar
 	}
 }
 
@@ -1024,25 +1023,11 @@ mep_general_buildings_human = {
 		culture_group = culture_group_easterling						
 	}
 	NOT = { mep_horsey_people_culture = yes }
-	NOT = { culture = culture_druedain }  # just in case someone move druedian back to culture_group_edain 
 }
 
 
 mep_pop_always_evil_purge_culture = {
-	OR = {
-		religion_group = religion_group_eruhini # Ainur (like Eagles)
-		religion_group = religion_group_enyd    # Ents
-		religion_group = religion_group_eldar   # Elves
-		religion_group = religion_group_khazad  # Dwarves
-		religion_group = religion_group_periannath  # Hobbits
-		AND = {
-			religion = religion_numenorean
-			NOT = { culture = culture_black_numenorean }
-		}
-		religion = religion_dunedain
-		religion = religion_edain
-		religion = religion_druedain							
-	}
+	religion_group = religion_group_eruhini
 }
 
 mep_being_purged_trigger = {
@@ -1175,14 +1160,14 @@ mep_evil_or_wont_sell_moria = {
 		AND = {
 			independent = yes
 			OR = {
-				mep_is_evil_side_trigger = yes
+				religion_group = religion_group_melkor
 				has_character_flag = refused_to_sell_moria
 			}
 		}				
 		top_liege = {
 			NOT = { character = ROOT }
 			OR = {
-				mep_is_evil_side_trigger = yes
+				religion_group = religion_group_melkor
 				has_character_flag = refused_to_sell_moria
 			}				
 		}
@@ -1195,7 +1180,7 @@ mep_might_sell_moria = {
 		AND = {
 			independent = yes
 			NOR = {
-				mep_is_evil_side_trigger = yes
+				religion_group = religion_group_melkor
 				has_character_flag = refused_to_sell_moria
 				culture = culture_longbeard
 				religion_group = religion_group_wilderness
@@ -1205,7 +1190,7 @@ mep_might_sell_moria = {
 		top_liege = {
 			NOT = { character = ROOT }
 			NOR = {
-				mep_is_evil_side_trigger = yes
+				religion_group = religion_group_melkor
 				has_character_flag = refused_to_sell_moria
 				culture = culture_longbeard
 				religion_group = religion_group_wilderness
@@ -1262,15 +1247,11 @@ mep_galadriel_in_lorien = {
 # government type related stuff
 
 mep_temp_muslim_standin_trigger = {
-	OR = {
-		religion = religion_southron
-		religion_group = religion_group_melkor
-	}
+	religion = religion_hildor
 }
 
 # those who can get 'nice' feudalism (reducing conflict). 
 mep_canhave_nice_feudalism = {
-	NOT = { mep_is_evil_side_trigger = yes }
 	religion_group = religion_group_eruhini
 }
 

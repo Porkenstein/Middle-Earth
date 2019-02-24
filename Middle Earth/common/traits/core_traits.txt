@@ -3120,7 +3120,7 @@ eagle = {
 	# cached = yes
 }
 hobbit = {
-    potential = { religion_group = religion_group_periannath }
+    potential = { culture_group = culture_group_halfling }
     health = 6.5
     same_opinion = 20
     inherit_chance = 100
@@ -3135,7 +3135,7 @@ hobbit = {
 }
 hobbit_friend = {
 	potential = {
-		NOT = { religion_group = religion_group_periannath }
+		NOT = { religion = religion_perian }
 		NOT = { mep_evil_religion = yes }
 		NOT = { trait = zealous } # aka 'Racist'
 	}
@@ -3144,7 +3144,7 @@ hobbit_friend = {
 	same_opinion = 20
 }
 ent = {	
-	potential = { religion_group = religion_group_enyd }
+	potential = { culture = culture_entish }
     same_opinion = 20
 	fertility_penalty = -5.0
     health = 100.0
@@ -3186,10 +3186,6 @@ enigma = {
 maiar = {
 	potential = {
 		OR = {
-			religion_group = religion_group_eruhini
-			religion = religion_umaiar
-		}
-		OR = {
 			culture = culture_maiar
 			culture = culture_umaiar
 			culture = culture_istari
@@ -3218,9 +3214,8 @@ infertility = {
 	hidden = yes
 	potential = {
 		OR = {
-			religion_group = religion_group_eldar
-			religion_group = religion_group_khazad
-			religion_group = religion_group_edain
+			mep_is_elf_culture = yes
+			culture_group = culture_group_dwarves
 			culture_group = culture_group_numenorean
 			culture_group = culture_group_middlemen
 			culture_group = culture_group_forodwaith
@@ -3358,7 +3353,7 @@ spiritform = {
 }
 dragon = {	
 	potential = {
-		religion_group = religion_group_dragon
+		religion = religion_dragons
 		culture = culture_dragons
 	}
 	martial = 3
