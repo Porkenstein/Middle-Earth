@@ -2895,8 +2895,15 @@ character_event = {
 	hide_window = yes
 
 	trigger = {
+		NOT = {
+			religion = religion_wilderness
+		}
 		any_demesne_province = {
 			has_province_modifier = mod_pop_display
+			check_variable = {
+				which = sin_pop
+				value < 1500000
+			}
 		}
 	}
 
