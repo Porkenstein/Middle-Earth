@@ -1271,31 +1271,10 @@ mep_temp_muslim_standin_trigger = {
 # those who can get 'nice' feudalism (reducing conflict). 
 mep_canhave_nice_feudalism = {
 	NOT = { mep_is_evil_side_trigger = yes }
-	OR = {
-		religion_group = religion_group_eldar
-		religion_group = religion_group_enyd
-		religion_group = religion_group_khazad
-		religion_group = religion_group_eruhini
-		religion_group = religion_group_periannath
-		religion = religion_dunedain
-		religion = religion_numenorean
-	}
+	religion_group = religion_group_eruhini
 }
 
 ## Other
-mep_coloniz_cheap = {
-	OR = {
-		has_game_rule = { name = colon_diffc value = cheap }
-		has_game_rule = { name = colon_diffc value = quickncheap }
-	}
-}
-mep_coloniz_quick = {
-	OR = {
-		has_game_rule = { name = colon_diffc value = quick }
-		has_game_rule = { name = colon_diffc value = quickncheap }
-	}
-}
-
 mep_marriagable_female = {
 	AND = {
 		is_female = yes
@@ -1314,12 +1293,12 @@ mep_marriagable_female = {
 				NOT = { age = 120 }
 			}
 			AND = {
-				religion_group = religion_group_khazad
+				religion = religion_khazad
 				age = 30
 				NOT = { age = 140 }
 			}
 			AND = {
-				religion_group = religion_group_periannath
+				religion = religion_perian
 				NOT = { age = 50 }
 			}
 			AND = {
@@ -1329,8 +1308,8 @@ mep_marriagable_female = {
 			AND = {
 				NOT = {
 					culture_group = culture_group_numenorean
-					religion_group = religion_group_khazad
-					religion_group = religion_group_periannath
+					religion = religion_khazad
+					religion = religion_perian
 					mep_is_immortal_race_trigger = yes
 				}
 				NOT = { age = 40 }
@@ -1533,7 +1512,8 @@ mep_no_trade_posts = {
 	OR = {
 		religion_group = religion_group_wilderness
 		religion_group = religion_group_ungoliant
-		religion_group = religion_group_enyd
+		religion = religion_enyd
+		religion = religion_dark_enyd
 		mep_being_purged_trigger = yes
 	}
 }
@@ -1593,7 +1573,7 @@ mep_is_western_culture = {
 		culture_group = culture_group_numenorean
 		culture_group = culture_group_middlemen
 		culture_group = culture_group_forodwaith
-		culture_group = culture_group_druedain
+		culture_group = culture_group_haldadian
 	}
 }
 mep_is_eastern_culture = {
