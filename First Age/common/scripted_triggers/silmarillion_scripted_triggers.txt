@@ -463,16 +463,21 @@ has_sorcerer_skill = {
 	}
 }
 
+# note - this breaks when in observer mode!
 is_not_player_capital_county = {
-	NOT = {
-		any_player = {
-			capital_scope = {
-				county = {
-					title = PREVPREVPREV
-				}
-			}
-		}
-	}
+	# comment this out to allow detection of player capital counties
+	always = yes
+	
+	# comment this out to use observer mode
+	#NOT = {
+	#	any_player = {
+	#		capital_scope = {
+	#			county = {
+	#				title = PREVPREVPREV
+	#			}
+	#		}
+	#	}
+	#}
 }
 
 is_not_owner_capital_province = {

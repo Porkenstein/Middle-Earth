@@ -2974,6 +2974,7 @@ bid_for_independence = {
 					}
 				}
 			}
+			NOT = { is_dark_lord = yes }
 			any_demesne_title = {
 				NOT = { lower_tier_than = ROOT }
 				temporary = no
@@ -3214,6 +3215,7 @@ depose_liege = {
 			primary_title = {
 				is_vice_royalty = no
 			}
+			NOT = { is_dark_lord = yes }
 			NOT = {
 				any_war = {
 					OR = {
@@ -3370,6 +3372,7 @@ overthrow_ruler = {
 			primary_title = {
 				is_vice_royalty = no
 			}
+			NOT = { is_dark_lord = yes }
 		}
 		ROOT = {
 			de_facto_liege = FROM
@@ -3525,6 +3528,7 @@ overthrow_ruler_no_calls = {
 			primary_title = {
 				is_vice_royalty = no
 			}
+			NOT = { is_dark_lord = yes }
 		}
 		ROOT = {
 			de_facto_liege = FROM
@@ -3652,6 +3656,9 @@ change_gavelkind_succession_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
+		}
+		FROM = {
+			NOT = { is_dark_lord = yes }
 		}
 	}
 	

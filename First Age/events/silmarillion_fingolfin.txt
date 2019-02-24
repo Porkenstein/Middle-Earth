@@ -253,6 +253,11 @@ letter_event = {
 
 	option = {
 		name = "EVTOPTAfingolfin.4"
+		trigger = {
+			capital_scope = {
+				NOT = { region = custom_mithrim }
+			}
+		}
 		reverse_opinion = {
 			modifier = opinion_pleased who = FROM years = 10
 		}
@@ -362,7 +367,7 @@ letter_event = {
 	}
 	option = {
 		name = "EVTOPTBfingolfin.6"
-		limit = {
+		trigger = {
 			is_landed = yes
 			ai = no
 		}
@@ -424,7 +429,7 @@ long_character_event = {
 	}
 	option = {
 		name = "EVTOPTBfingolfin.7"
-		limit = {
+		trigger = {
 			OR = {
 				ai = no
 				trait = wroth
@@ -598,5 +603,391 @@ character_event = {
 		c_3129 = {
 			letter_event = { id = fingolfin.6 days = 1 }
 		}
+	}
+}
+
+#
+# Fingolfin arrives from offmap
+#
+province_event = {
+	id = fingolfin.22
+	
+	hide_window = yes
+	
+	trigger = {
+		NOT = { has_global_flag = fingolfin_arrival }
+		year = 4311
+		month = 8
+		OR = {
+			province_id = 243 # Lammoth
+			province_id = 242 # Bay of Tuor
+		}
+		county = { is_not_player_capital_county = yes }
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
+		set_global_flag = fingolfin_arrival
+	}
+
+	option = {
+		if = {
+			limit = {
+				NOT = { num_of_settlements = 1 }
+			}
+			build_castle_effect = yes
+		}
+
+		county = {
+			e_noldor = {
+				c_3129 = {
+					name="Fingolfin"
+					usurp_title = PREVPREV
+					set_defacto_liege = PREV
+
+					# set up fingolfin
+					remove_trait = in_helcaraxe
+					remove_trait = sailed_west
+					set_character_flag = flag_expanding
+					set_character_flag = fingolfin_attacking_gates
+					narrative_event = { id = fingolfin.1 days = 2 }
+
+					# start attacking angband
+					c_10015 = { # morgoth
+						reverse_unsafe_war = {
+							casus_belli = good_invasion
+							thirdparty_title = d_thangorodrim
+							target = PREV # fingolfin
+						}
+					}
+					# start migrating
+					random_independent_ruler = {
+						limit = {
+							capital_scope = { region = custom_mithrim }
+							religion = religion_wilderness
+						}
+						preferred_limit = {
+							capital_scope = { province_id = 166 } # c_mithrum
+							religion = religion_wilderness
+						}
+						capital_scope = {
+							county = {
+								owner = {
+									reverse_unsafe_war = {
+										casus_belli = abandon_realm_resettle_wilderness #nomad_resettle_wilderness
+										thirdparty_title = PREV
+										target = PREVPREVPREVPREV # fingolfin
+									}
+								}
+							}
+						}
+					}
+					# move in everyone who should be in the host of fingolfin
+					c_3131 = {
+						name="Fingon"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3006 = {
+						name="Galadriel"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3132 = {
+						name="Turgon"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3134 = {
+						name="Argon"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3146 = {
+						name="Finrod"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3148 = {
+						name="Orodreth"
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3418 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						add_trait = evil_side # abandons the host
+					}
+					c_3421 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3412 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						add_trait = evil_side # abandons the host
+					}
+					c_3430 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3431 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3409 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3406 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3247 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3232 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3321 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3229 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3228 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3227 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3226 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3320 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3319 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3196 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3199 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3209 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3224 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3219 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3217 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3218 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3211 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3208 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3207 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3206 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3200 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3198 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3194 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3160 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3159 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3158 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3157 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3156 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3155 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3153 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3152 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3151 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3150 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3136 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3133 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3126 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3120 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3138 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3224 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+					c_3406 = {
+						remove_trait = in_helcaraxe
+						remove_trait = sailed_west
+						move_character = PREV
+					}
+				}
+			}
+			location = {
+				culture = culture_noldor
+				religion = religion_calaquendi
+
+				owner = {
+					spawn_unit = {
+						owner = THIS
+						leader = THIS
+						maintenance = no
+						province = PREV
+						earmark = host_of_fingolfin
+
+						troops = {
+							archers = { 500 500 }
+							light_infantry = { 2500 2500 }
+							heavy_infantry = { 650 650 }
+							knights = { 300 300 }
+							horse_archers = { 600 600 }
+							light_cavalry = { 500 500 }
+						}
+						attrition = 0.5
+					}
+				}
+			}
+		}
+
+		populate_effect = yes
+	}
+	after = {
+		
 	}
 }
