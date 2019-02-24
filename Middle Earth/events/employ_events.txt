@@ -95,12 +95,14 @@ province_event = {
 	option = {
 		name = EVTOPTAemploy_events.1
 		trigger = {
-			ai = no
+			NOT = {
+				is_ai = yes
+			}
 			event_target:master_crafter = {
 				is_alive = yes
 			}
 		}
-		treasury = -100
+		weath = -100
 		event_target:master_crafter = {
 			character_event = {
 				id = employ_events.11
@@ -110,12 +112,14 @@ province_event = {
 	option = {
 		name = EVTOPTBemploy_events.1
 		trigger = {
-			ai = no
+			NOT = {
+				is_ai = yes
+			}
 			event_target:skilled_crafter = {
 				is_alive = yes
 			}
 		}
-		treasury = -50
+		weath = -50
 		event_target:skilled_crafter = {
 			character_event = {
 				id = employ_events.11
@@ -125,12 +129,14 @@ province_event = {
 	option = {
 		name = EVTOPTCemploy_events.1
 		trigger = {
-			ai = no
+			NOT = {
+				is_ai = yes
+			}
 			event_target:trained_crafter = {
 				is_alive = yes
 			}
 		}
-		treasury = -25
+		weath = -25
 		event_target:trained_crafter = {
 			character_event = {
 				id = employ_events.11
@@ -139,7 +145,7 @@ province_event = {
 	}
 	option = {
 		name = EVTOPTDemploy_events.1
-		treasury = -10
+		weath = -10
 		random_list = {
 			1 = {
 				modifier = {
@@ -379,19 +385,19 @@ province_event = {
 			limit = {
 				trait = master_craftsman
 			}
-			treasury = 100
+			weath = 100
 		}
 		if = {
 			limit = {
 				trait = skilled_craftsman
 			}
-			treasury = 50
+			weath = 50
 		}
 		if = {
 			limit = {
 				trait = trained_craftsman
 			}
-			treasury = 25
+			weath = 25
 		}
 	}
 
