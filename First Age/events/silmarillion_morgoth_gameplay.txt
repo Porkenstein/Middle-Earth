@@ -4,6 +4,7 @@ namespace = morgothevents
 character_event = {
 	id = morgothevents.1
 	hide_window = yes
+	only_playable = yes
 	trigger = {
 		NOT = { wealth = 0 }
 		OR = {
@@ -13,11 +14,143 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 1
+		days = 7 # needs to happen fast unfortunately
 	}
 	
 	option = {
 		wealth = 10000
 		clear_wealth = yes
+	}
+}
+
+# Characters released by evil characters are scarred and weakened.
+character_event = {
+	id = morgothevents.2
+	hide_window = yes
+	
+	trigger = {
+		FROM = {
+			mep_is_evil_side_trigger = yes
+		}
+	}
+
+	option = {
+		# todo, better stuff than this, plus a reaction from the released character
+		remove_trait = gregarious
+		remove_trait = kind
+		add_trait = scarred
+		add_trait = shy
+		add_character_modifier = { years = 100 modifier = released_from_evil_dungeon }
+	}
+}
+
+#
+# MORGOTH IMPRISONMENT
+#
+
+# giving the trait - on imprisonment
+character_event = {
+	id = morgothevents.3
+	hide_window = yes
+	
+	trigger = {
+		FROM = {
+			is_dark_lord = yes
+		}
+	}
+
+	option = {
+		# add imprisonment trait
+		add_trait = imprisoned_in_angband
+		set_character_flag = imprisoned_in_angband
+	}
+}
+
+# re-imprisoning automatically
+character_event = {
+	id = morgothevents.4
+	hide_window = yes
+
+    is_triggered_only = yes
+
+	prisoner = no
+	has_character_flag = imprisoned_in_angband
+	
+	trigger = {
+		FROM = {
+			is_dark_lord = yes
+		}
+	}
+
+	option = {
+		# add imprisonment trait
+		imprison = FROM
+	}
+}
+
+#
+# torture
+#
+
+# hang from thangorodrim
+character_event = {
+	id = morgothevents.5
+	desc = EVTDSC_morgothevents.5
+	border = GFX_event_normal_frame_intrigue
+	picture = GFX_thangorodrim
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_morgothevents.5
+	}
+}
+
+character_event = {
+	id = morgothevents.6
+	desc = EVTDSC_morgothevents.6
+	border = GFX_event_normal_frame_intrigue
+	picture = GFX_thangorodrim
+
+	hide_from = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_morgothevents.6
+		prisoner_torture_effect = yes
+		lose_weight_small_effect = yes
+	}
+}
+
+# give to the orcs
+character_event = {
+	id = morgothevents.7
+	desc = EVTDSC_morgothevents.7
+	border = GFX_event_normal_frame_intrigue
+	picture = GFX_orc_leader
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_morgothevents.7
+	}
+}
+
+character_event = {
+	id = morgothevents.8
+	desc = EVTDSC_morgothevents.8
+	border = GFX_event_normal_frame_intrigue
+	picture = GFX_orc_leader
+
+	hide_from = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_morgothevents.8
+		prisoner_torture_effect = yes
+		hidden_tooltip = { change_variable = { which = scarred_variable value = 1 } }
+		add_trait = wounded
 	}
 }

@@ -1440,7 +1440,10 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			prisoner = yes
+			OR = {
+				prisoner = yes
+				has_trait = imprisoned_in_angband
+			}
 		}
 	}
 
@@ -1449,6 +1452,7 @@
 		modifier = {
 			factor = 0
 			prisoner = no
+			NOT = { has_trait = imprisoned_in_angband }
 		}
 	}
 }

@@ -29,7 +29,7 @@ character_event = {
 			}
 			c_16046 = {
 				reverse_unsafe_war = {
-					casus_belli = nomad_resettle_wilderness
+					casus_belli = abandon_realm_resettle_wilderness #nomad_resettle_wilderness
 					thirdparty_title = c_mithrum
 					target = ROOT
 				}
@@ -66,9 +66,15 @@ character_event = {
         	narrative_event = { id = fingolfin.18 days = 1 }
 		}
 	}
+	option = {
+		trigger = {
+			has_character_flag = fingolfin_at_gates
+			NOT = { has_character_flag = fingolfin_host_tension }
+		}
+	}
 	#option = {
     #   trigger = {
-	#		has_global_flag = fingolfin_at_gates
+	#		has_character_flag = fingolfin_at_gates
 	#		NOT = { has_character_flag = maedhros_rescued } # asap
 	#	}
     #    narrative_event = { id = fingolfin.7 days = 1 }
@@ -243,6 +249,8 @@ letter_event = {
     desc = "EVTDESCfingolfin.4"
 	is_triggered_only = yes
 
+	only_rulers = yes
+
 	option = {
 		name = "EVTOPTAfingolfin.4"
 		reverse_opinion = {
@@ -255,7 +263,7 @@ letter_event = {
 					religion = religion_wilderness
 				}
 				preferred_limit = {
-					capital_scope = { province_id = 153 } # rond fingolfin
+					capital_scope = { province_id = 166 } # c_mithrum
 					religion = religion_wilderness
 				}
 				capital_scope = {
@@ -284,24 +292,32 @@ letter_event = {
 # 5 - Fingolfin's host rides to the Great Gates
 ##################################################################
 long_character_event = { # Fingolfin reaches the gates and is stopped
-	id = feanor.5
+	id = fingolfin.5
 	title = "EVTTITfingolfin.5"
     desc = "EVTDESCfingolfin.5"
 	picture = GFX_evil_gates_2
 
+	only_rulers = yes
     has_character_flag = fingolfin_attacking_gates
 	notification = no
 
     trigger = {
         NOT = { has_character_flag = fingolfin_at_gates }
-        any_army = {
-            location = {
-                province_id = 17 # Annon Daer
-            }
-        }
+		OR = {
+			AND = {
+				ai = yes
+				year = 4312
+				month = 5 # by this point the AI is probably going to sit around and be killed, so make their war end.
+			}
+			any_army = {
+				location = {
+					province_id = 17 # Annon Daer
+				}
+			}
+		}
     }
     mean_time_to_happen = {
-        days = 2
+        days = 3
     }
 	option = {
 		name = "EVTOPTAfingolfin.5"
@@ -346,30 +362,85 @@ letter_event = {
 	}
 	option = {
 		name = "EVTOPTBfingolfin.6"
+		limit = {
+			is_landed = yes
+			ai = no
+		}
 		reverse_opinion = {
 			modifier = opinion_pleased who = FROM years = 10
 		}
-		#hidden_tooltip = { # todo, apply storming of angband events here?
-		#	c_10015 = {
-		#		capital_scope = {
-		#			duchy = {
-		#				PREVPREV = {
-		#					reverse_unsafe_war = {
-		#						casus_belli = good_invasion
-		#						thirdparty_title = PREV
-		#						target = ROOT
-		#					}
-		#				}
-		#			}
-		#		}
-		#	}
-		#}
+		hidden_tooltip = { # todo, apply storming of angband events here?
+			c_10015 = {
+				c_3239 = {
+					PREV = {
+						reverse_unsafe_war = {
+							casus_belli = hostages_cb
+							thirdparty = PREV # maedhros
+							target = ROOT
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
 ##################################################################
 # 7 - Tensions rise between the two neighboring hosts
 ##################################################################
+
+long_character_event = {
+	id = fingolfin.7
+    desc = "EVTDESCfingolfin.7"
+	title = "EVTTITfingolfin.7"
+	
+	only_rulers = yes
+	has_character_flag = flag_fingolfin
+
+	trigger = {
+		year = 4313
+		NOT = { has_character_flag = fingolfin_host_tension }
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	immediate = {
+		set_character_flag = fingolfin_host_tension
+	}
+
+	option = {
+		name = "EVTOPTAfingolfin.7"
+		c_3239 = {
+			remove_rival = ROOT
+		}
+		capital_scope = {
+			add_province_modifier = {
+				name = peasant_unrest
+				years = 3
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBfingolfin.7"
+		limit = {
+			OR = {
+				ai = no
+				trait = wroth
+			}
+		}
+		add_trait = kinslayer
+		c_3239 = {
+			reverse_unsafe_war = {
+				casus_belli = claim_on_liege
+				thirdparty_title = e_noldor
+				target = ROOT
+			}
+		}
+	}
+}
+
 
 ##################################################################
 # 8 - Maedhros abdicates to Fingolfin
@@ -433,23 +504,11 @@ character_event = {
 
 	is_triggered_only = yes
 	hide_window = yes
-
-	trigger = {
-		c_3129 = {
-			OR = {
-				is_liege_or_above_of = ROOT
-				character = ROOT
-			}
-			has_character_flag = fingolfin_fighting_battle_lammoth
-		}
-	}
+	has_character_flag = fingolfin_fighting_battle_lammoth
 
 	option = {
-		c_3129 ={
-			set_character_flag = fingolfin_react_battle_lammoth
-			clr_character_flag = fingolfin_fighting_battle_lammoth
-			character_event = { id = fingolfin.3 days = 1 }
-		}
+		clr_character_flag = fingolfin_fighting_battle_lammoth
+		character_event = { id = fingolfin.3 days = 1 }
 	}
 }
 
@@ -473,23 +532,15 @@ character_event = {
 
 	is_triggered_only = yes
 	hide_window = yes
+	has_character_flag = flag_fingolfin
 
 	trigger = {
-		c_3129 = {
-			OR = {
-				is_liege_or_above_of = ROOT
-				character = ROOT
-			}
-			NOT = { has_character_flag = fingolfin_at_gates }
-		}
+		NOT = { has_character_flag = fingolfin_at_gates }
 	}
 
 	option = {
-		c_3129 ={
-			set_character_flag = fingolfin_retreating
-			clr_character_flag = fingolfin_fighting_battle_lammoth
-			character_event = { id = fingolfin.20 days = 1 }
-		}
+		clr_character_flag = fingolfin_fighting_battle_lammoth
+		character_event = { id = fingolfin.20 days = 1 }
 	}
 }
 

@@ -288,6 +288,7 @@ character_event = {
 	trigger = {
 		host = {
 			war = no
+			NOT = { is_dark_lord = yes }
 		}
 		#NOT = { has_character_modifier = zun_judgement }
 		NOT = { has_character_modifier = the_oubliette }
@@ -459,6 +460,7 @@ character_event = {
 		name = "EVTOPTE50006" # Release for favor
 		trigger = {
 			has_dlc = "Zeus"
+			NOT = { mep_is_evil_side_trigger = yes }
 			NOT = {
 				holds_favor_on = FROM
 			}
@@ -590,6 +592,7 @@ character_event = {
 	trigger = {
 		NOT = { trait = kind }
 		NOT = { trait = just }
+		NOT = { is_dark_lord = yes } # special torture decisions instead
 		OR = {
 			religion_group = religion_group_melkor
 			trait = lunatic
@@ -1077,6 +1080,11 @@ character_event = {
 	option = {
 		name = "EVTOPTA50026"
 		prestige = -50
+
+		trigger = {
+			NOT = { mep_is_evil_side_trigger = yes }
+		}
+
 		random_realm_lord = {
 			limit = {
 				prisoner = yes

@@ -4079,7 +4079,10 @@ narrative_event = {
 		has_landed_title = e_noldor
 		
 		any_realm_province = {
-			province_id = 146 # eithel sirion
+			AND = {
+				province_id = 146 # eithel sirion
+				num_of_settlements = 1
+			}
 		}
 	}
 	
@@ -4100,9 +4103,15 @@ narrative_event = {
 				grant_title = PREV
 				religion = PREV
 			}
-			set_defacto_liege = THIS
+			set_defacto_liege = ROOT
 			wealth = 500
 			set_government_type = order_government
+			location = {
+				build_holding = {
+					type = castle
+					holder = PREV
+				}
+			}
 		}
 		
 		religion_authority = {

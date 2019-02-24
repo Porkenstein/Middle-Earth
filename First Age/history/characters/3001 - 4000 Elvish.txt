@@ -3541,6 +3541,7 @@
 	4312.1.1 = {
 		remove_trait = in_helcaraxe
 		effect = {
+			set_character_flag = flag_expanding
 			spawn_unit = {
 				owner = ROOT
 				maintenance = no
@@ -3549,10 +3550,10 @@
 
 				troops = {
 					archers = { 500 500 }
-					light_infantry = { 1700 1700 }
+					light_infantry = { 2000 2000 }
 					heavy_infantry = { 450 450 }
-					knights = { 200 200 }
-					horse_archers = { 400 400 }
+					knights = { 300 300 }
+					horse_archers = { 600 600 }
 					light_cavalry = { 500 500 }
 				}
 				attrition = 0.5
@@ -3562,6 +3563,7 @@
 	4312.6.1 = {
 		effect = {
 			set_character_flag = fingolfin_battle_lammoth
+			set_character_flag = fingolfin_attacking_gates
 			disband_event_forces = host_of_fingolfin
 
 			spawn_unit = {
@@ -3573,10 +3575,10 @@
 
 				troops = {
 					archers = { 500 500 }
-					light_infantry = { 1600 1600 }
-					heavy_infantry = { 450 450 }
-					knights = { 200 200 }
-					horse_archers = { 400 400 }
+					light_infantry = { 2000 2000 }
+					heavy_infantry = { 400 400 }
+					knights = { 250 250 }
+					horse_archers = { 600 600 }
 					light_cavalry = { 500 500 }
 				}
 				attrition = 0.5
@@ -3586,6 +3588,7 @@
 	4313.1.1 = {
 		effect = {
 			set_character_flag = fingolfin_at_gates
+			clr_character_flag = fingolfin_attacking_gates
 			disband_event_forces = host_of_fingolfin_2
 
 			spawn_unit = {
@@ -3597,9 +3600,9 @@
 
 				troops = {
 					archers = { 500 500 }
-					light_infantry = { 1500 1500 }
-					heavy_infantry = { 450 450 }
-					knights = { 200 200 }
+					light_infantry = { 1700 1700 }
+					heavy_infantry = { 400 400 }
+					knights = { 250 250 }
 					horse_archers = { 400 400 }
 					light_cavalry = { 500 500 }
 				}
@@ -3607,9 +3610,15 @@
 			}
 		}
 	}
+	4313.4.1 = {
+		effect = {
+			set_character_flag = fingolfin_host_tension
+		}
+	}
 	4314.1.1 = {
 		effect = { # becomes king king
 			set_character_flag = fingolfin_high_king
+
 			add_artifact = collatar # white cloak of the Noldor
 			add_artifact = aglarthol # crown of the noldor
 			add_artifact = aldatar # scepter of the noldor
@@ -3623,9 +3632,9 @@
 				province = 146 # Eithel Sirion
 
 				troops = {
-					archers = { 350 350 }
-					heavy_infantry = { 550 550 }
-					knights = { 200 200 }
+					archers = { 40 40 }
+					heavy_infantry = { 750 750 }
+					knights = { 300 300 }
 					horse_archers = { 250 250 }
 					light_cavalry = { 350 350 }
 				}
@@ -3800,7 +3809,7 @@
 
 				troops = {
 					archers = { 300 300 }
-					heavy_infantry = { 620 620 }
+					heavy_infantry = { 820 820 }
 					pikemen = { 300 300 }
 					knights = { 350 350 }
 					horse_archers = { 200 200 }
@@ -7459,11 +7468,11 @@
 				 maintenance = no
 				 earmark = host_of_feanor
 				 troops = {
-				   horse_archers = { 1000 1000 }
-				   light_cavalry = { 1000 1000 }
-				   light_infantry = { 4000 4000 }
-				   heavy_infantry = { 2000 2000 }
-				   knights = { 500 500 }
+				   horse_archers = { 600 600 }
+				   light_cavalry = { 800 800 }
+				   light_infantry = { 1700 1700 }
+				   heavy_infantry = { 600 600 }
+				   knights = { 300 300 }
 				 }
 				 attrition = 0.5
 		   }
@@ -7501,11 +7510,11 @@
 				maintenance = no
 				earmark = host_of_feanor_2
 				troops = {
-				   horse_archers = { 200 200 }
-				   light_cavalry = { 200 200 }
-				   light_infantry = { 1000 1000 }
-				   heavy_infantry = { 500 500 }
-				   knights = { 100 100 }
+				   horse_archers = { 400 400 }
+				   light_cavalry = { 800 800 }
+				   light_infantry = { 1200 1200 }
+				   heavy_infantry = { 600 600 }
+				   knights = { 200 200 }
 				}
 				attrition = 0.5
 		   }
@@ -7579,6 +7588,22 @@
 			add_artifact = aldatar # scepter of the noldor
 
 			set_character_flag = no_settling
+
+			spawn_unit = {
+				owner = ROOT
+				maintenance = no
+				earmark = host_of_maedhros
+				province = 151 # Echad Feanor
+
+				troops = {
+					horse_archers = { 400 400 }
+				   light_cavalry = { 800 800 }
+				   light_infantry = { 800 800 }
+				   heavy_infantry = { 600 600 }
+				   knights = { 200 200 }
+				}
+				attrition = 0.5
+			}
 		}
 	}
     4295.1.1 = {

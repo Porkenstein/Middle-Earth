@@ -954,13 +954,14 @@ hostages_cb = { # New5
 		}
 		FROM = {
 			any_realm_character = {
-				is_landed = no
+				#is_landed = no
 				OR = {
 					any_spouse = { character = ROOT }
 					is_friend = ROOT
 					is_close_relative = ROOT
 					dynasty = ROOT
 					is_consort = ROOT
+					is_liege_of = ROOT # added
 				}
 				OR = {
 					prisoner = yes
@@ -999,17 +1000,18 @@ hostages_cb = { # New5
 			save_event_target_as = character_kidnapper
 			transfer_scaled_wealth = {
 				to = ROOT
-				value = 3.0
+				value = 4.0
 			}
 			any_realm_character = {
 				limit = {
-					is_landed = no
+					#is_landed = no
 					OR = {
 						any_spouse = { character = ROOT }
 						is_friend = ROOT
 						is_close_relative = ROOT
 						dynasty = ROOT
 						is_consort = ROOT
+						is_liege_of = ROOT # added
 					}
 					OR = {
 						prisoner = yes
@@ -1078,22 +1080,22 @@ hostages_cb = { # New5
 					years = 100
 				}
 			}
-			custom_tooltip = {
-				text = hostages_random_imprisonment_tt
-				hidden_effect = {
-					random_realm_character = {
-						limit = {
-							NOT = {
-								character = PREV
-							}
-							prisoner = no
-							ai = yes
-							is_close_relative = PREV
-						}
-						imprison = ROOT
-					}
-				}
-			}
+			#custom_tooltip = {
+			#	text = hostages_random_imprisonment_tt
+			#	hidden_effect = {
+			#		random_realm_character = {
+			#			limit = {
+			#				NOT = {
+			#					character = PREV
+			#				}
+			#				prisoner = no
+			#				ai = yes
+			#				is_close_relative = PREV
+			#			}
+			#			imprison = ROOT
+			#		}
+			#	}
+			#}
 		}
 	}
 
@@ -1252,7 +1254,7 @@ hostages_cb = { # New5
 	}
 	
 	ai_will_do = {
-		factor = 0 # Player Only
+		factor = 0.1 # Maybe. Was = 0 player only
 	}
 }
 

@@ -31,6 +31,9 @@ NDefines.NDiplomacy.MAX_INFAMY_GAIN = 70
 NDefines.NDiplomacy.EVERY_DEFENSIVE_PACT_JOIN_THREAT = 0.90
 NDefines.NDiplomacy.OTHER_DEFENSIVE_PACT_JOIN_THREAT = 0.4
 
+NDefines.NDiplomacy.RANSOM_CHARACTER_INTERACTION_ENABLED = 0 -- Disable Ransoming
+NDefines.NDiplomacy.ASK_TO_RANSOM_CHARACTER_INTERACTION_ENABLED = 0 -- Disable Ransoming
+
 ----- NInfamy -----
 NDefines.NInfamy.MIN_INFAMY_PER_WAR_PROVINCE = 5
 NDefines.NInfamy.MAX_INFAMY_PER_WAR_PROVINCE = 30
@@ -202,15 +205,7 @@ NDefines.NFrontend.CAMERA_START_X = 0.0
 NDefines.NFrontend.CAMERA_START_Y = 50.0
 NDefines.NFrontend.CAMERA_START_Z = 0.0
 
-NDefines.NFrontend.CAMERA_END_Y = 600.0
 NDefines.NFrontend.MAX_ZOOM_LEVEL = 2500
-
-NDefines.NFrontend.TUTORIAL_POS_X = 600.0
-NDefines.NFrontend.TUTORIAL_POS_Y = 150.0
-NDefines.NFrontend.TUTORIAL_POS_Z = 1248.0
-NDefines.NFrontend.TUTORIAL_LOOK_X = 450.0
-NDefines.NFrontend.TUTORIAL_LOOK_Y = 0.0
-NDefines.NFrontend.TUTORIAL_LOOK_Z = 1398.0
 
 ----- NEndGame -----
 

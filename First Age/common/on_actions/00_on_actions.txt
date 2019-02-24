@@ -1514,13 +1514,6 @@ on_major_battle_won = {
 
 # Winning army leader is ROOT - opponent army leader is FROM
 on_battle_won_leader = {
-
-	# narrative events that might be triggered by winning a battle
-	events = {
-		feanor.14
-		fingolfin.17
-	}
-
 	events = {
 		HFP.41085
 		HF.49121 # Northern Crusade Flavor Randomizer
@@ -1542,6 +1535,8 @@ on_major_battle_won_leader = {
 on_battle_won_owner = {
 	events = {
 		RIP.15115 #EoD prophet loses
+		feanor.14
+		fingolfin.17
 	}
 }
 
@@ -1564,10 +1559,6 @@ on_major_battle_lost = {
 
 # Losing army leader ROOT - opponent army leader is FROM
 on_battle_lost_leader = {
-	# narrative events that might be triggered by losing a battle
-	events = {
-		fingolfin.19
-	}
 }
 
 # Losing army leader ROOT - opponent army leader is FROM
@@ -1581,6 +1572,7 @@ on_major_battle_lost_leader = {
 on_battle_lost_owner = {
 	events = {
 		HL.180 # Check raiding adventurer defeat
+		fingolfin.19
 	}
 }
 
@@ -1920,6 +1912,7 @@ on_become_imprisoned_any_reason = {
 		HFP.23024 # Stop pilgrimage when arrested.
 		HF.12305 # Legendary Hero has been imprisoned - notifies society members
 		HFP.24024 # Elder imprisoned without reason, other Elders upset.
+		morgothevents.3
 	}
 }
 
@@ -1953,6 +1946,7 @@ on_released_from_prison = {
 		CM.15002  # Free anyone thrown into the desert
 		ZE.12219  # Released from dungeon must choose whether to leave pet rat behind
 		HF.23446  # Prisoner about to be put through blood games is released before the games start. His jailer has no champion left.
+		morgothevents.2 # prisoner is released from evil dungeon, weakened.
  	}
 }
 
@@ -3943,5 +3937,6 @@ on_employer_change = {
 on_host_change = {
 	events = {
 		HFP.19000 # For safety, to prevent everlasting food-shortage from Seclusion
+		morgothevents.4 # quietly re-imprison people who were released from angband
 	}
 }

@@ -17,6 +17,11 @@ targetted_decisions = {
 			prisoner = yes
 			host = { character = FROM }
 			age = 13
+			OR = {
+				# the dark lord's torture methods are longer...
+				NOT = { has_character_modifier = tortured }
+				NOT = { is_dark_lord = yes }
+			}
 		}
 
 		allow = {
@@ -56,8 +61,14 @@ targetted_decisions = {
 			
 			hidden_tooltip = {
 				random_list = {
+					# Lunatic option
+					modifier = {
+						factor = 0
+						is_dark_lord = yes
+					}
+
 					#Normal torture options
-					10 = { 
+					10 = {
 						random_list = {
 							10 = {
 								# Racks
@@ -183,6 +194,76 @@ targetted_decisions = {
 						FROM = { character_event = { id = RIP.20007 } }
 						character_event = { id = RIP.20008 } 
 					}
+
+					100 = {
+						# Dark Lord tortures
+						random_list = {
+							10 = {
+								# Hang from Thangorodrim
+								FROM = { character_event = { id = morgothevents.5 } }
+								character_event = { id = morgothevents.6 } 
+							}
+
+							10 = {
+								# Give over to the orcs
+								FROM = { character_event = { id = morgothevents.7 } }
+								character_event = { id = morgothevents.8 } 
+							}
+						}
+
+						hidden_tooltip = {
+
+							opinion = {
+								modifier = opinion_tortured_me
+								who = FROM
+							}
+
+							mother = {
+								opinion = {
+									modifier = opinion_tortured_close_kin
+									who = FROM
+								}
+							}
+							father = {
+								opinion = {
+									modifier = opinion_tortured_close_kin
+									who = FROM
+								}
+							}
+							spouse = {
+								opinion = {
+									modifier = opinion_tortured_close_kin
+									who = FROM
+								}
+							}
+							any_child = {
+								opinion = {
+									modifier = opinion_tortured_close_kin
+									who = FROM
+								}
+							}
+							if = {
+								limit = {
+									FROM = {
+										NOT = { dynasty = ROOT }
+										NOT = { sibling = ROOT }
+									}
+								}
+								any_sibling = {
+									opinion = {
+										modifier = opinion_tortured_close_kin
+										who = FROM
+									}
+								}
+								any_dynasty_member = {
+									opinion = {
+										modifier = opinion_tortured_family
+										who = FROM
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			
@@ -195,11 +276,12 @@ targetted_decisions = {
 			}
 
 			if = {
-				limit = { 
+				limit = {
 					has_game_rule = {
 						name = punishment_release_prisoner
 						value = on
 					}
+					FROM = { NOT = { mep_is_evil_side_trigger = yes } }
 				}
 				prisoner = no
 			}
@@ -318,6 +400,7 @@ targetted_decisions = {
 			is_playable = yes
 			is_adult = yes
 			prisoner = no
+			NOT = { is_dark_lord = yes } # special tortures instead
 			NOT = { trait = incapable }
 			OR = {
 				trait = cruel
@@ -460,6 +543,7 @@ targetted_decisions = {
 						name = punishment_release_prisoner
 						value = on
 					}
+					FROM = { NOT = { mep_is_evil_side_trigger = yes } }
 				}
 				prisoner = no
 			}
@@ -627,6 +711,7 @@ targetted_decisions = {
 						name = punishment_release_prisoner
 						value = on
 					}
+					FROM = { NOT = { mep_is_evil_side_trigger = yes } }
 				}
 				prisoner = no
 			}
@@ -675,6 +760,7 @@ targetted_decisions = {
 			is_adult = yes
 			prisoner = no
 			NOT = { trait = incapable }
+			NOT = { is_dark_lord = yes } # torture instead
 		}
 	
 		potential = {
@@ -803,6 +889,7 @@ targetted_decisions = {
 						name = punishment_release_prisoner
 						value = on
 					}
+					FROM = { NOT = { mep_is_evil_side_trigger = yes } }
 				}
 				prisoner = no
 			}
