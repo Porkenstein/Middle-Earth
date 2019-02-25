@@ -61,7 +61,10 @@ character_event = {
 				trait = elf
 				AND = {
 					age = 60
-					religion = religion_eldar
+					OR = {
+						religion = religion_eldar
+						religion = religion_dark_eldar
+					}
 				}
 			}
 			NOT = { has_character_flag = elfhumanmarriage }
@@ -81,7 +84,10 @@ character_event = {
 					trait = elf
 					AND = {
 						age = 60
-						religion_group = religion_group_eldar
+						OR = {
+							religion = religion_eldar
+							religion = religion_dark_eldar
+						}
 					}
 				}
 				NOT = { has_character_flag = elfhumanmarriage }

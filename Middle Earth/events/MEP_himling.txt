@@ -79,7 +79,12 @@ character_event = {
 					if = {
 						limit = { 
 							NOT = { has_character_flag = explorer_of_himling }
-							NOT = { himling_armour = { is_alive = yes } }
+							NOT = {
+								any_character = {
+									has_artifact = himling_armour
+									is_alive = yes
+								}
+							}
 						}
 						character_event = { id = himling.8 days = 2 } # An Armour of First Age!
 					}
