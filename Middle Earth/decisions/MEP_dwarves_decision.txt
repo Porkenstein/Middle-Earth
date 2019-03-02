@@ -78,33 +78,4 @@ decisions = {
 			piety = -150
 		}
 	}
-	## Call the Assembly of the Dwarves ##
-	call_assembly_dwarves = {
-		is_high_prio = no
-		potential = {
-			ai = no
-			culture_group = culture_group_dwarves
-			NOT = { has_global_flag = unification_dwarves }
-			NOT = { has_global_flag = dwarvishunion }
-		}
-		allow = {
-			war = no
-			in_command = no
-			prisoner = no
-			age = 100
-			prestige = 1000
-			piety = 1000
-			has_landed_title = c_erebor
-			has_landed_title = c_moria
-			has_landed_title = c_gundabad
-			culture_group = culture_group_dwarves
-		}
-		effect = {
-			ROOT = {
-				narrative_event = { id = unificatedwarves.0 }
-			}
-			prestige = -1000
-			piety = -1000
-		}
-	}
 }
