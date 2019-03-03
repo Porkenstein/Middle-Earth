@@ -6,6 +6,26 @@ character_event = {	#Maintenance
 
 	trigger = {
 		trait = trait_old_age
+		OR = {
+			AND = {
+				age = 16
+				NOT = {
+					age = 55
+				}
+			}
+			AND = {
+				age = 55
+				NOT = {
+					age = 120
+				}
+			}
+			AND = {
+				age = 120
+				NOT = {
+					age = 130
+				}
+			}
+		}
 	}
 
 	option  = {
