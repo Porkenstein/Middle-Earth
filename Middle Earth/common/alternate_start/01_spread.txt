@@ -730,7 +730,9 @@ holy_site_spread = {
 	modifier = {
 		factor = 0 # We simply never want to be adjacent to a holy site
 		any_neighbor_province = {
-			is_holy_site = FROM
+			any_province_holding = {
+				is_holy_site = FROM
+			}
 		}
 	}
 	modifier = {
@@ -772,7 +774,9 @@ holy_site_spread = {
 		FROM = {
 			parent_religion = {
 				ROOT = {
-					is_holy_site = PREV
+					any_province_holding = {
+						is_holy_site = PREVPREV
+					}
 				}
 			}
 		}
