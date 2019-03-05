@@ -2,13 +2,16 @@ targetted_decisions = {
 	visit_breeding_pits = {
 		only_rulers = yes
 		filter = all
-		ai_target_filter = all
+		ai_target_filter = self
 		third_party = ROOT
 		third_party_filter = home_court
 		ai_third_party_filter = home_court
 		show_third_party_potential = yes
 
 		from_potential = {
+			NOT = {
+				ai = yes
+			}
 			OR = {
 				culture = culture_urukhai
 				culture = culture_goblin
