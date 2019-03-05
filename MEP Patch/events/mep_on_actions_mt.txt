@@ -1,0 +1,1410 @@
+namespace = mep_on_actions_mt
+character_event = {	#Maintenance
+	id = mep_on_actions_mt.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		trait = trait_old_age
+		OR = {
+			AND = {
+				age = 16
+				NOT = {
+					age = 55
+				}
+			}
+			AND = {
+				age = 55
+				NOT = {
+					age = 120
+				}
+			}
+			AND = {
+				age = 120
+				NOT = {
+					age = 130
+				}
+			}
+		}
+	}
+
+	option  = {
+		remove_trait = trait_old_age
+		add_trait = trait_old_age
+	}
+}
+character_event = {	#Old age Trait for Characters
+	id = mep_on_actions_mt.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			#Long Lived
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			trait = numenorean
+			trait = numenor_blood
+			culture_group = culture_group_halfling
+			#Sail West
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
+			#Undying
+			culture = culture_balrog
+			culture = culture_dragons
+			culture = culture_spider
+			culture_group = culture_group_onodrim
+			culture_group = culture_group_eru
+		}
+	}
+
+	immediate = {
+		add_trait = trait_old_age
+	}
+}
+character_event = {	#Old age Death for Characters
+	id = mep_on_actions_mt.11
+	title = EVTTTLmep_on_actions_mt.11
+	desc = {
+		text = EVTDESCAmep_on_actions_mt.11
+		trigger = {
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenor_blood
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_on_actions_mt.11
+		trigger = {
+			OR = {
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_on_actions_mt.11
+		trigger = {
+			NOR = {
+				culture_group = culture_group_numenorean
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+				trait = numenorean
+				trait = numenor_blood
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		trait = trait_old_age
+		NOT = {
+			dont_kill_trigger = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 220
+		modifier = {
+			factor = 1.2
+			real_tier = EMPEROR
+		}
+		modifier = {
+			factor = 200
+			NOT = { age = 10 }
+		}
+		modifier = {
+			factor = 1000
+			age = 10
+			NOT = { age = 20 }
+		}
+		modifier = {
+			factor = 65
+			age = 20
+			NOT = { age = 30 }
+		}
+		modifier = {
+			factor = 20
+			age = 30
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 20
+			age = 40
+			NOT = { age = 50 }
+		}
+		modifier = {
+			factor = 10
+			age = 50
+			NOT = { age = 60 }
+		}
+		modifier = {
+			factor = 3
+			age = 60
+			NOT = { age = 110 }
+		}
+		modifier = {
+			factor = 1.5
+			age = 110
+		}
+		modifier = {
+			factor = 0.9
+			trait = maimed
+		}
+		modifier = {
+			factor = 0.8
+			trait = incapable
+		}
+		modifier = {
+			factor = 15
+			OR = {
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+			}
+		}
+		modifier = {
+			factor = 1.1
+			culture_group = culture_group_dwarves
+		}
+		modifier = {
+			factor = 0.75
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenor_blood
+			}
+			year = 8343
+		}
+		modifier = {
+			factor = 0.45
+			culture_group = culture_group_halfling
+		}
+	}
+
+	immediate = {
+		remove_trait = trait_old_age
+	}
+
+	option = {	#Give up the Ghost
+		name = EVTOPTAmep_on_actions_mt.11
+		trigger = {
+			OR = {
+				culture_group = culture_group_numenorean
+				trait = numenorean
+				trait = numenor_blood
+			}
+		}
+		death = {
+			death_reason = death_old_age
+		}
+	}
+
+	option = {	#Sail West
+		name = EVTOPTBmep_on_actions_mt.11
+		trigger = {
+			OR = {
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+			}
+		}
+		death = {
+			death_reason = death_journey_west
+		}
+	}
+
+	option = {	#Just Die
+		name = EVTOPTCmep_on_actions_mt.11
+		trigger = {
+			NOR = {
+				culture_group = culture_group_numenorean
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+				trait = numenorean
+				trait = numenor_blood
+			}
+		}
+		death = yes
+	}
+}
+
+character_event = {	#Prestige Dynasties Startup
+	id = mep_on_actions_mt.121
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			mep_prestige_dynasty_trigger = yes
+			mother_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		IF = { #	Eorl
+			limit = {
+				OR = {
+					dynasty = 5
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+				}
+			}
+			add_trait = blood_of_eorl
+		}
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					dynasty = 100
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+				}
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					dynasty = 101
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+				}
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					dynasty = 102
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+				}
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					dynasty = 174
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+				}
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					dynasty = 935
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+				}
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					dynasty = 936
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+				}
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					dynasty = 2001
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+				}
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					dynasty = 2004
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+				}
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					dynasty = 3002
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+				}
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					dynasty = 3004
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+				}
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					dynasty = 3005
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+				}
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					dynasty = 3006
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+				}
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					dynasty = 3007
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+				}
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					dynasty = 3009
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+				}
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					dynasty = 3010
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+				}
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					dynasty = 3013
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+				}
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					dynasty = 4001
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+				}
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					dynasty = 12001
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+				}
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					dynasty = 12003
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+				}
+			}
+			add_trait = blood_of_valandil
+		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					dynasty = 12015
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+				}
+			}
+			add_trait = blood_of_elendil
+		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
+	}
+}
+character_event = {	#Prestige Dynasties - Birth Dynastic
+	id = mep_on_actions_mt.122
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_game_rule = {
+			name = prestige_dynasties
+			value = dynastic
+		}
+		OR = {
+			mother_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+			father_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		IF = { #	Eorl
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+					father_even_if_dead = {
+						dynasty = 5
+					}
+				}
+			}
+			add_trait = blood_of_eorl
+		}
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+					father_even_if_dead = {
+						dynasty = 100
+					}
+				}
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+					father_even_if_dead = {
+						dynasty = 101
+					}
+				}
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+					father_even_if_dead = {
+						dynasty = 102
+					}
+				}
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+					father_even_if_dead = {
+						dynasty = 174
+					}
+				}
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+					father_even_if_dead = {
+						dynasty = 935
+					}
+				}
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+					father_even_if_dead = {
+						dynasty = 936
+					}
+				}
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+					father_even_if_dead = {
+						dynasty = 2001
+					}
+				}
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+					father_even_if_dead = {
+						dynasty = 2004
+					}
+				}
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+					father_even_if_dead = {
+						dynasty = 3002
+					}
+				}
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+					father_even_if_dead = {
+						dynasty = 3004
+					}
+				}
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+					father_even_if_dead = {
+						dynasty = 3005
+					}
+				}
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+					father_even_if_dead = {
+						dynasty = 3006
+					}
+				}
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+					father_even_if_dead = {
+						dynasty = 3007
+					}
+				}
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+					father_even_if_dead = {
+						dynasty = 3009
+					}
+				}
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+					father_even_if_dead = {
+						dynasty = 3010
+					}
+				}
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+					father_even_if_dead = {
+						dynasty = 3013
+					}
+				}
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+					father_even_if_dead = {
+						dynasty = 4001
+					}
+				}
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+					father_even_if_dead = {
+						dynasty = 12001
+					}
+				}
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+					father_even_if_dead = {
+						dynasty = 12003
+					}
+				}
+			}
+			add_trait = blood_of_valandil
+		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+					father_even_if_dead = {
+						dynasty = 12015
+					}
+				}
+			}
+			add_trait = blood_of_elendil
+		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
+	}
+}
+character_event = {	#Bloodlines On Birth - Faux Lines
+	id = mep_on_actions_mt.123
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_game_rule = {
+			name = prestige_dynasties
+			value = faux_lines
+		}
+		OR = {
+			father_even_if_dead = {
+				OR = {
+					mep_prestige_dynasty_trigger = yes
+					mep_prestige_trait_trigger = yes
+				}
+			}
+			mother_even_if_dead = {
+				mep_prestige_dynasty_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		IF = { #	Eorl
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 5
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 5
+							trait = blood_of_eorl
+						}
+					}
+				}
+			}
+			add_trait = blood_of_eorl
+		}
+		IF = { #	Hurin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 100
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 100
+							trait = blood_of_hurin
+						}
+					}
+				}
+			}
+			add_trait = blood_of_hurin
+		}
+		IF = { #	Imrazor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 101
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 101
+							trait = blood_of_imrazor
+						}
+					}
+				}
+			}
+			add_trait = blood_of_imrazor
+		}
+		IF = { #	Anarion
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 102
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 102
+							trait = blood_of_anarion
+						}
+					}
+				}
+			}
+			add_trait = blood_of_anarion
+		}
+		IF = { #	Castamir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 174
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 174
+							trait = blood_of_castamir
+						}
+					}
+				}
+			}
+			add_trait = blood_of_castamir
+		}
+		IF = { #	Oropher
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 935
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 935
+							trait = blood_of_oropher
+						}
+					}
+				}
+			}
+			add_trait = blood_of_oropher
+		}
+		IF = { #	Amdir
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 936
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 936
+							trait = blood_of_amdir
+						}
+					}
+				}
+			}
+			add_trait = blood_of_amdir
+		}
+		IF = { #	Isildur
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 2001
+							trait = blood_of_isildur
+						}
+					}
+				}
+			}
+			add_trait = blood_of_isildur
+		}
+		IF = { #	Telcontar
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 2004
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 2004
+							trait = blood_of_telcontar
+						}
+					}
+				}
+			}
+			add_trait = blood_of_telcontar
+		}
+		IF = { #	Peredhel
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3002
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3002
+							trait = blood_of_peredhel
+						}
+					}
+				}
+			}
+			add_trait = blood_of_peredhel
+		}
+		IF = { #	Finarfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3004
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3004
+							trait = blood_of_finarfin
+						}
+					}
+				}
+			}
+			add_trait = blood_of_finarfin
+		}
+		IF = { #	Fingolfin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3005
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3005
+							trait = blood_of_fingolfin
+						}
+					}
+				}
+			}
+			add_trait = blood_of_fingolfin
+		}
+		IF = { #	Finwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3006
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3006
+							trait = blood_of_finwe
+						}
+					}
+				}
+			}
+			add_trait = blood_of_finwe
+		}
+		IF = { #	Feanor
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3007
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3007
+							trait = blood_of_feanor
+						}
+					}
+				}
+			}
+			add_trait = blood_of_feanor
+		}
+		IF = { #	Elwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3009
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3009
+							trait = blood_of_elwe
+						}
+					}
+				}
+			}
+			add_trait = blood_of_elwe
+		}
+		IF = { #	Ingwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3010
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3010
+							trait = blood_of_ingwe
+						}
+					}
+				}
+			}
+			add_trait = blood_of_ingwe
+		}
+		IF = { #	Olwe
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 3013
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 3013
+							trait = blood_of_olwe
+						}
+					}
+				}
+			}
+			add_trait = blood_of_olwe
+		}
+		IF = { #	Durin
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 4001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 4001
+							trait = blood_of_durin
+						}
+					}
+				}
+			}
+			add_trait = blood_of_durin
+		}
+		IF = { #	Elros
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12001
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12001
+							trait = blood_of_valandil
+						}
+					}
+				}
+			}
+			add_trait = blood_of_elros
+		}
+		IF = { #	Valandil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12003
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12003
+							trait = blood_of_valandil
+						}
+					}
+				}
+			}
+			add_trait = blood_of_valandil
+		}
+		IF = { #	Elendil
+			limit = {
+				OR = {
+					mother_even_if_dead = {
+						dynasty = 12015
+					}
+					father_even_if_dead = {
+						OR = {
+							dynasty = 12015
+							trait = blood_of_elendil
+						}
+					}
+				}
+			}
+			add_trait = blood_of_elendil
+		}
+		add_character_modifier = {
+			modifier = noble_bloodline
+			duration = -1
+		}
+	}
+}
+character_event = {	#Has Ring - Choose to Destroy
+	id = mep_on_actions_mt.14
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		FROM = {
+			has_artifact_flag = flag_the_one_ring
+		}
+		NOT = {
+			character = 10016
+		}
+	}
+
+	immediate = {
+		character_event = { id = mep_onering_events.0 }
+	}
+}
+character_event = {	#Set Orcs to Open
+	id = mep_on_actions_mt.15
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = e_rebels
+	}
+
+	immediate = {
+		any_independent_ruler = {
+			if = {
+				limit = {
+					government = orc_government
+				}
+				primary_title = {
+					succession = open_elective
+				}
+			}
+			any_realm_lord = {
+				limit = {
+					government = orc_government
+				}
+				primary_title = {
+					succession = open_elective
+				}
+			}
+		}
+	}
+}
+character_event = {	#Lesser Ring Obtained
+	id = mep_on_actions_mt.16
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		FROM = {
+			artifact = lesser_ring
+		}
+	}
+
+	option = {
+		any_player = {
+			limit = {
+				NOT = {
+					character = ROOT
+				}
+			}
+			character_event = {
+				id = mep_on_actions_mt.161
+			}
+		}
+	}
+}
+
+character_event = {	#Lesser Ring Obtained
+	id = mep_on_actions_mt.161
+	desc = EVTDESCmep_on_actions_mt.161
+	picture = GFX_evt_emissary
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_on_actions_mt.161
+	}
+}
+character_event = {	#Assign Race Traits
+	id = mep_on_actions_mt.21
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			# Deities
+			culture = culture_maiar
+			culture = culture_umaiar
+			culture = culture_istari
+			culture = culture_valar
+			culture = culture_balrog
+			culture = culture_enigma
+			# High Creatures
+			culture = culture_eagles
+			culture = culture_wight
+			culture = culture_spider
+			culture = culture_entish
+			culture = culture_beorning
+			culture = culture_dragons
+			# Lesser Creatures
+			culture = culture_half_orc
+			culture = culture_urukhai
+			culture = culture_goblin
+			culture = culture_orkish
+			culture = culture_wargs
+			culture = culture_troll
+			# Elves
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_quendi
+			# Men
+			culture = culture_numenorean
+			culture = culture_arnorian
+			culture = culture_gondorian
+			culture = culture_black_numenorean
+			# Dwarves
+			culture_group = culture_group_dwarves
+			# Hobbits
+			culture_group = culture_group_halfling
+			# Wilderness
+			culture_group = culture_group_wilderness
+		}
+	}
+
+	immediate = {
+		IF = {	#Maiar
+			limit = {
+				OR = {
+					culture = culture_maiar
+					culture = culture_umaiar
+					culture = culture_istari
+				}
+			}
+			add_trait = maiar
+		}
+		IF = {	#Valar
+			limit = {
+				culture = culture_valar
+			}
+			add_trait = valar
+		}
+		IF = {	#Enigma
+			limit = {
+				culture = culture_enigma
+			}
+			add_trait = enigma
+		}
+		IF = {
+			limit = {
+				culture = culture_eagles
+			}
+			add_trait = eagle
+		}
+		IF = {
+			limit = {
+				culture = culture_wight
+			}
+			add_trait = wight
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture = culture_half_orc
+					culture = culture_urukhai
+					culture = culture_goblin
+					culture = culture_orkish
+					culture = culture_wargs
+					culture = culture_troll
+				}
+			}
+			add_trait = dark_creature
+		}
+		IF = {
+			limit = {
+				culture = culture_balrog
+			}
+			add_trait = balrog
+		}
+		IF = {
+			limit = {
+				culture = culture_dragons
+			}
+			add_trait = dragon
+		}
+		IF = {
+			limit = {
+				culture = culture_spider
+			}
+			add_trait = spider
+		}
+		IF = {
+			limit = {
+				culture = culture_entish
+			}
+			add_trait = ent
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture_group = culture_group_moriquendi
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_quendi
+				}
+			}
+			add_trait = elf
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_dwarves
+			}
+			add_trait = dwarven
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_halfling
+			}
+			add_trait = hobbit
+		}
+		IF = {
+			limit = {
+				culture = culture_beorning
+			}
+			add_trait = skin_changer
+		}
+		IF = {
+			limit = {
+				culture = culture_numenorean
+			}
+			add_trait = numenorean
+		}
+		IF = {
+			limit = {
+				OR = {
+					culture = culture_arnorian
+					culture = culture_gondorian
+					culture = culture_black_numenorean
+				}
+			}
+			add_trait = numenor_blood
+		}
+		IF = {
+			limit = {
+				culture_group = culture_group_wilderness
+			}
+			add_trait = wilderness
+		}
+	}
+}
