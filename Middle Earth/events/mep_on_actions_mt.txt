@@ -1181,13 +1181,22 @@ character_event = {	#Set Orcs to Open
 	}
 
 	immediate = {
-		any_character = {
-			limit = {
-				is_ruler = yes
-				government = orc_government
+		any_independent_ruler = {
+			if = {
+				limit = {
+					government = orc_government
+				}
+				primary_title = {
+					succession = open_elective
+				}
 			}
-			primary_title = {
-				succession = open_elective
+			any_realm_lord = {
+				limit = {
+					government = orc_government
+				}
+				primary_title = {
+					succession = open_elective
+				}
 			}
 		}
 	}
