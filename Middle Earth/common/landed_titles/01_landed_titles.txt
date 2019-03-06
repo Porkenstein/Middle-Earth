@@ -106,7 +106,7 @@ e_gondor = {
 				color={ 64 63 18 }
 				color2={ 255 255 255 }
 				
-				holy_site  = religion_dunedain
+				holy_site  = religion_edain
 				
 				culture_rohirrim = "Mundburg"
 		
@@ -8826,8 +8826,10 @@ e_durins_folk = {
 		assimilate = no
 		
 		allow = {
-			religion = religion_khazad
-			religion = religion_dark_khazad
+			OR = {
+				religion = religion_khazad
+				religion = religion_dark_khazad
+			}
 			OR = {
 				AND = {
 					has_landed_title = d_iron_mountains
@@ -11634,7 +11636,6 @@ e_barad_dur = {
 				color={ 131 36 3 }
 				color2={ 255 255 255 }
 				
-				holy_site = religion_edain
 				holy_site = religion_wight
 				holy_site = religion_corrupted_wight
 				
@@ -14585,8 +14586,10 @@ e_angmar = {
 	creation_requires_capital = yes		
 	allow = {
 		culture = culture_wight
-		religion = religion_wight
-		religion = religion_corrupted_wight
+		OR = {
+			religion = religion_wight
+			religion = religion_corrupted_wight
+		}
 		any_realm_title = { title = k_angmar }
 	}
 	dignity = 100 # Counted as having this many more counties than it does	
@@ -14703,8 +14706,10 @@ k_nogrod = {
 	capital = 239
 	
 	allow= {
-		religion="religion_khazad"
-		religion="religion_dark_khazad"
+		OR = {
+			religion="religion_khazad"
+			religion="religion_dark_khazad"
+		}
 		culture="culture_firebeard"
 		prestige = 250000000
 	}		
@@ -14717,8 +14722,10 @@ k_belegost = {
 	capital = 672
 	
 	allow= {
-		religion="religion_khazad"
-		religion="religion_dark_khazad"
+		OR = {
+			religion="religion_khazad"
+			religion="religion_dark_khazad"
+		}
 		culture="culture_broadbeam"
 		prestige = 250000000
 	}		
