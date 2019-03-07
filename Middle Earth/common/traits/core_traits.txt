@@ -2976,12 +2976,7 @@ african_tattoo_12 = {
 #############
 #Elf
 elf = {
-	potential = {
-		OR = {
-			religion = religion_eldar
-			religion = religion_dark_eldar
-		}
-	}
+	potential = { religion_group = religion_group_eldar }
     same_opinion = 20
 	sex_appeal_opinion = 10
 	diplomacy = 2
@@ -3001,21 +2996,13 @@ elf = {
 }
 beard_elf = {
 	hidden = yes
-	potential = {
-		OR = {
-			religion = religion_eldar
-			religion = religion_dark_eldar
-		}
-	}
+	potential = { religion_group = religion_group_eldar }
 	# cached = yes
 }
 elf_childhood = {
 	hidden = yes
 	potential = {
-		OR = {
-			religion = religion_eldar
-			religion = religion_dark_eldar
-		}
+		religion_group = religion_group_eldar
 		age = 16
 		NOT = { age = 25 }
 	}
@@ -3035,7 +3022,7 @@ half_elf = {
 }
 elf_friend = {
 	potential = {
-		NOT = { religion = religion_eldar }
+		NOT = { religion_group = religion_group_eldar }
 		NOT = { mep_evil_religion = yes }
 		NOT = { trait = zealous } # aka 'Racist'
 	}
@@ -3046,12 +3033,7 @@ elf_friend = {
 
 #Dwarf
 dwarven = {
-	potential = {
-		OR = {
-			religion = religion_khazad
-			religion = religion_dark_khazad
-		}
-	}
+	potential = { religion_group = religion_group_khazad }
    	health = 15.0
   	same_opinion = 20
 	martial = 2
@@ -3070,7 +3052,7 @@ dwarven = {
 }
 dwarf_friend = {
 	potential = {
-		NOT = { religion = religion_khazad }
+		NOT = { religion_group = religion_group_khazad }
 		NOT = { mep_evil_religion = yes }
 		NOT = { trait = zealous } # aka 'Racist'
 	}
@@ -5042,7 +5024,7 @@ berserker = {
 ravager = {
 	potential = {
 		OR = {
-			culture = culture_umbareans
+			culture = culture_haradrim
 			culture = culture_black_numenorean
 		}
 	}
@@ -5070,7 +5052,7 @@ ravager = {
 seaking = {
 	potential = {
 		OR = {
-			culture = culture_umbareans
+			culture = culture_haradrim
 			culture = culture_black_numenorean
 		}
 	}
@@ -5109,7 +5091,7 @@ shieldmaiden  = {
 sea_queen = {
 	potential = {
 		OR = {
-			culture = culture_umbareans
+			culture = culture_haradrim
 			culture = culture_black_numenorean
 		}
 	}
@@ -5392,7 +5374,7 @@ umbar_corsair = {
 	potential = {
 		OR = {
 			culture = culture_black_numenorean
-			culture = culture_umbareans
+			culture = culture_haradrim
 		}
 	}
 	command_modifier = {
@@ -5628,10 +5610,10 @@ skilled_craftsman = {
 	stewardship = 3
 	potential = {
 		OR = {
-			religion = religion_khazad
-			religion = religion_dark_khazad
-			religion = religion_eldar
-			religion = religion_dark_eldar
+			religion_group = religion_khazad
+			religion_group = religion_dark_khazad
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
 		}
 	}
 	opposites =  {
@@ -5649,8 +5631,8 @@ master_craftsman = {
 	stewardship = 5
 	potential = {
 		OR = {
-			religion = religion_eldar
-			religion = religion_dark_eldar
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
 		}
 	}
 	opposites =  {
