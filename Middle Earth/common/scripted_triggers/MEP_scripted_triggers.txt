@@ -468,16 +468,16 @@ mep_cant_get_drunk_trigger = {
 mep_dont_seduce_trigger = {
 	OR = {
 		AND = {
-			religion_group = religion_group_eldar  # too Catholic
+			religion = religion_eldar
 			NOT = {  trait = lustful  }
 			NOT = {  trait = seducer  }
 			NOT = {  trait = seductress  }
 		}
 		religion_group = religion_group_wilderness  # not actual character
-		# religion_group = religion_group_enyd
+		religion = religion_enyd
 		religion_group = religion_group_melkor  # probably too evil and chaotic to seduce
 		religion_group = religion_group_ungoliant  # Spiders eat their mates sometimes
-		religion_group = religion_group_eruhini # Eagles, Valar, Tom Bombadil, etc		
+		religion = religion_eruhini # Eagles, Valar, Tom Bombadil, etc		
 	}
 }
 
@@ -534,13 +534,12 @@ mep_will_purge_good = {
 mep_is_evil_overlord = {
 	mep_is_evil_side_trigger = yes
 	OR = {
-		religion = religion_umaiar
+		religion_group = religion_group_melkor
 		culture = culture_istari
 		trait = valar
 		trait = maiar
 		trait = balrog
 		trait = nazgul
-		religion_group = religion_group_dragon
 	}
 }
 
@@ -642,7 +641,6 @@ mep_is_elf_culture = {
 mep_make_random_elf_culture = {
 	OR = {
 		culture = culture_nandor
-		culture = culture_sirannar
 		culture = culture_silvan
 		culture = culture_avari
 		culture = culture_sindar
@@ -652,14 +650,7 @@ mep_make_random_elf_culture = {
 }
 
 mep_is_good_side_race = {
-	OR = {
-		religion_group = religion_group_khazad
-		religion_group = religion_group_eldar
-		religion = religion_numenorean
-		religion = religion_dunedain
-		religion = religion_edain
-		religion = religion_druedain
-	}
+	religion_group = religion_group_eruhini
 }
 
 mep_is_human_trigger = {
@@ -689,12 +680,8 @@ mep_winter_culture = {
 		culture = culture_longbeard
 		culture = culture_ironfist
 		culture = culture_orkish
-		culture = culture_orkish
-		culture = culture_orkish
 		culture = culture_wight
 		culture = culture_arnorian
-		culture = culture_arnorian
-		culture_group = culture_group_dunedain
 		culture = culture_breelander
 		culture = culture_barding
 		culture = culture_northmen
@@ -800,7 +787,6 @@ mep_generic_buildings_culture = {
 		culture_group = culture_group_southron
 		culture_group = culture_group_easterling
 		culture_group = culture_group_middlemen
-		culture_group = culture_group_northmen
 	}
 	NOT = { culture = culture_rohirrim }
 	NOT = { culture = culture_eotheod }
@@ -922,23 +908,31 @@ mep_has_dwarf_realm = {
 
 mep_has_immortal_population_trigger = {
 	OR = {
-		religion_group = religion_group_eruhini # Ainur (like Eagles)
-		religion_group = religion_group_enyd    # Ents
-		religion_group = religion_group_eldar   # Elves
-		religion = religion_umaiar
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_enyd    # Ents
+		religion = religion_dark_enyd
+		religion = religion_eldar   # Elves
+		religion = religion_dark_eldar
+		religion = religion_melkor
 		religion = religion_wight
-		religion_group = religion_group_dragon
+		religion = religion_corrupted_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
 	}
 }
 
 mep_population_immune_trigger = {
 	OR = {
-		religion_group = religion_group_eruhini
-		religion_group = religion_group_enyd
-		religion_group = religion_group_eldar
+		religion = religion_eruhini
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		religion = religion_eldar
+		religion = religion_dark_eldar
 		religion = religion_wight
-		religion = religion_umaiar
-		religion_group = religion_group_dragon
+		religion = religion_corrupted_wight
+		religion = religion_melkor
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
 		religion_group = religion_group_ungoliant
 		religion_group = religion_group_wilderness	
 	}
@@ -946,11 +940,9 @@ mep_population_immune_trigger = {
 
 mep_population_resistant_trigger = {
 	OR = {
-		religion_group = religion_group_khazad
-		religion = religion_dunedain
-		religion = religion_black_numenorean
-		religion = religion_numenorean
-		culture = culture_kul_uruk
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_edain
 	}
 }
 
@@ -982,8 +974,9 @@ mep_wilderness_province_trigger = {
 }
 
 mep_is_province_elven_trigger = {
-	religion_group = religion_group_eldar
 	OR = {
+		religion = religion_eldar
+		religion = religion_dark_eldar
 		culture_group = culture_group_quendi
 		culture_group = culture_group_amanyar
 		culture_group = culture_group_umanyar
@@ -992,29 +985,13 @@ mep_is_province_elven_trigger = {
 }
 
 mep_good_side_province = {
-	OR = {
-		religion_group = religion_group_eruhini # Ainur (like Eagles)
-		religion_group = religion_group_enyd    # Ents
-		religion_group = religion_group_eldar   # Elves
-		religion_group = religion_group_khazad  # Dwarves
-		AND = {
-			religion = religion_numenorean
-			NOT = { culture = culture_black_numenorean }
-		}
-		religion = religion_dunedain
-		religion = religion_edain
-		religion = religion_druedain
-		religion = religion_rhovanion								
-	}
+	religion_group = religion_group_eruhini
 } 
-
-
 
 mep_general_buildings_human = {
 	OR = {
 		culture_group = culture_group_edain
 		culture_group = culture_group_middlemen
-		culture_group = culture_group_northmen
 		culture_group = culture_group_southron
 		culture_group = culture_group_easterling						
 	}
