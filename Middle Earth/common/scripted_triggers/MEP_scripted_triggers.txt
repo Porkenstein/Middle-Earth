@@ -430,7 +430,7 @@ mep_should_be_unkillable_trigger = {
 		}
 		culture = culture_balrog
 		culture = culture_wight
-		religion_group = religion_group_dragon
+		religion = religion_dragons
 		trait = maiar
 		trait = balrog
 		AND = {
@@ -443,7 +443,7 @@ mep_should_be_unkillable_trigger = {
 		}
 		trait = enigma
 		trait = nazgul
-		religion = religion_umaiar
+		religion = religion_melkor
 	}
 }
 
@@ -609,13 +609,17 @@ mep_has_southern_palantiri = {
 
 mep_is_immortal_race_trigger = {
 	OR = {
-		religion_group = religion_group_eruhini # Ainur (like Eagles)
-		religion_group = religion_group_enyd    # Ents
-		religion_group = religion_group_eldar   # Elves
-		religion = religion_umaiar
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_enyd    # Ents
+		religion = religion_dark_enyd
+		religion = religion_eldar   # Elves
+		religion = religion_dark_eldar
+		religion = religion_melkor
 		religion = religion_wight
+		religion = religion_corrupted_wight
 		religion_group = religion_group_ungoliant
-		religion_group = religion_group_dragon
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
 	}
 }
 
@@ -751,8 +755,6 @@ mep_prim_humans_culture_notbree = {
 mep_orc_culture = {
 	OR = {
 		culture = culture_urukhai
-		culture = culture_orkish
-		culture = culture_orkish
 		culture = culture_half_orc
 		culture = culture_orkish
 	}
@@ -773,26 +775,21 @@ mep_evil_religion = {
 mep_any_religion = {
 	OR = {
 		religion_group = religion_group_eruhini
-		religion_group = religion_group_enyd
-		religion_group = religion_group_khazad
-		religion_group = religion_group_eldar
-		religion_group = religion_group_periannath
-		religion_group = religion_group_edain
-		religion_group = religion_group_hildor
 		religion_group = religion_group_melkor
 		religion_group = religion_group_ungoliant
-		religion_group = religion_group_dragon
-		religion_group = religion_group_wilderness
 	}
 }
 
 mep_dont_do_horses = {
 	OR = {
-		religion_group = religion_group_khazad
-		religion_group = religion_group_periannath
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_perian
+		religion = religion_dark_perian
 		religion_group = religion_group_ungoliant
 		culture_group = culture_group_forodwaith
-		religion_group = religion_group_enyd
+		religion = religion_enyd
+		religion = religion_dark_enyd
 		culture = culture_eagles
 	}
 }
