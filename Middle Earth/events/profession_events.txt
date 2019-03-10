@@ -932,3 +932,54 @@ character_event = {
 		}
 	}
 }
+
+#Challenge to Duel
+character_event = {
+	id = profession_events.8
+	desc = EVTDESCprofession_events.8
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.8
+		hidden_tooltip = {
+			save_event_target_as = dueler2
+			set_character_flag = in_duel
+			FROMFROM = {
+				save_event_target_as = dueler1
+				set_character_flag = in_duel
+				character_event = { id = mep_duel_events.20  }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.8
+		if = {
+			limit = {
+				trait = master_fighter
+			}
+			prestige = -100
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.81
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.81
+	desc = EVTDESCprofession_events.81
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.81
+		opinion = {
+			who = FROM
+			opinion = opinion_dishonorable_strong
+			years = 2
+		}
+	}
+}

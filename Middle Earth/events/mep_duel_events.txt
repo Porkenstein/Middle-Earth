@@ -670,6 +670,11 @@ character_event = {#Imprison or Kill Dueler
 
 	option = {
 		name = EVTOPTAmep_duel_events.11 # Imprison
+		trigger = {
+			NOT = {
+				has_character_flag = in_challenge
+			}
+		}
 		ai_chance = {
 			factor = 0.9
 			modifier = {
@@ -707,6 +712,11 @@ character_event = {#Imprison or Kill Dueler
 	}
 	option = {
 		name = EVTOPTBmep_duel_events.11 # Kill
+		trigger = {
+			NOT = {
+				has_character_flag = in_challenge
+			}
+		}
 		ai_chance = {
 			factor = 0.1
 		}

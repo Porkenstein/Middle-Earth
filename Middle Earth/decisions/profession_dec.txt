@@ -1838,4 +1838,200 @@ targetted_decisions = {
 			}
 		}
 	}
+	fighter_duel = {
+		only_playable = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			has_combat_prowess_trigger = yes
+			NOT = {
+				war = yes
+			}
+			NOR = {
+				is_ill = yes
+				trait = stressed
+			}
+			NOT = {
+				prisoner = yes
+			}
+		}
+		potential = {
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				reverse_has_opinion_modifier = {
+					who = FROM
+					opinion = opinion_dishonorable_strong
+				}
+			}
+			OR = {
+				any_neighbor_independent_ruler = {
+					character = FROM
+				}
+				any_rival = {
+					character = FROM
+				}
+			}
+			OR = {
+				NOT = {
+					same_realm = FROM
+				}
+				AND = {
+					FROM = {
+						independent = no
+					}
+					ROOT = {
+						OR = {
+							any_claim = {
+								holder_scope = {
+									character = FROM
+								}
+							}
+							FROM = {
+								any_claim = {
+									holder_scope = {
+										character = ROOT
+									}
+								}
+							}
+						}
+					}
+				}
+				any_rival = {
+					character = FROM
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				trait = saruman_spell
+				trait = stressed
+				trait = depressed
+				trait = lunatic
+				trait = incapable
+			}
+			OR = {
+				AND = {
+					FROM = {
+						independent = yes
+					}
+					any_neighbor_independent_ruler = {
+						character = FROM
+					}
+				}
+				any_rival = {
+					character = FROM
+				}
+				any_claim = {
+					holder_scope = {
+						character = FROM
+					}
+				}
+				FROM = {
+					any_claim = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			character_event = {
+				id = profession_events.8
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.01
+			}
+			modifier = {
+				factor = 2
+				independent = yes
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					independent = yes
+				}
+			}
+			modifier = {
+				factor = 5
+				real_tier = EMPEROR
+			}
+			modifier = {
+				factor = 3
+				real_tier = KING
+			}
+			modifier = {
+				factor = 1.5
+				real_tier = DUKE
+			}
+			modifier = {
+				factor = 0.5
+				real_tier = COUNT
+			}
+			modifier = {
+				factor = 0.01
+				real_tier = BARON
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					trait = novice_fighter
+				}
+			}
+			modifier = {
+				factor = 0.15
+				FROM = {
+					trait = adept_fighter
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					trait = skilled_fighter
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					trait = master_fighter
+				}
+			}
+			modifier = {
+				factor = 0.05
+				FROM = {
+					any_dynasty_member = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0.01
+				FROM = {
+					any_child = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					current_heir = {
+						character = ROOT
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				trait = trait_nooo
+			}
+		}
+	}
 }
