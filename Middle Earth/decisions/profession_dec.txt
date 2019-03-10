@@ -24,6 +24,78 @@ decisions = {
 			factor = 1
 		}
 	}
+	seek_treatment = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 6
+		potential = {
+			is_playable = yes
+			NOT = { trait = troubled_pregnancy } #Treatment handled by special event chain
+			NOT = {
+				has_character_flag = sought_treatment
+			}
+			OR = {
+				trait = has_tuberculosis
+				trait = has_typhoid_fever
+				trait = has_typhus
+				trait = has_bubonic_plague
+				trait = has_measles
+				trait = has_small_pox
+				trait = has_aztec_disease
+				trait = syphilitic
+				trait = flu
+				trait = dysentery
+				trait = gout
+				trait = food_poisoning
+				trait = rabies
+				trait = cancer
+				trait = pneumonic
+				num_of_symptoms = 1
+			}
+			has_assigned_minor_title = title_court_physician
+		}
+		allow = {
+			NOT = {
+				prisoner = yes
+			}
+		}
+		effect = {
+			set_character_flag = sought_treatment
+			character_event = {
+				id = mep_med_events.1
+			}
+		}
+		ai_will_do = {
+			factor = 0.25
+			modifier = {
+				factor = 2
+				OR = {
+					trait = craven
+					trait = paranoid
+				}
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { health = 5 }
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { health = 4 }
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { health = 3 }
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { health = 2 }
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { health = 1 }
+			}
+		}
+	}
 }
 targetted_decisions = {
 	# Sorcerer
