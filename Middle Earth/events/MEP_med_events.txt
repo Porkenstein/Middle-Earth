@@ -27,10 +27,19 @@ character_event = {
 	}
 	picture = GFX_elf_meeting
 	is_triggered_only = yes
+
+	immediate = {
+		any_courtier = {
+			limit = {
+				has_minor_title = title_court_physician
+			}
+			save_event_target_as = doc
+		}
+	}
     
 	option = {
 		name = EVTOPTAmep_med_events.1
-		any_courtier = {
+		event_target:doc = {
 			limit = {
 				has_minor_title = title_court_physician
 			}
@@ -38,6 +47,15 @@ character_event = {
 				id = mep_med_events.11
 			}
 		}
+	}
+	option = {
+		name = EVTOPTBmep_med_events.1
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+		}
+		clr_character_flag = sought_treatment
 	}
 }
 character_event = {

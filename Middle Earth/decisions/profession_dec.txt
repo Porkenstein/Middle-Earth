@@ -31,26 +31,20 @@ decisions = {
 		potential = {
 			is_playable = yes
 			NOT = { trait = troubled_pregnancy } #Treatment handled by special event chain
-			NOT = {
-				has_character_flag = sought_treatment
+			OR = {
+				NOT = {
+					has_character_flag = sought_treatment
+				}
+				had_character_flag = {
+					flag = sought_treatment
+					months = 2
+				}
 			}
 			OR = {
-				trait = has_tuberculosis
-				trait = has_typhoid_fever
-				trait = has_typhus
-				trait = has_bubonic_plague
-				trait = has_measles
-				trait = has_small_pox
-				trait = has_aztec_disease
-				trait = syphilitic
-				trait = flu
-				trait = dysentery
-				trait = gout
-				trait = food_poisoning
-				trait = rabies
-				trait = cancer
-				trait = pneumonic
-				num_of_symptoms = 1
+				is_minor_illness = yes
+				is_moderate_illness = yes
+				is_severe_illness = yes
+				is_deadly_illness = yes
 			}
 			has_assigned_minor_title = title_court_physician
 		}
@@ -60,6 +54,7 @@ decisions = {
 			}
 		}
 		effect = {
+			clr_character_flag = sought_treatment
 			set_character_flag = sought_treatment
 			character_event = {
 				id = mep_med_events.1
