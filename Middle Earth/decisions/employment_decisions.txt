@@ -1,16 +1,9 @@
 decisions = {
 	employ_chancellor = {
 		potential = {
-			OR = {
-				AND = {
-					ai = no
-					is_ruler = yes
-				}
-				AND = {
-					ai = yes
-					NOT = { religion = religion_wilderness }
-				}
-			}
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
 		}
 		allow = {
 			NOT = { has_character_modifier = employment_timer }
@@ -18,10 +11,14 @@ decisions = {
 		}
 		effect = {
 			wealth = -10
-			create_random_diplomat = {
-				random_traits = yes
-				dynasty = random
-				female = no
+			capital_scope = {
+				create_random_diplomat = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
 			}
 			add_character_modifier = {
 				name = employment_timer
@@ -35,16 +32,9 @@ decisions = {
 	}
 	employ_marshal = {
 		potential = {
-			OR = {
-				AND = {
-					ai = no
-					is_ruler = yes
-				}
-				AND = {
-					ai = yes
-					NOT = { religion = religion_wilderness }
-				}
-			}
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
 		}
 		allow = {
 			NOT = { has_character_modifier = employment_timer }
@@ -52,10 +42,14 @@ decisions = {
 		}
 		effect = {
 			wealth = -10
-			create_random_soldier = {
-				random_traits = yes
-				dynasty = random
-				female = no
+			capital_scope = {
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
 			}
 			add_character_modifier = {
 				name = employment_timer
@@ -69,16 +63,9 @@ decisions = {
 	}
 	employ_steward = {
 		potential = {
-			OR = {
-				AND = {
-					ai = no
-					is_ruler = yes
-				}
-				AND = {
-					ai = yes
-					NOT = { religion = religion_wilderness }
-				}
-			}
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
 		}
 		allow = {
 			NOT = { has_character_modifier = employment_timer }
@@ -86,10 +73,14 @@ decisions = {
 		}
 		effect = {
 			wealth = -10
-			create_random_steward = {
-				random_traits = yes
-				dynasty = random
-				female = no
+			capital_scope = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
 			}
 			add_character_modifier = {
 				name = employment_timer
@@ -103,16 +94,9 @@ decisions = {
 	}
 	employ_spymaster = {
 		potential = {
-			OR = {
-				AND = {
-					ai = no
-					is_ruler = yes
-				}
-				AND = {
-					ai = yes
-					NOT = { religion = religion_wilderness }
-				}
-			}
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
 		}
 		allow = {
 			NOT = { has_character_modifier = employment_timer }
@@ -120,10 +104,14 @@ decisions = {
 		}
 		effect = {
 			wealth = -10
-			create_random_intriguer = {
-				random_traits = yes
-				dynasty = random
-				female = no
+			capital_scope = {
+				create_random_intriguer = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
 			}
 			add_character_modifier = {
 				name = employment_timer
@@ -138,8 +126,10 @@ decisions = {
 
 	present_debutante = {
 		potential = {
-			ai = no
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
 			NOT = { religion_group = religion_group_melkor }
+			is_landed = yes
 		}
 		allow = {
 			wealth = 10
@@ -155,11 +145,15 @@ decisions = {
 				duration = 365
 				hidden = yes
 			}
-			create_character = {
-				random_traits = yes
-				dynasty = random
-				female = yes
-				age = 17
+			capital_scope = {
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					female = yes
+					age = 17
+					culture = PREV
+					religion = PREV
+				}
 			}
 			new_character = {
 				remove_trait = slow
@@ -170,17 +164,15 @@ decisions = {
 			}
 			character_event = { id = NE.1 }
 		}
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	hire_craftsman = {
 		potential = {
-			is_ruler = yes
 			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
 		}
 		allow = {
 			NOT = {
@@ -200,6 +192,108 @@ decisions = {
 			factor = 0.1
 			modifier = {
 				factor = 0.1
+			}
+		}
+	}
+
+	employ_court_physician = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		potential = {
+			higher_real_tier_than = BARON
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
+			NOT = {
+				has_assigned_minor_title = title_court_physician
+			}
+		}
+		allow = {
+			hidden_tooltip = {
+				OR = {
+					wealth = 25
+					ai = no
+				}
+			}
+			NOR = {
+				has_character_modifier = in_seclusion
+				has_assigned_minor_title = title_court_physician
+			}
+		}
+		effect = {
+			capital_scope = {
+				create_random_priest = {
+					culture = PREV
+					religion = PREV
+					dynasty = culture
+					age = 35
+					random_traits = yes
+					female = no
+				}
+				new_character = {
+					random_list = {
+						1 = {
+							change_learning = 5
+						}
+						1 = {
+							change_learning = 10
+						}
+						1 = {
+							change_learning = 15
+						}
+						1 = {
+							change_learning = 20
+						}
+						1 = {
+							change_learning = 5
+							add_trait = drunkard
+						}
+						1 = {
+							change_learning = 5
+							add_age = 25
+							add_trait = blind
+						}
+					}
+					give_minor_title = title_court_physician
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.5
+			
+			modifier = {
+				factor = 0
+				AND = {
+					tier = COUNT
+					NOT = {
+						any_close_relative = {
+							ai = no
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOR = {
+					tier = KING
+					tier = EMPEROR
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 10
+				OR = {
+					is_ill = yes
+					num_of_symptoms = 1
+				}
 			}
 		}
 	}
