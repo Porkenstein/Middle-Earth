@@ -568,9 +568,22 @@ character_event = {#Determine Rebound
 						}
 					}
 					event_target:dueler2 = { clr_character_flag = in_duel }
-					death = {
-						death_reason = death_duel
-						killer = event_target:dueler2
+					if = {
+						limit = {
+							NOT = {
+								duel_unkillable_trigger = yes
+							}
+						}
+						death = {
+							death_reason = death_duel
+							killer = event_target:dueler2
+						}
+					}
+					else = {
+						add_trait = maimed
+					}
+					event_target:dueler2 = {
+						character_event = { id = mep_duel_events.12 }
 					}
 				}
 				1 = {
@@ -610,6 +623,19 @@ character_event = {#Determine Rebound
 							combat_rating = 10
 						}
 					}
+					if = {
+						limit = {
+							trait = wounded
+						}
+						add_trait = maimed
+						remove_trait = wounded
+					}
+					else = {
+						add_trait = wounded
+					}
+					event_target:dueler1 = {
+						character_event = { id = mep_duel_events.20 }
+					}
 				}
 				1 = {
 					modifier = {
@@ -647,12 +673,12 @@ character_event = {#Determine Rebound
 						event_target:dueler1 = {
 							combat_rating = 10
 						}
+					}
+					event_target:dueler1 = {
+						character_event = { id = mep_duel_events.20 }
 					}
 				}
 			}
-		}
-		event_target:dueler1 = {
-			character_event = { id = mep_duel_events.20 }
 		}
 	}
 	option = {
@@ -670,11 +696,6 @@ character_event = {#Imprison or Kill Dueler
 
 	option = {
 		name = EVTOPTAmep_duel_events.11 # Imprison
-		trigger = {
-			NOT = {
-				has_character_flag = in_challenge
-			}
-		}
 		ai_chance = {
 			factor = 0.9
 			modifier = {
@@ -701,22 +722,20 @@ character_event = {#Imprison or Kill Dueler
 		FROM = {
 			imprison = ROOT
 			clr_character_flag = in_duel
-			IF = {
-				limit = { has_character_flag = guard_in_duel }
-				employer = {
-					character_event = { id = mep_duel_events.12 }
-				}
-				clr_character_flag = guard_in_duel
+		}
+		if = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				character_event = { id = mep_duel_events.12 }
 			}
+			clr_character_flag = guard_in_duel
+		}
+		else = {
+			character_event = { id = mep_duel_events.12 }
 		}
 	}
 	option = {
 		name = EVTOPTBmep_duel_events.11 # Kill
-		trigger = {
-			NOT = {
-				has_character_flag = in_challenge
-			}
-		}
 		ai_chance = {
 			factor = 0.1
 		}
@@ -730,70 +749,83 @@ character_event = {#Imprison or Kill Dueler
 			clr_character_flag = guard_in_duel
 		}
 		FROM = {
-			any_child = {
+			if = {
 				limit = {
-					NOT = { character = ROOT }
+					NOT = {
+						duel_unkillable_trigger = yes
+					}
 				}
-				opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
-			}
-			any_spouse = {
-				limit = {
-					NOT = { character = ROOT }
-				}
-				opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
-			}
-			any_sibling = {
-				limit = {
-					NOT = { character = ROOT }
-				}
-				opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
-			}
-			father = {
-				IF = {
+				any_child = {
 					limit = {
 						NOT = { character = ROOT }
 					}
 					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
 				}
-			}
-			mother = {
-				IF = {
+				any_spouse = {
 					limit = {
 						NOT = { character = ROOT }
 					}
 					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
 				}
-			}
-			any_friend = {
-				limit = {
-					NOT = { character = ROOT }
+				any_sibling = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
 				}
-				opinion = { modifier = opinion_killed_friend who = ROOT years = 100 }
-			}
-			any_vassal = {
-				limit = {
-					NOT = { character = ROOT }
+				father = {
+					IF = {
+						limit = {
+							NOT = { character = ROOT }
+						}
+						opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+					}
 				}
-				opinion = { modifier = opinion_killed_liege who = ROOT years = 20 }
-			}
-			any_rival = {
-				limit = {
-					NOT = { character = ROOT }
+				mother = {
+					IF = {
+						limit = {
+							NOT = { character = ROOT }
+						}
+						opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+					}
 				}
-				opinion = { modifier = opinion_killed_rival who = ROOT years = 20 }
+				any_friend = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_friend who = ROOT years = 100 }
+				}
+				any_vassal = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_liege who = ROOT years = 20 }
+				}
+				any_rival = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_rival who = ROOT years = 20 }
+				}
+				death = {
+					death_reason = death_duel
+					killer = ROOT
+				}
+			}
+			else = {
+				add_trait = maimed
 			}
 			clr_character_flag = in_duel
-			IF = {
-				limit = { has_character_flag = guard_in_duel }
-				employer = {
-					character_event = { id = mep_duel_events.12 }
-				}
-				clr_character_flag = guard_in_duel
+		}
+		if = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				character_event = { id = mep_duel_events.12 }
 			}
-			death = {
-				death_reason = death_duel
-				killer = ROOT
-			}
+			clr_character_flag = guard_in_duel
+		}
+		else = {
+			character_event = { id = mep_duel_events.12 }
 		}
 	}
 }
@@ -815,8 +847,27 @@ character_event = {#Inform Lost Duel
 			}
 		}
 	}
+	desc = {
+		text = EVTDESCCmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
 	picture = GFX_evt_castle_construction
 	is_triggered_only = yes
+
+	immediate = {
+		event_target:dueler1 = {
+			character_event = {
+				id = mep_duel_events.13
+			}
+		}
+	}
 
 	option = {
 		name = EVTOPTAmep_duel_events.12
@@ -831,6 +882,77 @@ character_event = {#Inform Lost Duel
 		trigger = {
 			event_target:dueler1 = {
 				is_alive = no
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+}
+character_event = {#Inform Lost Duel
+	id = mep_duel_events.13
+	desc = {
+		text = EVTDESCAmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
 			}
 		}
 	}
