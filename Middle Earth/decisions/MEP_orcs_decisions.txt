@@ -1,41 +1,4 @@
 decisions = {
-	## Decision for an ork vassal to claim the crown of his liege ##
-	claim_throne_orcs = {
-		potential = {
-			#ai = no
-			liege = {
-				OR = {
-					mep_orc_culture = yes
-					religion = religion_orkish
-				}
-				NOT = { has_character_flag = orcfight1 }
-				NOT = { character = ROOT }
-			}
-			OR = {
-				mep_orc_culture = yes
-				religion = religion_orkish
-			}
-			NOT = { has_character_flag = orcfight1 }
-			NOT = { is_female = yes }
-			NOT = { trait = incapable }
-			NOT = { trait = blinded }
-			NOT = { trait = craven }
-		}
-		allow = {
-			war = no
-			prisoner = no
-			liege = {
-				NOT = { martial = ROOT }
-			}
-			prestige = 500
-		}
-		effect = {
-			character_event = { id = orcfights.0 }
-			set_character_flag = orcfight1
-			liege = { set_character_flag = orcfight1 }
-		}
-	}
-	
 	## Decision to draft a snaga mob to war ##
 	draft_snaga_mob = {
 		is_high_prio = yes
