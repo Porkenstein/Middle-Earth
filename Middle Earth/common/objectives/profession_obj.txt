@@ -163,7 +163,10 @@ obj_mastery_healing = {
 	type = character
 	allow = {
 		is_healer_trigger = yes
-		NOT = { trait = master_healer }
+		NOR = {
+			kings_hands_trigger = yes
+			trait = master_healer
+		}
 	}
 	chance = {
 		factor = 30

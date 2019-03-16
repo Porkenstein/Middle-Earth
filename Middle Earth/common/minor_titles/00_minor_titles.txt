@@ -2204,7 +2204,12 @@ title_court_physician = {
 	allowed_to_hold = {
 		OR = {
 			is_sorcerer_trigger = yes
-			is_healer_trigger = yes
+			AND = {
+				is_healer_trigger = yes
+				NOT = {
+					kings_hands_trigger = yes
+				}
+			}
 		}
 		is_adult = yes
 		NOT = { trait = elf_childhood }

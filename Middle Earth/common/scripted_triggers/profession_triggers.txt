@@ -1,6 +1,22 @@
 has_ring_trigger = {
 	has_artifact = artifact_ring
 }
+kings_hands_trigger = {
+	mep_is_good_side_trigger = yes
+	OR = {
+		has_landed_title = e_gondor
+		has_landed_title = e_arnor
+		has_landed_title = e_reunited_kingdom
+	}
+	OR = {
+		trait = blood_of_elros
+		trait = blood_of_valandil
+		trait = blood_of_elendil
+		trait = blood_of_isildur
+		trait = blood_of_anarion
+		trait = blood_of_telcontar
+	}
+}
 has_profession_trigger = {
 	OR = {
 		#Musician
@@ -64,22 +80,7 @@ is_healer_trigger = {
 		trait = adept_healer
 		trait = skilled_healer
 		trait = master_healer
-		AND = {
-			mep_is_good_side_trigger = yes
-			OR = {
-				has_landed_title = e_gondor
-				has_landed_title = e_arnor
-				has_landed_title = e_reunited_kingdom
-			}
-			OR = {
-				trait = blood_of_elros
-				trait = blood_of_valandil
-				trait = blood_of_elendil
-				trait = blood_of_isildur
-				trait = blood_of_anarion
-				trait = blood_of_telcontar
-			}
-		}
+		kings_hands_trigger = yes
 	}
 }
 is_minor_illness = {
