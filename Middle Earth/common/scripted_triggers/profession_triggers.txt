@@ -64,6 +64,22 @@ is_healer_trigger = {
 		trait = adept_healer
 		trait = skilled_healer
 		trait = master_healer
+		AND = {
+			mep_is_good_side_trigger = yes
+			OR = {
+				has_landed_title = e_gondor
+				has_landed_title = e_arnor
+				has_landed_title = e_reunited_kingdom
+			}
+			OR = {
+				trait = blood_of_elros
+				trait = blood_of_valandil
+				trait = blood_of_elendil
+				trait = blood_of_isildur
+				trait = blood_of_anarion
+				trait = blood_of_telcontar
+			}
+		}
 	}
 }
 is_minor_illness = {
