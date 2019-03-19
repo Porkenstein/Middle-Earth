@@ -117,6 +117,15 @@ character_event = {	#Old age Death for Characters
 			factor = 1.2
 			real_tier = EMPEROR
 		}
+		modifier = { #Arwen Dies Quicker After Aragorn
+			factor = 0.01
+			character = 3010
+			c_2038 = {
+				NOT = {
+					is_alive = yes
+				}
+			}
+		}
 		modifier = {
 			factor = 200
 			NOT = { age = 10 }

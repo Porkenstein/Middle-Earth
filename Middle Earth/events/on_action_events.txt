@@ -3900,44 +3900,6 @@ character_event = {
 	}
 }
 
-
-## Inheritance of Traits ##
-# Artifacts are being stripped out as they are converted (from traits)
-# Anglachel deleted because it was destroyed in the first age, before the scope of this mod
-# Palantir have been converted to artifacts as well, inheritance is handled by the game engine
-character_event = {
-	id = 45340
-	# desc = "EVTDESC45340"
-	# picture = "GFX_evt_death"
-	
-	is_triggered_only = yes 
-
-	hide_window = yes
-	
-	immediate = {	
-	## Aragorn death ##
-		if = {
-			limit = {
-				has_character_flag = aragorn 
-				has_global_flag = saurondefeated
-			}
-			if = { 
-				limit = { 
-					spouse = { 	has_character_flag = arwen  }
-				}
-				spouse = { character_event = { id = valinor.12 days = 60 } } ## Arwen loose her elf trait and will die soon after
-				add_trait = dead_target
-			}
-			any_playable_ruler = { character_event = { id = valinor.13 } }	## Every rulers are informed of the death of Aragorn
-			any_playable_ruler = {
-					limit = { has_character_flag = legolas }
-					character_event = { id = valinor.5 }  ## Legolas will begin his journey to Valinor
-					add_trait = dead_target
-			}			
-		}
-	}
-}
-
 # Coppied from Vanilla (JamesFox, 2017/04/21)
 # ASK_TO_JOIN_AMBITION_INTERACTION_ACCEPT_EVENT =
 diploresponse_event = {
