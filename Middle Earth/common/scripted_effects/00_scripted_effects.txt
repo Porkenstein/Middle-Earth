@@ -21163,449 +21163,449 @@ reset_religion_features_effect = {
 	set_allows_matrilineal_marriage = yes
 }
 
-random_antagonizer_slander_roll_effect = { 
-	random_list = { 
-		75 = { #Nothing
-			modifier = { 
-				factor = 0.75
-				FROM = { 
-					attribute_diff = { character = ROOT attribute = intrigue  value = 4 }
-				} 
-			}
-			modifier = { 
-				factor = 0.75
-				FROM = { 
-					attribute_diff = { character = ROOT attribute = intrigue  value = 6 }
-				} 
-			}
-			modifier = { 
-				factor = 0.5
-				FROM = { 
-					attribute_diff = { character = ROOT attribute = intrigue  value = 8 }
-				} 
-			}
-			modifier = { 
-				factor = 0.5
-				FROM = { 
-					attribute_diff = { character = ROOT attribute = intrigue  value = 10 }
-				} 
-			}
-		}
-		25 = { #Bonus event
-			modifier = { 
-				factor = 0.5
-				NOR = { 
-					trait = stressed
-					trait = depressed
-				} 
-				opinion = { who = FROM value = 20 } 
-			}
-			modifier = { 
-				factor = 0.1
-				FROM = { 
-					has_character_flag = flag_antagonize_slander_generic 
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					intrigue = 15
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					intrigue = 18
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					intrigue = 21
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					intrigue = 25
-				} 
-			}
-			modifier = { 
-				factor = 1.75
-				FROM = { 
-					intrigue = 30
-				} 
-			}
-			random_antagonizer_slander_effect = yes
-		}
-	}
-}
-random_antagonizer_slander_effect = { #Chance of this effect firing is tied to the Antagonizer's intrigue.
-	#Gain rival.
-	#Rival of target becomes friend.
-	#Prestige from antagonizing a higher tier ruler.
-	#Appeased's Claimant moves to court.
-	#Prestige loss.
-	#Piety loss.
-	#Sanity loss.
-	#Evil Antagonized losing depressed. 
-	#Evil Antagonized losing Stressed.
-	#Evil Antagonized gaining Diplomacy modifier (happy disposition).
-	#Evil Antagonized gaining Intrigue.
-	#Evil Antagonized gaining Deceitful.
-	#Evil Antagonized gaining Patient.
+# random_antagonizer_slander_roll_effect = { 
+	# random_list = { 
+		# 75 = { #Nothing
+			# modifier = { 
+				# factor = 0.75
+				# FROM = { 
+					# attribute_diff = { character = ROOT attribute = intrigue  value = 4 }
+				# } 
+			# }
+			# modifier = { 
+				# factor = 0.75
+				# FROM = { 
+					# attribute_diff = { character = ROOT attribute = intrigue  value = 6 }
+				# } 
+			# }
+			# modifier = { 
+				# factor = 0.5
+				# FROM = { 
+					# attribute_diff = { character = ROOT attribute = intrigue  value = 8 }
+				# } 
+			# }
+			# modifier = { 
+				# factor = 0.5
+				# FROM = { 
+					# attribute_diff = { character = ROOT attribute = intrigue  value = 10 }
+				# } 
+			# }
+		# }
+		# 25 = { #Bonus event
+			# modifier = { 
+				# factor = 0.5
+				# NOR = { 
+					# trait = stressed
+					# trait = depressed
+				# } 
+				# opinion = { who = FROM value = 20 } 
+			# }
+			# modifier = { 
+				# factor = 0.1
+				# FROM = { 
+					# has_character_flag = flag_antagonize_slander_generic 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# intrigue = 15
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# intrigue = 18
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# intrigue = 21
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# intrigue = 25
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.75
+				# FROM = { 
+					# intrigue = 30
+				# } 
+			# }
+			# random_antagonizer_slander_effect = yes
+		# }
+	# }
+# }
+# random_antagonizer_slander_effect = { #Chance of this effect firing is tied to the Antagonizer's intrigue.
+	# #Gain rival.
+	# #Rival of target becomes friend.
+	# #Prestige from antagonizing a higher tier ruler.
+	# #Appeased's Claimant moves to court.
+	# #Prestige loss.
+	# #Piety loss.
+	# #Sanity loss.
+	# #Evil Antagonized losing depressed. 
+	# #Evil Antagonized losing Stressed.
+	# #Evil Antagonized gaining Diplomacy modifier (happy disposition).
+	# #Evil Antagonized gaining Intrigue.
+	# #Evil Antagonized gaining Deceitful.
+	# #Evil Antagonized gaining Patient.
 
 
 
 
 
-	random_list = { 
-		35 = {
-			trigger = { 
-				NOT = { 
-					persistent_event_target:antagonize_target = { 
-						opinion = { 
-							who = FROM 
-							value = 10 
-						} 
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 0
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						is_rival = FROM 
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 1.25
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						NOT = { 
-							opinion = { 
-								who = FROM 
-								value = -10 
-							} 
-						} 
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						NOT = { 
-							opinion = { 
-								who = FROM 
-								value = -30 
-							} 
-						} 
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 1.5
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						NOT = { 
-							opinion = { 
-								who = FROM 
-								value = -50 
-							} 
-						} 
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 1.75
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						NOT = { 
-							opinion = { 
-								who = FROM 
-								value = -70 
-							} 
-						} 
-					} 
-				} 
-			}
-			FROM = { persistent_event_target:antagonize_target = { character_event = { id = HF.22030 days = 15 } } } #Antagonized gets the event.
-		}
-		25 = {
-			modifier = { 
-				factor = 0
-				NOT = { 
-					FROM = { 
-						persistent_event_target:antagonize_target = { 
-							any_realm_character = { 
-								age = 14
-								NOR = {
-									trait = incapable
-									is_rival = PREVPREV 
-								} 
-								NOT = { 
-									opinion = { 
-										who = PREV 
-										value = -20 
-									} 
-								} 
-							} 
-						} 
-					} 
-				} 
-			}
-			FROM = { 
-				persistent_event_target:antagonize_target = { 
-					random_realm_character = { 
-						limit = { 
-							age = 14
-							NOR = {
-								trait = incapable
-								is_rival = PREVPREV 
-							}
-							NOT = { 
-								opinion = { 
-									who = PREV 
-									value = -20 
-								} 
-							}
-						}
-						character_event = { id = HF.22032 days = 15 } #Third party notified.
-					} 
-				} 
-			} 
-		}
-		25 = {
-			modifier = { 
-				factor = 0
-				FROM = { 
-					persistent_event_target:antagonize_target = { 
-						lower_tier_than = FROM
-					} 
-				} 
-			}
-			modifier = { 
-				factor = 1.75
-				FROM = { 
-					lower_tier_than = KING
-					persistent_event_target:antagonize_target = { 
-						higher_tier_than = DUKE
-					} 
-				} 
-			}
-			FROM = { character_event = { id = HF.22035 days = 15 } } #Antagonizer gets the event.
-		}
-		5 = {
-			FROM = { character_event = { id = HF.22042 days = 15 } } #Antagonizer gets the event. - Prestige loss for Antagonized.
-		}
-		5 = {
-			FROM = { character_event = { id = HF.22044 days = 15 } } #Antagonizer gets the event. - Piety loss for Antagonized.
-		}
-		5 = {
-			FROM = { character_event = { id = HF.22046 days = 15 } } #Antagonizer gets the event. - Opinion loss for Antagonized.
-		}
-		1 = {
-			modifier = { 
-				factor = 0
-				persistent_event_target:antagonize_target = { 
-					NOT = { trait = depressed } 
-				} 
-			}
-			FROM = { character_event = { id =  HF.22048 days = 15 } } #Antagonizer gets the event. - Sanity loss for Depressed Antagonized.
-		}
-		25 = {
-			modifier = { 
-				factor = 0
-				NOT = { 
-					age = 14
-					is_ruler = no
-					any_claim = { holder_scope = { character = ROOT } }
-					NOR = {
-						any_spouse = { is_ruler = yes }
-						host = { character = FROM }
-						is_rival = FROM
-						trait = incapable
-						persistent_event_target:antagonize_target = { current_heir = { character = PREVPREV } }
-					}
-					NOT = { 
-						opinion = { 
-							who = ROOT
-							value = -20 
-						} 
-					}
-					opinion = { 
-						who = FROM
-						value = 10 
-					} 
-				} 
-			}
-			random_character = {
-				limit = { 
-					age = 14
-					is_ruler = no
-					any_claim = { holder_scope = { character = ROOT } }
-					NOR = {
-						any_spouse = { is_ruler = yes }
-						host = { character = FROM }
-						is_rival = FROM
-						trait = incapable
-						persistent_event_target:antagonize_target = { current_heir = { character = PREVPREV } }
-					}
-					NOT = { 
-						opinion = { 
-							who = ROOT
-							value = -20 
-						} 
-					}
-					opinion = { 
-						who = FROM
-						value = 10 
-					}  
-				}
-				character_event = { id = HF.22036 days = 15 } #Claimant notified.
-			} 
-		}
-		5 = {
-			trigger = { 
+	# random_list = { 
+		# 35 = {
+			# trigger = { 
+				# NOT = { 
+					# persistent_event_target:antagonize_target = { 
+						# opinion = { 
+							# who = FROM 
+							# value = 10 
+						# } 
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 0
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# is_rival = FROM 
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.25
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# NOT = { 
+							# opinion = { 
+								# who = FROM 
+								# value = -10 
+							# } 
+						# } 
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# NOT = { 
+							# opinion = { 
+								# who = FROM 
+								# value = -30 
+							# } 
+						# } 
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.5
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# NOT = { 
+							# opinion = { 
+								# who = FROM 
+								# value = -50 
+							# } 
+						# } 
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.75
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# NOT = { 
+							# opinion = { 
+								# who = FROM 
+								# value = -70 
+							# } 
+						# } 
+					# } 
+				# } 
+			# }
+			# FROM = { persistent_event_target:antagonize_target = { character_event = { id = HF.22030 days = 15 } } } #Antagonized gets the event.
+		# }
+		# 25 = {
+			# modifier = { 
+				# factor = 0
+				# NOT = { 
+					# FROM = { 
+						# persistent_event_target:antagonize_target = { 
+							# any_realm_character = { 
+								# age = 14
+								# NOR = {
+									# trait = incapable
+									# is_rival = PREVPREV 
+								# } 
+								# NOT = { 
+									# opinion = { 
+										# who = PREV 
+										# value = -20 
+									# } 
+								# } 
+							# } 
+						# } 
+					# } 
+				# } 
+			# }
+			# FROM = { 
+				# persistent_event_target:antagonize_target = { 
+					# random_realm_character = { 
+						# limit = { 
+							# age = 14
+							# NOR = {
+								# trait = incapable
+								# is_rival = PREVPREV 
+							# }
+							# NOT = { 
+								# opinion = { 
+									# who = PREV 
+									# value = -20 
+								# } 
+							# }
+						# }
+						# character_event = { id = HF.22032 days = 15 } #Third party notified.
+					# } 
+				# } 
+			# } 
+		# }
+		# 25 = {
+			# modifier = { 
+				# factor = 0
+				# FROM = { 
+					# persistent_event_target:antagonize_target = { 
+						# lower_tier_than = FROM
+					# } 
+				# } 
+			# }
+			# modifier = { 
+				# factor = 1.75
+				# FROM = { 
+					# lower_tier_than = KING
+					# persistent_event_target:antagonize_target = { 
+						# higher_tier_than = DUKE
+					# } 
+				# } 
+			# }
+			# FROM = { character_event = { id = HF.22035 days = 15 } } #Antagonizer gets the event.
+		# }
+		# 5 = {
+			# FROM = { character_event = { id = HF.22042 days = 15 } } #Antagonizer gets the event. - Prestige loss for Antagonized.
+		# }
+		# 5 = {
+			# FROM = { character_event = { id = HF.22044 days = 15 } } #Antagonizer gets the event. - Piety loss for Antagonized.
+		# }
+		# 5 = {
+			# FROM = { character_event = { id = HF.22046 days = 15 } } #Antagonizer gets the event. - Opinion loss for Antagonized.
+		# }
+		# 1 = {
+			# modifier = { 
+				# factor = 0
+				# persistent_event_target:antagonize_target = { 
+					# NOT = { trait = depressed } 
+				# } 
+			# }
+			# FROM = { character_event = { id =  HF.22048 days = 15 } } #Antagonizer gets the event. - Sanity loss for Depressed Antagonized.
+		# }
+		# 25 = {
+			# modifier = { 
+				# factor = 0
+				# NOT = { 
+					# age = 14
+					# is_ruler = no
+					# any_claim = { holder_scope = { character = ROOT } }
+					# NOR = {
+						# any_spouse = { is_ruler = yes }
+						# host = { character = FROM }
+						# is_rival = FROM
+						# trait = incapable
+						# persistent_event_target:antagonize_target = { current_heir = { character = PREVPREV } }
+					# }
+					# NOT = { 
+						# opinion = { 
+							# who = ROOT
+							# value = -20 
+						# } 
+					# }
+					# opinion = { 
+						# who = FROM
+						# value = 10 
+					# } 
+				# } 
+			# }
+			# random_character = {
+				# limit = { 
+					# age = 14
+					# is_ruler = no
+					# any_claim = { holder_scope = { character = ROOT } }
+					# NOR = {
+						# any_spouse = { is_ruler = yes }
+						# host = { character = FROM }
+						# is_rival = FROM
+						# trait = incapable
+						# persistent_event_target:antagonize_target = { current_heir = { character = PREVPREV } }
+					# }
+					# NOT = { 
+						# opinion = { 
+							# who = ROOT
+							# value = -20 
+						# } 
+					# }
+					# opinion = { 
+						# who = FROM
+						# value = 10 
+					# }  
+				# }
+				# character_event = { id = HF.22036 days = 15 } #Claimant notified.
+			# } 
+		# }
+		# 5 = {
+			# trigger = { 
 
-				FROM = { 
-					OR = { 
-						trait = impaler
-						trait = cruel 
-						trait = arbitrary
-						trait = deceitful
-						trait = envious
-					}  
-				} 
-				FROM = { trait = depressed }
-			}
-			FROM = { character_event = { id = HF.22113 days = 15 } } #Evil Antagonized loses depressed.
-		}
-		5 = {
-			trigger = { 
+				# FROM = { 
+					# OR = { 
+						# trait = impaler
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = deceitful
+						# trait = envious
+					# }  
+				# } 
+				# FROM = { trait = depressed }
+			# }
+			# FROM = { character_event = { id = HF.22113 days = 15 } } #Evil Antagonized loses depressed.
+		# }
+		# 5 = {
+			# trigger = { 
 
-				FROM = { 
-					OR = { 
-						trait = impaler 
-						trait = cruel 
-						trait = arbitrary
-						trait = deceitful
-						trait = envious
-					}  
-				} 
-				FROM = { trait = stressed }
-			}
-			FROM = { character_event = { id = HF.22114 days = 15 } } #Evil Antagonized loses stressed.
-		}
-		5 = {
-			trigger = { 
+				# FROM = { 
+					# OR = { 
+						# trait = impaler 
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = deceitful
+						# trait = envious
+					# }  
+				# } 
+				# FROM = { trait = stressed }
+			# }
+			# FROM = { character_event = { id = HF.22114 days = 15 } } #Evil Antagonized loses stressed.
+		# }
+		# 5 = {
+			# trigger = { 
 
-				FROM = { 
-					OR = { 
-						trait = impaler
-						trait = cruel 
-						trait = arbitrary
-						trait = deceitful
-						trait = envious
-					}  
-					NOR = { 
-						trait = stressed 
-						trait = depressed
-					}  
-				} 
-				FROM = { NOT = { has_character_modifier = antagonizer_good_mood } }
-			}
-			FROM = { character_event = { id = HF.22115 days = 15 } } #Evil Antagonized gains Diplomacy modifier.
-		}
-		1 = {
-			trigger = { 
-				FROM = { 
-					OR = { 
-						trait = impaler
-						trait = cruel 
-						trait = arbitrary
-						trait = deceitful
-						trait = envious
-					}  
-				} 
-			}
-			FROM = { character_event = { id = HF.22116 days = 15 } } #Evil Antagonized gains Intrigue.
-		}
-		3 = {
-			trigger = { 
-				FROM = { 
-					OR = { 
-						trait = impaler
-						trait = cruel 
-						trait = arbitrary
-						trait = envious
-					}  
-					NOT = { 
-						trait = deceitful
-					}  
-				} 
-			}
-			FROM = { character_event = { id = HF.22117 days = 15 } } #Evil Antagonized gains Deceitful/loses Honest.
-		}
-		5 = {
-			trigger = { 
-				FROM = { 
-					OR = { 
-						trait = impaler
-						trait = cruel 
-						trait = arbitrary
-						trait = deceitful
-						trait = envious
-					}  
-					NOT = { 
-						trait = patient
-					} 
-				} 
-				NOR = { 
-					trait = patient
-					diplomacy = 12
-				} 
-			}
-			FROM = { character_event = { id = HF.22118 days = 15 } } #Evil Antagonized gains Patient/loses Wroth.
-		}
-	#	5 = {
-	#		modifier = { 
-	#			factor = 0
-	#			FROM = { 
-	#				any_claim = { 
-	#					holder_scope = { 
-	#						character = ROOT
-	#					} 
-	#				} 
-	#			} 
-	#		}
-	#		modifier = { #Only against dangerous Antagonize targets.
-	#			factor = 0
-	#			persistent_event_target:antagonize_target = { 
-	#				lower_tier_than = FROM 
-	#			} 
-	#		}
-	#		modifier = { #Only against dangerous Antagonize targets.
-	#			factor = 0.25
-	#			persistent_event_target:antagonize_target = { 
-	#				prestige = 500
-	#			} 
-	#		}
-	#		modifier = { #Needs to be hated already. The Antagonizer should receive the claim only if the Antagonized is already mad at him and is a more powerful ruler.
-	#			factor = 0
-	#			persistent_event_target:antagonize_target = { 
-	#				opinion = { 
-	#					who = FROM
-	#					value = 10 
-	#				}  
-	#			} 
-	#		}
-	#		FROM = { character_event = { id = HF.22038 days = 15 } } #Antagonizer gets the claim.
-	#	}
-	}
-}
+				# FROM = { 
+					# OR = { 
+						# trait = impaler
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = deceitful
+						# trait = envious
+					# }  
+					# NOR = { 
+						# trait = stressed 
+						# trait = depressed
+					# }  
+				# } 
+				# FROM = { NOT = { has_character_modifier = antagonizer_good_mood } }
+			# }
+			# FROM = { character_event = { id = HF.22115 days = 15 } } #Evil Antagonized gains Diplomacy modifier.
+		# }
+		# 1 = {
+			# trigger = { 
+				# FROM = { 
+					# OR = { 
+						# trait = impaler
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = deceitful
+						# trait = envious
+					# }  
+				# } 
+			# }
+			# FROM = { character_event = { id = HF.22116 days = 15 } } #Evil Antagonized gains Intrigue.
+		# }
+		# 3 = {
+			# trigger = { 
+				# FROM = { 
+					# OR = { 
+						# trait = impaler
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = envious
+					# }  
+					# NOT = { 
+						# trait = deceitful
+					# }  
+				# } 
+			# }
+			# FROM = { character_event = { id = HF.22117 days = 15 } } #Evil Antagonized gains Deceitful/loses Honest.
+		# }
+		# 5 = {
+			# trigger = { 
+				# FROM = { 
+					# OR = { 
+						# trait = impaler
+						# trait = cruel 
+						# trait = arbitrary
+						# trait = deceitful
+						# trait = envious
+					# }  
+					# NOT = { 
+						# trait = patient
+					# } 
+				# } 
+				# NOR = { 
+					# trait = patient
+					# diplomacy = 12
+				# } 
+			# }
+			# FROM = { character_event = { id = HF.22118 days = 15 } } #Evil Antagonized gains Patient/loses Wroth.
+		# }
+	# #	5 = {
+	# #		modifier = { 
+	# #			factor = 0
+	# #			FROM = { 
+	# #				any_claim = { 
+	# #					holder_scope = { 
+	# #						character = ROOT
+	# #					} 
+	# #				} 
+	# #			} 
+	# #		}
+	# #		modifier = { #Only against dangerous Antagonize targets.
+	# #			factor = 0
+	# #			persistent_event_target:antagonize_target = { 
+	# #				lower_tier_than = FROM 
+	# #			} 
+	# #		}
+	# #		modifier = { #Only against dangerous Antagonize targets.
+	# #			factor = 0.25
+	# #			persistent_event_target:antagonize_target = { 
+	# #				prestige = 500
+	# #			} 
+	# #		}
+	# #		modifier = { #Needs to be hated already. The Antagonizer should receive the claim only if the Antagonized is already mad at him and is a more powerful ruler.
+	# #			factor = 0
+	# #			persistent_event_target:antagonize_target = { 
+	# #				opinion = { 
+	# #					who = FROM
+	# #					value = 10 
+	# #				}  
+	# #			} 
+	# #		}
+	# #		FROM = { character_event = { id = HF.22038 days = 15 } } #Antagonizer gets the claim.
+	# #	}
+	# }
+# }
 
 select_and_save_fellow_society_member_effect = { #[Runs for ROOT]
 	### Scripted triggers involved:
@@ -22174,17 +22174,17 @@ add_blood_splatter_effect = {
 	}
 }
 
-reset_flag_lifestyle_sway_event_effect = {
-	clr_character_flag = lifestyle_event_successful
-	clr_character_flag = lifestyle_event_unsuccessful
-	clr_character_flag = sway_hunting
-	clr_character_flag = sway_dueling
-	clr_character_flag = sway_game
-	clr_character_flag = sway_social
-	clr_character_flag = sway_scholar
-	clr_character_flag = sway_steward
-	clr_character_flag = sway_torture
-}
+# reset_flag_lifestyle_sway_event_effect = {
+	# clr_character_flag = lifestyle_event_successful
+	# clr_character_flag = lifestyle_event_unsuccessful
+	# clr_character_flag = sway_hunting
+	# clr_character_flag = sway_dueling
+	# clr_character_flag = sway_game
+	# clr_character_flag = sway_social
+	# clr_character_flag = sway_scholar
+	# clr_character_flag = sway_steward
+	# clr_character_flag = sway_torture
+# }
 apply_cosmopolian_on_start_effect = {
 	religion_authority = {
 		modifier = cosmopolitan_religion
