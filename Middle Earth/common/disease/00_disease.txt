@@ -121,10 +121,7 @@ tuberculosis = { # Consumption
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_tuberculosis
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5015 }
+					add_trait = has_tuberculosis
 				}
 				90 = { # Nothing happens
 				}
@@ -365,10 +362,7 @@ typhoid_fever = { # Slow Fever
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_typhoid_fever
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5016 }
+					add_trait = has_typhoid_fever
 				}
 				90 = { # Nothing happens
 				}
@@ -611,10 +605,7 @@ typhus = { # Camp Fever
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_typhus
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5017 }
+					add_trait = has_typhus
 				}
 				90 = { # Nothing happens
 				}
@@ -841,26 +832,7 @@ bubonic_plague = {
 						factor = 5000
 						is_unimportant_trigger = yes
 					}
-					#clr_character_flag = got_bubonic_plague #clear out other diseases
-					clr_character_flag = got_aztec_disease
-					clr_character_flag = got_smallpox
-					clr_character_flag = got_measles
-					clr_character_flag = got_typhus
-					clr_character_flag = got_typhoid_fever
-					clr_character_flag = got_tuberculosis
-					clr_character_flag = got_syphilis
-					clr_character_flag = got_pneumonia
-					clr_character_flag = got_cancer
-					clr_character_flag = got_rabies
-					clr_character_flag = got_gout
-					clr_character_flag = got_flu
-					clr_character_flag = got_dysentery
-					clr_character_flag = got_food_poisoning
-					clr_character_flag = disease_not_serious
-					
-					set_character_flag = got_bubonic_plague
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5012 }
+					add_trait = has_bubonic_plague
 				}
 				10 = { # Nothing happens
 				}
@@ -1166,10 +1138,7 @@ measles = {
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_measles
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5018 }
+					add_trait = has_measles
 				}
 				90 = { # Nothing happens
 				}
@@ -1412,10 +1381,7 @@ small_pox = {
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_smallpox
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5019 }
+					add_trait = has_small_pox
 				}
 				90 = { # Nothing happens
 				}
@@ -1658,10 +1624,7 @@ syphilis = {
 						factor = 50
 						is_unimportant_trigger = yes
 					}
-					clr_character_flag = disease_not_serious
-					set_character_flag = got_aztec_disease
-					set_character_flag = developing_illness
-					character_event = { id = RIP.5019 }
+					add_trait = has_aztec_disease
 				}
 				90 = { # Nothing happens
 				}
@@ -1768,115 +1731,4 @@ syphilis = {
 		one_only = no
 	}
 	disease_gfx = disease_gfx_syphilis
-}
-
-dancing_plague = {
-	rip = yes
-	contagiousness = 0.025
-	outbreak_chance = 0.0005
-	effect = {
-		city_tax_modifier = -0.1
-		supply_limit = -1
-		max_attrition = 0.01
-		disease_defence = 0.2
-	}
-	yearly_province_pulse = {
-		
-	}
-	icon = 7
-	tooltip = DANCING_PLAGUE_INFO
-	months = 12
-	trait = dancing_plague
-	character_infection_chances = {
-		months = 3
-	}
-	on_character_infection = {
-		if = {
-			limit = {
-				age = 12
-				NOR = {
-					mep_cant_get_disease_trigger = yes
-					has_character_flag = immune_dancing_plague
-					has_character_flag = got_dancing_plague
-					trait = dancing_plague
-					trait = horse
-					trait = cat
-					trait = incapable
-				}
-			}			
-			random_list = {
-				30 = { # Get the disease
-					modifier = {
-						factor = 0.1
-						trait = dwarf
-					}
-					modifier = {
-						factor = 0.2
-						trait = hobbit
-					}
-					modifier = {
-						factor = 0.3
-						mep_numenorean_traits_trigger = yes
-					}
-					modifier = {
-						factor = 0.25
-						trait = elf
-					}
-					modifier = {
-						factor = 5
-						trait = gluttonous
-					}
-					modifier = {
-						factor = 5
-						trait = hedonist
-					}
-					modifier = {
-						factor = 0.5
-						trait = temperate
-					}
-					modifier = {
-						factor = 0.5
-						trait = gardener
-					}
-					modifier = {
-						factor = 50
-						is_unimportant_trigger = yes
-					}
-					set_character_flag = got_dancing_plague
-					character_event = { id = RIP.4002 }
-				}
-				70 = { # Nothing happens
-					set_character_flag = immune_dancing_plague
-					character_event = { id = RIP.4002 }
-				}
-			}
-		}
-	}
-	on_province_infection = {
-		#province_event = {
-		#	id = RIP.11703 #prosperity ended by epidemic
-		#}
-	}
-	always_get_message = yes
-	color = { 255 234 0 }
-	
-	timeperiod = {
-		start_date = 1.1.1
-		end_date = 16000.1.1	
-		
-		can_outbreak = {
-			has_dlc = "Reapers"
-		}
-		
-		max_total_provinces = 10
-		
-		spread_through_water = no
-		
-		min_nb_province = 1	# ignored if 0
-		max_nb_province = 1	# ignored if 0
-
-		one_only = no
-		
-	}
-	disease_gfx = disease_gfx_dancing_plague
 }
