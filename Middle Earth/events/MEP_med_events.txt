@@ -40,11 +40,13 @@ character_event = {
 	option = {
 		name = EVTOPTAmep_med_events.1
 		event_target:doc = {
-			limit = {
-				has_minor_title = title_court_physician
-			}
-			character_event = {
-				id = mep_med_events.11
+			if = {
+				limit = {
+					has_minor_title = title_court_physician
+				}
+				character_event = {
+					id = mep_med_events.11
+				}
 			}
 		}
 	}
@@ -253,7 +255,7 @@ character_event = {
 		clr_character_flag = failed
 		FROM = {
 			death = {
-				death = death_execution
+				death_reason = death_execution
 				killer = ROOT
 			}
 		}
