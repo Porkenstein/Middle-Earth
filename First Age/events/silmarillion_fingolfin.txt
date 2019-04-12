@@ -108,7 +108,7 @@ narrative_event = {
 		#			}
 		#		}
 		#	}
-		character_event = { id = fingolfin.2 days = 5 }
+		narrative_event = { id = fingolfin.2 days = 5 }
 	}
 }
 
@@ -165,7 +165,7 @@ narrative_event = {
 	picture = GFX_crossing_helcraxe
 	is_triggered_only = yes
 
-	before = {
+	immediate = {
 		# Argon dies
 		c_6417 = { # Orc Commander
 			c_3134 = { # Argon
@@ -341,6 +341,12 @@ long_character_event = { # Fingolfin reaches the gates and is stopped
 
         set_character_flag = fingolfin_at_gates
 		clr_character_flag = fingolfin_attacking_gates
+
+		# maedhros sees you
+		c_3239 ={
+			long_character_event = { id = maedhros.8 days = 1 }
+		}
+
 		c_3131 = {
 			character_event = { id = fingolfin.21 days = 1 }
 		}
@@ -361,9 +367,11 @@ letter_event = {
 		reverse_opinion = {
 			modifier = opinion_very_disappointed who = FROM years = 20
 		}
-		# todo fingon goes on a quest to free maedhros
-		# add_trait = on_adventure
-		# character_event = { id = maedhros.1 days = 1 }
+		# fingon goes on a quest to free maedhros
+		add_trait = on_adventure
+		c_3239 = {
+			long_character_event = { id = maedhros.9 days = 7 }
+		}
 	}
 	option = {
 		name = "EVTOPTBfingolfin.6"
@@ -396,6 +404,7 @@ letter_event = {
 
 long_character_event = {
 	id = fingolfin.7
+	picture = GFX_noldor
     desc = "EVTDESCfingolfin.7"
 	title = "EVTTITfingolfin.7"
 	
@@ -600,8 +609,16 @@ character_event = {
 	hide_window = yes
 
 	option = {
-		c_3129 = {
-			letter_event = { id = fingolfin.6 days = 1 }
+		if = {
+			limit = {
+				c_3239 = {
+					is_alive = yes
+					trait = imprisoned_in_angband
+				}
+			}
+			c_3129 = {
+				letter_event = { id = fingolfin.6 days = 1 }
+			}
 		}
 	}
 }
@@ -644,7 +661,7 @@ province_event = {
 		county = {
 			e_noldor = {
 				c_3129 = {
-					name="Fingolfin"
+					set_name="Fingolfin"
 					usurp_title = PREVPREV
 					set_defacto_liege = PREV
 
@@ -687,37 +704,37 @@ province_event = {
 					}
 					# move in everyone who should be in the host of fingolfin
 					c_3131 = {
-						name="Fingon"
+						set_name="Fingon"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
 					}
 					c_3006 = {
-						name="Galadriel"
+						set_name="Galadriel"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
 					}
 					c_3132 = {
-						name="Turgon"
+						set_name="Turgon"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
 					}
 					c_3134 = {
-						name="Argon"
+						set_name="Argon"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
 					}
 					c_3146 = {
-						name="Finrod"
+						set_name="Finrod"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
 					}
 					c_3148 = {
-						name="Orodreth"
+						set_name="Orodreth"
 						remove_trait = in_helcaraxe
 						remove_trait = sailed_west
 						move_character = PREV
@@ -986,8 +1003,5 @@ province_event = {
 		}
 
 		populate_effect = yes
-	}
-	after = {
-		
 	}
 }

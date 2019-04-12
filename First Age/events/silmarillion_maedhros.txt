@@ -1,0 +1,457 @@
+# Maedhros narrative events
+
+namespace = maedhros
+
+##################################################################
+# 1 - Morgoth feigns truce
+##################################################################
+narrative_event = {
+	id = maedhros.1
+    title = "EVTTITmaedhros.1"
+    desc = "EVTDESCmaedhros.1"
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.1"
+		custom_tooltip = { 
+			text = EVTOPTATOOLTIPmaedhros.1
+			narrative_event = { id = maedhros.2 days = 7 }
+			add_trait = on_adventure
+		}
+	}
+	option = {
+		name = "EVTOPTBmaedhros.1"
+		custom_tooltip = {
+			text = EVTOPTBTOOLTIPmaedhros.1
+			narrative_event = { id = maedhros.4 days = 7 }
+			add_trait = on_adventure
+		}
+	}
+}
+
+##################################################################
+# 2-3 - You plan an ambush
+##################################################################
+narrative_event = {
+	id = maedhros.2
+    title = "EVTTITmaedhros.2"
+    desc = "EVTDESCmaedhros.2"
+	picture = GFX_elf_meeting
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.2"
+		long_character_event = { id = maedhros.3 days = 2 }
+	}
+}
+
+long_character_event = {
+	id = maedhros.3
+    desc = "EVTDESCmaedhros.3"
+	picture = GFX_balrogs
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAmaedhros.3"
+		narrative_event = { id = maedhros.6 days = 14 }
+		prestige = -100
+	}
+}
+
+##################################################################
+# 4-5 - You attempt to deceive the emissary
+##################################################################
+narrative_event = {
+	id = maedhros.4
+    title = "EVTTITmaedhros.4"
+    desc = "EVTDESCmaedhros.4"
+	picture = GFX_elf_meeting
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.4"
+		character_event = { id = maedhros.5 days = 2 }
+	}
+}
+
+character_event = {
+	id = maedhros.5
+    desc = "EVTDESCmaedhros.5"
+	picture = GFX_evil_gates
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.5"
+		narrative_event = { id = maedhros.6 days = 14 }
+	}
+}
+
+##################################################################
+# 6-7 - You are chained by Morgoth
+##################################################################
+
+narrative_event = {
+	id = maedhros.6
+    title = "EVTTITmaedhros.6"
+    desc = "EVTDESCmaedhros.6"
+	picture = GFX_evil_king
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.6"
+		add_trait = imprisoned_in_angband
+		remove_trait = on_adventure
+	}
+	option = {
+		name = "EVTOPTBmaedhros.6"
+		long_character_event = { id = maedhros.7 days = 1 }
+		prestige = 100
+	}
+}
+
+long_character_event = {
+	id = maedhros.7
+    desc = "EVTDESCmaedhros.7"
+	picture = GFX_elves_death_dungeon
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.7"
+		c_10015 = {
+			ROOT = {
+				death = {
+					death_reason = death_execution_bear
+					killer = PREV
+				}
+			}
+		}
+	}
+}
+
+##################################################################
+# 8-10 - Fingolfin and Fingon arrive, you are rescued
+##################################################################
+
+long_character_event = {
+	id = maedhros.8
+    desc = "EVTDESCmaedhros.8"
+	picture = GFX_elves_evil_army_approaching
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.8"
+	}
+}
+
+long_character_event = {
+	id = maedhros.9
+    desc = "EVTDESCmaedhros.9"
+	picture = GFX_elves_prisoner_mercy_killing
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.9"
+		long_character_event = { id = maedhros.10 days = 1 }
+	}
+}
+
+long_character_event = {
+	id = maedhros.10
+    desc = "EVTDESCmaedhros.10"
+	picture = GFX_thangorodrim
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.10"
+		remove_trait = imprisoned_in_angband
+		c_3131 = {
+			remove_trait = on_adventure # fingon returns
+		}
+		long_character_event = { id = maedhros.11 days = 7 }
+	}
+}
+
+##################################################################
+# 11 - You return to the Noldor
+##################################################################
+
+long_character_event = {
+	id = maedhros.11
+    desc = "EVTDESCmaedhros.11"
+	picture = GFX_noldor_travel
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.11"
+		# maedhros abdicates to the head of nos fingolfin
+		c_3129 = {
+			dynasty_head = {
+				ROOT = {
+					primary_title = {
+						PREVPREV = {
+							grant_title = PREV
+						}
+					}
+				}
+			}
+		}
+		set_character_flag = noldor_departing
+		long_character_event = { id = maedhros.12 days = 90 }
+	}
+	option = {
+		name = "EVTOPTBmaedhros.11"
+		c_3129 = {
+			dynasty_head = {
+				set_character_flag = noldor_departing
+				long_character_event = { id = maedhros.12 days = 90 }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTCmaedhros.11"
+	}
+}
+
+##################################################################
+# 12 - You (Maedhros or Fingolfin) consider leaving
+##################################################################
+
+long_character_event = {
+	id = maedhros.12
+    desc = "EVTDESCmaedhros.12"
+	picture = GFX_thangorodrim
+
+	is_triggered_only = yes
+	notification = no
+
+	has_character_flag = flag_maedhros
+
+	option = {
+		name = "EVTOPTAmaedhros.12"
+		random_independent_ruler = {
+			limit = {
+				OR = {
+					has_landed_title = e_eglador
+					has_landed_title = k_doriath
+				}
+			}
+			letter_event = { id = maedhros.16 days = 14 }
+		}
+		custom_tooltip = { text = EVTOPTATOOLTIPmaedhros.12 }
+	}
+}
+
+##################################################################
+# 13-15 - You gain Thingol's leave and depart
+##################################################################
+
+letter_event = {
+	id = maedhros.13
+    desc = "EVTDESCmaedhros.13"
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAmaedhros.13"
+		if = {
+			limit = {
+				NOT = { dynasty = 3007 } # Nos Feanor
+			}
+			narrative_event = { id = maedhros.15 days = 15 } # Fingolfonians leave
+			# also send these to nos fingolfin's head
+			c_3129 = {
+				dynasty_head = {
+					narrative_event = { id = maedhros.15 days = 15 }
+				}
+			}
+		}
+		else = {
+			narrative_event = { id = maedhros.14 days = 14 } # Feanorians leave
+			c_3129 = {
+				dynasty_head = {
+					narrative_event = { id = maedhros.14 days = 14 }
+				}
+			}
+		}
+	}
+}
+
+narrative_event = {
+	id = maedhros.14
+    title = "EVTTITmaedhros.14"
+    desc = "EVTDESCmaedhros.14"
+	picture = GFX_elves_migration
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		trigger = {
+			NOT = { has_character_flag = noldor_departing }
+		}
+		name = "EVTOPTAmaedhros.14"
+	}
+	option = {
+		trigger = {
+			has_character_flag = noldor_departing
+		}
+		# tell sons of feanor to leave
+		set_character_flag = noldor_abandon_realm
+
+		c_3238 = {
+			any_child = {
+				limit = {
+					age = 400
+					is_female = no
+					is_incapable = no
+					NOT = { trait = sailed_west }
+					NOT = { trait = evil_side }
+				}
+				set_character_flag = noldor_abandon_realm
+			}
+		}
+
+		# tell turgon to abandon realm
+		c_3132 = {
+			set_character_flag = noldor_abandon_realm
+		}
+
+		# tell folk of finarfin to leave
+		c_3145 = {
+			any_close_relative = {
+				limit = {
+					dynasty = PREV
+					age = 400
+					is_female = no
+					is_incapable = no
+					NOT = { trait = sailed_west }
+					NOT = { trait = evil_side }
+				}
+				set_character_flag = noldor_abandon_realm
+			}
+		}
+
+		name = "EVTOPTBmaedhros.14"
+	}
+}
+
+narrative_event = {
+	id = maedhros.15
+    title = "EVTTITmaedhros.15"
+    desc = "EVTDESCmaedhros.15"
+	picture = GFX_elves_migration
+
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		trigger = {
+			NOT = { has_character_flag = noldor_departing }
+		}
+		name = "EVTOPTAmaedhros.15"
+	}
+	option = {
+		trigger = {
+			has_character_flag = noldor_departing
+		}
+		set_character_flag = noldor_abandon_realm
+		clr_character_flag = noldor_departing
+
+		# tell folk of fingolfin (including turgon) to leave
+		any_close_relative = {
+			limit = {
+				dynasty = PREV
+				age = 400
+				is_female = no
+				is_incapable = no
+				NOT = { trait = sailed_west }
+				NOT = { trait = evil_side }
+			}
+			set_character_flag = noldor_abandon_realm
+		}
+
+		# tell folk of finarfin to leave
+		c_3145 = {
+			any_close_relative = {
+				limit = {
+					dynasty = PREV
+					age = 400
+					is_female = no
+					is_incapable = no
+					NOT = { trait = sailed_west }
+					NOT = { trait = evil_side }
+				}
+				set_character_flag = noldor_abandon_realm
+			}
+		}
+
+		name = "EVTOPTBmaedhros.15"
+	}
+}
+
+# ping to ruler of doriath
+
+letter_event = {
+	id = maedhros.16
+    desc = "EVTDESCmaedhros.16"
+    
+	is_triggered_only = yes
+	notification = no
+
+	option = {
+		name = "EVTOPTAmaedhros.16"
+		FROM = {
+			letter_event = { id = maedhros.13 days = 7 }
+		}
+	}
+	option = {
+		name = "EVTOPTBmaedhros.16"
+		FROM = {
+			letter_event = { id = maedhros.13 days = 7 }
+		}
+	}
+}
