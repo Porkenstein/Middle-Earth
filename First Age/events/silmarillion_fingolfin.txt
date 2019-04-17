@@ -455,38 +455,243 @@ long_character_event = {
 	}
 }
 
-
 ##################################################################
 # 8 - Maedhros abdicates to Fingolfin
 ##################################################################
+narrative_event = {
+	id = fingolfin.8
+	picture = GFX_elf_meeting
+    desc = "EVTDESCfingolfin.8"
+	title = "EVTTITfingolfin.8"
 
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			culture = culture_noldor
+		}
+		name = "EVTOPTAfingolfin.8"
+	}
+	option = {
+		trigger = {
+			NOT = { culture = culture_noldor }
+		}
+		name = "EVTOPTBfingolfin.8"
+	}
+}
+	
 ##################################################################
 # 9 - The folk of Finrod, Feanor, and Turgon leave Hithlum
 ##################################################################
+narrative_event = {
+	id = fingolfin.9
+	picture = GFX_elf_meeting
+    desc = "EVTDESCfingolfin.9"
+	title = "EVTTITfingolfin.9"
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			culture = culture_noldor
+		}
+		name = "EVTOPTAfingolfin.9"
+	}
+	option = {
+		trigger = {
+			NOT = { culture = culture_noldor }
+		}
+		name = "EVTOPTBfingolfin.9"
+	}
+}
 
 ##################################################################
 # 10 - Fingolfin has a nightmare about the first kinslaying
 ##################################################################
+narrative_event = {
+	id = fingolfin.10
+	picture = GFX_discover_valinor
+    desc = "EVTDESCfingolfin.10"
+	title = "EVTTITfingolfin.10"
+
+    has_character_flag = flag_fingolfin
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	trigger = {
+		year = 4400
+		NOT = {
+			has_character_flag = flag_flashback
+		}
+	}
+
+	option = {
+		trigger = {
+			ai = no
+		}
+		add_trait = depressed
+		set_character_flag = flag_flashback
+		name = "EVTOPTAfingolfin.10"
+	}
+	option = {
+		add_trait = celibate
+		set_character_flag = flag_flashback
+		name = "EVTOPTBfingolfin.10"
+	}
+}
 
 ##################################################################
 # 11 - You ponder the curse of the noldor
 ##################################################################
+narrative_event = {
+	id = fingolfin.11
+	picture = GFX_coastal_city
+    desc = "EVTDESCfingolfin.11"
+	title = "EVTTITfingolfin.11"
+
+    has_character_flag = flag_fingolfin
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	trigger = {
+		year = 4550
+		NOT = {
+			has_character_flag = flag_flashback_2
+		}
+	}
+
+	option = {
+		add_trait = cynical
+		remove_trait = depressed
+		set_character_flag = flag_flashback_2
+		name = "EVTOPTAfingolfin.11"
+	}
+	option = {
+		trigger = {
+			ai = no
+		}
+		add_trait = zealous
+		add_trait = humble
+		set_character_flag = flag_flashback_2
+		name = "EVTOPTBfingolfin.11"
+	}
+}
 
 ##################################################################
 # 12 - The Dagor Bragollach reaction
 ##################################################################
+narrative_event = {
+	id = fingolfin.12
+	picture = GFX_fall_of_gondolin
+    desc = "EVTDESCfingolfin.12"
+	title = "EVTTITfingolfin.12"
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_character_flag = fingolfin_ride_of_rochallor }
+	}
+
+	option = {
+		add_trait = wroth
+		set_character_flag = fingolfin_ride_of_rochallor
+		name = "EVTOPTAfingolfin.12"
+
+		add_trait = on_adventure
+		narrative_event = { id = fingolfin.13 days = 2 }
+	}
+}
 
 ##################################################################
 # 13 - Fingolfin challenges morgoth to single combat
 ##################################################################
 
+narrative_event = {
+	id = fingolfin.13
+	picture = GFX_ride_of_rochallor
+    desc = "EVTDESCfingolfin.13"
+	title = "EVTTITfingolfin.13"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAfingolfin.13"
+
+		narrative_event = { id = fingolfin.14 days = 1 }
+	}
+}
+
 ##################################################################
 # 14 - The Dark Lord emerges and the duel begins
 ##################################################################
 
+narrative_event = {
+	id = fingolfin.14
+	picture = GFX_ride_of_rochallor
+    desc = "EVTDESCfingolfin.14"
+	title = "EVTTITfingolfin.14"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAfingolfin.14"
+
+		# todo - duel with dark lord
+
+		# everyone hears of fingolfin's death
+		any_player = {
+			limit = {
+				NOT = { character = ROOT }
+			}
+			narrative_event = { id = fingolfin.15 days = 7 }
+		}
+	}
+}
+
 ##################################################################
 # 15 - Rumor of fingolfin's death
 ##################################################################
+
+narrative_event = {
+	id = fingolfin.15
+	picture = GFX_ride_of_rochallor
+    desc = "EVTDESCfingolfin.15"
+	title = "EVTTITfingolfin.15"
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			religion = religion_calaquendi
+			NOT = { trait = evil_side }
+			NOT = { society_member_of = the_satanists }
+		}
+		name = "EVTOPTAfingolfin.15"
+	}
+	option = {
+		trigger = {
+			OR = {
+				trait = evil_side
+				society_member_of = the_satanists
+				religion_group = religion_group_melkor
+			}
+		}
+		name = "EVTOPTBfingolfin.15"
+	}
+	option = {
+		trigger = {
+			NOT = { religion = religion_calaquendi }
+			NOT = { trait = evil_side }
+			NOT = { society_member_of = the_satanists }
+			NOT = { religion_group = religion_group_melkor }
+		}
+		name = "EVTOPTCfingolfin.15"
+	}
+}
 
 ##################################################################
 # High King Fingolfin introduction

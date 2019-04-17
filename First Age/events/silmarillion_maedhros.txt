@@ -240,6 +240,14 @@ long_character_event = {
 		}
 		set_character_flag = noldor_departing
 		long_character_event = { id = maedhros.12 days = 90 }
+
+		# inform others, including fingolfin
+		any_player = {
+			limit = {
+				NOT = { character = ROOT }
+			}
+			narrative_event = { id = fingolfin.8 days = 1 }
+		}
 	}
 	option = {
 		name = "EVTOPTBmaedhros.11"
@@ -313,6 +321,7 @@ letter_event = {
 			narrative_event = { id = maedhros.14 days = 14 } # Feanorians leave
 			c_3129 = {
 				dynasty_head = {
+					set_character_flag = other_dynasty_head
 					narrative_event = { id = maedhros.14 days = 14 }
 				}
 			}
@@ -334,6 +343,15 @@ narrative_event = {
 			NOT = { has_character_flag = noldor_departing }
 		}
 		name = "EVTOPTAmaedhros.14"
+
+		# inform others
+		any_player = {
+			limit = {
+				NOT = { has_character_flag = other_dynasty_head }
+				NOT = { character = ROOT }
+			}
+			narrative_event = { id = fingolfin.9 days = 1 }
+		}
 	}
 	option = {
 		trigger = {
