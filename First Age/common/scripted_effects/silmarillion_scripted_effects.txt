@@ -421,6 +421,37 @@ abandon_province = {
 	}
 }
 
+abandon_province_to_liege_or_wilderness = {
+	if = {
+		limit = {
+			NOT = { num_of_settlements = 1 }
+		}
+		build_holding = {
+			type = castle
+		}
+	}
+	else_if = {
+		limit = {
+			num_of_settlements = 2
+		}
+		ruin_province = yes
+	}
+
+	if = {
+		limit = {
+			independent = no
+		}
+		county = {
+			top_liege = {
+				usurp_title = PREV
+			}
+		}
+	}
+	else = {
+		abandon_province = yes
+	}
+}
+
 abandon_province_to_wood_elves = {
 	if = {
 		limit = {

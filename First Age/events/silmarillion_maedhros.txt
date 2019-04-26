@@ -359,6 +359,7 @@ narrative_event = {
 		}
 		# tell sons of feanor to leave
 		set_character_flag = noldor_abandon_realm
+		add_trait = on_adventure
 
 		c_3238 = {
 			any_child = {
@@ -370,17 +371,19 @@ narrative_event = {
 					NOT = { trait = evil_side }
 				}
 				set_character_flag = noldor_abandon_realm
+				add_trait = on_adventure
 			}
 		}
 
 		# tell turgon to abandon realm
 		c_3132 = {
 			set_character_flag = noldor_abandon_realm
+			add_trait = on_adventure
 		}
 
 		# tell folk of finarfin to leave
 		c_3145 = {
-			any_close_relative = {
+			player_heir = { # oldest surviving son (usually finrod)
 				limit = {
 					dynasty = PREV
 					age = 400
@@ -390,6 +393,7 @@ narrative_event = {
 					NOT = { trait = evil_side }
 				}
 				set_character_flag = noldor_abandon_realm
+				add_trait = on_adventure
 			}
 		}
 
@@ -417,6 +421,7 @@ narrative_event = {
 			has_character_flag = noldor_departing
 		}
 		set_character_flag = noldor_abandon_realm
+		add_trait = on_adventure
 		clr_character_flag = noldor_departing
 
 		# tell folk of fingolfin (including turgon) to leave
@@ -430,11 +435,12 @@ narrative_event = {
 				NOT = { trait = evil_side }
 			}
 			set_character_flag = noldor_abandon_realm
+			add_trait = on_adventure
 		}
 
 		# tell folk of finarfin to leave
 		c_3145 = {
-			any_close_relative = {
+			any_child = { # all children of finarfin (spread out a bit more in this scenario)
 				limit = {
 					dynasty = PREV
 					age = 400
@@ -444,6 +450,7 @@ narrative_event = {
 					NOT = { trait = evil_side }
 				}
 				set_character_flag = noldor_abandon_realm
+				add_trait = on_adventure
 			}
 		}
 
@@ -473,3 +480,226 @@ letter_event = {
 		}
 	}
 }
+
+# the noldor leave
+narrative_event = {
+	id = maedhros.17
+	title = EVTTITmaedhros.17
+	desc = EVTDESCmaedhros.17
+	picture = GFX_elves_migration
+
+	is_triggered_only = yes
+
+	has_character_flag = noldor_abandon_realm
+
+	immediate = {
+
+		random_list = {
+
+			# historical locations
+
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_himring
+					factor = 0
+				}
+				modifier = {
+					has_character_flag = flag_maedhros
+					factor = 1000
+				}
+				modifier = {
+					AND = {
+						# is maedhros is alive and moving, put him here
+						NOT = { has_character_flag = flag_maedhros }
+						c_3239 = {
+							AND = {
+								is_alive = yes
+								has_character_flag = noldor_abandon_realm
+							}
+						}
+					}
+					factor = 0
+				}
+				d_himring = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_himring
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_helevorn
+					factor = 0
+				}
+				d_helevorn = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_helevorn
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_himlad
+					factor = 0
+				}
+				d_himlad = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_himlad
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_sereach
+					factor = 0
+				}
+				d_sereach = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_sereach
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_vinyamar
+					factor = 0
+				}
+				d_vinyamar = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_vinyamar
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_daertelaith
+					factor = 0
+				}
+				d_daertelaith = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_daertelaith
+				}
+			}
+			10 = {
+				modifier = {
+					has_global_flag = noldor_realm_maglors_gap
+					factor = 0
+				}
+				modifier = {
+					has_character_flag = flag_maglor
+					factor = 1000
+				}
+				modifier = {
+					AND = {
+						# is maglor is alive and moving, put him here
+						NOT = { has_character_flag = flag_maglor }
+						c_3240 = {
+							AND = {
+								is_alive = yes
+								has_character_flag = noldor_abandon_realm
+							}
+						}
+					}
+					factor = 0
+				}
+				d_maglors_gap = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_maglors_gap
+				}
+			}
+
+			# less likely ahistorical locations
+			
+			5 = {
+				modifier = {
+					has_global_flag = noldor_realm_ered_rhivamar
+					factor = 0
+				}
+				d_ered_rhivamar = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_ered_rhivamar
+				}
+			}
+			5 = {
+				modifier = {
+					has_global_flag = noldor_realm_ered_engrin
+					factor = 0
+				}
+				d_ered_engrin = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_ered_engrin
+				}
+			}
+			5 = {
+				modifier = {
+					has_global_flag = noldor_realm_dor_cuarthol
+					factor = 0
+				}
+				d_dor_cuarthol = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_dor_cuarthol
+				}
+			}
+			5 = {
+				modifier = {
+					has_global_flag = noldor_realm_ladros
+					factor = 0
+				}
+				d_ladros = {
+					save_event_target_as = target_noldor_realm
+					set_global_flag = noldor_realm_ladros
+				}
+			}
+			1 = {
+				# do nothing. just follow someone else.
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmaedhros.17
+
+		remove_trait = on_adventure
+		clr_character_flag = noldor_abandon_realm
+		set_character_flag = flag_expanding
+
+		hidden_tooltip = {
+
+			# get all provinces (sans the player capital)
+			any_landed_title = {
+				limit = {
+					de_jure_liege_or_above = event_target:target_settle_duchy
+					higher_tier_than = baron
+					is_not_player_capital_county = yes
+				}
+				PREV = {
+					grant_title_no_opinion = PREV
+				}
+			}
+
+			# give duchy
+			event_target:target_settle_duchy = {
+				PREV = {
+					grant_title_no_opinion = PREV
+				}
+			}
+
+			# abandon the old lands
+			any_realm_province = {
+				limit = {
+					NOT = { de_jure_liege_or_above = event_target:target_settle_duchy }
+				}
+				abandon_province_to_liege_or_wilderness = yes
+			}
+		
+			# settle the host
+			any_realm_province = {
+				settle_with_root_refugees_effect = yes
+				build_castle_effect = yes
+			}
+			capital_scope = {
+				build_castle_effect = yes
+			}
+
+			# todo notify nearby players
+		}
+	}
+
+	# todo option B
+}
+
