@@ -5,8 +5,7 @@ ca_thangorodrim_peaks = { #Thangorodrim Peaks#
 	trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
 	gold_cost = 150
 	build_time = 3650 #10y
-	fort_level = 8.0
-	light_infantry = 300
+	fort_level = 6.0
 	archers = 200
 	flying_monsters = 10
 	ai_creation_factor = 86
@@ -16,35 +15,35 @@ ca_thangorodrim_peaks = { #Thangorodrim Peaks#
 		religion_group = religion_group_melkor
 	}
 }
-ca_angbandgate = { #Angband Gate#
-	desc = ca_angbandgate_desc
-	trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-	gold_cost = 150
-	build_time = 3650 #10y
-	fort_level = 10.0
-	light_infantry = 1000
-	archers = 500
-	monster_cavalry = 20
-	ai_creation_factor = 86
-	garrison_size = 2.00
-	potential = {
-		province_id = 17 #Angband
-		FROMFROM = {
-			title = b_annon_daer
-		}
-		religion_group = religion_group_melkor
-	}
-}
+# ca_angbandgate = { #Angband Gate#
+# 	desc = ca_angbandgate_desc
+# 	trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
+# 	gold_cost = 150
+# 	build_time = 3650 #10y
+# 	fort_level = 10.0
+# 	light_infantry = 1000
+# 	archers = 500
+# 	monster_cavalry = 20
+# 	ai_creation_factor = 86
+# 	garrison_size = 2.00
+# 	potential = {
+# 		province_id = 17 #Angband
+# 		FROMFROM = {
+# 			title = b_annon_daer
+# 		}
+# 		religion_group = religion_group_melkor
+# 	}
+# }
 ca_tolingaurhoth = { #The Isle of Werewolves breeding pits#
 	desc = ca_tolingaurhoth_desc
 	trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
-	gold_cost = 300
+	gold_cost = 200
 	build_time = 1460 #4y
-	monster_cavalry = 100
-	flying_monsters = 100
-	light_cavalry = 400
+	monster_cavalry = 50
+	flying_monsters = 50
+	light_cavalry = 200
 	ai_creation_factor = 90
-	garrison_size = 2.00
+	garrison_size = 1.50
 		potential = { 
 			province_id = 223 #Tol Sirion
 			religion_group = religion_group_melkor
@@ -93,41 +92,41 @@ ca_thangorodrim = { #Thangorodrim breeding pits#
 	}
 }
 
-ca_esgaliant = {
-	desc = ca_esgaliant_desc
-	trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+# ca_esgaliant = {
+# 	desc = ca_esgaliant_desc
+# 	trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+# 
+# 	ai_creation_factor = 0
+# 
+# 	potential = {
+# 		FROM = { NOT = { religion = religion_wilderness } }
+# 		FROMFROM = {
+# 			title = b_iant_iaur
+# 		}
+# 		has_global_flag = iant_iaur_rebuilt_finally
+# 	}
+# 
+# 	gold_cost = 500
+# 	build_time = 365
+# 
+# 	fort_level = 2
+# 	tax_income = 5.00
+# 	trade_route_wealth = 10
+# 	trade_route_value = 10
+# 
+# 	archers = 50
+# 
+# 	monthly_character_prestige = 0.5
+# }
 
-	ai_creation_factor = 0
-
-	potential = {
-		FROM = { NOT = { religion = religion_wilderness } }
-		FROMFROM = {
-			title = b_iant_iaur
-		}
-		has_global_flag = iant_iaur_rebuilt_finally
-	}
-
-	gold_cost = 500
-	build_time = 365
-
-	fort_level = 2
-	tax_income = 5.00
-	trade_route_wealth = 10
-	trade_route_value = 10
-
-	archers = 50
-
-	monthly_character_prestige = 0.5
-}
-
-ca_tower_of_turgon = {
-		desc = ca_tower_of_turgon_desc
-		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+ca_eagle_perch = {
+		desc = ca_eagle_perch_desc
+		trigger = { }
 
 		ai_creation_factor = 105
 
 		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
+			FROM = { trait = eagle_friend }
 			FROMFROM = {
 				title = b_martotaran
 			}
@@ -136,14 +135,9 @@ ca_tower_of_turgon = {
 		gold_cost = 200
 		build_time = 365
 
-		fort_level = 3
-
-		heavy_infantry = 250
-		light_infantry = 300
-		archers = 200
-		knights = 100
-
-		monthly_character_prestige = 0.5
+		monthly_character_prestige = 0.2
+		monthly_character_piety = 0.2
+		flying_monsters = 30
 	}
 
 ca_sloped_walls = {
@@ -167,11 +161,10 @@ ca_sloped_walls = {
 
 		gold_cost = 200
 		build_time = 365
-		garrison_size = 2.5
-		fort_level = 7
-		tax_income = -1
+		garrison_size = 1.0
+		fort_level = 3.0
 
-		archers = 250
+		archers = 100
 	}
 
 
@@ -191,11 +184,11 @@ ca_great_market = {
 			}
 		}
 
-		gold_cost = 200
+		gold_cost = 300
 		build_time = 365
 
 
-		tax_income = 15
+		tax_income = 5
 
 		light_infantry = 500
 
@@ -217,13 +210,13 @@ ca_kings_square = {
 
 		gold_cost = 200
 		build_time = 365
-		fort_level = 2
+		fort_level = 1.0
 		heavy_infantry = 300
 
 
 	}
 
-## THE NETHERMOST HALL ##
+## THE THRONE OF MORGOTH ##
 ca_angband = {
 		desc = ca_angband_desc
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
@@ -240,10 +233,9 @@ ca_angband = {
 		gold_cost = 200
 		build_time = 365
 
-		monster_infantry = 100
-		light_infantry = 500
+		monster_cavalry = 100
 		heavy_infantry = 500
-		fort_level = 10
+		monthly_character_prestige = 1.0
 	}
 
 ca_fields_of_gondolin = {
@@ -266,10 +258,10 @@ ca_fields_of_gondolin = {
 		gold_cost = 200
 		build_time = 365
 
-		tax_income = 20
+		tax_income = 10
 		heavy_infantry = 50
 		archers = 50
 		light_cavalry = 50
-		knights = 15
+		knights = 30
 	}
 }

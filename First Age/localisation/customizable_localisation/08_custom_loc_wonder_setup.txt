@@ -122,13 +122,12 @@ defined_text = { #special wonders
 
 	text = {
 		trigger = {
-			has_wonder_flag = holy_building
 			any_upgrade_on_wonder = {
-				count = 2
+				count = 3
 				has_wonder_upgrade_flag = scary
 			}
 		}
-		localisation_key = String_the_evil_god_names_workshop
+		localisation_key = String_bastion_of_terror
 	}
 	text = {
 		trigger = {
@@ -157,7 +156,7 @@ defined_text = {
 	text = {
 		trigger = {
 			wonder_stage = 4
-			wonder_age = 300
+			wonder_age = 600
 		}
 		localisation_key = String_Ancient
 	}
@@ -196,7 +195,7 @@ defined_text = {
 				has_wonder_upgrade_flag = scary
 			}
 		}
-		localisation_key = String_Bloody
+		localisation_key = String_Dark
 	}
 	text = {
 		trigger = {
@@ -206,7 +205,7 @@ defined_text = {
 				has_wonder = wonder_fortress
 				any_upgrade_on_wonder = {
 					has_wonder_upgrade_flag = defensive
-					NOT = { has_wonder_upgrade_flag = decorative } #it can't be "Bells"
+					NOT = { has_wonder_upgrade_flag = decorative }
 				}
 			}
 		}
@@ -218,7 +217,7 @@ defined_text = {
 			num_of_wonder_upgrades = 4
 			any_upgrade_on_wonder = {
 				has_wonder_upgrade_flag = defensive
-				NOT = { has_wonder_upgrade_flag = decorative } #it can't be "Bells"
+				NOT = { has_wonder_upgrade_flag = decorative }
 			}
 		}
 		localisation_key = String_Fortified
@@ -276,7 +275,7 @@ defined_text = {
 			num_of_wonder_upgrades = 3
 		}
 		localisation_key = String_Verdant
-	}	
+	}
 	text = {
 		trigger = {
 			NOT = { has_wonder = wonder_great_caves }
@@ -318,11 +317,8 @@ defined_text = {
 				has_wonder_upgrade_flag = holy #currently only on the relic tomb
 			}
 			OR = {
-				has_wonder = wonder_temple_melkor
 				has_wonder = wonder_temple_mahal
 				has_wonder = wonder_temple_primitive
-				has_wonder = wonder_temple_great_tree
-				has_wonder = wonder_tower			
 			}
 		}
 		localisation_key = String_Divine
@@ -354,15 +350,15 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			wonder_age = 100
-			NOT = { wonder_age = 200 }
+			wonder_age = 200
+			NOT = { wonder_age = 600 }
 		}
 		localisation_key = String_Old
 	}
 	
 	#In case it cannot find anything...
     fallback_text = {
-        localisation_key = String_Cool #placeholder, to find errors
+        localisation_key = String_Great 
     }
 }
 
@@ -375,7 +371,7 @@ defined_text = {
 	text = {
 		trigger = {
 			wonder_stage = 4
-			wonder_age = 300
+			wonder_age = 600
 		}
 		localisation_key = String_ancient
 	}
@@ -424,7 +420,7 @@ defined_text = {
 				has_wonder = wonder_fortress
 				any_upgrade_on_wonder = {
 					has_wonder_upgrade_flag = defensive
-					NOT = { has_wonder_upgrade_flag = decorative } #it can't be "Bells"
+					NOT = { has_wonder_upgrade_flag = decorative }
 				}
 			}
 		}
@@ -436,7 +432,7 @@ defined_text = {
 			num_of_wonder_upgrades = 4
 			any_upgrade_on_wonder = {
 				has_wonder_upgrade_flag = defensive
-				NOT = { has_wonder_upgrade_flag = decorative } #it can't be "Bells"
+				NOT = { has_wonder_upgrade_flag = decorative }
 			}
 		}
 		localisation_key = String_fortified
@@ -535,10 +531,7 @@ defined_text = {
 			}
 			OR = {
 				has_wonder = wonder_temple_melkor
-				has_wonder = wonder_temple_mahal
-				has_wonder = wonder_temple_primitive
-				has_wonder = wonder_temple_great_tree
-				has_wonder = wonder_tower			
+				has_wonder = wonder_temple_mahal		
 			}
 		}
 		localisation_key = String_divine
@@ -565,20 +558,16 @@ defined_text = {
 		localisation_key = String_grand
 	}
 	text = {
-		trigger = { wonder_stage = 1 }
-		localisation_key = String_great
-	}
-	text = {
 		trigger = {
-			wonder_age = 100
-			NOT = { wonder_age = 200 }
+			wonder_age = 200
+			NOT = { wonder_age = 600 }
 		}
 		localisation_key = String_old
 	}
 
 	#In case it cannot find anything...
     fallback_text = {
-        localisation_key = String_Cool #placeholder, to find errors
+        localisation_key = String_great 
     }
 }
 
@@ -590,22 +579,14 @@ defined_text = {
 
 	text = {
 		trigger = { has_wonder = wonder_halls_of_remembrance }
-		localisation_key = String_Cathedral
-	}
-	text = {
-		trigger = { has_wonder = wonder_temple_melkor }
-		localisation_key = String_Mosque
-	}
-	text = {
-		trigger = { has_wonder = wonder_temple_mahal }
-		localisation_key = String_Synagogue
+		localisation_key = String_Hall_of_Rememberance
 	}
 	text = {
 		trigger = {
 			OR = {
 				has_wonder = wonder_temple_primitive
-				has_wonder = wonder_tower
-				has_wonder = wonder_temple_great_tree
+				has_wonder = wonder_temple_mahal
+				has_wonder = wonder_temple_melkor
 			}
 		}
 		localisation_key = String_Temple
@@ -660,7 +641,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_great_caves }
-		localisation_key = String_Underground_City
+		localisation_key = String_Cave
 	}
 	text = {
 		trigger = { 
@@ -676,7 +657,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_great_haven }
-		localisation_key = String_Harbor
+		localisation_key = String_Haven
 	}
 	text = {
 		trigger = { has_wonder = wonder_lighthouse }
@@ -684,7 +665,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_fighting_pits }
-		localisation_key = String_Amphitheater
+		localisation_key = String_Pit
 	}
 	text = {
 		trigger = { has_wonder = wonder_palace }
@@ -696,7 +677,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_academy }
-		localisation_key = String_University
+		localisation_key = String_Academy
 	}
 	text = {
 		trigger = { has_wonder = wonder_library }
@@ -704,49 +685,121 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_great_tomb }
-		localisation_key = String_Mausoleum
+		localisation_key = String_Great_Tomb
 	}
 	text = {
-		trigger = { has_wonder = wonder_standing_stones }
-		localisation_key = String_Monolith
+		trigger = { has_wonder = wonder_standing_stone }
+		localisation_key = String_Standing_Stone
 	}	
 	text = {
 		trigger = {
-			OR = {
-				has_wonder = wonder_great_cairn
-				has_wonder = wonder_great_cairn_giza
-				has_wonder = wonder_great_mine
-			}
+			has_wonder = wonder_great_cairn
 		}
-		localisation_key = String_Pyramid
+		localisation_key = String_Cairn
 	}
 	text = {
-		trigger = { has_wonder = wonder_standing_stones_stonehenge }
-		localisation_key = String_Stonehenge
+		trigger = { has_wonder = wonder_tower }
+		localisation_key = String_Tower
 	}
 	text = {
-		trigger = { has_wonder = wonder_great_tomb_halicarnassus }
-		localisation_key = wonder_great_tomb_halicarnassus
+		trigger = { has_wonder = wonder_stone_of_the_hapless }
+		localisation_key = wonder_stone_of_the_hapless
 	}
 	text = {
-		trigger = { has_wonder = wonder_lighthouse_alexandria }
-		localisation_key = wonder_lighthouse_alexandria
+		trigger = { has_wonder = wonder_tower_of_turgon }
+		localisation_key = wonder_tower_of_turgon
 	}
 	text = {
-		trigger = { has_wonder = wonder_tower_konark }
-		localisation_key = wonder_tower_konark
+		trigger = { has_wonder = wonder_great_halls_vinyamar }
+		localisation_key = wonder_great_halls_vinyamar
 	}
 	text = {
-		trigger = { has_wonder = wonder_apostolic_palace }
-		localisation_key = wonder_apostolic_palace
+		trigger = { has_wonder = wonder_barad_eithel }
+		localisation_key = wonder_barad_eithel
 	}
 	text = {
-		trigger = { has_wonder = wonder_house_of_wisdom }
-		localisation_key = wonder_house_of_wisdom
+		trigger = { has_wonder = wonder_barad_nimras }
+		localisation_key = wonder_barad_nimras
 	}
 	text = {
-		trigger = { has_wonder = wonder_great_caves_petra }
-		localisation_key = wonder_great_caves_petra
+		trigger = { has_wonder = wonder_himring }
+		localisation_key = wonder_himring
+	}
+	text = {
+		trigger = { has_wonder = wonder_rerir }
+		localisation_key = wonder_rerir
+	}
+	text = {
+		trigger = { has_wonder = wonder_hill_of_the_slain }
+		localisation_key = wonder_hill_of_the_slain
+	}
+	text = {
+		trigger = { has_wonder = wonder_ereb }
+		localisation_key = wonder_ereb
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_sirion }
+		localisation_key = wonder_haven_sirion
+	}
+	text = {
+		trigger = { has_wonder = wonder_cairn_of_fingolfin }
+		localisation_key = wonder_cairn_of_fingolfin
+	}
+	text = {
+		trigger = { has_wonder = wonder_minas_tirith }
+		localisation_key = wonder_minas_tirith
+	}
+	text = {
+		trigger = { has_wonder = wonder_iant_iaur }
+		localisation_key = wonder_iant_iaur
+	}
+	text = {
+		trigger = { has_wonder = wonder_nethermost_hall }
+		localisation_key = wonder_nethermost_hall
+	}
+	text = {
+		trigger = { has_wonder = wonder_annon_daer }
+		localisation_key = wonder_annon_daer
+	}
+	text = {
+		trigger = { has_wonder = wonder_breeding_pits_thangorodrim }
+		localisation_key = wonder_breeding_pits_thangorodrim
+	}
+	text = {
+		trigger = { has_wonder = wonder_thousand_caves }
+		localisation_key = wonder_thousand_caves
+	}
+	text = {
+		trigger = { has_wonder = wonder_caves_androth }
+		localisation_key = wonder_caves_androth
+	}
+	text = {
+		trigger = { has_wonder = wonder_caves_nargothrond }
+		localisation_key = wonder_caves_nargothrond
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_brithombar }
+		localisation_key = wonder_haven_brithombar
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_eglarest }
+		localisation_key = wonder_haven_eglarest
+	}
+	text = {
+		trigger = { has_wonder = wonder_halls_dolmed }
+		localisation_key = wonder_halls_dolmed
+	}
+	text = {
+		trigger = { has_wonder = wonder_gates_sirion }
+		localisation_key = wonder_gates_sirion
+	}
+	text = {
+		trigger = { has_wonder = wonder_khalarazum }
+		localisation_key = wonder_khalarazum
+	}
+	text = {
+		trigger = { has_wonder = wonder_hirilorn }
+		localisation_key = wonder_hirilorn
 	}
 	
 	#In case it cannot find anything...
@@ -763,23 +816,14 @@ defined_text = {
 
 	text = {
 		trigger = { has_wonder = wonder_halls_of_remembrance }
-		localisation_key = String_cathedral
-	}
-	text = {
-		trigger = { has_wonder = wonder_temple_melkor }
-		localisation_key = String_mosque
-	}
-	text = {
-		trigger = { has_wonder = wonder_temple_mahal }
-		localisation_key = String_synagogue
+		localisation_key = String_hall_of_rememberance
 	}
 	text = {
 		trigger = {
 			OR = {
 				has_wonder = wonder_temple_primitive
-				has_wonder = wonder_tower
-				has_wonder = wonder_temple_great_tree
-				has_wonder = wonder_tower_konark
+				has_wonder = wonder_temple_mahal
+				has_wonder = wonder_temple_melkor
 			}
 		}
 		localisation_key = String_temple
@@ -822,7 +866,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_great_caves }
-		localisation_key = String_underground_city
+		localisation_key = String_cave
 	}
 	text = {
 		trigger = { has_wonder = wonder_wall }
@@ -830,7 +874,7 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_great_haven }
-		localisation_key = String_harbor
+		localisation_key = String_haven
 	}
 	text = {
 		trigger = { has_wonder = wonder_lighthouse }
@@ -838,13 +882,13 @@ defined_text = {
 	}
 	text = {
 		trigger = { has_wonder = wonder_fighting_pits }
-		localisation_key = String_amphitheater
+		localisation_key = String_pit
 	}
 	text = {
 		trigger = {
 			OR = {
 				has_wonder = wonder_palace
-				has_wonder = wonder_apostolic_palace
+				has_wonder = wonder_great_halls_vinyamar
 			}
 		}
 		localisation_key = String_palace
@@ -856,9 +900,8 @@ defined_text = {
 	text = {
 		trigger = {
 			has_wonder = wonder_academy
-			has_wonder = wonder_house_of_wisdom
 		}
-		localisation_key = String_university
+		localisation_key = String_academy
 	}
 	text = {
 		trigger = { has_wonder = wonder_library }
@@ -866,34 +909,123 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			OR = {
-				has_wonder = wonder_great_tomb
-				has_wonder = wonder_great_tomb_halicarnassus
-			}
+			has_wonder = wonder_great_tomb
 		}
-		localisation_key = String_mausoleum
+		localisation_key = String_great_tomb
 	}
 	text = {
 		trigger = {
-			OR = {
-				has_wonder = wonder_great_cairn
-				has_wonder = wonder_great_cairn_giza
-				has_wonder = wonder_great_mine
-			}
+			has_wonder = wonder_great_cairn
 		}
-		localisation_key = String_pyramid
+		localisation_key = String_cairn
 	}
 	text = {
-		trigger = { has_wonder = wonder_standing_stones }
-		localisation_key = String_monolith
+		trigger = { has_wonder = wonder_standing_stone }
+		localisation_key = String_standing_stone
 	}
 	text = {
-		trigger = { has_wonder = wonder_standing_stones_stonehenge }
-		localisation_key = String_stone_formation
+		trigger = { has_wonder = wonder_tower }
+		localisation_key = String_tower
 	}
 	text = {
-		trigger = { has_wonder = wonder_great_caves_petra }
-		localisation_key = String_underground_city
+		trigger = { has_wonder = wonder_stone_of_the_hapless }
+		localisation_key = wonder_stone_of_the_hapless
+	}
+	text = {
+		trigger = { has_wonder = wonder_tower_of_turgon }
+		localisation_key = wonder_tower_of_turgon
+	}
+	text = {
+		trigger = { has_wonder = wonder_great_halls_vinyamar }
+		localisation_key = wonder_great_halls_vinyamar
+	}
+	text = {
+		trigger = { has_wonder = wonder_barad_eithel }
+		localisation_key = wonder_barad_eithel
+	}
+	text = {
+		trigger = { has_wonder = wonder_barad_nimras }
+		localisation_key = wonder_barad_nimras
+	}
+	text = {
+		trigger = { has_wonder = wonder_himring }
+		localisation_key = wonder_himring
+	}
+	text = {
+		trigger = { has_wonder = wonder_rerir }
+		localisation_key = wonder_rerir
+	}
+	text = {
+		trigger = { has_wonder = wonder_hill_of_the_slain }
+		localisation_key = wonder_hill_of_the_slain
+	}
+	text = {
+		trigger = { has_wonder = wonder_ereb }
+		localisation_key = wonder_ereb
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_sirion }
+		localisation_key = wonder_haven_sirion
+	}
+	text = {
+		trigger = { has_wonder = wonder_cairn_of_fingolfin }
+		localisation_key = wonder_cairn_of_fingolfin
+	}
+	text = {
+		trigger = { has_wonder = wonder_minas_tirith }
+		localisation_key = wonder_minas_tirith
+	}
+	text = {
+		trigger = { has_wonder = wonder_iant_iaur }
+		localisation_key = wonder_iant_iaur
+	}
+	text = {
+		trigger = { has_wonder = wonder_nethermost_hall }
+		localisation_key = wonder_nethermost_hall
+	}
+	text = {
+		trigger = { has_wonder = wonder_annon_daer }
+		localisation_key = wonder_annon_daer
+	}
+	text = {
+		trigger = { has_wonder = wonder_breeding_pits_thangorodrim }
+		localisation_key = wonder_breeding_pits_thangorodrim
+	}
+	text = {
+		trigger = { has_wonder = wonder_thousand_caves }
+		localisation_key = wonder_thousand_caves
+	}
+	text = {
+		trigger = { has_wonder = wonder_caves_androth }
+		localisation_key = wonder_caves_androth
+	}
+	text = {
+		trigger = { has_wonder = wonder_caves_nargothrond }
+		localisation_key = wonder_caves_nargothrond
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_brithombar }
+		localisation_key = wonder_haven_brithombar
+	}
+	text = {
+		trigger = { has_wonder = wonder_haven_eglarest }
+		localisation_key = wonder_haven_eglarest
+	}
+	text = {
+		trigger = { has_wonder = wonder_halls_dolmed }
+		localisation_key = wonder_halls_dolmed
+	}
+	text = {
+		trigger = { has_wonder = wonder_gates_sirion }
+		localisation_key = wonder_gates_sirion
+	}
+	text = {
+		trigger = { has_wonder = wonder_khalarazum }
+		localisation_key = wonder_khalarazum
+	}
+	text = {
+		trigger = { has_wonder = wonder_hirilorn }
+		localisation_key = wonder_hirilorn
 	}
 	
 	#In case it cannot find anything...
@@ -1039,43 +1171,42 @@ defined_text = {
 			wonder_age = 100
 			NOT = { wonder_age = 150 }
 		}
-		localisation_key = String_ages
-	}
-	text = {
-		trigger = {
-			wonder_age = 100
-			NOT = { wonder_age = 150 }
-		}
 		localisation_key = String_more_than_a_hundred_years
 	}
 	text = {
 		trigger = {
-			wonder_age = 250
+			wonder_age = 600
+		}
+		localisation_key = String_ages
+	}
+	text = {
+		trigger = {
+			wonder_age = 300
 		}
 		localisation_key = String_hundreds_of_years
 	}
 	text = {
 		trigger = {
-			wonder_age = 250
+			wonder_age = 800
 		}
 		localisation_key = String_as_long_as_anyone_can_remember
 	}
 	text = {
 		trigger = {
-			wonder_age = 250
+			wonder_age = 300
 		}
 		localisation_key = String_centuries
 	}
 	text = {
 		trigger = {
-			wonder_age = 350
+			wonder_age = 800
 		}
 		localisation_key = String_time_immemorial
 	}
 
 	text = {
 		trigger = {
-			wonder_age = 400
+			wonder_age = 600
 		}
 		localisation_key = String_ancient
 	}
@@ -1165,7 +1296,7 @@ defined_text = {
 		localisation_key = String_impressive_feat_of_architecture
 	}
 	text = {
-		trigger = { has_wonder = wonder_standing_stones }
+		trigger = { has_wonder = wonder_standing_stone }
 		localisation_key = String_inspired_imagination
 	}
 	text = {
@@ -1269,10 +1400,10 @@ defined_text = {
 		trigger = {
 			OR = {
 				has_wonder_upgrade_flag = statues
-				has_wonder_upgrade = upgrade_gargoyles
+				has_wonder_upgrade = upgrade_stone_watchers
 			}
 		}
-		localisation_key = String_statues_keep_demons_away
+		localisation_key = String_statues_keep_invaders_away
 	}
 	text = {
 		trigger = {
@@ -1375,22 +1506,6 @@ defined_text = {
 
 	fallback_text = {
 		localisation_key = String_most_recently_added
-	}
-}
-
-
-
-defined_text = {
-	name = GetMythologicalBeast
-
-	use_first_valid = yes # Defaults to no
-
-	text = {
-		trigger = { has_wonder = wonder_great_cairn_giza }
-		localisation_key = String_Sphinx
-	}
-	fallback_text = {
-		localisation_key = String_MythologicalBeast
 	}
 }
 
@@ -1564,7 +1679,7 @@ defined_text = { ### Needs a province scope - USE ONLY TOGETHER WITH GetWonderTe
 #
 #	text = {
 #		trigger = { has_wonder_upgrade = upgrade_spikes }
-#		localisation_key = String_Bloody
+#		localisation_key = String_Dark
 #	}
 #	text = {
 #		trigger = { has_wonder_flag = is_temple }

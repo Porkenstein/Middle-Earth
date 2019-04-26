@@ -22,26 +22,43 @@ religion = religion_moriquendi
 	culture = culture_noldor
 	religion = religion_calaquendi
 	b_tol_sirion = castle
+	build_wonder = wonder_minas_tirith
+	set_wonder_stage = 1
 }
 4380.1.1={
 	b_tol_sirion_2 = city
 	b_tol_sirion_3 = temple
 	b_tol_sirion_4 = castle
 }
+4500.1.1={
+	set_wonder_stage = 2
+}
 4769.6.1={
 	culture = culture_orkish
 	religion = religion_orkish
 	b_tol_sirion_2 = temple
-	b_tol_sirion_3 = 0
-	b_tol_sirion_4 = 0
+	remove_settlement = b_tol_sirion_3
+	remove_settlement = b_tol_sirion_4
+
+	# rather than destroy the Noldorin keep, Sauron improves it
+	set_wonder_stage = 3
 }
 4778.6.1={
 	culture = culture_noldor
 	religion = religion_calaquendi
-	b_tol_sirion_2 = 0
+	remove_settlement = b_tol_sirion_2
+
+	set_wonder_damaged = yes
+	set_wonder_stage = 1
 }
 4784.2.1={
 	culture = culture_orkish
 	religion = religion_orkish
 	b_tol_sirion_2 = temple
+
+	set_wonder_damaged = no
+	set_wonder_stage = 3
+}
+4830.1.1={
+	set_wonder_stage = 4
 }

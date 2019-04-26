@@ -130,16 +130,19 @@ defined_text = {
 	name = GetAuthorNationAdj
 	text = {
 		trigger = { has_character_flag = book_author_nationality_Greek }
-		localisation_key = String_greek
+		localisation_key = String_elf
 	}
 	text = {
 		trigger = { has_character_flag = book_author_nationality_Roman }
-		localisation_key = String_roman
+		localisation_key = string_noldo
 	}
 }
 
 defined_text = { 
 	name = GetAuthorName
+
+# todo figure out valian authors
+
 	text = {
 		trigger = { has_character_flag = book_author_Euripedes }
 		localisation_key = String_Euripedes
@@ -261,15 +264,11 @@ defined_text = {
 defined_text = { 
 	name = GetZweihanderSwordName
 	text = {
-		trigger = { culture_group = central_germanic }
-		localisation_key = String_ZweihanderSword
-	}
-	text = {
-		trigger = { NOT = { culture_group = central_germanic } }
+		trigger = { }
 		localisation_key = String_TwoHandedSword
 	}
 	text = {
-		trigger = { NOT = { culture_group = central_germanic } }
+		trigger = { }
 		localisation_key = string_greatsword
 	} 
 }

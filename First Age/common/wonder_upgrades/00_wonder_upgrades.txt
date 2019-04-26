@@ -37,24 +37,24 @@
 # Torture Chamber ................. upgrade_torture_chamber
 # Road Tolls ...................... upgrade_road_tolls 
 # Mural ........................... upgrade_historical_mural
-# Tavern .......................... upgrade_tavern
+# Tavern .......................... upgrade_inn
 
 #### CATHEDRAL
-# Gargoyles ....................... upgrade_gargoyles
-# Grand Bells ..................... upgrade_bells
-# Stained Glass Window ............ upgrade_stained_glass_window
+# Gargoyles ....................... upgrade_stone_watchers
+# Grand Bells ..................... upgrade_horn
+# Stained Glass Window ............ upgrade_glass_windows
 # Relic Tomb ...................... upgrade_relic_tomb
-# Grand Basilica .................. upgrade_grand_basilica
+# Grand Basilica .................. upgrade_grand_dome
 # Catacombs ....................... upgrade_catacombs
 # Giant Cross ..................... upgrade_heroic_statue
-# Golden Bells .................... upgrade_bells_golden
+# Golden Bells .................... upgrade_horn_giant
 
 #### TEMPLE
 # God Statue ...................... upgrade_statue_vala
 # Temple Guards ................... upgrade_temple_guards
 # Sacrificial Altar ............... upgrade_sacrificial_altar
 # Sacred Grove .................... upgrade_sacred_grove
-# Prophecy Rooms .................. upgrade_prophecy_rooms
+# Prophecy Rooms .................. upgrade_scrying_pool
 # Walled Paved Precinct ........... upgrade_temple_precinct
 # Inner Sanctuary ................. upgrade_inner_sanctuary
 # Custodian of the Temple ......... upgrade_custodian_of_temple
@@ -67,12 +67,10 @@
 # Soup Kitchen .................... upgrade_feast_hall
 # School .......................... upgrade_tower_of_sorcery
 # Hostel for travelers ............ upgrade_slave_harem
-# Custodian of the Mosque ......... upgrade_temple_guardian
 
 #### SYNAGOGUE
 # The Tallest Building ............ upgrade_great_statues
 # Outer Wall and Open Garden ...... upgrade_garden_outer
-# Torah Ark ....................... upgrade_dwarven_requilary
 # Elaborate Decorations ........... upgrade_decorations
 # Choir Rooms ..................... upgrade_choir_rooms
 # School .......................... upgrade_school_dwarven
@@ -206,20 +204,20 @@
 # Custodian of the Stone .......... upgrade_stone_custodian
 
 #### GRAND LIBRARY
-# Poetry and Drama Collection ..... upgrade_collection_drama
+# Poetry and Drama Collection ..... upgrade_collection_poetry
 # Architecture Collection ......... upgrade_collection_architecture
 # History Collection .............. upgrade_collection_history
-# Natural Sciences Collection ..... upgrade_collection_science
-# Math and Philosophy Collection .. upgrade_collection_math
+# Natural Sciences Collection ..... upgrade_collection_nature
+# Math and Philosophy Collection .. upgrade_collection_philosophy
 # Scribe Room ..................... upgrade_scribe_room
 # Keeper of the Tomes ............. upgrade_keeper_of_tomes
 
 #### PYRAMID
-# Extra Pyramids .................. upgrade_extra_pyramids
+# Extra Pyramids .................. upgrade_extra_cairns
 # Sphinx/Beast .................... upgrade_spirit_guardian
 # Hidden Room ..................... upgrade_hidden_room
 # Necropolis ...................... upgrade_necropolis
-# Lime Stone Casing ............... upgrade_lime_stone_casing
+# Lime Stone Casing ............... upgrade_smooth_casing
 # Traps ........................... upgrade_traps
 # Overseer of Rites ............... upgrade_overseer_of_rites
 
@@ -518,7 +516,7 @@ upgrade_road_tolls = {
 	}
 }
 
-upgrade_tavern = {
+upgrade_inn = {
 	picture = GFX_upgrade_icon_crates
 	potential = { }
 	allow = {
@@ -545,7 +543,7 @@ upgrade_tavern = {
 ############### Cathedral ################
 ##########################################
 
-upgrade_gargoyles = { # Watcher statues
+upgrade_stone_watchers = { # Watcher statues
 	picture = GFX_upgrade_icon_skulls
 
 	potential = { mep_is_evil_side_trigger = yes }
@@ -569,8 +567,8 @@ upgrade_gargoyles = { # Watcher statues
 	}
 }
 
-upgrade_bells = {
-	picture = GFX_upgrade_icon_ingots_silver
+upgrade_horn = {
+	picture = GFX_upgrade_icon_walls
 
 	potential = { }
 	allow = {
@@ -586,11 +584,11 @@ upgrade_bells = {
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		siege_defence = 0.1
+		siege_defence = 0.2
 	}
 }
 
-upgrade_stained_glass_window = {
+upgrade_glass_windows = {
 	picture = GFX_upgrade_icon_roses_red
 
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
@@ -608,6 +606,34 @@ upgrade_stained_glass_window = {
 	gold_cost_ticking = 1
 	owner_modifier = {
 		church_opinion = 5
+	}
+}
+
+upgrade_requilary = {
+	picture = GFX_upgrade_icon_key
+	
+	potential = {  }
+	allow = {
+	}
+	active = { 
+		custom_tooltip = {
+			text = must_be_storing_a_relic_TT
+			hidden_tooltip = {
+				FROM = { has_wonder_upgrade_flag = is_storing_relic }
+			}
+		}
+	}
+
+	flags = {
+		valuable
+		is_singular
+		stores_relic
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		monthly_character_prestige = 0.5
 	}
 }
 
@@ -641,7 +667,7 @@ upgrade_relic_tomb = {
 	}
 }
 
-upgrade_grand_basilica = {
+upgrade_grand_dome = {
 	picture = GFX_upgrade_icon_crates
 
 	potential = { }
@@ -705,13 +731,13 @@ upgrade_heroic_statue = {
 	}
 }
 
-upgrade_bells_golden = {
-	picture = GFX_upgrade_icon_ingots_gold
+upgrade_horn_giant = {
+	picture = GFX_upgrade_icon_walls
 
-	potential = { }
+	potential = { religion_group = religion_group_eldar }
 	allow = {
 	}
-	active = { }
+	active = { religion_group = religion_group_eldar }
 
 	flags = {
 		defensive
@@ -724,6 +750,9 @@ upgrade_bells_golden = {
 	gold_cost_ticking = 1
 	owner_modifier = {
 		proud_opinion = 5
+	}
+	local_modifier = {
+		siege_defence = 0.4
 	}
 }
 
@@ -817,7 +846,7 @@ upgrade_sacred_grove = {
 	}
 }
 
-upgrade_prophecy_rooms = { 
+upgrade_scrying_pool = { 
 	picture = GFX_upgrade_icon_crates
 
 	potential = { }
@@ -901,11 +930,7 @@ upgrade_custodian_of_temple = {
 	}
 }
 
-##########################################
-################# Mosque #################
-##########################################
-
-upgrade_black_spires = { 
+upgrade_black_spires = {
 	picture = GFX_upgrade_icon_tower
 
 	potential = { }
@@ -914,6 +939,7 @@ upgrade_black_spires = {
 	active = { }
 
 	flags = {
+		scary
 		towering
 		religion_conversion_faster
 		is_singular
@@ -927,7 +953,7 @@ upgrade_black_spires = {
 	}
 }
 
-upgrade_open_courtyard = { # Sahn
+upgrade_open_courtyard = {
 	picture = GFX_upgrade_icon_tower
 
 	potential = { }
@@ -947,7 +973,7 @@ upgrade_open_courtyard = { # Sahn
 	}
 }
 
-upgrade_louvered_dome = { # Qubba
+upgrade_louvered_dome = {
 	picture = GFX_upgrade_icon_crates
 
 	potential = { }
@@ -967,8 +993,8 @@ upgrade_louvered_dome = { # Qubba
 	}
 }
 
-upgrade_great_pyre = { # Magnificent Hanging Lamps
-	picture = GFX_upgrade_icon_crates # Arc?
+upgrade_great_pyre = {
+	picture = GFX_upgrade_icon_crates
 
 	potential = { }
 	allow = {
@@ -988,8 +1014,7 @@ upgrade_great_pyre = { # Magnificent Hanging Lamps
 }
 
 upgrade_feast_hall = { # 
-	# Not only for prayer, the mosque is a civic center, caring for the needy.
-	picture = GFX_upgrade_icon_door# House?
+	picture = GFX_upgrade_icon_door
 
 	potential = { }
 	allow = {
@@ -1029,14 +1054,15 @@ upgrade_tower_of_sorcery = {
 	gold_cost_ticking = 1
 	local_modifier = {
 		local_revolt_risk = -0.01
+		siege_defence = 0.1
 	}
 	owner_modifier = {
-		scholar_opinion = 5
+		church_opinion = 5
 		custom_modifier_text = culture_convertion_custom_modifier_tt
 	}
 }
 
-upgrade_slave_harem = { # Hostel for travelers (Caravanserai)
+upgrade_slave_harem = {
 	picture = GFX_upgrade_icon_house
 	potential = { }
 	allow = {
@@ -1051,29 +1077,7 @@ upgrade_slave_harem = { # Hostel for travelers (Caravanserai)
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		monthly_character_piety = 0.05
-	}
-}
-
-upgrade_temple_guardian = {
-	picture = GFX_upgrade_icon_key
-	potential = { }
-	allow = {
-	}
-	active = { }
-
-	flags = {
-		is_singular
-		unlocks_minor_title
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	local_modifier = {
-		
-	}
-	owner_modifier = {
-		custom_modifier_text = custodian_of_mosque_custom_modifier_tt
+		monthly_character_prestige = 0.1
 	}
 }
 
@@ -1117,24 +1121,6 @@ upgrade_garden_outer = { #Outer Wall and Open Garden
 	gold_cost_ticking = 1
 	owner_modifier = {
 		land_organisation = 0.1
-	}
-}
-upgrade_dwarven_requilary = { #aka the "Torah Ark"
-	picture = GFX_upgrade_icon_door # Arc?
-
-	potential = { }
-	allow = {
-	}
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		church_opinion = 5
 	}
 }
 upgrade_decorations = { # Elaborate Decorations
@@ -1201,461 +1187,9 @@ upgrade_school_dwarven = {
 		custom_modifier_text = culture_convertion_custom_modifier_tt
 	}
 }
-##########################################
-########### Buddhist Temple ##############
-##########################################
-
-#
-#upgrade_chaitya-grihas = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_plural
-#		contemplative
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.04
-#	}
-#	owner_modifier = {
-#
-#	}
-#
-#}
-#
-#upgrade_gompa= {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = {  } #active even if owner not of the same religion
-#
-#	flags = {
-#		is_singular
-#		defensive
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		siege_defence = 0.10
-#	}
-#	owner_modifier = {
-#	
-#	}
-#}
-#
-#upgrade_bodhi_tree = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_singular
-#		contemplative
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		
-#	}
-#	owner_modifier = {
-#		same_religion_opinion = 2
-#	}
-#}
-#
-#upgrade_cave_complex = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { } # active even if owner is not a Budhist?
-#
-#	flags = {
-#		is_singular
-#		defensive
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		siege_defence = 0.10
-#	}
-#	owner_modifier = {
-#	
-#	}
-#}
-#
-#upgrade_vihara = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		disease_defence = 0.05
-#	}
-#	owner_modifier = {
-#	}
-#}
-#
-#upgrade_school_buddhist = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		culture_conversion_faster
-#		inspires_learning
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.02
-#	}
-#	owner_modifier = {
-#		scholar_opinion = 5
-#		custom_modifier_text = culture_convertion_custom_modifier_tt
-#	}
-#}
-#
-#upgrade_relic_stupa = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { 
-#		religion = buddhist
-#		custom_tooltip = {
-#			text = must_be_storing_a_relic_TT
-#			hidden_tooltip = {
-#				FROM = { has_wonder_upgrade_flag = is_storing_relic }
-#			}
-#		}
-#	}
-#
-#	flags = {
-#		valuable
-#		is_singular
-#		holy
-#		stores_relic
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		
-#	}
-#	owner_modifier = {
-#		monthly_character_piety = 0.25
-#	}
-#}
-#
-#upgrade_commerative_stupa = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		
-#	}
-#	owner_modifier = {
-#		indian_group_opinion = 2
-#	}
-#
-#}
-#
-#upgrade_symbolic_stupa = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		
-#	}
-#	owner_modifier = {
-#		buddhist_opinion = 3
-#	}
-#}
-#
-#upgrade_votive_stupa = {
-#	picture = GFX_upgrade_icon_crates
-#	
-#	potential = { religion = buddhist }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = buddhist } }
-#			religion = buddhist
-#		}
-#		num_of_wonder_upgrades = 6
-#	}
-#	active = { religion = buddhist }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_tax_modifier = 0.10
-#	}
-#	owner_modifier = {
-#	}
-#}
-#
-###########################################
-############## Hindu Temple ###############
-###########################################
-#
-#
-#upgrade_high_gopura = { 
-#	picture = GFX_upgrade_icon_crates
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#	}
-#	active = { religion = hindu }
-#
-#	flags = {
-#		towering
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		siege_defence = 0.10
-#	}
-#	owner_modifier = {
-#		same_religion_opinion = 2
-#	}
-#}
-#
-#upgrade_shikhara = { 
-#	picture = GFX_upgrade_icon_crates
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#	}
-#	active = { religion = hindu }
-#
-#	flags = {
-#		towering
-#		is_singular
-#		religion_conversion_faster
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.02
-#	}
-#	owner_modifier = {
-#		church_opinion = 3
-#		custom_modifier_text = religious_spread_custom_modifier_tt
-#	}
-#}
-#
-#upgrade_mandapa = { 
-#	picture = GFX_upgrade_icon_crates
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#	}
-#	active = { religion = hindu }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.02
-#	}
-#	owner_modifier = {
-#		land_organisation = 0.05
-#	}
-#}
-#
-#upgrade_temple_complex = { 
-#	picture = GFX_upgrade_icon_crates
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#		num_of_wonder_upgrades = 4
-#	}
-#	active = { religion = hindu }
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.02
-#	}
-#	owner_modifier = {
-#		dynasty_opinion = 3
-#	}
-#}
-#
-#upgrade_school_hindu = { 
-#	picture = GFX_upgrade_icon_book_red
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#	}
-#	active = { religion = hindu }
-#
-#	flags = {
-#		culture_conversion_faster
-#		inspires_learning
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		local_revolt_risk = -0.02
-#	}
-#	owner_modifier = {
-#		scholar_opinion = 5
-#		custom_modifier_text = culture_convertion_custom_modifier_tt
-#	}
-#}
-#
-#upgrade_hospital_hindu = { # 
-#	picture = GFX_upgrade_icon_house
-#
-#	potential = { religion = hindu }
-#	allow = {
-#		trigger_if = {
-#			limit = { NOT = { religion = hindu } }
-#			religion = hindu
-#		}
-#	}
-#	active = {  }  #active even if owner is not of same religion
-#
-#	flags = {
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	local_modifier = {
-#		disease_defence = 0.05
-#	}
-#	owner_modifier = {
-#		monthly_character_piety = 0.05
-#	}
-#}
 
 ##########################################
-############### University ###############
+############## Great Academy #############
 ##########################################
 
 upgrade_great_seminars = { # Great Seminars
@@ -2383,7 +1917,11 @@ upgrade_beast_cages = { # Animal Cages
 	build_time = 24
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
+	local_modifier = {
+		monster_cavalry = 20
+	}
 	owner_modifier = {
+		custom_modifier_text = beast_cages_modifier_tt #Allows you to summon a warrior every year or so
 		monthly_character_prestige = 0.1
 		hunter_opinion = 5
 	}
@@ -2483,7 +2021,7 @@ upgrade_fountains = {
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		monthly_character_prestige = 0.05
+		monthly_character_prestige = 0.2
 		poet_opinion = 5
 	}
 }
@@ -2588,25 +2126,31 @@ upgrade_poisonous_flowers = {
 	}
 }
 
-#upgrade_herb_garden = { 
-#	picture = GFX_upgrade_icon_roses_pink
-#
-#	potential = { }
-#	allow = { society_member_of = healers }
-#	active = { society_member_of = healers }
-#
-#	flags = {
-#		produces_herbs
-#		is_singular
-#	}
-#	build_time = 24
-#	gold_cost_flat = 450
-#	gold_cost_ticking = 1
-#	owner_modifier = {
-#		health = 0.1
-#		custom_modifier_text = herb_event_modifier_tt #Periodically gives you herbs (Hermetic artifact)
-#	}
-#}
+upgrade_herb_garden = { 
+	picture = GFX_upgrade_icon_roses_pink
+
+	potential = { }
+	allow = {
+		religion_group = religion_group_eldar
+		#society_member_of = healers
+	}
+	active = {
+		religion_group = religion_group_eldar
+		#society_member_of = healers
+	}
+
+	flags = {
+		produces_herbs
+		is_singular
+	}
+	build_time = 24
+	gold_cost_flat = 450
+	gold_cost_ticking = 1
+	owner_modifier = {
+		learning = 1
+		custom_modifier_text = herb_event_modifier_tt #Periodically gives you herbs (artifact)
+	}
+}
 
 upgrade_statues_garden = { 
 	picture = GFX_upgrade_icon_statue
@@ -3192,7 +2736,6 @@ upgrade_dungeon = { # Dungeon
 	flags = {
 		room
 		is_singular
-		scary
 	}
 	build_time = 24
 	gold_cost_flat = 450
@@ -3306,7 +2849,6 @@ upgrade_trap_door = { # Trap Door
 
 	flags = {
 		is_singular
-		scary
 	}
 	build_time = 24
 	gold_cost_flat = 450
@@ -3511,7 +3053,7 @@ upgrade_more_stones = { # Additional stones
 ############## Grand Library #############
 ##########################################
 
-upgrade_collection_drama = { # Poetry and Drama Collection
+upgrade_collection_poetry = { # Poetry and Drama Collection
 	picture = GFX_upgrade_icon_book_turquoise
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = { }
@@ -3566,7 +3108,7 @@ upgrade_collection_history = { # History Collection
 	}
 }
 
-upgrade_collection_science = { # Natural Sciences Collection
+upgrade_collection_nature = { # Natural Sciences Collection
 	picture = GFX_upgrade_icon_book_green
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = { }
@@ -3584,7 +3126,7 @@ upgrade_collection_science = { # Natural Sciences Collection
 	}
 }
 
-upgrade_collection_math = { # Math and Philosophy Collection
+upgrade_collection_philosophy = { # Math and Philosophy Collection
 	picture = GFX_upgrade_icon_written_paper
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = { }
@@ -3646,7 +3188,7 @@ upgrade_keeper_of_tomes = {
 ################ Pyramids ################
 ##########################################
 
-upgrade_extra_pyramids = { #for relatives, etc	
+upgrade_extra_cairns = { #for relatives, etc	
 	picture = GFX_upgrade_icon_stones
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = { }
@@ -3739,7 +3281,7 @@ upgrade_traps = {
 	}
 }
 
-upgrade_lime_stone_casing = { #For pyramids
+upgrade_smooth_casing = { #For cairns
 	picture = GFX_upgrade_icon_stones
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = { }
@@ -3778,117 +3320,8 @@ upgrade_overseer_of_rites = {
 	}
 }
 
-##########################################
-############ Temple of Solomon ###########
-##########################################
-
-upgrade_vestibule = {
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		#Prestige/Opinion Bonus with Jewish Subjects
-	}
-}
-
-upgrade_holy_place = {
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		#Prestige/Opinion Bonus with Jewish Subjects
-	}
-}
-
-upgrade_holy_of_holies = {
-	#"The most holy place, this area of the temple contains the seat of God"
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		#Moral Authority for Jewish Religions
-	}
-}
-
-upgrade_cherubim = {
-	#"Two gigantic Cherubim made out of cedar wood, their outstretched wings touching in the middle of the Holy Place"
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_plural
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		monthly_character_prestige = 0.05
-	}
-}
-
-upgrade_great_court = {
-	#The outer Court is used by the population for worship
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		#Reduction of revolt risk in jewish religion provinces
-	}
-}
-
-upgrade_inner_court = {
-	picture = GFX_upgrade_icon_crates
-	potential = { }
-	allow = { }
-	active = { }
-
-	flags = {
-		is_singular
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		church_opinion = 5
-	}
-}
-
 #Negative Upgrades
-upgrade_earthquake_damage_small = {
+upgrade_damage_small = {
 	picture = GFX_upgrade_icon_stones
 	show_in_history = no
 	potential = { }
@@ -3909,7 +3342,7 @@ upgrade_earthquake_damage_small = {
 	}	
 }
 
-upgrade_earthquake_damage_medium = {
+upgrade_damage_medium = {
 	picture = GFX_upgrade_icon_stones
 	show_in_history = no
 	potential = { }
@@ -3930,7 +3363,7 @@ upgrade_earthquake_damage_medium = {
 	}
 }
 
-upgrade_earthquake_damage_large = {
+upgrade_damage_large = {
 	picture = GFX_upgrade_icon_stones
 	show_in_history = no
 	potential = { }
