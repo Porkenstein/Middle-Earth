@@ -957,6 +957,9 @@ character_event = {
 		add_friend = FROM
 		remove_trait = shy
 		if = {
+			limit = {
+				trait = chaste
+			}
 			remove_trait = chaste
 		}
 		FROM = {
@@ -1421,6 +1424,9 @@ character_event = {
 			years = 5
 		}
 		if = {
+			limit = {
+				trait = chaste
+			}
 			random = {
 				chance = 25
 				remove_trait = chaste
@@ -3144,96 +3150,6 @@ character_event = {
 	}
 }
 
-
-#ROOT tries to convert a cynic
-character_event = {
-	id = 100081
-	desc = EVTDESC100081
-	picture = GFX_evt_child_talking
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA100081
-		add_rival = FROM
-		FROM = {
-			character_event = {
-				id = 100082
-				days = 1
-				random = 2
-				tooltip = EVTTOOLTIP100082
-			}
-		}
-	}
-	option = {
-		name = EVTOPTB100081
-		if = {
-			limit = {
-				NOT = {
-					num_of_traits = 5
-				}
-				NOT = {
-					trait = deceitful
-				}
-			}
-			add_trait = deceitful
-		}
-		FROM = {
-			character_event = {
-				id = 100083
-				days = 1
-				random = 2
-				tooltip = EVTTOOLTIP100083
-			}
-		}
-	}
-	option = {
-		name = EVTOPTC100081
-		if = {
-			limit = {
-				NOT = {
-					num_of_traits = 5
-				}
-				NOT = {
-					trait = zealous
-				}
-			}
-			add_trait = zealous
-		}
-		if = {
-			limit = {
-				NOT = {
-					religion = FROM
-				}
-			}
-			religion = FROM
-		}
-		add_friend = FROM
-		FROM = {
-			character_event = {
-				id = 100084
-				days = 1
-				random = 2
-				tooltip = EVTTOOLTIP100084
-			}
-		}
-	}
-}
-
-#ROOT gains a rival
-character_event = {
-	id = 100082
-	desc = EVTDESC100082
-	picture = GFX_evt_child_talking
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA100082
-		add_rival = FROM
-	}
-}
-
 #ROOT is pious
 character_event = {
 	id = 100083
@@ -3245,25 +3161,6 @@ character_event = {
 	option = {
 		name = EVTOPTA100083
 		piety = 20
-	}
-}
-
-#ROOT gains a friend
-character_event = {
-	id = 100084
-	desc = EVTDESC100084
-	picture = GFX_evt_child_talking
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA100084
-		tooltip = {
-			FROM = {
-				add_trait = zealous
-			}
-		}
-		add_friend = FROM
 	}
 }
 
