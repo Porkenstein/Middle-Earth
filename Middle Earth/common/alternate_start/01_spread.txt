@@ -138,6 +138,7 @@ culture_group_spread = {
 			culture_group = dog_group
 			culture_group = dragon_group
 			culture_group = elephant_group
+			culture_group = panda_group
 		}
 		has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
 	}
@@ -152,6 +153,7 @@ culture_group_spread = {
 			culture_group = dog_group
 			culture_group = dragon_group
 			culture_group = elephant_group
+			culture_group = panda_group
 		}
 		has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
 	}
@@ -730,9 +732,7 @@ holy_site_spread = {
 	modifier = {
 		factor = 0 # We simply never want to be adjacent to a holy site
 		any_neighbor_province = {
-			any_province_holding = {
-				is_holy_site = FROM
-			}
+			is_holy_site = FROM
 		}
 	}
 	modifier = {
@@ -774,9 +774,7 @@ holy_site_spread = {
 		FROM = {
 			parent_religion = {
 				ROOT = {
-					any_province_holding = {
-						is_holy_site = PREVPREV
-					}
+					is_holy_site = PREV
 				}
 			}
 		}

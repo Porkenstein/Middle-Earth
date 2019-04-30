@@ -1,6 +1,7 @@
 #AVIALABLE CUSTOM LOCALISATION KEYS
 #When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
 # To not display anything, you can use 'localisation_key = ""'
+# To have the first valid text be used, rather than a random valid text, use "use_first_valid = yes"
 
 #RELATIONSHIPS
 #GetRootRelation
@@ -8,6 +9,8 @@
 #GetSeductressSeducer
 #GetManWomanPreference		Gets man/woman depending on character's sexual preferences
 #GetMenWomenPreference		gets men/women depending on character's sexual preferences
+#GetRootRomanticWorry 		Stand-alone sentence for someone about to take initiative, like "What if this ruins our friendship?"
+#GetRomanticObstacle 		More passive. Piece it into a sentence (lacks punctuation), for someone deciding whether to reciprocate or not, like "I am used to being alone".
 
 #EDUCATION
 #GetEducationSubject
@@ -32,10 +35,10 @@
 #GetInsultAdjective
 #GetDisease
 #GetWesternZodiacSign		Gets the western astrological zodiac sign of character (based on birth date)
+#GetCharacterLook 			Simple use, describing a character's immediate countenance/appearance
+#GetAgeAdjective 			"The [GetAgeAdjective] [From.GetManWoman]" would read "the old man", for instance
 
 #SOCIETIES
-#GetSocietyName
-#GetSocietyNameCap
 #GetDWReasonToJoin
 #GetDWDevil
 #GetDWDarkMagic
@@ -67,7 +70,7 @@
 #GetTrueReligionGroupPersons
 #GetTrueReligionAdjective
 #GetTrueReligionAdherent
-#GetTrueReligionScriptureName
+#SecretReligion.GetScriptureName
 #TrueReligion.GetHighGodName
 #GetTrueReligionPerson
 #GetArtifactSource			Gets name for bodypart artifact's source (saint, holy man, hero)
@@ -80,10 +83,16 @@
 #GetChamberOpening 			Gets door/tent opening for capital holding (character)
 #GetChamber 				Gets chamber/tent for capital holding (character)
 #GetReligionTempleName
+#GetGroundDesc				Requires a province scope. Gets "snow" (if winter), otherwise "mud" or "dirt".
+#GetTerrain 				Requires a province scope. Gets "forest","hills" etc)
+# GetInOn 					Requires a province scope. Supplements GetTerrain.
+# GetThroughOver			Requires a province scope. Supplements GetTerrain. "We must travel [through] the [mountains]!"
 
 #WEATHER, TIME
-#GetWeatherAdjective
-#GetTemperature
+#GetWeatherAdjective 			Checks Capital scope.
+#GetLocalWeatherAdjective		Requires a province scope. 
+#GetTemperature					Checks Capital scope.
+#GetLocalTemperature 			Requires a province scope. 
 #GetSeason #WIP
 
 #CHINA
@@ -101,6 +110,10 @@
 
 #MISC
 #GetMatterOfImportance
+#GetRandomMythologicalCreature 				Fetches the name of a cool mythological creature/beast, e.g. as Fenris, or simpler versions like Dragon
+#GetDogName  								Fetches the name of your pet hunting dog, if you have the appropriate flag. Fallback is "Sweet-pea". :p
+
+
 
 
 ###RELATIONSHIPS###
@@ -328,6 +341,22 @@ defined_text = {
 		}
 	}
 	text = {
+		localisation_key = GetRelation_MotherInLaw
+		trigger = {
+			is_female = yes
+			relative_in_law_of_root_trigger = yes
+			relationship_with_root_trigger = no
+		}
+	}
+	text = {
+		localisation_key = GetRelation_FatherInLaw
+		trigger = {
+			is_female = no
+			relative_in_law_of_root_trigger = yes
+			relationship_with_root_trigger = no
+		}
+	}
+	text = {
 		localisation_key = GetRelation_Rival_Male
 		trigger = {
 			is_female = no
@@ -477,10 +506,25 @@ defined_text = {
 			}
 		}
 	}
+#	text = { # Outcommented, now that we have proper fallback text.
+#		localisation_key = GetRelation_Acquaintance 
+#		trigger = { 
+#			NOR = { 
+#				relationship_with_root_trigger = yes
+#				family_of_root_trigger = yes
+#				liege = { character = ROOT }
+#				is_liege_of = ROOT
+#				AND = {
+#					dynasty = ROOT
+#					NOT = { dynasty = none }
+#				}
+#			} 
+#		}
+#	}
 	text = {
-		localisation_key = GetRelation_Acquaintance 
+		localisation_key = GetRelation_fellow_member
 		trigger = { 
-			NOR = { 
+			NOR = { #Should not be prioritized over Son/Daughter/Wife,etc.
 				relationship_with_root_trigger = yes
 				family_of_root_trigger = yes
 				liege = { character = ROOT }
@@ -489,7 +533,8 @@ defined_text = {
 					dynasty = ROOT
 					NOT = { dynasty = none }
 				}
-			} 
+			}
+			same_society_as = ROOT
 		}
 	}
 	text = {
@@ -497,6 +542,58 @@ defined_text = {
 		weight_multiplier = { factor = 100 }
 		trigger = { 
 			is_consort = ROOT
+			is_female = yes
+		}
+	}
+	text = {
+		localisation_key = GetRelation_Consort
+		weight_multiplier = { factor = 100 }
+		trigger = { 
+			is_consort = ROOT
+			is_female = no
+		}
+	}
+	text = {
+		localisation_key = GetRelation_enemy
+		weight_multiplier = { factor = 100 }
+		trigger = {
+			any_war = {
+				OR = {
+					any_attacker = {
+						character = ROOT
+					}
+					any_defender = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = GetRelation_sway_target
+		weight_multiplier = { factor = 1 }
+		trigger = { 
+			ROOT = {
+				persistent_event_target:sway_target = {
+					character = PREVPREV
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = GetRelation_antagonist
+		weight_multiplier = { factor = 1 }
+		trigger = { 
+			OR = {
+				ROOT = {
+					persistent_event_target:antagonize_target = {
+						character = PREVPREV
+					}
+				}
+				persistent_event_target:antagonize_target = {
+					character = ROOT
+				}
+			}
 		}
 	}
 	fallback_text = {
@@ -583,6 +680,34 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_Seducer
+		trigger = { is_female = no }
+	}
+}
+
+### Madwoman or Madman
+defined_text = {
+	name = GetMadwomanMadman
+
+	text = {
+		localisation_key = String_madwoman
+		trigger = { is_female = yes }
+	}
+	text = {
+		localisation_key = String_madman
+		trigger = { is_female = no }
+	}
+}
+
+### Madwoman or Madman CAP
+defined_text = {
+	name = GetMadwomanMadmanCap
+
+	text = {
+		localisation_key = String_Madwoman
+		trigger = { is_female = yes }
+	}
+	text = {
+		localisation_key = String_Madman
 		trigger = { is_female = no }
 	}
 }
