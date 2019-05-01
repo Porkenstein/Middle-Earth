@@ -307,7 +307,10 @@ nun = {
 # Christian pilgrim while doing pilgrimage
 on_pilgrimage = {
 	potential = {
-		religion_group = christian
+		OR = {
+			religion_group = religion_group_eldar
+			religion_group = religion_group_khazad
+		}
 		NOT = { trait = pilgrim }
 	}
 	
@@ -371,7 +374,7 @@ sympathy_christendom = {
 	}
 	
 	potential = {
-		NOT = { religion_group = christian }
+		always = no
 	}
 
 	# tolerates_christian = yes		# Tolerates and is tolerated by Christians
@@ -395,7 +398,7 @@ sympathy_islam = {
 	}
 	
 	potential = {
-		NOT = { religion_group = muslim }
+		always = no
 	}
 
 	# tolerates_muslim = yes		# Tolerates and is tolerated by Muslims
@@ -419,7 +422,7 @@ sympathy_pagans = {
 	}
 	
 	potential = {
-		NOT = { religion_group = pagan_group }
+		always = no
 	}
 
 	# tolerates_pagan_group = yes		# Tolerates and is tolerated by Pagans
@@ -443,7 +446,7 @@ sympathy_zoroastrianism = {
 	}
 	
 	potential = {
-		NOT = { religion_group = zoroastrian_group }
+		always = no
 	}
 
 	# tolerates_zoroastrian_group = yes		# Tolerates and is tolerated by Zoroastrians
@@ -467,7 +470,7 @@ sympathy_judaism = {
 	}
 	
 	potential = {
-		NOT = { religion_group = jewish_group }
+		always = no
 	}
 
 	# tolerates_jewish_group = yes		# Tolerates and is tolerated by Jews
@@ -489,6 +492,7 @@ bad_priest_christian = {
 	religious = yes
 
 	potential = {
+		always = no # for now
 		OR = {
 			is_theocracy = yes
 			is_ruler = no
@@ -516,12 +520,7 @@ bad_priest_muslim = {
 	religious = yes
 
 	potential = {
-		OR = {
-			controls_religion = sunni
-			controls_religion = shiite
-			controls_religion = ibadi
-			controls_religion = hurufi
-		}
+		always = no # for now
 	}
 	
 	church_opinion = -10
@@ -545,10 +544,10 @@ bad_priest_norse = {
 	religious = yes
 
 	potential = {
+		always = no # for now
 		OR = {
 			is_theocracy = yes
 			is_ruler = no
-			controls_religion = norse_pagan_reformed
 		}
 	}
 	
@@ -573,6 +572,7 @@ bad_priest_tengri = {
 	religious = yes
 
 	potential = {
+		always = no # for now
 		OR = {
 			is_theocracy = yes
 			is_ruler = no
@@ -600,6 +600,7 @@ bad_priest_zoroastrian = {
 	religious = yes
 
 	potential = {
+		always = no # for now
 		OR = {
 			is_theocracy = yes
 			is_ruler = no
@@ -627,6 +628,7 @@ bad_priest_aztec = {
 	religious = yes
 
 	potential = {
+		always = no # for now
 		OR = {
 			is_theocracy = yes
 			is_ruler = no
@@ -659,11 +661,7 @@ narrow_flank_leader = {
 
 brahmin = {
 	potential = {
-		OR = {
-			religion = buddhist
-			religion = hindu
-			religion = jain
-		}
+		always = no # for now
 	}
 	opposites = {
 		kshatriya
@@ -680,11 +678,7 @@ brahmin = {
 
 kshatriya = {
 	potential = {
-		OR = {
-			religion = buddhist
-			religion = hindu
-			religion = jain
-		}
+		always = no # for now
 	}
 	opposites = {
 		brahmin
@@ -701,11 +695,7 @@ kshatriya = {
 
 vaishya = {
 	potential = {
-		OR = {
-			religion = buddhist
-			religion = hindu
-			religion = jain
-		}
+		always = no # for now
 	}
 	opposites = {
 		brahmin
@@ -726,7 +716,7 @@ sympathy_indian = {
 	}
 	
 	potential = {
-		NOT = { religion_group = indian_group }
+		always = no # for now
 	}
 
 	# tolerates_indian_group = yes		# Tolerates and is tolerated by Indian religions
@@ -754,7 +744,9 @@ shaivist_hindu = {
 	
 	monthly_character_prestige = 0.5
 	
-	potential = { religion = hindu }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = hindu
 	random = no
 	religious = yes
@@ -772,7 +764,9 @@ vaishnavist_hindu = {
 	
 	vassal_opinion = 5
 
-	potential = { religion = hindu }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = hindu
 	random = no
 	religious = yes
@@ -790,7 +784,9 @@ shaktist_hindu = {
 	
 	fertility = 0.2
 
-	potential = { religion = hindu }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = hindu
 	random = no
 	religious = yes
@@ -808,7 +804,9 @@ smartist_hindu = {
 	
 	monthly_character_piety = 0.5
 
-	potential = { religion = hindu }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = hindu
 	random = no
 	religious = yes
@@ -825,7 +823,9 @@ mahayana_buddhist = {
 	
 	vassal_opinion = 5
 
-	potential = { religion = buddhist }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = buddhist
 	random = no
 	religious = yes
@@ -842,7 +842,9 @@ vajrayana_buddhist = {
 	
 	health = 1
 
-	potential = { religion = buddhist }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = buddhist
 	random = no
 	religious = yes
@@ -859,7 +861,9 @@ theravada_buddhist = {
 	
 	learning = 1
 
-	potential = { religion = buddhist }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = buddhist
 	random = no
 	religious = yes
@@ -875,7 +879,9 @@ digambara_jain = {
 
 	health = 1
 	
-	potential = { religion = jain }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = jain
 	random = no
 	religious = yes
@@ -891,7 +897,9 @@ svetambara_jain = {
 	
 	vassal_opinion = 5
 
-	potential = { religion = jain }
+	potential = {
+		always = no # for now
+	}
 	religious_branch = jain
 	random = no
 	religious = yes
@@ -905,7 +913,7 @@ decadent = {
 	}
 
 	potential = {
-		religion_group = muslim
+		always = no
 	}
 	
 	customizer = no
@@ -1721,7 +1729,7 @@ one_eyed = {
 	is_health = yes
 	
 	sex_appeal_opinion = -5
-	pagan_group_opinion = 10
+	culture_group_forodwaith_opinion = 10
 	same_opinion = 5
 	
 	combat_rating = -10 #old value: -1
@@ -2013,7 +2021,7 @@ valhalla_bound  = {
 	martial = 2
 	combat_rating = 10 #old value: 1
 	
-	pagan_group_opinion = 5
+	culture_group_forodwaith_opinion = 5
 	same_opinion_if_same_religion = 15
 	
 	ai_zeal = 10
@@ -2120,7 +2128,7 @@ dancing_plague = {
 shieldmaiden  = {	
 
 	monthly_character_piety = 0.1
-	pagan_group_opinion = 5
+	culture_group_forodwaith_opinion = 5
 	same_opinion_if_same_religion = 15
 	
 	combat_rating = 10 #new value!
@@ -6225,7 +6233,8 @@ sanyasini = {
 # Dharmic who has completed a Pilgrimage
 indian_pilgrim = {
 	potential = {
-		has_dharmic_religion_trigger = yes
+		always = no # for now
+		always = no # for now
 	}
 	
 	same_religion_opinion = 5
@@ -6238,7 +6247,7 @@ indian_pilgrim = {
 # Dharmic pilgrim while doing pilgrimage
 on_indian_pilgrimage = {
 	potential = {
-		has_dharmic_religion_trigger = yes
+		always = no # for now
 		NOT = { trait = pilgrim }
 	}
 	
@@ -6385,7 +6394,7 @@ sapper = { # Way of the Leopard
 # Dynastic Kinslayer = Any other dynasty member
 familial_kinslayer = {
 	potential = {
-		NOT = { religion_group = muslim }
+		NOT = { religion_group = religion_group_melkor }
 		is_tribal = no
 	}
 
@@ -6407,7 +6416,7 @@ familial_kinslayer = {
 }
 dynastic_kinslayer = {
 	potential = {
-		NOT = { religion_group = muslim }
+		NOT = { religion_group = religion_group_melkor }
 		is_tribal = no
 	}
 
@@ -6594,8 +6603,8 @@ lefthanded = {
 	
 	customizer = yes
 	
-	christian_church_opinion = -10
-	muslim_opinion = -10
+	#christian_church_opinion = -10
+	#muslim_opinion = -10
 
 	male_insult_adj = INSULT_LEFTHANDED
 	female_insult_adj = INSULT_LEFTHANDED
@@ -6696,7 +6705,7 @@ baptized_by_pope = {
 	
 	monthly_character_prestige = 0.05
 	monthly_character_piety = 0.1
-	christian_opinion = 5
+	#christian_opinion = 5
 
 	religious = yes
 	customizer = no
@@ -6749,7 +6758,7 @@ baptized_by_patriarch = { #Same as Pope, only used to prevent localization from 
 	
 	monthly_character_prestige = 0.05
 	monthly_character_piety = 0.1
-	christian_opinion = 5
+	#christian_opinion = 5
 
 	religious = yes
 	customizer = no
@@ -6852,11 +6861,11 @@ pagan_branch_1 = {
 	}
 	religious_branch = pagan_reformation
 
-	christian_opinion = 10
-	muslim_opinion = 10
-	indian_group_opinion = 10
-	jewish_group_opinion = 10
-	zoroastrian_group_opinion = 10
+	#christian_opinion = 10
+	#muslim_opinion = 10
+	#indian_group_opinion = 10
+	#jewish_group_opinion = 10
+	#zoroastrian_group_opinion = 10
 	same_opinion_if_same_religion = 5
 	opposite_opinion = -5
 	
@@ -7048,7 +7057,7 @@ beatified = {
 blessed_ancestor = {
 	random = no
 	customizer = no
-	pagan_group_opinion = 50
+	religion_mahal_opinion = 50
 }
 
 #Zodiac Signs
