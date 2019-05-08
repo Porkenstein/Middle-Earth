@@ -795,6 +795,68 @@ character_event = {
 		}
 	}
 }
+character_event = {
+	id = profession_events.67
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		trait = saruman_spell
+		NOT = {
+			trait = trait_nooo
+		}
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_opinion_modifier = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+				}
+			}
+			character_event = {
+				id = profession_events.671
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.671
+	desc = EVTDESCprofession_events.671
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.671
+		trigger = {
+			NOT = {
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		add_character_modifier = {
+			modifier = spell_fatigue3
+			years = 5
+		}
+		remove_character_modifier = spell_fatigue2
+		remove_character_modifier = spell_fatigue1
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.671
+		FROM = {
+			remove_opinion = {
+				modifier = opinion_dark_puppetmaster
+				who = ROOT
+			}
+			reverse_remove_opinion = {
+				modifier = opinion_dark_puppet
+				who = ROOT
+			}
+			remove_trait = saruman_spell
+		}
+	}
+}
 
 # Healer Events
 character_event = {
