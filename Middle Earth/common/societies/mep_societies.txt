@@ -427,6 +427,12 @@ the_satanists = {
 			name = intrigue
 			value = 0.5
 		}
+	triggered_gain = {
+			desc = loc_is_revealed_antichrist
+			trigger = { has_character_modifier = demon_horns
+			}
+			value = 10
+		}
 		has_trait = {
 			trait = ambitious
 			value = 5
@@ -499,6 +505,10 @@ the_satanists = {
 	member_score = {
 		value = 10
 
+		modifier = {
+			has_character_modifier = demon_horns
+			factor = 2
+		}
 		modifier = {
 			trait = ambitious
 			factor = 1.5
@@ -603,6 +613,7 @@ secret_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -620,15 +631,23 @@ secret_religious_society_template = {
 			}
 		}
 		age = 16
-		any_society_member = { society_member_of = FROM }
+		FROM = {
+			num_of_society_members > 0
+		}
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
 		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
 	}
 
 	show_society = {
-		any_society_member = { society_member_of = FROM }
+		FROM = {
+			num_of_society_members > 0
+		}
 		secret_religion = FROM
 	}
 	
