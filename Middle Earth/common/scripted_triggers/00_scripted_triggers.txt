@@ -2456,319 +2456,52 @@ can_pay_assassins_debt = {
 #	}
 }
 
-# MEP gets rid of most of the old buildings, so this is hugely modified
-is_rich_holding = {
-	OR = {
-		AND = {
-			holding_type = castle
-			OR = {
-				# MEP castle buildings that are super rich...
-				# has_building = ca_baraddur
-				# has_building = ca_witchking_fortress
-				# has_building = ca_isengarduruk
-				# has_building = ca_moria
-				# has_building = ca_dolguldur
-				# has_building = ca_meduseld
-				has_building = ca_khazad
-				has_building = ca_erebor
-				has_building = ca_tamnogoth
-				has_building = ca_gondamon
-				has_building = ca_Dgundabad
-				has_building = ca_assembly_dwarves_1
-				has_building = ca_assembly_archives_1
-				has_building = ca_hall_of_kings
-				has_building = ca_tharbad_bridge
-				# has_building = ca_dome_of_the_stars
-				# has_building = ca_tower_of_ecthelion
-				has_building = ca_gwaith_i_mirdain
-				has_building = ca_amon_lanc 
-				# has_building = ca_grey_havens
-				# has_building = ca_tower_of_moon
-				# # Hobbits don't have keeps
-				# has_building = ca_town_3halfling
-				# has_building = ca_town_4halfling
-				# has_building = ca_town_5halfling
-				# has_building = ca_town_6halfling
-				
-				calc_true_if = {
-					amount = 2
-					# MEP corresponding buildings
-					# has_building = ca_MOkeep_3
-					# has_building = ca_MOkeep_4
-					# has_building = ca_MOkeep_5
-					# has_building = ca_MOkeep_6
-					# has_building = ca_MOorctown_3
-					# has_building = ca_MOorctown_4
-					# has_building = ca_MOorctown_5
-					# has_building = ca_MOorctown_6
-					# has_building = ca_blackgate
-					# has_building = ca_numenorean2up
-					# has_building = ca_Gundabad_Orc
-					# has_building = ca_MT_lair_5
-					# has_building = ca_MT_lair_6
-					# has_building = ca_MGkeep_3
-					# has_building = ca_MGkeep_4
-					# has_building = ca_MGkeep_5
-					# has_building = ca_MGkeep_6
-					# has_building = ca_MGtown_3
-					# has_building = ca_MGtown_4
-					# has_building = ca_MGtown_5
-					# has_building = ca_MGtown_6
-					# has_building = ca_Rkeep_3
-					# has_building = ca_Rkeep_4
-					# has_building = ca_Rkeep_5
-					# has_building = ca_Rkeep_6
-					# has_building = ca_Rtown_3
-					# has_building = ca_Rtown_4
-					# has_building = ca_Rtown_5
-					# has_building = ca_Rtown_6
-					# has_building = ca_helmsdeep
-					# has_building = ca_Pkeep_3
-					# has_building = ca_Ptown_3
-					# has_building = ca_Hkeep_3
-					# has_building = ca_Hkeep_4
-					# has_building = ca_Hkeep_5
-					# has_building = ca_Hkeep_6
-					# has_building = ca_Htown_3
-					# has_building = ca_Htown_4
-					# has_building = ca_Htown_5
-					# has_building = ca_Htown_6
-					# has_building = ca_khamul_palace
-					# has_building = ca_great_east_road
-					# has_building = ca_men_i_naugrim
-					# has_building = ca_men_i_naugrim_rebuilt
-					has_building = ca_azanulimbardum
-					has_building = ca_nurunkhizdin
-					has_building = ca_zirakdum
-					has_building = ca_thorinsgate
-					has_building = ca_dainshalls
-					has_building = ca_stonefoot
-					has_building = ca_aglarond
-					# has_building = ca_Nkeep_3
-					# has_building = ca_Nkeep_4
-					# has_building = ca_Nkeep_5
-					# has_building = ca_Nkeep_6
-					# has_building = ca_Ntown_3
-					# has_building = ca_Ntown_4
-					# has_building = ca_Ntown_5
-					# has_building = ca_Ntown_6
-					# has_building = ca_BNkeep_3
-					# has_building = ca_BNkeep_4
-					# has_building = ca_BNkeep_5
-					# has_building = ca_BNkeep_6
-					# has_building = ca_BNtown_3
-					# has_building = ca_BNtown_4
-					# has_building = ca_BNtown_5
-					# has_building = ca_BNtown_6
-					# has_building = ca_Ekeep_3
-					# has_building = ca_Ekeep_4
-					# has_building = ca_Ekeep_5
-					# has_building = ca_Ekeep_6
-					# has_building = ca_Etown_3
-					# has_building = ca_Etown_4
-					# has_building = ca_Etown_5
-					# has_building = ca_Etown_6
-					# has_building = ca_eagle_nest_4
-					# has_building = ca_eagle_nest_5
-					# has_building = ca_eagle_nest_6
-					# has_building = ca_umbar_haven
-					# has_building = ca_urezayan
-					# has_building = ca_great_hall_osgiliath
-					has_building = ca_edhellond
-					has_building = ca_lorien
-					# has_building = ca_dwarfkeep_3
-					# has_building = ca_dwarfkeep_4
-					# has_building = ca_dwarfkeep_5
-					# has_building = ca_dwarfkeep_6
-					# has_building = ca_Dtown_3
-					# has_building = ca_Dtown_4
-					# has_building = ca_Dtown_5
-					# has_building = ca_Dtown_6
-					# has_building = ca_royal_burial_mounds
-					# has_building = ca_pelargir
-				}
-			}
-		}
-		# AND = {
-			# holding_type = temple
-			# calc_true_if = {
-				# amount = 2
-				# # MEP corresponding buildings
-				# has_building = tp_Nmonastery_3
-				# has_building = tp_Nmonastery_4
-				# has_building = tp_Nmonastery_5
-				# has_building = tp_Nmonastery_6
-				# has_building = tp_Ntown_3
-				# has_building = tp_Ntown_4
-				# has_building = tp_Ntown_5
-				# has_building = tp_Ntown_6
-				# has_building = tp_Emonastery_3
-				# has_building = tp_Emonastery_4
-				# has_building = tp_Emonastery_5
-				# has_building = tp_Emonastery_6
-				# has_building = tp_Etown_3
-				# has_building = tp_Etown_4
-				# has_building = tp_Etown_5
-				# has_building = tp_Etown_6
-				# has_building = tp_Dmonastery_3
-				# has_building = tp_Dmonastery_4
-				# has_building = tp_Dmonastery_5
-				# has_building = tp_Dmonastery_6
-				# has_building = tp_Dtown_3
-				# has_building = tp_Dtown_4
-				# has_building = tp_Dtown_5
-				# has_building = tp_Dtown_6
-			# }
+# is_rich_holding = {
+	# OR = {
+		# calc_true_if = {
+			# amount = 2
+			# has_building = ca_keep_3
+			# has_building = ca_keep_4
+			# has_building = ca_keep_5
+			# has_building = ca_keep_6
+			# has_building = ca_town_3
+			# has_building = ca_town_4
+			# has_building = ca_town_5
+			# has_building = ca_town_6
+			# has_building = tp_monastery_3
+			# has_building = tp_monastery_4
+			# has_building = tp_monastery_5
+			# has_building = tp_monastery_6
+			# has_building = tp_town_3
+			# has_building = tp_town_4
+			# has_building = tp_town_5
+			# has_building = tp_town_6
 		# }
-		# AND = {
-			# holding_type = city
-			# OR = {
-				# mep_vrich_city_building = yes
-				# # MEP corresponding buildings
-				# has_building = ct_MOorcmarketplace_3
-				# has_building = ct_MOorcmarketplace_4
-				# has_building = ct_MT_lair_5
-				# has_building = ct_MGmarketplace_3
-				# has_building = ct_MGmarketplace_4
-				# has_building = ct_Hobfarm_3
-				# has_building = ct_inn3
-				# has_building = ct_Rmarketplace_3
-				# has_building = ct_Rmarketplace_4
-				# has_building = ct_Pmarketplace_3
-				# has_building = ct_Hmarketplace_3
-				# has_building = ct_Hmarketplace_4
-				# has_building = ct_Hfarm_3
-				# has_building = ct_Ntown_3
-				# has_building = ct_Ntown_4
-				# has_building = ct_BNtown_3
-				# has_building = ct_BNtown_4
-				# has_building = ct_Emarketplace_3
-				# has_building = ct_Emarketplace_4
-				# has_building = ct_Dtown_3
-				# has_building = ct_Dtown_4
-				# has_building = ct_dwarfmines_3
-				# has_building = ct_dwarfmines_4
-				# has_building = ct_mithrilmines_1
-				# has_building = ct_jeweler_2
-			# }
-		# }
-	}
-}
+		# has_building = ct_marketplace_3
+		# has_building = ct_marketplace_4
+		# has_building = ct_marketplace_5
+		# has_building = ct_marketplace_6
 
-is_richer_holding = {
-	OR = {
-		AND = {
-			holding_type = castle
-			OR = {
-				# MEP castle buildings that are super rich...
-				# has_building = ca_baraddur
-				# has_building = ca_witchking_fortress
-				# has_building = ca_moria
-				has_building = ca_khazad
-				has_building = ca_erebor
-				has_building = ca_tamnogoth
-				has_building = ca_gondamon
-				has_building = ca_Dgundabad
-				has_building = ca_assembly_dwarves_1
-				has_building = ca_assembly_archives_1
-				has_building = ca_hall_of_kings
-				# has_building = ca_dome_of_the_stars
-				# has_building = ca_tower_of_ecthelion
-				has_building = ca_gwaith_i_mirdain
-				has_building = ca_amon_lanc 
-				# has_building = ca_grey_havens
-				# has_building = ca_tower_of_moon
-				# # Hobbits don't have keeps
-				# has_building = ca_town_5halfling
-				# has_building = ca_town_6halfling
-				
-				calc_true_if = {
-					amount = 2
-					# MEP corresponding buildings
-					# has_building = ca_isengarduruk
-					# has_building = ca_dolguldur
-					# has_building = ca_meduseld
-					has_building = ca_tharbad_bridge
-					# has_building = ca_MOkeep_5
-					# has_building = ca_MOkeep_6
-					# has_building = ca_MOorctown_5
-					# has_building = ca_MOorctown_6
-					# has_building = ca_blackgate
-					# has_building = ca_numenorean2up
-					# has_building = ca_Gundabad_Orc
-					# has_building = ca_MT_lair_6
-					# has_building = ca_MGkeep_5
-					# has_building = ca_MGkeep_6
-					# has_building = ca_MGtown_5
-					# has_building = ca_MGtown_6
-					# has_building = ca_Rkeep_5
-					# has_building = ca_Rkeep_6
-					# has_building = ca_Rtown_5
-					# has_building = ca_Rtown_6
-					# has_building = ca_helmsdeep
-					# has_building = ca_Hkeep_5
-					# has_building = ca_Hkeep_6
-					# has_building = ca_Htown_5
-					# has_building = ca_Htown_6
-					# has_building = ca_khamul_palace
-					has_building = ca_azanulimbardum
-					has_building = ca_nurunkhizdin
-					has_building = ca_zirakdum
-					has_building = ca_thorinsgate
-					has_building = ca_dainshalls
-					has_building = ca_stonefoot
-					has_building = ca_aglarond
-					# has_building = ca_Nkeep_5
-					# has_building = ca_Nkeep_6
-					# has_building = ca_Ntown_5
-					# has_building = ca_Ntown_6
-					# has_building = ca_BNkeep_5
-					# has_building = ca_BNkeep_6
-					# has_building = ca_BNtown_5
-					# has_building = ca_BNtown_6
-					# has_building = ca_Ekeep_5
-					# has_building = ca_Ekeep_6
-					# has_building = ca_Etown_5
-					# has_building = ca_Etown_6
-					# has_building = ca_eagle_nest_6
-					# has_building = ca_umbar_haven
-					# has_building = ca_urezayan
-					# has_building = ca_great_hall_osgiliath
-					has_building = ca_lorien
-					# has_building = ca_dwarfkeep_5
-					# has_building = ca_dwarfkeep_6
-					# has_building = ca_Dtown_5
-					# has_building = ca_Dtown_6
-					# has_building = ca_royal_burial_mounds
-					# has_building = ca_pelargir
-				}
-			}
-		}
-		# AND = {
-			# holding_type = temple
-			# calc_true_if = {
-				# amount = 2
-				# # MEP corresponding buildings
-				# has_building = tp_Nmonastery_5
-				# has_building = tp_Nmonastery_6
-				# has_building = tp_Ntown_5
-				# has_building = tp_Ntown_6
-				# has_building = tp_Emonastery_5
-				# has_building = tp_Emonastery_6
-				# has_building = tp_Etown_5
-				# has_building = tp_Etown_6
-				# has_building = tp_Dmonastery_5
-				# has_building = tp_Dmonastery_6
-				# has_building = tp_Dtown_5
-				# has_building = tp_Dtown_6
-			# }
+	# }
+# }
+# is_richer_holding = {
+	
+	# OR = {
+		# calc_true_if = {
+			# amount = 2
+			# has_building = ca_keep_5
+			# has_building = ca_keep_6
+			# has_building = ca_town_5
+			# has_building = ca_town_6
+			# has_building = tp_monastery_5
+			# has_building = tp_monastery_6
+			# has_building = tp_town_5
+			# has_building = tp_town_6
 		# }
-		AND = {
-			holding_type = city
-			mep_vrich_city_building = yes
-		}
-	}
-}
+		# has_building = ct_marketplace_5
+		# has_building = ct_marketplace_6
+	# }
+# }
 
 has_society_currency_trivial_trigger = {
 	society_currency >= 15
@@ -6270,6 +6003,19 @@ is_child_or_sibling_of_from_trigger = {
 		}
 	}
 }
+
+should_evolve_cultures_trigger = {
+	hidden_tooltip = {
+		OR = {
+			is_alternate_start = no
+			has_alternate_start_parameter = {
+				key = culture_names
+				value = historical
+			}
+		}
+	}
+}
+
 non_historical_culture_names_in_alt_start_trigger = {
 	hidden_tooltip = {
 		AND = {
