@@ -221,13 +221,16 @@ decisions = {
 		is_high_prio = yes
 		ai_check_interval = 24
 		potential = {
+			is_ruler = yes
 			higher_real_tier_than = BARON
 			NOR = {
 				is_tribal = yes
 				is_nomadic = yes
 			}
 			NOT = {
-				has_assigned_minor_title = title_court_physician
+				any_courtier = {
+					has_minor_title = title_court_physician
+				}
 			}
 		}
 		allow = {
@@ -239,7 +242,9 @@ decisions = {
 			}
 			NOR = {
 				has_character_modifier = in_seclusion
-				has_assigned_minor_title = title_court_physician
+				any_courtier = {
+					has_minor_title = title_court_physician
+				}
 			}
 		}
 		effect = {
