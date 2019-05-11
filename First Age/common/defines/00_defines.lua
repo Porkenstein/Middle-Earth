@@ -173,7 +173,7 @@ NDefines.NMilitary.TERRAIN_SPEC_BONUS = 0.3		-- was 0.2
 NDefines.NTechnology.DONT_EXECUTE_TECH_BEFORE = 4280
 
 NDefines.NTechnology.IDEAL_YEAR_LEVEL_0 = 4200
-NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 5300
+NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 5500
 
 ----- NDisease -----
 
