@@ -44,7 +44,25 @@ narrative_event = {
 		199 = { province_event = { id = evilside.4 } }
 		200 = { province_event = { id = evilside.4 } }
 		17 = { province_event = { id = evilside.4 } }
-		18 = { province_event = { id = evilside.4 } }
+		18 = {
+				province_event = { id = evilside.4 }
+				spawn_unit = {
+					owner = ROOT
+					leader = none
+					province = THIS
+					home = THIS
+					troops = {
+						archers = { 1500 1500 }
+						light_infantry = { 10000 10000 } # give the stupid morgoth AI a boost
+						heavy_infantry = { 2000 2000 }
+						light_cavalry = { 2000 2000 }
+						monster_infantry = { 500 500 }
+						monster_cavalry = { 500 500 }
+					}
+					disband_on_peace = no
+					maintenance_multiplier = 0.1
+				}
+			}
 		430 = { province_event = { id = evilside.4 } }
 		431 = { province_event = { id = evilside.4 } }
 	}
@@ -95,11 +113,11 @@ narrative_event = {
 					NOT = { character = ROOT }
 				}
 			}
+			18 = { province_event = { id = evilside.4 }	}
 			198 = { province_event = { id = evilside.4 } }
 			199 = { province_event = { id = evilside.4 } }
 			200 = { province_event = { id = evilside.4 } }
 			17 = { province_event = { id = evilside.4 } }
-			18 = { province_event = { id = evilside.4 } }
 			430 = { province_event = { id = evilside.4 } }
 			431 = { province_event = { id = evilside.4 } }
 		}

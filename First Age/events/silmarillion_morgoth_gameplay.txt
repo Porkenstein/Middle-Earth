@@ -157,3 +157,112 @@ character_event = {
 		add_trait = wounded
 	}
 }
+
+# orcs rebelling against morgoth should surrender
+
+character_event = {
+	id = morgothevents.9
+
+	hide_window = yes
+
+    is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			religion = religion_orkish
+			in_revolt = yes
+		}
+		ROOT = {
+			is_dark_lord = yes
+		}
+	}
+
+	option = {
+		# surrender
+		FROM = {
+			any_war = {
+				OR = {
+					using_cb = overthrow_ruler
+					using_cb = overthrow_ruler_no_calls
+					using_cb = depose_liege
+				}
+				end_war = reverse_demand
+			}
+		}
+	}
+}
+
+# every 10 years, ai morgoth should be forced to use the destroy kingdom casus beli (since AI morgoth likes to sit on his laurels)
+
+character_event = {
+	id = morgothevents.10
+	
+	only_playable = yes
+	has_character_flag = morgoth
+	war = no
+	ai = yes
+
+	trigger = {
+		has_global_flag = broken_siege_of_angband
+		year = 4600 # at least after we have some muscle...
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		# destroy the strongest neighboring realm
+		random_neighbor_independent_ruler = {
+			limit = {
+				higher_real_tier_than = COUNT
+				NOT = { in_revolt = yes }
+				NOT = { religion_group = religion_group_khazad } # whittle these guys away instead of blasting them
+				NOT = { has_landed_title = d_marches_of_maedhros } # whittle these guys away instead of blasting them
+				NOT = { has_landed_title = d_daertelaith } # whittle these guys away instead of blasting them
+				NOT = { has_landed_title = k_march_of_maedhros } # whittle these guys away instead of blasting them
+			}
+			preferred_limit = { higher_real_tier_than = DUKE }
+			
+			if = {
+				limit = { real_tier = EMPEROR }
+				primary_title = {
+					ROOT = {
+						war = {
+							target = PREVPREV
+							casus_belli = cb_destroy_empire
+							thirdparty_title = PREV
+							tier = EMPEROR
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { real_tier = KING }
+				primary_title = {
+					ROOT = {
+						war = {
+							target = PREVPREV
+							casus_belli = cb_destroy_kingdom
+							thirdparty_title = PREV
+							tier = KING
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { real_tier = DUKE }
+				primary_title = {
+					ROOT = {
+						war = {
+							target = PREVPREV
+							casus_belli = cb_destroy_duchy
+							thirdparty_title = PREV
+							tier = DUKE
+						}
+					}
+				}
+			}
+		}
+	}
+}

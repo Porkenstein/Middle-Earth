@@ -170,10 +170,15 @@ evil_invasion = {
 			limit = { NOT = { character = FROM } }
 			hidden_tooltip = { participation_scaled_prestige = 200 }
 		}
-		hidden_tooltip = {
-			FROM = {
-				occupy_minors_of_occupied_settlements = ROOT
-				gain_all_occupied_titles = ROOT
+		hidden_tooltip = { # keep occupied land, if the attacker is independent
+			if = {
+				limit = {
+					ROOT = { independent = yes }
+				}
+				FROM = {
+					occupy_minors_of_occupied_settlements = ROOT
+					gain_all_occupied_titles = ROOT
+				}
 			}
 		}
 	}
@@ -191,7 +196,7 @@ evil_invasion = {
 	}
 	
 	defender_ai_defeat_worth = {
-		factor = 99
+		factor = 90
 	}
 	ai_will_do = { 
 		factor = 100
@@ -377,10 +382,15 @@ good_invasion = {
 				}
 			}
 		}
-		hidden_tooltip = {
-			FROM = {
-				occupy_minors_of_occupied_settlements = ROOT
-				gain_all_occupied_titles = ROOT
+		hidden_tooltip = { # keep occupied land, if the attacker is independent
+			if = {
+				limit = {
+					ROOT = { independent = yes }
+				}
+				FROM = {
+					occupy_minors_of_occupied_settlements = ROOT
+					gain_all_occupied_titles = ROOT
+				}
 			}
 		}
 	}
@@ -398,7 +408,7 @@ good_invasion = {
 	}
 	
 	defender_ai_defeat_worth = {
-		factor = 99
+		factor = 90
 	}
 	ai_will_do = { 
 		factor = 100

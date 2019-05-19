@@ -212,6 +212,14 @@ add_ruins = {
 # add ruins of the appropriate type and destroys all holdings.  called from province scope
 ruin_province = {
 
+	# damage any wonders here
+	wonder = {
+		set_wonder_damaged = yes
+		any_upgrade_on_wonder = {
+			destroy_wonder_upgrade = yes
+		}
+	}
+
 	if = {
 		limit = {
 			num_of_settlements = 7

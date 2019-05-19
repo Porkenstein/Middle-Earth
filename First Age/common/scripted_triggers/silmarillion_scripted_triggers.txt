@@ -306,15 +306,18 @@ is_legendary_warrior = {
 }
 
 is_dark_lord = {
-	AND = {
-		religion_group = religion_group_melkor
-		has_landed_title = e_dor_daedeloth
+	OR = {
+		has_character_flag = morgoth
+		AND = {
+			religion_group = religion_group_melkor
+			has_landed_title = e_dor_daedeloth
+		}
 	}
 }
 
-can_be_overthrown = { # By vassal ROOT
+can_overthrow_liege = {
 	AND = {
-		NOT = { is_dark_lord = yes }
+		liege = { NOT = { is_dark_lord = yes } }
 		OR = {
 			NOR = {
 				religion_group = religion_group_eldar
@@ -322,7 +325,7 @@ can_be_overthrown = { # By vassal ROOT
 			}
 			NOT = { religion_group = ROOT }
 			trait = evil_side
-			ROOT = { trait = evil_side }
+			liege = { trait = evil_side }
 		}
 	}
 }

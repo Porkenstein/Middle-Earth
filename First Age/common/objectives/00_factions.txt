@@ -1419,8 +1419,8 @@ faction_lower_crown_authority = {
 		is_adult = yes
 		primary_title = { holy_order = no }
 		NOT = { trait = incapable }
+		can_overthrow_liege = yes
 		liege = {
-			can_be_overthrown = yes
 			is_feudal = yes
 			NOT = {
 				any_demesne_title = {
@@ -1468,9 +1468,7 @@ faction_lower_crown_authority = {
 	# Faction member scope (ROOT = joiner, FROM = target)
 	allow_join = {
 		ROOT = {
-			liege = {
-				can_be_overthrown = yes
-			}
+			can_overthrow_liege = yes
 			NOT = { has_dlc = "Zeus"}
 			is_ruler = yes
 			independent = no
@@ -1999,8 +1997,8 @@ faction_lower_tribal_organization = {
 				}
 			}
 		}
+		can_overthrow_liege = yes
 		liege = {
-			can_be_overthrown = yes
 			is_tribal = yes
 			NOT = {
 				any_demesne_title = {
@@ -2051,9 +2049,7 @@ faction_lower_tribal_organization = {
 			is_adult = yes
 			NOT = { trait = incapable }
 			prisoner = no
-			liege = {
-				can_be_overthrown = yes
-			}
+			can_overthrow_liege = yes
 			OR = {
 				is_tribal = yes
 				AND = {
@@ -4087,9 +4083,7 @@ faction_independence = {
 		is_landed = yes
 		is_adult = yes
 		primary_title = { holy_order = no }
-		liege = {
-			can_be_overthrown = yes
-		}
+		can_overthrow_liege = yes
 		OR = {
 			NOT = { has_dlc = "Zeus" }
 			is_voter = no
@@ -4192,9 +4186,7 @@ faction_independence = {
 			NOT = { trait = incapable }
 			prisoner = no
 			mercenary = no
-			liege = {
-				can_be_overthrown = yes
-			}
+			can_overthrow_liege = yes
 			OR = {
 				NOT = { has_dlc = "Zeus"}
 				is_voter = no
@@ -4962,8 +4954,8 @@ faction_claimant = {
 			}
 		}
 		NOT = { trait = incapable }
+		can_overthrow_liege = yes
 		liege = {
-			can_be_overthrown = yes
 			is_vice_royalty = no
 			OR = {
 				is_feudal = yes
@@ -5047,17 +5039,19 @@ faction_claimant = {
 			}
 			
 			OR = {
-				is_female = no
-				AND = {
-					NOT = { ROOT = { succ_law_title = { has_law = agnatic_succession } } }
-					NOT = { has_religion_feature = religion_patriarchal }
+				OR = {
+					is_female = no
+					AND = {
+						NOT = { ROOT = { succ_law_title = { has_law = agnatic_succession } } }
+						NOT = { has_religion_feature = religion_patriarchal }
+					}
 				}
-			}
-			OR = {
-				is_female = yes
-				AND = {
-					NOT = { ROOT = { succ_law_title = { has_law = enatic_succession } } }
-					NOT = { has_religion_feature = religion_matriarchal }
+				OR = {
+					is_female = yes
+					AND = {
+						NOT = { ROOT = { succ_law_title = { has_law = enatic_succession } } }
+						NOT = { has_religion_feature = religion_matriarchal }
+					}
 				}
 			}
 			
@@ -5108,9 +5102,7 @@ faction_claimant = {
 			is_adult = yes
 			NOT = { trait = incapable }
 			prisoner = no
-			liege = {
-				can_be_overthrown = yes
-			}
+			can_overthrow_liege = yes
 			OR = {
 				NOT = { has_dlc = "Zeus"}
 				is_voter = no
@@ -6651,7 +6643,7 @@ faction_overthrow = {
 		is_adult = yes
 		is_nomadic = yes
 		primary_title = { holy_order = no }
-		liege = { can_be_overthrown = yes }
+		can_overthrow_liege = yes
 		OR = {
 			NOT = { has_dlc = "Zeus" }
 			is_voter = no
@@ -6710,7 +6702,7 @@ faction_overthrow = {
 			is_nomadic = yes
 			NOT = { trait = incapable }
 			prisoner = no
-			liege = { can_be_overthrown = yes }
+			can_overthrow_liege = yes
 			OR = {
 				NOT = { has_dlc = "Zeus"}
 				is_voter = no
@@ -8314,8 +8306,8 @@ faction_powerful_vassal_takeover = {
 			}
 		}
 		NOT = { trait = incapable }
+		can_overthrow_liege = yes
 		liege = {
-			can_be_overthrown = yes
 			is_feudal = yes
 			# NOT = { government = chinese_imperial_government }
 			NOT = { controls_religion = yes }
@@ -8385,9 +8377,7 @@ faction_powerful_vassal_takeover = {
 			NOT = { trait = elf_childhood }
 			prisoner = no
 			NOT = { has_character_modifier = faction_powerful_vassal_takeover_ultimatum_timer }
-			liege = {
-				can_be_overthrown = yes
-			}
+			can_overthrow_liege = yes
 			OR = {
 				is_voter = no
 				liege = { 
