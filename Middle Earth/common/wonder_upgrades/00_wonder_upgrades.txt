@@ -286,6 +286,13 @@ upgrade_spikes = {
 	owner_modifier = {
 		custom_modifier_text = execution_possible_modifier_tt
 	}
+	ai_will_do = {
+		factor = 0.5
+		modifier = {
+			factor = 3
+			trait = impaler
+		}
+	}
 }
 
 upgrade_tower = {
@@ -336,8 +343,8 @@ upgrade_heating_pipes = {
 	picture = GFX_upgrade_icon_brazier
 
 	potential = { }
-	allow = { has_wonder_upgrade = upgrade_hypocausts }
-	active = { has_wonder_upgrade = upgrade_hypocausts }
+	allow = { FROMFROM = { has_wonder_upgrade = upgrade_hypocausts } }
+	active = { FROMFROM = { has_wonder_upgrade = upgrade_hypocausts } }
 
 	flags = {
 		heating
