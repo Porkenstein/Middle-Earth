@@ -120,7 +120,27 @@ title_decisions = {
 			}
 		}
 		effect = {
+			hidden_tooltip = {
+				holder_scope = {
+					any_courtier = {
+						limit = {
+							religion_group = religion_group_wilderness
+						}
+						death = {
+							death_reason = death_execution
+						}
+					}
+					save_event_target_as = wilds
+				}
+			}
 			grant_title = FROM
+			hidden_tooltip = {
+				event_target:wilds = {
+					death = {
+						death_reason = death_execution
+					}
+				}
+			}
 			FROM = {
 				if = {
 					limit = {
