@@ -8047,7 +8047,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_friend = {
+		any_friend = {
 			limit = {
 				war = no
 				in_command = no
@@ -8056,6 +8056,10 @@ character_event = {
 				same_sex = ROOT
 				is_inaccessible_trigger = no
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = celibate_friend
 		}
 	}
@@ -8240,7 +8244,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_friend = {
+		any_friend = {
 			limit = {
 				war = no
 				in_command = no
@@ -8248,6 +8252,10 @@ character_event = {
 				trait = hedonist
 				is_inaccessible_trigger = no
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = hedonist_friend
 		}
 	}
@@ -8450,7 +8458,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_friend = {
+		any_friend = {
 			limit = {
 				war = no
 				in_command = no
@@ -8458,6 +8466,10 @@ character_event = {
 				trait = scholar
 				is_inaccessible_trigger = no
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = scholar_friend
 		}
 	}
@@ -8679,7 +8691,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_friend = {
+		any_friend = {
 			limit = {
 				war = no
 				in_command = no
@@ -8704,6 +8716,10 @@ character_event = {
 				is_inaccessible_trigger = no
 				NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_not_abandon_friendship } }
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = mean_friend
 		}
 	}
@@ -8925,7 +8941,7 @@ character_event = {
 	}
 
 	immediate = {
-		random_friend = {
+		any_friend = {
 			limit = {
 				war = no
 				in_command = no
@@ -8956,9 +8972,13 @@ character_event = {
 					is_inaccessible_trigger = no
 				}
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = friend_in_danger
 
-			random_rival = {
+			any_rival = {
 				limit = {
 					war = no
 					in_command = no
@@ -8975,6 +8995,10 @@ character_event = {
 					can_be_maimed_trigger = yes
 					is_inaccessible_trigger = no
 				}
+				score_value = { #Prioritizes selecting an interesting courtier...
+		            value = 10
+		            interesting_courtier_selection_score = yes
+		        }
 
 				save_event_target_as = rival_of_friend
 			}
@@ -9223,7 +9247,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_rival = {
+		any_rival = {
 			limit = {
 				is_female = no
 				war = no
@@ -9273,6 +9297,10 @@ character_event = {
 					}
 				}
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = duel_rival
 		}
 	}

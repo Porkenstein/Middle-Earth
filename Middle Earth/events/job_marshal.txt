@@ -56,39 +56,7 @@ character_event = {
 	
 	mean_time_to_happen = {
 		months = 120
-	
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			martial = 10
-		}
-		modifier = {
-			factor = 0.75
-			martial = 11
-		}
-		modifier = {
-			factor = 0.75
-			martial = 12
-		}
-		modifier = {
-			factor = 0.75
-			martial = 13
-		}
+		job_event_mtth_modifier_martial_score = yes
 	}
 	
 	option = {
@@ -180,38 +148,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 240
 
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			martial = 10
-		}
-		modifier = {
-			factor = 1.25
-			martial = 11
-		}
-		modifier = {
-			factor = 1.25
-			martial = 12
-		}
-		modifier = {
-			factor = 1.25
-			martial = 13
-		}
+		job_event_mtth_modifier_inverted_martial_score = yes
 	}
 	
 	option = {
@@ -362,42 +299,7 @@ character_event = {
 			}
 		}
 		
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { martial = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			martial = 9
-		}
-		modifier = {
-			factor = 0.75
-			martial = 10
-		}
-		modifier = {
-			factor = 0.75
-			martial= 11
-		}
-		modifier = {
-			factor = 0.75
-			martial = 12
-		}
-		modifier = {
-			factor = 0.75
-			martial = 13
-		}
+		job_event_mtth_modifier_martial_score = yes
 	}
 	
 	option = {
@@ -552,23 +454,23 @@ character_event = {
 			modifier = opinion_grateful
 			months = 60
 		}
-		ROOT = {
-			spawn_unit = {
-				province = closest_to_capital
-				home = PREV
-				owner = THIS
-				#leader = none
-				match_character = THIS
-				match_mult = 0.025
-				match_min = 100
-				match_max = 3000
-				attrition = 1.0
-				cannot_inherit = yes
-				earmark = tribal_organize_raid
-				is_looter = yes
-				can_toggle_looting = no
-			}
-		}
+				ROOT = {
+					spawn_unit = {
+						province = PREV
+						home = PREV
+						owner = THIS
+						#leader = none
+						match_character = THIS
+						match_mult = 0.025
+						match_min = 100
+						match_max = 3000
+						attrition = 1.0
+						cannot_inherit = yes
+						earmark = tribal_organize_raid
+						is_looter = yes
+						can_toggle_looting = no
+					}
+					}
 	}
 }
 
