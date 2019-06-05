@@ -16,3 +16,5 @@ NDefines.NTechnology.TRADEPOST_SPREAD_BONUS = 0.000
 NDefines.NTechnology.SPYACTION_SPREAD_BONUS = 0.000
 NDefines.NTechnology.IDEAL_YEAR_LEVEL_0 = 1
 NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 16000
+
+NDefines.NTitle.ENFORCE_ONE_OF_EACH_HOLDING = 0
