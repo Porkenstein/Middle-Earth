@@ -52,30 +52,4 @@ decisions = {
 			piety = -150
 		}
 	}
-	## Improve the City of Erebor ##
-	erebor_craft_decision = {
-		is_high_prio = no
-		potential = {
-			ai = no
-			has_landed_title = c_erebor
-			culture_group = culture_group_dwarves
-			NOT = { has_character_flag = craftinerebor }
-		}
-		allow = {
-			war = no
-			in_command = no
-			prisoner = no
-			age = 16
-			wealth = 150
-			piety = 150
-		}
-		effect = {
-			ROOT = {
-				character_event = { id = erebor.6 }
-				set_character_flag = mineinerebor
-			}
-			wealth = -150
-			piety = -150
-		}
-	}
 }
