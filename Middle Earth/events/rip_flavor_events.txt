@@ -8153,1649 +8153,1649 @@ character_event = {
 	# }
 # }
 
-# #######################################
-# # LIEGE INTERFERES IN VASSAL WARS
-# # by Henrik Fåhraeus
-# #######################################
+#######################################
+# LIEGE INTERFERES IN VASSAL WARS
+# by Henrik Fåhraeus
+#######################################
 
-# # Vassal is asked by Liege to stop war of aggression against another vassal
-# letter_event = {
-	# id = RIP.30000
-	# desc = EVTDESC_RIP_30000
-	# border = GFX_event_letter_frame_war
+# Vassal is asked by Liege to stop war of aggression against another vassal
+letter_event = {
+	id = RIP.30000
+	desc = EVTDESC_RIP_30000
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_RIP_30000 # Ask for money
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 5.0
-				# trait = greedy
-			# }
-			# modifier = {
-				# factor = 2.0
-				# trait = envious
-			# }
-		# }
-		# tooltip = {
-			# FROMFROM = {
-				# transfer_scaled_wealth = {
-					# value = 0.2
-					# to = ROOT
-					# min = 20
-				# }
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30003 days = 3 }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTB_RIP_30000 # Ask for a Favor
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 3.0
-				# trait = deceitful 
-			# }
-			# modifier = {
-				# factor = 3.0
-				# trait = ambitious
-			# }
-		# }
-		# trigger = {
-			# has_dlc = "Conclave"
-			# FROMFROM = { NOT = { owes_favor_to = ROOT } }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30007 days = 3 }
-		# }
-	# }
+	option = {
+		name = EVTOPTA_RIP_30000 # Ask for money
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				trait = greedy
+			}
+			modifier = {
+				factor = 2.0
+				trait = envious
+			}
+		}
+		tooltip = {
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					value = 0.2
+					to = ROOT
+					min = 20
+				}
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30003 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTB_RIP_30000 # Ask for a Favor
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 3.0
+				trait = deceitful 
+			}
+			modifier = {
+				factor = 3.0
+				trait = ambitious
+			}
+		}
+		trigger = {
+			has_dlc = "Conclave"
+			FROMFROM = { NOT = { owes_favor_to = ROOT } }
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30007 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTC_RIP_30000 # Ask for nothing
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 20.0
-				# OR = {
-					# is_friend = FROMFROM
-					# is_lover = FROMFROM
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# opinion = {
-					# who = FROMFROM
-					# value = 50
-				# }
-			# }
-			# modifier = {
-				# factor = 4.0
-				# opinion = {
-					# who = FROMFROM
-					# value = 90
-				# }
-			# }
-		# }
+	option = {
+		name = EVTOPTC_RIP_30000 # Ask for nothing
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 20.0
+				OR = {
+					is_friend = FROMFROM
+					is_lover = FROMFROM
+				}
+			}
+			modifier = {
+				factor = 2.0
+				opinion = {
+					who = FROMFROM
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 4.0
+				opinion = {
+					who = FROMFROM
+					value = 90
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_very_grateful
-				# years = 5
-			# }
-		# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_very_grateful
+				years = 5
+			}
+		}
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30001 days = 3 }
-		# }
-	# }
+		FROMFROM = {
+			character_event = { id = RIP.30001 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000 # Refuse
+	option = {
+		name = EVTOPTD_RIP_30000 # Refuse
 		
-		# trigger = {
-			# FROMFROM = {
-				# NOR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				NOR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_refused_to_end_war
-				# years = 5
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30006 days = 3 }
-		# }
-	# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_refused_to_end_war
+				years = 5
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30006 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000_TRAITOR # Refuse and become a traitor
+	option = {
+		name = EVTOPTD_RIP_30000_TRAITOR # Refuse and become a traitor
 		
-		# trigger = {
-			# FROMFROM = {
-				# OR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 20
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_traitor
-				# years = 5
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30006 days = 3 }
-		# }
-	# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_traitor
+				years = 5
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30006 days = 3 }
+		}
+	}
 	
-# }
+}
 
-# # Vassal agrees, asking for nothing
-# letter_event = {
-	# id = RIP.30001
-	# desc = EVTDESC_RIP_30001
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for nothing
+letter_event = {
+	id = RIP.30001
+	desc = EVTDESC_RIP_30001
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# event_target:target_defender = {
-			# character_event = { id = RIP.30002 }
-		# }
+		event_target:target_defender = {
+			character_event = { id = RIP.30002 }
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 5
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 5
+		}
 		
-		# FROM = {
-			# any_war = {
-				# limit = {
-					# defender = { character = event_target:target_defender }
-					# attacker = { character = FROM }
-				# }
-				# end_war = whitepeace
-			# }
-			# set_pacified = {
-                # years = 1
-            # }
-		# }
-	# }
-# }
+		FROM = {
+			any_war = {
+				limit = {
+					defender = { character = event_target:target_defender }
+					attacker = { character = FROM }
+				}
+				end_war = whitepeace
+			}
+			set_pacified = {
+                years = 1
+            }
+		}
+	}
+}
 
-# # The other vassal is notified
-# letter_event = {
-	# id = RIP.30002
-	# desc = EVTDESC_RIP_30002
-	# border = GFX_event_letter_frame_war
+# The other vassal is notified
+letter_event = {
+	id = RIP.30002
+	desc = EVTDESC_RIP_30002
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30002
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 5
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30002
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 5
+		}
+	}
+}
 
-# # Vassal agrees, asking for money
-# letter_event = {
-	# id = RIP.30003
-	# desc = EVTDESC_RIP_30003
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for money
+letter_event = {
+	id = RIP.30003
+	desc = EVTDESC_RIP_30003
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30003 # Very well...
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 0
-				# NOT = { scaled_wealth = 0.2 }
-			# }
-		# }
+	option = {
+		name = EVTOPTA_RIP_30003 # Very well...
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 0.2 }
+			}
+		}
 		
-		# event_target:target_defender = {
-			# character_event = { id = RIP.30002 }
-		# }
+		event_target:target_defender = {
+			character_event = { id = RIP.30002 }
+		}
 		
-		# tooltip = {
-			# transfer_scaled_wealth = {
-				# value = 0.2
-				# to = FROM
-				# min = 20
-			# }
-		# }
+		tooltip = {
+			transfer_scaled_wealth = {
+				value = 0.2
+				to = FROM
+				min = 20
+			}
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30004 }
-			# any_war = {
-				# limit = {
-					# defender = { character = event_target:target_defender }
-					# attacker = { character = FROM }
-				# }
-				# end_war = whitepeace
-			# }
-			# set_pacified = {
-                # years = 3
-            # }
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30004 }
+			any_war = {
+				limit = {
+					defender = { character = event_target:target_defender }
+					attacker = { character = FROM }
+				}
+				end_war = whitepeace
+			}
+			set_pacified = {
+                years = 3
+            }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30003 # I can't afford that
-		# ai_chance = {
-			# factor = 1
-		# }
-		# FROM = {
-			# character_event = { id = RIP.30005 }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTB_RIP_30003 # I can't afford that
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			character_event = { id = RIP.30005 }
+		}
+	}
+}
 
-# # The attacker is notified and given money
-# letter_event = {
-	# id = RIP.30004
-	# desc = EVTDESC_RIP_30004
-	# border = GFX_event_letter_frame_war
+# The attacker is notified and given money
+letter_event = {
+	id = RIP.30004
+	desc = EVTDESC_RIP_30004
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# FROM = {
-			# transfer_scaled_wealth = {
-				# value = 0.2
-				# to = ROOT
-				# min = 20
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		FROM = {
+			transfer_scaled_wealth = {
+				value = 0.2
+				to = ROOT
+				min = 20
+			}
+		}
+	}
+}
 
-# # The attacker is notified - liege cannot afford to pay that much money
-# letter_event = {
-	# id = RIP.30005
-	# desc = EVTDESC_RIP_30005
-	# border = GFX_event_letter_frame_war
+# The attacker is notified - liege cannot afford to pay that much money
+letter_event = {
+	id = RIP.30005
+	desc = EVTDESC_RIP_30005
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30005
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30005
+	}
+}
 
-# # Vassal refuses liege's request. Liege is notified.
-# letter_event = {
-	# id = RIP.30006
-	# desc = EVTDESC_RIP_30006
-	# border = GFX_event_letter_frame_war
+# Vassal refuses liege's request. Liege is notified.
+letter_event = {
+	id = RIP.30006
+	desc = EVTDESC_RIP_30006
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006
+	option = {
+		name = EVTOPTA_RIP_30006
 		
-		# trigger = {
-			# NOR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+		trigger = {
+			NOR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_refused_to_end_war
-			# years = 5
-		# }
-	# }
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_to_end_war
+			years = 5
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006_TRAITOR
+	option = {
+		name = EVTOPTA_RIP_30006_TRAITOR
 		
-		# trigger = {
-			# OR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+		trigger = {
+			OR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_traitor
-			# years = 5
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_traitor
+			years = 5
+		}
+	}
+}
 
-# # Vassal agrees, asking for a Favor
-# letter_event = {
-	# id = RIP.30007
-	# desc = EVTDESC_RIP_30007
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for a Favor
+letter_event = {
+	id = RIP.30007
+	desc = EVTDESC_RIP_30007
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30003 # Very well...
-		# ai_chance = {
-			# factor = 100
-		# }
+	option = {
+		name = EVTOPTA_RIP_30003 # Very well...
+		ai_chance = {
+			factor = 100
+		}
 		
-		# event_target:target_defender = {
-			# character_event = { id = RIP.30002 }
-		# }
+		event_target:target_defender = {
+			character_event = { id = RIP.30002 }
+		}
 		
-		# reverse_add_favor = FROM
+		reverse_add_favor = FROM
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_grateful
-			# years = 5
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			years = 5
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30008 }
-			# any_war = {
-				# limit = {
-					# defender = { character = event_target:target_defender }
-					# attacker = { character = FROM }
-				# }
-				# end_war = whitepeace
-			# }
-			# set_pacified = {
-                # years = 3
-            # }
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30008 }
+			any_war = {
+				limit = {
+					defender = { character = event_target:target_defender }
+					attacker = { character = FROM }
+				}
+				end_war = whitepeace
+			}
+			set_pacified = {
+                years = 3
+            }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30007 # No
-		# ai_chance = {
-			# factor = 0
-		# }
+	option = {
+		name = EVTOPTB_RIP_30007 # No
+		ai_chance = {
+			factor = 0
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30009 }
-		# }
-	# }
-# }
+		FROM = {
+			character_event = { id = RIP.30009 }
+		}
+	}
+}
 
-# # The attacker is notified about the favor
-# letter_event = {
-	# id = RIP.30008
-	# desc = EVTDESC_RIP_30008
-	# border = GFX_event_letter_frame_war
+# The attacker is notified about the favor
+letter_event = {
+	id = RIP.30008
+	desc = EVTDESC_RIP_30008
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# tooltip = {
-			# add_favor = FROM
-			# reverse_opinion = {
-				# who = FROM
-				# modifier = opinion_grateful
-				# years = 5
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			add_favor = FROM
+			reverse_opinion = {
+				who = FROM
+				modifier = opinion_grateful
+				years = 5
+			}
+		}
+	}
+}
 
-# # The attacker is notified - liege not willing to owe a favor
-# letter_event = {
-	# id = RIP.30009
-	# desc = EVTDESC_RIP_30009
-	# border = GFX_event_letter_frame_war
+# The attacker is notified - liege not willing to owe a favor
+letter_event = {
+	id = RIP.30009
+	desc = EVTDESC_RIP_30009
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30005
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30005
+	}
+}
 
-# # Vassal is asked by Liege to stop war of aggression against another vassal - can't refuse since the liege calls in a favor
-# letter_event = {
-	# id = RIP.30010
-	# desc = EVTDESC_RIP_30010
-	# border = GFX_event_letter_frame_war
+# Vassal is asked by Liege to stop war of aggression against another vassal - can't refuse since the liege calls in a favor
+letter_event = {
+	id = RIP.30010
+	desc = EVTDESC_RIP_30010
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30010
+	option = {
+		name = EVTOPTA_RIP_30010
 		
-		# any_war = {
-			# limit = {
-				# defender = { character = event_target:target_defender }
-				# attacker = { character = ROOT }
-			# }
-			# end_war = whitepeace
-		# }
+		any_war = {
+			limit = {
+				defender = { character = event_target:target_defender }
+				attacker = { character = ROOT }
+			}
+			end_war = whitepeace
+		}
 		
-		# set_pacified = {
-                # years = 2
-        # }
+		set_pacified = {
+                years = 2
+        }
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_grateful
-				# years = 5
-			# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_grateful
+				years = 5
+			}
 			
-			# reverse_remove_favor = FROMFROM
-		# }
+			reverse_remove_favor = FROMFROM
+		}
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30011 }
-		# }
-	# }
-# }
+		FROMFROM = {
+			character_event = { id = RIP.30011 }
+		}
+	}
+}
 
-# # Liege gets feedback on the stopped war. The favor is used up.
-# letter_event = {
-	# id = RIP.30011
-	# desc = EVTDESC_RIP_30011
-	# border = GFX_event_letter_frame_war
+# Liege gets feedback on the stopped war. The favor is used up.
+letter_event = {
+	id = RIP.30011
+	desc = EVTDESC_RIP_30011
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# event_target:target_defender = {
-			# character_event = { id = RIP.30002 }
-		# }
+		event_target:target_defender = {
+			character_event = { id = RIP.30002 }
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_grateful
-			# years = 5
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			years = 5
+		}
+	}
+}
 
-# # DEFENDER SURRENDER EVENTS
+# DEFENDER SURRENDER EVENTS
 
-# # Vassal is asked by Liege to surrender to another vassal on an ongoing war
-# letter_event = {
-	# id = RIP.30020
-	# desc = EVTDESC_RIP_30020
-	# border = GFX_event_letter_frame_war
+# Vassal is asked by Liege to surrender to another vassal on an ongoing war
+letter_event = {
+	id = RIP.30020
+	desc = EVTDESC_RIP_30020
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_RIP_30000 # Ask for money
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 5.0
-				# trait = greedy 
-			# }
-			# modifier = {
-				# factor = 2.0
-				# trait = envious
-			# }
-		# }
-		# tooltip = {
-			# FROMFROM = {
-				# transfer_scaled_wealth = {
-					# value = 0.33
-					# to = ROOT
-					# min = 30
-				# }
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30023 days = 3 }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTB_RIP_30020 # Ask for a Favor
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 3.0
-				# trait = deceitful 
-			# }
-			# modifier = {
-				# factor = 3.0
-				# trait = ambitious
-			# }
-		# }
-		# trigger = {
-			# has_dlc = "Conclave"
-			# FROMFROM = { NOT = { owes_favor_to = ROOT } }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30027 days = 3 }
-		# }
-	# }
+	option = {
+		name = EVTOPTA_RIP_30000 # Ask for money
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				trait = greedy 
+			}
+			modifier = {
+				factor = 2.0
+				trait = envious
+			}
+		}
+		tooltip = {
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					value = 0.33
+					to = ROOT
+					min = 30
+				}
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30023 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTB_RIP_30020 # Ask for a Favor
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 3.0
+				trait = deceitful 
+			}
+			modifier = {
+				factor = 3.0
+				trait = ambitious
+			}
+		}
+		trigger = {
+			has_dlc = "Conclave"
+			FROMFROM = { NOT = { owes_favor_to = ROOT } }
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30027 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTC_RIP_30000 # Ask for nothing
-		# ai_chance = {
-			# factor = 50
-			# modifier = {
-				# factor = 0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 10.0
-				# OR = {
-					# is_friend = FROMFROM
-					# is_lover = FROMFROM
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# opinion = {
-					# who = FROMFROM
-					# value = 50
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# opinion = {
-					# who = FROMFROM
-					# value = 90
-				# }
-			# }
-		# }
+	option = {
+		name = EVTOPTC_RIP_30000 # Ask for nothing
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 10.0
+				OR = {
+					is_friend = FROMFROM
+					is_lover = FROMFROM
+				}
+			}
+			modifier = {
+				factor = 1.5
+				opinion = {
+					who = FROMFROM
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 2.0
+				opinion = {
+					who = FROMFROM
+					value = 90
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_very_grateful
-				# years = 10
-			# }
-		# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_very_grateful
+				years = 10
+			}
+		}
 		
-		# prestige = 100
+		prestige = 100
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30021 days = 3 }
-		# }
-	# }
+		FROMFROM = {
+			character_event = { id = RIP.30021 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000 # Refuse
+	option = {
+		name = EVTOPTD_RIP_30000 # Refuse
 		
-		# trigger = {
-			# FROMFROM = {
-				# NOR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				NOR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_refused_to_end_war
-				# years = 3
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30026 days = 3 }
-		# }
-	# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_refused_to_end_war
+				years = 3
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30026 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000_TRAITOR # Refuse
+	option = {
+		name = EVTOPTD_RIP_30000_TRAITOR # Refuse
 		
-		# trigger = {
-			# FROMFROM = {
-				# OR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 20
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_traitor
-				# years = 3
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30026 days = 3 }
-		# }
-	# }
-# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_traitor
+				years = 3
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30026 days = 3 }
+		}
+	}
+}
 
-# # Vassal agrees, asking for nothing
-# letter_event = {
-	# id = RIP.30021
-	# desc = EVTDESC_RIP_30021
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for nothing
+letter_event = {
+	id = RIP.30021
+	desc = EVTDESC_RIP_30021
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# event_target:target_attacker = {
-			# character_event = { id = RIP.30022 }
-		# }
+		event_target:target_attacker = {
+			character_event = { id = RIP.30022 }
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 10
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 10
+		}
 		
-		# FROM = {
-			# any_war = {
-				# limit = {
-					# attacker = { character = event_target:target_attacker }
-					# defender = { character = FROM }
-				# }
-				# end_war = success
-			# }
-		# }
-	# }
-# }
+		FROM = {
+			any_war = {
+				limit = {
+					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }
+				}
+				end_war = success
+			}
+		}
+	}
+}
 
-# # The other vassal is notified
-# letter_event = {
-	# id = RIP.30022
-	# desc = EVTDESC_RIP_30022
-	# border = GFX_event_letter_frame_war
+# The other vassal is notified
+letter_event = {
+	id = RIP.30022
+	desc = EVTDESC_RIP_30022
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30002
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 10
-		# }
-		# reverse_add_favor = FROM
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30002
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 10
+		}
+		reverse_add_favor = FROM
+	}
+}
 
-# # Vassal agrees, asking for money
-# letter_event = {
-	# id = RIP.30023
-	# desc = EVTDESC_RIP_30023
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for money
+letter_event = {
+	id = RIP.30023
+	desc = EVTDESC_RIP_30023
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30003 # Very well...
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 0
-				# NOT = { scaled_wealth = 0.33 }
-			# }
-		# }
+	option = {
+		name = EVTOPTA_RIP_30003 # Very well...
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 0.33 }
+			}
+		}
 		
-		# event_target:target_attacker = {
-			# character_event = { id = RIP.30022 }
-		# }
+		event_target:target_attacker = {
+			character_event = { id = RIP.30022 }
+		}
 		
-		# tooltip = {
-			# transfer_scaled_wealth = {
-				# value = 0.33
-				# to = FROM
-				# min = 30
-			# }
-		# }
+		tooltip = {
+			transfer_scaled_wealth = {
+				value = 0.33
+				to = FROM
+				min = 30
+			}
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30024 }
-			# any_war = {
-				# limit = {
-					# attacker = { character = event_target:target_attacker }
-					# defender = { character = FROM }
-				# }
-				# end_war = success
-			# }
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30024 }
+			any_war = {
+				limit = {
+					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }
+				}
+				end_war = success
+			}
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30003 # I can't afford that
-		# ai_chance = {
-			# factor = 1
-		# }
-		# FROM = {
-			# character_event = { id = RIP.30025 }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTB_RIP_30003 # I can't afford that
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			character_event = { id = RIP.30025 }
+		}
+	}
+}
 
-# # The defender is notified and given money
-# letter_event = {
-	# id = RIP.30024
-	# desc = EVTDESC_RIP_30024
-	# border = GFX_event_letter_frame_war
+# The defender is notified and given money
+letter_event = {
+	id = RIP.30024
+	desc = EVTDESC_RIP_30024
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# prestige = 100
-		# FROM = {
-			# transfer_scaled_wealth = {
-				# value = 0.33
-				# to = ROOT
-				# min = 30
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		prestige = 100
+		FROM = {
+			transfer_scaled_wealth = {
+				value = 0.33
+				to = ROOT
+				min = 30
+			}
+		}
+	}
+}
 
-# # The defender is notified - liege cannot afford to pay that much money
-# letter_event = {
-	# id = RIP.30025
-	# desc = EVTDESC_RIP_30025
-	# border = GFX_event_letter_frame_war
+# The defender is notified - liege cannot afford to pay that much money
+letter_event = {
+	id = RIP.30025
+	desc = EVTDESC_RIP_30025
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30025
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30025
+	}
+}
 
-# # Vassal refuses liege's request. Liege is notified.
-# letter_event = {
-	# id = RIP.30026
-	# desc = EVTDESC_RIP_30026
-	# border = GFX_event_letter_frame_war
+# Vassal refuses liege's request. Liege is notified.
+letter_event = {
+	id = RIP.30026
+	desc = EVTDESC_RIP_30026
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006
-		# trigger = {
-			# NOR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+	option = {
+		name = EVTOPTA_RIP_30006
+		trigger = {
+			NOR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_refused_to_end_war
-			# years = 3
-		# }
-	# }
+		opinion = {
+			who = FROM
+			modifier = opinion_refused_to_end_war
+			years = 3
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006_TRAITOR
+	option = {
+		name = EVTOPTA_RIP_30006_TRAITOR
 		
-		# trigger = {
-			# OR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+		trigger = {
+			OR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_traitor
-			# years = 3
-		# }
-	# }
+		opinion = {
+			who = FROM
+			modifier = opinion_traitor
+			years = 3
+		}
+	}
 	
-# }
+}
 
-# # Vassal agrees, asking for a Favor
-# letter_event = {
-	# id = RIP.30027
-	# desc = EVTDESC_RIP_30027
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for a Favor
+letter_event = {
+	id = RIP.30027
+	desc = EVTDESC_RIP_30027
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30003 # Very well...
-		# ai_chance = {
-			# factor = 100
-		# }
+	option = {
+		name = EVTOPTA_RIP_30003 # Very well...
+		ai_chance = {
+			factor = 100
+		}
 		
-		# event_target:target_attacker = {
-			# character_event = { id = RIP.30022 }
-		# }
+		event_target:target_attacker = {
+			character_event = { id = RIP.30022 }
+		}
 		
-		# reverse_add_favor = FROM
+		reverse_add_favor = FROM
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_grateful
-			# years = 10
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			years = 10
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30028 }
-			# any_war = {
-				# limit = {
-					# attacker = { character = event_target:target_attacker }
-					# defender = { character = FROM }
-				# }
-				# end_war = success
-			# }
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30028 }
+			any_war = {
+				limit = {
+					attacker = { character = event_target:target_attacker }
+					defender = { character = FROM }
+				}
+				end_war = success
+			}
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30007 # No
-		# ai_chance = {
-			# factor = 0
-		# }
+	option = {
+		name = EVTOPTB_RIP_30007 # No
+		ai_chance = {
+			factor = 0
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30029 }
-		# }
-	# }
-# }
+		FROM = {
+			character_event = { id = RIP.30029 }
+		}
+	}
+}
 
-# # The defender is notified about the favor
-# letter_event = {
-	# id = RIP.30028
-	# desc = EVTDESC_RIP_30028
-	# border = GFX_event_letter_frame_war
+# The defender is notified about the favor
+letter_event = {
+	id = RIP.30028
+	desc = EVTDESC_RIP_30028
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# prestige = 100
-		# tooltip = {
-			# add_favor = FROM
-			# reverse_opinion = {
-				# who = FROM
-				# modifier = opinion_grateful
-				# years = 10
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		prestige = 100
+		tooltip = {
+			add_favor = FROM
+			reverse_opinion = {
+				who = FROM
+				modifier = opinion_grateful
+				years = 10
+			}
+		}
+	}
+}
 
-# # The defender is notified - liege not willing to owe a favor
-# letter_event = {
-	# id = RIP.30029
-	# desc = EVTDESC_RIP_30029
-	# border = GFX_event_letter_frame_war
+# The defender is notified - liege not willing to owe a favor
+letter_event = {
+	id = RIP.30029
+	desc = EVTDESC_RIP_30029
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30005
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30005
+	}
+}
 
-# # Vassal is asked by Liege to surrender to another vassal - can't refuse since the liege calls in a favor
-# letter_event = {
-	# id = RIP.30030
-	# desc = EVTDESC_RIP_30030
-	# border = GFX_event_letter_frame_war
+# Vassal is asked by Liege to surrender to another vassal - can't refuse since the liege calls in a favor
+letter_event = {
+	id = RIP.30030
+	desc = EVTDESC_RIP_30030
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30010
+	option = {
+		name = EVTOPTA_RIP_30010
 		
-		# any_war = {
-			# limit = {
-				# attacker = { character = event_target:target_attacker }
-				# defender = { character = FROM }
-			# }
-			# end_war = success
-		# }
+		any_war = {
+			limit = {
+				attacker = { character = event_target:target_attacker }
+				defender = { character = FROM }
+			}
+			end_war = success
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_very_grateful
-				# years = 10
-			# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_very_grateful
+				years = 10
+			}
 			
-			# reverse_remove_favor = FROMFROM
-		# }
+			reverse_remove_favor = FROMFROM
+		}
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30031 }
-		# }
-	# }
-# }
+		FROMFROM = {
+			character_event = { id = RIP.30031 }
+		}
+	}
+}
 
-# # Liege gets feedback on the surrender. The favor is used up.
-# letter_event = {
-	# id = RIP.30031
-	# desc = EVTDESC_RIP_30031
-	# border = GFX_event_letter_frame_war
+# Liege gets feedback on the surrender. The favor is used up.
+letter_event = {
+	id = RIP.30031
+	desc = EVTDESC_RIP_30031
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# event_target:target_attacker = {
-			# character_event = { id = RIP.30022 }
-		# }
+		event_target:target_attacker = {
+			character_event = { id = RIP.30022 }
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 10
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 10
+		}
+	}
+}
 
-# #####################################################
-# # LIEGE DEMANDS GAVELKIND SUCCESSION LAW OF A VASSAL
-# # Decision: demand_gavelkind
-# #####################################################
+#####################################################
+# LIEGE DEMANDS GAVELKIND SUCCESSION LAW OF A VASSAL
+# Decision: demand_gavelkind
+#####################################################
 
-# # Liege asks the vassal to change succession law to Gavelkind
-# letter_event = {
-	# id = RIP.30040
-	# desc = EVTDESC_RIP_30040
-	# border = GFX_event_letter_frame_war
+# Liege asks the vassal to change succession law to Gavelkind
+letter_event = {
+	id = RIP.30040
+	desc = EVTDESC_RIP_30040
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_RIP_30000 # Ask for money
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 5.0
-				# trait = greedy 
-			# }
-			# modifier = {
-				# factor = 2.0
-				# trait = envious
-			# }
-		# }
-		# tooltip = {
-			# FROMFROM = {
-				# transfer_scaled_wealth = {
-					# value = 0.25
-					# to = ROOT
-					# min = 25
-				# }
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30043 days = 3 }
-		# }
-	# }
-	# option = {
-		# name = EVTOPTB_RIP_30040 # Ask for a Favor
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 3.0
-				# trait = deceitful 
-			# }
-			# modifier = {
-				# factor = 3.0
-				# trait = ambitious
-			# }
-		# }
-		# trigger = {
-			# has_dlc = "Conclave"
-			# FROMFROM = { NOT = { owes_favor_to = ROOT } }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30047 days = 3 }
-		# }
-	# }
+	option = {
+		name = EVTOPTA_RIP_30000 # Ask for money
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				trait = greedy 
+			}
+			modifier = {
+				factor = 2.0
+				trait = envious
+			}
+		}
+		tooltip = {
+			FROMFROM = {
+				transfer_scaled_wealth = {
+					value = 0.25
+					to = ROOT
+					min = 25
+				}
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30043 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTB_RIP_30040 # Ask for a Favor
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 3.0
+				trait = deceitful 
+			}
+			modifier = {
+				factor = 3.0
+				trait = ambitious
+			}
+		}
+		trigger = {
+			has_dlc = "Conclave"
+			FROMFROM = { NOT = { owes_favor_to = ROOT } }
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30047 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTC_RIP_30000 # Ask for nothing
-		# ai_chance = {
-			# factor = 50
-			# modifier = {
-				# factor = 0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 10.0
-				# OR = {
-					# is_friend = FROMFROM
-					# is_lover = FROMFROM
-				# }
-			# }
-			# modifier = {
-				# factor = 1.5
-				# opinion = {
-					# who = FROMFROM
-					# value = 50
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# opinion = {
-					# who = FROMFROM
-					# value = 90
-				# }
-			# }
-		# }
+	option = {
+		name = EVTOPTC_RIP_30000 # Ask for nothing
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 10.0
+				OR = {
+					is_friend = FROMFROM
+					is_lover = FROMFROM
+				}
+			}
+			modifier = {
+				factor = 1.5
+				opinion = {
+					who = FROMFROM
+					value = 50
+				}
+			}
+			modifier = {
+				factor = 2.0
+				opinion = {
+					who = FROMFROM
+					value = 90
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_very_grateful
-				# years = 10
-			# }
-		# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_very_grateful
+				years = 10
+			}
+		}
 		
-		# prestige = 100
+		prestige = 100
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30041 days = 3 }
-		# }
-	# }
+		FROMFROM = {
+			character_event = { id = RIP.30041 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000 # Refuse
+	option = {
+		name = EVTOPTD_RIP_30000 # Refuse
 		
-		# trigger = {
-			# FROMFROM = {
-				# NOR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				NOR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = succ_law_change
-				# multiplier = 2
-				# years = 3
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30046 days = 3 }
-		# }
-	# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = succ_law_change
+				multiplier = 2
+				years = 3
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30046 days = 3 }
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_30000_TRAITOR # Refuse
+	option = {
+		name = EVTOPTD_RIP_30000_TRAITOR # Refuse
 		
-		# trigger = {
-			# FROMFROM = {
-				# OR = {
-					# has_law = ze_administration_laws_1
-					# has_law = ze_administration_laws_2
-				# }
-			# }
-		# }
+		trigger = {
+			FROMFROM = {
+				OR = {
+					has_law = ze_administration_laws_1
+					has_law = ze_administration_laws_2
+				}
+			}
+		}
 		
-		# ai_chance = {
-			# factor = 20
-			# modifier = {
-				# factor = 20.0
-				# is_rival = FROMFROM
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -25
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -50
-					# }
-				# }
-			# }
-			# modifier = {
-				# factor = 2.0
-				# NOT = {
-					# opinion = {
-						# who = FROMFROM
-						# value = -75
-					# }
-				# }
-			# }
-		# }
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 20.0
+				is_rival = FROMFROM
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -25
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -75
+					}
+				}
+			}
+		}
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_traitor
-				# years = 3
-			# }
-		# }
-		# FROMFROM = {
-			# character_event = { id = RIP.30046 days = 3 }
-		# }
-	# }
-# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_traitor
+				years = 3
+			}
+		}
+		FROMFROM = {
+			character_event = { id = RIP.30046 days = 3 }
+		}
+	}
+}
 
-# # Vassal agrees, asking for nothing
-# letter_event = {
-	# id = RIP.30041
-	# desc = EVTDESC_RIP_30041
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for nothing
+letter_event = {
+	id = RIP.30041
+	desc = EVTDESC_RIP_30041
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 10
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 10
+		}
 		
-		# FROM = {
-			# primary_title = {
-				# add_law_w_cooldown = succ_gavelkind
-			# }
-			# set_character_flag = liege_forced_succ_law
-		# }
-	# }
-# }
+		FROM = {
+			primary_title = {
+				add_law_w_cooldown = succ_gavelkind
+			}
+			set_character_flag = liege_forced_succ_law
+		}
+	}
+}
 
-# # Vassal agrees, asking for money
-# letter_event = {
-	# id = RIP.30043
-	# desc = EVTDESC_RIP_30043
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for money
+letter_event = {
+	id = RIP.30043
+	desc = EVTDESC_RIP_30043
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30043 # Very well...
-		# ai_chance = {
-			# factor = 100
-			# modifier = {
-				# factor = 0
-				# NOT = { scaled_wealth = 0.25 }
-			# }
-		# }
+	option = {
+		name = EVTOPTA_RIP_30043 # Very well...
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 0.25 }
+			}
+		}
 		
-		# tooltip = {
-			# transfer_scaled_wealth = {
-				# value = 0.25
-				# to = FROM
-				# min = 25
-			# }
-		# }
+		tooltip = {
+			transfer_scaled_wealth = {
+				value = 0.25
+				to = FROM
+				min = 25
+			}
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30044 }
-			# primary_title = {
-				# add_law_w_cooldown = succ_gavelkind
-			# }
-			# set_character_flag = liege_forced_succ_law
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30044 }
+			primary_title = {
+				add_law_w_cooldown = succ_gavelkind
+			}
+			set_character_flag = liege_forced_succ_law
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30003 # I can't afford that
-		# ai_chance = {
-			# factor = 1
-		# }
-		# FROM = {
-			# character_event = { id = RIP.30045 }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTB_RIP_30003 # I can't afford that
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			character_event = { id = RIP.30045 }
+		}
+	}
+}
 
-# # The vassal is notified and given money
-# letter_event = {
-	# id = RIP.30044
-	# desc = EVTDESC_RIP_30044
-	# border = GFX_event_letter_frame_war
+# The vassal is notified and given money
+letter_event = {
+	id = RIP.30044
+	desc = EVTDESC_RIP_30044
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# prestige = 100
-		# FROM = {
-			# transfer_scaled_wealth = {
-				# value = 0.25
-				# to = ROOT
-				# min = 25
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		prestige = 100
+		FROM = {
+			transfer_scaled_wealth = {
+				value = 0.25
+				to = ROOT
+				min = 25
+			}
+		}
+	}
+}
 
-# # The vassal is notified - liege cannot afford to pay that much money
-# letter_event = {
-	# id = RIP.30045
-	# desc = EVTDESC_RIP_30045
-	# border = GFX_event_letter_frame_war
+# The vassal is notified - liege cannot afford to pay that much money
+letter_event = {
+	id = RIP.30045
+	desc = EVTDESC_RIP_30045
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30045
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30045
+	}
+}
 
-# # Vassal refuses liege's request. Liege is notified.
-# letter_event = {
-	# id = RIP.30046
-	# desc = EVTDESC_RIP_30046
-	# border = GFX_event_letter_frame_war
+# Vassal refuses liege's request. Liege is notified.
+letter_event = {
+	id = RIP.30046
+	desc = EVTDESC_RIP_30046
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006
-		# trigger = {
-			# NOR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+	option = {
+		name = EVTOPTA_RIP_30006
+		trigger = {
+			NOR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = succ_law_change
-			# multiplier = 2
-			# years = 3
-		# }
-	# }
+		opinion = {
+			who = FROM
+			modifier = succ_law_change
+			multiplier = 2
+			years = 3
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTA_RIP_30006_TRAITOR
+	option = {
+		name = EVTOPTA_RIP_30006_TRAITOR
 		
-		# trigger = {
-			# OR = {
-				# has_law = ze_administration_laws_1
-				# has_law = ze_administration_laws_2
-			# }
-		# }
+		trigger = {
+			OR = {
+				has_law = ze_administration_laws_1
+				has_law = ze_administration_laws_2
+			}
+		}
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_traitor
-			# years = 3
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_traitor
+			years = 3
+		}
+	}
+}
 
-# # Vassal agrees, asking for a Favor
-# letter_event = {
-	# id = RIP.30047
-	# desc = EVTDESC_RIP_30047
-	# border = GFX_event_letter_frame_war
+# Vassal agrees, asking for a Favor
+letter_event = {
+	id = RIP.30047
+	desc = EVTDESC_RIP_30047
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30043 # Very well...
-		# ai_chance = {
-			# factor = 100
-		# }
+	option = {
+		name = EVTOPTA_RIP_30043 # Very well...
+		ai_chance = {
+			factor = 100
+		}
 		
-		# reverse_add_favor = FROM
+		reverse_add_favor = FROM
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_grateful
-			# years = 10
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_grateful
+			years = 10
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30048 }
-			# primary_title = {
-				# add_law_w_cooldown = succ_gavelkind
-			# }
-			# set_character_flag = liege_forced_succ_law
-		# }
-	# }
+		FROM = {
+			character_event = { id = RIP.30048 }
+			primary_title = {
+				add_law_w_cooldown = succ_gavelkind
+			}
+			set_character_flag = liege_forced_succ_law
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_30007 # No
-		# ai_chance = {
-			# factor = 0
-		# }
+	option = {
+		name = EVTOPTB_RIP_30007 # No
+		ai_chance = {
+			factor = 0
+		}
 		
-		# FROM = {
-			# character_event = { id = RIP.30049 }
-		# }
-	# }
-# }
+		FROM = {
+			character_event = { id = RIP.30049 }
+		}
+	}
+}
 
-# # The vassal is notified about the favor
-# letter_event = {
-	# id = RIP.30048
-	# desc = EVTDESC_RIP_30048
-	# border = GFX_event_letter_frame_war
+# The vassal is notified about the favor
+letter_event = {
+	id = RIP.30048
+	desc = EVTDESC_RIP_30048
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
-		# prestige = 100
-		# tooltip = {
-			# add_favor = FROM
-			# reverse_opinion = {
-				# who = FROM
-				# modifier = opinion_grateful
-				# years = 10
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EXCELLENT
+		prestige = 100
+		tooltip = {
+			add_favor = FROM
+			reverse_opinion = {
+				who = FROM
+				modifier = opinion_grateful
+				years = 10
+			}
+		}
+	}
+}
 
-# # The vassal is notified - liege not willing to owe a favor
-# letter_event = {
-	# id = RIP.30049
-	# desc = EVTDESC_RIP_30049
-	# border = GFX_event_letter_frame_war
+# The vassal is notified - liege not willing to owe a favor
+letter_event = {
+	id = RIP.30049
+	desc = EVTDESC_RIP_30049
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30045
-	# }
-# }
+	option = {
+		name = EVTOPTA_RIP_30045
+	}
+}
 
-# # Vassal is asked by Liege to institute Gavelkind Law - can't refuse since the liege calls in a favor
-# letter_event = {
-	# id = RIP.30050
-	# desc = EVTDESC_RIP_30050
-	# border = GFX_event_letter_frame_war
+# Vassal is asked by Liege to institute Gavelkind Law - can't refuse since the liege calls in a favor
+letter_event = {
+	id = RIP.30050
+	desc = EVTDESC_RIP_30050
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EVTOPTA_RIP_30010
+	option = {
+		name = EVTOPTA_RIP_30010
 		
-		# primary_title = {
-			# add_law_w_cooldown = succ_gavelkind
-		# }
+		primary_title = {
+			add_law_w_cooldown = succ_gavelkind
+		}
 		
-		# set_character_flag = liege_forced_succ_law
+		set_character_flag = liege_forced_succ_law
 		
-		# tooltip = {
-			# reverse_opinion = {
-				# who = FROMFROM
-				# modifier = opinion_very_grateful
-				# years = 10
-			# }
+		tooltip = {
+			reverse_opinion = {
+				who = FROMFROM
+				modifier = opinion_very_grateful
+				years = 10
+			}
 			
-			# reverse_remove_favor = FROMFROM
-		# }
+			reverse_remove_favor = FROMFROM
+		}
 		
-		# FROMFROM = {
-			# character_event = { id = RIP.30051 }
-		# }
-	# }
-# }
+		FROMFROM = {
+			character_event = { id = RIP.30051 }
+		}
+	}
+}
 
-# # Liege gets feedback on the law change. The favor is used up.
-# letter_event = {
-	# id = RIP.30051
-	# desc = EVTDESC_RIP_30051
-	# border = GFX_event_letter_frame_war
+# Liege gets feedback on the law change. The favor is used up.
+letter_event = {
+	id = RIP.30051
+	desc = EVTDESC_RIP_30051
+	border = GFX_event_letter_frame_war
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# option = {
-		# name = EXCELLENT
+	option = {
+		name = EXCELLENT
 		
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_very_grateful
-			# years = 10
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_very_grateful
+			years = 10
+		}
+	}
+}
 
 
-# ###################################################################
-# # Vassals appreciate when the liege builds stuff in their Holdings
-# # Fired from 'on_holding_building_start'
-# ###################################################################
-# letter_event = {
-	# id = RIP.30100
+###################################################################
+# Vassals appreciate when the liege builds stuff in their Holdings
+# Fired from 'on_holding_building_start'
+###################################################################
+letter_event = {
+	id = RIP.30100
 	
-	# hide_window = yes
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# immediate = {
-		# if = {
-			# limit = {
-				# NOT = { FROM = { holder_scope = { character = ROOT } } }
-			# }
-			# FROM = {
-				# holder_scope = {
-					# opinion = {
-						# who = ROOT
-						# modifier = opinion_built_building
-						# years = 5
-					# }
-				# }
-			# }
-		# }
-	# }
-# }
+	immediate = {
+		if = {
+			limit = {
+				NOT = { FROM = { holder_scope = { character = ROOT } } }
+			}
+			FROM = {
+				holder_scope = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_built_building
+						years = 5
+					}
+				}
+			}
+		}
+	}
+}
 
 # ###SUICIDE EVENT CHAIN###
 
