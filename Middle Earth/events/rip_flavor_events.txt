@@ -1051,1530 +1051,1530 @@ character_event = {
 	}
 }
 
-# # Court Physician Friend teaches you medicine
-# character_event = {
-	# id = RIP.4020
-	# desc = EVTDESC_RIP_4020
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+# Court Physician Friend teaches you medicine
+character_event = {
+	id = RIP.4020
+	desc = EVTDESC_RIP_4020
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# NOT = {
-			# has_character_flag = physician_learning
-		# }
-		# any_courtier_or_vassal = {
-			# liege = { character = ROOT }
-			# has_minor_title = title_court_physician
-			# OR = {
-				# has_character_flag = is_court_physician
-				# trait = physician
-			# }
-			# is_friend = ROOT
-		# }
-	# }
+	trigger = {
+		NOT = {
+			has_character_flag = physician_learning
+		}
+		any_courtier_or_vassal = {
+			liege = { character = ROOT }
+			has_minor_title = title_court_physician
+			OR = {
+				has_character_flag = is_court_physician
+				trait = physician
+			}
+			is_friend = ROOT
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2
-			# trait = scholar
-		# }
-		# modifier = {
-			# factor = 2
-			# trait = mystic
-		# }
-		# modifier = {
-			# factor = 1.5
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# is_friend = ROOT
-				# learning = 16
-			# }
-		# }
-		# modifier = {
-			# factor = 0.2
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# is_friend = ROOT
-				# NOT = {
-					# learning = 14
-				# }
-			# }
-		# }
-		# modifier = {
-			# factor = 0.1
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# is_friend = ROOT
-				# NOT = {
-					# learning = 10
-				# }
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2
+			trait = scholar
+		}
+		modifier = {
+			factor = 2
+			trait = mystic
+		}
+		modifier = {
+			factor = 1.5
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				is_friend = ROOT
+				learning = 16
+			}
+		}
+		modifier = {
+			factor = 0.2
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				is_friend = ROOT
+				NOT = {
+					learning = 14
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				is_friend = ROOT
+				NOT = {
+					learning = 10
+				}
+			}
+		}
+	}
 	
-	# immediate = {
-		# random_courtier_or_vassal = {
-			# limit = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# is_friend = ROOT
-			# }
-			# save_event_target_as = physician_target
-		# }
-		# set_character_flag = physician_learning
-	# }
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				is_friend = ROOT
+			}
+			save_event_target_as = physician_target
+		}
+		set_character_flag = physician_learning
+	}
 
-	# option = { # This seems interesting!
-		# name = EVTOPTA_RIP_4020
+	option = { # This seems interesting!
+		name = EVTOPTA_RIP_4020
 		
-		# custom_tooltip = {
-		# text = physician_learning_custom_tooltip
-			# hidden_tooltip = {
-				# random_list = {
-					# 15 = {
-						# modifier = {
-							# factor = 3
-							# trait = scholar
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = mystic
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = diligent
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = patient
-						# }
-						# set_character_flag = physician_learning_excellent_outcome
-					# }
-					# 20 = {
-						# modifier = {
-							# factor = 3
-							# trait = scholar
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = mystic
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = diligent
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = patient
-						# }
-						# set_character_flag = physician_learning_good_outcome
-					# }
-					# 50 = {
-						# set_character_flag = physician_learning_middling_outcome
-					# }
-					# 10 = {
-						# modifier = {
-							# factor = 2
-							# trait = wroth
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = arbitrary
-						# }
-						# set_character_flag = physician_learning_poor_outcome
-					# }
-					# 5 = {
-						# modifier = {
-							# factor = 2
-							# trait = wroth
-						# }
-						# modifier = {
-							# factor = 2
-							# trait = arbitrary
-						# }
-						# set_character_flag = physician_learning_disastrous_outcome
-					# }
-				# }
-				# character_event = { id = RIP.4021 days = 7 random = 10 }
-			# }
-		# }
+		custom_tooltip = {
+		text = physician_learning_custom_tooltip
+			hidden_tooltip = {
+				random_list = {
+					15 = {
+						modifier = {
+							factor = 3
+							trait = scholar
+						}
+						modifier = {
+							factor = 2
+							trait = mystic
+						}
+						modifier = {
+							factor = 2
+							trait = diligent
+						}
+						modifier = {
+							factor = 2
+							trait = patient
+						}
+						set_character_flag = physician_learning_excellent_outcome
+					}
+					20 = {
+						modifier = {
+							factor = 3
+							trait = scholar
+						}
+						modifier = {
+							factor = 2
+							trait = mystic
+						}
+						modifier = {
+							factor = 2
+							trait = diligent
+						}
+						modifier = {
+							factor = 2
+							trait = patient
+						}
+						set_character_flag = physician_learning_good_outcome
+					}
+					50 = {
+						set_character_flag = physician_learning_middling_outcome
+					}
+					10 = {
+						modifier = {
+							factor = 2
+							trait = wroth
+						}
+						modifier = {
+							factor = 2
+							trait = arbitrary
+						}
+						set_character_flag = physician_learning_poor_outcome
+					}
+					5 = {
+						modifier = {
+							factor = 2
+							trait = wroth
+						}
+						modifier = {
+							factor = 2
+							trait = arbitrary
+						}
+						set_character_flag = physician_learning_disastrous_outcome
+					}
+				}
+				character_event = { id = RIP.4021 days = 7 random = 10 }
+			}
+		}
 
-	# }
+	}
 	
-	# option = { # Rather not disturb
-		# name = EVTOPTB_RIP_4020
+	option = { # Rather not disturb
+		name = EVTOPTB_RIP_4020
 		
-		# prestige = 5
-	# }
-# }
+		prestige = 5
+	}
+}
 
-# # Court Physician Friend teaches you medicine RESULT
-# character_event = {
-	# id = RIP.4021
-	# picture = GFX_evt_performing_experiments
-	# border = GFX_event_normal_frame_religion
+# Court Physician Friend teaches you medicine RESULT
+character_event = {
+	id = RIP.4021
+	picture = GFX_evt_performing_experiments
+	border = GFX_event_normal_frame_religion
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# desc = {
-		# text = EVTDESC_RIP_4021_EXCELLENT
-		# picture = GFX_evt_performing_experiments
-		# trigger = {
-			# has_character_flag = physician_learning_excellent_outcome
-		# }
-	# }
+	desc = {
+		text = EVTDESC_RIP_4021_EXCELLENT
+		picture = GFX_evt_performing_experiments
+		trigger = {
+			has_character_flag = physician_learning_excellent_outcome
+		}
+	}
 	
-	# desc = {
-		# text = EVTDESC_RIP_4021_GOOD
-		# picture = GFX_evt_performing_experiments
-		# trigger = {
-			# has_character_flag = physician_learning_good_outcome
-		# }
-	# }
+	desc = {
+		text = EVTDESC_RIP_4021_GOOD
+		picture = GFX_evt_performing_experiments
+		trigger = {
+			has_character_flag = physician_learning_good_outcome
+		}
+	}
 	
-	# desc = {
-		# text = EVTDESC_RIP_4021_MIDDLING
-		# picture = GFX_evt_performing_experiments
-		# trigger = {
-			# has_character_flag = physician_learning_middling_outcome
-		# }
-	# }
+	desc = {
+		text = EVTDESC_RIP_4021_MIDDLING
+		picture = GFX_evt_performing_experiments
+		trigger = {
+			has_character_flag = physician_learning_middling_outcome
+		}
+	}
 	
-	# desc = {
-		# text = EVTDESC_RIP_4021_BAD
-		# picture = GFX_evt_experiments_failed
-		# trigger = {
-			# has_character_flag = physician_learning_poor_outcome
-		# }
-	# }
+	desc = {
+		text = EVTDESC_RIP_4021_BAD
+		picture = GFX_evt_experiments_failed
+		trigger = {
+			has_character_flag = physician_learning_poor_outcome
+		}
+	}
 	
-	# desc = {
-		# text = EVTDESC_RIP_4021_TERRIBLE
-		# picture = GFX_evt_experiments_failed
-		# trigger = {
-			# has_character_flag = physician_learning_disastrous_outcome
-		# }
-	# }
+	desc = {
+		text = EVTDESC_RIP_4021_TERRIBLE
+		picture = GFX_evt_experiments_failed
+		trigger = {
+			has_character_flag = physician_learning_disastrous_outcome
+		}
+	}
 	
-	# option = {
-		# name = EVTOPTA_RIP_4021
-		# trigger = {
-			# has_character_flag = physician_learning_excellent_outcome
-		# }
+	option = {
+		name = EVTOPTA_RIP_4021
+		trigger = {
+			has_character_flag = physician_learning_excellent_outcome
+		}
 		
-		# prestige = 5
+		prestige = 5
 		
-		# change_learning = 2
-		# add_character_modifier = {
-			# name = invigorated
-			# duration = 5475
-		# }
+		change_learning = 2
+		add_character_modifier = {
+			name = invigorated
+			duration = 5475
+		}
 		
-	# }
+	}
 	
-	# option = {
-		# name = EVTOPTB_RIP_4021
-		# trigger = {
-			# has_character_flag = physician_learning_good_outcome
-		# }
+	option = {
+		name = EVTOPTB_RIP_4021
+		trigger = {
+			has_character_flag = physician_learning_good_outcome
+		}
 		
-		# prestige = 5
+		prestige = 5
 		
-		# change_learning = 1
-		# add_character_modifier = {
-			# name = new_insights
-			# duration = 1095
-		# }
+		change_learning = 1
+		add_character_modifier = {
+			name = new_insights
+			duration = 1095
+		}
 		
-	# }
+	}
 	
-	# option = {
-		# name = EVTOPTC_RIP_4021
-		# trigger = {
-			# has_character_flag = physician_learning_middling_outcome
-		# }
+	option = {
+		name = EVTOPTC_RIP_4021
+		trigger = {
+			has_character_flag = physician_learning_middling_outcome
+		}
 		
-		# prestige = 5
+		prestige = 5
 		
-		# change_learning = 1
+		change_learning = 1
 		
-	# }
+	}
 	
-	# option = {
-		# name = EVTOPTD_RIP_4021
-		# trigger = {
-			# has_character_flag = physician_learning_poor_outcome
-		# }
+	option = {
+		name = EVTOPTD_RIP_4021
+		trigger = {
+			has_character_flag = physician_learning_poor_outcome
+		}
 		
-		# prestige = -5
+		prestige = -5
 		
-		# change_learning = 1
+		change_learning = 1
 		
-		# add_trait = headache
-		# set_character_flag = disease_not_serious 
-		# hidden_tooltip = { character_event = { id = RIP.11009 days = 100 random = 365 } }
+		add_trait = headache
+		set_character_flag = disease_not_serious 
+		hidden_tooltip = { character_event = { id = RIP.11009 days = 100 random = 365 } }
 		
-	# }
+	}
 	
-	# option = {
-		# name = EVTOPTE_RIP_4021
-		# trigger = {
-			# has_character_flag = physician_learning_disastrous_outcome
-		# }
+	option = {
+		name = EVTOPTE_RIP_4021
+		trigger = {
+			has_character_flag = physician_learning_disastrous_outcome
+		}
 		
-		# prestige = -5
+		prestige = -5
 		
-		# add_trait = infection
-		# hidden_tooltip = {
-			# character_event = { id = RIP.11001 days = 365 random = 1095 }
-		# }
+		add_trait = infection
+		hidden_tooltip = {
+			character_event = { id = RIP.11001 days = 365 random = 1095 }
+		}
 		
-	# }
+	}
 
-# }
+}
 
-# # Court Physician wants you to invest in provincial apothecaries
-# character_event = {
-	# id = RIP.4022
-	# desc = EVTDESC_RIP_4022
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+# Court Physician wants you to invest in provincial apothecaries
+character_event = {
+	id = RIP.4022
+	desc = EVTDESC_RIP_4022
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# higher_tier_than = COUNT
-		# NOT = {
-			# has_character_flag = physician_apothecaries
-		# }
-		# any_courtier_or_vassal = {
-			# liege = { character = ROOT }
-			# has_minor_title = title_court_physician
-			# OR = {
-				# has_character_flag = is_court_physician
-				# trait = physician
-			# }
-		# }
-	# }
+	trigger = {
+		higher_tier_than = COUNT
+		NOT = {
+			has_character_flag = physician_apothecaries
+		}
+		any_courtier_or_vassal = {
+			liege = { character = ROOT }
+			has_minor_title = title_court_physician
+			OR = {
+				has_character_flag = is_court_physician
+				trait = physician
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2
-			# trait = charitable
-		# }
-		# modifier = {
-			# factor = 2
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# learning = 16
-			# }
-		# }
-		# modifier = {
-			# factor = 0.2
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# NOT = {
-					# learning = 14
-				# }
-			# }
-		# }
-		# modifier = {
-			# factor = 0.1
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-				# NOT = {
-					# learning = 10
-				# }
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2
+			trait = charitable
+		}
+		modifier = {
+			factor = 2
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				learning = 16
+			}
+		}
+		modifier = {
+			factor = 0.2
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				NOT = {
+					learning = 14
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+				NOT = {
+					learning = 10
+				}
+			}
+		}
+	}
 	
-	# immediate = {
-		# random_courtier_or_vassal = {
-			# limit = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# OR = {
-					# has_character_flag = is_court_physician
-					# trait = physician
-				# }
-			# }
-			# save_event_target_as = physician_target
-		# }
-		# set_character_flag = physician_apothecaries
-	# }
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				OR = {
+					has_character_flag = is_court_physician
+					trait = physician
+				}
+			}
+			save_event_target_as = physician_target
+		}
+		set_character_flag = physician_apothecaries
+	}
 
-	# option = { # I will invest in this!
-		# name = EVTOPTA_RIP_4022
+	option = { # I will invest in this!
+		name = EVTOPTA_RIP_4022
 		
-		# ai_chance = {
-			# factor = 50
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.5
+		scaled_wealth = -0.5
 		
-		# prestige = 50
+		prestige = 50
 		
-		# custom_tooltip = {
-			# text = physician_apothecaries_custom_tooltip
-			# hidden_tooltip = {
-				# any_demesne_province = {
-					# limit = {
-						# NOR = {
-							# any_province_holding = {
-								# has_siege = yes
-							# }
-							# any_province_holding = {
-								# is_occupied = yes
-							# }
-							# has_disease = yes
-						# }
-					# }
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
+		custom_tooltip = {
+			text = physician_apothecaries_custom_tooltip
+			hidden_tooltip = {
+				any_demesne_province = {
+					limit = {
+						NOR = {
+							any_province_holding = {
+								has_siege = yes
+							}
+							any_province_holding = {
+								is_occupied = yes
+							}
+							has_disease = yes
+						}
+					}
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
 		
-	# }
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4022
-		# ai_chance = {
-			# factor = 50
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4022
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
 
-# ###Court physician wants to write book###
-# character_event = {
-	# id = RIP.4030
-	# desc = EVTDESC_RIP_4030
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+###Court physician wants to write book###
+character_event = {
+	id = RIP.4030
+	desc = EVTDESC_RIP_4030
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 
-	# only_playable = yes
-	# min_age = 16
-	# capable_only = yes
-	# prisoner = no
+	only_playable = yes
+	min_age = 16
+	capable_only = yes
+	prisoner = no
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# trigger = {
-		# any_courtier_or_vassal = {
-			# liege = { character = ROOT }
-			# has_minor_title = title_court_physician
-			# NOT = { has_character_flag = physician_wants_to_research }
-		# }
-	# }
+	trigger = {
+		any_courtier_or_vassal = {
+			liege = { character = ROOT }
+			has_minor_title = title_court_physician
+			NOT = { has_character_flag = physician_wants_to_research }
+		}
+	}
 
 
-	# immediate = { 
-		# random_courtier_or_vassal = {
-			# limit = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-				# NOT = { has_character_flag = physician_wants_to_research }
-			# }
+	immediate = { 
+		random_courtier_or_vassal = {
+			limit = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				NOT = { has_character_flag = physician_wants_to_research }
+			}
 
-			# save_event_target_as = physician
-			# set_character_flag = physician_wants_to_research 
-		# }
-	# }
+			save_event_target_as = physician
+			set_character_flag = physician_wants_to_research 
+		}
+	}
 
-	# #Sure
-	# option = {
-		# name = EVTOPTA_RIP_4030
-		# custom_tooltip = { text = EVTOPTA_RIP_4030_TOOLTIP }
+	#Sure
+	option = {
+		name = EVTOPTA_RIP_4030
+		custom_tooltip = { text = EVTOPTA_RIP_4030_TOOLTIP }
 
-		# scaled_wealth = { value = -0.2 min = -20 }
+		scaled_wealth = { value = -0.2 min = -20 }
 
-		# reverse_opinion = {
-			# who = event_target:physician
-			# modifier = opinion_grateful
-			# years = 5
-		# }
+		reverse_opinion = {
+			who = event_target:physician
+			modifier = opinion_grateful
+			years = 5
+		}
 
-		# hidden_tooltip = { event_target:physician = { character_event = { id = RIP.4031 days = 3 } } } 
-	# }
+		hidden_tooltip = { event_target:physician = { character_event = { id = RIP.4031 days = 3 } } } 
+	}
 
-	# #Nope
-	# option = {
-		# name = EVTOPTB_RIP_4030
-		# custom_tooltip = { text = EVTOPTB_RIP_4030_TOOLTIP }
+	#Nope
+	option = {
+		name = EVTOPTB_RIP_4030
+		custom_tooltip = { text = EVTOPTB_RIP_4030_TOOLTIP }
 
-		# reverse_opinion = {
-			# who = event_target:physician
-			# modifier = opinion_disappointed
-			# years = 5
-		# }
-	# }
-# }
+		reverse_opinion = {
+			who = event_target:physician
+			modifier = opinion_disappointed
+			years = 5
+		}
+	}
+}
 
-# #Notification of patronage
-# character_event = {
-	# id = RIP.4031
-	# desc = EVTDESC_RIP_4031
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+#Notification of patronage
+character_event = {
+	id = RIP.4031
+	desc = EVTDESC_RIP_4031
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_RIP_4031
-		# custom_tooltip = { text = EVTOPTA_RIP_4031_TOOLTIP }
+	option = {
+		name = EVTOPTA_RIP_4031
+		custom_tooltip = { text = EVTOPTA_RIP_4031_TOOLTIP }
 
-		# treasury = 20
+		treasury = 20
 
-		# hidden_tooltip = { 
-			# random_list = { 
-				# #Writes a great book
-				# 15 = {
-					# modifier = {
-						# factor = 1.5
-						# is_smart_trigger = yes
-					# }
-					# modifier = {
-						# factor = 1.5
-						# physician_good_trigger = yes
-					# }
-					# modifier = {
-						# factor = 1.2
-						# learning = 25
-					# }
-					# modifier = {
-						# factor = 1.2
-						# learning = 20
-					# }
-					# modifier = {
-						# factor = 1.2
-						# learning = 15
-					# }
-					# modifier = {
-						# factor = 0.8
-						# NOT = { learning = 15 }
-					# }
-					# modifier = {
-						# factor = 0.8
-						# NOT = { learning = 10 }
-					# }
+		hidden_tooltip = { 
+			random_list = { 
+				#Writes a great book
+				15 = {
+					modifier = {
+						factor = 1.5
+						is_smart_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						physician_good_trigger = yes
+					}
+					modifier = {
+						factor = 1.2
+						learning = 25
+					}
+					modifier = {
+						factor = 1.2
+						learning = 20
+					}
+					modifier = {
+						factor = 1.2
+						learning = 15
+					}
+					modifier = {
+						factor = 0.8
+						NOT = { learning = 15 }
+					}
+					modifier = {
+						factor = 0.8
+						NOT = { learning = 10 }
+					}
 
-					# random_list = {
-						# 10 = { set_character_flag = physician_great_book_1 }
-						# 10 = { set_character_flag = physician_great_book_2 }
-						# 10 = { set_character_flag = physician_great_book_3 }
-					# }
+					random_list = {
+						10 = { set_character_flag = physician_great_book_1 }
+						10 = { set_character_flag = physician_great_book_2 }
+						10 = { set_character_flag = physician_great_book_3 }
+					}
 
-					# FROM = { character_event = { id = RIP.4032 days = 400 } } 
-					# character_event = { id = RIP.4033 days = 401 } 
-				# }
-				# #Writes a good book
-				# 35 = { 
-					# modifier = {
-						# factor = 1.2
-						# learning = 25
-					# }
-					# modifier = {
-						# factor = 1.2
-						# learning = 20
-					# }
-					# modifier = {
-						# factor = 1.2
-						# learning = 15
-					# }
-					# modifier = {
-						# factor = 0.8
-						# NOT = { learning = 15 }
-					# }
-					# modifier = {
-						# factor = 0.8
-						# NOT = { learning = 10 }
-					# }
+					FROM = { character_event = { id = RIP.4032 days = 400 } } 
+					character_event = { id = RIP.4033 days = 401 } 
+				}
+				#Writes a good book
+				35 = { 
+					modifier = {
+						factor = 1.2
+						learning = 25
+					}
+					modifier = {
+						factor = 1.2
+						learning = 20
+					}
+					modifier = {
+						factor = 1.2
+						learning = 15
+					}
+					modifier = {
+						factor = 0.8
+						NOT = { learning = 15 }
+					}
+					modifier = {
+						factor = 0.8
+						NOT = { learning = 10 }
+					}
 
-					# set_character_flag = physician_good_book
+					set_character_flag = physician_good_book
 
-					# FROM = { character_event = { id = RIP.4032 days = 400 } } 
-					# character_event = { id = RIP.4033 days = 401 } 
-				# }
-				# #Writes a meh book
-				# 35 = {
-					# set_character_flag = physician_meh_book
+					FROM = { character_event = { id = RIP.4032 days = 400 } } 
+					character_event = { id = RIP.4033 days = 401 } 
+				}
+				#Writes a meh book
+				35 = {
+					set_character_flag = physician_meh_book
 
-					# FROM = { character_event = { id = RIP.4032 days = 400 } } 
-					# character_event = { id = RIP.4033 days = 401 } 
-				# }
-				# #Writes a laughable book
-				# 15 = {
-					# modifier = {
-						# factor = 1.5
-						# is_dumb_trigger = yes
-					# }
-					# modifier = {
-						# factor = 1.5
-						# physician_bad_trigger = yes
-					# }
-					# modifier = {
-						# factor = 0.8
-						# learning = 25
-					# }
-					# modifier = {
-						# factor = 0.8
-						# learning = 20
-					# }
-					# modifier = {
-						# factor = 0.8
-						# learning = 15
-					# }
-					# modifier = {
-						# factor = 1.2
-						# NOT = { learning = 15 }
-					# }
-					# modifier = {
-						# factor = 1.2
-						# NOT = { learning = 10 }
-					# }
+					FROM = { character_event = { id = RIP.4032 days = 400 } } 
+					character_event = { id = RIP.4033 days = 401 } 
+				}
+				#Writes a laughable book
+				15 = {
+					modifier = {
+						factor = 1.5
+						is_dumb_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						physician_bad_trigger = yes
+					}
+					modifier = {
+						factor = 0.8
+						learning = 25
+					}
+					modifier = {
+						factor = 0.8
+						learning = 20
+					}
+					modifier = {
+						factor = 0.8
+						learning = 15
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 15 }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 10 }
+					}
 
-					# set_character_flag = physician_bad_book
+					set_character_flag = physician_bad_book
 
-					# FROM = { character_event = { id = RIP.4032 days = 400 } } 
-					# character_event = { id = RIP.4033 days = 401 } 
-				# }
-			# }
-		# }
-	# }
-# }
+					FROM = { character_event = { id = RIP.4032 days = 400 } } 
+					character_event = { id = RIP.4033 days = 401 } 
+				}
+			}
+		}
+	}
+}
 
-# #Patron notification outcome
-# character_event = {
-	# id = RIP.4032
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+#Patron notification outcome
+character_event = {
+	id = RIP.4032
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_great_book_1 } }
-		# text = EVTDESC_RIP_4032_GREAT_1
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_great_book_2 } }
-		# text = EVTDESC_RIP_4032_GREAT_2
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_great_book_3 } }
-		# text = EVTDESC_RIP_4032_GREAT_3
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_good_book } }
-		# text = EVTDESC_RIP_4032_GOOD
-		# picture = GFX_evt_library
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_meh_book } }
-		# text = EVTDESC_RIP_4032_MEH
-		# picture = GFX_evt_performing_experiments
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_bad_book } }
-		# text = EVTDESC_RIP_4032_BAD
-		# picture = GFX_evt_experiments_failed
-	# }
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_great_book_1 } }
+		text = EVTDESC_RIP_4032_GREAT_1
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_great_book_2 } }
+		text = EVTDESC_RIP_4032_GREAT_2
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_great_book_3 } }
+		text = EVTDESC_RIP_4032_GREAT_3
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_good_book } }
+		text = EVTDESC_RIP_4032_GOOD
+		picture = GFX_evt_library
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_meh_book } }
+		text = EVTDESC_RIP_4032_MEH
+		picture = GFX_evt_performing_experiments
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_bad_book } }
+		text = EVTDESC_RIP_4032_BAD
+		picture = GFX_evt_experiments_failed
+	}
 
-	# trigger = {
-		# FROM = {
-			# is_alive = yes
-			# prisoner = no
-			# OR = {
-				# has_character_flag = physician_great_book_1
-				# has_character_flag = physician_great_book_2
-				# has_character_flag = physician_great_book_3
-				# has_character_flag = physician_good_book
-				# has_character_flag = physician_meh_book
-				# has_character_flag = physician_bad_book
-			# }
-		# }
-	# }
+	trigger = {
+		FROM = {
+			is_alive = yes
+			prisoner = no
+			OR = {
+				has_character_flag = physician_great_book_1
+				has_character_flag = physician_great_book_2
+				has_character_flag = physician_great_book_3
+				has_character_flag = physician_good_book
+				has_character_flag = physician_meh_book
+				has_character_flag = physician_bad_book
+			}
+		}
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# #Good book outcome 
-	# option = {
-		# trigger = { FROM = { has_character_flag = physician_good_book } }
+	#Good book outcome 
+	option = {
+		trigger = { FROM = { has_character_flag = physician_good_book } }
 
-		# name = EVTOPTB_RIP_4032
+		name = EVTOPTB_RIP_4032
 
-		# tooltip = { FROM = { change_learning = 1 } }
-	# }
+		tooltip = { FROM = { change_learning = 1 } }
+	}
 
-	# #Meh book outcome
-	# option = {
-		# trigger = { FROM = { has_character_flag = physician_meh_book } }
+	#Meh book outcome
+	option = {
+		trigger = { FROM = { has_character_flag = physician_meh_book } }
 
-		# name = EVTOPTC_RIP_4032
-	# }
+		name = EVTOPTC_RIP_4032
+	}
 
-	# #Bad outcome
-	# option = {
-		# trigger = { FROM = { has_character_flag = physician_bad_book } }
+	#Bad outcome
+	option = {
+		trigger = { FROM = { has_character_flag = physician_bad_book } }
 
-		# name = EVTOPTD_RIP_4032
-		# custom_tooltip = { text = EVTOPTD_RIP_4032_TOOLTIP }
+		name = EVTOPTD_RIP_4032
+		custom_tooltip = { text = EVTOPTD_RIP_4032_TOOLTIP }
 
-		# prestige = -50
+		prestige = -50
 
-		# tooltip = {
-			# FROM = {
-				# if = {
-					# limit = { is_dumb_trigger = no }
-					# add_trait = dull
-				# }
-			# }
-		# }
+		tooltip = {
+			FROM = {
+				if = {
+					limit = { is_dumb_trigger = no }
+					add_trait = dull
+				}
+			}
+		}
 
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_disappointed
-			# years = 5
-		# }
-	# }
-	# #Great book outcome
-	# option = {
-		# trigger = {
-			# OR = {
-				# FROM = { has_character_flag = physician_great_book_1 }
-				# FROM = { has_character_flag = physician_great_book_2 }
-				# FROM = { has_character_flag = physician_great_book_3 }
-			# }
-		# }
+		opinion = {
+			who = FROM
+			modifier = opinion_disappointed
+			years = 5
+		}
+	}
+	#Great book outcome
+	option = {
+		trigger = {
+			OR = {
+				FROM = { has_character_flag = physician_great_book_1 }
+				FROM = { has_character_flag = physician_great_book_2 }
+				FROM = { has_character_flag = physician_great_book_3 }
+			}
+		}
 
-		# name = EVTOPTA_RIP_4032
-		# custom_tooltip = { text = EVTOPTA_RIP_4032_TOOLTIP }
+		name = EVTOPTA_RIP_4032
+		custom_tooltip = { text = EVTOPTA_RIP_4032_TOOLTIP }
 
-		# prestige = 100
+		prestige = 100
 
-		# tooltip = {
-			# FROM = {
-				# if = {
-					# limit = { trait = physician }
-					# change_learning = 2
-				# }
-				# if = { 
-					# limit = { NOT = { trait = physician } }
-					# add_trait = physician
-				# }
-			# }
-		# }
+		tooltip = {
+			FROM = {
+				if = {
+					limit = { trait = physician }
+					change_learning = 2
+				}
+				if = { 
+					limit = { NOT = { trait = physician } }
+					add_trait = physician
+				}
+			}
+		}
 
-		# opinion = {
-			# who = FROM
-			# modifier = opinion_impressed
-			# years = 5
-		# }
-	# }
-# }
+		opinion = {
+			who = FROM
+			modifier = opinion_impressed
+			years = 5
+		}
+	}
+}
 
-# #Doctor notification outcome
-# character_event = {
-	# id = RIP.4033
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
+#Doctor notification outcome
+character_event = {
+	id = RIP.4033
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
 
-	# desc = {
-		# trigger = { has_character_flag = physician_great_book_1 }
-		# text = EVTDESC_RIP_4033_GREAT_1
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_great_book_2 }
-		# text = EVTDESC_RIP_4033_GREAT_2
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_great_book_3 }
-		# text = EVTDESC_RIP_4033_GREAT_3
-		# picture = GFX_evt_doctor_crazy_treatment
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_good_book }
-		# text = EVTDESC_RIP_4033_GOOD
-		# picture = GFX_evt_library
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_meh_book }
-		# text = EVTDESC_RIP_4033_MEH
-		# picture = GFX_evt_experiments_failed
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_bad_book }
-		# text = EVTDESC_RIP_4033_BAD
-		# picture = GFX_evt_bloody_tools
-	# }
+	desc = {
+		trigger = { has_character_flag = physician_great_book_1 }
+		text = EVTDESC_RIP_4033_GREAT_1
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { has_character_flag = physician_great_book_2 }
+		text = EVTDESC_RIP_4033_GREAT_2
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { has_character_flag = physician_great_book_3 }
+		text = EVTDESC_RIP_4033_GREAT_3
+		picture = GFX_evt_doctor_crazy_treatment
+	}
+	desc = {
+		trigger = { has_character_flag = physician_good_book }
+		text = EVTDESC_RIP_4033_GOOD
+		picture = GFX_evt_library
+	}
+	desc = {
+		trigger = { has_character_flag = physician_meh_book }
+		text = EVTDESC_RIP_4033_MEH
+		picture = GFX_evt_experiments_failed
+	}
+	desc = {
+		trigger = { has_character_flag = physician_bad_book }
+		text = EVTDESC_RIP_4033_BAD
+		picture = GFX_evt_bloody_tools
+	}
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = {
-		# character_event = { id = RIP.4034 days = 10 }
-	# }
+	immediate = {
+		character_event = { id = RIP.4034 days = 10 }
+	}
 
-	# #Great book outcome
-	# option = {
-		# trigger = {
-			# OR = {
-				# has_character_flag = physician_great_book_1
-				# has_character_flag = physician_great_book_2
-				# has_character_flag = physician_great_book_3
-			# }
-		# }
+	#Great book outcome
+	option = {
+		trigger = {
+			OR = {
+				has_character_flag = physician_great_book_1
+				has_character_flag = physician_great_book_2
+				has_character_flag = physician_great_book_3
+			}
+		}
 
-		# name = EVTOPTA_RIP_4033
-		# custom_tooltip = { text = EVTOPTA_RIP_4033_TOOLTIP }
+		name = EVTOPTA_RIP_4033
+		custom_tooltip = { text = EVTOPTA_RIP_4033_TOOLTIP }
 
-		# prestige = 15
+		prestige = 15
 
 		
-		# if = {
-			# limit = { trait = physician }
-			# change_learning = 2
-		# }
-		# if = { 
-			# limit = { NOT = { trait = physician } }
-			# add_trait = physician
-		# }
+		if = {
+			limit = { trait = physician }
+			change_learning = 2
+		}
+		if = { 
+			limit = { NOT = { trait = physician } }
+			add_trait = physician
+		}
 
-		# tooltip = {
-			# FROMFROM = {
-				# opinion = {
-					# who = ROOT
-					# modifier = opinion_impressed
-					# years = 5
-				# }
-			# }
-		# }
-	# }
+		tooltip = {
+			FROMFROM = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_impressed
+					years = 5
+				}
+			}
+		}
+	}
 
-	# #Good book outcome 
-	# option = {
-		# trigger = { has_character_flag = physician_good_book }
+	#Good book outcome 
+	option = {
+		trigger = { has_character_flag = physician_good_book }
 
-		# name = EVTOPTB_RIP_4033
+		name = EVTOPTB_RIP_4033
 		
-		# change_learning = 1 
-	# }
-
-	# #Meh book outcome
-	# option = {
-		# trigger = { has_character_flag = physician_meh_book }
-
-		# name = EVTOPTC_RIP_4033
-	# }
-
-	# #Bad book outcome outcome
-	# option = {
-		# trigger = { has_character_flag = physician_bad_book }
-
-		# name = EVTOPTD_RIP_4033
-		# custom_tooltip = { text = EVTOPTD_RIP_4033_TOOLTIP }
-
-		# prestige = -50
-
-		# if = {
-			# limit = { is_dumb_trigger = no }
-			# add_trait = dull
-		# }
-
-		# tooltip = {
-			# FROMFROM = {
-				# opinion = {
-					# who = ROOT
-					# modifier = opinion_disappointed
-					# years = 5
-				# }
-			# }
-		# }
-	# }
-# }
-
-# character_event = {
-	# id = RIP.4034
-
-	# hide_window = yes
-	# is_triggered_only = yes
-
-	# option = {
-		# clr_character_flag = physician_great_book_1
-		# clr_character_flag = physician_great_book_2
-		# clr_character_flag = physician_great_book_3
-		# clr_character_flag = physician_good_book
-		# clr_character_flag = physician_meh_book
-		# clr_character_flag = physician_bad_book
-	# }
-# }
-
-
-# ###Court Physician training events###
-# character_event = {
-	# id = RIP.4040
-
-	# hide_window = yes
-	# is_triggered_only = yes
-
-	# trigger = {
-		# any_courtier_or_vassal = {
-			# liege = { character = ROOT }
-			# has_minor_title = title_court_physician
-		# }
-	# }
-
-	# option = {
-		# random_courtier_or_vassal = {
-			# limit = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-			# }
-
-			# random_list = {
-
-				# #Nothing happens
-				# 20 = { }
-				# #Receives training
-				# 10 = {
-					# modifier = { 
-						# factor = 1.8
-						# NOT = { learning = 6 }
-					# }
-					# modifier = { 
-						# factor = 1.6
-						# NOT = { learning = 8 }
-					# }
-					# modifier = {
-						# factor = 1.5
-						# NOT = { learning = 10 }
-					# }
-					# modifier = {
-						# factor = 1.4
-						# NOT = { learning = 12 }
-					# }
-					# modifier = {
-						# factor = 1.2
-						# NOT = { learning = 14 }
-					# }
-					# modifier = {
-						# factor = 1.2
-						# NOT = { learning = 16 }
-					# }
-					# modifier = {
-						# factor = 0
-						# trait = physician
-					# }
-					# ROOT = { character_event = { id = RIP.4041 } }
-				# }
-			# }
-		# }
-	# }
-# }
-
-# #Training: buy herbs/tools/books/
-# character_event = {
-	# id = RIP.4041
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# is_triggered_only = yes
-
-	# desc = {
-		# trigger = { has_character_flag = physician_books }
-		# text = EVTDESC_RIP_4041_BOOKS
-		# picture = GFX_evt_court_physician
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_herbs }
-		# text = EVTDESC_RIP_4041_HERBS
-		# picture = GFX_evt_garden
-
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_tools }
-		# text = EVTDESC_RIP_4041_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_lab_equipment }
-		# text = EVTDESC_RIP_4041_LAB_EQUIPMENT
-		# picture = GFX_evt_performing_experiments
-	# }
-
-	# immediate = {
-		# random_courtier_or_vassal = {
-			# limit = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-			# }
-			# save_event_target_as = physician
-		# }
-
-		# random_list = {
-			# 10 = { set_character_flag = physician_books }
-			# 10 = { set_character_flag = physician_herbs }
-			# 10 = { set_character_flag = physician_tools }
-			# 10 = { set_character_flag = physician_lab_equipment }
-		# }
-	# }
-
-	# #Yes
-	# option = {
-		# name = EVTOPTA_RIP_4041
-		# custom_tooltip = { text = EVTOPTA_RIP_4041_TOOLTIP }
-
-		# scaled_wealth = { value = -0.15 min = -10 }
-
-		# ai_chance = {
-			# factor = 10
-			# modifier = {
-				# factor = 1.5
-				# trait = charitable
-			# }
-			# modifier = {
-				# factor = 1.5
-				# is_smart_trigger = yes
-			# }
-			# modifier = {
-				# factor = 1.5
-				# has_disease_trigger = yes
-			# }
-			# modifier = { 
-				# factor = 0
-				# NOT = { treasury = 10 }
-			# }
-		# }
-
-		# #Outcome
-		# hidden_tooltip = {
-			# save_event_target_as = physician_liege
-
-			# #outcome
-			# event_target:physician = {
-				# random_list = {
-					# #Best outcome 
-					# 25 = {
-						# modifier = {
-							# factor = 1.5
-							# is_smart_trigger = yes
-						# }
-						# modifier = {
-							# factor = 1.5
-							# physician_good_trigger = yes
-						# }
-						# modifier = {
-							# factor = 1.2
-							# learning = 25
-						# }
-						# modifier = {
-							# factor = 1.2
-							# learning = 20
-						# }
-						# modifier = {
-							# factor = 1.2
-							# learning = 15
-						# }
-						# modifier = {
-							# factor = 0.8
-							# NOT = { learning = 15 }
-						# }
-						# modifier = {
-							# factor = 0.8
-							# NOT = { learning = 10 }
-						# }
-
-						# character_event = { id = RIP.4042 days = 30 } 
-					# }
-					# #Good outcome
-					# 50 = {
-						# modifier = {
-							# factor = 1.5
-							# is_dumb_trigger = yes
-						# }
-						# modifier = {
-							# factor = 1.5
-							# physician_bad_trigger = yes
-						# }
-						# modifier = {
-							# factor = 0.8
-							# learning = 25
-						# }
-						# modifier = {
-							# factor = 0.8
-							# learning = 20
-						# }
-						# modifier = {
-							# factor = 0.8
-							# learning = 15
-						# }
-						# modifier = {
-							# factor = 1.2
-							# NOT = { learning = 15 }
-						# }
-						# modifier = {
-							# factor = 1.2
-							# NOT = { learning = 10 }
-						# }
-
-						# character_event = { id = RIP.4044 days = 30 } 
-					# }
-					# #Fail
-					# 25 = {
-						# character_event = { id = RIP.4046 days = 30 } 
-					# }
-				# }
-			# }
-		# }
-	# }
-
-	# #No
-	# option = {
-		# name = EVTOPTB_RIP_4041
-		# custom_tooltip = { text = EVTOPTB_RIP_4041_TOOLTIP }
-
-		# ai_chance = {
-			# factor = 10
-			# modifier = {
-				# factor = 1.5
-				# trait = greedy
-			# }
-			# modifier = {
-				# factor = 1.5
-				# is_dumb_trigger = yes
-			# }
-		# }
-
-		# clr_character_flag = physician_books
-		# clr_character_flag = physician_herbs
-		# clr_character_flag = physician_tools
-		# clr_character_flag = physician_lab_equipment
-	# }
-# }
-
-# #Best outcome training herbs/lab/book/tools, physician notification
-# character_event = {
-	# id = RIP.4042
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_books } }
-		# text = EVTDESC_RIP_4042_BOOKS
-		# picture = GFX_evt_court_physician
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_herbs } }
-		# text = EVTDESC_RIP_4042_HERBS
-		# picture = GFX_evt_performing_experiments
-
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_tools } }
-		# text = EVTDESC_RIP_4042_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_lab_equipment } }
-		# text = EVTDESC_RIP_4042_LAB_EQUIPMENT
-		# picture = GFX_evt_performing_experiments
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4042
-
-		# change_learning = 2
-
-		# hidden_tooltip = {
-			# if = {
-				# limit = { NOT = { trait = physician } }
-				# if = {
-					# limit = { check_variable = { which = training_level value = 1 } }
-					# change_variable = { which = training_level value = 1 }
-				# }
-				# if = {
-					# limit = { NOT = { check_variable = { which = training_level value = 1 } } }
-					# set_variable = { which = training_level value = 1 }
-				# }
-				# if = {
-					# limit = { check_variable = { which = training_level value = 3 } }
-					# character_event = { id = RIP.4060 days = 7 }
-				# }
-			# }
-
-			# FROM = { character_event = { id = RIP.4043 } } 
-		# }
-	# }
-# }
-
-# #Best outcome training herbs/lab/book/tools, liege notification
-# character_event = {
-	# id = RIP.4043
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { has_character_flag = physician_books }
-		# text = EVTDESC_RIP_4043_BOOKS
-		# picture = GFX_evt_court_physician
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_herbs }
-		# text = EVTDESC_RIP_4043_HERBS
-		# picture = GFX_evt_performing_experiments
-
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_tools }
-		# text = EVTDESC_RIP_4043_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_lab_equipment }
-		# text = EVTDESC_RIP_4043_LAB_EQUIPMENT
-		# picture = GFX_evt_performing_experiments
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4043
-
-		# tooltip = { FROM = { change_learning = 2 } }
-
-		# clr_character_flag = physician_books
-		# clr_character_flag = physician_herbs
-		# clr_character_flag = physician_tools
-		# clr_character_flag = physician_lab_equipment
-	# }
-# }
-
-# #Good outcome training herbs/lab/book/tools, physician notification
-# character_event = {
-	# id = RIP.4044
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_books } }
-		# text = EVTDESC_RIP_4044_BOOKS
-		# picture = GFX_evt_court_physician
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_herbs } }
-		# text = EVTDESC_RIP_4044_HERBS
-		# picture = GFX_evt_performing_experiments
-
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_tools } }
-		# text = EVTDESC_RIP_4044_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_lab_equipment } }
-		# text = EVTDESC_RIP_4044_LAB_EQUIPMENT
-		# picture = GFX_evt_performing_experiments
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4044
-
-		# change_learning = 1
-
-		# hidden_tooltip = {
-			# if = {
-				# limit = { NOT = { trait = physician } }
-				# if = {
-					# limit = { check_variable = { which = training_level value = 1 } }
-					# change_variable = { which = training_level value = 1 }
-				# }
-				# if = {
-					# limit = { NOT = { check_variable = { which = training_level value = 1 } } }
-					# set_variable = { which = training_level value = 1 }
-				# }
-				# if = {
-					# limit = { check_variable = { which = training_level value = 3 } }
-					# character_event = { id = RIP.4060 days = 7 }
-				# }
-			# }
-
-			# FROM = { character_event = { id = RIP.4045 } } 
-		# }
-	# }
-# }
-
-# #Good outcome training herbs/lab/book/tools, liege notification
-# character_event = {
-	# id = RIP.4045
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { has_character_flag = physician_books }
-		# text = EVTDESC_RIP_4045_BOOKS
-		# picture = GFX_evt_court_physician
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_herbs }
-		# text = EVTDESC_RIP_4045_HERBS
-		# picture = GFX_evt_performing_experiments
-
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_tools }
-		# text = EVTDESC_RIP_4045_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_lab_equipment }
-		# text = EVTDESC_RIP_4045_LAB_EQUIPMENT
-		# picture = GFX_evt_performing_experiments
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4045
-
-		# tooltip = { FROM = { change_learning = 1 } }
-
-		# clr_character_flag = physician_books
-		# clr_character_flag = physician_herbs
-		# clr_character_flag = physician_tools
-		# clr_character_flag = physician_lab_equipment
-	# }
-# }
-
-# #Fail outcome training herbs/lab/book/tools, physician notification
-# character_event = {
-	# id = RIP.4046
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_books } }
-		# text = EVTDESC_RIP_4046_BOOKS
-		# picture = GFX_evt_library
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_herbs } }
-		# text = EVTDESC_RIP_4046_HERBS
-		# picture = GFX_evt_experiments_failed
-
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_tools } }
-		# text = EVTDESC_RIP_4046_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = physician_lab_equipment } }
-		# text = EVTDESC_RIP_4046_LAB_EQUIPMENT
-		# picture = GFX_evt_experiments_failed
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4046
-		# custom_tooltip = { text = EVTOPTA_RIP_4046_TOOLTIP }
-
-		# hidden_tooltip = { FROM = { character_event = { id = RIP.4047 } } }
-	# }
-# }
-
-# #Fail outcome training herbs/lab/book/tools, liege notification
-# character_event = {
-	# id = RIP.4047
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# desc = {
-		# trigger = { has_character_flag = physician_books }
-		# text = EVTDESC_RIP_4047_BOOKS
-		# picture = GFX_evt_library
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_herbs }
-		# text = EVTDESC_RIP_4047_HERBS
-		# picture = GFX_evt_experiments_failed
-
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_tools }
-		# text = EVTDESC_RIP_4047_TOOLS
-		# picture = GFX_evt_bloody_tools
-	# }
-	# desc = {
-		# trigger = { has_character_flag = physician_lab_equipment }
-		# text = EVTDESC_RIP_4047_LAB_EQUIPMENT
-		# picture = GFX_evt_experiments_failed
-	# }
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4047
-		# custom_tooltip = { text = EVTOPTA_RIP_4047_TOOLTIP }
-
-		# clr_character_flag = physician_books
-		# clr_character_flag = physician_herbs
-		# clr_character_flag = physician_tools
-		# clr_character_flag = physician_lab_equipment
-	# }
-# }
-
-# #Now a physician notfication for physician
-# character_event = {
-	# id = RIP.4060
-	# desc = EVTDESC_RIP_4060
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# is_triggered_only = yes 
-
-	# trigger = {
-		# NOT = { trait = physician }
-	# }
-
-	# option = {
-		# name = EVTOPTA_RIP_4060
-
-		# add_trait = physician
-		# hidden_tooltip = { liege = { character_event = { id = RIP.4061 } } }
-	# } 
-# }
-
-# #Now a physician notification for liege 
-# character_event = {
-	# id = RIP.4061
-	# desc = EVTDESC_RIP_4061
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_RIP_4061
-
-		# tooltip = { FROM = { add_trait = physician } }
-	# } 
-# }
-
-# # A Physician-Missionary arrives in a Tribal or Nomadic Court
-# character_event = {
-	# id = RIP.4100
-	# desc = EVTDESC_RIP_4100
-	# picture = GFX_evt_court_physician
-	# border = GFX_event_normal_frame_religion
-
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
+		change_learning = 1 
+	}
+
+	#Meh book outcome
+	option = {
+		trigger = { has_character_flag = physician_meh_book }
+
+		name = EVTOPTC_RIP_4033
+	}
+
+	#Bad book outcome outcome
+	option = {
+		trigger = { has_character_flag = physician_bad_book }
+
+		name = EVTOPTD_RIP_4033
+		custom_tooltip = { text = EVTOPTD_RIP_4033_TOOLTIP }
+
+		prestige = -50
+
+		if = {
+			limit = { is_dumb_trigger = no }
+			add_trait = dull
+		}
+
+		tooltip = {
+			FROMFROM = {
+				opinion = {
+					who = ROOT
+					modifier = opinion_disappointed
+					years = 5
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = RIP.4034
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	option = {
+		clr_character_flag = physician_great_book_1
+		clr_character_flag = physician_great_book_2
+		clr_character_flag = physician_great_book_3
+		clr_character_flag = physician_good_book
+		clr_character_flag = physician_meh_book
+		clr_character_flag = physician_bad_book
+	}
+}
+
+
+###Court Physician training events###
+character_event = {
+	id = RIP.4040
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_courtier_or_vassal = {
+			liege = { character = ROOT }
+			has_minor_title = title_court_physician
+		}
+	}
+
+	option = {
+		random_courtier_or_vassal = {
+			limit = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+			}
+
+			random_list = {
+
+				#Nothing happens
+				20 = { }
+				#Receives training
+				10 = {
+					modifier = { 
+						factor = 1.8
+						NOT = { learning = 6 }
+					}
+					modifier = { 
+						factor = 1.6
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 10 }
+					}
+					modifier = {
+						factor = 1.4
+						NOT = { learning = 12 }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 14 }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 16 }
+					}
+					modifier = {
+						factor = 0
+						trait = physician
+					}
+					ROOT = { character_event = { id = RIP.4041 } }
+				}
+			}
+		}
+	}
+}
+
+#Training: buy herbs/tools/books/
+character_event = {
+	id = RIP.4041
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = { has_character_flag = physician_books }
+		text = EVTDESC_RIP_4041_BOOKS
+		picture = GFX_evt_court_physician
+	}
+	desc = {
+		trigger = { has_character_flag = physician_herbs }
+		text = EVTDESC_RIP_4041_HERBS
+		picture = GFX_evt_garden
+
+	}
+	desc = {
+		trigger = { has_character_flag = physician_tools }
+		text = EVTDESC_RIP_4041_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { has_character_flag = physician_lab_equipment }
+		text = EVTDESC_RIP_4041_LAB_EQUIPMENT
+		picture = GFX_evt_performing_experiments
+	}
+
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+			}
+			save_event_target_as = physician
+		}
+
+		random_list = {
+			10 = { set_character_flag = physician_books }
+			10 = { set_character_flag = physician_herbs }
+			10 = { set_character_flag = physician_tools }
+			10 = { set_character_flag = physician_lab_equipment }
+		}
+	}
+
+	#Yes
+	option = {
+		name = EVTOPTA_RIP_4041
+		custom_tooltip = { text = EVTOPTA_RIP_4041_TOOLTIP }
+
+		scaled_wealth = { value = -0.15 min = -10 }
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.5
+				is_smart_trigger = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_disease_trigger = yes
+			}
+			modifier = { 
+				factor = 0
+				NOT = { treasury = 10 }
+			}
+		}
+
+		#Outcome
+		hidden_tooltip = {
+			save_event_target_as = physician_liege
+
+			#outcome
+			event_target:physician = {
+				random_list = {
+					#Best outcome 
+					25 = {
+						modifier = {
+							factor = 1.5
+							is_smart_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							physician_good_trigger = yes
+						}
+						modifier = {
+							factor = 1.2
+							learning = 25
+						}
+						modifier = {
+							factor = 1.2
+							learning = 20
+						}
+						modifier = {
+							factor = 1.2
+							learning = 15
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { learning = 15 }
+						}
+						modifier = {
+							factor = 0.8
+							NOT = { learning = 10 }
+						}
+
+						character_event = { id = RIP.4042 days = 30 } 
+					}
+					#Good outcome
+					50 = {
+						modifier = {
+							factor = 1.5
+							is_dumb_trigger = yes
+						}
+						modifier = {
+							factor = 1.5
+							physician_bad_trigger = yes
+						}
+						modifier = {
+							factor = 0.8
+							learning = 25
+						}
+						modifier = {
+							factor = 0.8
+							learning = 20
+						}
+						modifier = {
+							factor = 0.8
+							learning = 15
+						}
+						modifier = {
+							factor = 1.2
+							NOT = { learning = 15 }
+						}
+						modifier = {
+							factor = 1.2
+							NOT = { learning = 10 }
+						}
+
+						character_event = { id = RIP.4044 days = 30 } 
+					}
+					#Fail
+					25 = {
+						character_event = { id = RIP.4046 days = 30 } 
+					}
+				}
+			}
+		}
+	}
+
+	#No
+	option = {
+		name = EVTOPTB_RIP_4041
+		custom_tooltip = { text = EVTOPTB_RIP_4041_TOOLTIP }
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				is_dumb_trigger = yes
+			}
+		}
+
+		clr_character_flag = physician_books
+		clr_character_flag = physician_herbs
+		clr_character_flag = physician_tools
+		clr_character_flag = physician_lab_equipment
+	}
+}
+
+#Best outcome training herbs/lab/book/tools, physician notification
+character_event = {
+	id = RIP.4042
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_books } }
+		text = EVTDESC_RIP_4042_BOOKS
+		picture = GFX_evt_court_physician
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_herbs } }
+		text = EVTDESC_RIP_4042_HERBS
+		picture = GFX_evt_performing_experiments
+
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_tools } }
+		text = EVTDESC_RIP_4042_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_lab_equipment } }
+		text = EVTDESC_RIP_4042_LAB_EQUIPMENT
+		picture = GFX_evt_performing_experiments
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4042
+
+		change_learning = 2
+
+		hidden_tooltip = {
+			if = {
+				limit = { NOT = { trait = physician } }
+				if = {
+					limit = { check_variable = { which = training_level value = 1 } }
+					change_variable = { which = training_level value = 1 }
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = training_level value = 1 } } }
+					set_variable = { which = training_level value = 1 }
+				}
+				if = {
+					limit = { check_variable = { which = training_level value = 3 } }
+					character_event = { id = RIP.4060 days = 7 }
+				}
+			}
+
+			FROM = { character_event = { id = RIP.4043 } } 
+		}
+	}
+}
+
+#Best outcome training herbs/lab/book/tools, liege notification
+character_event = {
+	id = RIP.4043
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { has_character_flag = physician_books }
+		text = EVTDESC_RIP_4043_BOOKS
+		picture = GFX_evt_court_physician
+	}
+	desc = {
+		trigger = { has_character_flag = physician_herbs }
+		text = EVTDESC_RIP_4043_HERBS
+		picture = GFX_evt_performing_experiments
+
+	}
+	desc = {
+		trigger = { has_character_flag = physician_tools }
+		text = EVTDESC_RIP_4043_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { has_character_flag = physician_lab_equipment }
+		text = EVTDESC_RIP_4043_LAB_EQUIPMENT
+		picture = GFX_evt_performing_experiments
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4043
+
+		tooltip = { FROM = { change_learning = 2 } }
+
+		clr_character_flag = physician_books
+		clr_character_flag = physician_herbs
+		clr_character_flag = physician_tools
+		clr_character_flag = physician_lab_equipment
+	}
+}
+
+#Good outcome training herbs/lab/book/tools, physician notification
+character_event = {
+	id = RIP.4044
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_books } }
+		text = EVTDESC_RIP_4044_BOOKS
+		picture = GFX_evt_court_physician
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_herbs } }
+		text = EVTDESC_RIP_4044_HERBS
+		picture = GFX_evt_performing_experiments
+
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_tools } }
+		text = EVTDESC_RIP_4044_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_lab_equipment } }
+		text = EVTDESC_RIP_4044_LAB_EQUIPMENT
+		picture = GFX_evt_performing_experiments
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4044
+
+		change_learning = 1
+
+		hidden_tooltip = {
+			if = {
+				limit = { NOT = { trait = physician } }
+				if = {
+					limit = { check_variable = { which = training_level value = 1 } }
+					change_variable = { which = training_level value = 1 }
+				}
+				if = {
+					limit = { NOT = { check_variable = { which = training_level value = 1 } } }
+					set_variable = { which = training_level value = 1 }
+				}
+				if = {
+					limit = { check_variable = { which = training_level value = 3 } }
+					character_event = { id = RIP.4060 days = 7 }
+				}
+			}
+
+			FROM = { character_event = { id = RIP.4045 } } 
+		}
+	}
+}
+
+#Good outcome training herbs/lab/book/tools, liege notification
+character_event = {
+	id = RIP.4045
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { has_character_flag = physician_books }
+		text = EVTDESC_RIP_4045_BOOKS
+		picture = GFX_evt_court_physician
+	}
+	desc = {
+		trigger = { has_character_flag = physician_herbs }
+		text = EVTDESC_RIP_4045_HERBS
+		picture = GFX_evt_performing_experiments
+
+	}
+	desc = {
+		trigger = { has_character_flag = physician_tools }
+		text = EVTDESC_RIP_4045_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { has_character_flag = physician_lab_equipment }
+		text = EVTDESC_RIP_4045_LAB_EQUIPMENT
+		picture = GFX_evt_performing_experiments
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4045
+
+		tooltip = { FROM = { change_learning = 1 } }
+
+		clr_character_flag = physician_books
+		clr_character_flag = physician_herbs
+		clr_character_flag = physician_tools
+		clr_character_flag = physician_lab_equipment
+	}
+}
+
+#Fail outcome training herbs/lab/book/tools, physician notification
+character_event = {
+	id = RIP.4046
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_books } }
+		text = EVTDESC_RIP_4046_BOOKS
+		picture = GFX_evt_library
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_herbs } }
+		text = EVTDESC_RIP_4046_HERBS
+		picture = GFX_evt_experiments_failed
+
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_tools } }
+		text = EVTDESC_RIP_4046_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = physician_lab_equipment } }
+		text = EVTDESC_RIP_4046_LAB_EQUIPMENT
+		picture = GFX_evt_experiments_failed
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4046
+		custom_tooltip = { text = EVTOPTA_RIP_4046_TOOLTIP }
+
+		hidden_tooltip = { FROM = { character_event = { id = RIP.4047 } } }
+	}
+}
+
+#Fail outcome training herbs/lab/book/tools, liege notification
+character_event = {
+	id = RIP.4047
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	desc = {
+		trigger = { has_character_flag = physician_books }
+		text = EVTDESC_RIP_4047_BOOKS
+		picture = GFX_evt_library
+	}
+	desc = {
+		trigger = { has_character_flag = physician_herbs }
+		text = EVTDESC_RIP_4047_HERBS
+		picture = GFX_evt_experiments_failed
+
+	}
+	desc = {
+		trigger = { has_character_flag = physician_tools }
+		text = EVTDESC_RIP_4047_TOOLS
+		picture = GFX_evt_bloody_tools
+	}
+	desc = {
+		trigger = { has_character_flag = physician_lab_equipment }
+		text = EVTDESC_RIP_4047_LAB_EQUIPMENT
+		picture = GFX_evt_experiments_failed
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4047
+		custom_tooltip = { text = EVTOPTA_RIP_4047_TOOLTIP }
+
+		clr_character_flag = physician_books
+		clr_character_flag = physician_herbs
+		clr_character_flag = physician_tools
+		clr_character_flag = physician_lab_equipment
+	}
+}
+
+#Now a physician notfication for physician
+character_event = {
+	id = RIP.4060
+	desc = EVTDESC_RIP_4060
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes 
+
+	trigger = {
+		NOT = { trait = physician }
+	}
+
+	option = {
+		name = EVTOPTA_RIP_4060
+
+		add_trait = physician
+		hidden_tooltip = { liege = { character_event = { id = RIP.4061 } } }
+	} 
+}
+
+#Now a physician notification for liege 
+character_event = {
+	id = RIP.4061
+	desc = EVTDESC_RIP_4061
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_4061
+
+		tooltip = { FROM = { add_trait = physician } }
+	} 
+}
+
+# A Physician-Missionary arrives in a Tribal or Nomadic Court
+character_event = {
+	id = RIP.4100
+	desc = EVTDESC_RIP_4100
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# has_dlc = "Reapers"
-		# higher_tier_than = BARON
-		# OR = {
-			# is_tribal = yes
-			# is_nomadic = yes
-		# }
-		# OR = {
-			# NOT = {
-				# has_character_flag = tribal_physician
-			# }
-			# had_character_flag = { flag = tribal_physician days = 9125 }
-		# }
-		# NOT = {
-			# any_courtier_or_vassal = {
-				# liege = { character = ROOT }
-				# has_minor_title = title_court_physician
-			# }
-		# }
-		# any_independent_ruler = {
-			# ai = yes
-			# is_adult = yes
-			# is_feudal = yes
-			# higher_tier_than = DUKE
-			# NOT = { religion_group = ROOT }
-			# is_within_diplo_range = ROOT
-			# mercenary = no
-			# holy_order = no
-			# controls_religion = no
-			# primary_title = {
-				# is_landless_type_title = no
-			# }
+	trigger = {
+		has_dlc = "Reapers"
+		higher_tier_than = BARON
+		OR = {
+			is_tribal = yes
+			is_nomadic = yes
+		}
+		OR = {
+			NOT = {
+				has_character_flag = tribal_physician
+			}
+			had_character_flag = { flag = tribal_physician days = 9125 }
+		}
+		NOT = {
+			any_courtier_or_vassal = {
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+			}
+		}
+		any_independent_ruler = {
+			ai = yes
+			is_adult = yes
+			is_feudal = yes
+			higher_tier_than = DUKE
+			NOT = { religion_group = ROOT }
+			is_within_diplo_range = ROOT
+			mercenary = no
+			holy_order = no
+			controls_religion = no
+			primary_title = {
+				is_landless_type_title = no
+			}
 			# OR = {
 				# NOT = { religion_group = pagan_group }
 				# AND = {
@@ -2582,42 +2582,42 @@ character_event = {
 					# is_reformed_religion = yes
 				# }
 			# }
-		# }
-	# }
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# num_of_symptoms = 1
-		# }
-		# modifier = {
-			# factor = 2.5
-			# is_ill = yes
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = cynical
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			num_of_symptoms = 1
+		}
+		modifier = {
+			factor = 2.5
+			is_ill = yes
+		}
+		modifier = {
+			factor = 1.5
+			trait = cynical
+		}
+	}
 	
-	# immediate = {
-		# set_character_flag = tribal_physician
-		# random_independent_ruler = {
-			# limit = {
-				# ai = yes
-				# is_adult = yes
-				# is_feudal = yes
-				# higher_tier_than = DUKE
-				# NOT = { religion_group = ROOT }
-				# is_within_diplo_range = ROOT
-				# mercenary = no
-				# holy_order = no
-				# controls_religion = no
-				# primary_title = {
-					# is_landless_type_title = no
-				# }
+	immediate = {
+		set_character_flag = tribal_physician
+		random_independent_ruler = {
+			limit = {
+				ai = yes
+				is_adult = yes
+				is_feudal = yes
+				higher_tier_than = DUKE
+				NOT = { religion_group = ROOT }
+				is_within_diplo_range = ROOT
+				mercenary = no
+				holy_order = no
+				controls_religion = no
+				primary_title = {
+					is_landless_type_title = no
+				}
 				# OR = {
 					# NOT = { religion_group = pagan_group }
 					# AND = {
@@ -2625,108 +2625,108 @@ character_event = {
 						# is_reformed_religion = yes
 					# }
 				# }
-			# }
-			# create_character = {
-				# religion = THIS
-				# culture = THIS
-				# dynasty = none
-				# age = 35
-				# random_traits = yes
-				# female = no
-				# attributes = {
-					# learning = 6
-				# }
-				# health = 6
-				# trait = scholarly_theologian
-				# trait = zealous
-				# trait = physician
-				# flag = is_court_physician
-			# }
-			# new_character = {
-				# remove_trait = cynical
-				# remove_trait = mystic
-				# remove_trait = poet
-				# remove_trait = socializer
-				# remove_trait = gamer
-				# remove_trait = hedonist
-				# remove_trait = duelist
-				# remove_trait = hunter
-				# remove_trait = strategist
-				# remove_trait = administrator
-				# remove_trait = architect
-				# remove_trait = gardener
-				# remove_trait = schemer
-				# remove_trait = impaler
-				# remove_trait = seducer
-				# remove_trait = seductress
-				# remove_trait = theologian
-				# remove_trait = scholar
-				# save_event_target_as = missionary_physician_target
-				# move_character = ROOT
-			# }
-			# save_event_target_as = origin_realm_of_missionary_physician_target
-		# }
-	# }
+			}
+			create_character = {
+				religion = THIS
+				culture = THIS
+				dynasty = none
+				age = 35
+				random_traits = yes
+				female = no
+				attributes = {
+					learning = 6
+				}
+				health = 6
+				trait = scholarly_theologian
+				trait = zealous
+				trait = physician
+				flag = is_court_physician
+			}
+			new_character = {
+				remove_trait = cynical
+				remove_trait = mystic
+				remove_trait = poet
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				save_event_target_as = missionary_physician_target
+				move_character = ROOT
+			}
+			save_event_target_as = origin_realm_of_missionary_physician_target
+		}
+	}
 
-	# option = { # Recruit him
-		# name = EVTOPTA_RIP_4100
+	option = { # Recruit him
+		name = EVTOPTA_RIP_4100
 		
-		# ai_chance = {
-			# factor = 70
-			# modifier = {
-				# factor = 5
-				# trait = cynical
-			# }
-		# }
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 5
+				trait = cynical
+			}
+		}
 		
-		# event_target:missionary_physician_target = {
-			# show_scope_change = no
-			# opinion = {
-				# modifier = opinion_loyal_servant
-				# who = ROOT
-				# years = 10
-			# }
-			# give_minor_title = title_court_physician
-		# }
+		event_target:missionary_physician_target = {
+			show_scope_change = no
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 10
+			}
+			give_minor_title = title_court_physician
+		}
 		
-		# if = {
-			# limit = { controls_religion = no }
-			# hidden_tooltip = {
-				# character_event = { id = RIP.4101 days = 30 random = 30 }
-			# }
-		# }
+		if = {
+			limit = { controls_religion = no }
+			hidden_tooltip = {
+				character_event = { id = RIP.4101 days = 30 random = 30 }
+			}
+		}
 		
-	# }
+	}
 	
-	# option = { # Seize his assets and execute him!
-		# name = EVTOPTB_RIP_4100
+	option = { # Seize his assets and execute him!
+		name = EVTOPTB_RIP_4100
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 5
-				# trait = zealous
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 5
+				trait = zealous
+			}
+		}
 		
-		# wealth = 50
-		# event_target:missionary_physician_target = {
-			# show_scope_change = no
-			# death = {
-				# death_reason = death_execution_burning
-				# killer = ROOT
-			# }
-		# }
-		# event_target:origin_realm_of_missionary_physician_target = {
-			# show_scope_change = no
-			# opinion = {
-				# modifier = opinion_dishonorable_scum
-				# who = ROOT
-				# years = 15
-			# }
-		# }
-	# }
-# }
+		wealth = 50
+		event_target:missionary_physician_target = {
+			show_scope_change = no
+			death = {
+				death_reason = death_execution_burning
+				killer = ROOT
+			}
+		}
+		event_target:origin_realm_of_missionary_physician_target = {
+			show_scope_change = no
+			opinion = {
+				modifier = opinion_dishonorable_scum
+				who = ROOT
+				years = 15
+			}
+		}
+	}
+}
 
 # # Convert to the physicians religion?
 # character_event = {
@@ -2899,1078 +2899,1078 @@ character_event = {
 	# }
 # }
 
-# ####################################
-# # RIP Prosperity Increasing Events #
-# ####################################
+####################################
+# RIP Prosperity Increasing Events #
+####################################
 
-# # Steward suggests building new roads
-# character_event = {
-	# id = RIP.4300
-	# desc = EVTDESC_RIP_4300
-	# picture = GFX_evt_culture_change
-	# border = GFX_event_normal_frame_economy
+# Steward suggests building new roads
+character_event = {
+	id = RIP.4300
+	desc = EVTDESC_RIP_4300
+	picture = GFX_evt_culture_change
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# higher_tier_than = COUNT
-		# job_treasurer = {
-			# stewardship = 5
-		# }
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = new_roads
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		higher_tier_than = COUNT
+		job_treasurer = {
+			stewardship = 5
+		}
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = new_roads
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_treasurer = {
-				# stewardship = 12
-			# }
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_treasurer = {
-				# stewardship = 18
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			job_treasurer = {
+				stewardship = 12
+			}
+		}
+		modifier = {
+			factor = 1.5
+			job_treasurer = {
+				stewardship = 18
+			}
+		}
+	}
 	
-	# immediate = {
-		# job_treasurer = {
-			# save_event_target_as = councillor_target
-		# }
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = new_roads
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		job_treasurer = {
+			save_event_target_as = councillor_target
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = new_roads
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4300
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4300
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# prestige = 25
+		prestige = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = new_roads
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = new_roads
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4300
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4300
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# # Lord Spiritual suggests building shrines
-# character_event = {
-	# id = RIP.4301
-	# desc = EVTDESC_RIP_4301
-	# picture = GFX_evt_tribal_shrine
-	# border = GFX_event_normal_frame_economy
+# Lord Spiritual suggests building shrines
+character_event = {
+	id = RIP.4301
+	desc = EVTDESC_RIP_4301
+	picture = GFX_evt_tribal_shrine
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# higher_tier_than = COUNT
-		# job_spiritual = {
-			# learning = 5
-		# }
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = new_shrines
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		higher_tier_than = COUNT
+		job_spiritual = {
+			learning = 5
+		}
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = new_shrines
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_spiritual = {
-				# stewardship = 12
-			# }
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_spiritual = {
-				# stewardship = 18
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			job_spiritual = {
+				stewardship = 12
+			}
+		}
+		modifier = {
+			factor = 1.5
+			job_spiritual = {
+				stewardship = 18
+			}
+		}
+	}
 	
-	# immediate = {
-		# job_spiritual = {
-			# save_event_target_as = councillor_target
-		# }
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = new_shrines
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		job_spiritual = {
+			save_event_target_as = councillor_target
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = new_shrines
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4301
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4301
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# piety = 25
+		piety = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = new_shrines
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = new_shrines
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4301
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4301
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# # Marshal suggests building outposts
-# character_event = {
-	# id = RIP.4302
-	# desc = EVTDESC_RIP_4302
-	# picture = GFX_evt_powerful_tower
-	# border = GFX_event_normal_frame_economy
+# Marshal suggests building outposts
+character_event = {
+	id = RIP.4302
+	desc = EVTDESC_RIP_4302
+	picture = GFX_evt_powerful_tower
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# higher_tier_than = COUNT
-		# job_marshal = {
-			# martial = 5
-		# }
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = peasants_protected
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		higher_tier_than = COUNT
+		job_marshal = {
+			martial = 5
+		}
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = peasants_protected
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_marshal = {
-				# martial = 12
-			# }
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_marshal = {
-				# martial = 18
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			job_marshal = {
+				martial = 12
+			}
+		}
+		modifier = {
+			factor = 1.5
+			job_marshal = {
+				martial = 18
+			}
+		}
+	}
 	
-	# immediate = {
-		# job_marshal = {
-			# save_event_target_as = councillor_target
-		# }
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = peasants_protected
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		job_marshal = {
+			save_event_target_as = councillor_target
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = peasants_protected
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4302
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4302
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# prestige = 25
+		prestige = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = peasants_protected
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = peasants_protected
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4302
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4302
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# # Spymaster suggests setting up local messenger stations
-# character_event = {
-	# id = RIP.4303
-	# desc = EVTDESC_RIP_4303
-	# picture = GFX_evt_courier
-	# border = GFX_event_normal_frame_economy
+# Spymaster suggests setting up local messenger stations
+character_event = {
+	id = RIP.4303
+	desc = EVTDESC_RIP_4303
+	picture = GFX_evt_courier
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# higher_tier_than = COUNT
-		# job_spymaster = {
-			# intrigue = 5
-		# }
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = messenger_stations
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		higher_tier_than = COUNT
+		job_spymaster = {
+			intrigue = 5
+		}
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = messenger_stations
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_spymaster = {
-				# intrigue = 12
-			# }
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_spymaster = {
-				# intrigue = 18
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			job_spymaster = {
+				intrigue = 12
+			}
+		}
+		modifier = {
+			factor = 1.5
+			job_spymaster = {
+				intrigue = 18
+			}
+		}
+	}
 	
-	# immediate = {
-		# job_spymaster = {
-			# save_event_target_as = councillor_target
-		# }
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = messenger_stations
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		job_spymaster = {
+			save_event_target_as = councillor_target
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = messenger_stations
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4303
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4303
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# prestige = 25
+		prestige = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = messenger_stations
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = messenger_stations
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4303
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4303
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# # Chancellor suggests sponsoring local harvest festivals
-# character_event = {
-	# id = RIP.4304
-	# desc = EVTDESC_RIP_4304
-	# picture = GFX_evt_dancing
-	# border = GFX_event_normal_frame_economy
+# Chancellor suggests sponsoring local harvest festivals
+character_event = {
+	id = RIP.4304
+	desc = EVTDESC_RIP_4304
+	picture = GFX_evt_dancing
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# higher_tier_than = COUNT
-		# job_chancellor = {
-			# diplomacy = 5
-		# }
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = harvest_festivals
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		higher_tier_than = COUNT
+		job_chancellor = {
+			diplomacy = 5
+		}
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = harvest_festivals
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_chancellor = {
-				# diplomacy = 12
-			# }
-		# }
-		# modifier = {
-			# factor = 1.5
-			# job_chancellor = {
-				# diplomacy = 18
-			# }
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+		modifier = {
+			factor = 1.5
+			job_chancellor = {
+				diplomacy = 12
+			}
+		}
+		modifier = {
+			factor = 1.5
+			job_chancellor = {
+				diplomacy = 18
+			}
+		}
+	}
 	
-	# immediate = {
-		# job_chancellor = {
-			# save_event_target_as = councillor_target
-		# }
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = harvest_festivals
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		job_chancellor = {
+			save_event_target_as = councillor_target
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = harvest_festivals
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4304
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4304
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# prestige = 25
+		prestige = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = harvest_festivals
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = harvest_festivals
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4304
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4304
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# # You decide upon personally visiting a province
-# character_event = {
-	# id = RIP.4305
-	# desc = EVTDESC_RIP_4305
-	# picture = GFX_evt_noble_haughty_talking_to_peasants
-	# border = GFX_event_normal_frame_economy
+# You decide upon personally visiting a province
+character_event = {
+	id = RIP.4305
+	desc = EVTDESC_RIP_4305
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	border = GFX_event_normal_frame_economy
 	
-	# min_age = 16
-	# capable_only = yes
-	# only_playable = yes
-	# prisoner = no
-	# war = no
-	# has_dlc = "Reapers"
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	war = no
+	has_dlc = "Reapers"
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# is_tribal = no
-		# is_nomadic = no
-		# NOT = { is_inaccessible_trigger = yes }
-		# higher_tier_than = COUNT
-		# stewardship = 6
-		# any_demesne_province = {
-			# NOT = {
-				# has_province_modifier = inspired_peasantry
-			# }
-			# any_province_holding = {
-				# OR = {
-					# holding_type = city
-					# holding_type = castle
-					# holding_type = tribal
-				# }
-			# }
-			# NOR = {
-				# has_province_modifier = depopulated_1
-				# has_province_modifier = depopulated_2
-				# has_province_modifier = depopulated_3
-				# has_province_modifier = prosperity_modifier_3
-				# any_province_holding = {
-					# has_siege = yes
-				# }
-				# any_province_holding = {
-					# is_occupied = yes
-				# }
-				# has_disease = yes
-			# }
-		# }
-	# }
+	trigger = {
+		is_tribal = no
+		is_nomadic = no
+		NOT = { is_inaccessible_trigger = yes }
+		higher_tier_than = COUNT
+		stewardship = 6
+		any_demesne_province = {
+			NOT = {
+				has_province_modifier = inspired_peasantry
+			}
+			any_province_holding = {
+				OR = {
+					holding_type = city
+					holding_type = castle
+					holding_type = tribal
+				}
+			}
+			NOR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+				has_province_modifier = prosperity_modifier_3
+				any_province_holding = {
+					has_siege = yes
+				}
+				any_province_holding = {
+					is_occupied = yes
+				}
+				has_disease = yes
+			}
+		}
+	}
 	
-	# weight_multiplier = {
-		# days = 1
+	weight_multiplier = {
+		days = 1
 		
-		# modifier = {
-			# factor = 2.5
-			# has_ambition = obj_see_the_realm_prosper
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = architect
-		# }
-		# modifier = {
-			# factor = 1.5
-			# trait = diligent
-		# }
-	# }
+		modifier = {
+			factor = 2.5
+			has_ambition = obj_see_the_realm_prosper
+		}
+		modifier = {
+			factor = 1.5
+			trait = architect
+		}
+		modifier = {
+			factor = 1.5
+			trait = diligent
+		}
+	}
 	
-	# immediate = {
-		# random_demesne_province = {
-			# limit = {
-				# NOT = {
-					# has_province_modifier = inspired_peasantry
-				# }
-				# any_province_holding = {
-					# OR = {
-						# holding_type = city
-						# holding_type = castle
-						# holding_type = tribal
-					# }
-				# }
-				# NOR = {
-					# has_province_modifier = depopulated_1
-					# has_province_modifier = depopulated_2
-					# has_province_modifier = depopulated_3
-					# has_province_modifier = prosperity_modifier_3
-					# any_province_holding = {
-						# has_siege = yes
-					# }
-					# any_province_holding = {
-						# is_occupied = yes
-					# }
-					# has_disease = yes
-				# }
-			# }
-			# save_event_target_as = prosperity_target
-		# }
-	# }
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				NOT = {
+					has_province_modifier = inspired_peasantry
+				}
+				any_province_holding = {
+					OR = {
+						holding_type = city
+						holding_type = castle
+						holding_type = tribal
+					}
+				}
+				NOR = {
+					has_province_modifier = depopulated_1
+					has_province_modifier = depopulated_2
+					has_province_modifier = depopulated_3
+					has_province_modifier = prosperity_modifier_3
+					any_province_holding = {
+						has_siege = yes
+					}
+					any_province_holding = {
+						is_occupied = yes
+					}
+					has_disease = yes
+				}
+			}
+			save_event_target_as = prosperity_target
+		}
+	}
 
-	# option = { # A wise investment
-		# name = EVTOPTA_RIP_4305
+	option = { # A wise investment
+		name = EVTOPTA_RIP_4305
 		
-		# ai_chance = {
-			# factor = 30
-			# modifier = {
-				# factor = 0
-				# NOT = { treasury = 300 }
-			# }
-		# }
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { treasury = 300 }
+			}
+		}
 		
-		# scaled_wealth = -0.1
+		scaled_wealth = -0.1
 		
-		# prestige = 25
+		prestige = 25
 		
-		# event_target:prosperity_target = {
-			# show_scope_change = no
-			# add_province_modifier = {
-				# name = inspired_peasantry
-				# duration = 730
-			# }
-		# }
+		event_target:prosperity_target = {
+			show_scope_change = no
+			add_province_modifier = {
+				name = inspired_peasantry
+				duration = 730
+			}
+		}
 		
-		# custom_tooltip = {
-			# text = increase_prosperity_event_custom_tooltip
-			# hidden_tooltip = {
-				# event_target:prosperity_target = {
-					# change_variable = { which = prosperity_value value = 15 }
-				# }
-			# }
-		# }
-	# }
+		custom_tooltip = {
+			text = increase_prosperity_event_custom_tooltip
+			hidden_tooltip = {
+				event_target:prosperity_target = {
+					change_variable = { which = prosperity_value value = 15 }
+				}
+			}
+		}
+	}
 	
-	# option = { # I can't afford it
-		# name = EVTOPTB_RIP_4305
-		# ai_chance = {
-			# factor = 70
-		# }
-	# }
-# }
+	option = { # I can't afford it
+		name = EVTOPTB_RIP_4305
+		ai_chance = {
+			factor = 70
+		}
+	}
+}
 
-# #################
-# # RIP Nicknames #
-# #################
+#################
+# RIP Nicknames #
+#################
 
-# character_event = { # Execution nicknames
-	# id = RIP.4400
-	# hide_window = yes
-	# is_triggered_only = yes
+character_event = { # Execution nicknames
+	id = RIP.4400
+	hide_window = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# death_execution_trigger = yes
-		# killer = { always = yes }
-		# has_dlc = "Reapers"
-	# }
+	trigger = {
+		death_execution_trigger = yes
+		killer = { always = yes }
+		has_dlc = "Reapers"
+	}
 	
-	# immediate = {
-		# killer = {
-			# if = {
-				# limit = {
-					# has_nickname = no
-					# is_adult = yes
-					# NOT = { trait = incapable }
-				# }
-				# random_list = {
-					# 5 = {
-						# give_nickname = nick_the_butcher
-						# modifier = {
-							# factor = 0
-							# NOR = {
-								# trait = cruel
-								# trait = wroth
-								# trait = impaler
-							# }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_impaler
-						# modifier = {
-							# factor = 0
-							# NOT = { ROOT = { death_reason = death_execution_impaling } }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_flayer
-						# modifier = {
-							# factor = 0
-							# NOT = { ROOT = { death_reason = death_execution_flaying } }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_cleansing_flame
-						# modifier = {
-							# factor = 0
-							# NAND = {
-								# NOT = { religion = ROOT }
-								# trait = zealous
-								# piety = 100
-								# ROOT = { death_reason = death_execution_burning } 
-							# }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_witch_hunter
-						# modifier = {
-							# factor = 0
-							# NAND = {
-								# OR = {
-									# NOT = { religion = ROOT }
-									# ROOT = { has_character_modifier = modifier_witch }
-									# ROOT = { has_character_modifier = suspected_witch }
-									# ROOT = { has_character_modifier = known_witch }
-									# ROOT = { has_character_flag = bg_accused_witch }
-									# ROOT = { has_character_flag = physician_witch }
-								# }
-								# trait = zealous
-								# piety = 100
-								# ROOT = {
-									# is_female = yes
-									# OR = {
-										# death_reason = death_execution_burning 
-										# death_reason = death_execution_drowning_pit 
-									# }
-								# } 
-							# }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_vengeful
-						# modifier = {
-							# factor = 0
-							# NOT = {
-								# is_rival = ROOT
-							# }
-						# }
-					# }
-					# 50 = {
-						# give_nickname = nick_the_betrayer
-						# modifier = {
-							# factor = 0
-							# NOT = {
-								# is_friend = ROOT
-							# }
-						# }
-					# }
-					# 500 = {
-						# give_nickname = nick_the_kingslayer
-						# modifier = {
-							# factor = 0
-							# NAND = {
-								# is_nomadic = no
-								# liege = {
-									# is_nomadic = no
-									# character = ROOT
-									# OR = {
-										# tier = KING
-										# tier = EMPEROR
-									# }
-								# }
-							# }
-						# }
-					# }
-					# 15 = {
-						# give_nickname = nick_son_of_evilgod
-						# modifier = {
-							# factor = 0
-							# NOR = {
-								# NOT = { piety = -50 }
-								# trait = possessed
-								# is_any_kinslayer_trigger = yes
-							# }
-						# }
-					# }
-					# 4 = {
-						# give_nickname = nick_the_tyrant
-						# modifier = {
-							# factor = 0
-							# NOT = {
-								# any_vassal = {
-									# has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
-								# }
-							# }
-						# }
-					# }
-					# 4 = {
-						# give_nickname = nick_the_oppressor
-						# modifier = {
-							# factor = 0
-							# NOT = {
-								# any_vassal = {
-									# has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
-								# }
-							# }
-						# }
-					# }
-					# 100 = {}
-				# }
-			# }
-		# }
-	# }
-# }
+	immediate = {
+		killer = {
+			if = {
+				limit = {
+					has_nickname = no
+					is_adult = yes
+					NOT = { trait = incapable }
+				}
+				random_list = {
+					5 = {
+						give_nickname = nick_the_butcher
+						modifier = {
+							factor = 0
+							NOR = {
+								trait = cruel
+								trait = wroth
+								trait = impaler
+							}
+						}
+					}
+					50 = {
+						give_nickname = nick_the_impaler
+						modifier = {
+							factor = 0
+							NOT = { ROOT = { death_reason = death_execution_impaling } }
+						}
+					}
+					50 = {
+						give_nickname = nick_the_flayer
+						modifier = {
+							factor = 0
+							NOT = { ROOT = { death_reason = death_execution_flaying } }
+						}
+					}
+					50 = {
+						give_nickname = nick_the_cleansing_flame
+						modifier = {
+							factor = 0
+							NAND = {
+								NOT = { religion = ROOT }
+								trait = zealous
+								piety = 100
+								ROOT = { death_reason = death_execution_burning } 
+							}
+						}
+					}
+					50 = {
+						give_nickname = nick_the_witch_hunter
+						modifier = {
+							factor = 0
+							NAND = {
+								OR = {
+									NOT = { religion = ROOT }
+									ROOT = { has_character_modifier = modifier_witch }
+									ROOT = { has_character_modifier = suspected_witch }
+									ROOT = { has_character_modifier = known_witch }
+									ROOT = { has_character_flag = bg_accused_witch }
+									ROOT = { has_character_flag = physician_witch }
+								}
+								trait = zealous
+								piety = 100
+								ROOT = {
+									is_female = yes
+									OR = {
+										death_reason = death_execution_burning 
+										death_reason = death_execution_drowning_pit 
+									}
+								} 
+							}
+						}
+					}
+					50 = {
+						give_nickname = nick_the_vengeful
+						modifier = {
+							factor = 0
+							NOT = {
+								is_rival = ROOT
+							}
+						}
+					}
+					50 = {
+						give_nickname = nick_the_betrayer
+						modifier = {
+							factor = 0
+							NOT = {
+								is_friend = ROOT
+							}
+						}
+					}
+					500 = {
+						give_nickname = nick_the_kingslayer
+						modifier = {
+							factor = 0
+							NAND = {
+								is_nomadic = no
+								liege = {
+									is_nomadic = no
+									character = ROOT
+									OR = {
+										tier = KING
+										tier = EMPEROR
+									}
+								}
+							}
+						}
+					}
+					15 = {
+						give_nickname = nick_son_of_evilgod
+						modifier = {
+							factor = 0
+							NOR = {
+								NOT = { piety = -50 }
+								trait = possessed
+								is_any_kinslayer_trigger = yes
+							}
+						}
+					}
+					4 = {
+						give_nickname = nick_the_tyrant
+						modifier = {
+							factor = 0
+							NOT = {
+								any_vassal = {
+									has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+								}
+							}
+						}
+					}
+					4 = {
+						give_nickname = nick_the_oppressor
+						modifier = {
+							factor = 0
+							NOT = {
+								any_vassal = {
+									has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+								}
+							}
+						}
+					}
+					100 = {}
+				}
+			}
+		}
+	}
+}
 
 
 # ###MOURNING FLAVOR EVENTS###
