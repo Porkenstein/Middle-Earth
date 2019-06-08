@@ -2956,7 +2956,12 @@ african_tattoo_12 = {
 #############
 #Elf
 elf = {
-	potential = { religion_group = religion_group_eldar }
+	potential = {
+		OR = {
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
+		}
+	}
     same_opinion = 20
 	sex_appeal_opinion = 10
 	diplomacy = 2
@@ -2976,13 +2981,21 @@ elf = {
 }
 beard_elf = {
 	hidden = yes
-	potential = { religion_group = religion_group_eldar }
+	potential = {
+		OR = {
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
+		}
+	}
 	# cached = yes
 }
 elf_childhood = {
 	hidden = yes
 	potential = {
-		religion_group = religion_group_eldar
+		OR = {
+			religion_group = religion_eldar
+			religion_group = religion_dark_eldar
+		}
 		age = 16
 		NOT = { age = 25 }
 	}
@@ -3002,7 +3015,12 @@ half_elf = {
 }
 elf_friend = {
 	potential = {
-		NOT = { religion_group = religion_group_eldar }
+		NOT = {
+			OR = {
+				religion_group = religion_eldar
+				religion_group = religion_dark_eldar
+			}
+		}
 		NOT = { mep_evil_religion = yes }
 		NOT = { trait = zealous } # aka 'Racist'
 	}
