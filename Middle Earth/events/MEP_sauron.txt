@@ -500,47 +500,47 @@ character_event = {
 		
 ##Events for when AI Mordor is under attack, since decisions are too slow##
 
-character_event = {
-    id = sauron.18
-    title = "EVTTITsauron.18"#Call in your vassal troops
-    desc = "EVTDESCsauron.18"#Some fool has dared to attack Mordor! Shall we send word to your servants in the East and South to come to Mordor's defense?
-    picture = "GFX_good"
-	only_rulers = yes
-	only_independent = yes
+# character_event = {
+    # id = sauron.18
+    # title = "EVTTITsauron.18"#Call in your vassal troops
+    # desc = "EVTDESCsauron.18"#Some fool has dared to attack Mordor! Shall we send word to your servants in the East and South to come to Mordor's defense?
+    # picture = "GFX_good"
+	# only_rulers = yes
+	# only_independent = yes
 	
-	is_triggered_only = yes
+	# is_triggered_only = yes
 
-	trigger = {
-		OR = {
-			has_landed_title = c_barad_dur
-			has_landed_title = k_mordor
-		}	
-		dynasty = 10012
-		ai = yes
-		is_primary_war_defender = yes
-		NOT = { has_character_flag = sauroncalled_allies }
-	}
+	# trigger = {
+		# OR = {
+			# has_landed_title = c_barad_dur
+			# has_landed_title = k_mordor
+		# }	
+		# dynasty = 10012
+		# ai = yes
+		# is_primary_war_defender = yes
+		# NOT = { has_character_flag = sauroncalled_allies }
+	# }
 		
 		
-	option = {
-		name = "EVTOPTAsauron.18"#Yes, let them defend their Lord and God!
-		trigger = {
-			dynasty = 10012
-		}
-		set_character_flag = sauroncalled_allies					
-		any_independent_ruler = {
-			limit = {
-				OR = {
-					culture_group = culture_group_easterling
-					culture_group = culture_group_southron
-					culture = culture_black_numenorean
-				}
-				mep_is_evil_side_trigger = yes
-			}
-			character_event = { id = sauron.15 }
-		}		
-	}
-}
+	# option = {
+		# name = "EVTOPTAsauron.18"#Yes, let them defend their Lord and God!
+		# trigger = {
+			# dynasty = 10012
+		# }
+		# set_character_flag = sauroncalled_allies					
+		# any_independent_ruler = {
+			# limit = {
+				# OR = {
+					# culture_group = culture_group_easterling
+					# culture_group = culture_group_southron
+					# culture = culture_black_numenorean
+				# }
+				# mep_is_evil_side_trigger = yes
+			# }
+			# character_event = { id = sauron.15 }
+		# }		
+	# }
+# }
 	
 ##Sauron gets event to raise taxes##
 character_event = {

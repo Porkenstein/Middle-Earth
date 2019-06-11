@@ -1347,7 +1347,7 @@ add_symptom_effect = {
 						factor = 0
 							trait = cough
 					}
-					character_event = { id = RIP.5000 days = 1 }
+					# character_event = { id = RIP.5000 days = 1 }
 				}
 				10 = {
 					modifier = {
@@ -1355,7 +1355,7 @@ add_symptom_effect = {
 							trait = fever
 
 					}
-					character_event = { id = RIP.5001 days = 1 }
+					# character_event = { id = RIP.5001 days = 1 }
 				}
 				10 = {
 					modifier = {
@@ -1363,63 +1363,63 @@ add_symptom_effect = {
 							trait = diarrhea
 
 					}
-					character_event = { id = RIP.5002 days = 1 }
+					# character_event = { id = RIP.5002 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = vomiting
 					}
-					character_event = { id = RIP.5003 days = 1 }
+					# character_event = { id = RIP.5003 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = headache
 					}
-					character_event = { id = RIP.5004 days = 1 }
+					# character_event = { id = RIP.5004 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = chest_pain
 					}
-					character_event = { id = RIP.5005 days = 1 }
+					# character_event = { id = RIP.5005 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = cramps
 					}
-					character_event = { id = RIP.5006 days = 1 }
+					# character_event = { id = RIP.5006 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = rash
 					}
-					character_event = { id = RIP.5007 days = 1 }
+					# character_event = { id = RIP.5007 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = abdominal_pain
 					}
-					character_event = { id = RIP.5008 days = 1 }
+					# character_event = { id = RIP.5008 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = fatigue
 					}
-					character_event = { id = RIP.5009 days = 1 }
+					# character_event = { id = RIP.5009 days = 1 }
 				}
 				10 = {
 					modifier = {
 						factor = 0
 							trait = malaise
 					}
-					character_event = { id = RIP.5010 days = 1 }
+					# character_event = { id = RIP.5010 days = 1 }
 				}
 			}
 		}
@@ -1438,7 +1438,7 @@ add_maimed_trait_effect = {
 						has_dlc = "Reapers"
 					}
 					add_trait = maimed
-					character_event = { id = 38281 }
+					# character_event = { id = 38281 }
 				}
 				15 = {
 					modifier = {
@@ -1450,7 +1450,7 @@ add_maimed_trait_effect = {
 						}
 					}
 					add_trait = one_eyed
-					character_event = { id = RIP.11501 }
+					# character_event = { id = RIP.11501 }
 				}
 				10 = {
 					modifier = {
@@ -1461,7 +1461,7 @@ add_maimed_trait_effect = {
 						}
 					}
 					add_trait = one_legged
-					character_event = { id = RIP.11503 }
+					# character_event = { id = RIP.11503 }
 				}
 				20 = {
 					modifier = {
@@ -1472,7 +1472,7 @@ add_maimed_trait_effect = {
 						}
 					}
 					add_trait = one_handed
-					character_event = { id = RIP.11502 }
+					# character_event = { id = RIP.11502 }
 				}
 				10 = {
 					modifier = {
@@ -1483,7 +1483,7 @@ add_maimed_trait_effect = {
 						}
 					}
 					add_trait = disfigured
-					character_event = { id = RIP.11504 }
+					# character_event = { id = RIP.11504 }
 				}
 				5 = {
 					modifier = {
@@ -1494,7 +1494,7 @@ add_maimed_trait_effect = {
 						}
 					}
 					add_trait = mangled
-					character_event = { id = RIP.11505 }
+					# character_event = { id = RIP.11505 }
 				}
 			}
 		}
@@ -1510,11 +1510,13 @@ add_maimed_trait_effect = {
 		hidden_tooltip = {
 			random_list = {
 				75 = { #Get rid of severely_injured
-					character_event = { id = RIP.11000 days = 90 random = 275}
+					# character_event = { id = RIP.11000 days = 90 random = 275}
+					remove_trait = severely_injured
 				}
 				25 = { #Get rid of severely_injured but develop infection
-					set_character_flag = pending_infection
-					character_event = { id = RIP.11000 days = 90 random = 275}
+					# set_character_flag = pending_infection
+					# character_event = { id = RIP.11000 days = 90 random = 275}
+					add_trait = infection
 				}
 			}
 		}
@@ -1528,21 +1530,21 @@ add_plague_symptom_effect = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = cramps
 			}
-			character_event = { id = RIP.5006 }
+			# character_event = { id = RIP.5006 }
 		}
 	}
 }
@@ -1554,21 +1556,21 @@ add_pneumonia_symptom_effect = {
 				factor = 0
 				trait = cough
 			}
-			character_event = { id = RIP.5000 }
+			# character_event = { id = RIP.5000 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = chest_pain
 			}
-			character_event = { id = RIP.5005 }
+			# character_event = { id = RIP.5005 }
 		}
 	}
 }
@@ -1580,21 +1582,21 @@ add_syphilis_symptom_effect = {
 				factor = 0
 				trait = rash
 			}
-			character_event = { id = RIP.5007 }
+			# character_event = { id = RIP.5007 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = headache
 			}
-			character_event = { id = RIP.5004 }
+			# character_event = { id = RIP.5004 }
 		}
 	}
 }
@@ -1606,28 +1608,28 @@ add_tuberculosis_symptom_effect = {
 				factor = 0
 				trait = cough
 			}
-			character_event = { id = RIP.5000 }
+			# character_event = { id = RIP.5000 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = chest_pain
 			}
-			character_event = { id = RIP.5005 }
+			# character_event = { id = RIP.5005 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fatigue
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 	}
 }
@@ -1639,28 +1641,28 @@ add_typhoid_symptom_effect = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = abdominal_pain
 			}
-			character_event = { id = RIP.5008 }
+			# character_event = { id = RIP.5008 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 	}
 }
@@ -1672,42 +1674,42 @@ add_typhus_symptom_effect = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = abdominal_pain
 			}
-			character_event = { id = RIP.5008 }
+			# character_event = { id = RIP.5008 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fatigue
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = rash
 			}
-			character_event = { id = RIP.5007 }
+			# character_event = { id = RIP.5007 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = headache
 			}
-			character_event = { id = RIP.5004 }
+			# character_event = { id = RIP.5004 }
 		}
 	}
 }
@@ -1719,21 +1721,21 @@ add_measles_symptom_effect = {
 				factor = 0
 				trait = rash
 			}
-			character_event = { id = RIP.5007 }
+			# character_event = { id = RIP.5007 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = cough
 			}
-			character_event = { id = RIP.5000 }
+			# character_event = { id = RIP.5000 }
 		}
 	}
 }
@@ -1745,28 +1747,28 @@ add_smallpox_symptom_effect = {
 				factor = 0
 				trait = rash
 			}
-			character_event = { id = RIP.5007 }
+			# character_event = { id = RIP.5007 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = headache
 			}
-			character_event = { id = RIP.5004 }
+			# character_event = { id = RIP.5004 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 	}
 }
@@ -1778,56 +1780,56 @@ add_flu_symptom_effect = {
 				factor = 0
 				trait = fatigue
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = headache
 			}
-			character_event = { id = RIP.5004 }
+			# character_event = { id = RIP.5004 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = cough
 			}
-			character_event = { id = RIP.5000 }
+			# character_event = { id = RIP.5000 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = abdominal_pain
 			}
-			character_event = { id = RIP.5008 }
+			# character_event = { id = RIP.5008 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = vomiting
 			}
-			character_event = { id = RIP.5003 }
+			# character_event = { id = RIP.5003 }
 		}
 	}
 }
@@ -1839,21 +1841,21 @@ add_dysentery_symptom_effect = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = abdominal_pain
 			}
-			character_event = { id = RIP.5008 }
+			# character_event = { id = RIP.5008 }
 		}
 	}
 }
@@ -1865,14 +1867,14 @@ add_gout_symptom_effect = {
 				factor = 0
 				trait = fatigue 
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 	}
 }
@@ -1884,28 +1886,28 @@ add_food_poisoning_symptom_effect = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = cramps
 			}
-			character_event = { id = RIP.5006 }
+			# character_event = { id = RIP.5006 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = vomiting
 			}
-			character_event = { id = RIP.5003 }
+			# character_event = { id = RIP.5003 }
 		}
 	}
 }
@@ -1917,21 +1919,21 @@ add_rabies_symptom_effect = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fever
 			}
-			character_event = { id = RIP.5001 }
+			# character_event = { id = RIP.5001 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = fatigue
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 	}
 }
@@ -1943,56 +1945,56 @@ add_cancer_symptom_effect = {
 				factor = 0
 				trait = fatigue
 			}
-			character_event = { id = RIP.5009 }
+			# character_event = { id = RIP.5009 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = chest_pain
 			}
-			character_event = { id = RIP.5005 }
+			# character_event = { id = RIP.5005 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = headache
 			}
-			character_event = { id = RIP.5004 }
+			# character_event = { id = RIP.5004 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = malaise
 			}
-			character_event = { id = RIP.5010 }
+			# character_event = { id = RIP.5010 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = cough
 			}
-			character_event = { id = RIP.5000 }
+			# character_event = { id = RIP.5000 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = abdominal_pain
 			}
-			character_event = { id = RIP.5008 }
+			# character_event = { id = RIP.5008 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = diarrhea
 			}
-			character_event = { id = RIP.5002 }
+			# character_event = { id = RIP.5002 }
 		}
 		10 = {
 			modifier = {
 				factor = 0
 				trait = vomiting
 			}
-			character_event = { id = RIP.5003 }
+			# character_event = { id = RIP.5003 }
 		}
 	}
 }
@@ -2809,11 +2811,13 @@ resolve_severely_injured_effect = {
 	hidden_tooltip = {
 		random_list = {
 			70 = { #Get rid of severely_injured
-				character_event = { id = RIP.11000 days = 100 random = 300 }
+				# character_event = { id = RIP.11000 days = 100 random = 300 }
+				remove_trait = severely_injured
 			}
 			30 = { #Get rid of severely_injured but develop infection
-				set_character_flag = pending_infection
-				character_event = { id = RIP.11000 days = 100 random = 300 }
+				# set_character_flag = pending_infection
+				# character_event = { id = RIP.11000 days = 100 random = 300 }
+				add_trait = infection
 			}
 		}
 	}
@@ -20428,721 +20432,721 @@ tiered_high_piety_negative_effect = {
 	}
 }
 #Used for gluttonous and hedonistic actions.
-gain_weight_small_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 5 }
-		}
-	}
-} 
-gain_weight_medium_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 10 }
-		}
-	}
-} 
-gain_weight_large_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 15 }
-		}
-	}
-}
+# gain_weight_small_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+		# change_variable = { which = physique_variable value = 5 }
+		# }
+	# }
+# } 
+# gain_weight_medium_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+		# change_variable = { which = physique_variable value = 10 }
+		# }
+	# }
+# } 
+# gain_weight_large_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+		# change_variable = { which = physique_variable value = 15 }
+		# }
+	# }
+# }
 
-#Used for training and balanced lifestyle.
-balance_weight_small_effect =  {
-	custom_tooltip = {
-		hidden_tooltip = {
-			#If variable is above 1, reduce it. If it's below 1 increase it.
-			if = { 
-				limit = {
-					check_variable = { which = physique_variable value = 1 }
-				}
-				change_variable = { which = physique_variable value = -2 }
-			}
-			if = { 
-				limit = {
-					NOT = { check_variable = { which = physique_variable value = -1 } }
-				}
-				change_variable = { which = physique_variable value = 2 }
-			}
-		}
-	}
-} 
-balance_weight_medium_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-			#If variable is above 1, reduce it. If it's below 1 increase it.
-			if = { 
-				limit = {
-					check_variable = { which = physique_variable value = 1 }
-				}
-				change_variable = { which = physique_variable value = -5 }
-			}
-			if = { 
-				limit = {
-					NOT = { check_variable = { which = physique_variable value = -1 } }
-				}
-				change_variable = { which = physique_variable value = 5 }
-			}
-		}
-	}
-} 
+# #Used for training and balanced lifestyle.
+# balance_weight_small_effect =  {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+			# #If variable is above 1, reduce it. If it's below 1 increase it.
+			# if = { 
+				# limit = {
+					# check_variable = { which = physique_variable value = 1 }
+				# }
+				# change_variable = { which = physique_variable value = -2 }
+			# }
+			# if = { 
+				# limit = {
+					# NOT = { check_variable = { which = physique_variable value = -1 } }
+				# }
+				# change_variable = { which = physique_variable value = 2 }
+			# }
+		# }
+	# }
+# } 
+# balance_weight_medium_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+			# #If variable is above 1, reduce it. If it's below 1 increase it.
+			# if = { 
+				# limit = {
+					# check_variable = { which = physique_variable value = 1 }
+				# }
+				# change_variable = { which = physique_variable value = -5 }
+			# }
+			# if = { 
+				# limit = {
+					# NOT = { check_variable = { which = physique_variable value = -1 } }
+				# }
+				# change_variable = { which = physique_variable value = 5 }
+			# }
+		# }
+	# }
+# } 
 
-balance_weight_large_effect = { #Should be used rarely.
-	custom_tooltip = {
-		hidden_tooltip = {
-			#If variable is above 1, reduce it. If it's below 1 increase it.
-			if = { 
-				limit = {
-					check_variable = { which = physique_variable value = 1 }
-				}
-				change_variable = { which = physique_variable value = -10 }
-			}
-			if = { 
-				limit = {
-					NOT = { check_variable = { which = physique_variable value = -1 } }
-				}
-				change_variable = { which = physique_variable value = 10 }
-			}
-		}
-	}
-} 
+# balance_weight_large_effect = { #Should be used rarely.
+	# custom_tooltip = {
+		# hidden_tooltip = {
+			# #If variable is above 1, reduce it. If it's below 1 increase it.
+			# if = { 
+				# limit = {
+					# check_variable = { which = physique_variable value = 1 }
+				# }
+				# change_variable = { which = physique_variable value = -10 }
+			# }
+			# if = { 
+				# limit = {
+					# NOT = { check_variable = { which = physique_variable value = -1 } }
+				# }
+				# change_variable = { which = physique_variable value = 10 }
+			# }
+		# }
+	# }
+# } 
 
-#Used for seclusions, fasting, dungeon starvation, etc.
-lose_weight_small_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-		change_variable = { which = physique_variable value = -6 } #Because of the way trigger works, checks if you are below -5/-10/-15
-		}
-	}
-} 
-lose_weight_medium_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-	change_variable = { which = physique_variable value = -11 }
-		}
-	}
-} 
-lose_weight_large_effect = {
-	custom_tooltip = {
-		hidden_tooltip = {
-	change_variable = { which = physique_variable value = -16 }
-		}
-	}
-}  
+# #Used for seclusions, fasting, dungeon starvation, etc.
+# lose_weight_small_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+		# change_variable = { which = physique_variable value = -6 } #Because of the way trigger works, checks if you are below -5/-10/-15
+		# }
+	# }
+# } 
+# lose_weight_medium_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+	# change_variable = { which = physique_variable value = -11 }
+		# }
+	# }
+# } 
+# lose_weight_large_effect = {
+	# custom_tooltip = {
+		# hidden_tooltip = {
+	# change_variable = { which = physique_variable value = -16 }
+		# }
+	# }
+# }  
 
-#Doesn't change the variable, only checks if the character has the correct trait assigned.
-weight_trait_check_effect = { 
+# #Doesn't change the variable, only checks if the character has the correct trait assigned.
+# weight_trait_check_effect = { 
 
-	#Debilitating effects are gained by special events, usually later in life (40s), but they can be cleared up if the character's variable goes back towards 0 again.
-	if = { 
-		limit = {
-			NOT = { check_variable = { which = physique_variable value = 30 } }
-			has_character_modifier = obese_modifier
-		}
-		remove_character_modifier = obese_modifier
-	}
-	if = { 
-		limit = {
-			check_variable = { which = physique_variable value = -30 }
-			has_character_modifier = severely_underweight_modifier
-		}
-		remove_character_modifier = severely_underweight_modifier
-	}
+	# #Debilitating effects are gained by special events, usually later in life (40s), but they can be cleared up if the character's variable goes back towards 0 again.
+	# if = { 
+		# limit = {
+			# NOT = { check_variable = { which = physique_variable value = 30 } }
+			# has_character_modifier = obese_modifier
+		# }
+		# remove_character_modifier = obese_modifier
+	# }
+	# if = { 
+		# limit = {
+			# check_variable = { which = physique_variable value = -30 }
+			# has_character_modifier = severely_underweight_modifier
+		# }
+		# remove_character_modifier = severely_underweight_modifier
+	# }
 
-	if = { 
-		limit = {
-			trait = is_fat
-			NOT = { check_variable = { which = physique_variable value = 15 } }
-			check_variable = { which = physique_variable value = -15 } 
-		}
-		remove_trait = is_fat
-		hidden_tooltip = { 
-			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20601 } #Notification
-		} 
-	}
-	if = { 
-		limit = {
-			trait = is_fat
-			NOT = { check_variable = { which = physique_variable value = -15 } }
-		}
-		remove_trait = is_fat
-		add_trait = is_malnourished
-		hidden_tooltip = { 
-			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20602 } #Notification
-		} 
-	}
-	if = { 
-		limit = {
-			trait = is_malnourished
-			NOT = { check_variable = { which = physique_variable value = 15 } }
-			check_variable = { which = physique_variable value = -15 } 
-		}
-		remove_trait = is_malnourished
-		hidden_tooltip = { 
-			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20603 } #Notification
-		} 
-	}
-	if = { 
-		limit = {
-			trait = is_malnourished
-			check_variable = { which = physique_variable value = 15 }
-		}
-		remove_trait = is_malnourished
-		add_trait = is_fat
-		hidden_tooltip = { 
-			remove_weight_modifier_effect = yes
-			character_event = { id = HFP.20600 } #Notification
-		} 
-	}
-	if = { 
-		limit = {
-			NOR = { 
-				trait = is_malnourished 
-				trait = is_fat
-			}
-			check_variable = { which = physique_variable value = 15 }
-		}
-		#First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
-		weight_flavor_conditions_effect = yes
-		add_trait = is_fat
-		hidden_tooltip = { character_event = { id = HFP.20600 } } #Notification
-	}
-	if = { 
-		limit = {
-			NOR = { 
-				trait = is_malnourished 
-				trait = is_fat
-			}
-			NOT = { check_variable = { which = physique_variable value = -15 } }
-		}
-		#First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
-		weight_flavor_conditions_effect = yes
-		add_trait = is_malnourished
-		hidden_tooltip = { character_event = { id = HFP.20602 } } #Notification
-	}
+	# if = { 
+		# limit = {
+			# trait = is_fat
+			# NOT = { check_variable = { which = physique_variable value = 15 } }
+			# check_variable = { which = physique_variable value = -15 } 
+		# }
+		# remove_trait = is_fat
+		# hidden_tooltip = { 
+			# remove_weight_modifier_effect = yes
+			# character_event = { id = HFP.20601 } #Notification
+		# } 
+	# }
+	# if = { 
+		# limit = {
+			# trait = is_fat
+			# NOT = { check_variable = { which = physique_variable value = -15 } }
+		# }
+		# remove_trait = is_fat
+		# add_trait = is_malnourished
+		# hidden_tooltip = { 
+			# remove_weight_modifier_effect = yes
+			# character_event = { id = HFP.20602 } #Notification
+		# } 
+	# }
+	# if = { 
+		# limit = {
+			# trait = is_malnourished
+			# NOT = { check_variable = { which = physique_variable value = 15 } }
+			# check_variable = { which = physique_variable value = -15 } 
+		# }
+		# remove_trait = is_malnourished
+		# hidden_tooltip = { 
+			# remove_weight_modifier_effect = yes
+			# character_event = { id = HFP.20603 } #Notification
+		# } 
+	# }
+	# if = { 
+		# limit = {
+			# trait = is_malnourished
+			# check_variable = { which = physique_variable value = 15 }
+		# }
+		# remove_trait = is_malnourished
+		# add_trait = is_fat
+		# hidden_tooltip = { 
+			# remove_weight_modifier_effect = yes
+			# character_event = { id = HFP.20600 } #Notification
+		# } 
+	# }
+	# if = { 
+		# limit = {
+			# NOR = { 
+				# trait = is_malnourished 
+				# trait = is_fat
+			# }
+			# check_variable = { which = physique_variable value = 15 }
+		# }
+		# #First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
+		# weight_flavor_conditions_effect = yes
+		# add_trait = is_fat
+		# hidden_tooltip = { character_event = { id = HFP.20600 } } #Notification
+	# }
+	# if = { 
+		# limit = {
+			# NOR = { 
+				# trait = is_malnourished 
+				# trait = is_fat
+			# }
+			# NOT = { check_variable = { which = physique_variable value = -15 } }
+		# }
+		# #First time try to fire a special event if character meets any of the conditions, otherwise simply notify.
+		# weight_flavor_conditions_effect = yes
+		# add_trait = is_malnourished
+		# hidden_tooltip = { character_event = { id = HFP.20602 } } #Notification
+	# }
 
-}  
-apply_weight_modifier_effect = { 
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_gluttony
-				has_character_flag = flag_fat_for_boredom
-			}
-		}
-		add_character_modifier = {
-			name = coping_glutton
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_sloth
-				has_character_flag = flag_malnourished_for_sloth
-				has_character_flag = flag_fat_for_stress
-				has_character_flag = flag_malnourished_for_stress
-				has_character_flag = flag_fat_for_lust
-				has_character_flag = flag_fat_for_wroth
-				has_character_flag = flag_malnourished_for_craven
-			}
-		}
-		add_character_modifier = {
-			name = stress_relief
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_depression
-				has_character_flag = flag_malnourished_for_depression
-			}
-		}
-		add_character_modifier = {
-			name = anti_depression
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_hedonism
-				has_character_flag = flag_fat_for_carousing
-				has_character_flag = flag_fat_for_drunkard
-			}
-		}
-		add_character_modifier = {
-			name = munificent_modifier
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_family
-				has_character_flag = flag_fat_for_content
-			}
-			is_female = yes
-		}
-		add_character_modifier = {
-			name = jolly_matron_modifier
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_fat_for_family
-				has_character_flag = flag_fat_for_content
-			}
-			is_female = no
-		}
-		add_character_modifier = {
-			name = jolly_patriarch_modifier
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			OR = {
-				has_character_flag = flag_malnourished_for_temperance
-				has_character_flag = flag_malnourished_for_boredom
-			}
-		}
-		add_character_modifier = {
-			name = extremely_temperate
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			has_character_flag = flag_malnourished_for_study
-		}
-		add_character_modifier = {
-			name = restless_study
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			has_character_flag = flag_malnourished_for_faith
-		}
-		add_character_modifier = {
-			name = restless_prayer
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			has_character_flag = flag_malnourished_for_paranoia
-		}
-		add_character_modifier = {
-			name = malnourished_paranoia
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			has_character_flag = flag_malnourished_for_diligence
-		}
-		add_character_modifier = {
-			name = tireless_worker
-			duration = 5000
-		}
-	}
-	if = { 
-		limit = {
-			has_character_flag = flag_malnourished_for_cannibal
-		}
-		add_character_modifier = {
-			name = refined_palate
-			duration = 5000
-		}
-	}
-}
-remove_weight_modifier_effect = {
-	if = { 
-		limit = { 
-			has_character_modifier = coping_glutton
-		}
-		remove_character_modifier = coping_glutton
-	}
-	if = { 
-		limit = {
-			has_character_modifier = stress_relief
-		}
-		remove_character_modifier = stress_relief
-	}
-	if = { 
-		limit = {
-			has_character_modifier = anti_depression
-		}
-		remove_character_modifier = anti_depression
-	}
-	if = { 
-		limit = {
-			has_character_modifier = munificent_modifier
-		}
-		remove_character_modifier = munificent_modifier
-	}
-	if = { 
-		limit = {
-			has_character_modifier = jolly_matron_modifier
-		}
-		remove_character_modifier = jolly_matron_modifier
-	}
-	if = { 
-		limit = {
-			has_character_modifier = jolly_patriarch_modifier
-		}
-		remove_character_modifier = jolly_patriarch_modifier
-	}
-	if = { 
-		limit = {
-			has_character_modifier = extremely_temperate
-		}
-		remove_character_modifier = extremely_temperate
-	}
-	if = { 
-		limit = {
-			has_character_modifier = restless_study
-		}
-		remove_character_modifier = restless_study
-	}
-	if = { 
-		limit = {
-			has_character_modifier = restless_prayer
-		}
-		remove_character_modifier = restless_prayer
-	}
-	if = { 
-		limit = {
-			has_character_modifier = malnourished_paranoia
-		}
-		remove_character_modifier = malnourished_paranoia
-	}
-	if = { 
-		limit = {
-			has_character_modifier = tireless_worker
-		}
-		remove_character_modifier = tireless_worker
-	}
-}
-clear_fat_flags_effect = {
-	clr_character_flag = flag_fat_for_gluttony 
-	clr_character_flag = flag_fat_for_stress
-	clr_character_flag = flag_fat_for_depression
-	clr_character_flag = flag_fat_for_sloth
-	clr_character_flag = flag_fat_for_hedonism
-	clr_character_flag = flag_fat_for_carousing
-	clr_character_flag = flag_fat_for_family 
-	clr_character_flag = flag_fat_for_content 
-	clr_character_flag = flag_fat_for_lust
-	clr_character_flag = flag_fat_for_wroth
-	clr_character_flag = flag_fat_for_drunkard
-	clr_character_flag = flag_fat_for_boredom
-}
-clear_malnourished_flags_effect = {
-	clr_character_flag = flag_malnourished_for_temperance 
-	clr_character_flag = flag_malnourished_for_stress
-	clr_character_flag = flag_malnourished_for_depression
-	clr_character_flag = flag_malnourished_for_sloth
-	clr_character_flag = flag_malnourished_for_study
-	clr_character_flag = flag_malnourished_for_faith
-	clr_character_flag = flag_malnourished_for_paranoia 
-	clr_character_flag = flag_malnourished_for_diligence
-	clr_character_flag = flag_malnourished_for_cannibal
-	clr_character_flag = flag_malnourished_for_craven
-	clr_character_flag = flag_malnourished_for_boredom
-}
-weight_flavor_conditions_effect = {
+# }  
+# apply_weight_modifier_effect = { 
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_gluttony
+				# has_character_flag = flag_fat_for_boredom
+			# }
+		# }
+		# add_character_modifier = {
+			# name = coping_glutton
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_sloth
+				# has_character_flag = flag_malnourished_for_sloth
+				# has_character_flag = flag_fat_for_stress
+				# has_character_flag = flag_malnourished_for_stress
+				# has_character_flag = flag_fat_for_lust
+				# has_character_flag = flag_fat_for_wroth
+				# has_character_flag = flag_malnourished_for_craven
+			# }
+		# }
+		# add_character_modifier = {
+			# name = stress_relief
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_depression
+				# has_character_flag = flag_malnourished_for_depression
+			# }
+		# }
+		# add_character_modifier = {
+			# name = anti_depression
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_hedonism
+				# has_character_flag = flag_fat_for_carousing
+				# has_character_flag = flag_fat_for_drunkard
+			# }
+		# }
+		# add_character_modifier = {
+			# name = munificent_modifier
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_family
+				# has_character_flag = flag_fat_for_content
+			# }
+			# is_female = yes
+		# }
+		# add_character_modifier = {
+			# name = jolly_matron_modifier
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_fat_for_family
+				# has_character_flag = flag_fat_for_content
+			# }
+			# is_female = no
+		# }
+		# add_character_modifier = {
+			# name = jolly_patriarch_modifier
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# OR = {
+				# has_character_flag = flag_malnourished_for_temperance
+				# has_character_flag = flag_malnourished_for_boredom
+			# }
+		# }
+		# add_character_modifier = {
+			# name = extremely_temperate
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# has_character_flag = flag_malnourished_for_study
+		# }
+		# add_character_modifier = {
+			# name = restless_study
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# has_character_flag = flag_malnourished_for_faith
+		# }
+		# add_character_modifier = {
+			# name = restless_prayer
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# has_character_flag = flag_malnourished_for_paranoia
+		# }
+		# add_character_modifier = {
+			# name = malnourished_paranoia
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# has_character_flag = flag_malnourished_for_diligence
+		# }
+		# add_character_modifier = {
+			# name = tireless_worker
+			# duration = 5000
+		# }
+	# }
+	# if = { 
+		# limit = {
+			# has_character_flag = flag_malnourished_for_cannibal
+		# }
+		# add_character_modifier = {
+			# name = refined_palate
+			# duration = 5000
+		# }
+	# }
+# }
+# remove_weight_modifier_effect = {
+	# if = { 
+		# limit = { 
+			# has_character_modifier = coping_glutton
+		# }
+		# remove_character_modifier = coping_glutton
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = stress_relief
+		# }
+		# remove_character_modifier = stress_relief
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = anti_depression
+		# }
+		# remove_character_modifier = anti_depression
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = munificent_modifier
+		# }
+		# remove_character_modifier = munificent_modifier
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = jolly_matron_modifier
+		# }
+		# remove_character_modifier = jolly_matron_modifier
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = jolly_patriarch_modifier
+		# }
+		# remove_character_modifier = jolly_patriarch_modifier
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = extremely_temperate
+		# }
+		# remove_character_modifier = extremely_temperate
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = restless_study
+		# }
+		# remove_character_modifier = restless_study
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = restless_prayer
+		# }
+		# remove_character_modifier = restless_prayer
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = malnourished_paranoia
+		# }
+		# remove_character_modifier = malnourished_paranoia
+	# }
+	# if = { 
+		# limit = {
+			# has_character_modifier = tireless_worker
+		# }
+		# remove_character_modifier = tireless_worker
+	# }
+# }
+# clear_fat_flags_effect = {
+	# clr_character_flag = flag_fat_for_gluttony 
+	# clr_character_flag = flag_fat_for_stress
+	# clr_character_flag = flag_fat_for_depression
+	# clr_character_flag = flag_fat_for_sloth
+	# clr_character_flag = flag_fat_for_hedonism
+	# clr_character_flag = flag_fat_for_carousing
+	# clr_character_flag = flag_fat_for_family 
+	# clr_character_flag = flag_fat_for_content 
+	# clr_character_flag = flag_fat_for_lust
+	# clr_character_flag = flag_fat_for_wroth
+	# clr_character_flag = flag_fat_for_drunkard
+	# clr_character_flag = flag_fat_for_boredom
+# }
+# clear_malnourished_flags_effect = {
+	# clr_character_flag = flag_malnourished_for_temperance 
+	# clr_character_flag = flag_malnourished_for_stress
+	# clr_character_flag = flag_malnourished_for_depression
+	# clr_character_flag = flag_malnourished_for_sloth
+	# clr_character_flag = flag_malnourished_for_study
+	# clr_character_flag = flag_malnourished_for_faith
+	# clr_character_flag = flag_malnourished_for_paranoia 
+	# clr_character_flag = flag_malnourished_for_diligence
+	# clr_character_flag = flag_malnourished_for_cannibal
+	# clr_character_flag = flag_malnourished_for_craven
+	# clr_character_flag = flag_malnourished_for_boredom
+# }
+# weight_flavor_conditions_effect = {
 
-	if = { #If already about to become fat and fulfilling one of the special conditions, fire the specific event to give more flavor.
-		limit = { 
-			check_variable = { which = physique_variable value = 12 }
-			NOT = { trait = is_fat }
-			NOT = { has_character_flag = flag_primed_physique }
-			#NOT = { trait = temperate }
-			NOT = { trait = incapable }
-			age = 20
-			prisoner = no
-			is_inaccessible_trigger = no
-			NOT = { #Can happen only once
-				has_fat_for_flag_trigger = yes
-			}
-			OR = { 				#Possible reasons
-				trait = gluttonous
-				trait = stressed 
-				trait = depressed
-				trait = slothful
-				trait = hedonist
-				trait = wroth
-				trait = drunkard
-				has_focus = focus_carousing 
-				AND = { #Happy mom
-					OR = { 
-						trait = kind
-						trait = content
-						has_focus = focus_family 
-						trait = patient
-					}
-					NOR = { 
-						trait = cruel 
-						trait = envious
-					}
-					is_female = yes
-					any_child = { 
-						is_alive = yes 
-						is_adult = no
-					}
-				}
-				AND = { #Content husband
-					OR = { 
-						trait = kind
-						trait = content
-						has_focus = focus_family 
-						trait = patient
-					}
-					NOR = { 
-						trait = cruel 
-						trait = envious
-					}
-					is_female = no
-					is_married = yes
-					OR = { 
-						num_of_consorts = 2
-						num_of_children = 2
-						num_of_spouses = 2
-					}
-				}
-				AND = { #Frustrated lustful survivor mom
-					has_character_flag = survivor_mom
-					trait = celibate
-					trait = lustful
-				}
-				AND = { #Frustrated eunuch
-					trait = eunuch
-					trait = lustful
-				}
-				AND = { #Generic fallback
-					NOT = { trait = temperate }
-					check_variable = { which = physique_variable value = 15 }
-				}
-			}
-		}
-		if = { 
-			limit = { NOT = { check_variable = { which = physique_variable value = 15 } } }
-			gain_weight_small_effect = yes
-		}
-		set_character_flag = flag_primed_physique
-		character_event = { id = HFP.20605 days = 10 }
-	}
-	if = { #If already about to become malnourished and fulfilling one of the special conditions, fire the specific event to give more flavor.
-		limit = { 
-			NOT = { check_variable = { which = physique_variable value = -12 } }
-			NOT = { trait = is_malnourished }
-			#NOT = { trait = gluttonous }
-			NOT = { trait = incapable }
-			NOT = { has_character_flag = flag_primed_physique }
-			age = 20
-			prisoner = no
-			is_inaccessible_trigger = no
-			NOT = { #Can happen only once
-				has_malnourished_for_flag_trigger = yes
-			}
-			OR = { 				#Possible reasons
-				trait = temperate
-				trait = stressed
-				trait = depressed
-				trait = slothful
-				trait = scholar
-				trait = cannibal_trait
-				trait = craven
-				has_focus = focus_scholarship
-				AND = { 
-					NOT = { trait = cynical }
-					trait = theologian
-				}
-				AND = { 
-					NOT = { trait = cynical }
-					has_focus = focus_theology
-				}
-				trait = paranoid
-				trait = diligent
-				AND = { #Generic fallback
-					NOT = { trait = gluttonous }
-					NOT = { check_variable = { which = physique_variable value = -15 } }
-				}
-			}
-		}
-		if = { 
-			limit = { check_variable = { which = physique_variable value = -15 } }
-			lose_weight_small_effect = yes
-		}
-		set_character_flag = flag_primed_physique
-		character_event = { id = HFP.20628 days = 10 }
-	}	
-}
+	# if = { #If already about to become fat and fulfilling one of the special conditions, fire the specific event to give more flavor.
+		# limit = { 
+			# check_variable = { which = physique_variable value = 12 }
+			# NOT = { trait = is_fat }
+			# NOT = { has_character_flag = flag_primed_physique }
+			# #NOT = { trait = temperate }
+			# NOT = { trait = incapable }
+			# age = 20
+			# prisoner = no
+			# is_inaccessible_trigger = no
+			# NOT = { #Can happen only once
+				# has_fat_for_flag_trigger = yes
+			# }
+			# OR = { 				#Possible reasons
+				# trait = gluttonous
+				# trait = stressed 
+				# trait = depressed
+				# trait = slothful
+				# trait = hedonist
+				# trait = wroth
+				# trait = drunkard
+				# has_focus = focus_carousing 
+				# AND = { #Happy mom
+					# OR = { 
+						# trait = kind
+						# trait = content
+						# has_focus = focus_family 
+						# trait = patient
+					# }
+					# NOR = { 
+						# trait = cruel 
+						# trait = envious
+					# }
+					# is_female = yes
+					# any_child = { 
+						# is_alive = yes 
+						# is_adult = no
+					# }
+				# }
+				# AND = { #Content husband
+					# OR = { 
+						# trait = kind
+						# trait = content
+						# has_focus = focus_family 
+						# trait = patient
+					# }
+					# NOR = { 
+						# trait = cruel 
+						# trait = envious
+					# }
+					# is_female = no
+					# is_married = yes
+					# OR = { 
+						# num_of_consorts = 2
+						# num_of_children = 2
+						# num_of_spouses = 2
+					# }
+				# }
+				# AND = { #Frustrated lustful survivor mom
+					# has_character_flag = survivor_mom
+					# trait = celibate
+					# trait = lustful
+				# }
+				# AND = { #Frustrated eunuch
+					# trait = eunuch
+					# trait = lustful
+				# }
+				# AND = { #Generic fallback
+					# NOT = { trait = temperate }
+					# check_variable = { which = physique_variable value = 15 }
+				# }
+			# }
+		# }
+		# if = { 
+			# limit = { NOT = { check_variable = { which = physique_variable value = 15 } } }
+			# gain_weight_small_effect = yes
+		# }
+		# set_character_flag = flag_primed_physique
+		# character_event = { id = HFP.20605 days = 10 }
+	# }
+	# if = { #If already about to become malnourished and fulfilling one of the special conditions, fire the specific event to give more flavor.
+		# limit = { 
+			# NOT = { check_variable = { which = physique_variable value = -12 } }
+			# NOT = { trait = is_malnourished }
+			# #NOT = { trait = gluttonous }
+			# NOT = { trait = incapable }
+			# NOT = { has_character_flag = flag_primed_physique }
+			# age = 20
+			# prisoner = no
+			# is_inaccessible_trigger = no
+			# NOT = { #Can happen only once
+				# has_malnourished_for_flag_trigger = yes
+			# }
+			# OR = { 				#Possible reasons
+				# trait = temperate
+				# trait = stressed
+				# trait = depressed
+				# trait = slothful
+				# trait = scholar
+				# trait = cannibal_trait
+				# trait = craven
+				# has_focus = focus_scholarship
+				# AND = { 
+					# NOT = { trait = cynical }
+					# trait = theologian
+				# }
+				# AND = { 
+					# NOT = { trait = cynical }
+					# has_focus = focus_theology
+				# }
+				# trait = paranoid
+				# trait = diligent
+				# AND = { #Generic fallback
+					# NOT = { trait = gluttonous }
+					# NOT = { check_variable = { which = physique_variable value = -15 } }
+				# }
+			# }
+		# }
+		# if = { 
+			# limit = { check_variable = { which = physique_variable value = -15 } }
+			# lose_weight_small_effect = yes
+		# }
+		# set_character_flag = flag_primed_physique
+		# character_event = { id = HFP.20628 days = 10 }
+	# }	
+# }
 
-#Copied to facilitate use elsewhere.
-this_post_weight_gain_flavor_effect = { 
-	random_list = { 
-		25 = { }
-		5 = { 
-			trigger = { 
-				trait = stressed
-			}
-			character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
-		}
-		5 = { 
-			trigger = { 
-				trait = depressed
-			}
-			character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
-		}
-		2 = { 
-			modifier = { 
-				factor = 0.5
-				check_variable = { which = physique_variable value = 20 }
-			}
-			modifier = { 
-				factor = 0.5
-				NOT = { trait = feeble }
-			}
-			character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
-		}
-		2 = { 
-			modifier = { 
-				factor = 1.5
-				check_variable = { which = physique_variable value = 20 }
-			}
-			modifier = { 
-				factor = 1.75
-				trait = sturdy
-			}
-			character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
-		}
-		3 = { 
-			modifier = { 
-				factor = 0.5
-				trait = greedy
-			}
-			character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
-		}
-		5 = { 
-			trigger = { 
-				is_ruler = yes
-				NOR = { 
-					trait = stressed
-					trait = depressed
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
-		}
-		5 = { 
-			trigger = { 
-				NOT = { 
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
-		}
-		1 = { 
-			trigger = { 
-				NOR = { 
-					trait = stressed
-					trait = depressed
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
-		}
-	}
-}
+# #Copied to facilitate use elsewhere.
+# this_post_weight_gain_flavor_effect = { 
+	# random_list = { 
+		# 25 = { }
+		# 5 = { 
+			# trigger = { 
+				# trait = stressed
+			# }
+			# character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
+		# }
+		# 5 = { 
+			# trigger = { 
+				# trait = depressed
+			# }
+			# character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
+		# }
+		# 2 = { 
+			# modifier = { 
+				# factor = 0.5
+				# check_variable = { which = physique_variable value = 20 }
+			# }
+			# modifier = { 
+				# factor = 0.5
+				# NOT = { trait = feeble }
+			# }
+			# character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
+		# }
+		# 2 = { 
+			# modifier = { 
+				# factor = 1.5
+				# check_variable = { which = physique_variable value = 20 }
+			# }
+			# modifier = { 
+				# factor = 1.75
+				# trait = sturdy
+			# }
+			# character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
+		# }
+		# 3 = { 
+			# modifier = { 
+				# factor = 0.5
+				# trait = greedy
+			# }
+			# character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
+		# }
+		# 5 = { 
+			# trigger = { 
+				# is_ruler = yes
+				# NOR = { 
+					# trait = stressed
+					# trait = depressed
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
+		# }
+		# 5 = { 
+			# trigger = { 
+				# NOT = { 
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
+		# }
+		# 1 = { 
+			# trigger = { 
+				# NOR = { 
+					# trait = stressed
+					# trait = depressed
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
+		# }
+	# }
+# }
 
-this_post_weight_loss_flavor_effect = { 
-	random_list = { 
-		25 = { }
-		5 = { 
-			trigger = { 
-				trait = stressed
-			}
-			character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
-		}
-		5 = { 
-			trigger = { 
-				trait = depressed
-			}
-			character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
-		}
-		2 = { 
-			modifier = { 
-				factor = 0.5
-				check_variable = { which = physique_variable value = 20 }
-			}
-			modifier = { 
-				factor = 0.5
-				NOT = { trait = feeble }
-			}
-			character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
-		}
-		2 = { 
-			modifier = { 
-				factor = 1.5
-				check_variable = { which = physique_variable value = 20 }
-			}
-			modifier = { 
-				factor = 1.75
-				trait = sturdy
-			}
-			character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
-		}
-		3 = { 
-			modifier = { 
-				factor = 0.5
-				trait = greedy
-			}
-			character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
-		}
-		5 = { 
-			trigger = { 
-				is_ruler = yes
-				NOR = { 
-					trait = stressed
-					trait = depressed
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
-		}
-		5 = { 
-			trigger = { 
-				NOT = { 
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
-		}
-		1 = { 
-			trigger = { 
-				NOR = { 
-					trait = stressed
-					trait = depressed
-					trait = wroth
-				}
-			}
-			character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
-		}
-	}
-}
+# this_post_weight_loss_flavor_effect = { 
+	# random_list = { 
+		# 25 = { }
+		# 5 = { 
+			# trigger = { 
+				# trait = stressed
+			# }
+			# character_event = { id = HFP.20607 days = 50 random = 50 } #Lose stressed
+		# }
+		# 5 = { 
+			# trigger = { 
+				# trait = depressed
+			# }
+			# character_event = { id = HFP.20608 days = 50 random = 50 } #Lose depressed
+		# }
+		# 2 = { 
+			# modifier = { 
+				# factor = 0.5
+				# check_variable = { which = physique_variable value = 20 }
+			# }
+			# modifier = { 
+				# factor = 0.5
+				# NOT = { trait = feeble }
+			# }
+			# character_event = { id = HFP.20609 days = 50 random = 50 } #Gain health
+		# }
+		# 2 = { 
+			# modifier = { 
+				# factor = 1.5
+				# check_variable = { which = physique_variable value = 20 }
+			# }
+			# modifier = { 
+				# factor = 1.75
+				# trait = sturdy
+			# }
+			# character_event = { id = HFP.20610 days = 50 random = 50 } #Lose health
+		# }
+		# 3 = { 
+			# modifier = { 
+				# factor = 0.5
+				# trait = greedy
+			# }
+			# character_event = { id = HFP.20611 days = 50 random = 50 } #become charitable, vassal opinion.
+		# }
+		# 5 = { 
+			# trigger = { 
+				# is_ruler = yes
+				# NOR = { 
+					# trait = stressed
+					# trait = depressed
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20663 days = 50 random = 50 } #Become proud.
+		# }
+		# 5 = { 
+			# trigger = { 
+				# NOT = { 
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20664 days = 50 random = 50 } #Become patient.
+		# }
+		# 1 = { 
+			# trigger = { 
+				# NOR = { 
+					# trait = stressed
+					# trait = depressed
+					# trait = wroth
+				# }
+			# }
+			# character_event = { id = HFP.20665 days = 50 random = 50 } #Become content.
+		# }
+	# }
+# }
 
 # Referenced by Alternate Start religion feature generation
 reset_religion_features_effect = {
