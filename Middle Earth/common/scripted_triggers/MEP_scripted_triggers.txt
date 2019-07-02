@@ -205,14 +205,10 @@ mep_is_mountain_dweller_trigger = {
 
 mep_is_very_nice_trigger = {
 	OR = {
-		AND = {
-			OR = {
-				religion_group = religion_group_eruhini # Ainur (like Eagles)
-				religion_group = religion_group_periannath
-				culture = culture_entish
-				religion_group = religion_group_eldar   # Elves								
-			}
-		}
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_perian
+		culture = culture_entish
+		religion = religion_eldar   # Elves
 	}
 }
 
@@ -221,13 +217,6 @@ mep_is_very_nice_trigger = {
 mep_dont_do_nice_trigger = {
 	OR = {
 		mep_is_evil_side_trigger = yes
-		AND = {
-			OR = {
-				religion_group = religion_group_melkor
-				religion_group = religion_group_ungoliant
-				religion_group = religion_group_dragon
-			}
-		}
 		religion_group = religion_group_wilderness		
 	}
 }
@@ -262,18 +251,21 @@ mep_wont_hire_physician_trigger = {
 	OR = {
 		AND = {
 			OR = {
-				religion = religion_umaiar
+				religion = religion_melkor
 				religion = religion_wight
-				religion_group = religion_group_dragon
+				religion = religion_corrupted_wight
+				religion = religion_dragons
+				religion = religion_corrupted_dragons
 				religion_group = religion_group_ungoliant
 			}
 		}
 		religion_group = religion_group_wilderness
 		AND = {
-			religion_group = religion_group_eruhini
+			religion = religion_eruhini
 			NOT = { culture = culture_istari }
 		}
-		religion_group = religion_group_enyd
+		religion = religion_enyd
+		religion = religion_dark_enyd
 		trait = balrog
 		trait = valar
 		trait = enigma
@@ -344,8 +336,10 @@ mep_numenorean_traits_trigger = {
 
 mep_disease_resistant_trigger = {
 	OR = {
-		religion_group = religion_group_khazad
-		religion_group = religion_group_periannath
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_perian
+		religion = religion_dark_perian
 		mep_numenorean_traits_trigger = yes
 		trait = elf
 	}
