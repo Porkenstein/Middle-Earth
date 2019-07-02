@@ -2711,41 +2711,41 @@ character_event = {
 	}
 }
 
-# #Second ping event for joining in case inductor(s) died
-# character_event = {
-	# id = MNM.7031
-	# hide_window = yes
+#Second ping event for joining in case inductor(s) died
+character_event = {
+	id = MNM.7031
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = { 
-		# FROM = {
-			# letter_event = { id = MNM.7032 }
-		# }
-	# }
-# }
+	immediate = { 
+		FROM = {
+			letter_event = { id = MNM.7032 }
+		}
+	}
+}
 
-# #Joining event in case inductor(s) died
-# letter_event = {
-	# id = MNM.7032
-	# desc = {
+#Joining event in case inductor(s) died
+letter_event = {
+	id = MNM.7032
+	desc = {
 		# trigger = { NOT = { FROM = { society_member_of = the_assassins } } }
-		# text = EVTDESC_MNM_7032_A
-	# }
+		text = EVTDESC_MNM_7032_A
+	}
 	# desc = {
 		# trigger = { FROM = { society_member_of = the_assassins } }
 		# text = EVTDESC_MNM_7032_B
 	# }
-	# border = GFX_event_letter_frame_intrigue
+	border = GFX_event_letter_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_7032 #I will join
-		# if = {
-			# limit = { has_character_flag = being_recruited_by_the_satanists }
-			# join_society = the_satanists
-		# }
+	option = {
+		name = EVTOPTA_7032 #I will join
+		if = {
+			limit = { has_character_flag = being_recruited_by_the_satanists }
+			join_society = the_satanists
+		}
 		# if = {
 			# limit = { has_character_flag = being_recruited_by_the_trollcrafters }
 			# join_society = the_trollcrafters
@@ -2775,8 +2775,8 @@ character_event = {
 			# join_society = the_assassins
 		# }
 
-		# hidden_effect = {
-			# clr_character_flag = being_recruited_by_the_satanists
+		hidden_effect = {
+			clr_character_flag = being_recruited_by_the_satanists
 			# clr_character_flag = being_recruited_by_the_trollcrafters
 			# clr_character_flag = being_recruited_by_the_cult_of_kali
 			# clr_character_flag = being_recruited_by_the_cold_ones
@@ -2784,19 +2784,19 @@ character_event = {
 			# clr_character_flag = being_recruited_by_the_vodouns
 			# clr_character_flag = being_recruited_by_the_bacchants
 			# clr_character_flag = assassins_attempted_recruitment
-		# }
-	# }
+		}
+	}
 
-	# option = {
-		# name = EVTOPTB_7032 #Changed my mind
-		# event_target:grand_master = {
-			# opinion = {
-				# who = ROOT
-				# modifier = opinion_very_disappointed
-			# }
-		# }
-		# hidden_effect = {
-			# clr_character_flag = being_recruited_by_the_satanists
+	option = {
+		name = EVTOPTB_7032 #Changed my mind
+		event_target:grand_master = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_very_disappointed
+			}
+		}
+		hidden_effect = {
+			clr_character_flag = being_recruited_by_the_satanists
 			# clr_character_flag = being_recruited_by_the_trollcrafters
 			# clr_character_flag = being_recruited_by_the_cult_of_kali
 			# clr_character_flag = being_recruited_by_the_cold_ones
@@ -2804,293 +2804,293 @@ character_event = {
 			# clr_character_flag = being_recruited_by_the_vodouns
 			# clr_character_flag = being_recruited_by_the_bacchants
 			# clr_character_flag = assassins_attempted_recruitment
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
+		}
+		ai_chance = { factor = 0 }
+	}
+}
 
-# #Soul Corruption event
-# character_event = {
-	# id = MNM.7050
-	# picture = GFX_evt_dark_prayer
-	# desc = EVTDESC_MNM_7050
-	# border = GFX_event_normal_frame_intrigue
+#Soul Corruption event
+character_event = {
+	id = MNM.7050
+	picture = GFX_evt_dark_prayer
+	desc = EVTDESC_MNM_7050
+	border = GFX_event_normal_frame_intrigue
 
-	# hide_from = yes
+	hide_from = yes
 
-	# is_triggered_only = yes
-	# option = {
-		# name = EVTOPTA_MNM_7050
-		# trigger_switch = {
-			# on_trigger = has_character_flag
-			# corruption_remove_kind = { 
-				# remove_trait = kind
-				# clr_character_flag = corruption_remove_kind 
-			# }
-			# corruption_add_cruel = { 
-				# add_trait = cruel
-				# clr_character_flag = corruption_add_cruel 
-			# }
-			# corruption_remove_just = { 
-				# remove_trait = just
-				# clr_character_flag = corruption_remove_just
-			# }
-			# corruption_add_arbitrary = { 
-				# add_trait = arbitrary
-				# clr_character_flag = corruption_add_arbitrary
-			# }
-			# corruption_remove_honest = { 
-				# remove_trait = honest
-				# clr_character_flag = corruption_remove_honest
-			# }
-			# corruption_add_deceitful = { 
-				# add_trait = deceitful
-				# clr_character_flag = corruption_add_deceitful
-			# }
-			# corruption_add_possessed = { 
-				# add_trait = possessed
-				# clr_character_flag = corruption_add_possessed
-			# }
-		# }
-	# }	
-# }
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTA_MNM_7050
+		trigger_switch = {
+			on_trigger = has_character_flag
+			corruption_remove_kind = { 
+				remove_trait = kind
+				clr_character_flag = corruption_remove_kind 
+			}
+			corruption_add_cruel = { 
+				add_trait = cruel
+				clr_character_flag = corruption_add_cruel 
+			}
+			corruption_remove_just = { 
+				remove_trait = just
+				clr_character_flag = corruption_remove_just
+			}
+			corruption_add_arbitrary = { 
+				add_trait = arbitrary
+				clr_character_flag = corruption_add_arbitrary
+			}
+			corruption_remove_honest = { 
+				remove_trait = honest
+				clr_character_flag = corruption_remove_honest
+			}
+			corruption_add_deceitful = { 
+				add_trait = deceitful
+				clr_character_flag = corruption_add_deceitful
+			}
+			corruption_add_possessed = { 
+				add_trait = possessed
+				clr_character_flag = corruption_add_possessed
+			}
+		}
+	}	
+}
 
-# #Soul corruption adds stress
-# character_event = {
-    # id = MNM.7051
-    # desc = EVTDESC_MNM_7051
-    # picture = GFX_evt_illness
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds stress
+character_event = {
+    id = MNM.7051
+    desc = EVTDESC_MNM_7051
+    picture = GFX_evt_illness
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = stressed }
-    # }
+    trigger = {
+    	NOT = { trait = stressed }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = stressed
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = stressed
+    }
+}
 
-# #Soul corruption adds lunatic
-# character_event = {
-    # id = MNM.7052
-    # desc = EVTDESC_MNM_7052
-    # picture = GFX_evt_lunatic
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds lunatic
+character_event = {
+    id = MNM.7052
+    desc = EVTDESC_MNM_7052
+    picture = GFX_evt_lunatic
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = lunatic }
-    # }
+    trigger = {
+    	NOT = { trait = lunatic }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7052
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = lunatic
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7052
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = lunatic
+    }
+}
 
-# #Soul corruption adds stutter
-# character_event = {
-    # id = MNM.7053
-    # desc = EVTDESC_MNM_7053
-    # picture = GFX_evt_uncomfortable
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds stutter
+character_event = {
+    id = MNM.7053
+    desc = EVTDESC_MNM_7053
+    picture = GFX_evt_uncomfortable
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = stutter }
-    # }
+    trigger = {
+    	NOT = { trait = stutter }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = stutter
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = stutter
+    }
+}
 
-# #Soul corruption adds clubfooted
-# character_event = {
-    # id = MNM.7054
-    # desc = EVTDESC_MNM_7054
-    # picture = GFX_evt_uncomfortable
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds clubfooted
+character_event = {
+    id = MNM.7054
+    desc = EVTDESC_MNM_7054
+    picture = GFX_evt_uncomfortable
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = clubfooted }
-    # }
+    trigger = {
+    	NOT = { trait = clubfooted }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = clubfooted
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = clubfooted
+    }
+}
 
-# #Soul corruption adds hunchback
-# character_event = {
-    # id = MNM.7055
-    # desc = EVTDESC_MNM_7055
-    # picture = GFX_evt_uncomfortable
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds hunchback
+character_event = {
+    id = MNM.7055
+    desc = EVTDESC_MNM_7055
+    picture = GFX_evt_uncomfortable
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = hunchback }
-    # }
+    trigger = {
+    	NOT = { trait = hunchback }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = hunchback
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = hunchback
+    }
+}
 
-# #Soul corruption adds ugly
-# character_event = {
-    # id = MNM.7056
-    # desc = EVTDESC_MNM_7056
-    # picture = GFX_evt_uncomfortable
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds ugly
+character_event = {
+    id = MNM.7056
+    desc = EVTDESC_MNM_7056
+    picture = GFX_evt_uncomfortable
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOT = { trait = ugly }
-    # }
+    trigger = {
+    	NOT = { trait = ugly }
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = ugly
-        # hidden_effect = { remove_trait = fair }
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = ugly
+        hidden_effect = { remove_trait = fair }
+    }
+}
 
-# #Soul corruption adds corrupting_magic_major
-# character_event = {
-    # id = MNM.7057
-    # desc = EVTDESC_MNM_7057_NEW
-    # picture = GFX_evt_illness
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds corrupting_magic_major
+character_event = {
+    id = MNM.7057
+    desc = EVTDESC_MNM_7057_NEW
+    picture = GFX_evt_illness
+    border = GFX_event_normal_frame_intrigue
 	
-	# notification = yes
+	notification = yes
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # #trigger = {
-    # #	NOR = { 
-	# #		NOT = { health = 3 }
-	# #		has_character_modifier = corrupting_magic_minor
-	# #		has_character_modifier = corrupting_magic_major
-	# #	}
-    # #}
+    #trigger = {
+    #	NOR = { 
+	#		NOT = { health = 3 }
+	#		has_character_modifier = corrupting_magic_minor
+	#		has_character_modifier = corrupting_magic_major
+	#	}
+    #}
 
-	# immediate = {
-		# add_character_modifier = {
-        	# name = corrupting_magic_minor
-        	# years = 5
-			# stacking = yes
-        # }
-		# add_character_modifier = {
-        	# name = corrupting_magic_minor
-        	# years = 5
-			# stacking = yes
-        # }
-	# }
+	immediate = {
+		add_character_modifier = {
+        	name = corrupting_magic_minor
+        	years = 5
+			stacking = yes
+        }
+		add_character_modifier = {
+        	name = corrupting_magic_minor
+        	years = 5
+			stacking = yes
+        }
+	}
 	
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+    }
+}
 
 
-# #Soul corruption adds corrupting_magic_minor
-# character_event = {
-    # id = MNM.7058
-    # desc = EVTDESC_MNM_7057_NEW
-    # picture = GFX_evt_illness
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds corrupting_magic_minor
+character_event = {
+    id = MNM.7058
+    desc = EVTDESC_MNM_7057_NEW
+    picture = GFX_evt_illness
+    border = GFX_event_normal_frame_intrigue
 	
-	# notification = yes
+	notification = yes
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # #trigger = {
-    # #	NOR = { 
-	# #		NOT = { health = 3 }
-	# #		has_character_modifier = corrupting_magic_minor
-	# #		has_character_modifier = corrupting_magic_major
-	# #	}
-    # #}
+    #trigger = {
+    #	NOR = { 
+	#		NOT = { health = 3 }
+	#		has_character_modifier = corrupting_magic_minor
+	#		has_character_modifier = corrupting_magic_major
+	#	}
+    #}
 	
-	# immediate = {
-		# add_character_modifier = {
-        	# name = corrupting_magic_minor
-        	# years = 5
-			# stacking = yes
-        # }
-	# }
+	immediate = {
+		add_character_modifier = {
+        	name = corrupting_magic_minor
+        	years = 5
+			stacking = yes
+        }
+	}
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+    }
+}
 
-# #Soul corruption adds frail
-# character_event = {
-    # id = MNM.7059
-    # desc = EVTDESC_MNM_7059
-    # picture = GFX_evt_illness
-    # border = GFX_event_normal_frame_intrigue
+#Soul corruption adds frail
+character_event = {
+    id = MNM.7059
+    desc = EVTDESC_MNM_7059
+    picture = GFX_evt_illness
+    border = GFX_event_normal_frame_intrigue
 
-    # is_triggered_only = yes
-    # hide_from = yes
+    is_triggered_only = yes
+    hide_from = yes
     
-    # trigger = {
-    	# NOR = {
-    		# trait = feeble
-    		# trait = weak
-    		# trait = strong
-    	# }
-    # }
+    trigger = {
+    	NOR = {
+    		trait = feeble
+    		trait = weak
+    		trait = strong
+    	}
+    }
 
-    # option = { 
-        # name = EVTOPTA_MNM_7051
-        # custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
-        # add_trait = feeble
-        # hidden_effect = { remove_trait = robust }
-    # }
-# }
+    option = { 
+        name = EVTOPTA_MNM_7051
+        custom_tooltip = { text = EVTOPTA_MNM_7051_TT }
+        add_trait = feeble
+        hidden_effect = { remove_trait = robust }
+    }
+}
 
-# ### MISSIONS ###
+### MISSIONS ###
 
-# #Desecration temporarily moved to mnm_devil_worshipers_events_axel to prevent future conflicts
+#Desecration temporarily moved to mnm_devil_worshipers_events_axel to prevent future conflicts
 
-# ### POWERS ###
+### POWERS ###
 
-# #Power: Corrupt a priest 
+#Power: Corrupt a priest 
 
-# #Ping event for Corrupt a priest
+#Ping event for Corrupt a priest
 # character_event = {
 	# id = MNM.7825
 	# hide_window = yes
@@ -4576,88 +4576,88 @@ character_event = {
 	# }
 # }
 
-# ##Demonic Healing##
+##Demonic Healing##
 
-# #Demonic Healing opening#
-# character_event = {
-	# id = MNM.7118
-	# picture = GFX_evt_magic_ritual
-	# border = GFX_event_normal_frame_religion
+#Demonic Healing opening#
+character_event = {
+	id = MNM.7118
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# desc = EVTDESC_MNM_7118
-	# immediate = {
-		# if = {
-			# limit = { has_disease_trigger = yes }
-			# set_character_flag = dark_healing_disease_flag
-		# }
-		# if = {
-			# limit = { is_maimed_trigger = yes }
-			# set_character_flag = dark_healing_maimed_flag
-		# }
-		# if = {
-			# limit = {
-				# OR = {
-					# trait = wounded
-					# AND = {
-						# has_dlc = "Reapers"
-						# OR = {
-							# trait = severely_injured
-							# trait = infection
-						# }
-					# }
-				# }
-			# }
-			# set_character_flag = dark_healing_injured
-		# }
-	# }
+	desc = EVTDESC_MNM_7118
+	immediate = {
+		if = {
+			limit = { has_disease_trigger = yes }
+			set_character_flag = dark_healing_disease_flag
+		}
+		if = {
+			limit = { is_maimed_trigger = yes }
+			set_character_flag = dark_healing_maimed_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = wounded
+					AND = {
+						has_dlc = "Reapers"
+						OR = {
+							trait = severely_injured
+							trait = infection
+						}
+					}
+				}
+			}
+			set_character_flag = dark_healing_injured
+		}
+	}
 
-	# option = {
-		# name = EVTOPTA_MNM_7118
-		# custom_tooltip = {
-			# text = EVTOPTA_MNM_7118_TOOLTIP
-		# }
-		# character_event = { id = MNM.7119 days = 2 }
-	# }
-# }
+	option = {
+		name = EVTOPTA_MNM_7118
+		custom_tooltip = {
+			text = EVTOPTA_MNM_7118_TOOLTIP
+		}
+		character_event = { id = MNM.7119 days = 2 }
+	}
+}
 
-# #Demonic Healing result
-# character_event = {
-	# id = MNM.7119
-	# picture = GFX_evt_magic_ritual
-	# border = GFX_event_normal_frame_religion
+#Demonic Healing result
+character_event = {
+	id = MNM.7119
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = {
-		# if = {
-			# limit = { NOT = { has_dlc = "Reapers" } }
-			# random_list = {
-				# 3 = { set_character_flag = dark_healing_nothing_happened }
-				# 7 = {
-					# random_list = {
-						# 10 = {
-							# modifier = {
-								# NOT = {trait = maimed}
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_maimed_healed
-						# }
-						# 10 = {
-							# modifier = {
-								# NOT = {trait = infirm}
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_infirm
-						# }
-						# 5 = {
-							# modifier = {
-								# NOT = { trait = incapable }
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_incapable
-						# }
+	immediate = {
+		if = {
+			limit = { NOT = { has_dlc = "Reapers" } }
+			random_list = {
+				3 = { set_character_flag = dark_healing_nothing_happened }
+				7 = {
+					random_list = {
+						10 = {
+							modifier = {
+								NOT = {trait = maimed}
+								factor = 0
+							}
+							set_character_flag = dark_healing_maimed_healed
+						}
+						10 = {
+							modifier = {
+								NOT = {trait = infirm}
+								factor = 0
+							}
+							set_character_flag = dark_healing_infirm
+						}
+						5 = {
+							modifier = {
+								NOT = { trait = incapable }
+								factor = 0
+							}
+							set_character_flag = dark_healing_incapable
+						}
 						# 5 = {
 							# modifier = {
 								# NOT = { trait = eunuch }
@@ -4665,83 +4665,83 @@ character_event = {
 							# }
 							# set_character_flag = dark_healing_eunuch
 						# }
-						# 5 = {
-							# modifier = {
-								# NOT = { trait = blinded }
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_blinded
-						# }
-					# }
-				# }
-			# }
-		# }
+						5 = {
+							modifier = {
+								NOT = { trait = blinded }
+								factor = 0
+							}
+							set_character_flag = dark_healing_blinded
+						}
+					}
+				}
+			}
+		}
 	
-		# if = {
-			# limit = { has_dlc = "Reapers" }
+		if = {
+			limit = { has_dlc = "Reapers" }
 						
-			# random_list = {
-				# 3 = { set_character_flag = dark_healing_nothing_happened }
-				# 7 = {
-					# random_list = {
-						# 10 = {
-							# modifier = {
-								# OR = {
-									# trait = flu
-									# trait = food_poisoning
-								# }
-								# factor = 2
-							# }
-							# modifier = {
-								# trait = cancer
-								# NOT = { trait = has_measles }
-								# NOT = { trait = flu }
-								# NOT = { trait = food_poisoning }
-								# NOT = { trait = gout }
-								# NOT = { trait = scurvy }
-								# NOT = { trait = lovers_pox }
-								# NOT = { trait = pneumonic }
-								# NOT = { trait = syphilitic }
-								# NOT = { trait = leper }
-								# factor = 0.5
-							# }
-							# remove_random_disease_effect = yes # sets a flag to remove random "regular" disease
-							# set_character_flag = dark_healing_disease_removed
-						# }
-						# 10 = {
-							# modifier = {
-								# NOT = { has_epidemic_disease_trigger = yes }
-								# factor = 0
-							# }
-							# remove_random_epidemic_disease_effect = yes # sets a flag to remove random epidemic disease
-							# set_character_flag = dark_healing_disease_removed
-						# }
-						# 10 = {
-							# modifier = {
-								# is_maimed_trigger = no
-								# factor = 0
-							# }
-							# modifier = {
-								# trait = mangled
-								# factor = 2
-							# }
-							# remove_random_maimed_effect = yes
-							# set_character_flag = dark_healing_maimed_healed
-						# }
-						# 10 = {
-							# modifier = {
-								# NOT = { trait = infirm }
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_infirm
-						# }
-						# 10 = {
-							# modifier = {
-								# NOT = { trait = incapable }
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_incapable
-						# }
+			random_list = {
+				3 = { set_character_flag = dark_healing_nothing_happened }
+				7 = {
+					random_list = {
+						10 = {
+							modifier = {
+								OR = {
+									trait = flu
+									trait = food_poisoning
+								}
+								factor = 2
+							}
+							modifier = {
+								trait = cancer
+								NOT = { trait = has_measles }
+								NOT = { trait = flu }
+								NOT = { trait = food_poisoning }
+								NOT = { trait = gout }
+								NOT = { trait = scurvy }
+								NOT = { trait = lovers_pox }
+								NOT = { trait = pneumonic }
+								NOT = { trait = syphilitic }
+								NOT = { trait = leper }
+								factor = 0.5
+							}
+							remove_random_disease_effect = yes # sets a flag to remove random "regular" disease
+							set_character_flag = dark_healing_disease_removed
+						}
+						10 = {
+							modifier = {
+								NOT = { has_epidemic_disease_trigger = yes }
+								factor = 0
+							}
+							remove_random_epidemic_disease_effect = yes # sets a flag to remove random epidemic disease
+							set_character_flag = dark_healing_disease_removed
+						}
+						10 = {
+							modifier = {
+								is_maimed_trigger = no
+								factor = 0
+							}
+							modifier = {
+								trait = mangled
+								factor = 2
+							}
+							remove_random_maimed_effect = yes
+							set_character_flag = dark_healing_maimed_healed
+						}
+						10 = {
+							modifier = {
+								NOT = { trait = infirm }
+								factor = 0
+							}
+							set_character_flag = dark_healing_infirm
+						}
+						10 = {
+							modifier = {
+								NOT = { trait = incapable }
+								factor = 0
+							}
+							set_character_flag = dark_healing_incapable
+						}
 						# 10 = {
 							# modifier = {
 								# NOT = { trait = eunuch }
@@ -4749,175 +4749,175 @@ character_event = {
 							# }
 							# set_character_flag = dark_healing_eunuch
 						# }
-						# 10 = {
-							# modifier = {
-								# NOT = { trait = blinded }
-								# factor = 0
-							# }
-							# set_character_flag = dark_healing_blinded
-						# }
-					# }
-				# }
-			# }
-		# }
-	# }
+						10 = {
+							modifier = {
+								NOT = { trait = blinded }
+								factor = 0
+							}
+							set_character_flag = dark_healing_blinded
+						}
+					}
+				}
+			}
+		}
+	}
 
-	# desc = {
-		# trigger = {
-			# OR = {
-				# has_character_flag = dark_healing_incapable
-				# has_character_flag = dark_healing_infirm
-			# }
-		# }
-		# text = EVTDESC_MNM_7119_INCAPABLE_INFIRM
-	# }
-	# desc = {
-		# trigger = {
-			# has_character_flag = dark_healing_blinded
-		# }
-		# text = EVTDESC_MNM_7119_BLINDED
-	# }
-	# desc = {
-		# trigger = {
-			# has_character_flag = dark_healing_eunuch
-		# }
-		# text = EVTDESC_MNM_7119_EUNUCH
-	# }
+	desc = {
+		trigger = {
+			OR = {
+				has_character_flag = dark_healing_incapable
+				has_character_flag = dark_healing_infirm
+			}
+		}
+		text = EVTDESC_MNM_7119_INCAPABLE_INFIRM
+	}
+	desc = {
+		trigger = {
+			has_character_flag = dark_healing_blinded
+		}
+		text = EVTDESC_MNM_7119_BLINDED
+	}
+	desc = {
+		trigger = {
+			has_character_flag = dark_healing_eunuch
+		}
+		text = EVTDESC_MNM_7119_EUNUCH
+	}
 
-	# desc = {
-		# trigger = {
-			# has_character_flag = dark_healing_maimed_healed
-		# }
-		# text = EVTDESC_MNM_7119_MAIMED
-	# }
+	desc = {
+		trigger = {
+			has_character_flag = dark_healing_maimed_healed
+		}
+		text = EVTDESC_MNM_7119_MAIMED
+	}
 
-	# desc = {
-		# trigger = {
-			# NOT = {
-				# has_character_flag = dark_healing_incapable
+	desc = {
+		trigger = {
+			NOT = {
+				has_character_flag = dark_healing_incapable
 				# has_character_flag = dark_healing_eunuch
-				# has_character_flag = dark_healing_blinded
-				# has_character_flag = dark_healing_maimed_healed
-				# has_character_flag = dark_healing_infirm
-			# }
-			# has_character_flag = dark_healing_disease_flag
-			# has_character_flag = dark_healing_disease_removed
-		# }
-		# text = EVTDESC_MNM_7119_DISEASE
-	# }
+				has_character_flag = dark_healing_blinded
+				has_character_flag = dark_healing_maimed_healed
+				has_character_flag = dark_healing_infirm
+			}
+			has_character_flag = dark_healing_disease_flag
+			has_character_flag = dark_healing_disease_removed
+		}
+		text = EVTDESC_MNM_7119_DISEASE
+	}
 
-	# desc = {
-		# trigger = {
-			# NAND = {
-				# has_character_flag = dark_healing_disease_flag
-				# has_character_flag = dark_healing_disease_removed
-			# }
-			# has_character_flag = dark_healing_nothing_happened
-			# OR = {
-				# has_character_flag = dark_healing_disease_flag
-				# has_character_flag = dark_healing_maimed_flag
-			# }
-		# }
-		# text = EVTDESC_MNM_7119_NOTHING_HAPPENED
-	# }
+	desc = {
+		trigger = {
+			NAND = {
+				has_character_flag = dark_healing_disease_flag
+				has_character_flag = dark_healing_disease_removed
+			}
+			has_character_flag = dark_healing_nothing_happened
+			OR = {
+				has_character_flag = dark_healing_disease_flag
+				has_character_flag = dark_healing_maimed_flag
+			}
+		}
+		text = EVTDESC_MNM_7119_NOTHING_HAPPENED
+	}
 
-	# desc = {
-		# trigger = {
-			# NAND = {
-				# has_character_flag = dark_healing_disease_flag
-				# has_character_flag = dark_healing_disease_removed
-			# }
-			# has_character_flag = dark_healing_injured
-			# has_character_flag = dark_healing_nothing_happened
-			# NOR = {
-				# has_character_flag = dark_healing_disease_flag
-				# has_character_flag = dark_healing_maimed_flag
-			# }
-		# }
-		# text = EVTDESC_MNM_7119_NORMAL
-	# }
+	desc = {
+		trigger = {
+			NAND = {
+				has_character_flag = dark_healing_disease_flag
+				has_character_flag = dark_healing_disease_removed
+			}
+			has_character_flag = dark_healing_injured
+			has_character_flag = dark_healing_nothing_happened
+			NOR = {
+				has_character_flag = dark_healing_disease_flag
+				has_character_flag = dark_healing_maimed_flag
+			}
+		}
+		text = EVTDESC_MNM_7119_NORMAL
+	}
 
-	# desc = {
-		# trigger = {
-			# NAND = { 
-				# has_character_flag = dark_healing_injured 
-				# has_character_flag = dark_healing_disease_removed
-			# }
-			# has_character_flag = dark_healing_nothing_happened
-		# }
-		# text = EVTDESC_MNM_7119_TOO_WEAK
-	# }
+	desc = {
+		trigger = {
+			NAND = { 
+				has_character_flag = dark_healing_injured 
+				has_character_flag = dark_healing_disease_removed
+			}
+			has_character_flag = dark_healing_nothing_happened
+		}
+		text = EVTDESC_MNM_7119_TOO_WEAK
+	}
 
-	# option = {
-		# name = EVTOPT_MNM_7119
+	option = {
+		name = EVTOPT_MNM_7119
 
-		# if = {
-			# limit = { has_character_flag = dark_healing_disease_removed }
-			# #general disease clearing effects:
-			# remove_symptoms_effect = yes
-			# clear_disease_level_effect = yes
-			# remove_disease_flags_effect = yes
-			# hidden_effect = { remove_treatment_modifiers_effect = yes }
-		# }
+		if = {
+			limit = { has_character_flag = dark_healing_disease_removed }
+			#general disease clearing effects:
+			remove_symptoms_effect = yes
+			clear_disease_level_effect = yes
+			remove_disease_flags_effect = yes
+			hidden_effect = { remove_treatment_modifiers_effect = yes }
+		}
 
-		# if = { limit = { trait = infection } remove_trait = infection }
-		# if = { limit = { trait = severely_injured } remove_trait = severely_injured }
-		# if = { limit = { trait = ill } remove_trait = ill }
+		if = { limit = { trait = infection } remove_trait = infection }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured }
+		if = { limit = { trait = ill } remove_trait = ill }
 		
-		# if = { limit = { trait = wounded } remove_trait = wounded 
-			# add_scarred_tiered_effect = yes
-		# }
+		if = { limit = { trait = wounded } remove_trait = wounded 
+			add_scarred_tiered_effect = yes
+		}
 
-		# if = {
-			# limit = { has_character_flag = dark_healing_infirm }
-			# remove_trait = infirm
-		# }
-		# if = {
-			# limit = { has_character_flag = dark_healing_blinded }
-			# remove_trait = blinded
-		# }
-		# if = {
-			# limit = { has_character_flag = dark_healing_incapable }
-			# remove_trait = incapable
-		# }
+		if = {
+			limit = { has_character_flag = dark_healing_infirm }
+			remove_trait = infirm
+		}
+		if = {
+			limit = { has_character_flag = dark_healing_blinded }
+			remove_trait = blinded
+		}
+		if = {
+			limit = { has_character_flag = dark_healing_incapable }
+			remove_trait = incapable
+		}
 		# if = {
 			# limit = { has_character_flag = dark_healing_eunuch }
 			# remove_trait = eunuch
 		# }
-		# if = {
-			# limit = { NOT = { has_dlc = "Reapers" } has_character_flag = dark_healing_maimed_healed }
-			# remove_trait = maimed
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_maimed }
-			# remove_trait = maimed
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_mangled }
-			# remove_trait = mangled
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_one_eyed }
-			# remove_trait = one_eyed
-			# if = {
-				# limit = {
-					# has_character_modifier = glass_eye
-				# }
-				# remove_character_modifier = glass_eye
-			# }
-			# if = {
-				# limit = {
-					# has_character_modifier = phantom_pain
-					# NOT = { trait = one_handed }
-					# NOT = { trait = one_legged }
-					# NOT = { trait = disfigured }
-				# }
-				# remove_character_modifier = phantom_pain
-			# }
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_one_handed }
-			# remove_trait = one_handed
+		if = {
+			limit = { NOT = { has_dlc = "Reapers" } has_character_flag = dark_healing_maimed_healed }
+			remove_trait = maimed
+		}
+		if = {
+			limit = { has_character_flag = removed_maimed }
+			remove_trait = maimed
+		}
+		if = {
+			limit = { has_character_flag = removed_mangled }
+			remove_trait = mangled
+		}
+		if = {
+			limit = { has_character_flag = removed_one_eyed }
+			remove_trait = one_eyed
+			if = {
+				limit = {
+					has_character_modifier = glass_eye
+				}
+				remove_character_modifier = glass_eye
+			}
+			if = {
+				limit = {
+					has_character_modifier = phantom_pain
+					NOT = { trait = one_handed }
+					NOT = { trait = one_legged }
+					NOT = { trait = disfigured }
+				}
+				remove_character_modifier = phantom_pain
+			}
+		}
+		if = {
+			limit = { has_character_flag = removed_one_handed }
+			remove_trait = one_handed
 			# if = {
 				# limit = {
 					# has_artifact = prosthetic_hand_gold
@@ -4931,416 +4931,416 @@ character_event = {
 				# }
 				# destroy_artifact = prosthetic_hand_metal
 			# }
-			# if = {
-				# limit = {
-					# has_character_modifier = phantom_pain
-					# NOT = { trait = one_eyed }
-					# NOT = { trait = one_legged }
-					# NOT = { trait = disfigured }
-				# }
-				# remove_character_modifier = phantom_pain
-			# }
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_one_legged }
-			# remove_trait = one_legged
-			# if = {
-				# limit = {
-					# has_character_modifier = peg_leg
-				# }
-				# remove_character_modifier = peg_leg
-			# }
+			if = {
+				limit = {
+					has_character_modifier = phantom_pain
+					NOT = { trait = one_eyed }
+					NOT = { trait = one_legged }
+					NOT = { trait = disfigured }
+				}
+				remove_character_modifier = phantom_pain
+			}
+		}
+		if = {
+			limit = { has_character_flag = removed_one_legged }
+			remove_trait = one_legged
+			if = {
+				limit = {
+					has_character_modifier = peg_leg
+				}
+				remove_character_modifier = peg_leg
+			}
 			# if = {
 				# limit = {
 					# has_artifact = prosthetic_leg_artifact
 				# }
 				# destroy_artifact = prosthetic_leg_artifact
 			# }
-			# if = {
-				# limit = {
-					# has_character_modifier = phantom_pain
-					# NOT = { trait = one_handed }
-					# NOT = { trait = one_eyed }
-					# NOT = { trait = disfigured }
-				# }
-				# remove_character_modifier = phantom_pain
-			# }
-		# }
-		# if = {
-			# limit = { has_character_flag = removed_disfigured }
-			# remove_trait = disfigured
-			# if = {
-				# limit = {
-					# has_character_modifier = golden_mask
-				# }
-				# remove_character_modifier = golden_mask
-				# wealth = 10
-			# }
-			# if = {
-				# limit = {
-					# has_character_modifier = phantom_pain
-					# NOT = { trait = one_handed }
-					# NOT = { trait = one_legged }
-					# NOT = { trait = one_eyed }
-				# }
-				# remove_character_modifier = phantom_pain
-			# }
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_flu }
-			# remove_trait = flu
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_measles }
-			# remove_trait = has_measles
-			# set_character_flag = immune_measles
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_food_poisoning }
-			# remove_trait = food_poisoning
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_gout }
-			# remove_trait = gout
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_scurvy }
-			# remove_trait = scurvy
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_lovers_pox }
-			# remove_trait = lovers_pox
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_cancer }
-			# remove_trait = cancer
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_pneumonic }
-			# remove_trait = pneumonic
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_syphilitic }
-			# remove_trait = syphilitic
-			# set_character_flag = immune_syphilis
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_leper }
-			# remove_trait = leper
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_has_tuberculosis }
-			# remove_trait = has_tuberculosis
-			# set_character_flag = immune_tuberculosis
-		# }
+			if = {
+				limit = {
+					has_character_modifier = phantom_pain
+					NOT = { trait = one_handed }
+					NOT = { trait = one_eyed }
+					NOT = { trait = disfigured }
+				}
+				remove_character_modifier = phantom_pain
+			}
+		}
+		if = {
+			limit = { has_character_flag = removed_disfigured }
+			remove_trait = disfigured
+			if = {
+				limit = {
+					has_character_modifier = golden_mask
+				}
+				remove_character_modifier = golden_mask
+				wealth = 10
+			}
+			if = {
+				limit = {
+					has_character_modifier = phantom_pain
+					NOT = { trait = one_handed }
+					NOT = { trait = one_legged }
+					NOT = { trait = one_eyed }
+				}
+				remove_character_modifier = phantom_pain
+			}
+		}
+		if = {
+			limit = { has_character_flag = removing_flu }
+			remove_trait = flu
+		}
+		if = {
+			limit = { has_character_flag = removing_measles }
+			remove_trait = has_measles
+			set_character_flag = immune_measles
+		}
+		if = {
+			limit = { has_character_flag = removing_food_poisoning }
+			remove_trait = food_poisoning
+		}
+		if = {
+			limit = { has_character_flag = removing_gout }
+			remove_trait = gout
+		}
+		if = {
+			limit = { has_character_flag = removing_scurvy }
+			remove_trait = scurvy
+		}
+		if = {
+			limit = { has_character_flag = removing_lovers_pox }
+			remove_trait = lovers_pox
+		}
+		if = {
+			limit = { has_character_flag = removing_cancer }
+			remove_trait = cancer
+		}
+		if = {
+			limit = { has_character_flag = removing_pneumonic }
+			remove_trait = pneumonic
+		}
+		if = {
+			limit = { has_character_flag = removing_syphilitic }
+			remove_trait = syphilitic
+			set_character_flag = immune_syphilis
+		}
+		if = {
+			limit = { has_character_flag = removing_leper }
+			remove_trait = leper
+		}
+		if = {
+			limit = { has_character_flag = removing_has_tuberculosis }
+			remove_trait = has_tuberculosis
+			set_character_flag = immune_tuberculosis
+		}
 		# if = {
 			# limit = { has_character_flag = removing_has_aztec_disease }
 			# remove_trait = has_aztec_disease
 			# set_character_flag = immune_aztec_disease
 		# }
-		# if = {
-			# limit = { has_character_flag = removing_has_small_pox }
-			# remove_trait = has_small_pox
-			# set_character_flag = immune_smallpox
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_has_bubonic_plague }
-			# remove_trait = has_bubonic_plague
-			# set_character_flag = immune_bubonic_plague
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_has_typhus }
-			# remove_trait = has_typhus
-			# set_character_flag = immune_typhus
-		# }
-		# if = {
-			# limit = { has_character_flag = removing_has_typhoid_fever }
-			# remove_trait = has_typhoid_fever
-			# set_character_flag = immune_typhoid_fever
-		# }
+		if = {
+			limit = { has_character_flag = removing_has_small_pox }
+			remove_trait = has_small_pox
+			set_character_flag = immune_smallpox
+		}
+		if = {
+			limit = { has_character_flag = removing_has_bubonic_plague }
+			remove_trait = has_bubonic_plague
+			set_character_flag = immune_bubonic_plague
+		}
+		if = {
+			limit = { has_character_flag = removing_has_typhus }
+			remove_trait = has_typhus
+			set_character_flag = immune_typhus
+		}
+		if = {
+			limit = { has_character_flag = removing_has_typhoid_fever }
+			remove_trait = has_typhoid_fever
+			set_character_flag = immune_typhoid_fever
+		}
 
-		# add_character_modifier = {
-			# modifier = dark_healing_recent
-			# years = 1
-		# }
+		add_character_modifier = {
+			modifier = dark_healing_recent
+			years = 1
+		}
 
-		# # demonic healing specific clearing:
-		# clr_character_flag = dark_healing_in_effect
-		# clr_character_flag = dark_healing_nothing_happened
-		# clr_character_flag = dark_healing_maimed_flag
-		# clr_character_flag = dark_healing_disease_flag
-		# clr_character_flag = dark_healing_disease_removed
-		# clr_character_flag = dark_healing_maimed_healed
-		# clr_character_flag = dark_healing_incapable
-		# clr_character_flag = dark_healing_infirm
-		# clr_character_flag = dark_healing_blinded
-		# clr_character_flag = dark_healing_eunuch
-		# clr_character_flag = dark_healing_injured
-		# clr_character_flag = removed_maimed
-		# clr_character_flag = removed_mangled
-		# clr_character_flag = removed_one_eyed
-		# clr_character_flag = removed_one_handed
-		# clr_character_flag = removed_one_legged
-		# clr_character_flag = removed_disfigured
-		# clr_character_flag = removing_flu
-		# clr_character_flag = removing_measles
-		# clr_character_flag = removing_food_poisoning
-		# clr_character_flag = removing_gout
-		# clr_character_flag = removing_scurvy
-		# clr_character_flag = removing_lovers_pox
-		# clr_character_flag = removing_cancer
-		# clr_character_flag = removing_leper
-		# clr_character_flag = removing_has_tuberculosis
-		# clr_character_flag = removing_has_aztec_disease
-		# clr_character_flag = removing_has_small_pox
-		# clr_character_flag = removing_has_bubonic_plague
-		# clr_character_flag = removing_has_typhus
-		# clr_character_flag = removing_has_typhoid_fever
-	# }
-# }
+		# demonic healing specific clearing:
+		clr_character_flag = dark_healing_in_effect
+		clr_character_flag = dark_healing_nothing_happened
+		clr_character_flag = dark_healing_maimed_flag
+		clr_character_flag = dark_healing_disease_flag
+		clr_character_flag = dark_healing_disease_removed
+		clr_character_flag = dark_healing_maimed_healed
+		clr_character_flag = dark_healing_incapable
+		clr_character_flag = dark_healing_infirm
+		clr_character_flag = dark_healing_blinded
+		clr_character_flag = dark_healing_eunuch
+		clr_character_flag = dark_healing_injured
+		clr_character_flag = removed_maimed
+		clr_character_flag = removed_mangled
+		clr_character_flag = removed_one_eyed
+		clr_character_flag = removed_one_handed
+		clr_character_flag = removed_one_legged
+		clr_character_flag = removed_disfigured
+		clr_character_flag = removing_flu
+		clr_character_flag = removing_measles
+		clr_character_flag = removing_food_poisoning
+		clr_character_flag = removing_gout
+		clr_character_flag = removing_scurvy
+		clr_character_flag = removing_lovers_pox
+		clr_character_flag = removing_cancer
+		clr_character_flag = removing_leper
+		clr_character_flag = removing_has_tuberculosis
+		clr_character_flag = removing_has_aztec_disease
+		clr_character_flag = removing_has_small_pox
+		clr_character_flag = removing_has_bubonic_plague
+		clr_character_flag = removing_has_typhus
+		clr_character_flag = removing_has_typhoid_fever
+	}
+}
 
-# ##Induction##
+##Induction##
 
-# #Opening Event
-# character_event = {
-	# id = MNM.7121
-	# picture = GFX_evt_dark_prayer
-	# border = GFX_event_normal_frame_religion
+#Opening Event
+character_event = {
+	id = MNM.7121
+	picture = GFX_evt_dark_prayer
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = {
-	# }
+	immediate = {
+	}
 
-	# desc = EVTDESC_MNM_7121
+	desc = EVTDESC_MNM_7121
 
-	# option = {
-		# name = EVTOPTA_MNM_7121
-		# FROM = {
-			# character_event = {
-				# id = MNM.7122
-				# days = 0
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTA_MNM_7121
+		FROM = {
+			character_event = {
+				id = MNM.7122
+				days = 0
+			}
+		}
+	}
+}
 
-# #Result Ping#
-# character_event = {
-	# id = MNM.7122
-	# picture = GFX_evt_dark_prayer
-	# border = GFX_event_normal_frame_religion
+#Result Ping#
+character_event = {
+	id = MNM.7122
+	picture = GFX_evt_dark_prayer
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
-	# hide_window = yes
+	is_triggered_only = yes
+	hide_window = yes
 
-	# immediate = {
-		# random = {
-			# chance = 30
+	immediate = {
+		random = {
+			chance = 30
 
-			# modifier = {
-				# is_rival = FROM
-				# factor = 0
-			# }
-			# modifier = {
-				# trait = trusting
-				# factor = 2
-			# }
-			# modifier = {
-				# trait = paranoid
-				# factor = 0.5
-			# }
-			# modifier = {
-				# trait = lunatic
-				# factor = 2
-			# }
-			# modifier = {
-				# trait = possessed
-				# factor = 2
-			# }
-			# modifier = {
-				# trait = depressed
-				# factor = 2
-			# }
-			# modifier = {
-				# has_negative_congenital_trigger = yes
-				# factor = 2
-			# }
-			# modifier = {
-				# trait = ambitious
-				# factor = 2
-			# }
-			# modifier = {
-				# has_impious_trait_trigger = yes
-				# factor = 2
-			# }
-			# modifier = {
-				# FROM = {
-					# any_vassal = {
-						# character = ROOT
-					# }
-				# }
-				# factor = 2
-			# }
-			# modifier = {
-				# NOT = {
-					# religion_group = FROM
-				# }
-				# factor = 0.5
-			# }
-			# modifier = {
-				# is_ruler = no
-				# factor = 2
-			# }
-			# modifier = {
-				# dynasty = FROM
-				# factor = 2
-			# }
-			# modifier = {
-				# is_in_society = yes
-				# factor = 0
-			# }
-			# join_from_devil_worshiper_society_effect = yes
-		# }
+			modifier = {
+				is_rival = FROM
+				factor = 0
+			}
+			modifier = {
+				trait = trusting
+				factor = 2
+			}
+			modifier = {
+				trait = paranoid
+				factor = 0.5
+			}
+			modifier = {
+				trait = lunatic
+				factor = 2
+			}
+			modifier = {
+				trait = possessed
+				factor = 2
+			}
+			modifier = {
+				trait = depressed
+				factor = 2
+			}
+			modifier = {
+				has_negative_congenital_trigger = yes
+				factor = 2
+			}
+			modifier = {
+				trait = ambitious
+				factor = 2
+			}
+			modifier = {
+				has_impious_trait_trigger = yes
+				factor = 2
+			}
+			modifier = {
+				FROM = {
+					any_vassal = {
+						character = ROOT
+					}
+				}
+				factor = 2
+			}
+			modifier = {
+				NOT = {
+					religion_group = FROM
+				}
+				factor = 0.5
+			}
+			modifier = {
+				is_ruler = no
+				factor = 2
+			}
+			modifier = {
+				dynasty = FROM
+				factor = 2
+			}
+			modifier = {
+				is_in_society = yes
+				factor = 0
+			}
+			join_from_devil_worshiper_society_effect = yes
+		}
 
-		# random = {
-			# chance = 50
-			# set_character_flag = wounded_induction
-		# }
-		# random = {
-			# chance = 10
-			# set_character_flag = lunatic_induction
-		# }
-		# random = {
-			# chance = 10
-			# set_character_flag = possessed_induction
-		# }
-		# add_character_modifier = {
-			# modifier = recent_induction_attempt
-			# days = 90
-		# }
+		random = {
+			chance = 50
+			set_character_flag = wounded_induction
+		}
+		random = {
+			chance = 10
+			set_character_flag = lunatic_induction
+		}
+		random = {
+			chance = 10
+			set_character_flag = possessed_induction
+		}
+		add_character_modifier = {
+			modifier = recent_induction_attempt
+			days = 90
+		}
 
-		# if = {
-			# limit = {
-				# same_society_as = FROM
-			# }
-			# FROM = {
-				# character_event = {
-					# id = MNM.7123
-					# days = 7
-				# }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# NOT= { same_society_as = FROM }
-			# }
-			# FROM = {
-				# character_event = {
-					# id = MNM.7124
-					# days = 7
-				# }
-			# }
-		# }
-	# }
-# }
+		if = {
+			limit = {
+				same_society_as = FROM
+			}
+			FROM = {
+				character_event = {
+					id = MNM.7123
+					days = 7
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT= { same_society_as = FROM }
+			}
+			FROM = {
+				character_event = {
+					id = MNM.7124
+					days = 7
+				}
+			}
+		}
+	}
+}
 
-# #Successful Induction#
-# character_event = {
-	# id = MNM.7123
-	# picture = GFX_evt_dark_prayer
-	# border = GFX_event_normal_frame_religion
+#Successful Induction#
+character_event = {
+	id = MNM.7123
+	picture = GFX_evt_dark_prayer
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# has_character_flag = wounded_induction
-				# is_alive = yes
-			# }
-		# }
+	desc = {
+		trigger = {
+			FROM = {
+				has_character_flag = wounded_induction
+				is_alive = yes
+			}
+		}
 
-		# text = EVTDESC_MNM_7123_WOUNDED
-	# }
+		text = EVTDESC_MNM_7123_WOUNDED
+	}
 
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# OR = {
-					# has_character_flag = lunatic_induction
-					# has_character_flag = possessed_induction
-				# }
-				# is_alive = yes
-			# }
-		# }
+	desc = {
+		trigger = {
+			FROM = {
+				OR = {
+					has_character_flag = lunatic_induction
+					has_character_flag = possessed_induction
+				}
+				is_alive = yes
+			}
+		}
 
-		# text = EVTDESC_MNM_7123_INSANE
-	# }
+		text = EVTDESC_MNM_7123_INSANE
+	}
 
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# NOR = {
-					# has_character_flag = wounded_induction
-					# has_character_flag = lunatic_induction
-					# has_character_flag = possessed_induction
-				# }
-				# is_alive = yes
-			# }
-		# }
+	desc = {
+		trigger = {
+			FROM = {
+				NOR = {
+					has_character_flag = wounded_induction
+					has_character_flag = lunatic_induction
+					has_character_flag = possessed_induction
+				}
+				is_alive = yes
+			}
+		}
 
-		# text = EVTDESC_MNM_7123_NOT_WOUNDED
-	# }
+		text = EVTDESC_MNM_7123_NOT_WOUNDED
+	}
 
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# is_alive = no
-			# }
-		# }
-		# text = EVTDESC_MNM_7123_DEAD
-	# }
+	desc = {
+		trigger = {
+			FROM = {
+				is_alive = no
+			}
+		}
+		text = EVTDESC_MNM_7123_DEAD
+	}
 
-	# option = {
-		# custom_tooltip = {
-			# text = successful_induction_tooltip
-			# FROM = {
-				# if = {
-					# limit = {
-						# has_character_flag = wounded_induction
-					# }
-					# add_trait = wounded
-					# clr_character_flag = wounded_induction
-				# }
-				# if = {
-					# limit = {
-						# has_character_flag = lunatic_induction
-					# }
-					# add_trait = lunatic
-					# clr_character_flag = lunatic_induction
-				# }
-				# if = {
-					# limit = {
-						# has_character_flag = possessed_induction
-					# }
-					# add_trait = possessed
-					# clr_character_flag = possessed_induction
-				# }
+	option = {
+		custom_tooltip = {
+			text = successful_induction_tooltip
+			FROM = {
+				if = {
+					limit = {
+						has_character_flag = wounded_induction
+					}
+					add_trait = wounded
+					clr_character_flag = wounded_induction
+				}
+				if = {
+					limit = {
+						has_character_flag = lunatic_induction
+					}
+					add_trait = lunatic
+					clr_character_flag = lunatic_induction
+				}
+				if = {
+					limit = {
+						has_character_flag = possessed_induction
+					}
+					add_trait = possessed
+					clr_character_flag = possessed_induction
+				}
 
-			# }	
-		# }
-		# FROM = {
-			# if = {
-				# limit = {
-					# is_in_society = yes
-				# }
-				# leave_society = yes
-			# }
-			# if = {
-				# limit = { ROOT = { society_member_of = the_satanists } }
-				# join_society = the_satanists
-			# }
+			}	
+		}
+		FROM = {
+			if = {
+				limit = {
+					is_in_society = yes
+				}
+				leave_society = yes
+			}
+			if = {
+				limit = { ROOT = { society_member_of = the_satanists } }
+				join_society = the_satanists
+			}
 			# if = {
 				# limit = { ROOT = { society_member_of = the_trollcrafters } }
 				# join_society = the_trollcrafters
@@ -5365,1200 +5365,1200 @@ character_event = {
 				# limit = { ROOT = { society_member_of = the_bacchants } }
 				# join_society = the_bacchants
 			# }
-		# }
+		}
 		
-		# name = EVTOPTA_MNM_7123
-	# }
-
-	# option = {
-		# trigger = {
-			# FROM = {
-				# is_alive = no
-			# }
-		# }
-
-		# name = EVTOPTB_MNM_7123
-	# }
-# }
-
-# #Failed Induction#
-# character_event = {
-	# id = MNM.7124
-	# picture = GFX_evt_dark_prayer
-	# border = GFX_event_normal_frame_religion
-
-	# is_triggered_only = yes
-
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# has_character_flag = wounded_induction
-				# is_alive = yes
-			# }
-		# }	
-		# text = EVTDESC_MNM_7124_WOUNDED
-	# }
-
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# OR = {
-					# has_character_flag = lunatic_induction
-					# has_character_flag = possessed_induction
-				# }
-				# is_alive = yes
-			# }
-		# }	
-		# text = EVTDESC_MNM_7124_INSANE
-	# }
-
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# NOR = {
-					# has_character_flag = wounded_induction
-					# has_character_flag = lunatic_induction
-					# has_character_flag = possessed_induction
-				# }
-				# is_alive = yes
-			# }
-		# }
-
-		# text = EVTDESC_MNM_7124_NOT_WOUNDED
-	# }
-
-	# desc = {
-		# trigger = {
-			# FROM = {
-				# is_alive = no
-			# }
-		# }
-		# text = EVTDESC_MNM_7123_DEAD
-	# }
-
-	# option = {
-		# trigger = {
-			# FROM = {
-				# is_alive = yes
-			# }
-		# }
-		# FROM = {
-			# if = {
-				# limit = {
-					# has_character_flag = wounded_induction
-				# }
-				# add_trait = wounded
-				# clr_character_flag = wounded_induction
-			# }
-			# if = {
-				# limit = {
-					# has_character_flag = lunatic_induction
-				# }
-				# add_trait = lunatic
-				# clr_character_flag = lunatic_induction
-			# }
-			# if = {
-				# limit = {
-					# has_character_flag = possessed_induction
-				# }
-				# add_trait = possessed
-				# clr_character_flag = possessed_induction
-			# }
-		# }
-
-		# name = EVTOPTA_MNM_7124
-	# }
-
-	# option = {
-		# trigger = {
-			# FROM = {
-				# is_alive = no
-			# }
-		# }
-
-		# name = EVTOPTB_MNM_7123
-	# }
-# }
-# ## Dark Divorce
-
-# #Ping event for spouse (use of power)
-# character_event = {
-	# id = MNM.7800
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# save_event_target_as = dark_divorce_target
-		# FROMFROM = {
-			# save_event_target_as = dark_divorce_spell_caster
-		# }
-		# event_target:dark_divorce_spell_caster = {
-			# character_event = { id = MNM.7801 }
-		# }
-	# }
-# }
-
-# #Dark Divorce spellcasting event
-# character_event = {
-	# id = MNM.7801
-	# picture = GFX_evt_dark_prayer
-	# desc = EVTDESC_MNM_7801
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-	# immediate = {
-		# event_target:dark_divorce_target = {
-			# random_list = {
-				# 20 = {
-					# set_character_flag = supernatural_death_fear
-				# }
-				# 20 = {
-					# set_character_flag = supernatural_death_lightning
-				# }
-				# 20 = {
-					# set_character_flag = supernatural_death_combustion
-				# }
-				# 20 = {
-					# set_character_flag = supernatural_death_crows
-				# }
-				# 20 = {
-					# set_character_flag = supernatural_death_suicide			
-				# }
-			# }
-		# }
-	# }
-	# option = { #Bye bye baby
-		# trigger = {
-			# event_target:dark_divorce_spell_caster = {
-				# has_society_currency_minor_trigger = yes
-			# }
-		# }
-		# name = EVTOPTA_MNM_7801
-		# custom_tooltip = { text = EVTOPTA_MNM_7801_TOOLTIP }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# detract_society_currency_minor_effect = yes
-			# }
-			# event_target:dark_divorce_target = {
-				# if = {
-					# limit = {
-						# OR = {
-							# has_character_flag = supernatural_death_fear
-							# has_character_flag = supernatural_death_lightning
-							# has_character_flag = supernatural_death_combustion
-							# has_character_flag = supernatural_death_crows
-						# }
-					# }
-					# character_event = { id = MNM.7802 days = 3 random = 27 }
-				# }
-				# if = {
-					# limit = {
-						# has_character_flag = supernatural_death_suicide	
-					# }
-					# character_event = { id = MNM.7807 days = 1 random = 6 }
-				# }
-			# }
-		# }		
-	# }
-	# option = { #No I won't
-		# name = EVTOPTB_MNM_7801
-		# custom_tooltip = { text = EVTOPTB_MNM_7801_TOOLTIP }
-		# event_target:dark_divorce_target = {
-			# hidden_effect = {
-				# clr_character_flag = supernatural_death_fear
-				# clr_character_flag = supernatural_death_lightning
-				# clr_character_flag = supernatural_death_combustion
-				# clr_character_flag = supernatural_death_crows
-				# clr_character_flag = supernatural_death_suicide
-				# clr_character_flag = being_dark_divorced
-			# }
-		# }
-		# event_target:dark_divorce_spell_caster = {
-			# remove_character_modifier = recently_did_dark_divorce
-		# }
-		# ai_chance = { factor = 0 }
-	# }
-# }
-
-# #Ping event for spouse death (not possessed suicide)
-# character_event = {
-	# id = MNM.7802
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# if = {
-			# limit = {
-				# has_character_flag = supernatural_death_fear
-			# }
-			# event_target:dark_divorce_spell_caster = {
-				# character_event = { id = MNM.7803 }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# has_character_flag = supernatural_death_lightning
-			# }
-			# event_target:dark_divorce_spell_caster = {
-				# character_event = { id = MNM.7804 }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# has_character_flag = supernatural_death_combustion
-			# }
-			# event_target:dark_divorce_spell_caster = {
-				# character_event = { id = MNM.7805 }
-			# }
-		# }
-		# if = {
-			# limit = {
-				# has_character_flag = supernatural_death_crows
-			# }
-			# event_target:dark_divorce_spell_caster = {
-				# character_event = { id = MNM.7806 }
-			# }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse dies from fear event
-# character_event = {
-	# id = MNM.7803
-	# picture = GFX_evt_illness
-	# desc = EVTDESC_MNM_7803
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7803
-		# event_target:dark_divorce_target = {
-			# death = {
-				# death_reason = death_murder_unknown_fear
-				# killer = ROOT
-			# }
-			# clr_character_flag = supernatural_death_fear
-		# }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# major_soul_corruption_effect = yes
-			# }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse dies from lightning event
-# character_event = {
-	# id = MNM.7804
-	# picture = GFX_evt_religious_exultation
-	# desc = EVTDESC_MNM_7804
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7804
-		# event_target:dark_divorce_target = {
-			# death = {
-				# death_reason = death_murder_unknown_lightning
-				# killer = ROOT
-			# }
-			# clr_character_flag = supernatural_death_lightning
-		# }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# major_soul_corruption_effect = yes
-			# }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse dies from spontaneous combustion event
-# character_event = {
-	# id = MNM.7805
-	# picture = GFX_evt_burning_house
-	# desc = EVTDESC_MNM_7805
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7805
-		# event_target:dark_divorce_target = {
-			# death = {
-				# death_reason = death_murder_unknown_combustion
-				# killer = ROOT
-			# }
-			# clr_character_flag = supernatural_death_combustion
-		# }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# major_soul_corruption_effect = yes
-			# }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse dies from crows event
-# character_event = {
-	# id = MNM.7806
-	# picture = GFX_evt_garden
-	# desc = EVTDESC_MNM_7806
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7806
-		# event_target:dark_divorce_target = {
-			# death = {
-				# death_reason = death_murder_unknown_crows
-				# killer = ROOT
-			# }
-			# clr_character_flag = supernatural_death_crows
-		# }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# major_soul_corruption_effect = yes
-			# }
-		# }
-	# }
-# }
-
-# #Ping event for Dark Divorce spouse becoming possessed
-# character_event = {
-	# id = MNM.7807
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# event_target:dark_divorce_target = {
-			# add_trait_possessed_effect = yes
-		# }
-		# event_target:dark_divorce_spell_caster = {
-			# character_event = { id = MNM.7808 }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse becomes possessed event
-# character_event = {
-	# id = MNM.7808
-	# picture = GFX_evt_bad_news
-	# desc = {
-		# text = EVTDESC_MNM_7808
-		# picture = GFX_evt_bad_news_female
-		# trigger = {	is_female = no }
-	# }
-	# desc = { 
-		# text = EVTDESC_MNM_7808
-		# picture = GFX_evt_bad_news
-		# trigger = {	is_female = yes }
-	# }
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7808
-		# hidden_effect = {
-			# event_target:dark_divorce_target = {
-				# character_event = { id = MNM.7809 days = 1 random = 22 }
-			# }
-		# }
-	# }
-# }
-
-# #Ping event for Dark Divorce spouse suicide
-# character_event = {
-	# id = MNM.7809
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# event_target:dark_divorce_spell_caster = {
-			# character_event = { id = MNM.7810 }
-		# }
-	# }
-# }
-
-# #Dark Divorce spouse dies from suicide event
-# character_event = {
-	# id = MNM.7810
-	# picture = GFX_evt_bad_news
-	# desc = {
-		# text = EVTDESC_MNM_7810
-		# picture = GFX_evt_bad_news_female
-		# trigger = {	is_female = no }
-	# }
-	# desc = { 
-		# text = EVTDESC_MNM_7810
-		# picture = GFX_evt_bad_news
-		# trigger = {	is_female = yes }
-	# }
-	# border = GFX_event_normal_frame_intrigue
-
-	# is_triggered_only = yes
-
-	# option = {
-		# name = EVTOPTA_MNM_7810
-		# event_target:dark_divorce_target = {
-			# death = {
-				# death_reason = death_murder_unknown_possessed_fall
-				# killer = ROOT
-			# }
-			# clr_character_flag = supernatural_death_suicide
-		# }
-		# hidden_effect = {
-			# event_target:dark_divorce_spell_caster = {
-				# major_soul_corruption_effect = yes
-			# }
-		# }
-	# }
-# }
-
-# ### POWERS ###
-
-# #Power: Summon familiar
-# character_event = {
-	# id = MNM.7815 
-	# desc = EVTDESC_MNM_7815
-	# picture = GFX_evt_mysterious_forest
-	# border = GFX_event_normal_frame_religion
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# remove_character_modifier = cat_familiar
-		# remove_character_modifier = raven_familiar
-		# remove_character_modifier = owl_familiar
-		# remove_character_modifier = wolf_familiar
-	# }
-
-	# #Intrigue (cat)
-	# option = {
-		# name = EVTOPTA_MNM_7815
-
-		# add_character_modifier = {
-			# name = cat_familiar
-			# duration = -1
-		# }
-
-		# ai_chance = {
-			# factor = 1
-			# modifier = {
-				# factor = 3
-				# has_education_intrigue_trigger = yes
-			# }
-		# }
-	# }
-
-	# #Martial (wolf)
-	# option = {
-		# name = EVTOPTB_MNM_7815
-
-		# add_character_modifier = {
-			# name = wolf_familiar
-			# duration = -1
-		# }
-		# ai_chance = {
-			# factor = 1
-			# modifier = {
-				# factor = 3
-				# has_education_martial_trigger = yes
-			# }
-		# }
-	# }
-
-	# #Owl (learning)
-	# option = {
-		# name = EVTOPTC_MNM_7815
-
-		# add_character_modifier = {
-			# name = owl_familiar
-			# duration = -1
-		# }
-
-		# ai_chance = {
-			# factor = 1
-			# modifier = {
-				# factor = 3
-				# has_education_learning_trigger = yes
-			# }
-		# }
-	# }
-
-	# #Raven familiar
-	# option = {
-		# name = EVTOPTD_MNM_7815
-
-		# add_character_modifier = {
-			# name = raven_familiar
-			# duration = -1
-		# }
-
-		# ai_chance = {
-			# factor = 1
-			# modifier = {
-				# factor = 3
-				# has_education_stewardship_trigger = yes
-			# }
-		# }
-	# }
-# }
-
-# #Power: Tainted touch
-# character_event = {
-	# id = MNM.7819
-	# hide_window = yes
-	# is_triggered_only = yes
-
-	# immediate = {
-		# FROMFROM = { save_event_target_as = curser }
-
-		# random_list = {	
-			# 30 = { #Mild
-				# random_list = {
-					# 10 = { give_ill_effect = yes }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_flu_effect = yes 
-					# }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_food_poisoning_effect = yes
-					# }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_gout_effect = yes 
-					# }
-				# }
-			# }
-			# 50 = { #Dangerous
-				# modifier = {
-					# factor = 1.3
-					# event_target:curser = {
-						# society_rank == 4
-					# }
-				# }
-				# modifier = {
-					# factor = 1.3
-					# event_target:curser = {
-						# is_learned_trigger = yes
-					# }
-				# }
-				# modifier = {
-					# factor = 0.75
-					# has_character_flag = small_defense_against_dark_forces
-				# }
-				# modifier = {
-					# factor = 0.5
-					# has_character_flag = medium_defense_against_dark_forces
-				# }
-				# modifier = {
-					# factor = 0.1
-					# has_character_flag = large_defense_against_dark_forces
-				# }
-				# random_list = {
-					# 10 = { give_pneumonic_effect = yes }
-					# 10 = { give_syphilitic_effect = yes }
-					# 10 = { give_has_tuberculosis_effect = yes }
-					# 10 = { give_has_small_pox_effect = yes }
-					# 10 = { give_has_measles_effect = yes }
-					# 10 = { give_has_typhoid_fever_effect = yes }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_dysentery_effect = yes 
-					# }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_cancer_effect = yes 
-					# }
-				# }
-			# }
-			# 20 = { #Lethal
-				# modifier = {
-					# factor = 1.5
-					# event_target:curser = {
-						# society_rank == 4
-					# }
-				# }
-				# modifier = {
-					# factor = 1.5
-					# event_target:curser = {
-						# is_learned_trigger = yes
-					# }
-				# }
-				# modifier = {
-					# factor = 0.75
-					# has_character_flag = small_defense_against_dark_forces
-				# }
-				# modifier = {
-					# factor = 0.5
-					# has_character_flag = medium_defense_against_dark_forces
-				# }
-				# modifier = {
-					# factor = 0.1
-					# has_character_flag = large_defense_against_dark_forces
-				# }				
-				# random_list = {
-					# 10 = { give_has_bubonic_plague_effect = yes }
-					# 10 = { 
-						# modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
-						# give_rabies_effect = yes 
-					# }
-				# }
-			# }
-		# }
-		# character_event = { id = MNM.7820 days = 7 }
-	# }
-# }
-
-# character_event = {
-	# id = MNM.7820
-	# hide_window = yes
-	# is_triggered_only = yes
-
-	# immediate = {
-		# if = {
-			# limit = { has_disease_trigger = yes } 
-			# event_target:curser = { 
-				# character_event = { id = MNM.7821 } 
-				# hidden_effect = {
-					# major_soul_corruption_effect = yes
-				# }
-			# }
-			# #the three following lines are hook-ins from hermetics ward off evil-event:
-			# clr_character_flag = small_defense_against_dark_forces
-			# clr_character_flag = medium_defense_against_dark_forces
-			# clr_character_flag = large_defense_against_dark_forces
-		# }
-		# if = {
-			# limit = { has_disease_trigger = no } 
-			# character_event = { id = MNM.7820 days = 5 }
-		# }
-	# }
-# }
-
-# character_event = {
-	# id = MNM.7821
-	# picture = GFX_evt_illness
-	# border = GFX_event_normal_frame_intrigue
-
-	# desc = {
-		# trigger = { FROM = { has_character_flag = cursed_mild_illness } }
-		# text = EVTDESC_7821_MILD
-		# picture = GFX_evt_recovery
-	# }
-	# desc = {
-		# trigger = { FROM = { has_character_flag = cursed_dangerous_illness } }
-		# text = EVTDESC_7821_DANGEROUS
-		# picture = GFX_evt_illness
-	# }
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# FROM = {
-			# if = {
-				# limit = {
-					# OR = {
-						# trait = ill
-						# trait = syphilitic
-						# trait = flu
-						# trait = food_poisoning
-						# trait = gout
-					# }
-				# }
-				# set_character_flag = cursed_mild_illness
-			# }
-			# if = {
-				# limit = {
-					# OR = {
-						# trait = pneumonic
-						# trait = has_tuberculosis
-						# trait = has_typhoid_fever
-						# trait = has_small_pox
-						# trait = has_measles
-						# trait = dysentery
-						# trait = cancer
-						# trait = has_bubonic_plague
-						# trait = rabies
-					# }
-				# }
-				# set_character_flag = cursed_dangerous_illness
-			# }
-		# }
-	# }
-
-	# option = {
-		# name = {
-			# trigger = { FROM = { has_character_flag = cursed_mild_illness } }
-			# text = EVTOPTA_MNM_7821_MILD
-		# }
-		# name = {
-			# trigger = { FROM = { has_character_flag = cursed_dangerous_illness } }
-			# text = EVTOPTA_MNM_7821_DANGEROUS
-		# }
-
-		# FROM = {
-			# clr_character_flag = cursed_mild_illness
-			# clr_character_flag = cursed_dangerous_illness
-		# }
-	# }
-# }
-
-# #Power: invite witch to court
-# character_event = {
-	# id = MNM.7822
-	# hide_window = yes
-
-	# is_triggered_only = yes
-
-	# immediate = {
-		# clr_character_flag = disciple_arriving
-		# random_list = {
-			# #Witch
-			# 60 = {
-				# random_list = {
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = yes
-							# age = 19
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = yes
-							# age = 37
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = yes
-							# age = 68
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-				# }
-			# }
-			# #Warlock
-			# 40 = {
-				# random_list = {
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = no
-							# age = 22
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = no
-							# age = 42
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-					# 33 = {
-						# create_character = {
-							# random_traits = yes
-							# dynasty = none
-							# religion = ROOT
-							# female = no
-							# age = 65
-							# health = 7
-						# }
-						# new_character = { save_event_target_as = devil_disciple }
-					# }
-				# }
-			# }
-		# }
-
-		# event_target:devil_disciple = {
-			# #Join PREV's (ROOT's) society
-			# if = {
-				# limit = {
-					# ROOT = { ai = no }
-				# }
-				# join_prev_devil_worshiper_society_effect = yes
-			# }
+		name = EVTOPTA_MNM_7123
+	}
+
+	option = {
+		trigger = {
+			FROM = {
+				is_alive = no
+			}
+		}
+
+		name = EVTOPTB_MNM_7123
+	}
+}
+
+#Failed Induction#
+character_event = {
+	id = MNM.7124
+	picture = GFX_evt_dark_prayer
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			FROM = {
+				has_character_flag = wounded_induction
+				is_alive = yes
+			}
+		}	
+		text = EVTDESC_MNM_7124_WOUNDED
+	}
+
+	desc = {
+		trigger = {
+			FROM = {
+				OR = {
+					has_character_flag = lunatic_induction
+					has_character_flag = possessed_induction
+				}
+				is_alive = yes
+			}
+		}	
+		text = EVTDESC_MNM_7124_INSANE
+	}
+
+	desc = {
+		trigger = {
+			FROM = {
+				NOR = {
+					has_character_flag = wounded_induction
+					has_character_flag = lunatic_induction
+					has_character_flag = possessed_induction
+				}
+				is_alive = yes
+			}
+		}
+
+		text = EVTDESC_MNM_7124_NOT_WOUNDED
+	}
+
+	desc = {
+		trigger = {
+			FROM = {
+				is_alive = no
+			}
+		}
+		text = EVTDESC_MNM_7123_DEAD
+	}
+
+	option = {
+		trigger = {
+			FROM = {
+				is_alive = yes
+			}
+		}
+		FROM = {
+			if = {
+				limit = {
+					has_character_flag = wounded_induction
+				}
+				add_trait = wounded
+				clr_character_flag = wounded_induction
+			}
+			if = {
+				limit = {
+					has_character_flag = lunatic_induction
+				}
+				add_trait = lunatic
+				clr_character_flag = lunatic_induction
+			}
+			if = {
+				limit = {
+					has_character_flag = possessed_induction
+				}
+				add_trait = possessed
+				clr_character_flag = possessed_induction
+			}
+		}
+
+		name = EVTOPTA_MNM_7124
+	}
+
+	option = {
+		trigger = {
+			FROM = {
+				is_alive = no
+			}
+		}
+
+		name = EVTOPTB_MNM_7123
+	}
+}
+# Dark Divorce
+
+#Ping event for spouse (use of power)
+character_event = {
+	id = MNM.7800
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = dark_divorce_target
+		FROMFROM = {
+			save_event_target_as = dark_divorce_spell_caster
+		}
+		event_target:dark_divorce_spell_caster = {
+			character_event = { id = MNM.7801 }
+		}
+	}
+}
+
+#Dark Divorce spellcasting event
+character_event = {
+	id = MNM.7801
+	picture = GFX_evt_dark_prayer
+	desc = EVTDESC_MNM_7801
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+	immediate = {
+		event_target:dark_divorce_target = {
+			random_list = {
+				20 = {
+					set_character_flag = supernatural_death_fear
+				}
+				20 = {
+					set_character_flag = supernatural_death_lightning
+				}
+				20 = {
+					set_character_flag = supernatural_death_combustion
+				}
+				20 = {
+					set_character_flag = supernatural_death_crows
+				}
+				20 = {
+					set_character_flag = supernatural_death_suicide			
+				}
+			}
+		}
+	}
+	option = { #Bye bye baby
+		trigger = {
+			event_target:dark_divorce_spell_caster = {
+				has_society_currency_minor_trigger = yes
+			}
+		}
+		name = EVTOPTA_MNM_7801
+		custom_tooltip = { text = EVTOPTA_MNM_7801_TOOLTIP }
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				detract_society_currency_minor_effect = yes
+			}
+			event_target:dark_divorce_target = {
+				if = {
+					limit = {
+						OR = {
+							has_character_flag = supernatural_death_fear
+							has_character_flag = supernatural_death_lightning
+							has_character_flag = supernatural_death_combustion
+							has_character_flag = supernatural_death_crows
+						}
+					}
+					character_event = { id = MNM.7802 days = 3 random = 27 }
+				}
+				if = {
+					limit = {
+						has_character_flag = supernatural_death_suicide	
+					}
+					character_event = { id = MNM.7807 days = 1 random = 6 }
+				}
+			}
+		}		
+	}
+	option = { #No I won't
+		name = EVTOPTB_MNM_7801
+		custom_tooltip = { text = EVTOPTB_MNM_7801_TOOLTIP }
+		event_target:dark_divorce_target = {
+			hidden_effect = {
+				clr_character_flag = supernatural_death_fear
+				clr_character_flag = supernatural_death_lightning
+				clr_character_flag = supernatural_death_combustion
+				clr_character_flag = supernatural_death_crows
+				clr_character_flag = supernatural_death_suicide
+				clr_character_flag = being_dark_divorced
+			}
+		}
+		event_target:dark_divorce_spell_caster = {
+			remove_character_modifier = recently_did_dark_divorce
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Ping event for spouse death (not possessed suicide)
+character_event = {
+	id = MNM.7802
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_character_flag = supernatural_death_fear
+			}
+			event_target:dark_divorce_spell_caster = {
+				character_event = { id = MNM.7803 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = supernatural_death_lightning
+			}
+			event_target:dark_divorce_spell_caster = {
+				character_event = { id = MNM.7804 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = supernatural_death_combustion
+			}
+			event_target:dark_divorce_spell_caster = {
+				character_event = { id = MNM.7805 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = supernatural_death_crows
+			}
+			event_target:dark_divorce_spell_caster = {
+				character_event = { id = MNM.7806 }
+			}
+		}
+	}
+}
+
+#Dark Divorce spouse dies from fear event
+character_event = {
+	id = MNM.7803
+	picture = GFX_evt_illness
+	desc = EVTDESC_MNM_7803
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7803
+		event_target:dark_divorce_target = {
+			death = {
+				death_reason = death_murder_unknown_fear
+				killer = ROOT
+			}
+			clr_character_flag = supernatural_death_fear
+		}
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				major_soul_corruption_effect = yes
+			}
+		}
+	}
+}
+
+#Dark Divorce spouse dies from lightning event
+character_event = {
+	id = MNM.7804
+	picture = GFX_evt_religious_exultation
+	desc = EVTDESC_MNM_7804
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7804
+		event_target:dark_divorce_target = {
+			death = {
+				death_reason = death_murder_unknown_lightning
+				killer = ROOT
+			}
+			clr_character_flag = supernatural_death_lightning
+		}
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				major_soul_corruption_effect = yes
+			}
+		}
+	}
+}
+
+#Dark Divorce spouse dies from spontaneous combustion event
+character_event = {
+	id = MNM.7805
+	picture = GFX_evt_burning_house
+	desc = EVTDESC_MNM_7805
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7805
+		event_target:dark_divorce_target = {
+			death = {
+				death_reason = death_murder_unknown_combustion
+				killer = ROOT
+			}
+			clr_character_flag = supernatural_death_combustion
+		}
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				major_soul_corruption_effect = yes
+			}
+		}
+	}
+}
+
+#Dark Divorce spouse dies from crows event
+character_event = {
+	id = MNM.7806
+	picture = GFX_evt_garden
+	desc = EVTDESC_MNM_7806
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7806
+		event_target:dark_divorce_target = {
+			death = {
+				death_reason = death_murder_unknown_crows
+				killer = ROOT
+			}
+			clr_character_flag = supernatural_death_crows
+		}
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				major_soul_corruption_effect = yes
+			}
+		}
+	}
+}
+
+#Ping event for Dark Divorce spouse becoming possessed
+character_event = {
+	id = MNM.7807
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:dark_divorce_target = {
+			add_trait_possessed_effect = yes
+		}
+		event_target:dark_divorce_spell_caster = {
+			character_event = { id = MNM.7808 }
+		}
+	}
+}
+
+#Dark Divorce spouse becomes possessed event
+character_event = {
+	id = MNM.7808
+	picture = GFX_evt_bad_news
+	desc = {
+		text = EVTDESC_MNM_7808
+		picture = GFX_evt_bad_news_female
+		trigger = {	is_female = no }
+	}
+	desc = { 
+		text = EVTDESC_MNM_7808
+		picture = GFX_evt_bad_news
+		trigger = {	is_female = yes }
+	}
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7808
+		hidden_effect = {
+			event_target:dark_divorce_target = {
+				character_event = { id = MNM.7809 days = 1 random = 22 }
+			}
+		}
+	}
+}
+
+#Ping event for Dark Divorce spouse suicide
+character_event = {
+	id = MNM.7809
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:dark_divorce_spell_caster = {
+			character_event = { id = MNM.7810 }
+		}
+	}
+}
+
+#Dark Divorce spouse dies from suicide event
+character_event = {
+	id = MNM.7810
+	picture = GFX_evt_bad_news
+	desc = {
+		text = EVTDESC_MNM_7810
+		picture = GFX_evt_bad_news_female
+		trigger = {	is_female = no }
+	}
+	desc = { 
+		text = EVTDESC_MNM_7810
+		picture = GFX_evt_bad_news
+		trigger = {	is_female = yes }
+	}
+	border = GFX_event_normal_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_MNM_7810
+		event_target:dark_divorce_target = {
+			death = {
+				death_reason = death_murder_unknown_possessed_fall
+				killer = ROOT
+			}
+			clr_character_flag = supernatural_death_suicide
+		}
+		hidden_effect = {
+			event_target:dark_divorce_spell_caster = {
+				major_soul_corruption_effect = yes
+			}
+		}
+	}
+}
+
+### POWERS ###
+
+#Power: Summon familiar
+character_event = {
+	id = MNM.7815 
+	desc = EVTDESC_MNM_7815
+	picture = GFX_evt_mysterious_forest
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_character_modifier = cat_familiar
+		remove_character_modifier = raven_familiar
+		remove_character_modifier = owl_familiar
+		remove_character_modifier = wolf_familiar
+	}
+
+	#Intrigue (cat)
+	option = {
+		name = EVTOPTA_MNM_7815
+
+		add_character_modifier = {
+			name = cat_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_intrigue_trigger = yes
+			}
+		}
+	}
+
+	#Martial (wolf)
+	option = {
+		name = EVTOPTB_MNM_7815
+
+		add_character_modifier = {
+			name = wolf_familiar
+			duration = -1
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_martial_trigger = yes
+			}
+		}
+	}
+
+	#Owl (learning)
+	option = {
+		name = EVTOPTC_MNM_7815
+
+		add_character_modifier = {
+			name = owl_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_learning_trigger = yes
+			}
+		}
+	}
+
+	#Raven familiar
+	option = {
+		name = EVTOPTD_MNM_7815
+
+		add_character_modifier = {
+			name = raven_familiar
+			duration = -1
+		}
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_education_stewardship_trigger = yes
+			}
+		}
+	}
+}
+
+#Power: Tainted touch
+character_event = {
+	id = MNM.7819
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		FROMFROM = { save_event_target_as = curser }
+
+		random_list = {	
+			30 = { #Mild
+				random_list = {
+					10 = { give_ill_effect = yes }
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_flu_effect = yes 
+					}
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_food_poisoning_effect = yes
+					}
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_gout_effect = yes 
+					}
+				}
+			}
+			50 = { #Dangerous
+				modifier = {
+					factor = 1.3
+					event_target:curser = {
+						society_rank == 4
+					}
+				}
+				modifier = {
+					factor = 1.3
+					event_target:curser = {
+						is_learned_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.75
+					has_character_flag = small_defense_against_dark_forces
+				}
+				modifier = {
+					factor = 0.5
+					has_character_flag = medium_defense_against_dark_forces
+				}
+				modifier = {
+					factor = 0.1
+					has_character_flag = large_defense_against_dark_forces
+				}
+				random_list = {
+					10 = { give_pneumonic_effect = yes }
+					10 = { give_syphilitic_effect = yes }
+					10 = { give_has_tuberculosis_effect = yes }
+					10 = { give_has_small_pox_effect = yes }
+					10 = { give_has_measles_effect = yes }
+					10 = { give_has_typhoid_fever_effect = yes }
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_dysentery_effect = yes 
+					}
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_cancer_effect = yes 
+					}
+				}
+			}
+			20 = { #Lethal
+				modifier = {
+					factor = 1.5
+					event_target:curser = {
+						society_rank == 4
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:curser = {
+						is_learned_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.75
+					has_character_flag = small_defense_against_dark_forces
+				}
+				modifier = {
+					factor = 0.5
+					has_character_flag = medium_defense_against_dark_forces
+				}
+				modifier = {
+					factor = 0.1
+					has_character_flag = large_defense_against_dark_forces
+				}				
+				random_list = {
+					10 = { give_has_bubonic_plague_effect = yes }
+					10 = { 
+						modifier = { factor = 0 NOT = { has_dlc = "Reapers" } }
+						give_rabies_effect = yes 
+					}
+				}
+			}
+		}
+		character_event = { id = MNM.7820 days = 7 }
+	}
+}
+
+character_event = {
+	id = MNM.7820
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { has_disease_trigger = yes } 
+			event_target:curser = { 
+				character_event = { id = MNM.7821 } 
+				hidden_effect = {
+					major_soul_corruption_effect = yes
+				}
+			}
+			#the three following lines are hook-ins from hermetics ward off evil-event:
+			clr_character_flag = small_defense_against_dark_forces
+			clr_character_flag = medium_defense_against_dark_forces
+			clr_character_flag = large_defense_against_dark_forces
+		}
+		if = {
+			limit = { has_disease_trigger = no } 
+			character_event = { id = MNM.7820 days = 5 }
+		}
+	}
+}
+
+character_event = {
+	id = MNM.7821
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_intrigue
+
+	desc = {
+		trigger = { FROM = { has_character_flag = cursed_mild_illness } }
+		text = EVTDESC_7821_MILD
+		picture = GFX_evt_recovery
+	}
+	desc = {
+		trigger = { FROM = { has_character_flag = cursed_dangerous_illness } }
+		text = EVTDESC_7821_DANGEROUS
+		picture = GFX_evt_illness
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						trait = ill
+						trait = syphilitic
+						trait = flu
+						trait = food_poisoning
+						trait = gout
+					}
+				}
+				set_character_flag = cursed_mild_illness
+			}
+			if = {
+				limit = {
+					OR = {
+						trait = pneumonic
+						trait = has_tuberculosis
+						trait = has_typhoid_fever
+						trait = has_small_pox
+						trait = has_measles
+						trait = dysentery
+						trait = cancer
+						trait = has_bubonic_plague
+						trait = rabies
+					}
+				}
+				set_character_flag = cursed_dangerous_illness
+			}
+		}
+	}
+
+	option = {
+		name = {
+			trigger = { FROM = { has_character_flag = cursed_mild_illness } }
+			text = EVTOPTA_MNM_7821_MILD
+		}
+		name = {
+			trigger = { FROM = { has_character_flag = cursed_dangerous_illness } }
+			text = EVTOPTA_MNM_7821_DANGEROUS
+		}
+
+		FROM = {
+			clr_character_flag = cursed_mild_illness
+			clr_character_flag = cursed_dangerous_illness
+		}
+	}
+}
+
+#Power: invite witch to court
+character_event = {
+	id = MNM.7822
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = disciple_arriving
+		random_list = {
+			#Witch
+			60 = {
+				random_list = {
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = yes
+							age = 19
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = yes
+							age = 37
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = yes
+							age = 68
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+				}
+			}
+			#Warlock
+			40 = {
+				random_list = {
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = no
+							age = 22
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = no
+							age = 42
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+					33 = {
+						create_character = {
+							random_traits = yes
+							dynasty = none
+							religion = ROOT
+							female = no
+							age = 65
+							health = 7
+						}
+						new_character = { save_event_target_as = devil_disciple }
+					}
+				}
+			}
+		}
+
+		event_target:devil_disciple = {
+			#Join PREV's (ROOT's) society
+			if = {
+				limit = {
+					ROOT = { ai = no }
+				}
+				join_prev_devil_worshiper_society_effect = yes
+			}
 		
-			# #Set correct education
-			# remove_education_effect = yes
-			# random_list = {
-				# 15 = { add_trait = flamboyant_schemer }
-				# 15 = { add_trait = intricate_webweaver }
-				# 10 = { add_trait = elusive_shadow }
-				# 5 = { add_trait = grey_eminence }
-				# 5 = { add_trait = brilliant_strategist }
-				# 5 = { add_trait = midas_touched }
-			# }
+			#Set correct education
+			remove_education_effect = yes
+			random_list = {
+				15 = { add_trait = flamboyant_schemer }
+				15 = { add_trait = intricate_webweaver }
+				10 = { add_trait = elusive_shadow }
+				5 = { add_trait = grey_eminence }
+				5 = { add_trait = brilliant_strategist }
+				5 = { add_trait = midas_touched }
+			}
 
-			# #Up intrigue
-			# random_list = {
-				# 33 = { change_intrigue = 2 }
-				# 33 = { change_intrigue = 3 }
-				# 33 = { change_intrigue = 4 }
-			# }
+			#Up intrigue
+			random_list = {
+				33 = { change_intrigue = 2 }
+				33 = { change_intrigue = 3 }
+				33 = { change_intrigue = 4 }
+			}
 
-			# #Set some interesting traits 
+			#Set some interesting traits 
 
-			# #Possessed/lunatic
-			# random = {
-				# chance = 10
-				# add_trait = possessed
-			# }
-			# random = {
-				# chance = 5
-				# add_trait = lunatic
-			# }
+			#Possessed/lunatic
+			random = {
+				chance = 10
+				add_trait = possessed
+			}
+			random = {
+				chance = 5
+				add_trait = lunatic
+			}
 
-			# #Nice congenital
-			# random_list = {
-				# 10 = {
-					# add_trait = fair
-					# remove_trait = ugly
-				# }
-				# 5 = {
-					# add_trait = genius
-					# remove_trait = imbecile
-					# remove_trait = quick
-					# remove_trait = slow
-				# }
-				# 10 = {
-					# add_trait = quick
-					# remove_trait = imbecile
-					# remove_trait = genius
-					# remove_trait = slow
-				# }
-				# 5 = {
-					# add_trait = strong
-					# remove_trait = weak
-				# }
-				# 20 = { }
-			# }
+			#Nice congenital
+			random_list = {
+				10 = {
+					add_trait = fair
+					remove_trait = ugly
+				}
+				5 = {
+					add_trait = genius
+					remove_trait = imbecile
+					remove_trait = quick
+					remove_trait = slow
+				}
+				10 = {
+					add_trait = quick
+					remove_trait = imbecile
+					remove_trait = genius
+					remove_trait = slow
+				}
+				5 = {
+					add_trait = strong
+					remove_trait = weak
+				}
+				20 = { }
+			}
 
-			# #Bad congenital
-			# random_list = {
-				# 10 = {
-					# add_trait = ugly
-					# remove_trait = fair
-				# }
-				# 10 = {
-					# add_trait = hunchback
-				# }
-				# 10 = {
-					# add_trait = clubfooted
-				# }
-				# 50 = { }
-			# }
+			#Bad congenital
+			random_list = {
+				10 = {
+					add_trait = ugly
+					remove_trait = fair
+				}
+				10 = {
+					add_trait = hunchback
+				}
+				10 = {
+					add_trait = clubfooted
+				}
+				50 = { }
+			}
 
-			# #Lifestyle
-			# remove_lifestyle_trait_effect = yes
-			# random_list = {
-				# 15 = { add_trait = hedonist }
-				# 15 = { add_trait = mystic }
-				# 10 = { add_trait = schemer }
-				# 10 = { 
-					# if = { limit = { is_female = yes } add_trait = seductress }
-					# if = { limit = { is_female = no } add_trait = seducer }
-				# }
-				# 5 = { add_trait = gardener }
-				# 5 = { add_trait = impaler }
-				# 20 = { }
-			# }
+			#Lifestyle
+			remove_lifestyle_trait_effect = yes
+			random_list = {
+				15 = { add_trait = hedonist }
+				15 = { add_trait = mystic }
+				10 = { add_trait = schemer }
+				10 = { 
+					if = { limit = { is_female = yes } add_trait = seductress }
+					if = { limit = { is_female = no } add_trait = seducer }
+				}
+				5 = { add_trait = gardener }
+				5 = { add_trait = impaler }
+				20 = { }
+			}
 
-			# #Vices
-			# remove_trait = chaste
-			# remove_trait = humble
-			# random = {
-				# chance = 25
-				# add_trait = lustful
-			# }
-			# random = {
-				# chance = 25
-				# add_trait = proud
-			# }
-			# random = {
-				# chance = 15
-				# add_trait = greedy
-				# remove_trait = charitable
-			# }
-			# random = {
-				# chance = 10
-				# add_trait = gluttonous
-				# remove_trait = temperate
-			# }
-			# random = {
-				# chance = 10
-				# add_trait = envious
-				# remove_trait = kind
-			# }
+			#Vices
+			remove_trait = chaste
+			remove_trait = humble
+			random = {
+				chance = 25
+				add_trait = lustful
+			}
+			random = {
+				chance = 25
+				add_trait = proud
+			}
+			random = {
+				chance = 15
+				add_trait = greedy
+				remove_trait = charitable
+			}
+			random = {
+				chance = 10
+				add_trait = gluttonous
+				remove_trait = temperate
+			}
+			random = {
+				chance = 10
+				add_trait = envious
+				remove_trait = kind
+			}
 
-			# #Misc traits
-			# remove_trait = honest
-			# remove_trait = content
-			# remove_trait = zealous
-			# remove_trait = trusting
-			# random = {
-				# chance = 15
-				# add_trait = deceitful
-			# }
-			# random = {
-				# chance = 33
-				# add_trait = ambitious
-			# }
-			# random = {
-				# chance = 15
-				# add_trait = paranoid
-			# }
-			# random = {
-				# chance = 15
-				# add_trait = cruel
-				# remove_trait = kind
-			# }
-			# random = {
-				# chance = 15
-				# add_trait = homosexual
-			# }
-			# if = {
-				# limit = { has_dlc = "Reapers" }
-				# random = {
-					# chance = 15
-					# add_trait = physician
-				# }
-				# random = {
-					# chance = 5
+			#Misc traits
+			remove_trait = honest
+			remove_trait = content
+			remove_trait = zealous
+			remove_trait = trusting
+			random = {
+				chance = 15
+				add_trait = deceitful
+			}
+			random = {
+				chance = 33
+				add_trait = ambitious
+			}
+			random = {
+				chance = 15
+				add_trait = paranoid
+			}
+			random = {
+				chance = 15
+				add_trait = cruel
+				remove_trait = kind
+			}
+			random = {
+				chance = 15
+				add_trait = homosexual
+			}
+			if = {
+				limit = { has_dlc = "Reapers" }
+				random = {
+					chance = 15
+					add_trait = physician
+				}
+				random = {
+					chance = 5
 					# modifier = {
 						# society_member_of = the_trollcrafters
 						# factor = 4
 					# }
-					# add_trait = one_eyed
-				# }
-			# }
+					add_trait = one_eyed
+				}
+			}
 			
-			# # Females should be able to lead armies
-			# set_character_flag = special_marshal
+			# Females should be able to lead armies
+			set_character_flag = special_marshal
 
-			# #Nicknames
-			# random_list = {
-				# 10 = {
-					# give_nickname = nick_the_alchemist
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NOR = {
-							# trait = deceitful
-							# trait = elusive_shadow
-							# trait = intricate_webweaver
-						# }
-					# }
-					# give_nickname = nick_the_spider
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# has_education_intrigue_trigger = no
-					# }
-					# give_nickname = nick_the_whisperer
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# has_education_intrigue_trigger = no
-					# }
-					# give_nickname = nick_the_shadow
-				# }
-				# 10 = { 
-					# give_nickname = nick_of_the_wilds
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NAND = {
-							# is_female = yes
-							# OR = {
-								# trait = seductress
-								# trait = lustful
-							# }
-						# }
-					# }
-					# give_nickname = nick_the_temptress
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NAND = {
-							# is_female = no
-							# OR = {
-								# trait = seducer
-								# trait = lustful
-							# }
-						# }
-					# }
-					# give_nickname = nick_the_seducer
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NAND = {
-							# is_female = yes
-							# has_fair_trait_trigger = yes
-						# }
-					# }
-					# give_nickname = nick_the_fair
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NAND = {
-							# is_female = no
-							# has_fair_trait_trigger = yes
-						# }
-					# }
-					# give_nickname = nick_the_handsome
-				# }
-				# 10 = { 
-					# give_nickname = nick_the_black
-				# }
-				# 10 = { 
-					# modifier = {
-						# factor = 0
-						# NOT = { trait = hunchback }
-					# }
-					# give_nickname = nick_the_hunchback
-				# }
-				# 50 = { }
-			# }
-			# character_event = { id = MNM.7823 }	
-		# }
-	# }
-# }
+			#Nicknames
+			random_list = {
+				10 = {
+					give_nickname = nick_the_alchemist
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NOR = {
+							trait = deceitful
+							trait = elusive_shadow
+							trait = intricate_webweaver
+						}
+					}
+					give_nickname = nick_the_spider
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						has_education_intrigue_trigger = no
+					}
+					give_nickname = nick_the_whisperer
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						has_education_intrigue_trigger = no
+					}
+					give_nickname = nick_the_shadow
+				}
+				10 = { 
+					give_nickname = nick_of_the_wilds
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NAND = {
+							is_female = yes
+							OR = {
+								trait = seductress
+								trait = lustful
+							}
+						}
+					}
+					give_nickname = nick_the_temptress
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NAND = {
+							is_female = no
+							OR = {
+								trait = seducer
+								trait = lustful
+							}
+						}
+					}
+					give_nickname = nick_the_seducer
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NAND = {
+							is_female = yes
+							has_fair_trait_trigger = yes
+						}
+					}
+					give_nickname = nick_the_fair
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NAND = {
+							is_female = no
+							has_fair_trait_trigger = yes
+						}
+					}
+					give_nickname = nick_the_handsome
+				}
+				10 = { 
+					give_nickname = nick_the_black
+				}
+				10 = { 
+					modifier = {
+						factor = 0
+						NOT = { trait = hunchback }
+					}
+					give_nickname = nick_the_hunchback
+				}
+				50 = { }
+			}
+			character_event = { id = MNM.7823 }	
+		}
+	}
+}
 
-# #Ping event for new witch/warlock
-# character_event = {
-	# id = MNM.7823
-	# hide_window = yes
+#Ping event for new witch/warlock
+character_event = {
+	id = MNM.7823
+	hide_window = yes
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = {
-		# FROM = { character_event = { id = MNM.7824 } }
-	# }
-# }
+	immediate = {
+		FROM = { character_event = { id = MNM.7824 } }
+	}
+}
 
-# #Introduction of witch/warlock
-# character_event = {
-	# id = MNM.7824
-	# picture = GFX_evt_magic_ritual
-	# border = GFX_event_normal_frame_intrigue
+#Introduction of witch/warlock
+character_event = {
+	id = MNM.7824
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_intrigue
 
-	# desc = {
-		# trigger = {
-			# has_dlc = Reapers
-			# FROM = { is_female = yes }
-		# }
-		# text = EVTDESC_MNM_7824
-		# picture = GFX_evt_wise_woman
-	# }
-	# desc = {
-		# trigger = {
-			# NAND = {
-				# has_dlc = Reapers
-				# FROM = { is_female = yes }
-			# }
-		# }
-		# text = EVTDESC_MNM_7824
-		# picture = GFX_evt_magic_ritual
-	# }
+	desc = {
+		trigger = {
+			has_dlc = Reapers
+			FROM = { is_female = yes }
+		}
+		text = EVTDESC_MNM_7824
+		picture = GFX_evt_wise_woman
+	}
+	desc = {
+		trigger = {
+			NAND = {
+				has_dlc = Reapers
+				FROM = { is_female = yes }
+			}
+		}
+		text = EVTDESC_MNM_7824
+		picture = GFX_evt_magic_ritual
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_MNM_7824
-		# reverse_opinion = {
-			# who = FROM
-			# modifier = opinion_loyal_servant
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTA_MNM_7824
+		reverse_opinion = {
+			who = FROM
+			modifier = opinion_loyal_servant
+		}
+	}
+}
 
-# character_event = {
-	# id = MNM.7829
-	# hide_window = yes
+character_event = {
+	id = MNM.7829
+	hide_window = yes
 	
-	# is_triggered_only = yes
+	is_triggered_only = yes
 	
-	# ai = yes
-	# is_in_society = yes
+	ai = yes
+	is_in_society = yes
 	
-	# trigger = {
-		# has_dlc = "Mystics"
-		# is_devil_worshiper_trigger = yes
-		# society_rank >= 3
-		# NOT = { has_character_flag = disciple_arriving }
-	# }
+	trigger = {
+		has_dlc = "Mystics"
+		is_devil_worshiper_trigger = yes
+		society_rank >= 3
+		NOT = { has_character_flag = disciple_arriving }
+	}
 	
-	# immediate = {
-		# character_event = { id = MNM.7822 }
-	# }
-# }
+	immediate = {
+		character_event = { id = MNM.7822 }
+	}
+}
 
 
-# ##Sacrifice prisoner events 
-# character_event = { #Head of Religion
-	# id = MNM.7500
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7500.d
-	# border = GFX_event_normal_frame_intrigue
+##Sacrifice prisoner events 
+character_event = { #Head of Religion
+	id = MNM.7500
+	picture = GFX_evt_sacrifice
+	desc = MNM.7500.d
+	border = GFX_event_normal_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7500.a
-	# }
-# }
+	option = {
+		name = MNM.7500.a
+	}
+}
 
-# character_event = { #Holy man
-	# id = MNM.7501
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7500.d
-	# border = GFX_event_normal_frame_intrigue
+character_event = { #Holy man
+	id = MNM.7501
+	picture = GFX_evt_sacrifice
+	desc = MNM.7500.d
+	border = GFX_event_normal_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7500.a
-	# }
-# }
+	option = {
+		name = MNM.7500.a
+	}
+}
 
 # character_event = { #Dwarf
 	# id = MNM.7502
@@ -6573,142 +6573,142 @@ character_event = {
 	# }
 # }
 
-# character_event = { #child
-	# id = MNM.7503
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7503.d
-	# border = GFX_event_normal_frame_intrigue
+character_event = { #child
+	id = MNM.7503
+	picture = GFX_evt_sacrifice
+	desc = MNM.7503.d
+	border = GFX_event_normal_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7503.a
-	# }
-# }
+	option = {
+		name = MNM.7503.a
+	}
+}
 
-# character_event = { #Virgin
-	# id = MNM.7504
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7504.d
-	# border = GFX_event_normal_frame_intrigue
+character_event = { #Virgin
+	id = MNM.7504
+	picture = GFX_evt_sacrifice
+	desc = MNM.7504.d
+	border = GFX_event_normal_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7504.a
-	# }
-# }
+	option = {
+		name = MNM.7504.a
+	}
+}
 
-# character_event = { #regular dude
-	# id = MNM.7505
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7505.d
-	# border = GFX_event_normal_frame_intrigue
+character_event = { #regular dude
+	id = MNM.7505
+	picture = GFX_evt_sacrifice
+	desc = MNM.7505.d
+	border = GFX_event_normal_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7505.a
-	# }
-# }
+	option = {
+		name = MNM.7505.a
+	}
+}
 
-# long_character_event = { #reaction
-	# id = MNM.7506
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7506.d
-	# border = GFX_event_long_frame_intrigue
+long_character_event = { #reaction
+	id = MNM.7506
+	picture = GFX_evt_sacrifice
+	desc = MNM.7506.d
+	border = GFX_event_long_frame_intrigue
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# immediate = {
-		# if = {
-			# limit = {
-				# FROM = {
-					# is_alive = yes
-				# }
-			# }
-			# FROM = {
-				# save_event_target_as = satanist
-			# }
-		# }
-		# else = {
-			# FROMFROM = {
-				# save_event_target_as = satanist
-			# }
-		# }
-	# }
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_alive = yes
+				}
+			}
+			FROM = {
+				save_event_target_as = satanist
+			}
+		}
+		else = {
+			FROMFROM = {
+				save_event_target_as = satanist
+			}
+		}
+	}
 
-	# option = {
-		# name = MNM.7506.a
+	option = {
+		name = MNM.7506.a
 		
-	# }
-# }
+	}
+}
 
-# character_event = { #demonic impregnation 
-	# id = MNM.7507
-	# picture = GFX_evt_dark_love
-	# border = GFX_event_normal_frame_intrigue
+character_event = { #demonic impregnation 
+	id = MNM.7507
+	picture = GFX_evt_dark_love
+	border = GFX_event_normal_frame_intrigue
 
-	# desc = {
-		# trigger = { FROM = { character = ROOT } }
-		# text = EVTDESC_MNM_7507_SELF
-	# }
-	# desc = {
-		# trigger = { NOT = {  FROM = { character = ROOT } } }
-		# text = EVTDESC_MNM_7507_OTHER
-	# }
+	desc = {
+		trigger = { FROM = { character = ROOT } }
+		text = EVTDESC_MNM_7507_SELF
+	}
+	desc = {
+		trigger = { NOT = {  FROM = { character = ROOT } } }
+		text = EVTDESC_MNM_7507_OTHER
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = EVTOPTA_MNM_7507
-		# custom_tooltip = { text = EVTOPTA_MNM_7507_TOOLTIP }
-		# hidden_effect = {
-			# if = {
-				# limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
-				# FROM = {
-					# set_quest_target = {
-						# id = quest_the_devil_worshipers_demonic_impregnation
-						# holder = ROOT
-					# }
-				# }
-			# }
-			# FROM = {
-				# impregnate = 0
-				# set_character_flag = DW_unholy_mother
-			# }
-		# }
-	# }
-# }
+	option = {
+		name = EVTOPTA_MNM_7507
+		custom_tooltip = { text = EVTOPTA_MNM_7507_TOOLTIP }
+		hidden_effect = {
+			if = {
+				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
+				FROM = {
+					set_quest_target = {
+						id = quest_the_devil_worshipers_demonic_impregnation
+						holder = ROOT
+					}
+				}
+			}
+			FROM = {
+				impregnate = 0
+				set_character_flag = DW_unholy_mother
+			}
+		}
+	}
+}
 
-# character_event = { #birth
-	# id = MNM.7508
-	# hide_window = yes
-	# is_triggered_only = yes
+character_event = { #birth
+	id = MNM.7508
+	hide_window = yes
+	is_triggered_only = yes
 	
-	# trigger = {
-		# mother = {
-			# has_character_flag = DW_unholy_mother
-		# }
-	# }
+	trigger = {
+		mother = {
+			has_character_flag = DW_unholy_mother
+		}
+	}
 	
-	# immediate = {
-		# add_trait = lefthanded
-		# set_character_flag = demon_child_non_pagan
-		# set_global_flag = demon_child_born
-		# add_character_modifier = {
-			# name = demon_child_non_pagan
-			# hidden = yes
-			# days = -1
-		# }
-		# if = {
-			# limit = {
-				# mother = { society_member_of = the_satanists }
-			# }
-			# ROOT = {
-				# set_character_flag = demonspawn_will_join_satanists
-			# }
-		# }
+	immediate = {
+		add_trait = lefthanded
+		# # set_character_flag = demon_child_non_pagan
+		# # set_global_flag = demon_child_born
+		# # add_character_modifier = {
+			# # name = demon_child_non_pagan
+			# # hidden = yes
+			# # days = -1
+		# # }
+		if = {
+			limit = {
+				mother = { society_member_of = the_satanists }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_satanists
+			}
+		}
 		# if = {
 			# limit = {
 				# mother = { society_member_of = the_cold_ones }
@@ -6757,104 +6757,104 @@ character_event = {
 				# set_character_flag = demonspawn_will_join_vodouns
 			# }
 		# }
-		# remove_trait = sickly
+		remove_trait = sickly
 		# character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
-		# #random_list = {
-		# #	50 = { set_character_flag = demon_child_non_pagan }
-		# #	50 = { set_character_flag = demon_child_fake }
-		# #}
-		# mother = { 
-			# clr_character_flag = DW_unholy_mother 
-			# save_event_target_as = unholy_mother
-			# any_quester_targeting_this = {
-				# limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
-				# character_event = { id = MNM.7511 days = 10 }
-			# }
-		# }	
-	# }
-# }
+		#random_list = {
+		#	50 = { set_character_flag = demon_child_non_pagan }
+		#	50 = { set_character_flag = demon_child_fake }
+		#}
+		mother = { 
+			clr_character_flag = DW_unholy_mother 
+			save_event_target_as = unholy_mother
+			any_quester_targeting_this = {
+				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
+				character_event = { id = MNM.7511 days = 10 }
+			}
+		}	
+	}
+}
 
-# character_event = { #Announcement
-    # id = MNM.7511
-    # picture = GFX_evt_magic_ritual
-    # border = GFX_event_normal_frame_intrigue
+character_event = { #Announcement
+    id = MNM.7511
+    picture = GFX_evt_magic_ritual
+    border = GFX_event_normal_frame_intrigue
 
-    # trigger = { 
-    	# has_quest = quest_the_devil_worshipers_demonic_impregnation
-    # }
+    trigger = { 
+    	has_quest = quest_the_devil_worshipers_demonic_impregnation
+    }
     
-    # desc = {
-    	# trigger = { any_child = { character = FROM } }
-    	# text = EVTDESC_MNM_7511_SELF
-    # }
-    # desc = {
-    	# trigger = { NOT = { any_child = { character = FROM } } }
-    	# text = EVTDESC_MNM_7511_OTHER
-    # }
+    desc = {
+    	trigger = { any_child = { character = FROM } }
+    	text = EVTDESC_MNM_7511_SELF
+    }
+    desc = {
+    	trigger = { NOT = { any_child = { character = FROM } } }
+    	text = EVTDESC_MNM_7511_OTHER
+    }
 
-    # is_triggered_only = yes
+    is_triggered_only = yes
     
-    # option = { 
-        # name = EVTOPTA_MNM_7511
+    option = { 
+        name = EVTOPTA_MNM_7511
            
-        # clr_quest = quest_the_devil_worshipers_demonic_impregnation
-		# if = {
-			# limit = { FROM = { is_female = yes } }
-			# sound_effect = devil_worshippers_impregnation_courtier_female
-		# }
-		# if = {
-			# limit = { FROM = { is_female = no } }
-			# sound_effect = devil_worshippers_impregnation_courtier_male
-		# }
-        # add_society_currency_massive_effect = yes
-    # }
-# }
+        clr_quest = quest_the_devil_worshipers_demonic_impregnation
+		if = {
+			limit = { FROM = { is_female = yes } }
+			sound_effect = devil_worshippers_impregnation_courtier_female
+		}
+		if = {
+			limit = { FROM = { is_female = no } }
+			sound_effect = devil_worshippers_impregnation_courtier_male
+		}
+        add_society_currency_massive_effect = yes
+    }
+}
 
-# character_event = { #prolong life sacrifice
-	# id = MNM.7509
-	# picture = GFX_evt_sacrifice
-	# desc = MNM.7509.d
-	# border = GFX_event_normal_frame_religion
+character_event = { #prolong life sacrifice
+	id = MNM.7509
+	picture = GFX_evt_sacrifice
+	desc = MNM.7509.d
+	border = GFX_event_normal_frame_religion
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7509.a
-		# FROM = {
-			# hidden_effect = { character_event = { id = MNM.7506 } }
-			# death = {
-				# death_reason = death_missing
-			# }
-		# }
-		# add_prolong_life_effect = yes
-		# hidden_effect = {
-			# minor_soul_corruption_effect = yes
-		# }
-		# character_event = { id = MNM.7510 days = 3651 }
-	# }
-# }
+	option = {
+		name = MNM.7509.a
+		FROM = {
+			hidden_effect = { character_event = { id = MNM.7506 } }
+			death = {
+				death_reason = death_missing
+			}
+		}
+		add_prolong_life_effect = yes
+		hidden_effect = {
+			minor_soul_corruption_effect = yes
+		}
+		character_event = { id = MNM.7510 days = 3651 }
+	}
+}
 
-# character_event = { #prolong life effect fades
-	# id = MNM.7510
-	# picture = GFX_evt_dark_prayer
-	# desc = MNM.7510.d
-	# border = GFX_event_normal_frame_religion
+character_event = { #prolong life effect fades
+	id = MNM.7510
+	picture = GFX_evt_dark_prayer
+	desc = MNM.7510.d
+	border = GFX_event_normal_frame_religion
 	
-	# trigger = {
-		# NOR = {
-			# has_character_modifier = stolen_life_minor
-			# has_character_modifier = stolen_life_medium
-			# has_character_modifier = stolen_life_major
-		# }
-	# }
+	trigger = {
+		NOR = {
+			has_character_modifier = stolen_life_minor
+			has_character_modifier = stolen_life_medium
+			has_character_modifier = stolen_life_major
+		}
+	}
 
-	# is_triggered_only = yes
+	is_triggered_only = yes
 
-	# option = {
-		# name = MNM.7510.a
-			# #Info only
-	# }
-# }
+	option = {
+		name = MNM.7510.a
+			#Info only
+	}
+}
 
 # ###MISSIONS###
 # ##DW Mission Tombola
