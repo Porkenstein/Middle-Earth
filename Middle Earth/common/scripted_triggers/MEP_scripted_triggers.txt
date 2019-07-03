@@ -249,27 +249,23 @@ mep_cant_get_disease_trigger = {
 # valar don't, because they forbid mortals from the land where they live, the cowards
 mep_wont_hire_physician_trigger = {
 	OR = {
-		AND = {
-			OR = {
-				religion = religion_melkor
-				religion = religion_wight
-				religion = religion_corrupted_wight
-				religion = religion_dragons
-				religion = religion_corrupted_dragons
-				religion_group = religion_group_ungoliant
-			}
-		}
+		religion = religion_melkor
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion_group = religion_group_ungoliant
 		religion_group = religion_group_wilderness
-		AND = {
-			religion = religion_eruhini
-			NOT = { culture = culture_istari }
-		}
 		religion = religion_enyd
 		religion = religion_dark_enyd
 		trait = balrog
 		trait = valar
 		trait = enigma
 		trait = nazgul
+		AND = {
+			religion = religion_eruhini
+			NOT = { culture = culture_istari }
+		}
 	}
 }
 
@@ -367,13 +363,6 @@ mep_has_disease_trigger = {
 
 mep_is_genuine_elf = {
 	trait = elf
-	religion_group = religion_group_eldar
-	OR = {
-		culture_group = culture_group_quendi
-		culture_group = culture_group_amanyar
-		culture_group = culture_group_umanyar
-		culture_group = culture_group_moriquendi
-	}
 }
 
 mep_has_elf_stuff = {
