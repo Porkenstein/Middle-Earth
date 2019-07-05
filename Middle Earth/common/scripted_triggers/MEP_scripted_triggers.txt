@@ -361,28 +361,6 @@ mep_has_disease_trigger = {
 	}
 }
 
-mep_is_genuine_elf = {
-	trait = elf
-}
-
-mep_has_elf_stuff = {
-	OR = {
-		trait = elf
-		religion_group = religion_group_eldar
-		culture_group = culture_group_quendi
-		culture_group = culture_group_amanyar
-		culture_group = culture_group_umanyar
-		culture_group = culture_group_moriquendi
-		culture_group = culture_group_aumanyar
-	}
-}
-
-mep_is_genuine_high_elf = {
-	trait = elf
-	religion_group = religion_group_eldar
-	culture_group = culture_group_amanyar
-}
-
 mep_never_councillor_trigger = {
 	prisoner = no
 	NOR = {
@@ -393,24 +371,6 @@ mep_never_councillor_trigger = {
 		trait = sailed_west
 		trait = at_east
 	}
-}
-
-mep_pick_good_side_trigger = {
-	OR = {
-		mep_is_good_side_race = yes
-		religion = religion_rhovanion
-		culture = culture_entish
-		culture = culture_eagles
-	}
-	NOR = {
-		mep_is_evil_side_trigger = yes
-		has_character_flag = sidechosen
-		has_landed_title  = d_mornaugrim
-		culture = culture_black_numenorean
-	}
-	NOT = { religion_group = religion_group_melkor }
-	NOT = { religion_group = religion_group_ungoliant }
-	NOT = { religion_group = religion_group_dragon }
 }
 
 # should be unkillable via standard assasination or battle-death
@@ -424,6 +384,7 @@ mep_should_be_unkillable_trigger = {
 		culture = culture_balrog
 		culture = culture_wight
 		religion = religion_dragons
+		religion = religion_corrupted_dragons
 		trait = maiar
 		trait = balrog
 		AND = {
@@ -448,7 +409,8 @@ mep_cant_get_drunk_trigger = {
 		}
 		culture = culture_balrog
 		culture = culture_wight
-		religion_group = religion_group_dragon
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
 		culture_group = culture_group_wilderness
 		trait = maiar
 		trait = balrog
@@ -640,10 +602,6 @@ mep_make_random_elf_culture = {
 		culture = culture_falathrim
 		culture = culture_noldor
 	}
-}
-
-mep_is_good_side_race = {
-	religion_group = religion_group_eruhini
 }
 
 mep_is_human_trigger = {
