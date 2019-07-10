@@ -1,0 +1,129 @@
+###JD Decisions###
+
+#Written by:
+#Drikus Kuiper
+#Matthew Clohessy
+
+
+decisions = {
+	
+	tributary_independence_normal = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 6
+
+		potential = {
+			OR = {
+				is_tributary = {
+					type = default
+				}
+				is_tributary = {
+					type = permanent
+				}
+				is_tributary = {
+					type = nomadic
+				}
+			}
+		}
+		allow = {
+			war = no
+			conditional_tooltip = {
+				trigger = { 
+					is_tributary = {
+						type = default
+					}
+				}
+				suzerain = {
+					independent = no
+				}
+			}
+			conditional_tooltip = {
+				trigger = { 
+					is_tributary = {
+						type = permanent
+					}
+				}
+				suzerain = {
+					OR = {
+						AND = {
+							NOT = {
+								prestige = 0
+							}
+							ROOT = {
+								prestige = 0
+							}
+							custom_tooltip = {
+								text = recently_made_tributary_tt
+								hidden_tooltip = {
+									ROOT = {
+										NOT = {
+											has_opinion_modifier = {
+												modifier = opinion_forced_tributary
+												who = PREV
+											}
+										}
+									}
+								}
+							}
+						}
+						relative_realm_size = {
+							who = ROOT 
+							size < 1
+						}
+						independent = no
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = { 
+					is_tributary = {
+						type = nomadic
+					}
+				}
+				suzerain = {
+					OR = {
+						AND = {
+							NOT = {
+								prestige = 0
+							}
+							ROOT = {
+								prestige = 0
+							}
+							custom_tooltip = {
+								text = recently_made_tributary_tt
+								hidden_tooltip = {
+									suzerain = {
+										ROOT = {
+											NOT = {
+												has_opinion_modifier = {
+													modifier = opinion_forced_tributary
+													who = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						is_nomadic = no
+					}
+				}
+			}
+		}
+		effect = {
+			any_suzerain = {
+				# character_event = { id = JD.2200 }
+				remove_tributary = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5 # Slow down
+				NOT = {
+					trait = ambitious
+				}
+			}
+		}
+	}
+}
