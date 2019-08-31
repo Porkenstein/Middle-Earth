@@ -133,68 +133,6 @@ assign_mission_target = {
 #####################
 # Traits - Education
 #####################
-#Intrigue
-amateurish_plotter = {
-	attribute = intrigue
-	education = yes
-	
-	intrigue = 1
-	stewardship = -1
-	combat_rating = 4 #new value!
-	ruler_designer_cost = 0
-	
-	male_insult_adj = INSULT_SCHEMING
-	female_insult_adj = INSULT_SCHEMING
-	child_insult_adj = INSULT_STUPID
-}
-flamboyant_schemer = {
-	attribute = intrigue
-	education = yes
-	
-	intrigue = 3
-	stewardship = -1
-	combat_rating = 8 #new value!
-	ruler_designer_cost = 0
-	
-	male_insult_adj = INSULT_SCHEMING
-	female_insult_adj = INSULT_SCHEMING
-	child_insult_adj = INSULT_STUPID
-}
-intricate_webweaver = {
-	attribute = intrigue
-	education = yes
-	
-	intrigue = 6
-	martial = 1
-	diplomacy = 1
-	stewardship = -1
-	combat_rating = 12 #new value!
-	ruler_designer_cost = 0
-	
-	male_compliment_adj = COMPL_CLEVER
-	female_compliment_adj = COMPL_CLEVER
-	male_insult_adj = INSULT_SCHEMING
-	female_insult_adj = INSULT_SCHEMING
-	child_insult_adj = INSULT_STUPID
-}
-elusive_shadow = {
-	attribute = intrigue
-	education = yes
-	
-	intrigue = 9
-	martial = 2
-	diplomacy = 2
-	stewardship = -1
-	combat_rating = 16 #new value!
-	ruler_designer_cost = 0
-	
-	male_compliment_adj = COMPL_CLEVER
-	female_compliment_adj = COMPL_CLEVER
-	male_insult_adj = INSULT_SCHEMING
-	female_insult_adj = INSULT_SCHEMING
-	child_insult_adj = INSULT_STUPID
-}
-
 #Diplomacy
 naive_appeaser = {
 	attribute = diplomacy
@@ -260,6 +198,66 @@ grey_eminence = {
 	male_insult_adj = INSULT_TWOFACED
 	female_insult_adj = INSULT_TWOFACED
 	child_insult_adj = INSULT_STUPID
+}
+
+#Martial
+misguided_warrior = {
+	attribute = martial
+	education = yes
+	
+	martial = 1
+	learning = -1
+	
+	combat_rating = 5 #old value: 1
+	
+	health = 0.5
+
+	ruler_designer_cost = 0
+}
+tough_soldier = {
+	attribute = martial
+	education = yes
+	
+	martial = 3
+	learning = -1
+	
+	combat_rating = 10 #old value: 1
+	
+	health = 0.5
+
+	ruler_designer_cost = 0
+}
+skilled_tactician = {
+	attribute = martial
+	education = yes
+	
+	martial = 6
+	intrigue = 1
+	stewardship = 1
+	learning = -1
+	
+	combat_rating = 15 #old value: 1
+	
+	health = 0.5
+
+	ruler_designer_cost = 0
+}
+brilliant_strategist = {
+	attribute = martial
+	education = yes
+	
+	martial = 9
+	intrigue = 2
+	stewardship = 2
+	learning = -1
+	
+	combat_rating = 20 #old value: 1
+	
+	health = 0.5
+
+	leadership_traits = 1
+
+	ruler_designer_cost = 0
 }
 
 #Stewardship
@@ -329,64 +327,66 @@ midas_touched = {
 	child_insult_adj = INSULT_STUPID
 }
 
-#Martial
-misguided_warrior = {
-	attribute = martial
+#Intrigue
+amateurish_plotter = {
+	attribute = intrigue
 	education = yes
 	
-	martial = 1
-	learning = -1
-	
-	combat_rating = 5 #old value: 1
-	
-	health = 0.5
-
-	ruler_designer_cost = 0
-}
-tough_soldier = {
-	attribute = martial
-	education = yes
-	
-	martial = 3
-	learning = -1
-	
-	combat_rating = 10 #old value: 1
-	
-	health = 0.5
-
-	ruler_designer_cost = 0
-}
-skilled_tactician = {
-	attribute = martial
-	education = yes
-	
-	martial = 6
 	intrigue = 1
-	stewardship = 1
-	learning = -1
-	
-	combat_rating = 15 #old value: 1
-	
-	health = 0.5
-
+	stewardship = -1
+	combat_rating = 4 #new value!
 	ruler_designer_cost = 0
+	
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_STUPID
 }
-brilliant_strategist = {
-	attribute = martial
+flamboyant_schemer = {
+	attribute = intrigue
 	education = yes
 	
-	martial = 9
-	intrigue = 2
-	stewardship = 2
-	learning = -1
-	
-	combat_rating = 20 #old value: 1
-	
-	health = 0.5
-
-	leadership_traits = 1
-
+	intrigue = 3
+	stewardship = -1
+	combat_rating = 8 #new value!
 	ruler_designer_cost = 0
+	
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_STUPID
+}
+intricate_webweaver = {
+	attribute = intrigue
+	education = yes
+	
+	intrigue = 6
+	martial = 1
+	diplomacy = 1
+	stewardship = -1
+	combat_rating = 12 #new value!
+	ruler_designer_cost = 0
+	
+	male_compliment_adj = COMPL_CLEVER
+	female_compliment_adj = COMPL_CLEVER
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_STUPID
+}
+elusive_shadow = {
+	attribute = intrigue
+	education = yes
+	
+	intrigue = 9
+	martial = 2
+	diplomacy = 2
+	stewardship = -1
+	combat_rating = 16 #new value!
+	ruler_designer_cost = 0
+	
+	male_compliment_adj = COMPL_CLEVER
+	female_compliment_adj = COMPL_CLEVER
+	male_insult_adj = INSULT_SCHEMING
+	female_insult_adj = INSULT_SCHEMING
+	child_insult_adj = INSULT_STUPID
 }
 
 #Learning
