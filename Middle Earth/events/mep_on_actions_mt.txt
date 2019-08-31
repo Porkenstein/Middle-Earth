@@ -1415,3 +1415,894 @@ character_event = {	#Assign Race Traits
 		}
 	}
 }
+##################
+EEducation Events
+##################
+namespace = goshen_maintenance_events
+character_event = {	#Startup Characters
+	id = goshen_maintenance_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		age = 16
+		NOT = {
+			has_global_flag = character_stats
+		}
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						trait = agent
+						trait = soldier
+						trait = clerk
+						trait = rascal
+						trait = thinker
+					}
+				}
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						trait = mediator
+						trait = tactician
+						trait = entrepreneur
+						trait = rogue
+						trait = intellectual
+					}
+				}
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						trait = minister
+						trait = clever_strategist
+						trait = financier
+						trait = schemer
+						trait = scholar
+					}
+				}
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+				if = {
+					limit = {
+						can_be_chancellor_trigger = yes
+					}
+					change_diplomacy = 1
+				}
+				if = {
+					limit = {
+						can_be_marshal_trigger = yes
+					}
+					change_martial = 1
+				}
+				if = {
+					limit = {
+						can_be_treasurer_trigger = yes
+					}
+					change_stewardship = 1
+				}
+				if = {
+					limit = {
+						can_be_spymaster_trigger = yes
+					}
+					change_intrigue = 1
+				}
+				if = {
+					limit = {
+						can_be_spiritual_trigger = yes
+					}
+					change_learning = 1
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						trait = emissary
+						trait = mastermind
+						trait = mogul
+						trait = conspirator
+						trait = scholarsage
+					}
+				}
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 5
+				if = {
+					limit = {
+						can_be_chancellor_trigger = yes
+					}
+					change_diplomacy = 2
+				}
+				if = {
+					limit = {
+						can_be_marshal_trigger = yes
+					}
+					change_martial = 2
+				}
+				if = {
+					limit = {
+						can_be_treasurer_trigger = yes
+					}
+					change_stewardship = 2
+				}
+				if = {
+					limit = {
+						can_be_spymaster_trigger = yes
+					}
+					change_intrigue = 2
+				}
+				if = {
+					limit = {
+						can_be_spiritual_trigger = yes
+					}
+					change_learning = 2
+				}
+			}
+		}
+	}
+
+	option = {
+		set_global_flag = character_stats
+	}
+}
+character_event = {	#Fire for Training
+	id = goshen_maintenance_events.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOR = {
+			has_character_flag = child_martial_training
+			has_character_flag = child_intrigue_training
+			has_character_flag = child_steward_training
+			has_character_flag = child_random_training
+		}
+	}
+
+	immediate = {
+		employer = {
+			character_event = { id = goshen_personality_events.11 }
+		}
+	}
+}
+character_event = {	#Decide Training
+	id = goshen_maintenance_events.11
+	desc = EVTDESCgoshen_maintenance_events.11
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAgoshen_maintenance_events.11
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		FROM = { set_character_flag = child_martial_training }
+	}
+	option = {
+		name = EVTOPTBgoshen_maintenance_events.11
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		FROM = { set_character_flag = child_intrigue_training }
+	}
+	option = {
+		name = EVTOPTCgoshen_maintenance_events.11
+		trigger = {
+			wealth = 50
+		}
+		wealth = -50
+		FROM = { set_character_flag = child_steward_training }
+	}
+	option = {
+		name = EVTOPTDgoshen_maintenance_events.11
+		FROM = { set_character_flag = child_random_training }
+	}
+}
+character_event = {	#Training Outcome
+	id = goshen_maintenance_events.12
+	desc = EVTDESCgoshen_maintenance_events.12
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = child_martial_training
+			has_character_flag = child_intrigue_training
+			has_character_flag = child_steward_training
+			has_character_flag = child_random_training
+		}
+	}
+
+	immediate = {
+		remove_trait = agent
+		remove_trait = mediator
+		remove_trait = minister
+		remove_trait = emissary
+		remove_trait = soldier
+		remove_trait = tactician
+		remove_trait = clever_strategist
+		remove_trait = mastermind
+		remove_trait = clerk
+		remove_trait = entrepreneur
+		remove_trait = financier
+		remove_trait = mogul
+		remove_trait = rascal
+		remove_trait = rogue
+		remove_trait = schemer
+		remove_trait = conspirator
+		remove_trait = thinker
+		remove_trait = intellectual
+		remove_trait = scholar
+		remove_trait = sage
+	}
+
+	option = {
+		name = EVTOPTAgoshen_maintenance_events.12
+		trigger = {
+			has_character_flag = child_martial_training
+		}
+		clr_character_flag = child_martial_training
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = soldier
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = tactician
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = clever_strategist
+				change_diplomacy = 4
+				change_martial = 5
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = mastermind
+				change_diplomacy = 5
+				change_martial = 7
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBgoshen_maintenance_events.12
+		trigger = {
+			has_character_flag = child_intrigue_training
+		}
+		clr_character_flag = child_intrigue_training
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = agent
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = mediator
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = minister
+				change_diplomacy = 5
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = emissary
+				change_diplomacy = 7
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = rascal
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = rogue
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = schemer
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 5
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = conspirator
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 7
+				change_learning = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCgoshen_maintenance_events.12
+		trigger = {
+			has_character_flag = child_steward_training
+		}
+		clr_character_flag = child_steward_training
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = clerk
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = entrepreneur
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = financier
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 5
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = mogul
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 7
+				change_intrigue = 5
+				change_learning = 5
+			}
+		}
+	}
+	option = {
+		name = EVTOPTDgoshen_maintenance_events.12
+		trigger = {
+			has_character_flag = child_random_training
+		}
+		clr_character_flag = child_random_training
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = agent
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = mediator
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = minister
+				change_diplomacy = 5
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = emissary
+				change_diplomacy = 7
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = soldier
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = tactician
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = clever_strategist
+				change_diplomacy = 4
+				change_martial = 5
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = mastermind
+				change_diplomacy = 5
+				change_martial = 7
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = clerk
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = entrepreneur
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = financier
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 5
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = mogul
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 7
+				change_intrigue = 5
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = rascal
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = rogue
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = schemer
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 5
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = conspirator
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 7
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = inept
+				}
+				modifier = {
+					factor = 3
+					trait = fool
+				}
+				add_trait = thinker
+				change_diplomacy = 3
+				change_martial = 3
+				change_stewardship = 3
+				change_intrigue = 3
+				change_learning = 3
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = inept
+				}
+				modifier = {
+					factor = 1.5
+					trait = fool
+				}
+				add_trait = intellectual
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 4
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					trait = clever
+				}
+				modifier = {
+					factor = 1.5
+					trait = prodigy
+				}
+				add_trait = scholar
+				change_diplomacy = 4
+				change_martial = 4
+				change_stewardship = 4
+				change_intrigue = 4
+				change_learning = 5
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					trait = clever
+				}
+				modifier = {
+					factor = 3
+					trait = prodigy
+				}
+				add_trait = sage
+				change_diplomacy = 5
+				change_martial = 5
+				change_stewardship = 5
+				change_intrigue = 5
+				change_learning = 7
+			}
+		}
+	}
+}
