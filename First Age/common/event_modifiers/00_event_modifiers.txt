@@ -478,11 +478,11 @@ sabotaged_building = {
 	icon = 30
 }
 great_inventor = {
-	tech_growth_modifier_culture = 0.05
+	monthly_character_piety = 0.05
 	icon = 12
 }
 secret_mil_invention = {
-	tech_growth_modifier_military = 0.05
+	monthly_character_prestige = 0.05
 	icon = 12
 }
 the_idle = {
@@ -693,7 +693,7 @@ big_spender = {
 
 #onaction
 war_knowledge = {
-	tech_growth_modifier_military = 0.5
+	levy_reinforce_rate = 0.5
 	icon = 13
 }
 
@@ -1387,7 +1387,7 @@ just_steward = {
 }
 
 intelligent_steward = {
-	tech_growth_modifier_economy = 1
+	monthly_character_wealth = 1
 	icon = 12
 }
 
@@ -1397,7 +1397,7 @@ marshal_highway_robbers = {
 }
 
 marshal_improves_capital = {
-	tech_growth_modifier_military = 1
+	levy_reinforce_rate = 0.2
 	icon = 12
 }
 
@@ -1750,7 +1750,7 @@ diligent_architect = {
 }
 
 architect_improvements = {
-	tech_growth_modifier_culture = 0.2
+	monthly_character_prestige = 0.2
 	icon = 12
 }
 
@@ -2957,14 +2957,12 @@ merchant_harbor_province = {
 }
 
 scholar_foundation_province = {
-	military_techpoints = 0.03
-	culture_techpoints = 0.03
-	economy_techpoints = 0.03
+	add_piety_modifier = 0.05
 	icon = 12
 }
 
 great_library_province = {
-	tech_growth_modifier = 0.25
+	monthly_character_piety = 0.25
 	icon = 2
 }
 
@@ -3608,7 +3606,7 @@ treasure_hunting_spies = {
 
 treasure_hunting_scholars = {
 	icon = 26
-	tech_growth_modifier = -0.25
+	monthly_character_piety = -0.25
 }
 
 pays_for_artifact_hunt_minor = {
@@ -4200,7 +4198,7 @@ theory_paper_heavy_investment = {
 brilliant_insight = {
 	icon = 12
 	learning = 1
-	tech_growth_modifier = 0.1
+	monthly_character_piety = 0.1
 }
 
 giant_crossbow = {
@@ -4370,34 +4368,30 @@ peace_deal_with_china = {
 
 jd_paper_mill = {
 	icon = 97
-	economy_techpoints = 1
-	tech_growth_modifier = 0.5
-	local_tax_modifier = 0.1
+	local_tax_modifier = 0.3
 }
 
 jd_fireworks_guild = {
 	icon = 103
-	military_techpoints = 1
 	garrison_size = 0.25
-	levy_size = 0.1
+	levy_size = 0.2
 }
 
 jd_dry_docks = {
 	icon = 101
-	economy_techpoints = 1
 	galleys_perc = 0.5
-	local_tax_modifier = 0.1
+	local_tax_modifier = 0.2
 }
 
 jd_administrative_outpost = {
 	icon = 101
-	economy_techpoints = 1
-	culture_techpoints = 1
+	local_tax_modifier = 0.1
+	monthly_character_piety = 0.1
 }
 
 jd_blast_furnace = {
 	icon = 101
-	military_techpoints = 1
+	levy_size = 0.1
 	levy_reinforce_rate = 0.5
 }
 
@@ -5302,7 +5296,7 @@ dedicated_to_aphrodite = { #Naturally, between Ares and Ephaestus...
 }
 dedicated_to_ephaestus = {
 	icon = 79
-	tech_growth_modifier_military = 0.02
+	levy_reinforce_rate = 0.05
 }
 dedicated_to_hestia = {
 	icon = 79
@@ -6336,19 +6330,19 @@ forging_legend_building_zealotry_2 = {
 
 forging_legend_censoring_arts_1 = {
 	icon = 22
-	tech_growth_modifier_culture = -0.5
+	monthly_character_prestige = -0.5
 	levy_reinforce_rate = -0.25
 }
 
 forging_legend_censoring_arts_2 = {
 	icon = 22
-	tech_growth_modifier_culture = -0.25
+	monthly_character_prestige = -0.25
 	levy_reinforce_rate = -0.1
 }
 
 forging_legend_censoring_arts_3 = {
 	icon = 22
-	tech_growth_modifier_culture = -0.15
+	monthly_character_prestige = -0.15
 	levy_reinforce_rate = -0.05
 }
 
@@ -6762,7 +6756,7 @@ improved_irrigation = {
 }
 focused_traders = {
 	icon = 12
-	economy_techpoints = 0.05
+	tradevalue = 50
 	city_tax_modifier = 0.10
 	castle_tax_modifier = 0.10
 	temple_tax_modifier = 0.10
@@ -6771,13 +6765,13 @@ focused_traders = {
 }
 water_watch_1 = { #If you update these values, remember to update the string "water_watch_tt"
 	icon = 12
-	culture_techpoints = 0.05
+	local_tax_modifier = 0.1
 	local_revolt_risk = -0.01
 	land_morale = 0.05
 }
 water_watch_2 = { #If you update these values, remember to update the string "water_watch_tt"
 	icon = 12
-	culture_techpoints = 0.05
+	local_tax_modifier = 0.1
 	local_revolt_risk = -0.01
 	land_morale = 0.05
 }

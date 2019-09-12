@@ -528,6 +528,7 @@ is_using_intrigue_trigger = { #Either THIS is the attacker using intrigue, or th
 # Either from rank 4 warrior lodge, or a bloodline
 is_indomitable_trigger = {
 	OR = {
+		is_mighty_trigger = yes
 		AND = {
 			society_rank == 4
 			is_member_of_any_warrior_lodge_trigger = yes
@@ -535,6 +536,7 @@ is_indomitable_trigger = {
 		any_owned_bloodline = {
 			has_bloodline_flag = indomitable_bloodline
 		}
+		has_character_flag = is_special_character
 	}
 }
 

@@ -1,5 +1,8 @@
 ----- NDiplomacy -----
 
+NDefines.NDiplomacy.BASE_REVOLT_CHANCE_MOD = 125
+NDefines.NDiplomacy.TOG_REVOLT_CHANCE_MOD = 50
+
 NDefines.NDiplomacy.SHORT_REIGN_YEARS_END = 20
 NDefines.NDiplomacy.LONG_REIGN_YEARS_START = 10000
 NDefines.NDiplomacy.SHORT_REIGN_OPINION_MULT = 1				-- Opinion penalty multiplier to short reign years
@@ -54,6 +57,7 @@ NDefines.NCharacter.AGE_ADULT = 2000
 NDefines.NCharacter.AGE_OLD = 5000
 NDefines.NCharacter.AGE_VERY_OLD = 10000
 NDefines.NCharacter.MAX_CHILD_BIRTH_AGE = 4000
+NDefines.NCharacter.TREASURY_CHANCE_TO_DISAPPEAR_STANDARD = 0.05
 
 NDefines.NCharacter.NATURAL_DEATH_CHANCE_AGE_0 = 1					-- Natural deaths per decade out of 10000 people: Age 0-9
 NDefines.NCharacter.NATURAL_DEATH_CHANCE_AGE_10 = 0					-- Natural deaths per decade out of 10000 people: Age 10-19
@@ -104,17 +108,19 @@ NDefines.NTitle.DUKE_TITLE_DYNASTY_PRESTIGE = 6 -- previously 10
 NDefines.NTitle.KING_TITLE_DYNASTY_PRESTIGE = 10 -- previously 20
 NDefines.NTitle.EMPEROR_TITLE_DYNASTY_PRESTIGE = 15 -- previously 40
 
+NDefines.NTitle.ENFORCE_ONE_OF_EACH_HOLDING = 0
+
 ----- NEconomy -----
 
 NDefines.NEconomy.PATRICIAN_AGE_RESPECT_FACTOR = 0 -- previously 1
 NDefines.NEconomy.PATRICIAN_CAMPAIGN_FUND_FACTOR = 2 -- previously 5
+NDefines.NEconomy.TRADETECH_LEVEL_FOR_BASE_TPS = 0 -- previously 0
 
 ----- NNomad -----
 
 NDefines.NNomad.POPULATION_INCREASE_MULTIPLIER = 0.005
 NDefines.NNomad.MANPOWER_INCREASE_MULTIPLIER = 0.075
 NDefines.NNomad.MAX_POPULATION_EMPTY_HOLDING_MULTIPLIER = 5000
-
 
 NDefines.NNomad.MANPOWER_LOW_SENTIMENT_INCREASE_MULTIPLIER = 0 -- The manpower effect of a negative Clan Sentiment vs the ruling Clan. At a value of 2, -100 Sentiment is 200% faster manpower regrowth.
 NDefines.NNomad.POPULATION_TAX_MULTIPLIER = 0.001			-- Monthly tax income determined by the current population
@@ -138,6 +144,8 @@ NDefines.NNomad.MAX_HOLDINGS_IN_NOMADIC_PROVINCE = 5			-- Counties with this num
 
 
 ----- NMilitary -----
+
+NDefines.NMilitary.BATTLE_TECH_MULTIPLIER = 0.0 -- was 0.5
 
 NDefines.NMilitary.HOLDING_LEVY_SIZE_OWNER_MARTIAL_MULT = 0.03 -- was 0.05
 
@@ -170,10 +178,16 @@ NDefines.NMilitary.TERRAIN_SPEC_BONUS = 0.3		-- was 0.2
 
 ----- NTechnology -----
 
-NDefines.NTechnology.DONT_EXECUTE_TECH_BEFORE = 4280
-
-NDefines.NTechnology.IDEAL_YEAR_LEVEL_0 = 4200
-NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 5500
+NDefines.NTechnology.DONT_EXECUTE_TECH_BEFORE = 1
+NDefines.NTechnology.POINTS_PER_ATTRIBUTE = 0.00
+NDefines.NTechnology.BASE_NEIGHBOUR_SPREAD_BONUS = 0.00
+NDefines.NTechnology.NEIGHBOUR_SAME_RELIGON_GROUP_MULT = 2.0
+NDefines.NTechnology.BASE_DEMESNE_SPREAD_BONUS = 0.00
+NDefines.NTechnology.MAX_DEMESNE_BONUS = 0.0
+NDefines.NTechnology.TRADEPOST_SPREAD_BONUS = 0.000
+NDefines.NTechnology.SPYACTION_SPREAD_BONUS = 0.000
+NDefines.NTechnology.IDEAL_YEAR_LEVEL_0 = 1
+NDefines.NTechnology.IDEAL_YEAR_LEVEL_8 = 16000
 
 ----- NDisease -----
 

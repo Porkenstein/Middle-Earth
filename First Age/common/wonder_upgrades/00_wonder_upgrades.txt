@@ -642,13 +642,23 @@ upgrade_relic_tomb = {
 	
 	potential = { NOT = { mep_is_evil_side_trigger = yes } }
 	allow = {
+		always = no
 	}
 	active = { 
 		NOT = { mep_is_evil_side_trigger = yes }
-		custom_tooltip = {
-			text = must_be_storing_a_relic_TT
-			hidden_tooltip = {
-				FROM = { has_wonder_upgrade_flag = is_storing_relic }
+		hidden_tooltip = {
+			FROMFROM = { is_active = yes }
+		}
+		FROM = {
+			show_scope_change = no
+			trigger_if = {
+			    limit = {
+			        NOT = { FROMFROM = { is_building_wonder_upgrade = yes } }
+			    }
+			    custom_tooltip = {
+			        text = must_be_storing_a_relic_TT
+			        FROMFROM = { has_wonder_upgrade_flag = is_storing_relic }
+			    }
 			}
 		}
 	}
@@ -1209,7 +1219,7 @@ upgrade_great_seminars = { # Great Seminars
 	owner_modifier = {
 		scholar_opinion = 5
 		town_opinion = 3
-		tech_growth_modifier = 0.1
+		monthly_character_piety = 0.1
 	}
 }
 
@@ -1228,7 +1238,7 @@ upgrade_wing_of_diplomacy = { # Wing of Diplomacy
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		culture_techpoints = 0.05
+		local_revolt_risk = -0.05
 	}
 	owner_modifier = {
 		diplomacy = 1
@@ -1248,7 +1258,7 @@ upgrade_wing_of_martial = { # Wing of Strategy
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		military_techpoints = 0.05
+		levy_size = 0.1
 	}
 	owner_modifier = {
 		martial = 1
@@ -1268,7 +1278,7 @@ upgrade_wing_of_stewardship = { # Wing of Finance
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		economy_techpoints = 0.05
+		tradevalue = 30
 	}
 	owner_modifier = {
 		stewardship = 1
@@ -1288,7 +1298,7 @@ upgrade_wing_of_intrigue = { # Wing of Secrets
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		culture_techpoints = 0.05
+		land_organisation = 0.1
 	}
 	owner_modifier = {
 		intrigue = 1
@@ -1308,7 +1318,7 @@ upgrade_wing_of_learning = { # Wing of Learning
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		tech_growth_modifier = 0.05
+		monthly_character_piety = 0.05
 	}
 	owner_modifier = {
 		learning = 1
@@ -1457,7 +1467,7 @@ upgrade_golden_crown = {
 	picture = GFX_upgrade_icon_statue
 
 	potential = { 
-		wonder_stage = 4
+		FROMFROM = { wonder_stage = 4 }
 	}
 	allow = { }
 	active = { }
@@ -2272,12 +2282,13 @@ upgrade_moat_spike = { # Spike Moat
 	picture = GFX_upgrade_icon_skulls
 	potential = {
 		mep_is_evil_side_trigger = yes
-		has_wonder_upgrade = upgrade_moat_pit
 	}
-	allow = { has_wonder_upgrade = upgrade_moat_pit }
+	allow = {
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
+	}
 	active = {
 		mep_is_evil_side_trigger = yes
-		has_wonder_upgrade = upgrade_moat_pit
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
 	}
 
 	flags = {
@@ -2298,9 +2309,13 @@ upgrade_moat_spike = { # Spike Moat
 
 upgrade_moat_water = { # Water Moat
 	picture = GFX_upgrade_icon_anchor
-	potential = { has_wonder_upgrade = upgrade_moat_pit }
-	allow = { has_wonder_upgrade = upgrade_moat_pit }
-	active = { has_wonder_upgrade = upgrade_moat_pit }
+	potential = { }
+	allow = {
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
+	}
+	active = {
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
+	}
 
 	flags = {
 		is_singular
@@ -2319,17 +2334,16 @@ upgrade_moat_water = { # Water Moat
 upgrade_moat_bones = { # Moat of Bones
 	picture = GFX_upgrade_icon_skulls
 	potential = { 
-		has_wonder_upgrade = upgrade_moat_pit
 		mep_is_evil_side_trigger = yes
 	}
 	allow = {
-		has_wonder_upgrade = upgrade_moat_pit
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
 		any_kill_list_character = { # At least 50 kills
 			count = 50
 		}
 	}
 	active = {
-		has_wonder_upgrade = upgrade_moat_pit
+		FROMFROM = { has_wonder_upgrade = upgrade_moat_pit }
 		mep_is_evil_side_trigger = yes
 	}
 
@@ -2523,9 +2537,6 @@ upgrade_soaring_fortresses = { # Soaring Fortresses
 	build_time = 60
 	gold_cost_flat = 500
 	gold_cost_ticking = 1
-
-	owner_modifier = {
-	}
 	
 	local_modifier = {
 		heavy_infantry = 100
@@ -2948,7 +2959,7 @@ upgrade_golden_throne = { # a throne made of gold
 upgrade_automata_throne = { # Automata Throne
 	picture = GFX_upgrade_icon_stones
 	potential = {
-		TECH_CONSTRUCTION = 6
+		# TECH_CONSTRUCTION = 6
 		religion_group = religion_group_khazad
 	}
 	allow = { 
@@ -3066,7 +3077,7 @@ upgrade_collection_poetry = { # Poetry and Drama Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier_culture = 0.05
+		general_opinion = 2
 	}
 }
 
@@ -3084,7 +3095,7 @@ upgrade_collection_architecture = { # Architecture Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier_economy = 0.05
+		local_build_cost_modifier = -0.05
 	}
 }
 
@@ -3102,7 +3113,7 @@ upgrade_collection_history = { # History Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier_military = 0.05		
+		levy_size = 0.05
 	}
 }
 
@@ -3120,7 +3131,7 @@ upgrade_collection_nature = { # Natural Sciences Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier_military = 0.05		
+		levy_reinforce_rate = 0.05		
 	}
 }
 
@@ -3138,7 +3149,7 @@ upgrade_collection_philosophy = { # Math and Philosophy Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier_economy = 0.05		
+		monthly_character_prestige = 0.2
 	}
 }
 
@@ -3156,7 +3167,7 @@ upgrade_scribe_room = { # Scribe Room
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		tech_growth_modifier = 0.01
+		monthly_character_piety = 0.1
 		monthly_character_prestige = 0.1
 	}
 }
@@ -3175,7 +3186,7 @@ upgrade_keeper_of_tomes = {
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		tech_growth_modifier_culture = 0.05
+		monthly_character_piety = 0.2
 	}
 	owner_modifier = {
 		custom_modifier_text = keeper_of_tomes_custom_modifier_tt

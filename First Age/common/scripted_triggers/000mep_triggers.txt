@@ -1,0 +1,91 @@
+#  some MEP stuff to include in 00_scripted_triggers (and elsewhere)
+
+mep_is_good_side_trigger = {
+	religion_group = religion_group_eruhini
+}
+
+mep_is_evil_side_trigger = {
+    OR = {
+        trait = evil_side
+        religion_group = religion_group_melkor
+    }
+}
+
+mep_infertile_trait = {
+	OR = {
+		trait = marriedforever
+		trait = wilderness
+	}			
+}
+
+mep_inaccessible_traits = {
+	OR = {
+		trait = at_east
+		trait = sailed_west
+		trait = journey_to_valinor
+	}
+}
+
+mep_has_important_trait = {
+	always = no
+}
+
+mep_interesting_face_trigger = {
+	OR = {
+		religion = religion_dragons
+		trait = balrog
+	}
+}
+
+mep_vrich_city_building = {
+	OR = {
+		# MEP corresponding buildings
+	}
+}
+
+mep_attraction_compatible_root = {
+	OR = {
+		# humans, elves, hobbits, and the like
+		AND = {
+			OR = {
+				religion = religion_edain
+				religion = religion_hildor
+				religion = religion_eldar
+				trait = valar
+				trait = maiar
+			}
+			ROOT = {
+				OR = {
+					religion = religion_edain
+					religion = religion_hildor
+					religion = religion_eldar
+					trait = valar
+					trait = maiar
+				}
+			}
+		}
+		# Orcs and Goblins
+		AND = {
+			religion = religion_orkish
+			ROOT = {
+				religion = religion_orkish
+			}
+		}
+		# Others
+		religion_group = ROOT
+	}
+}
+
+mep_is_adult = {
+	AND = {
+		is_adult = yes
+		NOT = { trait = elf_childhood }
+	}
+}
+
+mep_is_child = {
+	OR = {
+		is_adult = no
+		trait = elf_childhood
+	}
+}

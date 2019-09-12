@@ -255,28 +255,6 @@ action_oversee_construction = {
 	events = { 923 924 }
 }
 
-action_advance_eco_tech = {
-	attribute = stewardship
-
-	potential = {
-		FROM = {
-			NOT = { religion_group = religion_group_melkor }
-		}
-	}
-
-	trigger = {
-		NOT = { religion = religion_wilderness }
-		any_province_lord = {
-			character = FROM
-		}
-		technology_can_spread = yes
-	}
-	
-	tech_growth_modifier_economy = 0.05
-	
-	events = { }
-}
-
 action_build_legend = {
 	attribute = stewardship
 
@@ -345,31 +323,6 @@ action_uncover_plots_offmap = {
 	events = { MNM.70022 MNM.70024 MNM.70023 }
 }
 
-action_study_technology = {
-	attribute = intrigue
-	
-	potential = {
-		FROM = {
-			job_spymaster = {
-				NOT = { religion_group = religion_group_melkor } # a kaukarelda or wicked dwarf makes a fine spy for this kind of thing
-			}
-		}
-	}
-	
-	trigger = {
-		NOT = { religion = religion_wilderness }
-		NOT = { religion_group = religion_group_melkor } # steal technology from orcs?
-		has_higher_tech_than = FROM
-		any_province_lord = {
-			NOT = { is_liege_or_above = FROM }
-			NOT = { character = FROM }
-		}
-		is_within_diplo_range = FROM
-	}
-	
-	events = { 932 933 }
-}
-
 action_organize_spies = {
 	attribute = intrigue
 	
@@ -432,27 +385,6 @@ action_sabotage_province = {
 	}
 	
 	events = { MNM.70020 933 }
-}
-
-# Marshal
-action_advance_mil_tech = {
-	attribute = martial
-
-	potential = {
-		FROM = { NOT = { religion_group = religion_group_melkor } }
-	}
-	
-	trigger = {
-		NOT = { religion = religion_wilderness }
-		any_province_lord = {
-			character = FROM
-		}
-		technology_can_spread = yes
-	}
-	
-	tech_growth_modifier_military = 0.05
-	
-	events = { 938 939 }
 }
 
 action_organize_raid = {
@@ -680,29 +612,6 @@ weave_enchantment = {
 	}
 
 	events = { }
-}
-
-action_advance_cul_tech = {
-	attribute = learning
-	
-	potential = {
-		FROM = { NOT = { religion_group = religion_group_melkor } }
-	}
-	
-	trigger = {
-		NOT = { religion = religion_wilderness }
-		any_province_lord = {
-			OR = {
-				character = FROM
-				is_liege_or_above = FROM
-			}
-		}
-		technology_can_spread = yes
-	}
-	
-	tech_growth_modifier_culture = 0.05
-	
-	events = { 926 927 }
 }
 
 action_build_zeal = {
