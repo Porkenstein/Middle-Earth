@@ -42,6 +42,51 @@ feudal_governments = {
 		court_size_modifier = 10
 	}
 	
+	elven_feudal_government = {
+		preferred_holdings = { CASTLE }
+		allowed_holdings = { 
+			CASTLE
+			FORT
+			HOSPITAL
+		}
+		allowed_holdings_culture = { # Will not get the wrong government type penalty for tribes of the same culture
+			TRIBAL
+		}
+		accepts_liege_governments = { #
+		}
+		free_revoke_on_governments = {
+		}
+		vassal_call_to_arms = {
+			tribal_government
+			silvan_tribal_government
+		}
+		frame_suffix = "_elven"
+		potential = {
+			NOT = { controls_religion = yes }
+			is_patrician = no
+			culture_group = culture_quendi
+			NOT = { culture = culture_silvan }
+		}
+		
+		color = { 100 100 100 }
+		
+		dukes_called_kings = yes
+		barons_need_dynasty = yes
+		can_revoke_without_reason = no
+		can_imprison_without_reason = no
+
+		can_build_tribal = no
+		
+		ignore_in_vassal_limit_calculation = {
+			tribal_government
+			silvan_tribal_government
+		}
+		capital_move_delay = 600
+		
+		## Modifiers
+		court_size_modifier = 10
+	}
+	
 	feudal_government = {
 		preferred_holdings = { CASTLE }
 		allowed_holdings = { 
