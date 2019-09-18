@@ -1,0 +1,108 @@
+religion_group_edain = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	playable = yes
+	
+	color = { 0.1 0.1 0.1 }
+	
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 0	# never try to convert
+	hostile_within_group = yes
+	
+	religion_faithful = {
+		graphical_culture = westerngfx
+		
+		icon = 2
+		color = { 0.1 0.1 0.1 }
+		
+		high_god_name = GOD_ERU
+		
+		god_names = {
+			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
+		}
+		
+		evil_god_names = {
+			GOD_MORGOTH
+		}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_rivermovement = yes
+		
+		aggression = 1.0 # AI aggression factor
+	}
+}
+
+religion_group_quendi = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	playable = yes
+	
+	color = { 0.1 0.1 0.1 }
+	
+	ai_peaceful = yes # Will make Hordes lose their super aggressiveness
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 0	# never try to convert
+	hostile_within_group = yes
+	
+	religion_eldar = {
+		graphical_culture = westerngfx
+		
+		icon = 1
+		color = { 0.1 0.1 0.1 }
+		
+		high_god_name = GOD_ERU
+		
+		god_names = {
+			GOD_ERU GOD_THE_VALAR GOD_THE_MAIAR
+		}
+		
+		evil_god_names = {
+			GOD_MORGOTH
+		}
+		
+		priests_can_marry = yes
+		female_temple_holders = yes
+		allow_rivermovement = yes
+		
+		aggression = 1.0 # AI aggression factor
+	}
+}
+
+religion_group_wilderness = {
+	has_coa_on_barony_only = yes
+	graphical_culture = westerngfx
+	playable = no
+	
+	color = { 0.1 0.1 0.1 }
+	
+	ai_convert_same_group = 0 # never try to convert
+	ai_convert_other_group = 0	# never try to convert
+	
+	religion_wilderness = {
+		graphical_culture = westerngfx
+		
+		alternate_start = {
+			year < 9999
+		}
+		
+		icon = 3
+		color = { 0.1 0.1 0.1 }
+		
+		high_god_name = GOD_TREE
+		
+		god_names = {
+			GOD_TREE
+		}
+		
+		evil_god_names = {
+			GOD_MORGOTH
+		}
+		
+		priests_can_marry = no
+		female_temple_holders = no
+		max_wives = 0
+		max_consorts = 0
+	}
+}
