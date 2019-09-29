@@ -15,7 +15,7 @@ character_event = {
 				OR = {
 					province_id = 265 # Rerir
 					province_id = 56 # Iant Iaur
-					province_id = 187 # Dor-Beor
+					province_id = 187 # Dor-Bëor
 					province_id = 422 # Narthalf
 				}
 			}
@@ -415,7 +415,7 @@ character_event = {
                     province_id = 404 # Nornhabar
 					province_id = 257 # Forthargelion
 					province_id = 126 # Dolmed
-					province_id = 187 # Dor-Beor
+					province_id = 187 # Dor-Bëor
 					province_id = 15 # Ramdal
 					province_id = 155 # Ered Mithrim
 					province_id = 78 # Foen
@@ -1125,24 +1125,102 @@ character_event = {
 	only_rulers = yes
 
 	option = {
-        
 		if = {
 			limit = {
-				NOT = { year = 4822 }
+				NOT = { year = 4800 }
+			}
+			any_demesne_province = {
+				limit = {
+					religion = religion_wilderness
+					de_jure_liege_or_above = k_gondolin
+					de_jure_liege_or_above = d_nargothrond
+				}
+				add_province_modifier = { name = hidden_place duration = -1 }
 			}
 		}
-		if = {
+	}
+}
+
+# apply initial populations
+character_event = {
+    id = provinceinit.22
+	
+	hide_window = yes
+    
+	is_triggered_only = yes
+	only_rulers = yes
+
+	option = {
+
+		# initial -1 to low settlement count dark elf and dwarf provinces
+		any_demesne_province = {
 			limit = {
-				NOT = { year = 4807 }
+				OR = {
+					religion = religion_moriquendi
+					religion = religion_mahal
+				}
+				NOT = { num_of_settlements = 3 }
 			}
+			increase_depopulation_effect = yes	
+		}
+
+		# further -1 to post-realm destruction lands
+		any_demesne_province = {
+			limit = {
+				year = 4286
+				de_jure_liege_or_above = k_lindon
+				OR = {
+					religion = religion_moriquendi
+					religion = religion_mahal
+				}
+			}
+			increase_depopulation_effect = yes	
 		}
 		any_demesne_province = {
 			limit = {
-				religion = religion_wilderness
-				de_jure_liege_or_above = k_gondolin
-				de_jure_liege_or_above = d_nargothrond
+				year = 4818
+				de_jure_liege_or_above = k_doriath
+				OR = {
+					religion = religion_moriquendi
+					religion = religion_mahal
+				}
 			}
-			add_province_modifier = { name = hidden_place duration = -1 }
+			increase_depopulation_effect = yes	
 		}
+		any_demesne_province = {
+			limit = {
+				year = 4853
+				de_jure_liege_or_above = k_brethil
+			}
+			increase_depopulation_effect = yes
+		}
+		any_demesne_province = {
+			limit = {
+				year = 4784
+				de_jure_liege_or_above = k_hithlum
+			}
+			increase_depopulation_effect = yes
+		}
+		any_demesne_province = {
+			limit = {
+				year = 4784
+				de_jure_liege_or_above = k_hithlum
+			}
+			increase_depopulation_effect = yes
+		}
+		any_demesne_province = {
+			limit = {
+				year = 4784
+				de_jure_liege_or_above = k_hithlum
+			}
+			increase_depopulation_effect = yes
+		}
+
+		# TODO
+		# post-nirnaeth refugee realms
+		# prospering edain realms
+		# recently settled realms
+		# specific low-population provinces in large realms
+		# specific high-population provinces in large realms
 	}
 }

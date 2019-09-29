@@ -2,17 +2,23 @@
 # the sudden flame
 #
 
+# TODO - 
+#  fix dagor_bragollach.10, which seems to be triggering a cascade of dagor_bragollach.13 events
+#  figure out why the unit damage is not working
+# 
+
 namespace = dagor_bragollach
 
 # The Siege of Angband is broken - AI
 narrative_event = {
-	id = dagor_bragollach.0
+	id = dagor_bragollach.10
 	major = yes
 	hide_window = yes
-			
+
 	trigger = {
-		year = 4760
-		has_character_flag = morgoth
+		has_landed_title = e_dor_daedeloth
+		year = 4764
+		
 		NOT = { has_global_flag = broken_siege_of_angband }
 		 
 		# only happens randomly if AI
@@ -24,112 +30,36 @@ narrative_event = {
 	}
 	
 	mean_time_to_happen = {
-		years = 7
+		years = 3
 	}
-	
-	option = {
-		#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
-		#	value = 35
-		#	localisation = "Dagor Bragollach"
-		#}
-		set_global_flag = broken_siege_of_angband
-		any_playable_ruler = {
-			set_character_flag = notify_set_broken_siege_of_angband_bragollach
-			limit = {
-				NOT = { character = ROOT }
-			}
-		}
 
-		198 = { province_event = { id = evilside.4 } }
-		199 = { province_event = { id = evilside.4 } }
-		200 = { province_event = { id = evilside.4 } }
-		17 = { province_event = { id = evilside.4 } }
-		18 = {
-				province_event = { id = evilside.4 }
-				spawn_unit = {
-					owner = ROOT
-					leader = none
-					province = THIS
-					home = THIS
-					troops = {
-						archers = { 1500 1500 }
-						light_infantry = { 10000 10000 } # give the stupid morgoth AI a boost
-						heavy_infantry = { 2000 2000 }
-						light_cavalry = { 2000 2000 }
-						monster_infantry = { 500 500 }
-						monster_cavalry = { 500 500 }
-					}
-					disband_on_peace = no
-					maintenance_multiplier = 0.1
-				}
-			}
-		430 = { province_event = { id = evilside.4 } }
-		431 = { province_event = { id = evilside.4 } }
+	option = {
+		slmarillion_sudden_flame_effect = yes
+		#18 = {
+		#	spawn_unit = {
+		#		owner = ROOT
+		#		province = THIS
+		#		home = THIS
+		#		troops = {
+		#			archers = { 1500 1500 }
+		#			light_infantry = { 10000 10000 } # give the stupid morgoth AI a boost
+		#			heavy_infantry = { 2000 2000 }
+		#			light_cavalry = { 2000 2000 }
+		#			monster_infantry = { 500 500 }
+		#			monster_cavalry = { 500 500 }
+		#		}
+		#		disband_on_peace = no
+		#		maintenance_multiplier = 0.1
+		#	}
+		#}
 	}
 }
 
-# The Siege of Angband is broken - Morgoth player
+# The Siege of Angband is broken - victim player
 narrative_event = {
-	id = dagor_bragollach.4
-	title = EVTNAME_dagor_bragollach_4
-	desc = EVTDESC_dagor_bragollach_4
-	hide_from = yes
-	major = yes
-
-	picture = GFX_anfauglith
-	border = GFX_event_narrative_frame_war
-
-	has_character_flag = start_dagor_bragollach
-
-	trigger = {
-		has_character_flag = start_dagor_bragollach
-	}
-	
-	immediate = {
-		set_global_flag = broken_siege_of_angband
-		clr_character_flag = start_dagor_bragollach
-		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
-		clr_character_flag = notify_set_broken_siege_of_angband
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	option = {
-		name = EVTOPTA_dagor_bragollach_4
-
-		#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
-		#	value = 35
-		#	localisation = "Dagor Bragollach"
-		#}
-
-		custom_tooltip = {
-			text = EVTOPTA_dagor_bragollach_4_TIP
-
-			any_playable_ruler = {
-				set_character_flag = notify_set_broken_siege_of_angband_bragollach
-				limit = {
-					NOT = { character = ROOT }
-				}
-			}
-			18 = { province_event = { id = evilside.4 }	}
-			198 = { province_event = { id = evilside.4 } }
-			199 = { province_event = { id = evilside.4 } }
-			200 = { province_event = { id = evilside.4 } }
-			17 = { province_event = { id = evilside.4 } }
-			430 = { province_event = { id = evilside.4 } }
-			431 = { province_event = { id = evilside.4 } }
-		}
-	}
-}
-
-# The Siege of Angband is broken - victim player TODO trigger
-narrative_event = {
-	id = dagor_bragollach.1
-	title = EVTNAME_dagor_bragollach_1
-	desc = EVTDESC_dagor_bragollach_1
-	hide_from = yes
+	id = dagor_bragollach.11
+	title = EVTNAME_dagor_bragollach_11
+	desc = EVTDESC_dagor_bragollach_11
 	major = yes
 	
 	picture = GFX_anfauglith
@@ -137,37 +67,37 @@ narrative_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		set_global_flag = broken_siege_of_angband
-	}
-	
 	option = {
-		hidden_effect = {
-			any_playable_ruler = {
-				limit = {
-					NOT = { character = ROOT }
+		name = EVTOPTA_dagor_bragollach_11
+		custom_tooltip = {
+			text = EVTOPTA_dagor_bragollach_11_TIP
+
+			any_realm_province = {
+				increase_depopulation_effect = yes
+			}
+			any_unit = {
+				damage_unit = {
+					percentage = 1.0
 				}
-				set_character_flag = notify_set_broken_siege_of_angband_bragollach
 			}
 		}
 
-		# all of ard-galen is laid to waste and overrun by orcs
-		name = EVTOPTA_dagor_bragollach_1
-		198 = { province_event = { id = evilside.4 } }
-		199 = { province_event = { id = evilside.4 } }
-		200 = { province_event = { id = evilside.4 } }
-		17 = { province_event = { id = evilside.4 } }
-		18 = { province_event = { id = evilside.4 } }
-		430 = { province_event = { id = evilside.4 } }
-		431 = { province_event = { id = evilside.4 } }
+		if = {
+			limit = {
+				has_character_flag = flag_fingolfin
+			}
+
+			# the ride of rochallor
+			character_event = { id = fingolfin.12 days = 30 }
+		}
 	}
 }
 
 # The Siege of Angband has been placed
 narrative_event = {
-	id = dagor_bragollach.2
-	title = EVTNAME_dagor_bragollach_2
-	desc = EVTDESC_dagor_bragollach_2
+	id = dagor_bragollach.12
+	title = EVTNAME_dagor_bragollach_12
+	desc = EVTDESC_dagor_bragollach_12
 	hide_from = yes
 	major = yes
 
@@ -190,7 +120,7 @@ narrative_event = {
 				}
 			}
 		}
-		name = EVTOPTA_dagor_bragollach_2
+		name = EVTOPTA_dagor_bragollach_12
 		clr_character_flag = notify_clr_broken_siege_of_angband
 	}
 
@@ -198,10 +128,10 @@ narrative_event = {
 		trigger = {
 			has_character_flag=morgoth
 		}
-		name = EVTOPTB_dagor_bragollach_2
+		name = EVTOPTB_dagor_bragollach_12
 
 		custom_tooltip = {
-			text = EVTOPTB_dagor_bragollach_2_TIP
+			text = EVTOPTB_dagor_bragollach_12_TIP
 
 			clr_character_flag = notify_clr_broken_siege_of_angband
 		}
@@ -216,40 +146,25 @@ narrative_event = {
 				religion_group = religion_group_melkor
 			}
 		}
-		name = EVTOPTC_dagor_bragollach_2
+		name = EVTOPTC_dagor_bragollach_12
 		clr_character_flag = notify_clr_broken_siege_of_angband
 	}
 }
 
 # The Siege of Angband has been broken
 narrative_event = {
-	id = dagor_bragollach.3
-	title = EVTNAME_dagor_bragollach_3
-	desc = EVTDESC_dagor_bragollach_3
-	hide_from = yes
+	id = dagor_bragollach.13
+	title = EVTNAME_dagor_bragollach_13
+	desc = EVTDESC_dagor_bragollach_13
 	major = yes
 	
 	picture = GFX_anfauglith
 	border = GFX_event_narrative_frame_war
 	
-	has_character_flag = notify_set_broken_siege_of_angband_bragollach
-
-	trigger = {
-		AND = {
-			NOT = { has_character_flag = morgoth }
-			has_character_flag = notify_set_broken_siege_of_angband_bragollach
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 20
-	}
-
-	immediate = {
-		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
-	}
+	is_triggered_only = yes
 
 	option = {
+		name = EVTOPTA_dagor_bragollach_13
 		trigger = {
 			NOT = {
 				OR = {
@@ -259,8 +174,6 @@ narrative_event = {
 				}
 			}
 		}
-		name = EVTOPTA_dagor_bragollach_3
-		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
 
 		if = {
 			limit = {
@@ -268,11 +181,12 @@ narrative_event = {
 			}
 
 			# the ride of rochallor
-			narrative_event = { id = fingolfin.12 days = 30 }
+			character_event = { id = fingolfin.12 days = 30 }
 		}
 	}
 
 	option = {
+		name = EVTOPTB_dagor_bragollach_13
 		trigger = {
 			OR = {
 				trait = evil_side
@@ -280,14 +194,36 @@ narrative_event = {
 				religion_group = religion_group_melkor
 			}
 		}
-		name = EVTOPTB_dagor_bragollach_3
-		clr_character_flag = notify_set_broken_siege_of_angband_bragollach
 	}
 }
 
 # The Siege of Angband is broken - Morgoth player
+narrative_event = {
+	id = dagor_bragollach.14
+	title = EVTNAME_dagor_bragollach_14
+	desc = EVTDESC_dagor_bragollach_14
+	hide_from = yes
+	major = yes
+
+	is_triggered_only = yes
+
+	picture = GFX_anfauglith
+	border = GFX_event_narrative_frame_war
+	
+	immediate = {
+		set_global_flag = broken_siege_of_angband
+	}
+	
+	option = {
+		name = EVTOPTA_dagor_bragollach_14
+
+		slmarillion_sudden_flame_effect = yes
+	}
+}
+
+# Province is abandoneds by morgoth due to the siege
 province_event = {
-	id = dagor_bragollach.5
+	id = dagor_bragollach.15
 	hide_window = yes
 
 	trigger = {
@@ -305,8 +241,9 @@ province_event = {
 	}
 }
 
+# angband is under siege!
 character_event = {
-	id = dagor_bragollach.6
+	id = dagor_bragollach.16
 	notification = no
 	hide_window = yes
 
@@ -349,8 +286,6 @@ character_event = {
 				limit = {
 					NOT = { kingdom = { title = k_angband } }
 					NOT = { duchy = { title = d_ard_galen } }
-					#NOT = { county = { title = c_minui_edwyn_eryn } }
-					#NOT = { county = { title = c_minui_annui_eryn } }
 				}
 				# abandon the province
 				set_province_flag = abandoned_by_morgoth
@@ -368,7 +303,7 @@ character_event = {
 
 # morgoth ended up breaking the siege of angband
 character_event = {
-	id = dagor_bragollach.7
+	id = dagor_bragollach.17
 	notification = no
 	hide_window = yes
 
@@ -399,8 +334,8 @@ character_event = {
 
 		# destroy the watch on angband
 		set_global_flag = broken_siege_of_angband
-		any_playable_ruler = {
-			set_character_flag = notify_set_broken_siege_of_angband
+		any_player = {
+			character_event = { id = dagor_bragollach.18 days = 1 }
 			limit = {
 				NOT = { character = ROOT }
 			}
@@ -411,24 +346,18 @@ character_event = {
 
 # The Siege of Angband has been broken
 narrative_event = {
-	id = dagor_bragollach.8
-	title = EVTNAME_dagor_bragollach_8
-	desc = EVTDESC_dagor_bragollach_8
-	hide_from = yes
+	id = dagor_bragollach.18
+	title = EVTNAME_dagor_bragollach_18
+	desc = EVTDESC_dagor_bragollach_18
 	major = yes
+
+	is_triggered_only = yes
 	
 	picture = GFX_anfauglith
 	border = GFX_event_narrative_frame_war
-	
-	has_character_flag = notify_set_broken_siege_of_angband
 
 	trigger = {
 		NOT = { has_character_flag = morgoth }
-		has_character_flag = notify_set_broken_siege_of_angband
-	}
-
-	mean_time_to_happen = {
-		days = 10
 	}
 
 	option = {
@@ -441,8 +370,7 @@ narrative_event = {
 				}
 			}
 		}
-		name = EVTOPTA_dagor_bragollach_8
-		clr_character_flag = notify_set_broken_siege_of_angband
+		name = EVTOPTA_dagor_bragollach_18
 	}
 
 	option = {
@@ -453,7 +381,6 @@ narrative_event = {
 				religion_group = religion_group_melkor
 			}
 		}
-		name = EVTOPTB_dagor_bragollach_8
-		clr_character_flag = notify_set_broken_siege_of_angband
+		name = EVTOPTB_dagor_bragollach_18
 	}
 }

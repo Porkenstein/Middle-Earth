@@ -198,6 +198,9 @@ action_colonize_province = {
 
 	trigger = {
 		owner = { character = FROM }
+		FROM = {
+			NOT = { is_capital = PREV }
+		}
 		#any_province_lord = {   # TODO: colonisation of another ruler's provinces is problematic
 		#	OR = {
 		#		top_liege = { character = FROM }
@@ -206,7 +209,7 @@ action_colonize_province = {
 		#		character = FROM
 		#	}
 		#}
-		can_be_colonised = yes
+		has_depopulation_effect = yes
 	}
 
 	events = { colonisation.0  colonisation.7 }

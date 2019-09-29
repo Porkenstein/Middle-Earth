@@ -2,35 +2,12 @@
 ### COLONISATION TRIGGERS ###
 
 # used from province scope
-can_be_colonised = {
-    OR = {
-        has_province_modifier = depopulated_1
-        has_province_modifier = depopulated_2
-        has_province_modifier = depopulated_3
-    }
-}
-
-# used from province scope
-can_send_colonists = {
-    AND = {
-        num_of_settlements = 1
-		NOT = { has_province_modifier = depopulated_1 } # depopulated provinces can't send colonists
-		NOT = { has_province_modifier = depopulated_2 }
-		NOT = { has_province_modifier = depopulated_3 }
-		NOT = { has_province_modifier = being_colonised }
-    }
-}
-
-# used from ruler scope
-can_colonise = {
-    wealth = 100
-    NOT = { culture = culture_valar }
-    NOT = { culture = culture_maiar }
-    NOT = { culture = culture_umaiar }
-
-    any_realm_province = {
-        can_send_colonists = yes
-    }
+has_depopulation_effect = {
+	OR = {
+		has_province_modifier = depopulated_1
+		has_province_modifier = depopulated_2
+		has_province_modifier = depopulated_3
+	}
 }
 
 ### PROVINCE INFO ###

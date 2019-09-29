@@ -565,3 +565,60 @@ silmarillion_province_become_heretic_effect = {
 		years = 10
 	}
 }
+
+slmarillion_sudden_flame_effect = { # ROOT = morgoth
+	#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
+		#	value = 35
+		#	localisation = "Dagor Bragollach"
+		#}
+
+	custom_tooltip = {	text = EVTOPTA_dagor_bragollach_14_TIP }
+
+	hidden_tooltip = {
+
+		# TODO - not working
+		#any_independent_ruler = { # destroy armies of neighboring realms
+		#	limit = { NOT = { religion_group = religion_group_melkor } }
+		#	any_unit = {
+		#		limit = {
+		#			location = {
+		#				OR = {
+		#					de_jure_liege_or_above = d_ard_galen
+		#					de_jure_liege_or_above = k_angband
+		#				}
+		#			}
+		#		}
+		#		damage_unit = {
+		#			percentage = 1
+		#		}
+		#	}
+		#}
+
+		# TODO - firing this event causes a cascade of hundreds of popups
+		#any_player = { # any_player = { # observer
+		#	limit = {
+		#		AND = {
+		#			NOT = { completely_controls	= d_ard_galen }
+		#			NOT = { character = ROOT }
+		#		}
+		#	}
+		#	character_event = { id = dagor_bragollach.13 days = 1 }
+		#}
+
+		any_independent_ruler = { # besieger
+			limit = {
+				completely_controls	= d_ard_galen
+				NOT = { character = ROOT }
+			}
+			character_event = { id = dagor_bragollach.11 days = 1 }
+		}
+
+		18 = { province_event = { id = evilside.4 }	}
+		198 = { province_event = { id = evilside.4 } }
+		199 = { province_event = { id = evilside.4 } }
+		200 = { province_event = { id = evilside.4 } }
+		17 = { province_event = { id = evilside.4 } }
+		430 = { province_event = { id = evilside.4 } }
+		431 = { province_event = { id = evilside.4 } }
+	}
+}

@@ -2,15 +2,18 @@ namespace = colonisation
 
 # TODO: store the ID of the province from which colonists are being sent in a variable, then reference it to set the colonized province to that culture and religion
 
-# apply the colonising modifier as people begin to move into the province
+# colonise 
 character_event = {
 	id = colonisation.0
 	hide_window = yes
+
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_colonize_province
 		location = {
-			NOT = { has_province_modifier = being_colonised }
 			county = {
 				is_occupied = no
 			}
@@ -23,137 +26,150 @@ character_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {        
-		location = {
-			add_province_modifier = {
-				name = being_colonised
-				duration = -1
-			}
-		}
-	}
-}
-
-
-#Now the province has the modifier, MTTH of 2 years for one population tick up, for men.
-province_event = {
-	id = colonisation.1
-	hide_window = yes
-
-	trigger = {
-        has_province_modifier = being_colonised
-	}
-
-	mean_time_to_happen = {
-        years = 2
+        years = 1
         modifier = {
             factor = 2 # Dwarves are slow
-            owner = { religion_group = religion_group_khazad }
+            location = { owner = { religion_group = religion_group_khazad } }
         }
         modifier = {
             factor = 4 # Elves are slower
-            owner = { religion_group = religion_group_eldar }
+            location = { owner = { religion_group = religion_group_eldar } }
         }
         modifier = {
-            factor = 4 # Initial population is costly
-            has_province_modifier = depopulated_3
+            factor = 2 # Initial population is costly
+            location = { has_province_modifier = depopulated_3 }
         }
-	}
-
-	option = {
-		# if this is initial population, update this province with the source province's culture and race
-		if = {
-			limit = {
-				has_province_modifier = depopulated_3
+        modifier = {
+            factor = 2 # More slow when no settlement
+            location = { NOT = { num_of_settlements = 1 } }
+        }
+        modifier = {
+            factor = 2 # Fully populated provinces with only one holding take a while
+            location = {
+				NOT = { num_of_settlements = 2 }
+				has_province_modifier = depopulated_1
 			}
-			owner = {
-				PREV = {
-					culture = PREV
-					religion = PREV
-				}
-			}
-		}
-
-		# reduce depopulation
-		colonise = yes
-		
-		# the steward receives an event if colonisation is finished
-		if = {
-			limit = {
-				can_be_colonised = no
-			}
-			owner = {
-				job_treasurer = {
-					character_event = { id = colonisation.6 days = 1 }
-				}
-			}
-
-		# stop colonising
-		remove_province_modifier = being_colonised
-		}
-	}
-}
-
-
-# The steward receives an event
-character_event = {
-	id = colonisation.6
-	desc = "colonisation6desc"
-	picture = GFX_edain_travel
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "colonisation6A"
-		liege = { letter_event = { id = colonisation.3 days = 1 } }
-	}
-}
-
-# The liege is informed
-letter_event = {
-	id = colonisation.3
-	desc = "colonisation3desc"
-	border = GFX_event_letter_frame_economy
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = "colonisation3A"
-	}
-}
-
-# When no possible steward is sending colonists to a province, remove colonising flag
-province_event = {
-	id = colonisation.4
-	hide_window = yes
-
-	trigger = {
-		has_province_modifier = being_colonised
-		owner = {
-			job_treasurer = {
-				NOT = { has_job_action = action_colonize_province }
-			}
-			NOT = {
-				any_liege = {
-					job_treasurer = {
-						has_job_action = action_colonize_province
+        }
+        modifier = {
+            factor = 0.8 # faster colonisation from prospering capitals
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = prosperity_modifier_1
 					}
 				}
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		years = 1
+        }
+		modifier = {
+            factor = 0.7 # faster colonisation from prospering capitals
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = prosperity_modifier_2
+					}
+				}
+			}
+        }
+		modifier = {
+            factor = 0.6 # faster colonisation from prospering capitals
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+			}
+        }
+        modifier = {
+            factor = 2 # depopulated capitals can't colonise as fast
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = depopulated_1
+					}
+				}
+			}
+        }
+		modifier = {
+            factor = 3 # depopulated capitals can't colonise as fast
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = depopulated_2
+					}
+				}
+			}
+        }
+		modifier = {
+            factor = 4 # depopulated capitals can't colonise as fast
+            location = {
+				owner = {
+					capital_scope = {
+						has_province_modifier = depopulated_3
+					}
+				}
+			}
+        }
 	}
 
 	option = {
-		remove_province_modifier = being_colonised
+		# bump population
+		location = {
+			# if this is initial population, update this province with the source province's culture and race
+			if = {
+				limit = {
+					has_province_modifier = depopulated_3
+				}
+				owner = {
+					PREV = {
+						culture = PREV
+						religion = PREV
+					}
+				}
+			}
+
+			# reduce depopulation, set colonisation flag
+			colonise = yes
+
+			# the steward receives an event if colonisation is finished
+			if = {
+				limit = {
+					NOT = { has_depopulation_effect = yes }
+				}
+				ROOT = {
+					character_event = { id = colonisation.1 }
+				}
+			}
+		}
 	}
 }
 
+
+ # The steward receives an event
+ character_event = {
+ 	id = colonisation.1
+	is_triggered_only = yes
+
+ 	desc = "colonisation6desc"
+ 	picture = GFX_edain_travel
+ 	
+ 	option = {
+ 		name = "colonisation6A"
+ 		liege = { letter_event = { id = colonisation.2 days = 7 } }
+ 	}
+ }
+ 
+ # The liege is informed
+ letter_event = {
+ 	id = colonisation.2
+	is_triggered_only = yes
+
+ 	desc = "colonisation3desc"
+ 	
+ 	option = {
+ 		name = "colonisation3A"
+ 	}
+ }
 
 ########################
 # ambitious courtier builds a barony, populates the province with his race & culture, and becomes your vassal here
@@ -164,6 +180,10 @@ character_event = {
 	id = colonisation.7
 	desc = "colonisation7desc"
 	picture = GFX_elf_noldor
+
+	capable_only = yes
+	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_colonize_province
@@ -172,7 +192,7 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		years = 5
+		years = 10
 	}
 	
 	option = {
@@ -242,7 +262,7 @@ letter_event = {
 		
 		random_demesne_province = { # build a castle and grant the county
 			limit = {
-				has_province_modifier = being_colonised
+				ROOT = { job_treasurer = { location = { province = PREVPREVPREV } } }
 				NOT = { num_of_settlements = 1 }
 			}
 			build_holding = { type = castle holder = FROM }
@@ -250,8 +270,6 @@ letter_event = {
 			
 			culture = FROM
 			religion = FROM
-			
-			remove_province_modifier = being_colonised
 		}
 		FROM = {
 			opinion = { modifier = opinion_very_grateful who = ROOT years = 2 }
@@ -269,7 +287,7 @@ letter_event = {
 		
 		random_demesne_province = { # build a castle and grant the county
 			limit = {
-				has_province_modifier = being_colonised
+				ROOT = { job_treasurer = { location = { province = PREVPREVPREV } } }
 				NOT = { num_of_settlements = 1 }
 			}
 			build_holding = { type = castle holder = FROM }
@@ -277,8 +295,6 @@ letter_event = {
 			
 			culture = FROM
 			religion = FROM
-			
-			remove_province_modifier = being_colonised
 		}
 		FROM = {
 			opinion = { modifier = opinion_grateful who = ROOT years = 1 }

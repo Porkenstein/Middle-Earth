@@ -50,6 +50,16 @@ character_event = {
 			populate_effect = yes
 		}
 
+		# wilderness provinces can't have populations
+		any_realm_province = {
+			limit = {
+				religion = religion_wilderness
+                has_province_flag = has_been_colonised
+			}
+			
+			clr_province_flag = has_been_colonised
+		}
+
 		# empty provinces are always depopulated, and must be populated when settled
 		any_realm_province = {
 			limit = {
@@ -85,7 +95,7 @@ province_event = { #prosperity gain
 
 	option = {
 			random = {
-			chance = 30 # base chance to increase, reduced from 50
+			chance = 20 # base chance to increase, reduced from 50
 				modifier = {
 					factor = 1.5
 					owner = {
