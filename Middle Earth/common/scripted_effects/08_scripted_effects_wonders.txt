@@ -31,18 +31,8 @@ wonder_stage_completion_sound_effect = {
 		trigger_switch = {
 			on_trigger = wonder_stage
 			4 = { 
-				any_player = {
-					limit = {
-						OR = { 
-							character = ROOT
-							is_within_diplo_range = ROOT
-						}
-					}
-					if = { 
-						limit = { event_target:target_wonder = { has_wonder = wonder_statue_horse } }
-						sound_effect = wonder_complete_final_tier_horse
-					}
-					else = { sound_effect = wonder_complete_final_tier }
+				ROOT = {
+					sound_effect = wonder_complete_final_tier
 				}
 			}
 			3 = {
