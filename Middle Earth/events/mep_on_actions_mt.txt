@@ -1554,7 +1554,7 @@ character_event = {	#Startup Characters
 						trait = brilliant_strategist
 						trait = midas_touched
 						trait = elusive_shadow
-						trait = scholarly_theologiansage
+						trait = scholarly_theologian
 					}
 				}
 				change_diplomacy = 5
@@ -1615,7 +1615,8 @@ character_event = {	#Fire for Training
 	}
 
 	immediate = {
-		employer = {
+		save_event_target_as = ward
+		guardian = {
 			character_event = { id = goshen_maintenance_events.11 }
 		}
 	}
@@ -1632,7 +1633,7 @@ character_event = {	#Decide Training
 			wealth = 50
 		}
 		wealth = -50
-		FROM = { set_character_flag = child_martial_training }
+		event_target:ward = { set_character_flag = child_martial_training }
 	}
 	option = {
 		name = EVTOPTBgoshen_maintenance_events.11
@@ -1640,19 +1641,19 @@ character_event = {	#Decide Training
 			wealth = 50
 		}
 		wealth = -50
-		FROM = { set_character_flag = child_intrigue_training }
+		event_target:ward = { set_character_flag = child_intrigue_training }
 	}
 	option = {
-		name = EVTOPTCgoshen_maintenance_events.11
+		event_target:ward = EVTOPTCgoshen_maintenance_events.11
 		trigger = {
 			wealth = 50
 		}
 		wealth = -50
-		FROM = { set_character_flag = child_steward_training }
+		event_target:ward = { set_character_flag = child_steward_training }
 	}
 	option = {
 		name = EVTOPTDgoshen_maintenance_events.11
-		FROM = { set_character_flag = child_random_training }
+		event_target:ward = { set_character_flag = child_random_training }
 	}
 }
 character_event = {	#Training Outcome
