@@ -32,6 +32,21 @@ death_text_cannibal = {
 		}
 	}
 }
+death_text_satanist = {
+	weight_multiplier = {
+		factor = 60
+	
+		modifier = {
+			factor = 0
+			NOT = { 
+				society_rank = {
+					rank == 4
+					society = the_satanists
+				}
+			}
+		}
+	}
+}
 death_text_bastard = {
 	weight_multiplier = {
 		factor = 40
@@ -563,6 +578,77 @@ death_text_humble = {
 			OR = {
 				NOT = { trait = humble }
 				is_virtous = no
+			}
+		}
+	}
+}
+
+death_text_evil_wonder = {
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			NOT = {
+				any_realm_wonder = {
+					is_active = yes
+					has_wonder_flag = burial_ground
+				}
+			}
+
+			OR = {
+				is_virtous = yes
+				is_wicked = no
+			}
+		}
+	}
+}
+death_text_started_wonder = {
+	weight_multiplier = {
+		factor = 5
+	
+		modifier = {
+			factor = 0
+			ruled_years = 5 
+			OR = {
+				has_started_building_wonder = no
+				NOT = { has_ambition = obj_create_wonder }
+			}
+		}
+	}
+}
+death_text_architect_wonder = {
+	weight_multiplier = {
+		factor = 5
+	
+		modifier = {
+			factor = 0
+			NOT = { 
+				calc_true_if = 
+				{
+					amount = 2
+					trait = architect
+					has_character_modifier = master_builder
+					has_character_flag = created_wonder
+					num_of_wonders = 3
+				}
+			}
+		}
+	}
+}
+death_text_child = {
+	weight_multiplier = {
+		factor = 3
+	
+		modifier = {
+			factor = 0
+
+			age = 10
+			is_virtous = no
+			NOR = { 
+				trait = bastard 
+				trait = legit_bastard 
+				trait = child_of_consort 
 			}
 		}
 	}
