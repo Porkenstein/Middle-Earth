@@ -153,7 +153,7 @@ NDefines.NMilitary.LEVY_MAINTENANCE_FACTOR = 1 -- was 1.5
 
 NDefines.NMilitary.CAPITAL_WARSCORE_MULTIPLIER = 3 -- sacking the capital is always decisive in Tolkien, for some reason
 
-NDefines.NMilitary.ARMY_MOVEMENT_SPEED = 9
+NDefines.NMilitary.ARMY_MOVEMENT_SPEED = 9 -- the scale of the Beleriand map is smaller
 NDefines.NMilitary.NAVY_MOVEMENT_SPEED = 30
 
 NDefines.NMilitary.MAX_LEADERSHIP_TRAITS = 3
@@ -166,13 +166,12 @@ NDefines.NMilitary.LOOT_HOLDING_DESTRUCTION_ODDS = 0		-- a holding with less tha
 NDefines.NMilitary.LOOT_HOLDING_BUILDING_DEST_ODDS = 1		-- there is a 1 in this chance a random building is destroyed when looted
 NDefines.NMilitary.SETTLED_ADVENTURER_MODIFIER_YEARS = 5	-- How long provinces are spared from raiding after settling a raider adventurer.
 	
-NDefines.NMilitary.MIN_RETINUE = 1000
-NDefines.NMilitary.RETINUE_FROM_REALMSIZE = 1.5		-- was 2.0
+NDefines.NMilitary.MIN_RETINUE = 2000
 NDefines.NMilitary.RETINUE_HIRE_COST_MULTIPLIER = 0.1		-- was 0.14
 NDefines.NMilitary.RETINUE_REINFORCE_RATE = 0.05		-- was 0.025
 NDefines.NMilitary.RETINUE_REINFORCE_COST = 1.0			-- was 3.0
 NDefines.NMilitary.RETINUE_CONSTANT_COST = 0.1			-- was 0.25
-NDefines.NMilitary.RETINUE_INCREASE_PER_TECH = 1.1      -- was 1.5
+NDefines.NMilitary.RETINUE_INCREASE_PER_TECH = 1.0      -- was 1.5
 
 NDefines.NMilitary.TERRAIN_SPEC_BONUS = 0.3		-- was 0.2
 

@@ -429,15 +429,13 @@ succession_laws = {
 							is_vice_royalty = yes
 						}
 					}
-					AND = {
-						holder_scope = {
+					holder_scope = {
+						show_scope_change = no
+						primary_title = {
 							show_scope_change = no
-							primary_title = {
-								show_scope_change = no
-								OR = {
-									has_law = ze_administration_laws_1
-									has_law = ze_administration_laws_2
-								}
+							OR = {
+								has_law = ze_administration_laws_1
+								has_law = ze_administration_laws_2
 							}
 						}
 					}
@@ -562,60 +560,60 @@ succession_laws = {
 		}			
 	}
 	
-	succ_hre_elective = {
-		oldest_child_opinion = -15
-		child_opinion = -5
-		dynasty_opinion = -5
-		vassal_opinion = 15
-		vassal_limit = 20
-		potential = {
-			always = no
-		}
-		allow = {
-			custom_tooltip = {
-				text = not_forced_tt
-				hidden_tooltip = {
-					holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
-				}
-			}
-		}
-		effect = {
-			succession = {
-				base_type = feudal_elective
-				voting_rules = hre_feudal_elective
-			}
-		}
-		revoke_allowed = {
-			always = no
-		}			
-	}
-	
-	succ_byzantine_elective = {
-		oldest_child_opinion = -5
-		child_opinion = -5
-		dynasty_opinion = -5
-		feudal_opinion = -5
-		potential = {
-			always = no
-		}
-		allow = {
-			custom_tooltip = {
-				text = not_forced_tt
-				hidden_tooltip = {
-					holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
-				}
-			}
-		}
-		effect = {
-			succession = {
-				base_type = feudal_elective
-				voting_rules = byzantine_elective
-			}
-		}
-		revoke_allowed = {
-			always = no
-		}			
-	}
+	#succ_hre_elective = {
+	#	oldest_child_opinion = -15
+	#	child_opinion = -5
+	#	dynasty_opinion = -5
+	#	vassal_opinion = 15
+	#	vassal_limit = 20
+	#	potential = {
+	#		always = no
+	#	}
+	#	allow = {
+	#		custom_tooltip = {
+	#			text = not_forced_tt
+	#			hidden_tooltip = {
+	#				holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		succession = {
+	#			base_type = feudal_elective
+	#			voting_rules = hre_feudal_elective
+	#		}
+	#	}
+	#	revoke_allowed = {
+	#		always = no
+	#	}			
+	#}
+	#
+	#succ_byzantine_elective = {
+	#	oldest_child_opinion = -5
+	#	child_opinion = -5
+	#	dynasty_opinion = -5
+	#	feudal_opinion = -5
+	#	potential = {
+	#		always = no
+	#	}
+	#	allow = {
+	#		custom_tooltip = {
+	#			text = not_forced_tt
+	#			hidden_tooltip = {
+	#				holder_scope = { NOT = { has_character_flag = liege_forced_succ_law } }
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		succession = {
+	#			base_type = feudal_elective
+	#			voting_rules = byzantine_elective
+	#		}
+	#	}
+	#	revoke_allowed = {
+	#		always = no
+	#	}			
+	#}
 	
 	succ_tanistry = {
 		oldest_child_opinion = -20
@@ -1076,7 +1074,7 @@ gender_laws = {
 		
 		effect = {
 			gender_succ = cognatic
-			law_set_allows_matrilineal_marriage = yes
+			law_set_allow_matrilineal_marriage = yes
 		}
 		revoke_allowed = {
 			always = no
@@ -1206,7 +1204,7 @@ gender_laws = {
 		}
 		effect = {
 			gender_succ = true_cognatic
-			law_set_allows_matrilineal_marriage = yes
+			law_set_allow_matrilineal_marriage = yes
 		}
 		revoke_allowed = {
 			always = no

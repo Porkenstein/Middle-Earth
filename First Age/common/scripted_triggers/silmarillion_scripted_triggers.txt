@@ -161,20 +161,16 @@ is_civilized_human_culture = {
 }
 
 is_nomadic_human = { # edain, baradhrim, forodwaith hosts
-	AND = {
-		is_nomadic = yes
-		is_human_culture = yes
-	}
+	is_nomadic = yes
+	is_human_culture = yes
 }
 
 is_tribal_human = { # edain, baradhrim, forodwaith hosts and tribes
-	AND = {
-		OR = {
-			is_tribal = yes
-			is_nomadic = yes
-		}
-		is_human_culture = yes
+	OR = {
+		is_tribal = yes
+		is_nomadic = yes
 	}
+	is_human_culture = yes
 }
 
 is_orc_culture = { # first age only
@@ -187,11 +183,9 @@ is_orc_culture = { # first age only
 }
 
 is_gavelkind_only = { # can only use gavelkind
-	AND = {
-		is_primitive_culture = yes
-		NOT = {
-			religion_group = religion_group_eldar
-		}
+	is_primitive_culture = yes
+	NOT = {
+		religion_group = religion_group_eldar
 	}
 }
 
@@ -293,17 +287,15 @@ is_dark_lord = {
 }
 
 can_overthrow_liege = {
-	AND = {
-		liege = { NOT = { is_dark_lord = yes } }
-		OR = {
-			NOR = {
-				religion_group = religion_group_eldar
-				religion_group = religion_group_khazad
-			}
-			NOT = { religion_group = ROOT }
-			trait = evil_side
-			liege = { trait = evil_side }
+	liege = { NOT = { is_dark_lord = yes } }
+	OR = {
+		NOR = {
+			religion_group = religion_group_eldar
+			religion_group = religion_group_khazad
 		}
+		NOT = { religion_group = ROOT }
+		trait = evil_side
+		liege = { trait = evil_side }
 	}
 }
 
@@ -316,19 +308,17 @@ is_mining_target = { # by dwarves
 }
 
 can_send_mining_expedition = {
-	AND = {
-		independent = yes
-		war = no
-		has_regent = no
-		religion = religion_mahal
-		
-		any_courtier_or_vassal = {
-			is_councillor = yes
-			NOT = { has_character_flag = sending_mining_expedition }
-		}
-
+	independent = yes
+	war = no
+	has_regent = no
+	religion = religion_mahal
+	
+	any_courtier_or_vassal = {
+		is_councillor = yes
 		NOT = { has_character_flag = sending_mining_expedition }
 	}
+
+	NOT = { has_character_flag = sending_mining_expedition }
 }
 
 in_hidden_province = {
@@ -500,8 +490,27 @@ same_de_jure_kingdom_as_root = {
 }
 
 is_ai_elf = {
-	AND = {
-		ai = yes
-		religion_group = religion_group_eldar
+	ai = yes
+	religion_group = religion_group_eldar
+}
+
+silmarillion_is_marriage_adult = {
+	is_marriage_adult = yes
+	NOT = { trait = elf_childhood }
+}
+
+silmarillion_can_be_fat = {
+	OR = {
+		religion = religion_mahal
+		religion = religion_orkish
+		religion = religion_dragons
+		is_human_religion = yes
+	}
+}
+
+silmarillion_can_be_thin = {
+	NOR = {
+		religion = religion_eruhini
+		religion = religion_umaiar
 	}
 }

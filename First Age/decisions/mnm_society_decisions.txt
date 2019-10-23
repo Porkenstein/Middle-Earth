@@ -114,9 +114,7 @@ society_decisions = { # Society decisions are only evaluated by members of socie
 				text = must_have_multiple_rank_4 #Society must allow multiple characters at Rank 4
 				NAND = {
 					society_rank == 3
-					OR = {
-						is_devil_worshiper_trigger = yes
-					}
+					is_devil_worshiper_trigger = yes
 				}
 			}
 		}
@@ -142,7 +140,7 @@ society_decisions = { # Society decisions are only evaluated by members of socie
 					}
 				}
 				set_character_flag = has_sent_request_to_rank_up
-				character_event = { id = HF.10060 } #sends event presenting choice: to duel a current Hero or nah?
+				# TODO character_event = { id = HF.10060 } #sends event presenting choice: to duel a current Hero or nah?
 			}
 			else = { #For everyone else...
 				#Rank up cost
@@ -527,7 +525,7 @@ targeted_decisions = {
 			death = {
 				death_reason = death_missing
 			}
-			hidden_effect = { character_event = { id = MNM.7506 } }
+			hidden_effect = { long_character_event = { id = MNM.7506 } }
 			FROM = {
 				show_scope_change = no
 				increase_visibility_minor_effect = yes
@@ -1225,7 +1223,7 @@ targeted_decisions = {
 					OR = {
 						AND = {
 							is_landed = yes
-							capital_holding = { holding_type = TEMPLE }
+							capital_holding = { holding_type = temple }
 						}
 					    AND = {
 					        tier = baron
@@ -1233,7 +1231,7 @@ targeted_decisions = {
 					            any_demesne_province = {
 					                any_province_holding = {
 					                    owner = { character = ROOT }
-					                    holding_type = TEMPLE
+					                    holding_type = temple
 					                }
 					            }
 					        }
@@ -1416,14 +1414,15 @@ targeted_decisions = {
 			NOT = {
 				trait = incapable
 			}
-			OR = {
-				AND = {
-					FROM = {
-						society_member_of = the_satanists
-					}
-					OR = {
-						religion_group = religion_group_melkor
-					}
+			AND = {
+				FROM = {
+					society_member_of = the_satanists
+				}
+				NOT = { trait = evil_side }
+				NOT = { religion_group = religion_group_melkor }
+				top_liege = {
+					NOT = { trait = evil_side }
+					NOT = { religion_group = religion_group_melkor }
 				}
 			}
 		}

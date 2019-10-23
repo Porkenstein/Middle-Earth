@@ -703,6 +703,8 @@ character_event = {
 	trigger = {
 		has_job_action = action_administer_realm
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		liege = { 
 			any_demesne_province = {
 				NOT = {
@@ -713,48 +715,8 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 220
-		
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 10
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 11
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 12
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 13
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 15
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 18
-		}
+		months = 220		
+		job_event_mtth_modifier_inverted_stewardship_score = yes
 	}
 	
 	option = {

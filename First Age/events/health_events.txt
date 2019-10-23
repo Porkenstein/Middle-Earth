@@ -402,10 +402,8 @@ character_event = {
 		}
 		modifier = {
 			factor = 40
-			AND = {
-				trait = incapable
-				immortal = yes # Incapable immortals more likely to wake up nuts
-			}
+			trait = incapable
+			immortal = yes # Incapable immortals more likely to wake up nuts
 		}
 		modifier = {
 			factor = 0.1
@@ -1160,65 +1158,6 @@ character_event = {
 	option = {
 		name = EVTOPTA6071
 		remove_trait = pneumonic
-	}
-}
-
-#Wounded
-character_event = {
-	id = 6080
-	desc = EVTDESC6080
-	picture = GFX_evt_illness
-	border = GFX_event_normal_frame_religion
-	
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-	is_triggered_only = yes
-	
-	trigger = {
-		OR = {
-			trait = hunter
-			in_command = yes
-			trait = brave
-		}
-		NOR = {
-			trait = wounded
-			is_maimed_trigger = yes
-		}		
-	}
-	
-	weight_multiplier = {
-		days = 1
-		
-		modifier = {
-			factor = 1.1
-			trait = brave
-		}
-		
-		modifier = {
-			factor = 1.25
-			in_command = yes
-		}
-		
-		modifier = {
-			factor = 1.4
-			is_ruler = yes
-		}
-		
-		modifier = {
-			factor = 1.666
-			trait = misguided_warrior
-		}
-		
-		modifier = {
-			factor = 0.9
-			trait = paranoid
-		}
-	}
-	
-	option = {
-		name = EVTOPTA6080
-		add_trait = wounded
 	}
 }
 

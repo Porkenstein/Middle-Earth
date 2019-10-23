@@ -1410,6 +1410,17 @@ nick_the_faceless = {
 	}
 }
 
+nick_the_beanstalk = {
+	allow = {
+		age = 16
+		trait = giant
+		trait = feeble
+	}
+	chance = {
+		factor = 1
+	}
+}
+
 # GIVEN BY PIETY
 #################
 
@@ -1761,6 +1772,30 @@ nick_the_magnificent = {
 	}
 }
 
+nick_the_oppressor = {
+	allow = {
+		age = 40
+		ruled_years = 30
+		OR = {
+			trait = wroth
+			trait = lunatic
+			trait = cruel
+			trait = impaler
+			trait = arbitrary
+			trait = stubborn
+			trait = deceitful
+			trait = paranoid
+			trait = envious
+		}
+		any_vassal = {
+			has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+		}
+	}
+	chance = {
+		factor = 2
+	}
+}
+
 nick_the_quarreller = {
 	allow = {
 		age = 30
@@ -1886,8 +1921,8 @@ nick_the_young = {
 
 nick_the_old = {
 	allow = {
-		ruled_years = 80
-		age = 120
+		ruled_years = 60
+		age = 80
 		NOT = { culture_group = culture_group_moriquendi }
 		NOT = { culture_group = culture_group_umanyar }
 		NOT = { culture_group = culture_group_amanyar }
@@ -1922,6 +1957,68 @@ nick_the_old = {
 		modifier = {
 			factor = 1.5
 			ruled_years = 40
+		}
+	}
+}
+
+nick_the_undying = {
+	allow = {
+		ruled_years = 30
+		age = 60
+		NOT = { culture_group = culture_group_moriquendi }
+		NOT = { culture_group = culture_group_umanyar }
+		NOT = { culture_group = culture_group_amanyar }
+		NOT = { culture_group = culture_group_quendi }
+
+		NOT = { culture_group = culture_group_eru }
+		NOT = { culture_group = culture_group_wilderness }
+		NOT = { trait = maiar }
+		NOT = { trait = elf }
+		NOT = { trait = valar }
+		NOT = { trait = dwarven }
+		NOT = { trait = orkish }
+		NOT = { trait = maiar }
+		NOT = { trait = uruloke }
+		NOT = { trait = cold_drake }
+		NOT = { trait = long_worms }
+
+		calc_true_if = {
+			amount = 2
+			has_character_flag = immune_tuberculosis
+			has_character_flag = immune_bubonic_plague
+			has_character_flag = immune_measles
+			has_character_flag = immune_smallpox
+			has_character_flag = immune_aztec_disease
+			has_character_flag = immune_typhoid_fever
+			has_character_flag = immune_typhus
+			has_character_flag = immune_dancing_plague
+		}
+		OR = {
+			trait = one_eyed
+			trait = one_handed
+			trait = one_legged
+			trait = mangled
+			trait = blinded
+			trait = eunuch
+			trait = disfigured
+			trait = infirm
+		}
+		trait = scarred
+		NOR = {
+			trait = stressed
+			trait = depressed
+			trait = craven
+		}
+	}
+	chance = {
+		factor = 15
+		modifier = {
+			factor = 2.0
+			age = 65
+		}
+		modifier = {
+			factor = 10.0
+			age = 75
 		}
 	}
 }
@@ -2186,6 +2283,7 @@ nick_the_spirit_stalker = {}
 nick_the_soul_flayer = {}
 nick_the_crimson_reaper = {}
 nick_the_dreaded = {}
+nick_the_chest_buster = {}
 
 #Blood Games nicknames for champions.
 nick_the_skull_crusher = {}
@@ -2266,6 +2364,7 @@ nick_the_absolved = {}
 nick_the_strongarm = {}
 nick_the_iron_grip = {}
 nick_the_knuckle_slammer = {}
+nick_the_gods_arm = {}
 nick_the_bone_squeezer = {}
 nick_the_bull = {}
 nick_the_butch = {}  
@@ -2326,6 +2425,8 @@ nick_the_young_conqueror = {}
 #War (Adult)
 nick_the_bloodhound = {} #Male only
 
+nick_the_warrior_philosopher = {}
+
 #Peace (Child)
 nick_the_pure = {}
 nick_the_celestial = {}
@@ -2340,6 +2441,7 @@ nick_the_architect = {}
 nick_the_castellan = {}
 nick_the_carpenter = {}
 nick_the_grandiose = {}
+nick_the_holy_mason = {}
 
 #Murder + Peace
 nick_the_compassionate = {}
@@ -2356,11 +2458,19 @@ nick_the_patron_of_arts = {}
 #Castellan + Peace
 nick_the_bastion_of_capital = {}
 
+nick_the_white_knight = {}
+
+#Family
+nick_the_grand_patriarch = {}
+nick_the_grand_matriarch = {}
+
 #Benevolent
 nick_the_benevolent = {}
+nick_the_philosopher = {}
 
 #Ruthless
 #nick_the_ruthless = {}
+nick_the_zealot = {}
 
 nick_the_elder = {
 	is_prefix = yes

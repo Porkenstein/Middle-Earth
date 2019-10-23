@@ -296,18 +296,9 @@ settlement_decisions = {
 		}
 		allow = {
 			FROM = {
-				OR = {
-					AND = {
-						is_merchant_republic = no
-						is_nomadic = no
-					}
-#					capital_scope = {
-#						ROOT = {
-#							location = {
-#								NOT = { province = PREVPREV }
-#							}
-#						}
-#					}
+				AND = {
+					is_merchant_republic = no
+					is_nomadic = no
 				}
 			}
 		}
@@ -561,8 +552,8 @@ settlement_decisions = {
 				hidden_tooltip = {
 					location = {
 						province_event = { id = HL.4810 days = 1 }
+						province_event = { id = HL.4814 days = 2 random = 2 }
 					}
-					character_event = { id = HL.4814 days = 2 random = 2 }
 				}
 				destroy_settlement = THIS
 				location = {

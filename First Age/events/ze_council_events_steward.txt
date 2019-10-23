@@ -306,16 +306,6 @@ character_event = {
 					ROOT = { character_event = { id = ZE.3009 days = 365 } }
 					break = yes
 				}
-				if = { #zealous = head of religion +piety
-					limit = {
-						event_target:target_treasurer = { trait = zealous }
-						religion_head = { always = yes }
-						NOT = { religion_head = { character = ROOT } }
-					}
-					religion_head = { save_event_target_as = religious_head }
-					ROOT = { character_event = { id = ZE.3005 days = 365 } }
-					break = yes
-				}
 				if = { #proud = him/her self +nothing happens
 					limit = { event_target:target_treasurer = { trait = proud } }
 					ROOT = { character_event = { id = ZE.3007 days = 365 } }

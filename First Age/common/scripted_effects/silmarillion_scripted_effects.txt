@@ -577,22 +577,22 @@ slmarillion_sudden_flame_effect = { # ROOT = morgoth
 	hidden_tooltip = {
 
 		# TODO - not working
-		#any_independent_ruler = { # destroy armies of neighboring realms
-		#	limit = { NOT = { religion_group = religion_group_melkor } }
-		#	any_unit = {
-		#		limit = {
-		#			location = {
-		#				OR = {
-		#					de_jure_liege_or_above = d_ard_galen
-		#					de_jure_liege_or_above = k_angband
-		#				}
-		#			}
-		#		}
-		#		damage_unit = {
-		#			percentage = 1
-		#		}
-		#	}
-		#}
+		any_independent_ruler = { # destroy armies of neighboring realms
+			limit = { NOT = { religion_group = religion_group_melkor } }
+			any_unit = {
+				limit = {
+					location = {
+						OR = {
+							de_jure_liege_or_above = d_ard_galen
+							de_jure_liege_or_above = k_angband
+						}
+					}
+				}
+				damage_unit = {
+					percentage = 1.0 # TODO not working?
+				}
+			}
+		}
 
 		# TODO - firing this event causes a cascade of hundreds of popups
 		#any_player = { # any_player = { # observer
