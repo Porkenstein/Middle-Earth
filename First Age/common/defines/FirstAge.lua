@@ -149,7 +149,7 @@ NDefines.NMilitary.BATTLE_TECH_MULTIPLIER = 0.0 -- was 0.5
 
 NDefines.NMilitary.HOLDING_LEVY_SIZE_OWNER_MARTIAL_MULT = 0.03 -- was 0.05
 
-NDefines.NMilitary.LEVY_MAINTENANCE_FACTOR = 1 -- was 1.5
+NDefines.NMilitary.LEVY_MAINTENANCE_FACTOR = 0.5 -- was 1.5
 
 NDefines.NMilitary.CAPITAL_WARSCORE_MULTIPLIER = 3 -- sacking the capital is always decisive in Tolkien, for some reason
 

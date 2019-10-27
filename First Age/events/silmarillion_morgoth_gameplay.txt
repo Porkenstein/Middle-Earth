@@ -181,10 +181,12 @@ character_event = {
 		# surrender
 		FROM = {
 			any_war = {
-				OR = {
-					using_cb = overthrow_ruler
-					using_cb = overthrow_ruler_no_calls
-					using_cb = depose_liege
+				limit = {
+					OR = {
+						using_cb = overthrow_ruler
+						using_cb = overthrow_ruler_no_calls
+						using_cb = depose_liege
+					}
 				}
 				end_war = reverse_demand
 			}
@@ -201,6 +203,7 @@ character_event = {
 	has_character_flag = morgoth
 	war = no
 	ai = yes
+	hide_window = yes
 
 	trigger = {
 		has_global_flag = broken_siege_of_angband

@@ -21744,32 +21744,32 @@ add_same_commander_trait_as_FROM = {
 }
 
 landless_pope_effect = {
-	if = {
-		limit = {
-			has_landed_title = k_papal_state
-			NOT = {
-				catholic = {
-					is_name_randomized = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				NOR = {
-					any_demesne_province = {
-						always = yes
-					}
-					any_realm_lord = {
-						any_demesne_province = {
-							always = yes
-						}
-					}
-				}
-			}
-			character_event = { id = HFP.40034 }
-			character_event = { id = HFP.40035 }
-		}
-	}
+	#if = {
+	#	limit = {
+	#		has_landed_title = k_papal_state
+	#		NOT = {
+	#			catholic = {
+	#				is_name_randomized = yes
+	#			}
+	#		}
+	#	}
+	#	if = {
+	#		limit = {
+	#			NOR = {
+	#				any_demesne_province = {
+	#					always = yes
+	#				}
+	#				any_realm_lord = {
+	#					any_demesne_province = {
+	#						always = yes
+	#					}
+	#				}
+	#			}
+	#		}
+	#		character_event = { id = HFP.40034 }
+	#		character_event = { id = HFP.40035 }
+	#	}
+	#}
 }
 
 # Used for rains in African regions...
@@ -22420,98 +22420,98 @@ clr_flags_introduce_heir_effect = {
 	clr_character_flag = ZE_evt_heir_8
 }
 
-generate_mask_effect = {
-	random_list = { 
-		20 = { 
-			add_artifact = crown_african_mask_1
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_1_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_1_random_b }
-					20 = { set_name = crown_african_mask_1_random_c }
-					20 = { set_name = crown_african_mask_1_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_2
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_2_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_2_random_b }
-					20 = { set_name = crown_african_mask_2_random_c }
-					20 = { set_name = crown_african_mask_2_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_3
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_3_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_3_random_b }
-					20 = { set_name = crown_african_mask_3_random_c }
-					20 = { set_name = crown_african_mask_3_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_4
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_4_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_4_random_b }
-					20 = { set_name = crown_african_mask_4_random_c }
-					20 = { set_name = crown_african_mask_4_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_5
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_5_random_a } #Randomize names to avoid too much repetition.
-					20 = { trigger = { ROOT = { NOT = { dynasty = none } } } set_name = crown_african_mask_5_random_b }
-					20 = { set_name = crown_african_mask_5_random_c }
-					20 = { set_name = crown_african_mask_5_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_6
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_6_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_6_random_b }
-					20 = { trigger = { ROOT = { NOT = { dynasty = none } } } set_name = crown_african_mask_6_random_c }
-					20 = { set_name = crown_african_mask_6_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_7
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_7_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_7_random_b }
-					20 = { set_name = crown_african_mask_7_random_c }
-					20 = { set_name = crown_african_mask_7_random_d } 
-				}
-			}
-		}
-		20 = { 
-			add_artifact = crown_african_mask_8
-			new_artifact = {
-				random_list = { 
-					20 = { set_name = crown_african_mask_8_random_a } #Randomize names to avoid too much repetition.
-					20 = { set_name = crown_african_mask_8_random_b }
-					20 = { set_name = crown_african_mask_8_random_c }
-					20 = { set_name = crown_african_mask_8_random_d } 
-				}
-			}
-		}
-	}
-}
+#generate_mask_effect = {
+#	random_list = { 
+#		20 = { 
+#			add_artifact = crown_african_mask_1
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_1_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_1_random_b }
+#					20 = { set_name = crown_african_mask_1_random_c }
+#					20 = { set_name = crown_african_mask_1_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_2
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_2_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_2_random_b }
+#					20 = { set_name = crown_african_mask_2_random_c }
+#					20 = { set_name = crown_african_mask_2_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_3
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_3_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_3_random_b }
+#					20 = { set_name = crown_african_mask_3_random_c }
+#					20 = { set_name = crown_african_mask_3_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_4
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_4_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_4_random_b }
+#					20 = { set_name = crown_african_mask_4_random_c }
+#					20 = { set_name = crown_african_mask_4_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_5
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_5_random_a } #Randomize names to avoid too much repetition.
+#					20 = { trigger = { ROOT = { NOT = { dynasty = none } } } set_name = crown_african_mask_5_random_b }
+#					20 = { set_name = crown_african_mask_5_random_c }
+#					20 = { set_name = crown_african_mask_5_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_6
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_6_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_6_random_b }
+#					20 = { trigger = { ROOT = { NOT = { dynasty = none } } } set_name = crown_african_mask_6_random_c }
+#					20 = { set_name = crown_african_mask_6_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_7
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_7_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_7_random_b }
+#					20 = { set_name = crown_african_mask_7_random_c }
+#					20 = { set_name = crown_african_mask_7_random_d } 
+#				}
+#			}
+#		}
+#		20 = { 
+#			add_artifact = crown_african_mask_8
+#			new_artifact = {
+#				random_list = { 
+#					20 = { set_name = crown_african_mask_8_random_a } #Randomize names to avoid too much repetition.
+#					20 = { set_name = crown_african_mask_8_random_b }
+#					20 = { set_name = crown_african_mask_8_random_c }
+#					20 = { set_name = crown_african_mask_8_random_d } 
+#				}
+#			}
+#		}
+#	}
+#}
 
 reformation_god_names_changes_effect = { #Reforming religion with certain Doctrines might result in gods being added/removed/changed.
 	ROOT = { #The Reformer scope.
@@ -23352,7 +23352,6 @@ give_goldsmith_artifacts_flag_good_effect = {
 	        religion_group = religion_group_melkor
 	    }
 	    add_artifact = bejeweled_dagger
-        add_artifact = skull_trophy
 		add_artifact = iron_crown
 	}
 	else_if = {
