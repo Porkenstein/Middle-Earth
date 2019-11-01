@@ -234,6 +234,8 @@ character_event = {
 						any_spouse = { character = FROM }
 						any_child = { character = FROM }
 						any_dynasty_member = { character = FROM}
+						religion_group = religion_group_eldar
+						religion_group = religion_group_edain
 					}
 				}
 				random_list = {
@@ -371,6 +373,8 @@ character_event = {
 						any_spouse = { character = FROM }
 						any_child = { character = FROM }
 						any_dynasty_member = { character = FROM}
+						religion_group = religion_group_eldar
+						religion_group = religion_group_edain
 					}
 				}
 				random_list = {
@@ -508,6 +512,8 @@ character_event = {
 						any_spouse = { character = FROM }
 						any_child = { character = FROM }
 						any_dynasty_member = { character = FROM}
+						religion_group = religion_group_eldar
+						religion_group = religion_group_edain
 					}
 				}
 				random_list = {
@@ -645,6 +651,8 @@ character_event = {
 						any_spouse = { character = FROM }
 						any_child = { character = FROM }
 						any_dynasty_member = { character = FROM}
+						religion_group = religion_group_eldar
+						religion_group = religion_group_edain
 					}
 				}
 				random_list = {
@@ -940,9 +948,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.625 }
@@ -975,9 +983,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.626 }
@@ -1010,9 +1018,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.627 }
@@ -1045,9 +1053,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.628 }
@@ -1080,9 +1088,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.629 }
@@ -1115,9 +1123,9 @@ character_event = {
 				killer = ROOT
 			}
 		}
-		add_trait = kinslayer
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes
 		hidden_tooltip = {
-			character_event = { id = 38287 } #Notify Kinslayer
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
 				character_event = { id = TOG.630 }
@@ -1150,6 +1158,8 @@ character_event = {
 				killer = ROOT
 			}
 		}
+		FROM = { save_event_target_as = kinslayer_target }
+		add_kinslayer_trait_effect = yes		
 		hidden_tooltip = {
 			any_vassal = {
 				limit = { has_character_flag = attending_blot }
@@ -1441,27 +1451,6 @@ character_event = {
 	}
 }
 
-# Sacrifice Aztec (Vassal)
-#character_event = {
-#	id = TOG.633
-#	desc = EVTDESC_TOG_633
-#	picture = GFX_evt_midwinter_blot_oldgods
-#	border = GFX_event_normal_frame_religion
-#	
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = EVTOPTA_TOG_622
-#		tooltip = {
-#			FROMFROM = {
-#				death = {
-#					death_reason = death_sacrificed_norse
-#					killer = FROM
-#				}
-#			}
-#		}
-#	}
-#}
 
 # No Prisoners, Slaves sacrificed instead (Liege)
 character_event = {
@@ -1532,7 +1521,7 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	immediate = {
 		if = {
 			limit = { 
 				any_courtier = {
@@ -1578,7 +1567,7 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	immediate = {
 		if = {
 			limit = { 
 				any_courtier = {
@@ -1624,7 +1613,7 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	immediate = {
 		if = {
 			limit = { 
 				any_courtier = {
@@ -2006,7 +1995,7 @@ character_event = {
 #		}
 #	}
 	
-	option = {
+	immediate = {
 		liege = {
 			set_character_flag = feast_gluttonous
 			random_vassal = {
@@ -2536,7 +2525,7 @@ character_event = {
 #		}
 #	}
 	
-	option = {
+	immediate = {
 		set_character_flag = feast_friendship
 		liege = { 
 			random_vassal = {
@@ -2674,7 +2663,7 @@ character_event = {
 #		}
 #	}
 	
-	option = {
+	immediate = {
 		set_character_flag = feast_homosexual
 		liege = { 
 			set_character_flag = feast_homosexual
@@ -2819,7 +2808,7 @@ character_event = {
 #		}
 #	}
 	
-	option = {
+	immediate = {
 		set_character_flag = feast_homosexual
 		liege = { 
 			set_character_flag = feast_homosexual
@@ -3155,7 +3144,7 @@ character_event = { #feast_drunkard
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3184,7 +3173,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3213,7 +3202,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3243,7 +3232,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3281,7 +3270,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3331,7 +3320,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3387,7 +3376,7 @@ character_event = {
 		}
 	}
 	
-	option = {
+	immediate = {
 		random_vassal = {
 			limit = {
 				has_character_flag = blot_feast_vassal
@@ -3424,7 +3413,7 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	immediate = {
 		clr_character_flag = holding_blot
 		clr_character_flag = blot_feast
 		clr_character_flag = attending_blot

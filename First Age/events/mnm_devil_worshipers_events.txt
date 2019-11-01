@@ -99,6 +99,7 @@ character_event = {
 			OR = {
 				ai = no
 				NOT = { controls_religion = yes }
+				trait = possessed
 			}
 		}
 
@@ -125,6 +126,10 @@ character_event = {
 			modifier = {
 				factor = 1.5
 				trait = trusting
+			}
+			modifier = {
+				factor = 50 #likely if "possessed"
+				has_opinion_modifier = { who = event_target:satanists_recruiter modifier = opinion_loyal_servant }
 			}
 			modifier = {
 				factor = 1.5
@@ -433,6 +438,7 @@ character_event = {
 			OR = {
 				ai = no
 				NOT = { controls_religion = yes }
+				trait = possessed
 			}
 		}
 		
@@ -5671,6 +5677,24 @@ long_character_event = { #reaction
 	border = GFX_event_long_frame_intrigue
 
 	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				FROM = {
+					is_alive = yes
+				}
+			}
+			FROM = {
+				save_event_target_as = satanist
+			}
+		}
+		else = {
+			FROMFROM = {
+				save_event_target_as = satanist
+			}
+		}
+	}
 
 	option = {
 		name = MNM.7506.a
@@ -11196,10 +11220,7 @@ character_event = {
 				OR = {
 					prisoner = yes # I have become imprisoned
 					trait = incapable # I have become incapable
-					#AND = {
-						is_devil_worshiper_trigger = no
-						#TODO NOT = { society_member_of = the_assassins }
-					#}
+					is_devil_worshiper_trigger = no
 				}
 			}
 			character_event = { id = MNM.20100 } # Clear out any flags, etc

@@ -851,6 +851,7 @@ character_event = {
     	trigger = { 
     		NOR = {
     			is_devil_worshiper_trigger = yes
+    			society_member_of = secret_religious_cult
     		}
     	}
     	text = EVTDESC_MNM_10045
@@ -889,7 +890,7 @@ character_event = {
         name = EVTOPTC_MNM_10045
         custom_tooltip = { text = EVTOPTB_MNM_6903_TT }
 
-        #TODO hidden_effect = { FROM = { character_event = { id = MNM.6906 days = 3 } } }
+        hidden_effect = { FROM = { character_event = { id = MNM.6906 days = 3 } } }
 
         if = {
         	limit = { ai = no }
@@ -1047,6 +1048,7 @@ character_event = {
 	is_triggered_only = yes
 
 	option = {
+		name = EXCELLENT
 		add_mission_succeed_influence_effect = yes
 	}
 }
@@ -1063,6 +1065,7 @@ character_event = {
 	is_triggered_only = yes
 
 	option = {
+		name = ALAS
 		add_mission_fail_influence_effect = yes
 	}
 }
