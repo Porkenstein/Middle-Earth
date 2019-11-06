@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
 ###################### Castle buildings for Sindar culture ( culture_sindar ) - V code- ###################### 
@@ -30,6 +30,7 @@ castle = {
 	}
 	ca_Vwatchtower_2 = {
 		desc = ca_Vwatchtower_2_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Vwatchtower_1
 		gold_cost = 50
@@ -44,6 +45,7 @@ castle = {
 	}
 	ca_Vwatchtower_3 = {
 		desc = ca_Vwatchtower_3_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Vwatchtower_2
 		gold_cost = 75
@@ -58,6 +60,7 @@ castle = {
 	}
 	ca_Vwatchtower_4 = {
 		desc = ca_Vwatchtower_4_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Vwatchtower_3
 		gold_cost = 125
@@ -72,6 +75,7 @@ castle = {
 	}
 	ca_Vwatchtower_5 = {
 		desc = ca_Vwatchtower_5_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Vwatchtower_4
 		gold_cost = 125
@@ -86,6 +90,7 @@ castle = {
 	}
 	ca_Vwatchtower_6 = {
 		desc = ca_Vwatchtower_6_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Vwatchtower_5
 		gold_cost = 150
@@ -102,7 +107,7 @@ castle = {
 ####################### Special buildings #######################
 	ca_Vsindar_elite_1 = {
 		desc = ca_sindar_elite_desc
-		
+
 		prerequisites = { ca_keep_1 }
 		gold_cost = 85
 		build_time = 320
@@ -117,7 +122,7 @@ castle = {
 	ca_Vsindar_elite_2 = {
 		desc = ca_sindar_elite_desc
 		
-		prerequisites = { ca_keep_1 }
+		prerequisites = { ca_keep_2 }
 		upgrades_from = ca_Vsindar_elite_1
 		gold_cost = 90
 		build_time = 395
@@ -132,7 +137,7 @@ castle = {
 	ca_Vsindar_elite_3 = {
 		desc = ca_sindar_elite_desc
 		
-		prerequisites = { ca_keep_1 }
+		prerequisites = { ca_keep_3 }
 		upgrades_from = ca_Vsindar_elite_2
 		gold_cost = 125
 		build_time = 570
@@ -147,7 +152,7 @@ castle = {
 	ca_Vsindar_elite_4 = {
 		desc = ca_sindar_elite_desc
 		
-		prerequisites = { ca_keep_1 }
+		prerequisites = { ca_keep_4 }
 		upgrades_from = ca_Vsindar_elite_3
 		gold_cost = 160
 		build_time = 580
@@ -162,12 +167,12 @@ castle = {
 	ca_Vsindar_elite_5 = {
 		desc = ca_sindar_elite_desc
 		
-		prerequisites = { ca_keep_1 }
+		prerequisites = { ca_keep_5 }
 		upgrades_from = ca_Vsindar_elite_4
 		gold_cost = 190
 		build_time = 920
-		heavy_infantry = 20
-		archers = 40
+		heavy_infantry = 40
+		archers = 80
 		ai_creation_factor = 104
 		potential = {
             #has_global_flag = building

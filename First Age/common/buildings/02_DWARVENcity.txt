@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
 
 # City
@@ -22,8 +22,8 @@ city = {
 		garrison_size = 0.05
 		fort_level = 1
 		ai_creation_factor = 90
-        	potential = {
-      			#has_global_flag = building
+        potential = {
+      		#has_global_flag = building
 			FROM = { 
 				OR = {
 					culture_group = culture_group_dwarves
@@ -31,7 +31,7 @@ city = {
 				}
 			}
 		}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ct_DInnerFortification_2 = {
 		desc = ct_DInnerFortification_1_desc
@@ -42,7 +42,7 @@ city = {
 		garrison_size = 0.1
 		fort_level = 1
 		ai_creation_factor = 89
-        	potential = {
+        potential = {
 			#has_global_flag = building
 			FROM = { 
 				OR = {
@@ -51,7 +51,15 @@ city = {
 				}
 			}
 		}
-		extra_tech_building_start = 0.2
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					year = 4400
+					has_global_flag = building
+				}
+			}
+		}
+		#extra_tech_building_start = 0.2
 	}
 	ct_DInnerFortification_3 = {
 		desc = ct_DInnerFortification_1_desc
@@ -62,8 +70,8 @@ city = {
 		garrison_size = 0.15
 		fort_level = 1
 		ai_creation_factor = 88
-        	potential = {
-           		#has_global_flag = building
+        potential = {
+        	#has_global_flag = building
 			FROM = { 
 				OR = {
 					culture_group = culture_group_dwarves
@@ -71,7 +79,15 @@ city = {
 				}
 			}
 		}
-		extra_tech_building_start = 1.0
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					year = 4700
+					has_global_flag = building
+				}
+			}
+		}
+		#extra_tech_building_start = 1.0
 	}
 	ct_DInnerFortification_4 = {
 		desc = ct_DInnerFortification_1_desc
@@ -82,8 +98,8 @@ city = {
 		garrison_size = 0.2
 		fort_level = 1
 		ai_creation_factor = 87
-        	potential = {
-           		#has_global_flag = building
+        potential = {
+           	#has_global_flag = building
 			FROM = { 
 				OR = {
 					culture_group = culture_group_dwarves
@@ -91,7 +107,8 @@ city = {
 				}
 			}
 		}
-		extra_tech_building_start = 1.0
+		trigger = {	hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 1.0
 	}
 	ct_DInnerFortification_5 = {
 		desc = ct_DInnerFortification_1_desc
@@ -117,7 +134,8 @@ city = {
 				province_id = 216 # Nargothrond
 			}
 		}
-		extra_tech_building_start = 2.0
+		trigger = {	hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 2.0
 	}
 	ct_DInnerFortification_6 = {
 		desc = ct_DInnerFortification_1_desc
@@ -143,7 +161,41 @@ city = {
 				province_id = 216 # Nargothrond
 			}
 		}
-		extra_tech_building_start = 3.0
+		trigger = {
+			custom_tooltip = {
+				text = tooltip_has_economy_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_economy
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_economy
+								}	
+							}
+						}
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = { has_global_flag = building }
+		}
+		#extra_tech_building_start = 3.0
 	}
 
 ####################### Water system : levy reinforce rate and land organisation #######################
@@ -157,7 +209,7 @@ city = {
 		potential = {
 			FROM = { culture_group = culture_group_dwarves }
            }
-	    extra_tech_building_start = 0.0
+	    #extra_tech_building_start = 0.0
 	}
 	ct_Dwater_system_1 = {
 		desc = ca_Dwater_system_1_desc
@@ -172,7 +224,7 @@ city = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ct_Dwater_system_2 = {
 		desc = ca_Dwater_system_1_desc
@@ -186,7 +238,7 @@ city = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 
 
@@ -211,7 +263,7 @@ city = {
 			}
 	    	FROM = { culture_group = culture_group_dwarves }
 		}
-		extra_tech_building_start = 0.1
+		#extra_tech_building_start = 0.1
 	}
 	ct_dwarfmines_2 = {
 		desc = ct_dwarfmines_2_desc
@@ -233,7 +285,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
 		}
-        extra_tech_building_start = 0.8
+        #extra_tech_building_start = 0.8
 	}
 	ct_dwarfmines_3 = {
 		desc = ct_dwarfmines_3_desc
@@ -254,7 +306,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
         }
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ct_dwarfmines_4 = {
 		desc = ct_dwarfmines_4_desc
@@ -275,7 +327,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
        	}
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ct_dwarfmines_5 = {
 		desc = ct_dwarfmines_5_desc
@@ -296,7 +348,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
         }
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ct_dwarfmines_6 = {
 		desc = ct_dwarfmines_6_desc
@@ -320,7 +372,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
         }
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ct_dwarfmines_7 = {
 		desc = ct_dwarfmines_7_desc
@@ -328,7 +380,7 @@ city = {
 		upgrades_from = ct_dwarfmines_6
 		gold_cost = 2000
 		build_time = 6570
-		tax_income = 15
+		tax_income = 20
 		ai_creation_factor = 109
 		add_number_to_name = yes
 		monthly_character_prestige = 1.0
@@ -342,7 +394,7 @@ city = {
 				province_id = 216 # Nargothrond
 			}
         }
-		extra_tech_building_start = 4.2
+		#extra_tech_building_start = 4.2
 	}
 
 
@@ -357,11 +409,11 @@ city = {
 		liege_prestige = 0.5
 		ai_creation_factor = 109
 		add_number_to_name = yes
-        	potential = {
+        potential = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
-            	}
-		extra_tech_building_start = 0.8
+        }
+		#extra_tech_building_start = 0.8
 	}
 	ct_jeweler_2 = {
 		desc = ct_jeweler_desc
@@ -373,11 +425,12 @@ city = {
 		liege_prestige = 1.0
 		ai_creation_factor = 109
 		add_number_to_name = yes
-        	potential = {
+        potential = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
-            	}
-		extra_tech_building_start = 0.8
+        }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 0.8
 	}
 	ct_jeweler_3 = {
 		desc = ct_jeweler_desc
@@ -389,10 +442,11 @@ city = {
 		liege_prestige = 2.0
 		ai_creation_factor = 109
 		add_number_to_name = yes
-        	potential = {
+        potential = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
        	}
-		extra_tech_building_start = 1.8
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 1.8
 	}
 }

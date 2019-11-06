@@ -10,20 +10,17 @@ namespace = buildings
 
 
 
-## Event that will unlock all the buildings after 10000 ##
-#character_event = {
-#	id = buildings.0
-#	desc = OK
-#	picture = GFX_good
-#	hide_window = yes	
-#
-#	is_triggered_only = yes 
-#	
-#	option = {
-#		name = "OK"
-#		set_global_flag = building
-#	}	
-#}
+# Event that will unlock all the buildings after 10000 ##
+character_event = {
+	id = buildings.0
+	hide_window = yes	
+
+	is_triggered_only = yes 
+	
+	option = {
+		set_global_flag = building
+	}	
+}
 
 
 ########## IANT IAUR ###########
@@ -183,8 +180,10 @@ character_event = {
 		prestige = 150
 		set_global_flag = iant_iaur_rebuilt_finally		
 		56 = { # Iant Iaur
-			build_holding = { title = b_iant_iaur type = castle holder = ROOT }
-			add_wonder_stage = 1
+			build_holding = { type = castle holder = ROOT }
+			wonder = {
+				set_wonder_damaged = no
+			}
 		}
 		add_trait = dwarf_friend
 		add_trait = architect

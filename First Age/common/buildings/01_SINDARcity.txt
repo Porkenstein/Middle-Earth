@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
 
 ###################### City buildings for Sindar culture ( culture_sindar ) - V code- ###################### 
@@ -24,12 +24,14 @@ city = {
 		ai_creation_factor = 99	
 		potential = {
 	   		#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
         }
 	}
 
 	ct_Vwatchtower_2 = {
 		desc = ct_Vwatchtower_1_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+
 		upgrades_from = ct_Vwatchtower_1
 		gold_cost = 100
 		build_time = 370
@@ -38,11 +40,12 @@ city = {
 		ai_creation_factor = 98
 		potential = {
 			#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
 		}
 	}
 	ct_Vwatchtower_3 = {
 		desc = ct_Vwatchtower_1_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ct_Vwatchtower_2
 		gold_cost = 150
@@ -52,11 +55,12 @@ city = {
 		ai_creation_factor = 97
 		potential = {
 			#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
 		}
 	}
 	ct_Vwatchtower_4 = {
 		desc = ct_Vwatchtower_1_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ct_Vwatchtower_3
 		gold_cost = 200
@@ -66,11 +70,12 @@ city = {
 		ai_creation_factor = 96
 		potential = {
 			#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
 		}
 	}
 	ct_Vwatchtower_5 = {
 		desc = ct_Vwatchtower_1_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ct_Vwatchtower_4
 		gold_cost = 250
@@ -80,11 +85,12 @@ city = {
 		archers = 100
 		potential = {
 			#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
 		}
     }
 	ct_Vwatchtower_6 = {
 		desc = ct_Vwatchtower_1_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ct_Vwatchtower_5
 		gold_cost = 250
@@ -94,7 +100,7 @@ city = {
 		ai_creation_factor = 95
 		potential = {
 			#has_global_flag = building
-			culture = culture_sindar
+			culture_group = culture_group_umanyar
 		}
 	}
 }

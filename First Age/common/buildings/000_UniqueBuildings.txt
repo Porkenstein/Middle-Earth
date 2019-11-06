@@ -14,6 +14,14 @@ ca_thangorodrim_peaks = { #Thangorodrim Peaks#
 		province_id = 19 #Thangorodrim
 		religion_group = religion_group_melkor
 	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4400
+				has_global_flag = building
+			}
+		}
+	}
 }
 # ca_angbandgate = { #Angband Gate#
 # 	desc = ca_angbandgate_desc
@@ -44,10 +52,10 @@ ca_tolingaurhoth = { #The Isle of Werewolves breeding pits#
 	light_cavalry = 200
 	ai_creation_factor = 90
 	garrison_size = 1.50
-		potential = { 
-			province_id = 223 #Tol Sirion
-			religion_group = religion_group_melkor
-		}
+	potential = { 
+		province_id = 223 #Tol Sirion
+		religion_group = religion_group_melkor
+	}
 }
 ca_taurnufuin = { #The Taur-nu-Fuin breeding pits#
 	desc = ca_taurnufuin_desc
@@ -57,7 +65,7 @@ ca_taurnufuin = { #The Taur-nu-Fuin breeding pits#
 	monster_cavalry = 20
 	flying_monsters = 20
 	ai_creation_factor = 70
-	extra_tech_building_start = 2.0
+	#extra_tech_building_start = 2.0
 	potential = {
 		OR = {
 			province_id = 86 #Dorthonion
@@ -72,6 +80,14 @@ ca_taurnufuin = { #The Taur-nu-Fuin breeding pits#
 		}
 		religion_group = religion_group_melkor
 	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4800
+				has_global_flag = building
+			}
+		}
+	}
 }
 ca_thangorodrim = { #Thangorodrim breeding pits#
 	desc = ca_thangorodrim_desc
@@ -84,11 +100,19 @@ ca_thangorodrim = { #Thangorodrim breeding pits#
 	light_cavalry = 500
 	ai_creation_factor = 90
 	garrison_size = 2.00
-	extra_tech_building_start = 5.0
+	#extra_tech_building_start = 5.0
 	potential = {
 		year = 4314
 		province_id = 19 #Thangorodrim
 		religion_group = religion_group_melkor
+	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4500
+				has_global_flag = building
+			}
+		}
 	}
 }
 
@@ -120,147 +144,177 @@ ca_thangorodrim = { #Thangorodrim breeding pits#
 # }
 
 ca_eagle_perch = {
-		desc = ca_eagle_perch_desc
-		trigger = { }
+	desc = ca_eagle_perch_desc
+	trigger = { }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { trait = eagle_friend }
-			FROMFROM = {
-				title = b_martotaran
-			}
+	potential = {
+		FROM = { trait = eagle_friend }
+		FROMFROM = {
+			title = b_martotaran
 		}
-
-		gold_cost = 200
-		build_time = 365
-
-		monthly_character_prestige = 0.2
-		monthly_character_piety = 0.2
-		flying_monsters = 30
 	}
+
+	gold_cost = 200
+	build_time = 365
+
+	monthly_character_prestige = 0.2
+	monthly_character_piety = 0.2
+	flying_monsters = 30
+}
 
 ca_sloped_walls = {
-		desc = ca_sloped_walls_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+	desc = ca_sloped_walls_desc
+	# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
-			FROMFROM = {
-				OR = {
-				title = b_gar_ainion
-				title = b_rambar_gondolin
-				title = b_caras_gondolin
-				title = b_eithel_harmen
-				title = b_amon_gwareth
-				}
+	potential = {
+		FROM = { NOT = { religion = religion_wilderness } }
+		FROMFROM = {
+			OR = {
+			title = b_gar_ainion
+			title = b_rambar_gondolin
+			title = b_caras_gondolin
+			title = b_eithel_harmen
+			title = b_amon_gwareth
 			}
 		}
-
-		gold_cost = 200
-		build_time = 365
-		garrison_size = 1.0
-		fort_level = 3.0
-
-		archers = 100
 	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4550
+				has_global_flag = building
+			}
+		}
+	}
+
+	gold_cost = 200
+	build_time = 365
+	garrison_size = 1.0
+	fort_level = 3.0
+
+	archers = 100
+}
 
 
 ca_great_market = {
-		desc = ca_great_market_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+	desc = ca_great_market_desc
+	# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
-			FROMFROM = {
-				OR = {
-					title = b_turabagarth
-					title = b_garthadaran
-				}
+	potential = {
+		FROM = { NOT = { religion = religion_wilderness } }
+		FROMFROM = {
+			OR = {
+				title = b_turabagarth
+				title = b_garthadaran
 			}
 		}
-
-		gold_cost = 300
-		build_time = 365
-
-
-		tax_income = 5
-
-		light_infantry = 500
-
-
+	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4600
+				has_global_flag = building
+			}
+		}
 	}
 
+	gold_cost = 300
+	build_time = 365
+
+
+	tax_income = 5
+
+	light_infantry = 500
+
+
+}
+
 ca_kings_square = {
-		desc = ca_kings_square_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+	desc = ca_kings_square_desc
+	# trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
-			FROMFROM = {
-				title = b_martotaran
+	potential = {
+		FROM = { NOT = { religion = religion_wilderness } }
+		FROMFROM = {
+			title = b_martotaran
+		}
+	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4650
+				has_global_flag = building
 			}
 		}
+	}
 
-		gold_cost = 200
-		build_time = 365
-		fort_level = 1.0
-		heavy_infantry = 300
-
-
+	gold_cost = 200
+	build_time = 365
+	fort_level = 1.0
+	heavy_infantry = 300
 	}
 
 ## THE THRONE OF MORGOTH ##
 ca_morgoth_throne = {
-		desc = ca_morgoth_throne_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+	desc = ca_morgoth_throne_desc
+	# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
-			FROMFROM = {
-				title = b_angband
-			}
+	potential = {
+		FROM = { NOT = { religion = religion_wilderness } }
+		FROMFROM = {
+			title = b_angband
 		}
-
-		gold_cost = 200
-		build_time = 365
-
-		monster_cavalry = 100
-		monthly_character_prestige = 1.0
 	}
+
+	gold_cost = 200
+	build_time = 365
+
+	monster_cavalry = 100
+	monthly_character_prestige = 1.0
+}
 
 ca_fields_of_gondolin = {
-		desc = ca_kings_square_desc
-		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+	desc = ca_kings_square_desc
+	# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 
-		ai_creation_factor = 105
+	ai_creation_factor = 105
 
-		potential = {
-			FROM = { NOT = { religion = religion_wilderness } }
-			FROMFROM = {
-				OR = {
-				title = b_taras_tumladen
-				title = b_eithel_ninui
-				title = b_ando_turuva
-				}
+	potential = {
+		FROM = { NOT = { religion = religion_wilderness } }
+		FROMFROM = {
+			OR = {
+			title = b_taras_tumladen
+			title = b_eithel_ninui
+			title = b_ando_turuva
 			}
 		}
-
-		gold_cost = 200
-		build_time = 365
-
-		tax_income = 10
-		heavy_infantry = 50
-		archers = 50
-		light_cavalry = 50
-		knights = 30
 	}
+	trigger = {
+		hidden_tooltip = {
+			OR = {
+				year = 4500
+				has_global_flag = building
+			}
+		}
+	}
+
+	gold_cost = 200
+	build_time = 365
+
+	tax_income = 10
+	heavy_infantry = 50
+	archers = 50
+	light_cavalry = 50
+	knights = 30
+}
 }

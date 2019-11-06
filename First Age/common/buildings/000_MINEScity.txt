@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
 
 # City
@@ -21,7 +21,6 @@ city = {
 
 	ct_iron_mine_1 = {
 		desc = ct_iron_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -37,8 +36,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -49,7 +48,7 @@ city = {
 	}
 	ct_iron_mine_2 = {
 		desc = ct_iron_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_iron_mine_1
 
@@ -66,8 +65,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -78,7 +77,7 @@ city = {
 	}
 	ct_iron_mine_3 = {
 		desc = ct_iron_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_iron_mine_2
 
@@ -95,8 +94,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -112,7 +111,6 @@ city = {
 
 	ct_magma_forge_1 = {
 		desc = ct_magma_forge_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -129,7 +127,6 @@ city = {
 		ai_creation_factor = 300
 		add_number_to_name = yes
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -140,7 +137,7 @@ city = {
 	}
 	ct_magma_forge_2 = {
 		desc = ct_magma_forge_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_magma_forge_1
 
@@ -157,8 +154,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -169,7 +166,7 @@ city = {
 	}
 	ct_magma_forge_3 = {
 		desc = ct_magma_forge_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_magma_forge_2
 
@@ -186,8 +183,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -202,7 +199,6 @@ city = {
 
 	ct_copper_mine_1 = {
 		desc = ct_copper_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -218,7 +214,6 @@ city = {
 		ai_creation_factor = 300
 		add_number_to_name = yes
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -229,7 +224,7 @@ city = {
 	}
 	ct_copper_mine_2 = {
 		desc = ct_copper_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_copper_mine_1
 
@@ -245,8 +240,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -257,7 +252,7 @@ city = {
 	}
 	ct_copper_mine_3 = {
 		desc = ct_copper_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_copper_mine_2
 
@@ -273,8 +268,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -291,7 +286,6 @@ city = {
 
 	ct_tin_mine_1 = {
 		desc = ct_tin_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -304,7 +298,6 @@ city = {
 		ai_creation_factor = 300
 		add_number_to_name = yes
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -315,7 +308,7 @@ city = {
 	}
 	ct_tin_mine_2 = {
 		desc = ct_tin_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_tin_mine_1
 
@@ -328,8 +321,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -340,7 +333,7 @@ city = {
 	}
 	ct_tin_mine_3 = {
 		desc = ct_tin_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_tin_mine_2
 
@@ -353,8 +346,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -370,7 +363,6 @@ city = {
 
 	ct_stone_quarry_1 = {
 		desc = ct_stone_quarry_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -384,8 +376,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -396,7 +388,7 @@ city = {
 	}
 	ct_stone_quarry_2 = {
 		desc = ct_stone_quarry_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_stone_quarry_1
 
@@ -411,8 +403,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -423,7 +415,7 @@ city = {
 	}
 	ct_stone_quarry_3 = {
 		desc = ct_stone_quarry_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_stone_quarry_2
 
@@ -438,8 +430,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -455,7 +447,6 @@ city = {
 
 	ct_gold_mine_1 = {
 		desc = ct_gold_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -466,8 +457,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -477,7 +468,7 @@ city = {
 	}
 	ct_gold_mine_2 = {
 		desc = ct_gold_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_gold_mine_1
 
@@ -489,8 +480,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -500,7 +491,7 @@ city = {
 	}
 	ct_gold_mine_3 = {
 		desc = ct_gold_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_gold_mine_2
 
@@ -512,8 +503,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -528,7 +519,6 @@ city = {
 
 	ct_silver_mine_1 = {
 		desc = ct_silver_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -539,8 +529,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -550,7 +540,7 @@ city = {
 	}
 	ct_silver_mine_2 = {
 		desc = ct_silver_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_silver_mine_1
 
@@ -562,8 +552,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -573,7 +563,7 @@ city = {
 	}
 	ct_silver_mine_3 = {
 		desc = ct_silver_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_silver_mine_2
 
@@ -585,8 +575,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -600,7 +590,6 @@ city = {
 
 	ct_gemstones_mine_1 = {
 		desc = ct_gemstones_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -612,8 +601,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -623,7 +612,7 @@ city = {
 	}
 	ct_gemstones_mine_2 = {
 		desc = ct_gemstones_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_gemstones_mine_1
 
@@ -636,8 +625,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -647,7 +636,7 @@ city = {
 	}
 	ct_gemstones_mine_3 = {
 		desc = ct_gemstones_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_gemstones_mine_2
 
@@ -660,8 +649,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -675,7 +664,6 @@ city = {
 
 	ct_lapis_mine_1 = {
 		desc = ct_lapis_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -687,8 +675,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -698,7 +686,7 @@ city = {
 	}
 	ct_lapis_mine_2 = {
 		desc = ct_lapis_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_lapis_mine_1
 
@@ -711,8 +699,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -722,7 +710,7 @@ city = {
 	}
 	ct_lapis_mine_3 = {
 		desc = ct_lapis_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_lapis_mine_2
 
@@ -735,8 +723,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -750,7 +738,6 @@ city = {
 
 	ct_salt_mine_1 = {
 		desc = ct_salt_mine_1_desc
-		start = { always = no }
         # trigger = { TECH_CITY_CONSTRUCTION = 2 }
 
 		gold_cost = 50
@@ -762,8 +749,8 @@ city = {
 
 		ai_creation_factor = 300
 		add_number_to_name = yes
+
 		potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -774,7 +761,7 @@ city = {
 	}
 	ct_salt_mine_2 = {
 		desc = ct_salt_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_1 }
         # trigger = { TECH_CITY_CONSTRUCTION = 4 }
 		upgrades_from = ct_salt_mine_1
 
@@ -787,8 +774,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar
@@ -799,7 +786,7 @@ city = {
 	}
 	ct_salt_mine_3 = {
 		desc = ct_salt_mine_1_desc
-		start = { always = no }
+		prerequisites = { ct_wall_2 }
         # trigger = { TECH_CITY_CONSTRUCTION = 5 }
 		upgrades_from = ct_salt_mine_2
 
@@ -812,8 +799,8 @@ city = {
 
 		ai_creation_factor = 110
 		add_number_to_name = yes
+		trigger = { hidden_tooltip = { has_global_flag = building } }
         potential = {
-			#has_global_flag = building
 			FROM = { OR = {
 				culture_group = culture_group_dwarves
                 culture_group = culture_group_amanyar

@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
 ###################### Castle buildings for Noldor culture (culture group amanyar) - A code- ###################### 
@@ -30,6 +30,7 @@ castle = {
 	}
 	ca_Awatchtower_2 = {
 		desc = ca_Awatchtower_2_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Awatchtower_1
 		gold_cost = 50
@@ -43,6 +44,7 @@ castle = {
 	}
 	ca_Awatchtower_3 = {
 		desc = ca_Awatchtower_3_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Awatchtower_2
 		gold_cost = 75
@@ -56,6 +58,7 @@ castle = {
 	}
 	ca_Awatchtower_4 = {
 		desc = ca_Awatchtower_4_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Awatchtower_3
 		gold_cost = 125
@@ -69,6 +72,7 @@ castle = {
 	}
 	ca_Awatchtower_5 = {
 		desc = ca_Awatchtower_5_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Awatchtower_4
 		gold_cost = 125
@@ -82,6 +86,7 @@ castle = {
 	}
 	ca_Awatchtower_6 = {
 		desc = ca_Awatchtower_6_desc
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		
 		upgrades_from = ca_Awatchtower_5
 		gold_cost = 150
@@ -158,7 +163,7 @@ castle = {
 	ca_Anoldor_elite_1 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge1 }
+		prerequisites = { ca_elven_forge2 }
 		gold_cost = 80
 		build_time = 320
 		heavy_infantry = 50
@@ -175,7 +180,7 @@ castle = {
 	ca_Anoldor_elite_2 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge1 }
+		prerequisites = { ca_elven_forge2 }
 		upgrades_from = ca_Anoldor_elite_1
 		gold_cost = 100
 		build_time = 395
@@ -193,7 +198,8 @@ castle = {
 	ca_Anoldor_elite_3 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge1 }
+		prerequisites = { ca_elven_forge2 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_elite_2
 		gold_cost = 150
 		build_time = 570
@@ -211,7 +217,8 @@ castle = {
 	ca_Anoldor_elite_4 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge1 }
+		prerequisites = { ca_elven_forge2 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_elite_3
 		gold_cost = 200
 		build_time = 580
@@ -229,7 +236,8 @@ castle = {
 	ca_Anoldor_elite_5 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge1 }
+		prerequisites = { ca_elven_forge2 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_elite_4
 		gold_cost = 250
 		build_time = 920
@@ -251,7 +259,7 @@ castle = {
 	ca_Anoldor_knights_1 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge2 }
+		prerequisites = { ca_elven_forge3 }
 		gold_cost = 100
 		build_time = 320
 		knights = 100
@@ -264,7 +272,7 @@ castle = {
 	ca_Anoldor_knights_2 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge2 }
+		prerequisites = { ca_elven_forge3 }
 		upgrades_from = ca_Anoldor_knights_1
 		gold_cost = 150
 		build_time = 395
@@ -282,7 +290,8 @@ castle = {
 	ca_Anoldor_knights_3 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge2 }
+		prerequisites = { ca_elven_forge3 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_knights_2
 		gold_cost = 200
 		build_time = 570
@@ -300,7 +309,8 @@ castle = {
 	ca_Anoldor_knights_4 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge2 }
+		prerequisites = { ca_elven_forge3 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_knights_3
 		gold_cost = 250
 		build_time = 580
@@ -319,7 +329,8 @@ castle = {
 	ca_Anoldor_knights_5 = {
 		desc = ca_noldor_elite_desc
 		
-		prerequisites = { ca_elven_forge2 }
+		prerequisites = { ca_elven_forge3 }
+		trigger = { hidden_tooltip = { has_global_flag = building } }
 		upgrades_from = ca_Anoldor_knights_4
 		gold_cost = 300
 		build_time = 920

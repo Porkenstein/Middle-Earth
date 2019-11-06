@@ -1,0 +1,41 @@
+namespace = silmarillion_battles
+
+###############################
+# First Age Battle Envents
+###############################
+
+#chance for dedepulation due to the sack of a holding
+character_event = {
+	id = silmarillion_battles.0
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+    trigger = {
+        FROM = {
+            location = {
+                NOT = { has_province_modifier = depopulated_3 }
+                NOT = { has_province_modifier = depopulated_2 }
+            }
+        }
+    }
+
+	option = {
+		FROM = {
+            location = {
+                # always remove prosperity
+                remove_province_modifier = prosperity_modifier_1
+                remove_province_modifier = prosperity_modifier_2
+                remove_province_modifier = prosperity_modifier_3
+
+                # small chance to depopulate
+                if = {
+                    limit = {
+                        random = 5
+                    }
+                    increase_depopulation_effect = yes
+                }
+            }
+        }
+	}
+}

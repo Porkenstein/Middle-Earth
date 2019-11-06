@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
 
 ####################### House Fleet #######################
@@ -26,11 +26,12 @@ family_palace = {
 		levy_size = 0.1
 		galleys_perc = 0.1
 		tax_income = 2
-		        potential = {
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 1.0
+
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+        }
+		#extra_tech_building_start = 1.0
 	}
 	
 	# Vessel Stewardships
@@ -47,12 +48,13 @@ family_palace = {
 		galleys_perc = 0.2
 		tax_income = 6
 		max_tradeposts = 3
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.0
+
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+        }
+		#extra_tech_building_start = 3.0
 	}
 	
 	# Haven Administration
@@ -69,12 +71,13 @@ family_palace = {
 		galleys_perc = 0.3
 		tax_income = 8
 		max_tradeposts = 3
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 4.5
+
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 4.5
 	}
 	
 	# Code of the Armada
@@ -91,17 +94,19 @@ family_palace = {
 		galleys_perc = 0.4
 		tax_income = 10
 		max_tradeposts = 3
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 6.0
+
+		trigger = { hidden_tooltip = { has_global_flag = building } }
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 6.0
 	}
 	
 	# Swordships
 	fp_barracks_1 = {
 		desc = fp_barracks_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -109,20 +114,19 @@ family_palace = {
 		
 		heavy_infantry = 70
 		light_infantry = 50
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Haven Guard
 	fp_barracks_2 = {
 		desc = fp_barracks_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		upgrades_from = fp_barracks_1
-		prerequisites = { fp_mansion_2 }
 		gold_cost = 250
 		build_time = 1095
 		ai_creation_factor = 99
@@ -130,20 +134,19 @@ family_palace = {
 		heavy_infantry = 85
 		light_infantry = 50
 		pikemen = 65
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Elvenhost Barge
 	fp_barracks_3 = {
 		desc = fp_barracks_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		upgrades_from = fp_barracks_2
-		prerequisites = { fp_mansion_3 }
 		gold_cost = 350
 		build_time = 1460
 		ai_creation_factor = 98
@@ -151,17 +154,17 @@ family_palace = {
 		heavy_infantry = 100
 		light_infantry = 150
 		pikemen = 80
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Siege Galleys
 	fp_stable_1 = {
 		desc = fp_stable_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 100
 		build_time = 730
@@ -169,57 +172,55 @@ family_palace = {
 		
 		archers = 25
 		siege_speed = 0.25
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Ballista Parapets
 	fp_stable_2 = {
 		desc = fp_stable_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_stable_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
 		
 		archers = 50
 		siege_speed = 0.5
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Trebuchet Warbarge
 	fp_stable_3 = {
 		desc = fp_stable_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 400
 		build_time = 1460
 		upgrades_from = fp_stable_2
-		prerequisites = { fp_mansion_3 }
 		ai_creation_factor = 98
 		
 		archers = 100
 		siege_speed = 1.0
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Arrow Ships
 	fp_bowyer_1 = {
 		desc = fp_bowyer_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -227,112 +228,108 @@ family_palace = {
 		
 		light_infantry = 95
 		archers = 95
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Archery Towers
 	fp_bowyer_2 = {
 		desc = fp_bowyer_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_bowyer_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
 		
 		light_infantry = 110
 		archers = 160
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Seaborne Wardenhost
 	fp_bowyer_3 = {
 		desc = fp_bowyer_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		upgrades_from = fp_bowyer_2
-		prerequisites = { fp_mansion_3 }
 		ai_creation_factor = 98
 		
 		light_infantry = 120
 		archers = 240
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Swanship Fleet
 	fp_shipyard_1 = {
 		desc = fp_shipyard_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
 		ai_creation_factor = 100
 		
 		galleys = 12
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	#  Palanrist Warships
 	fp_shipyard_2 = {
 		desc = fp_shipyard_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_shipyard_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
 		
 		galleys = 18
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Celebrist Warships
 	fp_shipyard_3 = {
 		desc = fp_shipyard_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		upgrades_from = fp_shipyard_2
-		prerequisites = { fp_mansion_3 }
 		ai_creation_factor = 98
 		
 		galleys = 24
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Cargo Ships
 	fp_warehouse_1 = {
 		desc = fp_warehouse_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -342,22 +339,21 @@ family_palace = {
 		levy_reinforce_rate = 0.1
 		retinue_maintenence_cost = -0.1
 		max_tradeposts = 1
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Merchant Fleet
 	fp_warehouse_2 = {
 		desc = fp_warehouse_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_warehouse_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
 		
 		stewardship = 1
@@ -365,12 +361,11 @@ family_palace = {
 		levy_reinforce_rate = 0.2
 		retinue_maintenence_cost = -0.2
 		max_tradeposts = 2
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Elven Galleons
@@ -388,75 +383,73 @@ family_palace = {
 		levy_reinforce_rate = 0.3
 		retinue_maintenence_cost = -0.3
 		max_tradeposts = 3
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Admiral's Swanship
 	fp_garden_1 = {
 		desc = fp_garden_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
 		ai_creation_factor = 100
 		
 		monthly_character_prestige = 0.20
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Grand Flagship
 	fp_garden_2 = {
 		desc = fp_garden_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		ai_creation_factor = 99
 
 		upgrades_from = fp_garden_1
-		prerequisites = { fp_mansion_2 }
 
 		diplomacy = 1
 		monthly_character_prestige = 0.30
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	# Royal Flagship
 	fp_garden_3 = {
 		desc = fp_garden_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		ai_creation_factor = 98
 
 		upgrades_from = fp_garden_2
-		prerequisites = { fp_mansion_3 }
 
 		diplomacy = 2
 		monthly_character_prestige = 0.50
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Wine Stores
 	fp_cellar_1 = {
 		desc = fp_cellar_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -464,62 +457,60 @@ family_palace = {
 		
 		fertility = 0.1
 		health = 0.1
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Royal Kitchens
 	fp_cellar_2 = {
 		desc = fp_cellar_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		ai_creation_factor = 99
 
 		upgrades_from = fp_cellar_1
-		prerequisites = { fp_mansion_2 }
 		
 		fertility = 0.2
 		monthly_character_prestige = 0.25
 		health = 0.2
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Grand Gallery
 	fp_cellar_3 = {
 		desc = fp_cellar_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		ai_creation_factor = 98
 		
 		upgrades_from = fp_cellar_2
-		prerequisites = { fp_mansion_3 }
 		
 		fertility = 0.3
 		health = 0.3
 		monthly_character_prestige = 0.25
 		diplomacy = 1
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Icon of Osse
 	fp_shrine_1 = {
 		desc = fp_shrine_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -527,59 +518,57 @@ family_palace = {
 		
 		church_opinion = 5
 		monthly_character_piety = 0.10
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Shrine of Ulmo
 	fp_shrine_2 = {
 		desc = fp_shrine_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_shrine_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
 		learning = 1
 		church_opinion = 10
 		monthly_character_piety = 0.25
 		
-		extra_tech_building_start = 3.5
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Hall of Remembrance
 	fp_shrine_3 = {
 		desc = fp_shrine_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		upgrades_from = fp_shrine_2
-		prerequisites = { fp_mansion_3 }
 		ai_creation_factor = 98
 		
 		learning = 1
 		church_opinion = 15
 		monthly_character_piety = 0.50
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 	
 	# Map Room
 	fp_vault_1 = {
 		desc = fp_vault_1_desc
+		prerequisites = { fp_mansion_1 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 150
 		build_time = 730
@@ -587,44 +576,42 @@ family_palace = {
 		
 		martial = 1
 		global_movement_speed = 0.1
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 2.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 2.0
 	}
 	
 	# Observatory
 	fp_vault_2 = {
 		desc = fp_vault_2_desc
+		prerequisites = { fp_mansion_2 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 250
 		build_time = 1095
 		upgrades_from = fp_vault_1
-		prerequisites = { fp_mansion_2 }
 		ai_creation_factor = 99
 		
 		learning = 1
 		intrigue = 1
 		martial = 1
 		global_movement_speed = 0.2
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 3.5
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 3.5
 	}
 	
 	# Library
 	fp_vault_3 = {
 		desc = fp_vault_3_desc
+		prerequisites = { fp_mansion_3 }
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
 		gold_cost = 350
 		build_time = 1460
 		upgrades_from = fp_vault_2
-		prerequisites = { fp_mansion_3 }
 		ai_creation_factor = 98
 		
 		learning = 2
@@ -632,11 +619,10 @@ family_palace = {
 		martial = 1
 		global_movement_speed = 0.2
 		church_opinion = 5
-		        potential = {
-            #has_global_flag = building
-	    NOT = { culture_group = culture_group_melkor }
-            NOT = { culture = culture_maiar }
-            }
-		extra_tech_building_start = 5.0
+		potential = {
+	    	NOT = { culture_group = culture_group_melkor }
+            NOT = { religion_group = religion_group_melkor }
+		}
+		#extra_tech_building_start = 5.0
 	}
 }

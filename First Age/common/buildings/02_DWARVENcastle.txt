@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
  # Castle
@@ -23,11 +23,11 @@ castle = {
 		garrison_size = 0.05
 		fort_level = 1
 		ai_creation_factor = 90
-        	potential = {
-      			#has_global_flag = building
+        potential = {
+      		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }		 
 		}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_DInnerFortification_2 = {
 		desc = ca_DInnerFortification_1_desc
@@ -38,11 +38,19 @@ castle = {
 		garrison_size = 0.1
 		fort_level = 1
 		ai_creation_factor = 89
-        	potential = {
+        potential = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }		 
 		}
-		extra_tech_building_start = 0.2
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					year = 4400
+					has_global_flag = building
+				}
+			}
+		}
+		#extra_tech_building_start = 0.2
 	}
 	ca_DInnerFortification_3 = {
 		desc = ca_DInnerFortification_1_desc
@@ -53,11 +61,19 @@ castle = {
 		garrison_size = 0.15
 		fort_level = 1
 		ai_creation_factor = 88
-        	potential = {
-           		#has_global_flag = building
+        potential = {
+        	#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }			 
 		}
-		extra_tech_building_start = 1.0
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					year = 4700
+					has_global_flag = building
+				}
+			}
+		}
+		#extra_tech_building_start = 1.0
 	}
 	ca_DInnerFortification_4 = {
 		desc = ca_DInnerFortification_1_desc
@@ -68,11 +84,12 @@ castle = {
 		garrison_size = 0.2
 		fort_level = 1
 		ai_creation_factor = 87
-        	potential = {
-           		#has_global_flag = building
+        potential = {
+           	#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }		 
 		}
-		extra_tech_building_start = 1.0
+		trigger = {	hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 1.0
 	}
 	ca_DInnerFortification_5 = {
 		desc = ca_DInnerFortification_1_desc
@@ -83,8 +100,8 @@ castle = {
 		garrison_size = 0.2
 		fort_level = 1.5
 		ai_creation_factor = 87
-        	potential = {
-           		#has_global_flag = building
+        potential = {
+           	#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
 			OR = {
 				terrain = hills
@@ -93,7 +110,8 @@ castle = {
 				province_id = 216 # Nargothrond
 			}
 		}
-		extra_tech_building_start = 2.0
+		trigger = {	hidden_tooltip = { has_global_flag = building } }
+		#extra_tech_building_start = 2.0
 	}
 	ca_DInnerFortification_6 = {
 		desc = ca_DInnerFortification_1_desc
@@ -104,8 +122,8 @@ castle = {
 		garrison_size = 0.2
 		fort_level = 1.5
 		ai_creation_factor = 87
-        	potential = {
-        	   	#has_global_flag = building
+        potential = {
+        	#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
 			OR = {
 				terrain = hills
@@ -114,7 +132,43 @@ castle = {
 				province_id = 216 # Nargothrond
 			}
 		}
-		extra_tech_building_start = 3.0
+		trigger = {
+			custom_tooltip = {
+				text = tooltip_has_military_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_military
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_military
+								}	
+							}
+						}
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = { 
+				has_global_flag = building 
+			}
+		}
+		#extra_tech_building_start = 3.0
 	}
 
 ###################### Dwarven Keep, deep in the mountain ###################### 
@@ -130,7 +184,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             }
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_Dkeep_2 = {
 		desc = ca_Dkeep_1_desc
@@ -145,7 +199,7 @@ castle = {
            		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
 		}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_Dkeep_3 = {
 		desc = ca_Dkeep_1_desc
@@ -160,7 +214,7 @@ castle = {
            		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }  			 
 		}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dkeep_4 = {	
 		desc = ca_Dkeep_1_desc
@@ -175,7 +229,7 @@ castle = {
            		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }  				 
 		}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dkeep_5 = {
 		desc = ca_Dkeep_1_desc
@@ -191,7 +245,7 @@ castle = {
            		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }  			 
 		}
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ca_Dkeep_6 = {
 		desc = ca_Dkeep_1_desc
@@ -207,7 +261,7 @@ castle = {
            		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }  			 
 		}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 
 ####################### Water system : levy reinforce rate and land organisation #######################
@@ -221,7 +275,7 @@ castle = {
 		potential = {
 		FROM = { culture_group = culture_group_dwarves } 
 			}
-		extra_tech_building_start = 0.0
+		#extra_tech_building_start = 0.0
 	}
 	ca_Dwater_system_1 = {
 		desc = ca_Dwater_system_1_desc
@@ -237,7 +291,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dwater_system_2 = {
 		desc = ca_Dwater_system_1_desc
@@ -252,7 +306,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 
 ####################### Statues of past kings, piety #######################
@@ -267,7 +321,7 @@ castle = {
 		potential = {
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 0.0
+		#extra_tech_building_start = 0.0
 	}
 	ca_Dstatue_1 = {
 		desc = ca_Dstatue_1_desc
@@ -283,7 +337,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_Dstatue_2 = {
 		desc = ca_Dstatue_1_desc
@@ -299,7 +353,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dstatue_3 = {
 		desc = ca_Dstatue_1_desc
@@ -315,7 +369,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dstatue_4 = {
 		desc = ca_Dstatue_1_desc
@@ -331,7 +385,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ca_Dstatue_5 = {
 		desc = ca_Dstatue_1_desc
@@ -347,7 +401,7 @@ castle = {
 			#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves } 
             	}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 
 ####################### Dwelling chamber, gives income.  Extra castle town #######################
@@ -362,7 +416,7 @@ castle = {
 	    		#has_global_flag = building
 			FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_Dtown_2 = {
 		desc = ca_Dtown_2_desc
@@ -377,7 +431,7 @@ castle = {
             		#has_global_flag = building
 	   		FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_Dtown_3 = {
 		desc = ca_Dtown_3_desc
@@ -392,7 +446,7 @@ castle = {
             		#has_global_flag = building
 	   		FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	ca_Dtown_4 = {
 		desc = ca_Dtown_4_desc
@@ -407,7 +461,7 @@ castle = {
             		#has_global_flag = building
 	 		FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ca_Dtown_5 = {
 		desc = ca_Dtown_4_desc
@@ -422,7 +476,7 @@ castle = {
             		#has_global_flag = building
 	    		FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 	ca_Dtown_6 = {
 		desc = ca_Dtown_5_desc
@@ -437,7 +491,7 @@ castle = {
            		#has_global_flag = building
 	    		FROM = { culture_group = culture_group_dwarves }
             	}
-		extra_tech_building_start = 4.0
+		#extra_tech_building_start = 4.0
 	}
 
 ####################### Dwarven forges : new building, gives tax income and heavy infantry (+200 max) #######################
@@ -445,6 +499,7 @@ castle = {
 	ca_dwarvenforges_1 = {
 		desc = ca_dwarvenforges_desc
 		# trigger = { TECH_TRADE_PRACTICES = 1 }
+		prerequisites = { ca_DInnerFortification_1 }
 		start = { always = no }
 		gold_cost = 75
 		build_time = 260
@@ -462,11 +517,12 @@ castle = {
 			}
 	   		FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_dwarvenforges_2 = {
 		desc = ca_dwarvenforges_desc
 		# trigger = { TECH_TRADE_PRACTICES = 2 }
+		prerequisites = { ca_DInnerFortification_2 }
 		start = { always = no }
 		upgrades_from = ca_dwarvenforges_1
 		gold_cost = 165
@@ -485,11 +541,12 @@ castle = {
 			}
 	    		FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 0.2
+		#extra_tech_building_start = 0.2
 	}
 	ca_dwarvenforges_3 = {
 		desc = ca_dwarvenforges_desc
 		# trigger = { TECH_TRADE_PRACTICES = 3 }
+		prerequisites = { ca_DInnerFortification_3 }
 		start = { always = no }
 		upgrades_from = ca_dwarvenforges_2
 		gold_cost = 395
@@ -508,12 +565,13 @@ castle = {
 			}
 	    		FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 1.0
+		#extra_tech_building_start = 1.0
 	}
 	
 	ca_dwarvenforges_4 = {
 		desc = ca_dwarvenforges_desc
 		# trigger = { TECH_TRADE_PRACTICES = 4 }
+		prerequisites = { ca_DInnerFortification_4 }
 		start = { always = no }
 		upgrades_from = ca_dwarvenforges_3
 		gold_cost = 760
@@ -532,12 +590,13 @@ castle = {
 			}
 	    	FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 
 	ca_dwarvenforges_5 = {
 		desc = ca_dwarvenforges_desc
 		# trigger = { TECH_TRADE_PRACTICES = 5 }
+		prerequisites = { ca_DInnerFortification_5 }
 		start = { always = no }
 		upgrades_from = ca_dwarvenforges_4
 		gold_cost = 1235
@@ -556,11 +615,12 @@ castle = {
 			}
 	    	FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 	}
 	ca_dwarvenforges_6 = {
 		desc = ca_dwarvenforges_6_desc
 		# trigger = { TECH_TRADE_PRACTICES = 6 }
+		prerequisites = { ca_DInnerFortification_6 }
 		start = { always = no }
 		upgrades_from = ca_dwarvenforges_5
 		gold_cost = 2050
@@ -573,9 +633,8 @@ castle = {
         		#has_global_flag = building
 	    		FROM = { culture_group = culture_group_dwarves }
     		}
-		extra_tech_building_start = 4.0
+		#extra_tech_building_start = 4.0
 	}
-	
 	
 	
 	#ca_mithrilforges_1 = { # must character have access to mithril #

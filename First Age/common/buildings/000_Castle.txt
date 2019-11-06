@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
  # Castle
@@ -19,61 +19,65 @@ castle = {
 	# Wall quality, gives fortlevel
 	ca_wall_q_1 = {
 		desc = ca_wall_q_1_desc
+		prerequisites = { ca_wall_1 }
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
 		gold_cost = 50
 		build_time = 182
 		fort_level = 0.5
 		ai_creation_factor = 80
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
         potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_wall_q_2 = {
 		desc = ca_wall_q_2_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
 		upgrades_from = ca_wall_q_1
-		prerequisites = { ca_wall_1 }
+		prerequisites = { ca_wall_2 }
 		gold_cost = 50
 		build_time = 182
 		fort_level = 0.5
 		ai_creation_factor = 79
 
-		extra_tech_building_start = 1.6
+		#extra_tech_building_start = 1.6
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_wall_q_3 = {
 		desc = ca_wall_q_3_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
 		upgrades_from = ca_wall_q_2
+		prerequisites = { ca_wall_3 }
 		gold_cost = 50
 		build_time = 182
 		fort_level = 0.5
 		ai_creation_factor = 78
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_wall_q_4 = {
 		desc = ca_wall_q_4_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
 		upgrades_from = ca_wall_q_3
+		prerequisites = { ca_wall_4 }
 		gold_cost = 100
 		build_time = 365
 		fort_level = 1.0
 		ai_creation_factor = 77
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_wall_q_5 = {
 		desc = ca_wall_q_5_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 7 }
 		upgrades_from = ca_wall_q_4
+		prerequisites = { ca_wall_5 }
 		gold_cost = 100
 		build_time = 365
 		fort_level = 1.0
 		ai_creation_factor = 76
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -88,8 +92,18 @@ castle = {
 		tax_income = 0.2
 		ai_creation_factor = 90
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					religion = religion_mahal
+					de_jure_liege_or_above = k_angband
+					year = 4300
+					has_global_flag = building
+				}
+			}
+		}
 	}
 	ca_wall_2 = {
 		desc = ca_wall_2_desc
@@ -102,8 +116,19 @@ castle = {
 		tax_income = 0.2
 		ai_creation_factor = 89
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					religion = religion_mahal
+					de_jure_liege_or_above = k_angband
+					religion = religion_calaquendi
+					year = 4400
+					has_global_flag = building
+				}
+			}
+		}
 	}
 	ca_wall_3 = {
 		desc = ca_wall_3_desc
@@ -116,8 +141,23 @@ castle = {
 		tax_income = 0.2
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			has_depopulation_effect = no
+			hidden_tooltip = {
+				OR = {
+					religion = religion_mahal
+					de_jure_liege_or_above = k_angband
+					religion = religion_calaquendi
+					has_global_flag = building
+				}
+				OR = {
+					year = 4700
+					has_global_flag = building
+				}
+			}
+		}
 	}
 	ca_wall_4 = {
 		desc = ca_wall_4_desc
@@ -130,8 +170,20 @@ castle = {
 		tax_income = 0.2
 		ai_creation_factor = 87
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			has_depopulation_effect = no
+			hidden_tooltip = {
+				OR = {
+					has_global_flag = building
+					AND = {
+						de_jure_liege_or_above = k_angband
+						year = 4800
+					}
+				}
+			}
+		}
 	}
 	ca_wall_5 = {
 		desc = ca_wall_5_desc
@@ -144,8 +196,43 @@ castle = {
 		tax_income = 0.5
 		ai_creation_factor = 86
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			has_depopulation_effect = no
+			custom_tooltip = {
+				text = tooltip_has_military_bloodline
+				hidden_tooltip = {
+					OR = {
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_military
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_military
+								}	
+							}
+						}
+						FROM = {
+							any_owned_bloodline = {
+								has_bloodline_flag = bloodline_architect 
+							}
+						}
+						FROM = {
+							any_liege = {
+								any_owned_bloodline = {
+									has_bloodline_flag = bloodline_architect 
+								}	
+							}
+						}
+					}
+				}
+			}
+			hidden_tooltip = { has_global_flag = building }
+		}
 	}
 
 	#Keeps, gives levy and garrison size
@@ -158,74 +245,77 @@ castle = {
 		garrison_size = 0.05
 		ai_creation_factor = 102
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_keep_2 = {
 		desc = ca_keep_1_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_keep_1
+		prerequisites = { ca_wall_1 }
 		gold_cost = 200
 		build_time = 730 #2y
 		levy_size = 0.1
 		garrison_size = 0.1
 		ai_creation_factor = 101
 
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_keep_3 = {
 		desc = ca_keep_1_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_keep_2
+		prerequisites = { ca_wall_2 }
 		gold_cost = 300
 		build_time = 1095 #3y
 		levy_size = 0.15
 		garrison_size = 0.15
 		ai_creation_factor = 100
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_keep_4 = {	
 		desc = ca_keep_1_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
 		upgrades_from = ca_keep_3
+		prerequisites = { ca_wall_3 }
 		gold_cost = 400
 		build_time = 1460 #4y
 		levy_size = 0.2
 		garrison_size = 0.2
 		ai_creation_factor = 99
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_keep_5 = {
 		desc = ca_keep_1_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
 		upgrades_from = ca_keep_4
+		prerequisites = { ca_wall_4 }
 		gold_cost = 500
 		build_time = 2190 #6y
 		levy_size = 0.25
 		garrison_size = 0.2
 		ai_creation_factor = 98
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_keep_6 = {
 		desc = ca_keep_1_desc
 		# trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
 		upgrades_from = ca_keep_5
+		prerequisites = { ca_wall_5 }
 		gold_cost = 500
 		build_time = 2190 #6y
 		levy_size = 0.3
 		garrison_size = 0.2
 		ai_creation_factor = 97
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -233,19 +323,20 @@ castle = {
 	ca_militia_barracks_1 = {
 		desc = ca_militia_barracks_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		prerequisites = { ca_wall_1 }
 		gold_cost = 100
 		build_time = 365
 		light_infantry = 80
 		archers = 10
 		ai_creation_factor = 100
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_militia_barracks_2 = {
 		desc = ca_militia_barracks_2_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		prerequisites = { ca_wall_1 }
+		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_militia_barracks_1
 		gold_cost = 120
 		build_time = 547
@@ -253,12 +344,13 @@ castle = {
 		archers = 50
 		ai_creation_factor = 99
 
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_militia_barracks_3 = {
 		desc = ca_militia_barracks_3_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_militia_barracks_2
 		gold_cost = 200
 		build_time = 1095
@@ -266,12 +358,13 @@ castle = {
 		archers = 90
 		ai_creation_factor = 98
 
-		extra_tech_building_start = 1.5
+		#extra_tech_building_start = 1.5
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_militia_barracks_4 = {
 		desc = ca_militia_barracks_3_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
+		prerequisites = { ca_wall_5 }
 		upgrades_from = ca_militia_barracks_3
 		gold_cost = 300
 		build_time = 1095
@@ -279,7 +372,7 @@ castle = {
 		archers = 120
 		ai_creation_factor = 98
 
-		extra_tech_building_start = 1.5
+		#extra_tech_building_start = 1.5
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 
@@ -287,7 +380,7 @@ castle = {
 	ca_training_grounds_1 = {
 		desc = ca_training_grounds_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_2 }
+		prerequisites = { ca_wall_1 }
 		gold_cost = 200
 		build_time = 730
 		land_morale = 0.1
@@ -295,12 +388,13 @@ castle = {
 		retinuesize = 20
 		ai_creation_factor = 89
 
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_training_grounds_2 = {
 		desc = ca_training_grounds_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_training_grounds_1
 		gold_cost = 250
 		build_time = 1095
@@ -309,12 +403,13 @@ castle = {
 		retinuesize = 20
 		ai_creation_factor = 88
 		
-		extra_tech_building_start = 1.5
+		#extra_tech_building_start = 1.5
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_training_grounds_3 = {
 		desc = ca_training_grounds_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_training_grounds_2
 		gold_cost = 300
 		build_time = 2190
@@ -323,7 +418,7 @@ castle = {
 		retinuesize = 20
 		ai_creation_factor = 88
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -337,7 +432,7 @@ castle = {
 		pikemen = 15
 		ai_creation_factor = 105
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_barracks_2 = {
@@ -351,7 +446,7 @@ castle = {
 		pikemen = 15
 		ai_creation_factor = 104
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_barracks_3 = {
@@ -365,12 +460,13 @@ castle = {
 		pikemen = 20
 		ai_creation_factor = 103
 
-		extra_tech_building_start = 4.0
+		#extra_tech_building_start = 4.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_barracks_4 = {
 		desc = ca_barracks_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
+		prerequisites = { ca_wall_3 }
 		upgrades_from = ca_barracks_3
 		gold_cost = 300
 		build_time = 1095
@@ -378,12 +474,13 @@ castle = {
 		pikemen = 25
 		ai_creation_factor = 102
 
-		extra_tech_building_start = 4.0
+		#extra_tech_building_start = 4.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_barracks_5 = {
 		desc = ca_barracks_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_barracks_4
 		gold_cost = 400
 		build_time = 2190
@@ -391,12 +488,13 @@ castle = {
 		pikemen = 25
 		ai_creation_factor = 101
 
-		extra_tech_building_start = 3.0
+		#extra_tech_building_start = 3.0
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	ca_barracks_6 = {
 		desc = ca_barracks_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
+		prerequisites = { ca_wall_5 }
 		upgrades_from = ca_barracks_5
 		gold_cost = 500
 		build_time = 2190
@@ -404,7 +502,7 @@ castle = {
 		pikemen = 30
 		ai_creation_factor = 100
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -426,7 +524,7 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.4
+		#extra_tech_building_start = 1.4
 	}
 	ca_stable_2 = {
 		desc = ca_stable_1_desc
@@ -447,7 +545,7 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_stable_3 = {
 		desc = ca_stable_1_desc
@@ -468,11 +566,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_stable_4 = {
 		desc = ca_stable_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		prerequisites = { ca_wall_3 }
 		upgrades_from = ca_stable_3
 		gold_cost = 300
 		build_time = 1095
@@ -489,11 +588,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_stable_5 = {
 		desc = ca_stable_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_stable_4
 		gold_cost = 400
 		build_time = 2190
@@ -510,11 +610,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_stable_6 = {
 		desc = ca_stable_1_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
+		prerequisites = { ca_wall_5 }
 		upgrades_from = ca_stable_5
 		gold_cost = 500
 		build_time = 2190
@@ -531,7 +632,7 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	
 	#Castle town, gives income
@@ -552,7 +653,7 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.5
+		#extra_tech_building_start = 1.5
 	}
 	ca_town_2 = {
 		desc = ca_town_2_desc
@@ -573,7 +674,7 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 2.0
+		#extra_tech_building_start = 2.0
 	}
 	ca_town_3 = {
 		desc = ca_town_3_desc
@@ -594,11 +695,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_town_4 = {
 		desc = ca_town_4_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		prerequisites = { ca_wall_3 }
 		upgrades_from = ca_town_3
 		gold_cost = 300
 		build_time = 1095
@@ -614,11 +716,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_town_5 = {
 		desc = ca_town_4_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_town_4
 		gold_cost = 400
 		build_time = 2190
@@ -634,11 +737,12 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_town_6 = {
 		desc = ca_town_5_desc
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
+		prerequisites = { ca_wall_5 }
 		upgrades_from = ca_town_5
 		gold_cost = 500
 		build_time = 2190
@@ -654,19 +758,20 @@ castle = {
 			}
 		}
 		
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	
 	ca_shipyard_1 = {
 		desc = shipyard_desc
 		port = yes
 		# trigger = { TECH_NAVAL = 1 }
+		prerequisites = { ca_wall_2 }
 		gold_cost = 100
 		build_time = 365
 		galleys = 6
 		ai_creation_factor = 100
 		
-		extra_tech_building_start = 1.3
+		#extra_tech_building_start = 1.3
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -674,13 +779,14 @@ castle = {
 		desc = shipyard_desc
 		port = yes
 		# trigger = { TECH_NAVAL = 2 }
+		prerequisites = { ca_wall_3 }
 		upgrades_from = ca_shipyard_1
 		gold_cost = 100
 		build_time = 730
 		galleys = 7
 		ai_creation_factor = 99
 		
-		extra_tech_building_start = 1.3
+		#extra_tech_building_start = 1.3
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -688,13 +794,14 @@ castle = {
 		desc = shipyard_desc
 		port = yes
 		# trigger = { TECH_NAVAL = 3 }
+		prerequisites = { ca_wall_4 }
 		upgrades_from = ca_shipyard_2
 		gold_cost = 100
 		build_time = 1095
 		galleys = 8
 		ai_creation_factor = 98
 		
-		extra_tech_building_start = 1.3
+		#extra_tech_building_start = 1.3
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 	
@@ -702,13 +809,14 @@ castle = {
 		desc = shipyard_desc
 		port = yes
 		# trigger = { TECH_NAVAL = 4 }
+		prerequisites = { ca_wall_5 }
 		upgrades_from = ca_shipyard_3
 		gold_cost = 100
 		build_time = 1460
 		galleys = 9
 		ai_creation_factor = 97
 		
-		extra_tech_building_start = 1.3
+		#extra_tech_building_start = 1.3
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 	}
 
@@ -772,7 +880,7 @@ castle = {
 
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_special_fortifications_2 = { #Killing Fields
 		desc = ca_special_fortifications_2_desc
@@ -817,7 +925,7 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_special_fortifications_3 = { #Extended Machicolations
 		desc = ca_special_fortifications_3_desc
@@ -862,7 +970,7 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_special_fortifications_4 = { #Reinforced Barbican
 		desc = ca_special_fortifications_4_desc
@@ -908,7 +1016,7 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 
 	#Murder Builder Bloodline buildings.
@@ -971,7 +1079,7 @@ castle = {
 
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_oppressive_fortifications_2 = { #Connected Watchtowers
 		desc = ca_oppressive_fortifications_2_desc
@@ -1016,7 +1124,7 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_oppressive_fortifications_3 = { #Lonely Spire
 		desc = ca_oppressive_fortifications_3_desc
@@ -1061,7 +1169,7 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 	ca_oppressive_fortifications_4 = { #Palace of Justice
 		desc = ca_oppressive_fortifications_4_desc
@@ -1106,6 +1214,6 @@ castle = {
 		
 		ai_creation_factor = 88
 
-		extra_tech_building_start = 1.2
+		#extra_tech_building_start = 1.2
 	}
 }

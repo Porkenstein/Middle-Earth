@@ -8,7 +8,7 @@ child_of_destiny_male = {
 	bloodline_effect_ambition = 1
 	inheritance = patrilineal
 	allow_bastards = yes
-	flags = { created_bloodline founder_invasions bloodline_ambition }
+	flags = { created_bloodline bloodline_military founder_invasions bloodline_ambition }
 	picture = GFX_bloodlines_symbol_generic_hero
 }
 
@@ -21,7 +21,7 @@ child_of_destiny_female = {
 	bloodline_effect_ambition = 1
 	inheritance = matrilineal
 	allow_bastards = yes
-	flags = { created_bloodline founder_invasions bloodline_ambition }
+	flags = { created_bloodline bloodline_military founder_invasions bloodline_ambition }
 	picture = GFX_bloodlines_symbol_generic_hero
 }
 
@@ -40,7 +40,7 @@ bloodthirsty_male_bloodline = {
 			mep_is_evil_side_trigger = yes
 		}
 	}
-	flags = { bloodline_created_bloodthirsty bloodline_prestige_sacrifice created_bloodline }
+	flags = { bloodline_created_bloodthirsty bloodline_military bloodline_prestige_sacrifice created_bloodline }
 }
 
 bloodthirsty_female_bloodline = {
@@ -58,7 +58,7 @@ bloodthirsty_female_bloodline = {
 			mep_is_evil_side_trigger = yes
 		}
 	}
-	flags = { bloodline_created_bloodthirsty bloodline_prestige_sacrifice created_bloodline }
+	flags = { bloodline_created_bloodthirsty bloodline_military bloodline_prestige_sacrifice created_bloodline }
 }
 
 duelist_male = {
@@ -151,7 +151,7 @@ pure_war_bloodline_01 = {
 		morale_offence = 0.05
 		morale_defence = 0.05
 	}
-	flags = { created_bloodline bloodline_heroes }
+	flags = { created_bloodline bloodline_military bloodline_heroes }
 }
 
 pure_war_bloodline_02 = {
@@ -167,7 +167,7 @@ pure_war_bloodline_02 = {
 	active = {
 		religion_group = religion_group_eldar
 	}
-	flags = { created_bloodline bloodline_knights }
+	flags = { created_bloodline bloodline_military bloodline_knights }
 }
 
 pure_war_bloodline_03 = {
@@ -180,7 +180,7 @@ pure_war_bloodline_03 = {
 		center = 0.05
 	}
 	bloodline_effect_reaver = 1
-	flags = { created_bloodline bloodline_reaver }
+	flags = { created_bloodline bloodline_military bloodline_reaver }
 }
 
 pure_war_bloodline_04 = {
@@ -193,7 +193,7 @@ pure_war_bloodline_04 = {
 		retreat = 0.05
 	}
 	bloodline_effect_drill = 1
-	flags = { created_bloodline bloodline_drill }
+	flags = { created_bloodline bloodline_military bloodline_drill }
 }
 
 #Pure Peace
@@ -205,7 +205,7 @@ pure_peace_bloodline_01 = {
 	vassal_opinion = 4
 	global_revolt_risk = -0.02
 	bloodline_effect_less_factions = 1
-	flags = { created_bloodline bloodline_less_factions }
+	flags = { created_bloodline bloodline_culture bloodline_less_factions }
 }
 pure_peace_bloodline_02 = {
 	picture = GFX_bloodlines_symbol_peace
@@ -215,7 +215,7 @@ pure_peace_bloodline_02 = {
 	vassal_opinion = 4
 	global_revolt_risk = -0.02
 	bloodline_effect_less_factions = 1
-	flags = { created_bloodline bloodline_less_factions }
+	flags = { created_bloodline bloodline_culture bloodline_less_factions }
 }
 pure_peace_bloodline_03 = {
 	picture = GFX_bloodlines_symbol_munificent
@@ -225,7 +225,7 @@ pure_peace_bloodline_03 = {
 	vassal_opinion = 4
 	global_revolt_risk = -0.02
 	bloodline_effect_endearing = 1
-	flags = { created_bloodline bloodline_endearing }
+	flags = { created_bloodline bloodline_economy bloodline_endearing }
 }
 
 #Pure building
@@ -257,7 +257,7 @@ pure_castellan_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline bloodline_castellan }
+	flags = { created_bloodline bloodline_military bloodline_castellan }
 }
 pure_monumental_bloodline_01 = {
 	picture = GFX_bloodlines_symbol_monumental
@@ -272,7 +272,7 @@ pure_monumental_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline bloodline_monumental }
+	flags = { created_bloodline bloodline_culture bloodline_monumental }
 }
 
 #Hybrids
@@ -286,7 +286,7 @@ hybrid_murder_war_bloodline_01 = {
 	levy_reinforce_rate = 0.02
 	bloodline_effect_faster_claims = 1 
 	bloodline_effect_faster_dissent = 1 
-	flags = { created_bloodline bloodline_faster_claims bloodline_faster_dissent }
+	flags = { created_bloodline bloodline_military bloodline_faster_claims bloodline_faster_dissent }
 }
 
 #Murder Peace Hybrid
@@ -297,7 +297,7 @@ hybrid_murder_peace_bloodline_01 = {
 	arrest_chance_modifier = 0.05
 	global_revolt_risk = -0.01
 	bloodline_effect_dismantle_factions = 1 
-	flags = { created_bloodline bloodline_dismantle_factions }
+	flags = { created_bloodline bloodline_economy bloodline_dismantle_factions }
 }
 
 #Builder Combo Hybrid
@@ -314,7 +314,7 @@ hybrid_builder_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline }
+	flags = { created_bloodline bloodline_economy }
 }
 
 #Murder Builder Hybrid
@@ -331,7 +331,7 @@ hybrid_murder_builder_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline bloodline_blood_building }
+	flags = { created_bloodline bloodline_economy bloodline_blood_building }
 }
 
 #Peace Architect Hybrid
@@ -369,7 +369,7 @@ hybrid_peace_castellan_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline bloodline_castellan bloodline_peace_prosperity }
+	flags = { created_bloodline bloodline_military bloodline_castellan bloodline_peace_prosperity }
 }
 
 #Peace Monumental Hybrid
@@ -388,7 +388,7 @@ hybrid_peace_monumental_bloodline_01 = {
 			is_tribal = yes
 		}
 	}
-	flags = { created_bloodline bloodline_monumental bloodline_peace_prosperity }
+	flags = { created_bloodline bloodline_culture bloodline_monumental bloodline_peace_prosperity }
 }
 
 #Event-based Bloodlines
@@ -399,8 +399,9 @@ event_family_bloodline_01 = {
 	dynasty_opinion = 5
 	monthly_character_prestige = 0.2
 	bloodline_effect_dynastic_meddling = 1
-	flags = { created_bloodline bloodline_dynastic_meddling }
+	flags = { created_bloodline bloodline_economy bloodline_dynastic_meddling }
 }
+
 event_technology_bloodline_01 = {
 	picture = GFX_bloodlines_symbol_technology
 	inheritance = patrilineal
@@ -409,8 +410,9 @@ event_technology_bloodline_01 = {
 	build_time_modifier = -0.3
 	bloodline_effect_more_philosophers = 1
 	bloodline_effect_wandering_artists = 1
-	flags = { created_bloodline bloodline_more_philosophers bloodline_wandering_artists }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers bloodline_wandering_artists }
 }
+
 event_benevolent_bloodline_01 = {
 	picture = GFX_bloodlines_symbol_benevolent
 	inheritance = patrilineal
@@ -419,8 +421,9 @@ event_benevolent_bloodline_01 = {
 	kind_opinion = 10
 	monthly_character_prestige = 0.2
 	monthly_character_piety = 0.05
-	flags = { created_bloodline }
+	flags = { created_bloodline bloodline_economy }
 }
+
 event_ruthless_bloodline_01 = {
 	picture = GFX_bloodlines_symbol_ruthless
 	inheritance = patrilineal
@@ -443,8 +446,9 @@ event_religion_peaceful_bloodline_01 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_01 = {
 	picture = GFX_bloodlines_symbol_cross_2
 	inheritance = patrilineal
@@ -456,8 +460,9 @@ event_religion_aggressive_bloodline_01 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }
+
 event_religion_peaceful_bloodline_02 = {
 	picture = GFX_bloodlines_symbol_sunni #Muslim
 	inheritance = patrilineal
@@ -468,8 +473,9 @@ event_religion_peaceful_bloodline_02 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_02 = {
 	picture = GFX_bloodlines_symbol_sunni
 	inheritance = patrilineal
@@ -481,8 +487,9 @@ event_religion_aggressive_bloodline_02 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }
+
 event_religion_peaceful_bloodline_03 = {
 	picture = GFX_bloodlines_symbol_jewish #Jewish
 	inheritance = patrilineal
@@ -493,8 +500,9 @@ event_religion_peaceful_bloodline_03 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_03 = {
 	picture = GFX_bloodlines_symbol_jewish
 	inheritance = patrilineal
@@ -506,8 +514,9 @@ event_religion_aggressive_bloodline_03 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }
+
 event_religion_peaceful_bloodline_04 = {
 	picture = GFX_bloodlines_symbol_pagan #Pagan
 	inheritance = patrilineal
@@ -518,8 +527,9 @@ event_religion_peaceful_bloodline_04 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_04 = {
 	picture = GFX_bloodlines_symbol_pagan
 	inheritance = patrilineal
@@ -531,8 +541,9 @@ event_religion_aggressive_bloodline_04 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }
+
 event_religion_peaceful_bloodline_05 = {
 	picture = GFX_bloodlines_symbol_zoroastrian #Zoroastrian
 	inheritance = patrilineal
@@ -543,8 +554,9 @@ event_religion_peaceful_bloodline_05 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_05 = {
 	picture = GFX_bloodlines_symbol_zoroastrian
 	inheritance = patrilineal
@@ -556,8 +568,9 @@ event_religion_aggressive_bloodline_05 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }
+
 event_religion_peaceful_bloodline_06 = {
 	picture = GFX_bloodlines_symbol_hindu #Indian
 	inheritance = patrilineal
@@ -568,8 +581,9 @@ event_religion_peaceful_bloodline_06 = {
 		religion_same_as_bloodline_founder_trigger = yes
 	}
 	bloodline_effect_more_philosophers = 1
-	flags = { created_bloodline bloodline_more_philosophers }
+	flags = { created_bloodline bloodline_culture bloodline_more_philosophers }
 }
+
 event_religion_aggressive_bloodline_06 = {
 	picture = GFX_bloodlines_symbol_hindu
 	inheritance = patrilineal
@@ -581,5 +595,5 @@ event_religion_aggressive_bloodline_06 = {
 	}
 	bloodline_effect_better_inquisition = 1
 	bloodline_effect_religious_liberation = 1
-	flags = { created_bloodline bloodline_better_inquisition bloodline_religious_liberation }
+	flags = { created_bloodline bloodline_military bloodline_better_inquisition bloodline_religious_liberation }
 }

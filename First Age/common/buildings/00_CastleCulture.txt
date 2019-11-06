@@ -8,7 +8,7 @@
  #	build_time = time to build, in days
  #	
  #	ai_creation_factor = weight that the AI uses to determine what building to build
- #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #	#extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
  #}
  
  # Castle
@@ -31,12 +31,10 @@ castle = {
                     culture = culture_noldor
                     culture = culture_golodhrim
                     culture = culture_egledhrim
-                    culture = culture_doriathrim
 				}
 			}
 		}
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_2 }
 		gold_cost = 200
 		build_time = 730
 		light_cavalry = 10
@@ -46,10 +44,11 @@ castle = {
 		horse_archers_morale = 0.05
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_altaic_2 = {
 		desc = ca_culture_group_altaic_1_desc
+		prerequisites = { ca_wall_1 }
 		potential = {
 			FROM = { 
 				OR = {
@@ -57,7 +56,6 @@ castle = {
                     culture = culture_noldor
                     culture = culture_golodhrim
                     culture = culture_egledhrim
-                    culture = culture_doriathrim
 				}
 			}
 		}
@@ -72,10 +70,11 @@ castle = {
 		horse_archers_morale = 0.05
 		ai_creation_factor = 100
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_altaic_3 = {
 		desc = ca_culture_group_altaic_1_desc
+		prerequisites = { ca_wall_2 }
 		potential = {
 			FROM = { 
 				OR = {
@@ -83,7 +82,6 @@ castle = {
                     culture = culture_noldor
                     culture = culture_golodhrim
                     culture = culture_egledhrim
-                    culture = culture_doriathrim
 				}
 			}
 		}
@@ -98,10 +96,11 @@ castle = {
 		horse_archers_morale = 0.05
 		ai_creation_factor = 99
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_altaic_4 = {
 		desc = ca_culture_group_altaic_1_desc
+		prerequisites = { ca_wall_3 }
 		potential = {
 			FROM = { 
 				OR = {
@@ -109,7 +108,6 @@ castle = {
                     culture = culture_noldor
                     culture = culture_golodhrim
                     culture = culture_egledhrim
-                    culture = culture_doriathrim
 				}
 			}
 		}
@@ -124,7 +122,7 @@ castle = {
 		horse_archers_morale = 0.05
 		ai_creation_factor = 98
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	
 	#Frankish, Occitan, Norman and German Lists (and Breton)
@@ -136,17 +134,17 @@ castle = {
 			}
 		}
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_2 }
 		gold_cost = 200
 		build_time = 730
 		knights = 15
 		knights_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_frank_norman_german_2 = {
 		desc = ca_culture_frank_norman_german_1_desc
+		prerequisites = { ca_wall_1 }
 		potential = {
 			FROM = {
 				culture_group = culture_group_edain
@@ -160,10 +158,11 @@ castle = {
 		knights_offensive = 0.15
 		ai_creation_factor = 100
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_frank_norman_german_3 = {
 		desc = ca_culture_frank_norman_german_1_desc
+		prerequisites = { ca_wall_2 }
 		potential = {
 			FROM = {
 				culture_group = culture_group_edain
@@ -177,10 +176,11 @@ castle = {
 		knights_offensive = 0.15
 		ai_creation_factor = 99
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_frank_norman_german_4 = {
 		desc = ca_culture_frank_norman_german_1_desc
+		prerequisites = { ca_wall_3 }
 		potential = {
 			FROM = {
 				culture_group = culture_group_edain
@@ -194,7 +194,7 @@ castle = {
 		knights_offensive = 0.15
 		ai_creation_factor = 98
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}	
 	
 	# Scandinavian Housecarls (and Saxon)
@@ -209,17 +209,17 @@ castle = {
 			}
 		}
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_2 }
 		gold_cost = 200
 		build_time = 730
 		heavy_infantry = 30
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_north_germanic_2 = {
 		desc = ca_culture_group_north_germanic_1_desc
+		prerequisites = { ca_wall_1 }
 		potential = {
 			FROM = {
 				OR = {
@@ -236,10 +236,11 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_north_germanic_3 = {
 		desc = ca_culture_group_north_germanic_1_desc
+		prerequisites = { ca_wall_2 }
 		potential = {
 			FROM = {
 				OR = {
@@ -256,10 +257,11 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_group_north_germanic_4 = {
 		desc = ca_culture_group_north_germanic_1_desc
+		prerequisites = { ca_wall_3 }
 		potential = {
 			FROM = {
 				OR = {
@@ -276,7 +278,7 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 
 	# Germanic Heavy Infantry Barracks
@@ -292,17 +294,17 @@ castle = {
 			}
 		}
 		# trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		prerequisites = { ca_wall_2 }
 		gold_cost = 200
 		build_time = 730
 		heavy_infantry = 30
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_germanic_2 = {
 		desc = ca_culture_germanic_1_desc
+		prerequisites = { ca_wall_1 }
 		potential = {
 			FROM = {
 				OR = {
@@ -320,10 +322,11 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_germanic_3 = {
 		desc = ca_culture_germanic_1_desc
+		prerequisites = { ca_wall_2 }
 		potential = {
 			FROM = {
 				OR = {
@@ -341,10 +344,11 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 	ca_culture_germanic_4 = {
 		desc = ca_culture_germanic_1_desc
+		prerequisites = { ca_wall_3 }
 		potential = {
 			FROM = {
 				OR = {
@@ -362,7 +366,7 @@ castle = {
 		heavy_infantry_offensive = 0.15
 		ai_creation_factor = 101
 		
-		extra_tech_building_start = 1.8
+		#extra_tech_building_start = 1.8
 	}
 }
 

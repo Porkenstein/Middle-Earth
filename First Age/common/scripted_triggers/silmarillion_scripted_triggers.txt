@@ -3,11 +3,29 @@
 
 # used from province scope
 has_depopulation_effect = {
-	OR = {
-		has_province_modifier = depopulated_1
-		has_province_modifier = depopulated_2
-		has_province_modifier = depopulated_3
+	custom_tooltip = {
+		text = has_depopulation_effect_tooltip
+		hidden_tooltip = {
+			OR = {
+				has_province_modifier = depopulated_1
+				has_province_modifier = depopulated_2
+				has_province_modifier = depopulated_3
+			}
+		}
 	}
+}
+
+# used from province scope
+has_prosperity_effect = {
+	custom_tooltip = {
+		text = has_prosperity_effect_tooltip
+		hidden_tooltip = {
+			OR = {
+				has_province_modifier = prosperity_modifier_1
+				has_province_modifier = prosperity_modifier_2
+				has_province_modifier = prosperity_modifier_3
+			}
+		}
 }
 
 ### PROVINCE INFO ###

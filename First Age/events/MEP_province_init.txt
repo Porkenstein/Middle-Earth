@@ -1215,6 +1215,20 @@ character_event = {
 			}
 			increase_depopulation_effect = yes
 		}
+		# petty-dwarf extinction
+		any_demesne_province = {
+			limit = {
+				culture = culture_petty_dwarves
+			}
+			if = {
+				limit = { year = 4600 }
+				increase_depopulation_effect = yes
+			}
+			if = {
+				limit = { year = 4700 }
+				increase_depopulation_effect = yes
+			}
+		}
 
 		# TODO
 		# post-nirnaeth refugee realms
