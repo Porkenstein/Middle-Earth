@@ -290,14 +290,6 @@ upgrade_spikes = {
 			factor = 3
 			trait = impaler
 		}
-		modifier = { #can the pope PLS stop building spikes?!
-			factor = 0
-			k_papal_state = {
-    			holder_scope = {
-    				character = THIS
-    			}
-    		}
-		}
 	}
 }
 
@@ -305,7 +297,6 @@ upgrade_tower = {
 	picture = GFX_upgrade_icon_stones
 
 	potential = { }
-	allow = { }
 	allow = { }
 	active = { }
 
@@ -349,8 +340,8 @@ upgrade_heating_pipes = {
 	picture = GFX_upgrade_icon_brazier
 
 	potential = { }
-	allow = { has_wonder_upgrade = upgrade_hypocausts }
-	active = { has_wonder_upgrade = upgrade_hypocausts }
+	allow = { FROMFROM = { has_wonder_upgrade = upgrade_hypocausts } }
+	active = { FROMFROM = { has_wonder_upgrade = upgrade_hypocausts } }
 
 	flags = {
 		heating
@@ -609,7 +600,7 @@ upgrade_glass_windows = {
 	}
 }
 
-upgrade_requilary = {
+upgrade_reliquary = {
 	picture = GFX_upgrade_icon_key
 	
 	potential = {  }
@@ -1359,9 +1350,7 @@ upgrade_plating_gold = {
 			text = no_other_plating_tt
 			hidden_trigger = {
 				NOT = {
-					any_wonder_upgrade = {
-						has_wonder_upgrade_flag = plating
-					}
+					FROMFROM = { has_wonder_upgrade_flag = plating }
 				}
 			}
 		}
@@ -1390,9 +1379,7 @@ upgrade_plating_silver = {
 			text = no_other_plating_tt
 			hidden_trigger = {
 				NOT = {
-					any_wonder_upgrade = {
-						has_wonder_upgrade_flag = plating
-					}
+					FROMFROM = { has_wonder_upgrade_flag = plating }
 				}
 			}
 		}
@@ -1421,9 +1408,7 @@ upgrade_plating_bronze = {
 			text = no_other_plating_tt
 			hidden_trigger = {
 				NOT = {
-					any_wonder_upgrade = {
-						has_wonder_upgrade_flag = plating
-					}
+					FROMFROM = { has_wonder_upgrade_flag = plating }
 				}
 			}
 		}
@@ -2430,7 +2415,7 @@ upgrade_walls_sea = { # Sea Walls
 
 	potential = {
 		FROMFROMFROM = {
-			is_coastal = yes
+			port = yes
 		}
 	}
 	allow = {
@@ -2541,9 +2526,6 @@ upgrade_soaring_fortresses = { # Soaring Fortresses
 	local_modifier = {
 		heavy_infantry = 100
 		siege_defence = 0.05
-	}
-	local_modifier = {
-	
 	}
 	owner_modifier = {
 		custom_modifier_text = castellan_custom_modifier_tt
@@ -2686,7 +2668,7 @@ upgrade_artificial_islands = { # Artificial Islands
 	picture = GFX_upgrade_icon_stones
 
 	potential = {
-		FROMFROMFROM = { is_coastal = yes }
+		FROMFROMFROM = { port = yes }
 	}
 	allow = {
 
@@ -3095,7 +3077,7 @@ upgrade_collection_architecture = { # Architecture Collection
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	owner_modifier = {
-		local_build_cost_modifier = -0.05
+		build_cost_modifier = -0.05
 	}
 }
 
