@@ -1,0 +1,44 @@
+title_personalguard = {
+	is_high_prio = yes
+
+	dignity = 0.1
+	grant_limit = 2
+
+	show_as_title = no
+	realm_in_name = no
+
+	monthly_salary = 0.2
+	monthly_prestige = 0.1
+	opinion_effect = 5
+
+	allowed_to_hold = {
+		OR = {
+			is_ruler = no
+			has_landed_title = d_gondor_guard
+		}
+		is_adult = yes
+		OR = {
+			is_councillor  = no
+			has_job_title = job_marshal
+		}
+		OR = {
+			trait = adept_fighter
+			trait = skilled_fighter
+			trait = master_fighter
+		}
+		NOT = {
+			trait = pregnant
+		}
+	}
+	allowed_to_grant = {
+		higher_real_tier_than = BARON
+	}
+	ai_will_do = {
+		factor = 0.1
+	}
+
+	gain_effect = { }
+	lose_effect = { }
+
+	message = no
+}

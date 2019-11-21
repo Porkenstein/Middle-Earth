@@ -1,0 +1,773 @@
+namespace = mep_inherit_events
+character_event = {	#Send Event to Rebel
+	id = mep_inherit_events.0
+	hide_window = yes
+
+	trigger = {
+		is_ruler = yes
+		is_higher_real_tier_than = COUNT
+		government = orc_government
+		has_law = succ_open_elective
+		OR = {
+			culture = culture_orkish
+			culture = culture_urukhai
+		}
+		any_courtier = {
+			NOT = {
+				character = ROOT
+			}
+			is_female = no
+			is_adult = yes
+			is_incapable = no
+			prisoner = no
+			OR = {
+				culture = culture_orkish
+				culture = culture_urukhai
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	immediate = {
+		save_event_target_as = orc_ruler
+		set_character_flag = orc_ruler
+		any_courtier = {
+			limit = {
+				OR = {
+					has_character_modifier = strongest_orc
+					has_character_flag = orc_ruler
+				}
+			}
+			remove_character_modifier  = strongest_orc
+		}
+		e_valinor = {
+			holder_scope = {
+				character_event = { id = mep_inherit_events.1 }
+			}
+		}
+	}
+}
+character_event = {	#Decide Strongest
+	id = mep_inherit_events.1
+	desc = EVTDESCmep_inherit_events.1
+	picture = GFX_evt_orc_battle
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:orc_ruler = {
+			IF = {
+				limit = {
+					any_courtier = {
+						has_character_flag = strongest_orc_winner
+						count == 1
+					}
+					NOT = {
+						any_courtier = {
+							is_female = no
+							is_adult = yes
+							is_incapable = no
+							prisoner = no
+							OR = {
+								culture = culture_orkish
+								culture = culture_urukhai
+							}
+							NOR = {
+								has_character_flag = orc_ruler
+								has_character_flag = strongest_orc_loser
+								has_character_flag = strongest_orc_winner
+							}
+						}
+					}
+				}
+				random_courtier = {
+					limit = {
+						has_character_flag = strongest_orc_winner
+					}
+					add_character_modifier = { modifier = strongest_orc duration = -1 }
+				}
+				clr_character_flag = orc_ruler
+				any_courtier = {
+					clr_character_flag = orc_ruler
+					clr_character_flag = strongest_orc_winner
+					clr_character_flag = strongest_orc_loser
+				}
+				break = yes
+			}
+			random_courtier = {
+				limit = {
+					is_female = no
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+					OR = {
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+					NOR = {
+						has_character_flag = orc_ruler
+						has_character_flag = strongest_orc_loser
+						has_character_flag = strongest_orc_1
+						has_character_flag = strongest_orc_2
+						has_character_flag = strongest_orc_3
+						has_character_flag = strongest_orc_4
+					}
+				}
+				
+				set_character_flag = strongest_orc_1
+				save_event_target_as = strongest_orc_1
+				export_to_variable = {
+					who = THIS
+					value = combat_rating
+					which = current_combat_rating
+				}
+			}
+			random_courtier = {
+				limit = {
+					is_female = no
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+					OR = {
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+					NOR = {
+						has_character_flag = orc_ruler
+						has_character_flag = strongest_orc_loser
+						has_character_flag = strongest_orc_1
+						has_character_flag = strongest_orc_2
+						has_character_flag = strongest_orc_3
+						has_character_flag = strongest_orc_4
+					}
+				}
+				set_character_flag = strongest_orc_2
+				save_event_target_as = strongest_orc_2
+				export_to_variable = {
+					who = THIS
+					value = combat_rating
+					which = current_combat_rating
+				}
+			}
+			random_courtier = {
+				limit = {
+					is_female = no
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+					OR = {
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+					NOR = {
+						has_character_flag = orc_ruler
+						has_character_flag = strongest_orc_loser
+						has_character_flag = strongest_orc_1
+						has_character_flag = strongest_orc_2
+						has_character_flag = strongest_orc_3
+						has_character_flag = strongest_orc_4
+					}
+				}
+				set_character_flag = strongest_orc_3
+				save_event_target_as = strongest_orc_3
+				export_to_variable = {
+					who = THIS
+					value = combat_rating
+					which = current_combat_rating
+				}
+			}
+			random_courtier = {
+				limit = {
+					is_female = no
+					is_adult = yes
+					is_incapable = no
+					prisoner = no
+					OR = {
+						culture = culture_orkish
+						culture = culture_urukhai
+					}
+					NOR = {
+						has_character_flag = orc_ruler
+						has_character_flag = strongest_orc_loser
+						has_character_flag = strongest_orc_1
+						has_character_flag = strongest_orc_2
+						has_character_flag = strongest_orc_3
+						has_character_flag = strongest_orc_4
+					}
+				}
+				set_character_flag = strongest_orc_4
+				save_event_target_as = strongest_orc_4
+				export_to_variable = {
+					who = THIS
+					value = combat_rating
+					which = current_combat_rating
+				}
+			}
+		}
+	}
+
+	option = {	#Candidate 1
+		name = EVTOPTAmep_inherit_events.1
+		trigger = {
+			event_target:strongest_orc_1 = {
+				has_character_flag = strongest_orc_1
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:strongest_orc_1 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_1 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+		}
+		event_target:strongest_orc_1 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_winner
+			clr_character_flag = strongest_orc_1
+		}
+		event_target:strongest_orc_2 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_2
+		}
+		event_target:strongest_orc_3 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_3
+		}
+		event_target:strongest_orc_4 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_4
+		}
+		clear_event_target = strongest_orc_1
+		clear_event_target = strongest_orc_2
+		clear_event_target = strongest_orc_3
+		clear_event_target = strongest_orc_4
+		character_event = { id = mep_inherit_events.1 }
+	}
+	option = {	#Candidate 2
+		name = EVTOPTBmep_inherit_events.1
+		trigger = {
+			event_target:strongest_orc_2 = {
+				has_character_flag = strongest_orc_2
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:strongest_orc_2 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_2 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+		}
+		event_target:strongest_orc_1 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_1
+		}
+		event_target:strongest_orc_2 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_winner
+			clr_character_flag = strongest_orc_2
+		}
+		event_target:strongest_orc_3 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_3
+		}
+		event_target:strongest_orc_4 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_4
+		}
+		clear_event_target = strongest_orc_1
+		clear_event_target = strongest_orc_2
+		clear_event_target = strongest_orc_3
+		clear_event_target = strongest_orc_4
+		character_event = { id = mep_inherit_events.1 }
+	}
+	option = {	#Candidate 3
+		name = EVTOPTCmep_inherit_events.1
+		trigger = {
+			event_target:strongest_orc_3 = {
+				has_character_flag = strongest_orc_3
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:strongest_orc_3 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_3 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+		}
+		event_target:strongest_orc_1 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_1
+		}
+		event_target:strongest_orc_2 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_2
+		}
+		event_target:strongest_orc_3 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_winner
+			clr_character_flag = strongest_orc_3
+		}
+		event_target:strongest_orc_4 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_4
+		}
+		clear_event_target = strongest_orc_1
+		clear_event_target = strongest_orc_2
+		clear_event_target = strongest_orc_3
+		clear_event_target = strongest_orc_4
+		character_event = { id = mep_inherit_events.1 }
+	}
+	option = {	#Candidate 4
+		name = EVTOPTDmep_inherit_events.1
+		trigger = {
+			event_target:strongest_orc_4 = {
+				has_character_flag = strongest_orc_4
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:strongest_orc_4 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:strongest_orc_4 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+		}
+		event_target:strongest_orc_1 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_1
+		}
+		event_target:strongest_orc_2 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_2
+		}
+		event_target:strongest_orc_3 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_loser
+			clr_character_flag = strongest_orc_3
+		}
+		event_target:strongest_orc_4 = {
+			clr_character_flag = strongest_orc_winner
+			set_character_flag = strongest_orc_winner
+			clr_character_flag = strongest_orc_4
+		}
+		clear_event_target = strongest_orc_1
+		clear_event_target = strongest_orc_2
+		clear_event_target = strongest_orc_3
+		clear_event_target = strongest_orc_4
+		character_event = { id = mep_inherit_events.1 }
+	}
+
+	option = {	#End Strongest Contest
+		name = EVTOPTEmep_inherit_events.1
+		trigger = {
+			event_target:orc_ruler = {
+				any_courtier = {
+					has_character_modifier  = strongest_orc
+				}
+			}
+		}
+			event_target:orc_ruler = {
+				any_courtier = {
+					limit = {
+						has_character_modifier  = strongest_orc
+					}
+					save_event_target_as = orc_heir
+				}
+				character_event = { id = mep_inherit_events.11 }
+			}
+		
+	}
+}
+character_event = {	#Strongest is Heir
+	id = mep_inherit_events.11
+	title = EVTTTLmep_inherit_events.11
+	desc = EVTDESCmep_inherit_events.11
+	picture = GFX_evt_orc_battle
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_inherit_events.11
+	}
+}
+character_event = {	#Orc Heir
+	id = mep_inherit_events.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		government = orc_government
+		has_law = succ_open_elective
+		any_courtier = {
+			NOT = { character = ROOT }
+			has_character_modifier = strongest_orc
+		}
+	}
+
+	immediate = {
+		random_courtier = {
+			limit = {
+				has_character_modifier = strongest_orc
+			}
+			save_event_target_as = heir
+		}
+		abdicate_to = event_target:heir
+		event_target:heir = {
+			character_event = { id = mep_inherit_events.21 }
+		}
+	}
+}
+character_event = {	#Strongest Take Over
+	id = mep_inherit_events.21
+	title = EVTTTLmep_inherit_events.21
+	desc = EVTDESCmep_inherit_events.21
+	picture = GFX_evt_orc_battle
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_inherit_events.21
+		remove_character_modifier = strongest_orc
+		hidden_effect = {
+			character_event = { id = mep_inherit_events.0 }
+		}
+	}
+}

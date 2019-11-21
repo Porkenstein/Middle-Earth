@@ -1,0 +1,21 @@
+decisions = {
+	go_on_tour = {
+		potential = {
+			ai = no
+			war = no
+		}
+		allow = {
+			wealth = 1000
+			NOT = { has_character_flag = setting_up_tour }
+			NOT = { has_character_flag = went_on_tour }
+		}
+		effect = {
+			set_character_flag = tours1
+			set_character_flag = setting_up_tour
+			character_event = { id = mep_tours_events.0 }
+		}
+		ai_will_do = {
+			factor = 0 
+		}
+	}
+}

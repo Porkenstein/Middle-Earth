@@ -1,0 +1,95 @@
+#General Infertility for Old Age Races
+namespace = mepmarriage
+character_event = {
+	id = mepmarriage.13
+	hide_window = yes
+	min_age = 45
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			#Long Lived
+			culture_group = culture_group_dwarves
+			culture_group = culture_group_numenorean
+			trait = numenorean
+			trait = numenor_blood
+			culture_group = culture_group_halfling
+			#Sail West
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
+			#Undying
+			culture = culture_balrog
+			culture = culture_dragons
+			culture = culture_spider
+			culture_group = culture_group_onodrim
+			culture_group = culture_group_eru
+		}
+		NOT = { religion_group = religion_group_wilderness }
+		NOT = {
+			has_character_modifier = mep_sinfertile
+		}
+		is_alive = yes
+	}
+
+	option = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_children = yes
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = {
+						any_child = {
+							is_female = yes
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					has_children = yes
+				}
+				modifier = {
+					factor = 2
+					num_of_children = 2
+				}
+				modifier = {
+					factor = 10
+					num_of_children = 3
+				}
+				modifier = {
+					factor = 5
+					OR = {
+						culture_group = culture_group_amanyar
+						culture_group = culture_group_moriquendi
+						culture_group = culture_group_umanyar
+					}
+					has_children = yes
+				}
+				character_event = {
+					id = mepmarriage.131
+				}
+			}
+			1 = {
+			}
+		}
+	}
+}
+character_event = {
+	id = mepmarriage.131
+	min_age = 45
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		add_character_modifier = {
+			modifier = mep_sinfertile
+			duration = -1
+			hidden = yes
+		}
+	}
+}

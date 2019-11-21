@@ -1,0 +1,581 @@
+# daggers
+
+daggerwesternesse = {
+	martial = 2
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_daggerwesternesse"
+	slot = weapon
+	flags = { aflag_daggerwesternesse dagger}
+	stacking = yes
+}
+
+morgul_blade = {  # for Nazgûl
+	martial = 2
+	monthly_character_prestige = 0.3
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_morgul_blade"
+	slot = weapon
+	flags = { aflag_morgulblade dagger}
+	stacking = no
+}
+
+sting = {  # used by Bilbo, then Frodo, then Samwise
+	martial = 2
+    intrigue = 1
+	vassal_opinion = 2
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_sting"
+	slot = weapon
+	flags = { aflag_sting dagger} 
+	stacking = no
+}
+
+#--------------------------------------------
+# specific swords
+
+# Narsil, the sword of Elendil, as it was before it was broken
+narsil_elendil = {
+	martial = 4
+	monthly_character_prestige = 0.5
+	combat_rating = 15
+	vassal_opinion = 5
+	liege_opinion = -1
+	monthly_character_wealth = 0.05
+    command_modifier = {
+		morale_offence = 0.05
+	}
+	quality = 4
+	picture = "GFX_narsil_anduril"
+	slot = weapon
+	flags = { aflag_narsil_sword sword} 
+	stacking = no
+	active = { is_adult = yes }
+}
+
+# Narsil, broken
+narsil_broken = {
+	martial = 2
+	monthly_character_prestige = 0.25
+	combat_rating = 5
+	quality = 2
+	vassal_opinion = 1
+	liege_opinion = -2
+	monthly_character_wealth = 0.02
+	picture = "GFX_narsil_broken"
+	slot = weapon
+	flags = { aflag_narsil_sword sword} 
+	stacking = no
+	active = { is_adult = yes }
+}
+
+anduril = {  # Aragorn's sword, made from the shards of Narsil
+    diplomacy = 2
+	martial = 5
+	vassal_opinion = 2
+	monthly_character_prestige = 1.0
+	combat_rating = 20
+	quality = 5
+	picture = "GFX_narsil_anduril"
+	slot = weapon
+	flags = { aflag_anduril sword} 
+	stacking = no
+}
+
+glamdring = {  # sword of gandalf
+	martial = 4
+	learning = 1
+	vassal_opinion = 2
+    command_modifier = {
+		morale_offence = 0.05
+		heavy_infantry = 0.05
+	}
+	attrition = -0.2
+	monthly_character_prestige = 0.75
+	combat_rating = 15
+	quality = 4
+	picture = "GFX_glamdring"
+	slot = weapon
+	flags = { aflag_glamdring sword} 
+	stacking = no
+	active = {
+		is_adult = yes
+		mep_is_good_side_trigger = yes
+	}
+}
+
+orcrist = {   # briefly used by Thorin II (before he died)
+	martial = 3
+	vassal_opinion = 2
+	monthly_character_prestige = 0.5
+	combat_rating = 10
+	quality = 5
+	picture = "GFX_orcrist"
+	slot = weapon
+	flags = { aflag_orcrist sword} 
+	stacking = no
+}
+
+herugrim = {  # ancient sword of Theoden
+	martial = 4
+	vassal_opinion = 2
+	monthly_character_prestige = 0.5
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_sword_fancy"
+	slot = weapon
+	flags = { aflag_herugrim sword} 
+	stacking = no
+}
+
+guthwine = {  # sword of Eomer
+	martial = 3
+	vassal_opinion = 2
+	monthly_character_prestige = 0.2
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_sword"
+	slot = weapon
+	flags = { aflag_guthwine sword} 
+	stacking = no
+}
+
+amroth_sword = {  # Sword belonging to Amroth, Silvan elf-ruler of 3rd age Lorien before Galadriel and Celeborn took over
+	martial = 3
+	monthly_character_prestige = 0.3
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_sword"
+	slot = weapon
+	flags = { aflag_amroth_sword sword} 
+	stacking = no
+}
+
+aranruth = {  # Sword of Thingol, later picked up by the Kings of Númenor
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_sword_engraved"
+	slot = weapon
+	flags = { aflag_aranruth sword} 
+	stacking = no
+}
+
+# Swords Not known to exist after the first age, but if Glamdring and Orcrist could turn up...
+ringil = {	# Sword of Fingolfin, lost after his battle with Morgoth (and likely destroyed, but not confirmed)
+    martial = 5
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 40
+	quality = 5
+	picture = "GFX_sword_engraved"
+	slot = weapon
+	flags = { aflag_ringil sword} 
+	stacking = no
+}
+
+dagmor = {  # Beren's Sword
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_sword"
+	slot = weapon
+	flags = { aflag_dagmor sword} 
+	stacking = no
+}
+
+anguirel = {  # Eöl's sword of Meteoric Iron, stolen by Maeglin (and taken to Gondolin). Presumably not a nice sword, possibly sentient
+    martial = 3
+	vassal_opinion = -5
+	monthly_character_prestige = 1.0
+	combat_rating = 5
+	quality = 5
+	picture = "GFX_sword"
+	slot = weapon
+	flags = { aflag_anguirel sword} 
+	stacking = no
+}
+
+himling_sword = {  # presumably Noldor, only found in ruins on Himling Isle. Might be sword of Maedhros
+	martial = 3
+	monthly_character_prestige = 0.3
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_sword_engraved"
+	slot = weapon
+	flags = { aflag_himling_sword sword}
+	stacking = no
+}
+
+#-----------------------------------------------
+# generic swords
+
+# Craft elvish swords
+ancient_elvish_sword = {
+	martial = 3
+	monthly_character_prestige = 0.2
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_sword_engraved"
+	slot = weapon
+	flags = { aflag_elvish_sword sword}
+	stacking = yes
+}
+
+elvish_sword_magic_martial = {
+	martial = 5
+	combat_rating = 10
+	monthly_character_prestige = 0.3
+	quality = 4
+	picture = "GFX_sword_T3_glow_red"
+	slot = weapon
+	flags = { aflag_elvish_sword_magic_martial sword}
+	stacking = no
+}
+elvish_sword_magic_combat = {
+	martial = 1
+	combat_rating = 40
+	monthly_character_prestige = 0.3
+	quality = 4
+	picture = "GFX_sword_T3_glow_green"
+	slot = weapon
+	flags = { aflag_elvish_sword_magic_combat sword}
+	stacking = no
+}
+elvish_sword_magic_exceptional = {
+	martial = 5
+	combat_rating = 30
+	monthly_character_prestige = 0.5
+	quality = 4
+	picture = "GFX_sword_T3_glow_purple"
+	slot = weapon
+	flags = { aflag_elvish_sword_magic_exceptional sword}
+	stacking = no
+}
+
+elvish_sword = {
+	martial = 3
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_sword_engraved"
+	slot = weapon
+	flags = { aflag_elvish_sword sword}
+	stacking = yes
+}
+
+dwarvish_sword = {
+	martial = 2
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_sword_fancy"
+	slot = weapon
+	flags = { aflag_dwarvish_sword sword}
+	stacking = yes
+}
+
+#------------------------------------------------------
+# other weapons
+durins_axe = {
+	martial = 4
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 30
+	quality = 5
+	picture = "GFX_durins_axe"
+	slot = weapon
+	flags = { aflag_durins_axe axe}
+	stacking = no
+}
+
+dramborleg = {  # Axe of Tuor
+    martial = 3
+	vassal_opinion = 5
+	monthly_character_prestige = 1.0
+	combat_rating = 10
+	quality = 4
+	picture = "GFX_plus2_axe"
+	slot = weapon
+	flags = { aflag_dramborleg axe}
+	stacking = no
+}
+
+aeglos = {  # The spear of Gil-Galad
+    martial = 4
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 20
+	quality = 5
+	picture = "GFX_the_piercer"
+	slot = weapon
+	flags = { aflag_aeglos spear}
+	stacking = no
+}
+
+erebor_spear = {
+	martial = 2
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_lance"
+	slot = weapon
+	flags = { aflag_erebor_spear spear}
+	stacking = yes
+}
+
+belthronding = {	# The Bow of Beleg, buried with him in Tol Fuin (probably rotted away within a few hundred years)
+    martial = 3
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	combat_rating = 5
+	picture = "GFX_silent_wind"
+	slot = weapon
+	flags = { aflag_belthronding bow}
+	stacking = no
+}
+
+staff_of_gandalf = {
+	martial = 2
+	diplomacy = 4
+	learning = 4
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 1.0
+	monthly_character_prestige = 0.5
+	combat_rating = 10
+
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	picture = "GFX_staff_of_gandalf"
+	stacking = no
+}
+
+white_staff_of_gandalf = {
+	martial = 3
+	diplomacy = 5
+	learning = 5
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 1.0
+	monthly_character_prestige = 0.5
+	combat_rating = 10
+
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	picture = "GFX_white_staff_of_gandalf"
+	stacking = no
+}
+
+numenorean_helmet = {
+	martial = 1
+	combat_rating = 10
+	quality = 3
+	picture = "GFX_numenorean_helmet"
+	slot = head
+	stacking = yes
+}
+
+numenorean_armor = {
+	monthly_character_prestige = 1.5
+	martial = 3
+	combat_rating = 20
+	command_modifier = { morale_offence = 0.20 }
+	quality = 5
+	active = {
+		is_adult = yes
+	}
+	flags = { armor }
+	stacking = no
+	picture = "GFX_suit_of_armor_gold"
+	slot = torso
+}
+
+western_horse_armor = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 10
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { horse_armor armor }
+	stacking = no
+	picture = "GFX_western_horse_armor"
+	slot = horse
+}
+eastern_horse_armor = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 10
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { horse_armor armor }
+	stacking = no
+	picture = "GFX_eastern_horse_armor"
+	slot = horse
+}
+nazgul_horse_armor = {
+	monthly_character_prestige = 0.75
+	martial = 1
+	combat_rating = 10
+	command_modifier = { cavalry = 0.1 }
+	quality = 3
+	active = {
+		is_adult = yes
+	}
+	flags = { horse_armor armor }
+	stacking = no
+	picture = "GFX_nazgul_horse_armor"
+	slot = horse
+}
+dragon_helm = {
+	martial = 3
+	combat_rating = 10
+	vassal_opinion = 10
+	monthly_character_prestige = 1.0
+	quality = 5
+	picture = " "
+	slot = head
+	stacking = no
+}
+anglachel = {
+	martial = 2
+	combat_rating = 10
+	monthly_character_prestige = 0.2
+	quality = 4
+	picture = " "
+	slot = weapon
+	stacking = yes
+}
+gurthang = {
+	martial = 5
+	combat_rating = 20
+	monthly_character_prestige = 0.75
+	quality = 5
+	picture = "GFX_gurthang"
+	slot = weapon
+	flags = { aflag_gurthang sword} 
+	stacking = yes
+}
+gurthang_broken = {
+	martial = 1
+	monthly_character_prestige = 0.25
+	combat_rating = 1
+	quality = 5
+	picture = "GFX_gurthang_broken"
+	slot = weapon
+	flags = { aflag_gurthang_broken sword} 
+	stacking = no
+}
+himling_armour = {  # presumably Noldor, only found in ruins on Himling Isle. Might be armour of Maedhros
+	martial = 3
+	monthly_character_prestige = 0.3
+	combat_rating = 10
+	quality = 4
+	picture = " "
+	slot = torso
+	flags = { armor }
+	stacking = no
+}
+arveleg_helmet = {
+	martial = 1
+	combat_rating = 5
+	quality = 3
+	picture = " "
+	slot = head
+	stacking = no
+}
+arvedui_armor = {
+	martial = 2
+	combat_rating = 5
+	quality = 3
+	picture = " "
+	slot = torso
+	stacking = no
+}
+staff_of_saruman = {
+	intrigue = 5
+	martial = 3
+	learning = 5
+	health = 20.0
+	fertility = -20.0
+	monthly_character_prestige = 0.7
+	combat_rating = 10
+	
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	slot = scepter
+	picture = "GFX_staff_of_saruman"
+	stacking = no
+}
+staff_of_radagast = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	slot = scepter
+	picture = "GFX_staff_of_radagast"
+	stacking = no
+}
+staff_of_pallando = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	slot = scepter
+	picture = "GFX_staff_of_pallando"
+	stacking = no
+}
+staff_of_alatar = {
+	stewardship = 2
+	learning = 3
+	health = 20.0
+	fertility = -20.0
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.1
+	combat_rating = 10
+	allowed_gift = {
+		always = no
+	}
+	
+	quality = 5
+	slot = scepter
+	picture = "GFX_staff_of_alatar"
+	stacking = no
+}

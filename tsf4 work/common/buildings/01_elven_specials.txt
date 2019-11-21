@@ -1,0 +1,357 @@
+castle = {
+	ca_edhellond_ruins = { ### Edhellond Ruins
+		desc = ca_edhellond_ruins_desc
+		not_if_x_exists = { ca_edhellond }
+		gold_cost = 850
+		build_time = 1460 #4y
+		tax_income = -3	
+		garrison_size = -0.2		
+		ai_creation_factor = 86		
+        potential = {
+			FROMFROM = { title = b_edhellond }
+			year = 10324
+			NOT = { has_global_flag = edhellond_rebuilded_finally }
+       	}
+	}
+	
+	ca_edhellond = { #Great port of Edhellond#
+		desc = ca_edhellond_desc
+		not_if_x_exists = { ca_edhellond_ruins }
+		gold_cost = 150
+		build_time = 1460 #4y
+		fort_level = 4.0
+		tax_income = 3
+		heavy_infantry = 250
+		light_infantry = 250
+		archers = 500
+		galleys = 25
+		ai_creation_factor = 86
+		
+        potential = {
+			FROMFROM = { title = b_edhellond }
+			NOT = { has_building = ca_edhellond_ruins }
+		}
+	}
+	
+	ca_imladris = {
+		desc = ca_imladris_desc
+		gold_cost = 75
+		build_time = 730
+		fort_level = 2
+		garrison_size = 1
+		heavy_infantry = 50
+		horse_archers = 25
+		knights = 40
+		ai_creation_factor = 86
+		add_number_to_name = no
+		trigger = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris
+			}
+			year = 6599
+		}
+	}
+	ca_imladris2 = {
+		desc = ca_imladris_desc
+		upgrades_from = ca_imladris
+		gold_cost = 75
+		build_time = 730
+		fort_level = 2
+		garrison_size = 1
+		heavy_infantry = 50
+		horse_archers = 25
+		knights = 40
+		ai_creation_factor = 86
+		add_number_to_name = no
+		trigger = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris2
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris2
+			}
+			year = 10000
+		}
+	}
+	ca_imladris3 = {
+		desc = ca_imladris_desc
+		upgrades_from = ca_imladris2
+		gold_cost = 75
+		build_time = 730
+		fort_level = 2
+		garrison_size = 1
+		heavy_infantry = 50
+		horse_archers = 25
+		knights = 40
+		ai_creation_factor = 86
+		add_number_to_name = no
+		trigger = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris3
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_last_homely_house
+				has_building = ca_imladris3
+			}
+			year = 15000
+		}
+	}
+	ca_gwaith_i_mirdain = {
+		desc = ca_gwaith_i_mirdain_desc
+		gold_cost = 2050
+		build_time = 6460 #4y
+		fort_level = 4.0
+		heavy_infantry_offensive = 1.0
+		heavy_infantry_defensive = 1.0
+		pikemen_offensive = 1.0
+		pikemen_defensive = 1.0
+		light_infantry_offensive = 1.0
+		light_infantry_defensive = 1.0
+		archers_offensive = 1.0
+		archers_defensive = 1.0
+		horse_archers_offensive = 1.0
+		horse_archers_defensive = 1.0
+		light_cavalry_offensive = 1.0
+		light_cavalry_defensive = 1.0
+		knights_offensive = 1.0
+		knights_defensive = 1.0
+		tax_income = 10	
+		heavy_infantry = 35
+		knights = 20
+		ai_creation_factor = 86
+		garrison_size = 2.00
+		add_number_to_name = no
+        potential = {
+			FROMFROM = { title = b_ostinedhil }
+			has_global_flag = gwaith_mirdain_rebuilded
+        }
+	}
+	ca_lorien = {
+		desc = ca_lorien_desc
+		gold_cost = 750
+		build_time = 730
+		fort_level = 2
+		garrison_size = 0.5
+		light_infantry = 40
+		archers = 65
+		pikemen = 25
+		horse_archers = 55
+		ai_creation_factor = 86
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien
+			}
+		}
+	}
+	ca_lorien2 = {
+		desc = ca_lorien_desc
+		upgrades_from = ca_lorien
+		gold_cost = 750
+		build_time = 730
+		fort_level = 2
+		garrison_size = 0.5
+		light_infantry = 40
+		archers = 65
+		pikemen = 25
+		horse_archers = 55
+		ai_creation_factor = 86
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien2
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien2
+			}
+			year = 5000
+		}
+	}
+	ca_lorien3 = {
+		desc = ca_lorien_desc
+		upgrades_from = ca_lorien2
+		gold_cost = 750
+		build_time = 730
+		fort_level = 2
+		garrison_size = 0.5
+		light_infantry = 40
+		archers = 65
+		pikemen = 25
+		horse_archers = 55
+		ai_creation_factor = 86
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien3
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_house_of_celeborn
+				has_building = ca_lorien3
+			}
+			year = 10000
+		}
+	}
+	ca_amon_lanc = {
+		desc = ca_amon_lanc_desc
+		gold_cost = 500
+		build_time = 730
+		fort_level = 2.5
+		garrison_size = 0.5
+		ai_creation_factor = 86
+		light_infantry = 60
+		pikemen = 45
+		archers = 55
+		tax_income = 3
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_amon_lanc
+				has_building = ca_amon_lanc
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_amon_lanc
+				has_building = ca_amon_lanc
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				NOT = { religion_group = religion_group_melkor }
+			}
+		}
+	}
+	ca_amon_lanc2 = {
+		desc = ca_amon_lanc_desc
+		upgrades_from = ca_amon_lanc
+		gold_cost = 500
+		build_time = 730
+		fort_level = 2.5
+		garrison_size = 0.5
+		ai_creation_factor = 86
+		light_infantry = 60
+		pikemen = 45
+		archers = 55
+		tax_income = 3
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_amon_lanc
+				has_building = ca_amon_lanc2
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_amon_lanc
+				has_building = ca_amon_lanc2
+			}
+		}
+		is_active_trigger = {
+			ROOT = {
+				NOT = { religion_group = religion_group_melkor }
+			}
+		}
+	}
+	ca_thranduil = { 
+		desc = ca_thranduil_desc
+		gold_cost = 700
+		build_time = 730
+		fort_level = 2.0
+		garrison_size = 1.0
+		light_infantry = 25
+		pikemen = 40
+		archers = 60
+		ai_creation_factor = 100
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil
+			}
+		}
+	}
+	ca_thranduil2 = { 
+		desc = ca_thranduil_desc
+		upgrades_from = ca_thranduil
+		gold_cost = 700
+		build_time = 730
+		fort_level = 2.0
+		garrison_size = 1.0
+		light_infantry = 25
+		pikemen = 40
+		archers = 60
+		ai_creation_factor = 100
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil2
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil2
+			}
+		}
+	}
+	ca_thranduil3 = { 
+		desc = ca_thranduil_desc
+		upgrades_from = ca_thranduil2
+		gold_cost = 700
+		build_time = 730
+		fort_level = 2.0
+		garrison_size = 1.0
+		light_infantry = 25
+		pikemen = 40
+		archers = 60
+		ai_creation_factor = 100
+		add_number_to_name = no
+        trigger = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil3
+			}
+		}
+		potential = {
+			FROMFROM = {
+				title = b_king_thranduil_hall
+				has_building = ca_thranduil3
+			}
+		}
+	}
+}

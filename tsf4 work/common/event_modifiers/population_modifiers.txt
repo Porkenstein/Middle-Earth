@@ -1,0 +1,307 @@
+##############################################################################################
+# the population mechanic works this way:
+# a value is set to a province and every time the value population reaches a specific number,
+# the modifier and the bonuses/maluses bound to it will change
+# modifiers and populations will be updated every year
+##############################################################################################
+clearing_province = {
+	icon = 29
+	local_revolt_risk = 0.15
+	levy_size = -1
+	garrison_size = -0.45
+	local_tax_modifier = -1
+	supply_limit = -2
+}
+mod_armed_peasants = {
+	icon = 36
+	local_revolt_risk = 0.5
+	local_tax_modifier = -0.5
+}
+mod_pop_display = {
+	icon = 146
+}
+
+#wilderness province, most provinces in eriador
+pop_wilderness = {
+	icon = 148
+	tax_income = -0.005
+	local_tax_modifier = -1
+	local_revolt_risk = -1
+	levy_size = -2
+	levy_reinforce_rate = -1
+	fort_level = 1000
+}
+
+#Special Populations
+eagle_home = {
+	icon = 31
+}
+ent_home = {
+	icon = 31
+}
+spider_home = {
+	icon = 31
+}
+
+#1-1000, scattered population throughout the province
+#Combe <1000, Archet <1000, Hobbiton 1500
+pop_0 = {
+	icon = 147
+	tax_income = 0.005
+	local_tax_modifier = -0.95
+	local_revolt_risk = -0.25
+	levy_size = -0.95
+	levy_reinforce_rate = -0.97
+}
+#1000-2000
+#"city" of Bree 500-1500, probably 1500
+#Rivendell
+#Tarnost, mostly garrison
+pop_1 = {
+	icon = 147
+	tax_income = 0.006
+	local_tax_modifier = -0.75
+	local_revolt_risk = -0.24
+	levy_size = -0.75
+	levy_reinforce_rate = -0.96
+}
+#2000-3000
+#Bree and surroundings
+pop_2 = {
+	icon = 147
+	tax_income = 0.007
+	local_tax_modifier = -0.50
+	local_revolt_risk = -0.23
+	levy_size = -0.50
+	levy_reinforce_rate = -0.95
+}
+#3000-4000
+#Harlond and Forlond, each ~3000
+#Linhir
+pop_3 = {
+	icon = 147
+	tax_income = 0.008
+	local_tax_modifier = -0.25
+	local_revolt_risk = -0.22
+	levy_size = -0.25
+	levy_reinforce_rate = -0.94
+}
+#4000-5000
+pop_4 = {
+	icon = 147
+	tax_income = 0.009
+	local_tax_modifier = -0.1
+	local_revolt_risk = -0.21
+	levy_size = -0.1
+	levy_reinforce_rate = -0.93
+}
+#5000-10000, more common villages
+#Lothlorien in the fourth age 6000-9000, Michel Delving 5000
+pop_5 = {
+	icon = 147
+	tax_income = 0.010
+	local_revolt_risk = -0.20
+	levy_reinforce_rate = -0.91
+}
+#10000 each step from now on
+#Breeland
+#Caras Galadhon
+pop_10 = { 
+	icon = 147
+	tax_income = 0.012
+	local_tax_modifier = 0.01
+	local_revolt_risk = -0.20
+	levy_size = -0.01
+	levy_reinforce_rate = -0.90
+}
+pop_20 = {
+	icon = 147
+	tax_income = 0.015
+	local_tax_modifier = 0.02
+	local_revolt_risk = -0.18
+	levy_size = 0.02
+	levy_reinforce_rate = -0.89
+}
+pop_30 = {
+	icon = 147
+	tax_income = 0.020
+	local_tax_modifier = 0.03
+	local_revolt_risk = -0.16
+	levy_size = 0.03
+	levy_reinforce_rate = -0.86
+}
+pop_40 = { 
+	icon = 147
+	tax_income = 0.025
+	local_tax_modifier = 0.04
+	local_revolt_risk = -0.14
+	levy_size = 0.04
+	levy_reinforce_rate = -0.81
+}
+pop_50 = {
+	icon = 147
+	tax_income = 0.030
+	local_tax_modifier = 0.05
+	local_revolt_risk = -0.12
+	levy_size = 0.05
+	levy_reinforce_rate = -0.75
+}
+pop_60 = {
+	icon = 147
+	tax_income = 0.035
+	local_tax_modifier = 0.06
+	local_revolt_risk = -0.10
+	levy_size = 0.06
+	levy_reinforce_rate = -0.68
+}
+pop_70 = {
+	icon = 147
+	tax_income = 0.040
+	local_tax_modifier = 0.07
+	local_revolt_risk = -0.08
+	levy_size = 0.07
+	levy_reinforce_rate = -0.6
+}
+pop_80 = {
+	icon = 147
+	tax_income = 0.045
+	local_tax_modifier = 0.08
+	local_revolt_risk = -0.06
+	levy_size = 0.08
+	levy_reinforce_rate = -0.51
+}
+pop_90 = {
+	icon = 147
+	tax_income = 0.050
+	local_tax_modifier = 0.09
+	local_revolt_risk = -0.05
+	levy_size = 0.09
+	levy_reinforce_rate = -0.42
+}
+pop_100 = {
+#Minas Tirith during the War of the Ring 125000, Pelennor
+#Dol Amroth
+	icon = 147
+	tax_income = 0.055
+	local_tax_modifier = 0.1
+	local_revolt_risk = -0.04
+	levy_size = 0.1
+	levy_reinforce_rate = -0.32
+}
+#steps of 50000 from now on
+#tax +0.025 every step
+#local tax +0.25 every step
+#local_revolt_risk +0.01 every step (otherwise it would get ridiculously high)
+#levy size +0.025 every step
+#reinforce rate is the one from the previous one plus 1 every ten thousand, like y + x + 1 = resulting reinforce rate split by ten otherwise it gets too op
+#y in this case is the current value, x is the number previously added and 1 for the every increasing population pool to draw meatshield from
+pop_150 = {
+	icon = 147
+	tax_income = 0.080
+	local_tax_modifier = 0.15
+	local_revolt_risk = -0.03
+	levy_size = 0.15
+	levy_reinforce_rate = -0.22
+}
+pop_200 = {
+	icon = 147
+	tax_income = 0.105
+	local_tax_modifier = 0.2
+	local_revolt_risk = -0.02
+	levy_size = 0.2
+	levy_reinforce_rate = -0.06
+}
+#Minas Tirith at it's peak
+pop_250 = { 
+	icon = 147
+	tax_income = 0.130
+	local_tax_modifier = 0.25
+	local_revolt_risk = -0.01
+	levy_size = 0.25
+	levy_reinforce_rate = 0.24
+}
+pop_300 = {
+	icon = 147
+	tax_income = 0.155
+	local_tax_modifier = 0.3
+	levy_size = 0.3
+	levy_reinforce_rate = 0.58
+}
+pop_350 = {
+	icon = 147
+	tax_income = 0.180
+	local_tax_modifier = 0.35
+	levy_size = 0.35
+	levy_reinforce_rate = 1.06
+}
+#forget the math
+pop_400 = {
+	icon = 147
+	tax_income = 0.205
+	local_tax_modifier = 0.4
+	local_revolt_risk = 0.01
+	levy_size = 0.4
+	levy_reinforce_rate = 1.20
+}
+pop_450 = {
+	icon = 147
+	tax_income = 0.230
+	local_tax_modifier = 0.45
+	local_revolt_risk = 0.02
+	levy_size = 0.45
+	levy_reinforce_rate = 1.40
+}
+#Osgiliath during it's fall
+pop_500 = {
+	icon = 147
+	tax_income = 0.255
+	local_tax_modifier = 0.5
+	local_revolt_risk = 0.03
+	levy_size = 0.5
+	levy_reinforce_rate = 1.50
+}
+#steps of 100000
+pop_600 = {
+	icon = 147
+	tax_income = 0.30
+	local_tax_modifier = 0.6
+	local_revolt_risk = 0.10
+	levy_size = 0.6
+	levy_reinforce_rate = 2
+}
+pop_700 = {
+	icon = 147
+	tax_income = 0.35
+	local_tax_modifier = 0.7
+	local_revolt_risk = 0.10
+	levy_size = 0.7
+	levy_reinforce_rate = 2.10
+}
+#Pelargir at the end of the Third Age
+pop_800 = {
+	icon = 147
+	tax_income = 0.40
+	local_tax_modifier = 0.8
+	local_revolt_risk = 0.10
+	levy_size = 0.8
+	levy_reinforce_rate = 2.20
+}
+#Pelargir at it's peak
+pop_900 = {
+	icon = 147
+	tax_income = 0.45
+	local_tax_modifier = 0.9
+	local_revolt_risk = 0.10
+	levy_size = 0.9
+	levy_reinforce_rate = 2.30
+}
+#a million! Only Osgiliath at it's peak
+pop_1000 = {
+	icon = 147
+	tax_income = 0.50
+	local_tax_modifier = 1
+	local_revolt_risk = 0.10
+	levy_size = 1
+	levy_reinforce_rate = 2.50
+}
+#population density on average ~70 people per square mile in gondor, varying, higher in lebennin, lower in the highlands and in the west

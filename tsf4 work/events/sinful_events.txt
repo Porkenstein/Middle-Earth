@@ -1,0 +1,1149 @@
+namespace = sinful_events
+character_event = {#Happen Upon Dev Temple
+	id = sinful_events.1
+	desc = EVTDESCsinful_events.1
+	picture = GFX_sin_dev_temple
+
+	trigger = {
+		ai = no
+		in_command = yes
+		at_location = 797
+		NOT = {
+			has_global_flag = dev_temple
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 600
+	}
+
+	option = {
+		name = EVTOPTAsinful_events.1
+		set_global_flag = dev_temple
+		hidden_effect = {
+			random_list = {
+				99 = {
+					narrative_event = {
+						id = sinful_events.11
+					}
+				}
+				1 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBsinful_events.1
+		prestige = -50
+	}
+}
+narrative_event = {
+	id = sinful_events.11
+	desc = EVTDESCsinful_events.11
+	title = EVTTTLsinful_events.11
+	picture = GFX_sin_dt_inside
+	is_triggered_only = yes
+
+	option = {	#Hall of Legends
+		name = EVTOPTAsinful_events.11
+		set_character_flag = sinful_legends
+		narrative_event = {
+			id = sinful_events.12
+		}
+	}
+
+	option = {	#Hall of Masters
+		name = EVTOPTBsinful_events.11
+		set_character_flag = sinful_masters
+		narrative_event = {
+			id = sinful_events.12
+		}
+	}
+
+	option = {	#Hall of Heroes
+		name = EVTOPTCsinful_events.11
+		set_character_flag = sinful_heroes
+		narrative_event = {
+			id = sinful_events.12
+		}
+	}
+
+	option = {	#Leave Temple
+		name = EVTOPTDsinful_events.11
+		narrative_event = {
+			id = sinful_events.13
+		}
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+	}
+}
+narrative_event = {
+	id = sinful_events.12
+	desc = { #Hall of Legends
+		text = EVTDESCAsinful_events.12
+		trigger = {
+			has_character_flag = sinful_legends
+		}
+	}
+	desc = { #Hall of Masters
+		text = EVTDESCBsinful_events.12
+		trigger = {
+			has_character_flag = sinful_masters
+		}
+	}
+	desc = { #Hall of Heroes
+		text = EVTDESCCsinful_events.12
+		trigger = {
+			has_character_flag = sinful_heroes
+		}
+	}
+	title = EVTTTLsinful_events.12
+	picture = GFX_sin_dt_inside
+	is_triggered_only = yes
+
+	option = { #Offer Nothing
+		name = EVTOPTAsinful_events.12
+		trigger = {
+			has_character_flag = sinful_legends
+		}
+		set_character_flag = sinful_legends1
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #Offer Tribute - Wealth
+		name = EVTOPTBsinful_events.12
+		trigger = {
+			has_character_flag = sinful_heroes
+		}
+		set_character_flag = sinful_heroes1
+		narrative_event = {
+			id = sinful_events.123
+		}
+	}
+
+	option = { #Look over the Artwork
+		name = EVTOPTCsinful_events.12
+		trigger = {
+			has_character_flag = sinful_masters
+		}
+		set_character_flag = sinful_masters1
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #Go Back to Main Room
+		name = EVTOPTDsinful_events.12
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+		narrative_event = {
+			id = sinful_events.11
+		}
+	}
+}
+narrative_event = {	#Hall of Legends
+	id = sinful_events.121
+	desc = { #James Fox
+		text = EVTDESCAsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends1
+		}
+	}
+	desc = { #Blood Royal
+		text = EVTDESCBsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends2
+		}
+	}
+	desc = { #Nukumnehtar
+		text = EVTDESCCsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends3
+		}
+	}
+	desc = { #redit
+		text = EVTDESCDsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends4
+		}
+	}
+	desc = { #Chris93
+		text = EVTDESCEsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends5
+		}
+	}
+	desc = { #Moridin997
+		text = EVTDESCFsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends6
+		}
+	}
+	desc = { #GrandiSlayer
+		text = EVTDESCGsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends7
+		}
+	}
+	desc = { #Skullever
+		text = EVTDESCHsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends8
+		}
+	}
+	desc = { #UnDerBY
+		text = EVTDESCIsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends9
+		}
+	}
+	desc = { #DevilSauron
+		text = EVTDESCJsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends10
+		}
+	}
+	desc = { #bedevere42
+		text = EVTDESCKsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends11
+		}
+	}
+	desc = { #Porkenstein
+		text = EVTDESCLsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends12
+		}
+	}
+	desc = { #Disfunctionz
+		text = EVTDESCMsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends13
+		}
+	}
+	desc = { #Glariamn
+		text = EVTDESCNsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends14
+		}
+	}
+	desc = { #Lonhaldar
+		text = EVTDESCOsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends15
+		}
+	}
+	desc = { #CJay
+		text = EVTDESCPsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends16
+		}
+	}
+	desc = { #Julius Caesar
+		text = EVTDESCQsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends17
+		}
+	}
+	desc = { #Group Effort
+		text = EVTDESCZsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends111
+		}
+	}
+	title = EVTTTLsinful_events.121
+	picture = GFX_sin_dt_inside
+	is_triggered_only = yes
+
+	option = { #James Fox
+		name = EVTOPTAsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends1
+		}
+		clr_character_flag = sinful_legends1
+		set_character_flag = sinful_legends2
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTBsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends2
+		}
+		clr_character_flag = sinful_legends2
+		set_character_flag = sinful_legends3
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTCsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends3
+		}
+		clr_character_flag = sinful_legends3
+		set_character_flag = sinful_legends4
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTDsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends4
+		}
+		clr_character_flag = sinful_legends4
+		set_character_flag = sinful_legends5
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTEsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends5
+		}
+		clr_character_flag = sinful_legends5
+		set_character_flag = sinful_legends6
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTFsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends6
+		}
+		clr_character_flag = sinful_legends6
+		set_character_flag = sinful_legends7
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTGsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends7
+		}
+		clr_character_flag = sinful_legends7
+		set_character_flag = sinful_legends8
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTHsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends8
+		}
+		clr_character_flag = sinful_legends8
+		set_character_flag = sinful_legends9
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTIsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends9
+		}
+		clr_character_flag = sinful_legends9
+		set_character_flag = sinful_legends10
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTJsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends10
+		}
+		clr_character_flag = sinful_legends10
+		set_character_flag = sinful_legends11
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTKsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends11
+		}
+		clr_character_flag = sinful_legends11
+		set_character_flag = sinful_legends12
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTLsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends12
+		}
+		clr_character_flag = sinful_legends12
+		set_character_flag = sinful_legends13
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTMsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends13
+		}
+		clr_character_flag = sinful_legends13
+		set_character_flag = sinful_legends14
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTNsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends14
+		}
+		clr_character_flag = sinful_legends14
+		set_character_flag = sinful_legends15
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTOsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends15
+		}
+		clr_character_flag = sinful_legends15
+		set_character_flag = sinful_legends16
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTPsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends16
+		}
+		clr_character_flag = sinful_legends16
+		set_character_flag = sinful_legends17
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #
+		name = EVTOPTQsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends17
+		}
+		clr_character_flag = sinful_legends17
+		set_character_flag = sinful_legends111
+		narrative_event = {
+			id = sinful_events.121
+		}
+	}
+
+	option = { #Offer Nothing
+		name = EVTOPTAno_tribute
+		trigger = {
+			has_character_flag = sinful_legends111
+		}
+		clr_character_flag = sinful_legends111
+		hidden_effect = {
+			random_list = {
+				10 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				90 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Offer Tribute - Wealth
+		name = EVTOPTBwealth_tribute
+		trigger = {
+			has_character_flag = sinful_legends111
+		}
+		wealth = -100
+		clr_character_flag = sinful_legends111
+		hidden_effect = {
+			random_list = {
+				50 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				50 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Offer Tribute - Limb
+		name = EVTOPTClimb_tribute
+		trigger = {
+			has_character_flag = sinful_legends111
+		}
+		if = {
+			limit = {
+				trait = wounded
+			}
+			remove_trait = wounded
+			add_trait = maimed
+		}
+		else = {
+			add_trait = wounded
+		}
+		clr_character_flag = sinful_legends111
+		hidden_effect = {
+			random_list = {
+				90 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				10 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Return to Main Room
+		name = EVTOPTZsinful_events.121
+		trigger = {
+			has_character_flag = sinful_legends111
+		}
+		clr_character_flag = sinful_legends111
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+		narrative_event = {
+			id = sinful_events.11
+		}
+	}
+}
+narrative_event = {	#Hall of Masters
+	id = sinful_events.122
+	desc = { #Melian19 - dolldivine
+		text = EVTDESCAsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters1
+		}
+		picture = GFX_evt_aragornsmettle
+	}
+	desc = { #Deligaris - DeviantArt
+		text = EVTDESCBsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters2
+		}
+		picture = GFX_evt_boromirsfall
+	}
+	desc = { #donatoarts - DeviantArt
+		text = EVTDESCCsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters3
+		}
+		picture = GFX_evt_frodofindsring
+	}
+	desc = { #lamorien - DeviantArt
+		text = EVTDESCDsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters4
+		}
+		picture = GFX_evt_eowynapproaches
+	}
+	desc = { #Aranel_Nenharma - DeviantArt
+		text = EVTDESCEsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters5
+		}
+		picture = GFX_evt_osgiliathreclaimed
+	}
+	desc = { #RickyLilly - DeviantArt
+		text = EVTDESCFsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters6
+		}
+		picture = GFX_evt_theodenapproaches
+	}
+	desc = { #Selva_s - DeviantArt
+		text = EVTDESCGsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters7
+		}
+		picture = GFX_evt_thorinsdeath
+	}
+	desc = { #Jan Posisil
+		text = EVTDESCHsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters8
+		}
+		picture = GFX_evt_dolamroth
+	}
+	desc = { #Wallup.net
+		text = EVTDESCIsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters9
+		}
+		picture = GFX_evt_journeybegins
+	}
+	desc = { #Wallup.net
+		text = EVTDESCJsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters10
+		}
+		picture = GFX_evt_journeyhome
+	}
+	desc = { #Ted Nasmith
+		text = EVTDESCKsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters11
+		}
+		picture = GFX_evt_minasmorgul
+	}
+	desc = { #Ted Nasmith
+		text = EVTDESCLsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters12
+		}
+		picture = GFX_evt_minastirith
+	}
+	desc = { #Alan Lee
+		text = EVTDESCMsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters13
+		}
+		picture = GFX_evt_osgiliath
+	}
+	desc = { #Roger Garland
+		text = EVTDESCNsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters14
+		}
+		picture = GFX_evt_pelargir
+	}
+	desc = { #Wetanz.com
+		text = EVTDESCOsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters15
+		}
+		picture = GFX_evt_gondolin_blade
+	}
+	desc = { #Merlkir
+		text = EVTDESCPsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters16
+		}
+		picture = GFX_evt_westernesse_dagger
+	}
+	desc = { #Magicka
+		text = EVTDESCQsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters17
+		}
+		picture = GFX_evt_white_wizardstaff
+	}
+	desc = { #daRoz
+		text = EVTDESCRsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters18
+		}
+		picture = GFX_evt_orc_battle
+	}
+	desc = { #Hall of Ancients
+		text = EVTDESCZsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters111
+		}
+	}
+	title = EVTTTLsinful_events.122
+	picture = GFX_evt_mep_team
+	is_triggered_only = yes
+
+	option = { #
+		name = EVTOPTAsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters1
+		}
+		clr_character_flag = sinful_masters1
+		set_character_flag = sinful_masters2
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTBsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters2
+		}
+		clr_character_flag = sinful_masters2
+		set_character_flag = sinful_masters3
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTCsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters3
+		}
+		clr_character_flag = sinful_masters3
+		set_character_flag = sinful_masters4
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTDsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters4
+		}
+		clr_character_flag = sinful_masters4
+		set_character_flag = sinful_masters5
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTEsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters5
+		}
+		clr_character_flag = sinful_masters5
+		set_character_flag = sinful_masters6
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTFsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters6
+		}
+		clr_character_flag = sinful_masters6
+		set_character_flag = sinful_masters7
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTGsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters7
+		}
+		clr_character_flag = sinful_masters7
+		set_character_flag = sinful_masters8
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTHsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters8
+		}
+		clr_character_flag = sinful_masters8
+		set_character_flag = sinful_masters9
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTIsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters9
+		}
+		clr_character_flag = sinful_masters9
+		set_character_flag = sinful_masters10
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTJsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters10
+		}
+		clr_character_flag = sinful_masters10
+		set_character_flag = sinful_masters11
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTKsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters11
+		}
+		clr_character_flag = sinful_masters11
+		set_character_flag = sinful_masters12
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTLsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters12
+		}
+		clr_character_flag = sinful_masters12
+		set_character_flag = sinful_masters13
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTMsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters13
+		}
+		clr_character_flag = sinful_masters13
+		set_character_flag = sinful_masters14
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTNsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters14
+		}
+		clr_character_flag = sinful_masters14
+		set_character_flag = sinful_masters15
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTOsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters15
+		}
+		clr_character_flag = sinful_masters15
+		set_character_flag = sinful_masters16
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTPsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters16
+		}
+		clr_character_flag = sinful_masters16
+		set_character_flag = sinful_masters17
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTQsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters17
+		}
+		clr_character_flag = sinful_masters17
+		set_character_flag = sinful_masters18
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #
+		name = EVTOPTRsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters18
+		}
+		clr_character_flag = sinful_masters18
+		set_character_flag = sinful_masters111
+		narrative_event = {
+			id = sinful_events.122
+		}
+	}
+
+	option = { #Return to Main Room
+		name = EVTOPTZsinful_events.122
+		trigger = {
+			has_character_flag = sinful_masters111
+		}
+		clr_character_flag = sinful_masters111
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+		narrative_event = {
+			id = sinful_events.11
+		}
+	}	
+}
+narrative_event = {	#Hall of Heroes
+	id = sinful_events.123
+	desc = { #TSF4
+		text = EVTDESCAsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes1
+		}
+		picture = GFX_sin_statue
+	}
+	desc = { #marowa
+		text = EVTDESCBsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes2
+		}
+		picture = GFX_sin_statue
+	}
+	desc = { #sin
+		text = EVTDESCCsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes3
+		}
+		picture = GFX_sin_statue
+	}
+	desc = { #Tribute Event
+		text = EVTDESCZsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes111
+		}
+		picture = GFX_sin_statue
+	}
+	title = EVTTTLsinful_events.123
+	picture = GFX_sin_statue
+	sound = sfx_my_way
+	is_triggered_only = yes
+
+	option = { #TSF4
+		name = EVTOPTAsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes1
+		}
+		clr_character_flag = sinful_heroes1
+		set_character_flag = sinful_heroes2
+		narrative_event = {
+			id = sinful_events.123
+		}
+	}
+
+	option = { #
+		name = EVTOPTBsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes2
+		}
+		clr_character_flag = sinful_heroes2
+		set_character_flag = sinful_heroes3
+		narrative_event = {
+			id = sinful_events.123
+		}
+	}
+
+	option = { #
+		name = EVTOPTCsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes3
+		}
+		clr_character_flag = sinful_heroes3
+		set_character_flag = sinful_heroes111
+		narrative_event = {
+			id = sinful_events.123
+		}
+	}
+
+	option = { #Offer Nothing
+		name = EVTOPTAno_tribute
+		trigger = {
+			has_character_flag = sinful_heroes111
+		}
+		clr_character_flag = sinful_heroes111
+		hidden_effect = {
+			random_list = {
+				10 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				90 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Offer Tribute - Wealth
+		name = EVTOPTBwealth_tribute
+		trigger = {
+			has_character_flag = sinful_heroes111
+		}
+		wealth = -100
+		clr_character_flag = sinful_heroes111
+		hidden_effect = {
+			random_list = {
+				50 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				50 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Offer Tribute - Limb
+		name = EVTOPTClimb_tribute
+		trigger = {
+			has_character_flag = sinful_heroes111
+		}
+		if = {
+			limit = {
+				trait = wounded
+			}
+			remove_trait = wounded
+			add_trait = maimed
+		}
+		else = {
+			add_trait = wounded
+		}
+		clr_character_flag = sinful_heroes111
+		hidden_effect = {
+			random_list = {
+				90 = {
+					narrative_event = {
+						id = sinful_events.125
+					}
+				}
+				10 = {
+					character_event = {
+						id = sinful_events.100
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Return to Main Room
+		name = EVTOPTZsinful_events.123
+		trigger = {
+			has_character_flag = sinful_heroes111
+		}
+		clr_character_flag = sinful_heroes111
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+		narrative_event = {
+			id = sinful_events.11
+		}
+	}
+}
+narrative_event = {	#Tribute Received
+	id = sinful_events.125
+	desc = EVTDESCsinful_events.125
+	title = EVTTTLsinful_events.125
+	picture = GFX_evt_mep_team
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAsinful_events.125
+		prestige = 100
+		narrative_event = {
+			id = sinful_events.11
+		}
+	}
+}
+narrative_event = {
+	id = sinful_events.13
+	desc = EVTDESCsinful_events.13
+	title = EVTTTLsinful_events.13
+	picture = GFX_evt_mep_team
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAsinful_events.13
+	}
+}
+character_event = {
+	id = sinful_events.100
+	desc = {
+		text = EVTDESCAsinful_events.100
+		trigger = {
+			OR = {
+				has_character_flag = sinful_legends
+				has_character_flag = sinful_masters
+				has_character_flag = sinful_heroes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBsinful_events.100
+		trigger = {
+			NOR = {
+				has_character_flag = sinful_legends
+				has_character_flag = sinful_masters
+				has_character_flag = sinful_heroes
+			}
+		}
+	}
+	picture = GFX_evt_sinful_sprite
+	sound = sinful_soundbite
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAsinful_events.100
+		clr_character_flag = sinful_legends
+		clr_character_flag = sinful_masters
+		clr_character_flag = sinful_heroes
+	}
+}

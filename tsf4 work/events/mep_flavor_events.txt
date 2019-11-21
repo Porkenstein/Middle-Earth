@@ -1,0 +1,540 @@
+namespace = mep_flavor_events
+#########################
+#	On Action Starters
+#########################
+character_event = {	#Various Death Starters
+	id = mep_flavor_events.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			character = 1944
+			character = 4040
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				character = 1944
+				death_reason = death_battle
+			}
+			any_player = {
+				IF = {
+					limit = {
+						OR = {
+							has_landed_title = e_barad_dur
+							has_landed_title = e_isengard
+							NOR = {
+								has_landed_title = k_ringbearer
+								has_landed_title = d_fellowship_aragorn
+							}
+						}
+					}
+					narrative_event = { id = mep_flavor_events.11 }
+				}
+			}
+		}
+		IF = {
+			limit = {
+				character = 4040
+				death_reason = death_battle
+			}
+			any_player = {
+				IF = {
+					limit = {
+						OR = {
+							has_landed_title = e_barad_dur
+							has_landed_title = e_isengard
+							NOR = {
+								has_landed_title = d_thorin_company
+								has_landed_title = d_fellowship_aragorn
+							}
+						}
+					}
+					 narrative_event = { id = mep_flavor_events.12 }
+				}
+			}
+		}
+	}
+}
+character_event = {	#Various Battle Starters
+	id = mep_flavor_events.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				OR = {
+					character = 2374	#Elendil
+					character = 10016	#Sauron
+				}
+				NOT = {	#Battle of Dagorlad hasn't happened
+					586 = { has_province_flag = battle_dagorlad }
+				}
+				c_2374 = { at_location = 586 }	#Elendil at Dagorlad
+				c_10016 = { at_location = 586 }	#Sauron at Dagorlad
+			}
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				AND = {
+					NOT = {	#Battle of Dagorlad hasn't happened
+						586 = { has_province_flag = battle_dagorlad }
+					}
+					c_2374 = { at_location = 586 }	#Elendil at Dagorlad
+					c_10016 = { at_location = 586 }	#Sauron at Dagorlad
+				}
+			}
+			any_player = {
+				586 = { set_province_flag = battle_dagorlad }
+				 narrative_event = { id = mep_flavor_events.21 }
+			}
+		}
+	}
+}
+
+###########################
+#	Major Deaths Flavor
+###########################
+narrative_event = {	#Notify Players of Boromir's Death
+	id = mep_flavor_events.11
+	title = EVTTTLmep_flavor_events.11
+	desc = {
+		text = EVTDESCmep_flavor_events.11aragorn
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+	}
+	desc = {
+		text = EVTDESCAmep_flavor_events.11
+		trigger = {
+			NOT = { has_landed_title = d_fellowship_aragorn }
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.11
+		trigger = {
+			mep_is_evil_side_trigger = yes
+		}
+	}
+	picture = GFX_evt_boromirsfall
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.11
+		trigger = {
+			NOT = { character = 2038 }
+			mep_is_good_side_trigger = yes
+		}
+	}
+	option = {	#I'll not let Our People fail
+		name = EVTOPTBmep_flavor_events.11
+		trigger = { character = 2038 }
+		add_character_modifier = { name = mod_boromirdeath duration = -1 }
+	}
+	option = {
+		name = EVTOPTCmep_flavor_events.11
+		trigger = { mep_is_evil_side_trigger = yes }
+	}
+}
+narrative_event = {	#Notify Players of Thorin's Death
+	id = mep_flavor_events.12
+	title = EVTTTLmep_flavor_events.12
+	desc = {
+		text = EVTDESCAmep_flavor_events.12
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.12
+		trigger = {
+			mep_is_evil_side_trigger = yes
+		}
+	}
+	picture = GFX_evt_thorinsdeath
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.12
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.12
+		trigger = { mep_is_evil_side_trigger = yes }
+	}
+}
+narrative_event = {	#Notify Players of Bilbo's Death
+	id = mep_flavor_events.13
+	title = EVTTTLmep_flavor_events.13
+	desc = {
+		text = EVTDESCAmep_flavor_events.13
+		trigger = {
+			character = 8065
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.13
+		trigger = {
+			OR = {
+				character = 4040
+				character = 10033
+			}
+		}
+	}
+	picture = GFX_evt_thorinsdeath
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.13
+		trigger = {
+			character = 8065
+		}
+		death = {
+			death_reason = death_murder
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.13
+		trigger = {
+			OR = {
+				character = 4040
+				character = 10033
+			}
+		}
+		narrative_event = { id = mep_flavor_events.131 days = 7 }
+	}
+}
+narrative_event = {	#Collapse of the Company
+	id = mep_flavor_events.131
+	title = EVTTTLmep_flavor_events.131
+	desc = EVTDESCmep_flavor_events.131
+	picture = GFX_evt_thorinsdeath
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTAmep_flavor_events.131
+		trigger = { has_landed_title = k_thorin_company }
+		activate_title = { status = no title = k_thorin_company }
+		k_thorin_company = {
+			destroy_landed_title = THIS
+		}
+	}
+	option = {
+		name = EVTOPTAmep_flavor_events.131
+		trigger = {
+			NOT = { has_landed_title = k_thorin_company }
+		}
+	}
+}
+
+###########################
+#	Major Battles Flavor
+###########################
+narrative_event = {	#Battle of Dagorlad
+	id = mep_flavor_events.21
+	title = EVTTTLmep_flavor_events.21
+	desc = {
+		text = EVTDESCAmep_flavor_events.21
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.21
+		trigger = {
+			mep_is_evil_side_trigger = yes
+		}
+	}
+	picture = GFX_evt_council
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_flavor_events.21
+	}
+}
+
+############################
+#	Love or Ambition?
+############################
+narrative_event = {	#Aragorn's Mettle Proven, Theoden
+	id = mep_flavor_events.3
+	title = EVTTTLmep_flavor_events.3
+	desc = EVTDESCmep_flavor_events.3
+	picture = GFX_evt_theodenapproaches
+
+	trigger = {
+		has_global_flag = rohan_notthreatened
+		character = 24
+		c_28 = {
+			is_alive = yes
+		}
+		c_3010 = {
+			is_alive = yes
+		}
+		c_2038 = {
+			is_alive = yes
+			has_landed_title = e_gondor
+			NOT = { has_character_flag = loveorambition }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.3
+		c_2038 = {
+			narrative_event = { id = mep_flavor_events.31 days = 3 random = 2}
+			set_character_flag = loveorambition
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.3
+		trigger = {
+			ai = no
+		}
+	}
+}
+narrative_event = {	#Eowyn or Arwen?
+	id = mep_flavor_events.31
+	title = EVTTTLmep_flavor_events.31
+	desc = EVTDESCmep_flavor_events.31
+	picture = GFX_evt_aragornsmettle
+	is_triggered_only = yes
+
+	trigger = {
+		character = 2038
+		c_28 = {
+			is_alive = yes
+		}
+		c_3010 = {
+			is_alive = yes
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.31	#Arwen
+		remove_trait = vow_of_cerin_amroth
+		c_3010 = {
+			remove_trait = vow_of_cerin_amroth
+			add_spouse = ROOT
+			add_lover = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.31	#Eowyn
+		trigger = {
+			ai = no
+		}
+		remove_trait = vow_of_cerin_amroth
+		c_28 = {
+			add_spouse = ROOT
+		}
+		c_3010 = {
+			remove_trait = vow_of_cerin_amroth
+			remove_lover = ROOT
+		}
+	}
+}
+narrative_event = {	#Aragorn's Mettle Proven, Eowyn
+	id = mep_flavor_events.4
+	title = EVTTTLmep_flavor_events.4
+	desc = EVTDESCmep_flavor_events.4
+	picture = GFX_evt_eowynapproaches
+
+	trigger = {
+		has_global_flag = rohan_notthreatened
+		character = 28
+		c_2038 = {
+			is_alive = yes
+			has_landed_title = e_gondor
+			NOT = { has_character_flag = loveorambition }
+		}
+		c_3010 = {
+			is_alive = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.4
+		c_2038 = {
+			narrative_event = { id = mep_flavor_events.41 }
+			set_character_flag = loveorambition
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.4
+		trigger = {
+			ai = no
+		}
+	}
+}
+narrative_event = {	#Eowyn or Arwen?
+	id = mep_flavor_events.41
+	title = EVTTTLmep_flavor_events.41
+	desc = EVTDESCmep_flavor_events.41
+	picture = GFX_evt_aragornsmettle
+	is_triggered_only = yes
+
+	trigger = {
+		character = 2038
+		c_28 = {
+			is_alive = yes
+		}
+		c_3010 = {
+			is_alive = yes
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.41	#Arwen
+		remove_trait = vow_of_cerin_amroth
+		c_3010 = {
+			remove_trait = vow_of_cerin_amroth
+			add_spouse = ROOT
+			add_lover = ROOT
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.41	#Eowyn
+		trigger = {
+			ai = no
+		}
+		remove_trait = vow_of_cerin_amroth
+		c_28 = {
+			add_spouse = ROOT
+			add_lover = ROOT
+		}
+		c_3010 = {
+			remove_trait = vow_of_cerin_amroth
+			remove_lover = ROOT
+		}
+	}
+}
+
+##############################
+#	Reclamation Starter
+##############################
+character_event = {	#Reclamation Starter
+	id = mep_flavor_events.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {	#Osgiliath Reclaimed by Gondor
+				OR = {
+					has_landed_title = e_gondor
+					has_landed_title = e_steward_gondor
+				}
+				FROM = { title = c_east_osgiliath }
+				FROMFROM = { mep_is_evil_side_trigger = yes }
+			}
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				AND = {	#Osgiliath Reclaimed by Gondor
+					OR = {
+						has_landed_title = e_gondor
+						has_landed_title = e_steward_gondor
+					}
+					FROM = { title = c_east_osgiliath }
+					FROMFROM = { mep_is_evil_side_trigger = yes }
+				}
+			}
+			any_player = {
+				 narrative_event = { id = mep_flavor_events.51 }
+			}
+		}
+	}
+}
+narrative_event = {	#Osgiliath Reclaimed by Gondor
+	id = mep_flavor_events.51
+	title = EVTTTLmep_flavor_events.51
+	desc = {
+		text = EVTDESCAmep_flavor_events.51
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_flavor_events.51
+		trigger = {
+			mep_is_evil_side_trigger = yes
+		}
+	}
+	picture = GFX_evt_osgiliathreclaimed
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_flavor_events.51
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+	option = {
+		name = EVTOPTBmep_flavor_events.51
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+	}
+}
+
+##############################
+#	Special Items
+##############################
+character_event = {	#Find Gurthang
+	id = mep_flavor_events.101
+	title = EVTTTLmep_flavor_events.101
+	desc = EVTDESCmep_flavor_events.101
+	picture = GFX_evt_ring_craft
+
+	trigger = {
+		NOT = {
+			has_global_flag = gurthang_held
+		}
+		NOR = {
+			has_artifact = gurthang
+			has_artifact = gurthang_broken
+			has_character_flag = refused_gurthang
+		}
+		OR = {
+			ai = yes
+			location = {
+				province_id = 786
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			ai = yes
+			factor = 500
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_flavor_events.101
+		add_artifact = gurthang_broken
+		set_global_flag = gurthang_held
+	}
+
+	option = {
+		name = EVTOPTBmep_flavor_events.101
+		set_character_flag = refused_gurthang
+	}
+}

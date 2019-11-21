@@ -1,0 +1,34 @@
+namespace = morgothevents
+
+# Evil creatures should never go bankrupt, although mobilizing a great orc host should justifiably drain wealth.
+character_event = {
+    id = morgothevents.1
+    #desc = "EVTDESCmorgothevents.1"
+    hide_window = yes
+    #picture = GFX_evt_stone_church
+	only_rulers  = yes
+	
+    trigger = {
+        NOT = { wealth = 0 }
+        religion_group = religion_group_melkor
+    }
+    
+    mean_time_to_happen = {
+        days = 30
+    }
+    
+    immediate = {
+        wealth = 1000
+    #    clear_wealth = yes
+    }
+    
+    option = {
+        # name = "EVTOPTAmorgothevents.1"
+        # owner = {
+        #    ROOT = {
+        #        culture = PREV
+        #        religion = PREV
+        #    }
+        #}
+    }
+}

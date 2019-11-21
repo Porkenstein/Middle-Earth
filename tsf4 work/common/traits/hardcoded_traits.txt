@@ -1,0 +1,853 @@
+##############
+# Traits - General
+##############
+peasant_leader = {
+	diplomacy = -5
+	
+	same_opinion = 25
+	
+	vassal_opinion = -10
+
+	rebel_inherited = yes
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_PEASANT
+	male_insult_adj = INSULT_LOWBORN
+	female_insult = INSULT_PEASANT_WOMAN
+	female_insult_adj = INSULT_LOWBORN
+}
+adventurer = {
+
+	martial = 1
+	diplomacy = -1
+	combat_rating = 1
+	levy_size = 0.2
+	max_manpower_mult = 0.1
+	
+	same_opinion = 10
+
+	ai_ambition = 40
+	
+	customizer = no
+	random = no
+
+	male_insult = INSULT_UPSTART
+	female_insult = INSULT_UPSTART
+	child_insult = INSULT_PEABRAIN
+	male_insult_adj = INSULT_GRABBING
+	female_insult_adj = INSULT_GRABBING
+	child_insult_adj = INSULT_CRUMMY
+	male_compliment = COMPL_CONQUEROR
+	female_compliment = COMPL_CONQUEROR
+	male_compliment_adj = COMPL_AUDACIOUS
+	female_compliment_adj = COMPL_AUDACIOUS
+}
+reincarnation = {
+	customizer = no
+	random = no
+}
+cannot_marry = {
+	cannot_marry = yes
+	hidden = yes
+	
+	customizer = no
+	random = no
+}
+disinherited = {
+	cannot_inherit = yes
+	customizer = no
+	random = no
+	hidden = yes
+}
+in_hiding = {
+	potential = {
+		prisoner = no
+	}
+
+	monthly_character_prestige = -2
+	diplomacy = -5
+	vassal_opinion = -5
+	
+	in_hiding = yes
+
+	customizer = no
+	random = no
+
+	male_insult = INSULT_COWARD
+	female_insult = INSULT_COWARD
+	male_insult_adj = INSULT_SNEAKING
+	female_insult_adj = INSULT_SNEAKING
+}
+
+###################
+# Traits - Birth/Pregancy
+###################
+augustus = {
+	customizer = no
+	
+	vassal_opinion = 10
+	monthly_character_prestige = 0.5
+	
+	male_compliment = COMPL_AUGUSTUS
+	female_compliment = COMPL_AUGUSTUS
+}
+born_in_the_purple = {
+	customizer = no
+	random = no
+
+	vassal_opinion = 5
+	monthly_character_prestige = 0.5
+}
+pregnant = {
+	combat_rating = -2
+	
+	spouse_opinion = 15
+	
+	customizer = no
+}
+pregnancy_finishing = {
+	in_hiding = yes # Will need a regent, but can still be guardian to children
+	is_health = yes
+	customizer = no
+}
+hard_pregnancy = {
+	#in_hiding = yes # Will need a regent
+	is_health = yes
+	# Highly event driven
+	opposites = { troubled_pregnancy
+	}
+	
+	combat_rating = -50
+	spouse_opinion = 15
+
+	customizer = no
+
+	
+	ai_rationality = -5
+}
+troubled_pregnancy = {
+	incapacitating = yes # Will need a regent
+	is_health = yes
+	# Highly event driven
+	opposites = { hard_pregnancy }
+	
+	combat_rating = -100
+	spouse_opinion = 15
+
+	customizer = no
+
+	ai_rationality = -15
+}
+child_of_consort = {
+	diplomacy = -1
+
+	customizer = no
+}
+child_of_consort_male = {
+	diplomacy = -1
+
+	customizer = no
+}
+homosexual = {
+	sex_appeal_opinion = 30 # Only to those of the same sex
+	vassal_opinion = -5
+	
+	fertility = -0.15
+	
+	ruler_designer_cost = 0
+	
+	male_insult = INSULT_SODOMITE
+	male_insult_adj = INSULT_EFFEMINATE
+	female_insult = INSULT_LESBIAN
+	female_insult_adj = INSULT_SAPPHIC
+	child_insult = INSULT_PEABRAIN
+	child_insult_adj = INSULT_CRAZY
+}
+bastard = {
+	diplomacy = -1
+	same_opinion = 5
+
+	opposites =  {
+		legit_bastard
+	}
+	
+	customizer = no
+	
+	male_insult = INSULT_BASTARD
+	male_insult_adj = INSULT_BASEBORN
+}
+twin = {
+	twin_opinion = 15
+	
+	customizer = no
+}
+legit_bastard = {
+	diplomacy = -1
+
+	opposites =  {
+		bastard
+	}
+	ruler_designer_cost = 0
+
+
+	male_insult = INSULT_BASTARD
+	male_insult_adj = INSULT_BASEBORN
+}
+
+##############
+#Traits - Religious
+##############
+#General
+heresiarch = {
+	infidel_opinion = -15
+	
+	same_religion_opinion = 25
+	
+	rebel_inherited = yes
+	customizer = no
+	religious = yes
+	
+	male_insult = INSULT_HERESIARCH
+	female_insult = INSULT_HERESIARCH
+	child_insult = INSULT_PEABRAIN
+}
+excommunicated = {
+	diplomacy = -5
+	same_religion_opinion = -15
+
+	religious = yes
+	customizer = no
+
+	potential = {
+		NOT = { controls_religion = yes }
+	}
+	
+	male_insult = INSULT_RENEGADE
+	female_insult = INSULT_RENEGADE
+	child_insult = INSULT_DEVIL
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_EVIL
+}
+
+#Kinslayers
+kinslayer = {
+	potential = {
+		is_tribal = no
+	}
+
+	opposites = {
+		familial_kinslayer
+		dynastic_kinslayer
+		tribal_kinslayer
+	}
+
+	diplomacy = -5
+	
+	dynasty_opinion = -25
+	general_opinion = -10
+	
+	random = no
+	
+	male_insult = INSULT_KINSLAYER
+	female_insult = INSULT_KINSLAYER
+}
+familial_kinslayer = {
+	potential = {
+		is_tribal = no
+	}
+
+	opposites = {
+		kinslayer
+		dynastic_kinslayer
+		tribal_kinslayer
+	}
+
+	diplomacy = -4
+	
+	dynasty_opinion = -20
+	general_opinion = -5
+	
+	random = no
+	
+	male_insult = INSULT_KINSLAYER
+	female_insult = INSULT_KINSLAYER
+}
+dynastic_kinslayer = {
+	potential = {
+		is_tribal = no
+	}
+
+	opposites = {
+		kinslayer
+		familial_kinslayer
+		tribal_kinslayer
+	}
+
+	diplomacy = -3
+	
+	dynasty_opinion = -15
+	
+	random = no
+	
+	male_insult = INSULT_KINSLAYER
+	female_insult = INSULT_KINSLAYER
+}
+tribal_kinslayer = {
+	potential = {
+		is_tribal = yes
+	}
+
+	opposites = {
+		kinslayer
+		familial_kinslayer
+		dynastic_kinslayer
+	}
+
+	diplomacy = -3
+	
+	dynasty_opinion = -5
+	sex_appeal_opinion = 15
+	
+	random = no
+	
+	male_insult = INSULT_KINSLAYER
+	female_insult = INSULT_KINSLAYER
+}
+
+#Crusaders
+crusader = {
+	customizer = no
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	
+	male_compliment = COMPL_CRUSADER
+	female_compliment = COMPL_CRUSADER
+}
+mujahid = {
+	
+	martial = 2
+	combat_rating = 1
+
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	
+	male_compliment = COMPL_MUJAHID
+	female_compliment = COMPL_MUJAHID
+}
+kailash_guardian  = {
+	opposites = {
+		crusader
+		mujahid
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		valhalla_bound
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	pagan_group_opinion = 5
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_KAILASH_GUARDIAN_MALE
+	female_compliment = COMPL_KAILASH_GUARDIAN_FEMALE
+}
+valhalla_bound  = {
+	opposites = {
+		crusader
+		mujahid
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	pagan_group_opinion = 5
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_compliment = COMPL_VALHALLA_BOUND_MALE
+	female_compliment = COMPL_VALHALLA_BOUND_FEMALE
+}
+eagle_warrior = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+sun_warrior = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+ukkos_shield = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+nyames_shield = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+peruns_chosen = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+romuvas_own = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+ares_own = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+tengri_warrior = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+shaddai = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+gondi_shahansha = {
+	opposites = {
+		mujahid
+		valhalla_bound
+		crusader
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		kailash_guardian
+	}
+	
+	martial = 2
+	combat_rating = 1
+	
+	church_opinion = 15
+	same_opinion_if_same_religion = 15
+	
+	ai_zeal = 10
+	customizer = no
+	
+	male_insult = INSULT_FANATIC
+	female_insult = INSULT_FANATIC
+	male_insult_adj = INSULT_NARROWMINDED
+	female_insult_adj = INSULT_NARROWMINDED
+	male_compliment_adj = COMPL_RIGHTEOUS
+	female_compliment_adj = COMPL_RIGHTEOUS
+}
+crusader_king = {
+	# customizer = no
+	opposites = {
+		crusader
+		crusader_queen
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+	
+	ai_zeal = 20
+
+	martial = 3
+	levy_size = 0.2
+	combat_rating = 1
+	
+	command_modifier = {
+		religious_enemy = 0.3
+	}
+
+	same_religion_opinion = 35
+	
+	customizer = yes
+	random = no
+}
+crusader_queen = {
+	# customizer = no
+	opposites = {
+		crusader
+		crusader_king
+		mujahid
+		valhalla_bound
+		eagle_warrior
+		sun_warrior
+		ukkos_shield
+		nyames_shield
+		peruns_chosen
+		romuvas_own
+		ares_own
+		tengri_warrior
+		shaddai
+		gondi_shahansha
+		kailash_guardian
+	}
+
+	ai_zeal = 20
+
+	martial = 3
+	levy_size = 0.2
+	combat_rating = 1
+	
+	command_modifier = {
+		religious_enemy = 0.3
+	}
+
+	same_religion_opinion = 35
+	
+	customizer = yes
+	random = no
+}
+monk = {
+	potential = {
+		is_ruler = no
+		is_female = no
+	}
+	
+	monthly_character_piety = 0.3
+	same_religion_opinion = 5
+	
+	religious = yes # Lost immediately on religion change
+	cannot_marry = yes
+	cannot_inherit = yes
+	customizer = no
+	random = no
+	
+	male_compliment = COMPL_MONK
+}
+nun = {
+	potential = {
+		is_ruler = no
+		is_female = yes
+	}
+	
+	monthly_character_piety = 0.3
+	same_religion_opinion = 5
+	
+	religious = yes # Lost immediately on religion change
+	cannot_marry = yes
+	cannot_inherit = yes
+	customizer = no
+	random = no
+	
+	female_compliment = COMPL_NUN
+}
+on_pilgrimage = {
+	potential = {
+		# religion_group = christian
+		# NOT = { trait = pilgrim }
+	}
+	
+	# cached = yes    # Keep a cache of all trait holders, to use with the corresponding event trigger 
+	
+	monthly_character_piety = 0.2
+	same_religion_opinion = 5
+	
+	pilgrimage = yes    # Will need a regent, but can still be guardian to children
+	customizer = no
+	
+	random = no
+}

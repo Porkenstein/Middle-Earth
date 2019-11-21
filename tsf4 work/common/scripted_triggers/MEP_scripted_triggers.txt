@@ -1,0 +1,1487 @@
+#### MEP Scripted triggers ###
+# Note: I assume all triggers are called from and AND block (if not, wrap call in AND, unless the contents of the trigger is one block)
+
+## characters
+# mep_is_very_nice_trigger
+# mep_dont_do_nice_trigger
+# mep_cant_get_disease_trigger
+# mep_wont_hire_physician_trigger
+# mep_prestige_dynasty_trigger 
+# mep_numenorean_traits_trigger
+# mep_disease_resistant_trigger
+# mep_has_disease_trigger
+# mep_is_genuine_elf
+# mep_has_elf_stuff
+# mep_is_genuine_high_elf
+# mep_never_councillor_trigger
+# mep_pick_good_side_trigger
+# mep_should_be_unkillable_trigger
+# mep_cant_get_drunk_trigger
+# mep_dont_seduce_trigger
+# mep_will_purge_evil
+# mep_will_purge_good
+# mep_is_evil_overlord
+# mep_eligible_for_heren_isseon
+# mep_base_marriage_compatible
+# mep_eligible_elf_marriage
+# mep_eligible_dwarf_marriage
+# mep_has_southern_palantiri
+
+### Culture/Religion Groups
+# mep_is_immortal_race_trigger
+# mep_allows_shield_maidens_trigger
+# mep_is_elf_culture
+# mep_is_good_side_race
+# mep_is_human_trigger
+# mep_horse_people_culture
+# mep_winter_culture
+# mep_never_spread_culture
+# mep_has_nondunedain_human_culture
+# mep_horsey_people_culture
+# mep_prim_humans_culture
+# mep_prim_humans_culture_notbree
+# mep_orc_culture
+# mep_is_good_numenorean_culture
+# mep_evil_religion
+# mep_any_religion
+# mep_dont_do_horses
+# mep_generic_buildings_culture
+
+### titles
+# mep_gondor_arnor_emp_trigger
+# conquest_culture_trigger
+# mep_has_rhovanion_title
+# mep_southron_merc_trigger
+# mep_has_gondor
+# mep_has_dwarf_realm
+
+### provinces
+# mep_has_immortal_population_trigger
+# mep_population_immune_trigger
+# mep_population_resistant_trigger
+# mep_province_being_colonized_trigger
+# mep_wilderness_province_trigger
+# mep_is_province_elven_trigger
+# mep_good_side_province
+# mep_general_buildings_human
+# mep_pop_always_evil_purge_culture
+# mep_being_purged_trigger
+
+### provinces for dynamic population stuff
+# mep_has_dunedain_popmod_trigger
+# mep_dunedian_popmod_increasable_trigger
+# mep_has_elves_popmod_trigger
+# mep_elves_popmod_increasable_trigger
+# mep_has_dwarves_popmod_trigger
+# mep_dwarves_popmod_increasable_trigger
+# mep_has_xhumans_popmod_trigger
+# mep_xhumans_popmod_increasable_trigger
+# mep_has_xhumans_culture
+# mep_has_popmod_trigger
+# mep_has_popmod_culture
+# mep_has_increasable_popmod_trigger
+# mep_has_depopulated_modifier
+# mep_has_properity_modifier
+# mep_high_pop_trigger
+# mep_low_pop_trigger
+
+### province CB shorteners
+# mep_province_owned_by_root
+# mep_borders_ROOTrealm_2seazones
+# mep_borders_ROOTrealm_1seazone
+
+### special groups
+# mep_evil_or_wont_sell_moria
+# mep_might_sell_moria
+# mep_char_leader_usable
+# mep_theodred_and_eomer_are_okay
+# mep_threatning_saruman
+# mep_galadriel_in_lorien
+
+### government type related stuff
+# mep_temp_muslim_standin_trigger
+# mep_canhave_nice_feudalism
+
+## Other
+# mep_coloniz_cheap
+# mep_coloniz_quick
+# mep_marriagable_female
+
+## Trade Post related
+# north_south_road_trade_post_trigger
+# south_road_trade_post_trigger
+# royal_road_trade_post_trigger
+# great_east_road_trade_post_trigger
+# men_i_naugrim_road_trade_post_trigger
+# harad_trade_road_trade_post_trigger
+# mep_no_trade_posts
+# mep_tp_compatible_align
+# mep_building_trade_route_trigger
+
+#---------------------------------------------------------------------------------------
+# Character Triggers
+
+dont_kill_trigger = {
+	OR = {
+		trait = immortal
+		has_artifact = artifact_ring
+		trait = trait_nooo
+		#Undying
+		culture = culture_balrog
+		culture = culture_dragons
+		culture = culture_spider
+		culture_group = culture_group_eru
+		culture_group = culture_group_onodrim
+	}
+}
+
+duel_unkillable_trigger = {
+	OR = {
+		trait = valar
+		trait = maiar
+		trait = nazgul
+	}
+}
+
+mep_is_mountain_trigger = {
+	OR = {
+		province_id = 2
+		province_id = 4
+		province_id = 109
+		province_id = 116
+		province_id = 233
+		province_id = 237
+		province_id = 238
+		province_id = 239
+		province_id = 285
+		province_id = 292
+		province_id = 324
+		province_id = 465
+		province_id = 570
+		province_id = 571
+		province_id = 572
+		province_id = 573
+		province_id = 574
+		province_id = 584
+		province_id = 634
+		province_id = 642
+		province_id = 643
+		province_id = 644
+		province_id = 655
+		province_id = 666
+		province_id = 670
+		province_id = 672
+		province_id = 673
+		province_id = 674
+		province_id = 676
+		province_id = 678
+		province_id = 679
+		province_id = 680
+		province_id = 681
+		province_id = 783
+		province_id = 801
+		province_id = 802
+		province_id = 803
+		province_id = 804
+		province_id = 805
+		province_id = 806
+		province_id = 807
+		province_id = 811
+		province_id = 812
+	}
+}
+
+mep_is_mountain_dweller_trigger = {
+	OR = {
+		culture_group = culture_group_dwarves
+		culture = culture_dragons
+		culture = culture_orkish
+		culture = culture_half_orc
+		culture = culture_urukhai
+		culture = culture_mountainmen
+		culture = culture_eagles
+	}
+}
+
+mep_is_very_nice_trigger = {
+	OR = {
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_perian
+		culture = culture_entish
+		religion = religion_eldar   # Elves
+	}
+}
+
+
+# Dont't do nice things, because evil or wilderness
+mep_dont_do_nice_trigger = {
+	OR = {
+		mep_is_evil_side_trigger = yes
+		religion_group = religion_group_wilderness		
+	}
+}
+
+# Immortal races, spiders, and wilderness cannot get disease
+mep_cant_get_disease_trigger = {
+	OR = {
+		religion = religion_eruhini
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		religion = religion_eldar
+		religion = religion_dark_eldar
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion = religion_melkor
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion_group = religion_group_ungoliant
+		religion_group = religion_group_wilderness	
+		trait = balrog
+		trait = valar
+		trait = enigma
+		trait = nazgul
+		trait = elf_childhood
+	}
+}
+
+# most immortals, and evil races, don't hire physicians/doctors
+# I assume elves and non-evil istari will, because elves are renowned healers and they could have non-immortal courtiers
+# valar don't, because they forbid mortals from the land where they live, the cowards
+mep_wont_hire_physician_trigger = {
+	OR = {
+		religion = religion_melkor
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion_group = religion_group_ungoliant
+		religion_group = religion_group_wilderness
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		trait = balrog
+		trait = valar
+		trait = enigma
+		trait = nazgul
+		AND = {
+			religion = religion_eruhini
+			NOT = { culture = culture_istari }
+		}
+	}
+}
+
+mep_prestige_dynasty_trigger = {
+	OR = {
+		dynasty = 5
+		dynasty = 100
+		dynasty = 101
+		dynasty = 102
+		dynasty = 174
+		dynasty = 935
+		dynasty = 936
+		dynasty = 2001
+		dynasty = 2004
+		dynasty = 3002
+		dynasty = 3004
+		dynasty = 3005
+		dynasty = 3006
+		dynasty = 3007
+		dynasty = 3009
+		dynasty = 3010
+		dynasty = 3013
+		dynasty = 4001
+		dynasty = 12001
+		dynasty = 12003
+		dynasty = 12015
+	}
+}
+
+mep_prestige_trait_trigger = {
+	OR = {
+		trait = blood_of_eorl
+		trait = blood_of_hurin
+		trait = blood_of_imrazor
+		trait = blood_of_anarion
+		trait = blood_of_castamir
+		trait = blood_of_oropher
+		trait = blood_of_amdir
+		trait = blood_of_isildur
+		trait = blood_of_telcontar
+		trait = blood_of_peredhel
+		trait = blood_of_finarfin
+		trait = blood_of_fingolfin
+		trait = blood_of_finwe
+		trait = blood_of_feanor
+		trait = blood_of_elwe
+		trait = blood_of_ingwe
+		trait = blood_of_olwe
+		trait = blood_of_durin
+		trait = blood_of_elros
+		trait = blood_of_valandil
+		trait = blood_of_elendil
+	}
+}
+
+mep_numenorean_traits_trigger = {
+	OR = {
+		trait = numenorean
+		trait = numenor_blood
+		trait = blood_of_isildur
+		trait = blood_of_anarion
+	}
+}
+
+mep_disease_resistant_trigger = {
+	OR = {
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_perian
+		religion = religion_dark_perian
+		mep_numenorean_traits_trigger = yes
+		trait = elf
+	}
+}
+
+mep_has_disease_trigger = {
+	OR = {
+		has_character_flag = got_tuberculosis
+		has_character_flag = got_bubonic_plague
+		has_character_flag = got_aztec_disease
+		has_character_flag = got_smallpox
+		has_character_flag = got_measles
+		has_character_flag = got_typhus
+		has_character_flag = got_typhoid_fever
+		has_character_flag = got_syphilis
+		has_character_flag = got_pneumonia
+		has_character_flag = got_cancer
+		has_character_flag = got_rabies
+		has_character_flag = got_gout
+		has_character_flag = got_flu
+		has_character_flag = got_dysentery
+		has_character_flag = got_food_poisoning
+	}
+}
+
+mep_never_councillor_trigger = {
+	prisoner = no
+	NOR = {
+		trait = incapable
+		trait = elf_childhood
+		trait = saruman_spell
+		trait = journey_to_valinor
+		trait = sailed_west
+		trait = at_east
+	}
+}
+
+# should be unkillable via standard assasination or battle-death
+mep_should_be_unkillable_trigger = {
+	OR = {
+		culture_group = culture_group_wilderness
+		AND = {
+			culture_group = culture_group_eru
+			NOT = { culture = culture_eagles }
+		}
+		culture = culture_balrog
+		culture = culture_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		trait = maiar
+		trait = balrog
+		AND = {
+			culture_group = culture_group_onodrim
+			age = 2000
+		}
+		AND = {
+			trait = elf
+			age = 8000
+		}
+		trait = enigma
+		trait = nazgul
+		religion = religion_melkor
+	}
+}
+
+mep_cant_get_drunk_trigger = {
+	OR = {
+		AND = {
+			culture_group = culture_group_eru
+			NOT = { culture = culture_eagles }
+		}
+		culture = culture_balrog
+		culture = culture_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		culture_group = culture_group_wilderness
+		trait = maiar
+		trait = balrog
+		trait = enigma
+		religion_group = religion_group_ungoliant
+		culture_group = culture_group_onodrim
+	}
+}
+
+mep_dont_seduce_trigger = {
+	OR = {
+		AND = {
+			religion = religion_eldar
+			NOT = {  trait = lustful  }
+			NOT = {  trait = seducer  }
+			NOT = {  trait = seductress  }
+		}
+		religion_group = religion_group_wilderness  # not actual character
+		religion = religion_enyd
+		religion_group = religion_group_melkor  # probably too evil and chaotic to seduce
+		religion_group = religion_group_ungoliant  # Spiders eat their mates sometimes
+		religion = religion_eruhini # Eagles, Valar, Tom Bombadil, etc		
+	}
+}
+
+mep_will_purge_evil = {
+	NOT = { has_character_flag = very_tolerant_of_evil } 
+	# anyone who is not a monster-kind, except evil overlords, will purge monster-kind ...
+	NOR = {
+		culture_group = culture_group_melkor
+		culture = culture_umaiar
+		mep_is_evil_side_trigger = yes
+		AND = {
+			independent = no
+			any_liege = {
+				OR = {
+					culture_group = culture_group_melkor
+					culture = culture_umaiar
+					mep_is_evil_side_trigger = yes
+				}
+			}
+			
+		}
+		AND = {
+			is_tributary = yes
+			suzerain = {  # My boss won't let me...
+				OR = {
+					culture_group = culture_group_melkor
+					culture = culture_umaiar
+					mep_is_evil_side_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+mep_will_purge_good = {
+	mep_is_evil_side_trigger = yes
+	NOT = { has_character_flag = very_tolerant_of_good }
+	# independent, or no good side lieges
+	OR = {
+		independent = yes
+		NOT = {
+			any_liege = { mep_is_good_side_trigger = yes }
+		}
+	}
+	# if he is tributary, then his suzerian must not be good side
+	OR = {
+		is_tributary = no
+		suzerain = {
+			NOT = { mep_is_good_side_trigger = yes }
+		}
+	}
+}
+
+mep_is_evil_overlord = {
+	mep_is_evil_side_trigger = yes
+	OR = {
+		religion_group = religion_group_melkor
+		culture = culture_istari
+		trait = valar
+		trait = maiar
+		trait = balrog
+		trait = nazgul
+	}
+}
+
+mep_eligible_for_heren_isseon = {
+	NOT = { mep_is_evil_side_trigger = yes }
+	NOT = { culture = culture_druedain } 
+	OR = {
+		religion = religion_perian
+		religion = religion_khazad
+		culture_group = culture_group_middlemen
+		culture_group = culture_group_haldadian
+		culture_group = culture_group_southron
+		culture_group = culture_group_easterling
+	}
+}
+
+mep_base_marriage_compatible = {
+	OR = {
+		has_lover = no
+		is_lover = ROOT
+	}
+	NOT = { is_close_relative = ROOT }
+	OR = {
+		AND = {
+			trait = homosexual
+			ROOT = { trait = homosexual }
+			same_sex = ROOT
+		}
+		AND = {
+			NOT = { trait = homosexual }
+			ROOT = { NOT = { trait = homosexual } }
+			is_opposite_sex = ROOT
+		}
+	}
+}
+
+mep_eligible_elf_marriage = {
+	can_marry  = yes
+	has_concubinage = no
+	age = 300
+	prisoner = no
+} 
+mep_eligible_dwarf_marriage = {
+	can_marry  = yes
+	has_concubinage = no
+	age = 40
+	NOT = { age = 260 }
+	OR = {
+		NOT = { age = 140 }
+		is_female = no
+	}
+	prisoner = no
+}
+
+mep_has_southern_palantiri = {
+	OR = {
+		has_artifact = artifact_palantir_anor
+		has_artifact = artifact_palantir_ithil
+		has_artifact = artifact_palantir_orthanc
+		has_artifact = artifact_palantir_osgiliath
+	}
+}
+
+#--------------------------------------------------------
+### Culture/Religion Groups
+
+mep_is_immortal_race_trigger = {
+	OR = {
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_enyd    # Ents
+		religion = religion_dark_enyd
+		religion = religion_eldar   # Elves
+		religion = religion_dark_eldar
+		religion = religion_melkor
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion_group = religion_group_ungoliant
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+	}
+}
+
+mep_allows_shield_maidens_trigger = {
+	OR = {
+		culture = culture_eotheod
+		culture = culture_rohirrim
+	}
+}
+
+mep_is_elf_culture = {
+	OR = {
+		culture_group = culture_group_quendi
+		culture_group = culture_group_amanyar
+		culture_group = culture_group_umanyar
+		culture_group = culture_group_moriquendi
+	}
+}
+
+mep_make_random_elf_culture = {
+	OR = {
+		culture = culture_nandor
+		culture = culture_silvan
+		culture = culture_avari
+		culture = culture_sindar
+		culture = culture_falathrim
+		culture = culture_noldor
+	}
+}
+
+mep_is_human_trigger = {
+	OR = {
+		religion = religion_edain
+		religion = religion_hildor
+	}
+}
+
+mep_horse_people_culture = {
+	OR = {
+		culture = culture_variags
+		culture = culture_eotheod
+		culture = culture_rohirrim	
+		culture = culture_balchoth
+		culture = culture_wainriders
+	}
+}
+
+mep_winter_culture = {
+	OR = {
+		culture_group = culture_group_forodwaith
+		culture = culture_broadbeam
+		culture = culture_firebeard
+		culture = culture_longbeard
+		culture = culture_ironfist
+		culture = culture_orkish
+		culture = culture_wight
+		culture = culture_arnorian
+		culture = culture_breelander
+		culture = culture_barding
+		culture = culture_northmen
+		culture = culture_eotheod
+		culture = culture_beorning
+		culture = culture_noldor
+		culture = culture_baradhrim		
+	}
+}
+
+mep_never_spread_culture = {
+	OR = {
+		culture_group = culture_group_eru
+		culture_group = culture_group_onodrim
+		culture = culture_wight
+		culture = culture_balrog
+		culture = culture_dragons
+		religion_group = religion_group_wilderness
+		culture_group = culture_group_wilderness
+	}
+}
+mep_has_nondunedain_human_culture = {
+	OR = {
+		culture_group = culture_group_edain
+		culture_group = culture_group_middlemen
+		culture_group = culture_group_forodwaith
+		culture_group = culture_group_haldadian
+		culture_group = culture_group_southron
+		culture_group = culture_group_easterling						
+	}
+}
+mep_horsey_people_culture = {
+	OR = {
+		culture = culture_eotheod
+		culture = culture_rohirrim
+	}
+}
+# Drúedian are now culture_group_haldadian, but still have special buildings...
+mep_prim_humans_culture = {
+	OR = {
+		culture_group = culture_group_forodwaith
+		culture_group = culture_group_haldadian
+	}
+	NOT = { culture = culture_druedain }
+}
+
+mep_prim_humans_culture_notbree = {
+	OR = {
+		culture_group = culture_group_forodwaith
+		culture = culture_druedain
+		AND = {
+			culture_group = culture_group_haldadian
+			NOT = { culture = culture_breelander }
+		}
+	}
+}
+# core orc cultures
+mep_orc_culture = {
+	OR = {
+		culture = culture_urukhai
+		culture = culture_half_orc
+		culture = culture_orkish
+	}
+}
+
+mep_is_good_numenorean_culture = {
+	culture_group = culture_group_numenorean
+	NOT = {	culture = culture_black_numenorean }
+}
+
+mep_evil_religion = {
+	OR = {
+		religion_group = religion_group_melkor
+		religion_group = religion_group_ungoliant
+	}
+}
+
+mep_any_religion = {
+	OR = {
+		religion_group = religion_group_eruhini
+		religion_group = religion_group_melkor
+		religion_group = religion_group_ungoliant
+	}
+}
+
+mep_dont_do_horses = {
+	OR = {
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_perian
+		religion = religion_dark_perian
+		religion_group = religion_group_ungoliant
+		culture_group = culture_group_forodwaith
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		culture = culture_eagles
+	}
+}
+
+mep_generic_buildings_culture = {
+	OR = {
+		culture_group = culture_group_edain
+		culture_group = culture_group_southron
+		culture_group = culture_group_easterling
+		culture_group = culture_group_middlemen
+	}
+	NOT = { culture = culture_rohirrim }
+	NOT = { culture = culture_eotheod }
+	NOT = { culture = culture_druedain }
+}
+
+
+#--------------------------------------------------------------------
+# titles
+mep_gondor_arnor_emp_trigger = {
+	OR = {
+		has_landed_title = e_gondor
+		has_landed_title = e_steward_gondor
+		has_landed_title = e_gondor_kinstrife
+		has_landed_title = e_arnor
+		has_landed_title = e_reunited_kingdom
+	}
+}
+
+# Saves over 30 lines of stuff in province culture conversion events...
+conquest_culture_trigger = {
+	OR = {
+		primary_title = {
+			conquest_culture = PREV
+		}
+		ROOT = {
+			county = {
+				conquest_culture = PREVPREV
+			}
+		}
+		ROOT = {
+			duchy = {
+				holder_scope = {
+					character = PREVPREVPREV
+				}
+				conquest_culture = PREVPREV
+			}
+		}
+		ROOT = {
+			kingdom = {
+				holder_scope = {
+					character = PREVPREVPREV
+				}
+				conquest_culture = PREVPREV
+			}
+		}
+		ROOT = {
+			empire = {
+				holder_scope = {
+					character = PREVPREVPREV
+				}
+				conquest_culture = PREVPREV
+			}
+		}
+	}
+}
+
+# used by many mercenaries
+mep_has_rhovanion_title = {
+	OR = {
+		any_realm_title = { title = k_dale }
+		any_realm_title = { title = d_dale } 
+		any_realm_title = { title = c_dale }
+		any_realm_title = { title = d_grasgard }
+		any_realm_title = { title = d_carnen }
+		any_realm_title = { title = k_brownlands } 
+		any_realm_title = { title = d_haradnur }
+		any_realm_title = { title = d_brownlands }
+		any_realm_title = { title = k_rhovanion }
+		any_realm_title = { title = d_dor_rhunen }
+		any_realm_title = { title = d_rhovanion }
+		any_realm_title = { title = d_celduin }
+		any_realm_title = { title = k_dorwinion }
+		any_realm_title = { title = d_riavod }
+		any_realm_title = { title = d_uldonavan }
+	}
+}
+
+mep_southron_merc_trigger = {
+	OR = {
+		any_realm_title = { title = e_harad }
+		any_realm_title = { title = k_chelkar }
+		any_realm_title = { title = k_haruzan }
+		any_realm_title = { title = k_akhor }
+		any_realm_title = { title = k_pezarsan }
+		any_realm_title = { title = k_lurmsakun }
+		any_realm_title = { title = k_arysis }
+		any_realm_title = { title = k_haradwaith }
+		culture_group = culture_group_southron
+		religion = religion_hildor
+	}
+}
+
+mep_has_gondor = {
+	OR = {
+		has_landed_title = e_gondor
+		has_landed_title = e_steward_gondor
+		has_landed_title = e_gondor_kinstrife
+	}
+}
+# has a title normally strictly dwarf-associated and independednt
+mep_has_dwarf_realm = {
+	OR = {
+		has_landed_title = e_durins_folk
+		has_landed_title = k_misty_mountains
+		has_landed_title = k_northeast_mountains
+		has_landed_title = k_broadbeams
+		has_landed_title = k_firebeards
+		has_landed_title = d_aglarond
+		has_landed_title = k_zirakdum
+		has_landed_title = k_stonefoot
+		has_landed_title = k_nurunkhizdin
+		has_landed_title = k_gundabad
+		has_landed_title = e_all_mountains
+	}
+}
+#---------------------------------------------------------------------------
+# Province Triggers
+
+mep_has_immortal_population_trigger = {
+	OR = {
+		religion = religion_eruhini # Ainur (like Eagles)
+		religion = religion_enyd    # Ents
+		religion = religion_dark_enyd
+		religion = religion_eldar   # Elves
+		religion = religion_dark_eldar
+		religion = religion_melkor
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+	}
+}
+
+mep_population_immune_trigger = {
+	OR = {
+		religion = religion_eruhini
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		religion = religion_eldar
+		religion = religion_dark_eldar
+		religion = religion_wight
+		religion = religion_corrupted_wight
+		religion = religion_melkor
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion_group = religion_group_ungoliant
+		religion_group = religion_group_wilderness	
+	}
+}
+
+mep_population_resistant_trigger = {
+	OR = {
+		religion = religion_khazad
+		religion = religion_dark_khazad
+		religion = religion_edain
+	}
+}
+
+mep_province_being_colonized_trigger = {
+	OR = {
+		has_province_modifier = being_colonised
+		has_province_modifier = being_colonised_with_dwarves
+		has_province_modifier = being_colonised_with_elves
+		has_province_modifier = being_colonised_with_halflings
+		has_province_modifier = being_colonised_with_gondorian_middlemen
+		has_province_modifier = being_colonised_with_arnorian_middlemen
+		has_province_modifier = being_colonised_with_southrons
+		has_province_modifier = being_colonised_by_dwarves
+		has_province_modifier = being_colonised_by_elves
+		has_province_modifier = being_colonised_by_high_elves
+		has_province_modifier = being_colonised_with_wood_elves
+		has_province_modifier = being_colonised_with_humans_good
+		has_province_modifier = being_colonised_with_forodwaith
+		has_province_modifier = being_colonised_with_orctrollkind		
+	}
+}
+
+mep_wilderness_province_trigger = {
+	OR = {
+		religion = religion_wilderness
+		culture = culture_wilderness
+		culture = culture_mountains
+	}
+}
+
+mep_is_province_elven_trigger = {
+	OR = {
+		religion = religion_eldar
+		religion = religion_dark_eldar
+		culture_group = culture_group_quendi
+		culture_group = culture_group_amanyar
+		culture_group = culture_group_umanyar
+		culture_group = culture_group_moriquendi
+	}
+}
+
+mep_good_side_province = {
+	religion_group = religion_group_eruhini
+} 
+
+mep_general_buildings_human = {
+	OR = {
+		culture_group = culture_group_edain
+		culture_group = culture_group_middlemen
+		culture_group = culture_group_southron
+		culture_group = culture_group_easterling						
+	}
+	NOT = { mep_horsey_people_culture = yes }
+}
+
+
+mep_pop_always_evil_purge_culture = {
+	religion_group = religion_group_eruhini
+}
+
+mep_being_purged_trigger = {
+	OR = {
+		has_province_modifier = being_purged_ofevil
+		has_province_modifier = being_purged_ofgood
+		has_province_modifier = being_purged_ofgoodeo
+	}
+}
+
+#-----------------------------------------------------------
+# province CB shorteners
+mep_province_owned_by_root = {
+	AND = {
+		has_owner = yes
+		owner = {
+			OR = {
+				character = ROOT
+				is_liege_or_above = ROOT
+			}
+		}
+	}
+}
+
+mep_province_not_owned_by_root = {
+	OR = {
+		has_owner = no
+		owner = {
+			NOT = { character = ROOT }
+			NOT = { is_liege_or_above = ROOT }
+		}
+	}
+}
+
+
+# Used to test if a province borders, or is 2 or less seazones away, from the realm of ROOT
+mep_borders_ROOTrealm_2seazones = {
+	any_neighbor_province = {
+		OR = {
+			# The province directly borders realm of ROOT
+			AND = {
+				has_owner = yes
+				owner = {
+					OR = {
+						character = ROOT
+						is_liege_or_above = ROOT
+					}
+				}		
+			}
+			#  The neighbour provice is a seazone -> more checks needed
+			AND = {
+				is_land = no
+				# province bordering this seazone to be tested
+				any_neighbor_province = {
+					OR = {
+						# This province (bordering the seazone) is part of ROOT's realm
+						AND = {
+							has_owner = yes
+							owner = {
+								OR = {
+									character = ROOT
+									is_liege_or_above = ROOT
+								}
+							}
+						}
+						# The province bordering the seazone is also a seazone, so we scan
+						# *it's* neighbours to see if any of *them* belong to the realm of ROOT
+						AND = {
+							is_land = no
+							any_neighbor_province = {
+								has_owner = yes
+								owner = {
+									OR = {
+										character = ROOT
+										is_liege_or_above = ROOT
+									}
+								}
+
+							}
+						}
+						# end of second seazone neighbour scan
+					}
+				}
+				# end of checking the neighbours of the first level seazone block
+			}
+		}
+		# end of top level OR block
+	}
+}
+
+# Used to test if a province borders, or is a seazone away, from the realm of ROOT
+mep_borders_ROOTrealm_1seazone = {
+	any_neighbor_province = {
+		OR = {
+			# The province directly borders realm of ROOT
+			AND = {
+				has_owner = yes
+				owner = {
+					OR = {
+						character = ROOT
+						is_liege_or_above = ROOT
+					}
+				}
+			}
+			#  The neighbour provice is a seazone -> more checks needed
+			AND = {
+				is_land = no
+				# province bordering this seazone to be tested
+				any_neighbor_province = {
+					# This province (bordering the seazone) is part of ROOT's realm
+					has_owner = yes
+					owner = {
+						OR = {
+							character = ROOT
+							is_liege_or_above = ROOT
+						}
+					}
+				}
+				# end of checking the neighbours of the first level seazone block
+			}
+		}
+		# end of top level OR block
+	}
+}
+#-----------------------------------------------------------------------------------------------------------
+# special groups
+mep_evil_or_wont_sell_moria = {
+	NOT = { character = ROOT }
+	OR = {
+		AND = {
+			independent = yes
+			OR = {
+				religion_group = religion_group_melkor
+				has_character_flag = refused_to_sell_moria
+			}
+		}				
+		top_liege = {
+			NOT = { character = ROOT }
+			OR = {
+				religion_group = religion_group_melkor
+				has_character_flag = refused_to_sell_moria
+			}				
+		}
+	}
+}
+
+mep_might_sell_moria = {
+	NOT = { character = ROOT }
+	OR = {
+		AND = {
+			independent = yes
+			NOR = {
+				religion_group = religion_group_melkor
+				has_character_flag = refused_to_sell_moria
+				culture = culture_longbeard
+				religion_group = religion_group_wilderness
+				culture_group = culture_group_wilderness
+			}
+		}				
+		top_liege = {
+			NOT = { character = ROOT }
+			NOR = {
+				religion_group = religion_group_melkor
+				has_character_flag = refused_to_sell_moria
+				culture = culture_longbeard
+				religion_group = religion_group_wilderness
+				culture_group = culture_group_wilderness
+			}				
+		}
+	}
+}
+
+mep_char_leader_usable = {
+	AND = {
+		is_alive = yes
+		prisoner = no
+		# top_liege = PREV
+		is_incapable = no
+	}
+}
+
+mep_theodred_and_eomer_are_okay = {
+	event_target:mep_chartarget_theodred = {
+		is_alive = yes
+		prisoner = no
+		# top_liege = PREV
+	}
+	event_target:mep_chartarget_eomer = {
+		is_alive = yes
+		prisoner = no
+		# top_liege = PREV
+	}
+}
+
+mep_threatning_saruman = {
+	event_target:mep_chartarget_saruman = {
+		is_alive = yes
+		has_landed_title = c_orthanc
+		has_character_flag = evilsaruman
+	}
+}
+
+mep_galadriel_in_lorien = {
+	k_elves = {
+		OR = {
+			holder_scope = {
+				event_target:mep_chartarget_galadriel = { character = PREV }
+			}
+			any_realm_lord = {
+				event_target:mep_chartarget_galadriel = { character = PREV }
+			}
+		}
+	}
+}
+
+#--------------------------------------------------------------------------------
+# government type related stuff
+
+mep_temp_muslim_standin_trigger = {
+	religion = religion_hildor
+}
+
+# those who can get 'nice' feudalism (reducing conflict). 
+mep_canhave_nice_feudalism = {
+	religion_group = religion_group_eruhini
+}
+
+## Other
+mep_marriagable_female = {
+	AND = {
+		is_female = yes
+		NOT = { mep_infertile_trait = yes }
+		NOR = {
+			is_incapable = yes
+			trait = eunuch
+			trait = celibate
+			trait = elf_childhood
+		}
+		age = 16
+		OR = {
+			AND = {
+				culture_group = culture_group_numenorean
+				age = 22
+				NOT = { age = 120 }
+			}
+			AND = {
+				religion = religion_khazad
+				age = 30
+				NOT = { age = 140 }
+			}
+			AND = {
+				religion = religion_perian
+				NOT = { age = 50 }
+			}
+			AND = {
+				age = 200
+				mep_is_immortal_race_trigger = yes
+			}
+			AND = {
+				NOT = {
+					culture_group = culture_group_numenorean
+					religion = religion_khazad
+					religion = religion_perian
+					mep_is_immortal_race_trigger = yes
+				}
+				NOT = { age = 40 }
+			}
+		}
+		
+		
+	}
+}
+#----------------------------------------------------------------------
+# I have no idea why 'trade_route = north_south_road' is not good enough...
+north_south_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = north_south_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 270
+				province_id = 263
+				province_id = 267
+				province_id = 105
+				province_id = 169
+				province_id = 170
+				province_id = 173
+				province_id = 172
+				province_id = 291
+				province_id = 777
+				province_id = 381
+				province_id = 383
+				province_id = 385
+				province_id = 384
+				province_id = 226
+				province_id = 290
+				province_id = 225
+				province_id = 120
+				province_id = 119
+				province_id = 118
+				province_id = 117
+				province_id = 115
+				province_id = 112
+				province_id = 111
+				province_id = 114
+				province_id = 110
+				province_id = 3
+				province_id = 69
+				province_id = 4
+				province_id = 5
+				province_id = 7
+				province_id = 9
+				province_id = 45
+				province_id = 422
+			}
+		}
+	}
+}
+
+south_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = south_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 422
+				province_id = 215
+				province_id = 1
+				province_id = 10
+				province_id = 11
+				province_id = 14
+				province_id = 17
+				province_id = 18
+				province_id = 219
+				province_id = 220
+				province_id = 221
+				province_id = 224
+				province_id = 31
+				province_id = 26
+				province_id = 25
+				province_id = 24
+			}
+		}
+	}
+}
+
+royal_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = royal_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 422
+				province_id = 1
+				province_id = 428
+				province_id = 427
+				province_id = 53
+				province_id = 54
+				province_id = 426
+			}
+		}
+	}
+}
+
+great_east_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = great_east_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 422
+				province_id = 657
+				province_id = 236
+				province_id = 687
+				province_id = 664
+				province_id = 95
+				province_id = 86
+				province_id = 84
+				province_id = 85
+				province_id = 75
+				province_id = 76
+				province_id = 266
+				province_id = 267
+				province_id = 265
+				province_id = 268
+				province_id = 305
+				province_id = 307
+				province_id = 369
+				province_id = 297
+				province_id = 372
+				province_id = 234
+				province_id = 286
+				province_id = 287
+				province_id = 288
+				province_id = 290
+				province_id = 285
+				province_id = 371
+				province_id = 570
+			}
+		}
+	}
+}
+
+men_i_naugrim_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = men_i_naugrim_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 570
+				province_id = 403
+				province_id = 688
+				province_id = 689
+				province_id = 285
+				province_id = 2
+				province_id = 295
+				province_id = 398
+				province_id = 399
+				province_id = 400
+				province_id = 417
+				province_id = 321
+				province_id = 322
+				province_id = 328
+				province_id = 540
+				province_id = 539
+				province_id = 292
+				province_id = 684
+				province_id = 683
+				province_id = 573
+				province_id = 574
+				province_id = 572
+			}
+		}
+	}
+}
+
+harad_trade_road_trade_post_trigger = {
+	custom_tooltip = {
+		text = harad_trade_road_province_desc
+		hidden_tooltip = {
+			OR = {
+				province_id = 691
+				province_id = 585
+				province_id = 47
+				province_id = 48
+				province_id = 49
+				province_id = 52
+				province_id = 53
+				province_id = 55
+				province_id = 57
+				province_id = 59
+				province_id = 63
+				province_id = 127
+				province_id = 133
+				province_id = 138
+				province_id = 142
+				province_id = 141
+				province_id = 143
+				province_id = 467
+				province_id = 472
+				province_id = 533
+			}
+		}
+	}
+}
+
+mep_no_trade_posts = {
+	OR = {
+		religion_group = religion_group_wilderness
+		religion_group = religion_group_ungoliant
+		religion = religion_enyd
+		religion = religion_dark_enyd
+		mep_being_purged_trigger = yes
+	}
+}
+
+# the scope should be the province, FROM the one who wants to build the trade post
+mep_tp_compatible_align = {
+	custom_tooltip = {
+		text = TT_MEP_NOT_OPPOSITE_ALIGN
+		OR = {
+			AND = {
+				FROM = { mep_is_good_side_trigger = yes }
+				NOT = { mep_evil_religion = yes }
+			}
+			AND = {
+				FROM = { mep_is_evil_side_trigger = yes }
+				NOT = { mep_good_side_province = yes }
+			}
+			FROM = {
+				NOT = { mep_is_good_side_trigger = yes }
+				NOT = { mep_is_evil_side_trigger = yes }
+			}
+		}
+	}
+}
+
+mep_building_trade_route_trigger = {
+	OR = {
+		AND = {
+			trade_route = north_south_road
+			north_south_road_trade_post_trigger = yes
+		}
+		AND = {
+			trade_route = south_road	
+			south_road_trade_post_trigger = yes
+		}
+		AND = {
+			trade_route = royal_road
+			royal_road_trade_post_trigger = yes
+		}
+		AND = {
+			trade_route = great_east_road
+			great_east_road_trade_post_trigger = yes
+		}
+		AND = {
+			trade_route = men_i_naugrim_road
+			men_i_naugrim_road_trade_post_trigger = yes
+		}
+		AND = {
+			trade_route = harad_trade_road
+			harad_trade_road_trade_post_trigger = yes
+		}
+	}
+}
+mep_is_western_culture = {
+	OR = {
+		culture_group = culture_group_edain
+		culture_group = culture_group_numenorean
+		culture_group = culture_group_middlemen
+		culture_group = culture_group_forodwaith
+		culture_group = culture_group_haldadian
+	}
+}
+mep_is_eastern_culture = {
+	OR = {
+		culture_group = culture_group_southron
+		culture_group = culture_group_easterling
+	}
+}

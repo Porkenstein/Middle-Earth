@@ -1,0 +1,892 @@
+namespace = mep_misc_events
+character_event = {	#Ring Used
+	id = mep_misc_events.1
+	title = EVTTTLmep_misc_events.1
+	desc = EVTDESCmep_misc_events.1
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.1
+	}
+}
+character_event = {	#Ringbearer Captured
+	id = mep_misc_events.11
+	title = EVTTTLmep_misc_events.11
+	desc = EVTDESCmep_misc_events.11
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { has_landed_title = e_barad_dur }
+		has_artifact = artifact_ring
+	}
+
+	option = {	#The Ring is lost!
+		name = EVTOPTAmep_misc_events.11
+		trigger = {
+			NOT = { has_landed_title = k_ringbearer }
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
+		}
+	}
+
+	option = {	#I can hear Him, my Master...
+		name = EVTOPTBmep_misc_events.11
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+		religion = religion_wight
+		culture = culture_wight
+		set_graphical_culture = culture_wight
+		add_trait = wight
+		dynasty = 19017
+		c_hobbiton = {
+			grant_title_no_opinion = ROOT
+			k_ringbearer = {
+				activate_title = { status = no title = k_ringbearer }
+				destroy_landed_title = THIS
+			}
+		}
+		set_defacto_liege = FROM
+		prisoner = no
+		add_claim = k_shire
+		random_claim = {
+			limit = { title = k_shire }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
+		}
+		hidden_effect = {
+			capital_scope = {
+				holder_scope = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							archers = { 200 200 }
+							light_infantry = { 1300 1300 }
+						}
+						earmark = hobbit_army
+						attrition = 0.5
+						maintenance_multiplier = 0
+						disband_on_peace = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {	#Sam will Save Me
+		name = EVTOPTCmep_misc_events.11
+		trigger = {
+			has_landed_title = k_ringbearer
+			ai = no
+		}
+		any_artifact = {
+			limit = {
+				has_artifact_flag = flag_the_one_ring
+			}
+			transfer_artifact = { from = ROOT to = FROM }
+		}
+		e_barad_dur = {
+			holder_scope = {
+				character_event = { id = mep_misc_events.12 }
+			}
+		}
+	}
+}
+character_event = {	#Informed, Ringbearer Captured
+	id = mep_misc_events.12
+	title = EVTTTLmep_misc_events.12
+	desc = EVTDESCmep_misc_events.12
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.12
+		remove_trait = spiritform
+		remove_trait = ringbearer2
+	}
+}
+character_event = {	#Morgul-blade Wound
+	id = mep_misc_events.2
+	title = EVTTTLmep_misc_events.2
+	desc = EVTDESCmep_misc_events.2
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.2
+		add_character_modifier = { modifier = mod_nazgul_wound duration = -1 }
+	}
+}
+character_event = {	#Spider Ambush
+	id = mep_misc_events.21
+	title = EVTTTLmep_misc_events.21
+	desc = EVTDESCmep_misc_events.21
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		in_command = yes
+		war = yes
+		NOT = {
+			culture = culture_spider
+		}
+		location = {
+			culture = culture_spider
+			owner = {
+				war_with = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.21
+		random_list = {
+			1 = {
+				troops = -0.1
+				modifier = {
+					factor = 3
+					OR = {
+						trait = grey_eminence
+						trait = brilliant_strategist
+						trait = skilled_tactician
+						trait = mastermind_theologian
+					}
+				}
+			}
+			1 = {
+				troops = -0.25
+				modifier = {
+					factor = 3
+					OR = {
+						trait = charismatic_negotiator
+						trait = tough_soldier
+						trait = scholarly_theologian
+					}
+				}
+			}
+			1 = {
+				troops = -0.5
+				modifier = {
+					factor = 3
+					OR = {
+						trait = misguided_warrior
+						trait = martial_cleric
+					}
+				}
+			}
+			1 = {
+				troops = -1
+				modifier = {
+					factor = 3
+					NOR = {
+						trait = grey_eminence
+						trait = charismatic_negotiator
+						trait = brilliant_strategist
+						trait = skilled_tactician
+						trait = tough_soldier
+						trait = misguided_warrior
+						trait = mastermind_theologian
+						trait = scholarly_theologian
+						trait = martial_cleric
+					}
+				}
+			}
+		}
+		morale = -0.25
+	}
+}
+character_event = {	#Fly, You Fools
+	id = mep_misc_events.3
+	title = EVTTTLmep_misc_events.3
+	desc = EVTDESCmep_misc_events.3
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_ringbearer
+		}
+		remove_trait = onering
+		unsafe_destroy_artifact = artifact_ring
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_rohan
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_rivendell
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = k_elves
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		d_fellowship_gandalf = {
+			set_name = "Gandalf the White Pilgrim"
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = d_fellowship_aragorn
+		}
+		activate_title = { status = yes title = e_gondor }
+		e_gondor = {
+			gain_title = ROOT
+			copy_title_laws = e_steward_gondor
+			e_steward_gondor = {
+				gain_title = ROOT
+				any_de_jure_vassal_title = {
+					set_defacto_liege = PREVPREV
+					de_jure_liege = PREVPREV
+				}
+				c_minas_tirith = {
+					gain_title = ROOT
+				}
+				activate_title = { status = no title = e_steward_gondor }
+				destroy_landed_title = THIS
+			}
+			d_fellowship_aragorn = {
+				activate_title = { status = no title = d_fellowship_aragorn }
+				destroy_landed_title = THIS
+			}
+			d_fellowship_army = {
+				activate_title = { status = no title = d_fellowship_army }
+				destroy_landed_title = THIS
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = e_isengard
+		}
+		e_isengard = {
+			holder_scope = {
+				any_war = {
+					end_war = reverse_demand
+				}
+			}
+			activate_title = { status = no title = e_isengard }
+			destroy_landed_title = THIS
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.3
+		trigger = {
+			has_landed_title = e_barad_dur
+		}
+		k_ringbearer = {
+			holder_scope = {
+				save_event_target_as = ringbearer
+			}
+		}
+		e_barad_dur = {
+			holder_scope = {
+				save_event_target_as = sauron
+				any_war = {
+					end_war = reverse_demand
+				}
+			}
+			activate_title = { status = no title = e_barad_dur }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = event_target:ringbearer
+			}
+		}
+	}
+}
+character_event = {	#Army of the Dead
+	id = mep_misc_events.31
+	title = EVTTTLmep_misc_events.31
+	desc = EVTDESCmep_misc_events.31
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		start_date = 11361.1.1
+		has_landed_title = d_fellowship_aragorn
+		has_global_flag = rohan_notthreatened
+		NOT = { has_global_flag = gondor_notthreatened }
+		e_steward_gondor = {
+			has_holder = yes
+			holder_scope = {
+				e_barad_dur = {
+					holder_scope = {
+						war_with = PREVPREV
+					}
+				}
+			}
+		}
+		d_fellowship_aragorn = {
+			NOT = { has_title_flag = dead_army }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.31
+		d_fellowship_aragorn = {
+			set_title_flag = dead_army
+		}
+	}
+}
+character_event = {	#Sting Transfer
+	id = mep_misc_events.41
+	title = EVTTTLmep_misc_events.41
+	desc = {
+		text = EVTDESCmep_misc_events.41frodo
+		trigger = { character = 8079 }
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.41sam
+		trigger = { character = 8140 }
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.41
+		trigger = {
+			NOR = {
+				character = 8079
+				character = 8140
+			}
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			character = 8079
+		}
+		random_character = {
+			limit = {
+				has_artifact = sting
+			}
+			any_artifact = {
+				limit = {
+					has_artifact_flag = aflag_sting
+				}
+				transfer_artifact = { from = PREV to = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			character = 8140
+		}
+		random_character = {
+			limit = {
+				has_artifact = sting
+			}
+			any_artifact = {
+				limit = {
+					has_artifact_flag = aflag_sting
+				}
+				transfer_artifact = { from = PREV to = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.41
+		trigger = {
+			NOR = {
+				character = 8079
+				character = 8140
+			}
+		}
+		add_artifact = sting
+	}
+}
+character_event = {	#Ring Transfer
+	id = mep_misc_events.42
+	title = EVTTTLmep_misc_events.42
+	desc = EVTDESCmep_misc_events.42
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.42
+		random_character = {
+			limit = {
+				has_artifact = artifact_ring
+			}
+			any_artifact = {
+				limit = {
+					has_artifact_flag = flag_the_one_ring
+				}
+				transfer_artifact = { from = PREV to = ROOT }
+			}
+		}
+	}
+}
+character_event = {	#Forge Anduril
+	id = mep_misc_events.43
+	title = EVTTTLmep_misc_events.43
+	desc = {
+		text = EVTDESCmep_misc_events.43aragorn
+		trigger = {
+			NOT = { character = 2038 }
+		}
+	}
+	desc = {
+		text = EVTDESCmep_misc_events.43
+		trigger = {
+			NOT = { character = 2038 }
+		}
+	}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		has_artifact = narsil_broken
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.43
+		trigger = {
+			character = 2038
+		}
+		destroy_artifact = narsil_broken
+		add_artifact = anduril
+	}
+
+	option = {
+		name = EVTOPTBmep_misc_events.43
+		trigger = {
+			NOT = { character = 2038 }
+		}
+		destroy_artifact = narsil_broken
+		add_artifact = anduril
+	}
+}
+province_event = {	#Return Land to Wilderness
+	id = mep_misc_events.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		culture = culture_wilderness
+		religion = religion_wilderness
+		county = {
+			holder_scope = {
+				save_event_target_as = death_target
+			}
+			create_character = {
+				random_traits = no
+				name = ""
+				dynasty = NONE
+				age = 1
+				culture = culture_wilderness
+				religion = religion_wilderness
+				trait = wilderness
+			}
+			new_character = {
+				grant_title_no_opinion = PREV
+			}
+		}
+	}
+	option = {
+		county = {
+			event_target:death_target = {
+				IF = {
+					limit = {
+						NOR = {
+							character = 10032
+							character = 10016
+						}
+					}
+					death = { death_reason = death_rabble }
+				}
+			}
+		}
+		duchy = {
+			IF = {
+				limit = {
+					holder_scope = { character = event_target:death_target }
+				}
+				destroy_landed_title = THIS
+			}
+		}
+		kingdom = {
+			IF = {
+				limit = {
+					holder_scope = { character = event_target:death_target }
+				}
+				destroy_landed_title = THIS
+			}
+		}
+	}
+}
+province_event = {	#Urukhai Province
+	id = mep_misc_events.51
+	title = EVTTTLmep_misc_events.51
+	desc = EVTDESCmep_misc_events.51
+	picture = GFX_evt_journeybegins
+
+	trigger = {
+		NOT = { religion = religion_orkish }
+		NOT = { culture = culture_urukhai }
+		kingdom = { title = k_fangorn }
+		empire = { title = e_isengard }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.51
+		religion = religion_orkish
+		culture = culture_urukhai
+	}
+}
+character_event = {	#Journey West
+	id = mep_misc_events.52
+	title = EVTTTLmep_misc_events.52
+	desc = EVTDESCmep_misc_events.52
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_character_flag = refused_journey }
+	}
+
+	immediate = {
+		any_demesne_title = {
+			limit = {
+				higher_tier_than = COUNT
+			}
+			destroy_landed_title = THIS
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.52
+		trigger = {
+			NOT = {
+				has_global_flag = last_war_darkness
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 5
+			}
+			modifier = {
+				factor = 2
+				e_reunited_kingdom = { has_holder = yes }
+			}
+			modifier = {
+				factor = 0
+				trait = trait_nooo
+			}
+		}
+		set_character_flag = refused_journey
+	}
+	option = {
+		name = EVTOPTBmep_misc_events.52
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.5
+				has_global_flag = rohan_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = gondor_notthreatened
+			}
+			modifier = {
+				factor = 0.5
+				liege = {
+					has_character_flag = refused_journey
+				}
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = rohan_conquered
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_global_flag = k_elves
+					has_global_flag = k_mirkwood
+				}
+			}
+			modifier = {
+				factor = 3
+				has_global_flag = gondor_conquered
+			}
+			modifier = {
+				factor = 1.5
+				is_ruler = no
+			}
+		}
+		IF = {
+			limit = {
+				is_ruler = yes
+			}
+			create_random_soldier = {
+				age = 30
+				culture = culture_woodsmen
+				religion = religion_edain
+			}
+			new_character = {
+				save_event_target_as = elf_heir
+			}
+			any_demesne_title = {
+				grant_title_no_opinion = event_target:elf_heir
+			}
+		}
+		death = {
+			death_reason = death_journey_west
+		}
+	}
+}
+character_event = {	#Ent Siege of Isengard
+	id = mep_misc_events.6
+	title = EVTTTLmep_misc_events.6
+	desc = EVTDESCmep_misc_events.6
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	trigger ={
+		NOT = {
+			has_global_flag = rohan_notthreatened
+		}
+		NOT = {
+			226 = {
+				has_province_modifier = mod_river_released
+			}
+		}
+		location = {
+			province = 226
+		}
+		culture = culture_entish
+		war = yes
+		has_landed_title = c_derndingle
+		k_rohan = {
+			holder_scope = {
+				war = yes
+			}
+		}
+	}
+
+	immediate = {
+		226 = {
+			add_province_modifier = { name = mod_river_released duration = -1 }
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.6
+	}
+}
+character_event = {	#Forces of Darkness Join War
+	id = mep_misc_events.7
+	title = EVTTTLmep_misc_events.7
+	desc = {
+		text = EVTDESCmep_misc_events.7isengard
+		trigger = {
+			FROM = { has_landed_title = e_isengard }
+		}
+	}
+	#desc = {
+	#	text = EVTDESCmep_misc_events.7mordor
+	#	trigger = {
+	#		FROM = { has_landed_title = e_barad_dur }
+	#	}
+	#}
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.7
+		trigger = {
+			FROM = { has_landed_title = e_isengard }
+		}
+		add_claim = k_elves
+		random_claim = {
+			limit = { title = k_elves }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+	}
+
+	#option = {
+	#	name = EVTOPTBmep_misc_events.7
+	#	trigger = {
+	#		FROM = { has_landed_title = e_barad_dur }
+	#	}
+	#	join_attacker_wars = FROM
+	#}
+}
+narrative_event = {	#Dwarven Women - Dwarf
+	id = mep_misc_events.8
+	title = EVTTTLmep_misc_events.8
+	desc = EVTDESCmep_misc_events.8
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		any_spouse = {
+			is_female = yes
+		}
+		culture_group = culture_group_dwarves
+		location = {
+			culture_group = culture_group_umanyar
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.8
+		hidden_effect = {
+			location = {
+				holder_scope = {
+					narrative_event = { id = mep_misc_events.81 }
+				}
+			}
+		}
+	}
+}
+narrative_event = {	#Dwarven Women - Elf
+	id = mep_misc_events.81
+	title = EVTTTLmep_misc_events.81
+	desc = {
+		text = EVTDESCAmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_umanyar
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_dwarves
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_umanyar
+		}
+		FROM = {
+			narrative_event = { id = mep_misc_events.81 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_misc_events.81
+		trigger = {
+			culture_group = culture_group_dwarves
+		}
+		FROM = {
+			narrative_event = { id = mep_misc_events.82 }
+		}
+	}
+}
+narrative_event = {	#Dwarven Women - Elf
+	id = mep_misc_events.82
+	title = EVTTTLmep_misc_events.82
+	desc = EVTDESCmep_misc_events.82
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_misc_events.82
+	}
+}
+character_event = {	#An Elf and a Dwarf, a Love Story
+	id = mep_misc_events.9
+	title = EVTTTLmep_misc_events.9
+	desc = EVTDESCmep_misc_events.9
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	trigger ={
+		OR = {
+			AND = {
+				character = ROOT
+				culture_group = culture_group_amanyar
+				any_defender = {
+					culture_group = culture_group_dwarves
+				}
+			}
+			AND = {
+				character = ROOT
+				culture_group = culture_group_dwarves
+				any_defender = {
+					culture_group = culture_group_amanyar
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_misc_events.9
+	}
+}

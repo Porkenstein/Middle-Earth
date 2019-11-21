@@ -1,0 +1,55 @@
+decisions = {
+	## Go to the tomb of Thorin Oakenshield ##
+	tomb_of_thorin = {
+		potential = {
+			ai = no
+			#ai cannot use dynasty decisions
+			has_landed_title = c_erebor
+			has_landed_title = d_erebor
+			culture_group = culture_group_dwarves
+			NOT = { has_character_flag = tombofthorin }
+			year = 11285
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+			age = 16
+			prestige = 350
+			piety = 150
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = erebor.1 }
+			}
+		}
+	}
+	## Try to find some Mithril in the deeps of the Moria ##
+	mine_moria_decision = {
+		is_high_prio = no
+		potential = {
+			ai = no
+			has_landed_title = c_moria
+			culture_group = culture_group_dwarves
+			NOT = { has_character_flag = mineinmoria }
+			NOT = { has_global_flag = moriaminesareclosed }
+			NOT = { year = 10324 }
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+			age = 16
+			wealth = 150
+			piety = 150
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = moria.0 }
+				set_character_flag = mineinmoria
+			}
+			wealth = -150
+			piety = -150
+		}
+	}
+}

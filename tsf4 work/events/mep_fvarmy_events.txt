@@ -1,0 +1,1512 @@
+namespace = mep_fvarmy_events
+##########################
+#	Thorin Events
+##########################
+narrative_event = {	#Thorin Meets Gandalf
+	id = mep_fvarmy_events.1
+	title = EVTTTLmep_fvarmy_events.1
+	desc = EVTDESCmep_fvarmy_events.1
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		start_date = 11275.1.1
+		NOT = { year = 11278 }
+		character = 4040
+		NOT = { has_landed_title = k_thorin_company }
+		has_game_rule = { name = wotr_lore  value = canon }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.1
+			c_4043 = {
+				save_event_target_as = thorin_heir
+			}
+			activate_title = { status = yes title = k_thorin_company }
+			k_thorin_company = {
+				gain_title = ROOT
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { title = k_thorin_company }
+				}
+				grant_title_no_opinion = event_target:thorin_heir
+			}
+			c_4044 = { move_character = ROOT }
+			c_4045 = { move_character = ROOT }
+			c_4046 = { move_character = ROOT }
+			c_4047 = { move_character = ROOT }
+			c_4048 = { move_character = ROOT }
+			c_4049 = { move_character = ROOT }
+			c_4052 = { move_character = ROOT }
+			c_4053 = { move_character = ROOT }
+			c_4054 = { move_character = ROOT }
+			c_4081 = { move_character = ROOT }
+			c_4085 = { move_character = ROOT }
+			c_4086 = { move_character = ROOT }
+			add_character_modifier = {
+				modifier = mod_landless_income
+				duration = -1
+				hidden = yes
+			}
+	}
+}
+narrative_event = {	#Bilbo Joins the Company
+	id = mep_fvarmy_events.11
+	title = EVTTTLmep_fvarmy_events.11
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.11
+		trigger = {
+			NOR = {
+				has_landed_title = k_thorin_company
+				has_landed_title = d_fellowship_gandalf 
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.11
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.11
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.11
+		trigger = {
+			NOR = {
+				has_landed_title = k_thorin_company
+				has_landed_title = d_fellowship_gandalf 
+			}
+		}
+		narrative_event = { id = mep_fvarmy_events.111 days = 7 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.111 days = 7 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.111 days = 7 }
+			}
+		}
+		hidden_effect = {
+			liege = {
+				save_event_target_as = thorin_liege
+			}
+			current_heir = {
+				save_event_target_as = thorin_heir
+			}
+			activate_title = { status = yes title = d_thorin_company }
+			d_thorin_company = {
+				gain_title = ROOT
+			}
+			any_demesne_title = {
+				limit = {
+					NOT = { title = d_thorin_company }
+				}
+				grant_title_no_opinion = event_target:thorin_heir
+			}
+			event_target:thorin_heir = {
+				set_defacto_liege = event_target:thorin_liege
+			}
+			add_character_modifier = {
+				modifier = mod_landless_income
+				duration = -1
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.11
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.11
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Encounter with the Trolls
+	id = mep_fvarmy_events.111
+	title = EVTTTLmep_fvarmy_events.111
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.112 days = 3 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.112 days = 3 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.112 days = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+		character_event = { id = mep_misc_events.41 }
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.111
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Events at Rivendell
+	id = mep_fvarmy_events.112
+	title = EVTTTLmep_fvarmy_events.112
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.112
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+		narrative_event = { id = mep_fvarmy_events.113 days = 1 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.113 days = 1 }
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.113 days = 1 }
+			}
+		}
+	}
+}
+narrative_event = {	#Goblin Town and Gollum
+	id = mep_fvarmy_events.113
+	title = EVTTTLmep_fvarmy_events.113
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.211 days = 1 }
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.113
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Orcs and Eagle Rescue
+	id = mep_fvarmy_events.114
+	title = EVTTTLmep_fvarmy_events.114
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	desc = {
+		text = EVTDESCDmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = k_gundabad
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		hidden_effect = {
+			k_gundabad = {
+				holder_scope = {
+					narrative_event = { id = mep_fvarmy_events.114 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+		narrative_event = { id = mep_fvarmy_events.115 days = 7 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.115 days = 7 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.115 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+			ai = no
+		}
+		narrative_event = { id = mep_fvarmy_events.10 days = 3 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.10 days = 3 }
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.10 days = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEmep_fvarmy_events.114
+		trigger = {
+			has_landed_title = k_gundabad
+		}
+	}
+}
+narrative_event = {	#Flee Orcs and Protection of Boern
+	id = mep_fvarmy_events.115
+	title = EVTTTLmep_fvarmy_events.115
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.116 days = 7 }
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.116 days = 7 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.116 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+		c_10033 = { add_friend = ROOT }
+		c_4040 = { add_friend = ROOT }
+		c_4044 = { add_friend = ROOT }
+		c_4045 = { add_friend = ROOT }
+		c_4046 = { add_friend = ROOT }
+		c_4047 = { add_friend = ROOT }
+		c_4048 = { add_friend = ROOT }
+		c_4049 = { add_friend = ROOT }
+		c_4052 = { add_friend = ROOT }
+		c_4053 = { add_friend = ROOT }
+		c_4054 = { add_friend = ROOT }
+		c_4081 = { add_friend = ROOT }
+		c_4085 = { add_friend = ROOT }
+		c_4086 = { add_friend = ROOT }
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.115
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Outskirts of Mirkwood
+	id = mep_fvarmy_events.116
+	title = EVTTTLmep_fvarmy_events.116
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.117 days = 7 }
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.117 days = 7 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.3 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.116
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Events of Mirkwood
+	id = mep_fvarmy_events.117
+	title = EVTTTLmep_fvarmy_events.117
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.118 days = 7 }
+		k_mirkwood = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.117 days = 1}
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.118 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.117
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+		FROM = {
+			imprison = ROOT
+		}
+	}
+}
+narrative_event = {	#Captured by Elves
+	id = mep_fvarmy_events.118
+	title = EVTTTLmep_fvarmy_events.118
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.119 days = 7 }
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.119 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+		FROM = {
+			prisoner = no
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.118
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+}
+narrative_event = {	#Flee Elves
+	id = mep_fvarmy_events.119
+	title = EVTTTLmep_fvarmy_events.119
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.12 days = 7 }
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.12 days = 7 }
+			}
+		}
+		c_esgaroth = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.12 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.119
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+}
+narrative_event = {	#Stay in Laketown
+	id = mep_fvarmy_events.12
+	title = EVTTTLmep_fvarmy_events.12
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = c_esgaroth
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		narrative_event = { id = mep_fvarmy_events.121 days = 7 }
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.121 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.12
+		trigger = {
+			has_landed_title = c_esgaroth
+		}
+	}
+}
+narrative_event = {	#Last Light
+	id = mep_fvarmy_events.121
+	title = EVTTTLmep_fvarmy_events.121
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.121
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.121
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.121
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.31 days = 7 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.121
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+}
+narrative_event = {	#Forification in Erebor, Elves and Men Arrive
+	id = mep_fvarmy_events.122
+	title = EVTTTLmep_fvarmy_events.122
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		c_erebor = {
+			gain_title = ROOT
+			location = {
+				religion = religion_khazad
+				culture = culture_longbeard
+			}
+			d_erebor = {
+				gain_title = ROOT
+				e_durins_folk = {
+					gain_title = ROOT
+					k_thorin_company = {
+						activate_title = { status = no title = k_thorin_company }
+						destroy_landed_title = THIS
+					}
+				}
+			}
+		}
+		k_dol_guldur = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.122
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+}
+narrative_event = {	#End of the War
+	id = mep_fvarmy_events.123
+	title = EVTTTLmep_fvarmy_events.123
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = e_durins_folk
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = e_durins_folk
+		}
+		c_4048 = {
+			death = {
+				death_reason = death_battle
+			}
+		}
+		c_4049 = {
+			death = {
+				death_reason = death_battle
+			}
+		}
+		c_4043 = {
+			save_event_target_as = thorin_heir
+		}
+		k_gundabad = {
+			holder_scope = {
+				death = {
+					death_reason = death_battle
+					killer = ROOT
+				}
+				ROOT = {
+					abdicate_to = event_target:thorin_heir
+					death = {
+						death_reason = death_battle
+						killer = PREV
+					}
+				}
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.123 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.123 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.123
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+}
+
+##########################
+#	Bilbo Events
+##########################
+narrative_event = {	#Knock at the Door
+	id = mep_fvarmy_events.2
+	title = EVTTTLmep_fvarmy_events.2
+	desc = EVTDESCmep_fvarmy_events.2
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		start_date = 11275.1.1
+		NOT = { year = 11278 }
+		character = 8065
+		NOT = { has_landed_title = d_thorin_company }
+		k_thorin_company = { has_holder = yes }
+		has_game_rule = { name = wotr_lore  value = canon }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.2
+		narrative_event = { id = mep_fvarmy_events.21 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.21 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.21 }
+			}
+		}
+	}
+}
+narrative_event = {	#Unexpected Party
+	id = mep_fvarmy_events.21
+	title = EVTTTLmep_fvarmy_events.21
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.21
+		trigger = {
+			NOR = {
+				has_landed_title = k_thorin_company
+				has_landed_title = d_fellowship_gandalf 
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.21
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.21
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.21
+		narrative_event = { id = mep_fvarmy_events.11 days = 1 }
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.11 days = 1 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.11 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.21
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.21
+		trigger = {
+			has_landed_title = d_fellowship_gandalf 
+		}
+	}
+}
+narrative_event = {	#Riddles in the Dark
+	id = mep_fvarmy_events.211
+	title = EVTTTLmep_fvarmy_events.211
+	desc = EVTDESCmep_fvarmy_events.211
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.211
+		character_event = { id = mep_misc_events.42 }
+		narrative_event = { id = mep_fvarmy_events.212 }
+	}
+}
+narrative_event = {	#Riddles in the Dark
+	id = mep_fvarmy_events.212
+	title = EVTTTLmep_fvarmy_events.212
+	desc = EVTDESCmep_fvarmy_events.212
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.212	#Correct Answer
+		hidden_effect = {
+			narrative_event = { id = mep_fvarmy_events.213 }
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.212
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.212
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fvarmy_events.212
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+}
+narrative_event = {	#Riddles in the Dark
+	id = mep_fvarmy_events.213
+	title = EVTTTLmep_fvarmy_events.213
+	desc = EVTDESCmep_fvarmy_events.213
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.213
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.213
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.213	#Correct Answer
+		hidden_effect = {
+			narrative_event = { id = mep_fvarmy_events.214 }
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fvarmy_events.213
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+}
+narrative_event = {	#Riddles in the Dark
+	id = mep_fvarmy_events.214
+	title = EVTTTLmep_fvarmy_events.214
+	desc = EVTDESCmep_fvarmy_events.214
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.214
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.214
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.214
+		trigger = { ai = no }
+		hidden_effect = {
+			any_player = {
+				narrative_event = { id = mep_flavor_events.13 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_fvarmy_events.214	#Correct Answer
+		hidden_effect = {
+			narrative_event = { id = mep_fvarmy_events.114 days = 1 }
+			k_thorin_company = {
+				holder_scope = {
+					narrative_event = { id = mep_fvarmy_events.114 days = 1 }
+				}
+			}
+			d_fellowship_gandalf = {
+				holder_scope = {
+					narrative_event = { id = mep_fvarmy_events.114 days = 1 }
+				}
+			}
+		}
+	}
+}
+
+#############
+#Gandalf Events
+#############
+narrative_event = {	#Council of Rivendell
+	id = mep_fvarmy_events.3
+	title = EVTTTLmep_fvarmy_events.3
+	desc = EVTDESCmep_fvarmy_events.3
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.3
+	}
+}
+narrative_event = {	#Battle of Dol Guldur 1
+	id = mep_fvarmy_events.31
+	title = EVTTTLmep_fvarmy_events.31
+	desc = EVTDESCmep_fvarmy_events.31
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.31
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.4 days = 1 }
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.4 days = 1 }
+			}
+		}
+	}
+}
+narrative_event = {	#Battle of Dol Guldur 1
+	id = mep_fvarmy_events.32
+	title = EVTTTLmep_fvarmy_events.32
+	desc = EVTDESCmep_fvarmy_events.32
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.32
+		k_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.122 days = 3 }
+			}
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.122 days = 3 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.122 days = 3 }
+			}
+		}
+	}
+}
+
+###############
+#Laketown Events
+############### 
+narrative_event = {	#Smaug's Death
+	id = mep_fvarmy_events.4
+	title = EVTTTLmep_fvarmy_events.4
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = c_esgaroth
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.32 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.4
+		trigger = {
+			has_landed_title = c_esgaroth
+		}
+		c_10068 = {
+			death = {
+				death_reason = death_battle
+			}
+		}
+	}
+}
+
+###############
+#Dol Guldur Events
+############### 
+narrative_event = {	#War on Erebor
+	id = mep_fvarmy_events.5
+	title = EVTTTLmep_fvarmy_events.5
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_dol_guldur
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCDmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+	desc = {
+		text = EVTDESCEmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+	}
+	desc = {
+		text = EVTDESCFmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_gundabad
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {
+			limit = {
+				has_landed_title = k_dol_guldur
+			}
+			k_dol_guldur = {
+				holder_scope = {
+					any_war = {
+						end_war = invalid
+					}
+				}
+			}
+			e_durins_folk = {
+				holder_scope = {
+					any_war = {
+						end_war = invalid
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_dol_guldur
+		}
+		add_claim = c_erebor
+		random_claim = {
+			limit = { title = c_erebor
+ }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		k_gundabad = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 days = 1 }
+			}
+		}
+		e_durins_folk = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = e_durins_folk
+		}
+		d_thorin_company = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 days = 1 }
+			}
+		}
+		d_fellowship_gandalf = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 days = 1 }
+			}
+		}
+		k_mirkwood = {
+			holder_scope = {
+				narrative_event = { id = mep_fvarmy_events.5 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+		join_defender_wars = FROM
+	}
+
+	option = {
+		name = EVTOPTDmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+		join_defender_wars = FROM
+	}
+
+	option = {
+		name = EVTOPTEmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_mirkwood
+		}
+		join_defender_wars = FROM
+	}
+
+	option = {
+		name = EVTOPTEmep_fvarmy_events.5
+		trigger = {
+			has_landed_title = k_gundabad
+		}
+		join_attacker_wars = FROM
+	}
+}
+narrative_event = {	#Fly, You Fools Ending
+	id = mep_fvarmy_events.10
+	title = EVTTTLmep_fvarmy_events.10
+	desc = {
+		text = EVTDESCAmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = c_esgaroth
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = k_thorin_company
+		}
+		c_erebor = {
+			gain_title = ROOT
+			d_erebor = {
+				gain_title = ROOT
+				e_durins_folk = {
+					gain_title = ROOT
+					k_thorin_company = {
+						activate_title = { status = no title = k_thorin_company }
+						destroy_landed_title = THIS
+					}
+				}
+			}
+		}
+		c_10068 = {
+			death = {
+				death_reason = death_battle
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = d_thorin_company
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_fvarmy_events.10
+		trigger = {
+			has_landed_title = d_fellowship_gandalf
+		}
+	}
+}

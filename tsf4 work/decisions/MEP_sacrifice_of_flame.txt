@@ -1,0 +1,35 @@
+decisions = {
+	#Sacrifice of the Flame#
+	sacrifice_of_flame = {
+		is_high_prio = no
+		potential = {
+			ai = no
+			has_landed_title = c_moria
+			prisoner = no
+			mep_orc_culture = yes
+			NOT = { has_character_flag = flamesacrificestarted }
+			NOT = { has_character_flag = flamesacrificedone }
+			NOT = { has_character_flag = sacrificedone }
+			NOT = { trait = worship_balrog }
+			any_realm_character = {
+				culture = culture_balrog
+				religion = religion_melkor
+				trait = balrog
+			}
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+			age = 16
+			mep_orc_culture = yes
+			any_demesne_title = { is_occupied = no }
+			any_courtier = { prisoner = yes }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = sacrificeflame.0 }
+			}
+		}
+	}
+}

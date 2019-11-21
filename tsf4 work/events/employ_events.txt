@@ -1,0 +1,731 @@
+namespace = employ_events
+character_event = {
+	id = employ_events.1
+	desc = EVTDESCemploy_events.1
+	picture = GFX_evt_market
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = master_craftsman
+						mep_is_good_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = master_crafter
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = skilled_craftsman
+						mep_is_good_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = skilled_crafter
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = adept_craftsman
+						mep_is_good_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = trained_crafter
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = master_craftsman
+						mep_is_evil_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = master_crafter
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = skilled_craftsman
+						mep_is_evil_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = skilled_crafter
+				}
+				random_character = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						trait = adept_craftsman
+						mep_is_evil_side_trigger = yes
+						is_alive = yes
+						NOT = {
+							employer = {
+								has_landed_title = e_valinor
+							}
+						}
+					}
+					save_event_target_as = trained_crafter
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAemploy_events.1
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+			event_target:master_crafter = {
+				is_alive = yes
+			}
+		}
+		wealth = -100
+		event_target:master_crafter = {
+			character_event = {
+				id = employ_events.11
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBemploy_events.1
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+			event_target:skilled_crafter = {
+				is_alive = yes
+			}
+		}
+		wealth = -50
+		event_target:skilled_crafter = {
+			character_event = {
+				id = employ_events.11
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCemploy_events.1
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+			event_target:trained_crafter = {
+				is_alive = yes
+			}
+		}
+		wealth = -25
+		event_target:trained_crafter = {
+			character_event = {
+				id = employ_events.11
+			}
+		}
+	}
+	option = {
+		name = EVTOPTDemploy_events.1
+		wealth = -10
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = master_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_dark_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = master_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = skilled_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_dark_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = skilled_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = skilled_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_dark_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = skilled_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			4 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = adept_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			4 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_dark_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = adept_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			4 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = adept_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			4 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_dark_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = adept_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			6 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = novice_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			6 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_noldor
+					religion = religion_dark_eldar
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = novice_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			6 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_good_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = novice_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			6 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						mep_is_evil_side_trigger = yes
+					}
+				}
+				create_random_steward = {
+					culture = culture_longbeard
+					religion = religion_dark_khazad
+					dynasty = random
+					female = no
+					random_traits = yes
+					trait = novice_craftsman
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = employ_events.11
+	desc = EVTDESCemploy_events.11
+	picture = GFX_evt_market
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				trait = master_craftsman
+			}
+			wealth = 100
+		}
+		if = {
+			limit = {
+				trait = skilled_craftsman
+			}
+			wealth = 50
+		}
+		if = {
+			limit = {
+				trait = adept_craftsman
+			}
+			wealth = 25
+		}
+	}
+
+	option = {
+		name = EVTOPTAemploy_events.11
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 100
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 200
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 300
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 400
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 500
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 600
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 700
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 800
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 900
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					prestige = 1000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 500
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 1000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 1500
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 2000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 2500
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 3000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 4000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 5000
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = {
+					dynastic_prestige = 10000
+				}
+			}
+		}
+		move_character = FROM
+		FROM = {
+			character_event = {
+				id = employ_events.12
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBemploy_events.11
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 100
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 200
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 300
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 400
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 500
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 600
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 700
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 800
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 900
+				}
+			}
+			modifier = {
+				factor = 2
+				employer = {
+					prestige = 1000
+				}
+			}
+		}
+		FROM = {
+			character_event = {
+				id = employ_events.12
+			}
+		}
+	}
+}
+character_event = {
+	id = employ_events.12
+	desc = EVTDESCemploy_events.12
+	picture = GFX_evt_market
+	is_triggered_only = yes
+
+
+	option = {
+		name = EVTOPTAemploy_events.12
+		trigger = {
+			FROM = {
+				employer = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBemploy_events.12
+		trigger = {
+			NOT = {
+				FROM = {
+					employer = {
+						character = ROOT
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,123 @@
+decisions = {
+	arm_the_peasants = {
+		potential = {
+			war = yes
+			NAND = {
+				has_earmarked_regiments = peasants_1
+				has_earmarked_regiments = peasants_2
+				has_earmarked_regiments = peasants_3
+			}
+		}
+		allow = {
+			is_primary_war_defender = yes
+			capital_scope = {
+				check_variable = {
+					which = sin_pop
+					value = 10000
+				}
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					has_earmarked_regiments = peasants_1
+					has_earmarked_regiments = peasants_2
+					NOT = {
+						has_earmarked_regiments = peasants_3
+					}
+				}
+				capital_scope = {
+					change_variable = {
+						which = sin_pop
+						value = -2000
+					}
+					holder_scope = {
+						spawn_unit = {
+							owner = THIS
+							province = PREV
+							leader = none
+							troops = {
+								light_infantry = { 1000 1000 }
+							}
+							attrition = 1.0
+							maintenance_multiplier = 0.1
+							earmark = peasants_3
+							merge = yes
+							disband_on_peace = yes
+						}
+					}
+				}
+			}
+			IF = {
+				limit = {
+					has_earmarked_regiments = peasants_1
+					NOT = {
+						has_earmarked_regiments = peasants_2
+					}
+				}
+				capital_scope = {
+					change_variable = {
+						which = sin_pop
+						value = -2000
+					}
+					holder_scope = {
+						spawn_unit = {
+							owner = THIS
+							province = PREV
+							leader = none
+							troops = {
+								light_infantry = { 1000 1000 }
+							}
+							attrition = 1.0
+							maintenance_multiplier = 0.1
+							earmark = peasants_2
+							merge = yes
+							disband_on_peace = yes
+						}
+					}
+				}
+			}
+			IF = {
+				limit = {
+					NOT = {
+						has_earmarked_regiments = peasants_1
+					}
+				}
+				capital_scope = {
+					add_province_modifier = {
+						modifier = mod_armed_peasants
+						duration = -1
+					}
+					change_variable = {
+						which = sin_pop
+						value = -2000
+					}
+					holder_scope = {
+						spawn_unit = {
+							owner = THIS
+							province = PREV
+							leader = none
+							troops = {
+								light_infantry = { 1000 1000 }
+							}
+							attrition = 1.0
+							maintenance_multiplier = 0.1
+							earmark = peasants_1
+							merge = yes
+							disband_on_peace = yes
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 10
+				any_war = {
+					war_score = -0.5
+				}
+			}
+		}
+	}
+}

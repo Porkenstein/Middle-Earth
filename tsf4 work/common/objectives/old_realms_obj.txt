@@ -1,0 +1,558 @@
+###################
+#Restore the Old Realms
+###################
+#Silvan Realm
+obj_claim_silvan = {
+	type = character
+	can_cancel = no
+
+	potential = {
+		is_adult = yes
+		is_playable = yes
+		is_landed = yes
+		independent = yes
+		higher_real_tier_than = BARON
+		prestige = 3000
+		OR = {
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_moriquendi
+			culture_group = culture_group_umanyar
+		}
+		NOT = {
+			e_silvan_elves = {
+				has_holder = yes
+			}
+		}
+		OR = {
+			has_landed_title = k_elves
+			has_landed_title = k_mirkwood
+			primary_title = {
+				lower_real_tier_than = KING
+				kingdom = {
+					OR = {
+						title = k_elves
+						title = k_mirkwood
+					}
+				}
+			}
+		}
+	}
+	allow = {
+		NOT = { trait = incapable }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			OR = {
+				k_elves = {
+					has_holder = no
+				}
+				k_mirkwood = {
+					has_holder = no
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		modifier = {
+			factor = 3
+			independent = yes
+		}
+		modifier = {
+			factor = 0.1
+			trait = craven
+		}
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.1
+			tier = COUNT
+		}
+	}
+	success = {
+		completely_controls = k_elves
+		completely_controls = k_mirkwood
+	}
+	abort = {
+		OR = {
+			e_silvan_elves = {
+				has_holder = yes
+				NOT = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
+			}
+			trait = incapable
+			NOT = {
+				is_playable = yes
+			}
+			NOT = {
+				is_landed = yes
+			}
+			NOT = {
+				independent = yes
+			}
+			NOR = {
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_moriquendi
+				culture_group = culture_group_umanyar
+			}
+		}
+	}
+	abort_effect = {
+		prestige = -200
+	}
+	effect = {
+		prestige = 1000
+		e_silvan_elves = {
+			activate_title = { status = yes title = e_silvan_elves }
+			ROOT = {
+				primary_title = {
+					copy_title_laws = e_silvan_elves
+				}
+			}
+			grant_title = ROOT
+			k_elves = {
+				de_jure_liege = e_silvan_elves
+			}
+			k_mirkwood = {
+				de_jure_liege = e_silvan_elves
+			}
+		}
+		any_demesne_title = {
+			limit = {
+				real_tier = EMPEROR
+				NOT = {
+					title = e_silvan_elves
+				}
+			}
+			destroy_landed_title = THIS
+		}
+		#Add Special Bloodline
+	}
+}
+
+#Anadune Realm
+obj_claim_anadune = {
+	type = character
+	can_cancel = no
+
+	potential = {
+		is_adult = yes
+		is_playable = yes
+		is_landed = yes
+		independent = yes
+		higher_real_tier_than = BARON
+		prestige = 3000
+		culture = culture_black_numenorean
+		NOT = {
+			e_anadune = {
+				has_holder = yes
+			}
+		}
+		OR = {
+			has_landed_title = k_akhor
+			has_landed_title = k_bellakar
+			has_landed_title = k_umbar
+			primary_title = {
+				lower_real_tier_than = KING
+				kingdom = {
+					OR = {
+						title = k_akhor
+						title = k_bellakar
+						title = k_umbar
+					}
+				}
+			}
+		}
+	}
+	allow = {
+		NOT = { trait = incapable }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			OR = {
+				k_akhor = {
+					has_holder = no
+				}
+				k_bellakar = {
+					has_holder = no
+				}
+				k_umbar = {
+					has_holder = no
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		modifier = {
+			factor = 3
+			independent = yes
+		}
+		modifier = {
+			factor = 0.1
+			trait = craven
+		}
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.1
+			tier = COUNT
+		}
+	}
+	success = {
+		completely_controls = k_akhor
+		completely_controls = k_bellakar
+		completely_controls = k_umbar
+	}
+	abort = {
+		OR = {
+			e_anadune = {
+				has_holder = yes
+				NOT = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
+			}
+			NOT = {
+				culture = culture_black_numenorean
+			}
+			trait = incapable
+			NOT = {
+				is_playable = yes
+			}
+			NOT = {
+				is_landed = yes
+			}
+			NOT = {
+				independent = yes
+			}
+		}
+	}
+	abort_effect = {
+		prestige = -200
+	}
+	effect = {
+		prestige = 1000
+		e_anadune = {
+			ROOT = {
+				primary_title = {
+					copy_title_laws = e_anadune
+				}
+			}
+			grant_title = ROOT
+		}
+		any_demesne_title = {
+			limit = {
+				real_tier = EMPEROR
+				NOT = {
+					title = e_anadune
+				}
+			}
+			destroy_landed_title = THIS
+		}
+		#Add Special Bloodline
+	}
+}
+
+#Arnor Realm
+obj_claim_arnor = {
+	type = character
+	can_cancel = no
+
+	potential = {
+		is_adult = yes
+		is_playable = yes
+		is_landed = yes
+		independent = yes
+		higher_real_tier_than = BARON
+		prestige = 3000
+		religion = religion_edain
+		NOT = {
+			e_arnor = {
+				has_holder = yes
+			}
+		}
+		OR = {
+			has_landed_title = k_arthedain
+			has_landed_title = k_cardolan
+			has_landed_title = k_rhudaur
+			primary_title = {
+				lower_real_tier_than = KING
+				kingdom = {
+					OR = {
+						title = k_arthedain
+						title = k_cardolan
+						title = k_rhudaur
+					}
+				}
+			}
+		}
+	}
+	allow = {
+		NOT = { trait = incapable }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			OR = {
+				k_arthedain = {
+					has_holder = no
+				}
+				k_cardolan = {
+					has_holder = no
+				}
+				k_rhudaur = {
+					has_holder = no
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		modifier = {
+			factor = 3
+			independent = yes
+		}
+		modifier = {
+			factor = 0.1
+			trait = craven
+		}
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.1
+			tier = COUNT
+		}
+	}
+	success = {
+		completely_controls = k_arthedain
+		completely_controls = k_cardolan
+		completely_controls = k_rhudaur
+	}
+	abort = {
+		OR = {
+			e_arnor = {
+				has_holder = yes
+				NOT = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
+			}
+			NOT = {
+				religion = religion_edain
+			}
+			trait = incapable
+			NOT = {
+				is_playable = yes
+			}
+			NOT = {
+				is_landed = yes
+			}
+			NOT = {
+				independent = yes
+			}
+		}
+	}
+	abort_effect = {
+		prestige = -200
+	}
+	effect = {
+		prestige = 1000
+		e_arnor = {
+			ROOT = {
+				primary_title = {
+					copy_title_laws = e_arnor
+				}
+			}
+			grant_title = ROOT
+		}
+		any_demesne_title = {
+			limit = {
+				real_tier = EMPEROR
+				NOT = {
+					title = e_arnor
+				}
+			}
+			destroy_landed_title = THIS
+		}
+		#Add Special Bloodline
+	}
+}
+
+#United Realm
+obj_claim_united = {
+	type = character
+	can_cancel = no
+
+	potential = {
+		is_adult = yes
+		is_playable = yes
+		is_landed = yes
+		independent = yes
+		higher_real_tier_than = BARON
+		prestige = 3000
+		religion = religion_edain
+		NOT = {
+			e_reunited_kingdom = {
+				has_holder = yes
+			}
+		}
+		OR = {
+			has_landed_title = e_arnor
+			has_landed_title = e_gondor
+			primary_title = {
+				lower_real_tier_than = EMPEROR
+				empire = {
+					OR = {
+						title = e_arnor
+						title = e_gondor
+					}
+				}
+			}
+		}
+	}
+	allow = {
+		NOT = { trait = incapable }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			OR = {
+				k_arthedain = {
+					has_holder = no
+				}
+				k_cardolan = {
+					has_holder = no
+				}
+				k_rhudaur = {
+					has_holder = no
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2
+			trait = brave
+		}
+		modifier = {
+			factor = 3
+			independent = yes
+		}
+		modifier = {
+			factor = 0.1
+			trait = craven
+		}
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.01
+			trait = slothful
+		}
+		modifier = {
+			factor = 0.1
+			tier = COUNT
+		}
+	}
+	success = {
+		completely_controls = e_arnor
+		completely_controls = e_gondor
+	}
+	abort = {
+		OR = {
+			e_reunited_kingdom = {
+				has_holder = yes
+				NOT = {
+					holder_scope = {
+						character = ROOT
+					}
+				}
+			}
+			NOT = {
+				religion = religion_edain
+			}
+			trait = incapable
+			NOT = {
+				is_playable = yes
+			}
+			NOT = {
+				is_landed = yes
+			}
+			NOT = {
+				independent = yes
+			}
+		}
+	}
+	abort_effect = {
+		prestige = -200
+	}
+	effect = {
+		prestige = 1000
+		e_reunited_kingdom = {
+			ROOT = {
+				primary_title = {
+					copy_title_laws = e_reunited_kingdom
+				}
+			}
+			grant_title = ROOT
+		}
+		any_demesne_title = {
+			limit = {
+				real_tier = EMPEROR
+				NOT = {
+					title = e_reunited_kingdom
+				}
+			}
+			destroy_landed_title = THIS
+		}
+		#Add Special Bloodline
+	}
+}

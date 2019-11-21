@@ -1,0 +1,265 @@
+obj_gain_profession = {
+	type = character
+	allow = {
+		NOT = {
+			has_profession_trigger = yes
+		}
+		OR = {
+
+			culture = culture_noldor
+
+			mep_is_elf_culture = yes
+
+			mep_is_good_numenorean_culture = yes
+
+			culture_group = culture_group_numenorean
+
+			culture_group = culture_group_halfling
+
+			culture_group = culture_group_middlemen
+
+			culture_group = culture_group_dwarves
+
+			culture_group = culture_group_easterling
+
+			culture_group = culture_group_southron
+
+			culture_group = culture_group_edain
+
+			culture_group = culture_group_forodwaith
+			culture_group = culture_group_haldadian
+
+			mep_orc_culture = yes
+
+		}
+	}
+	chance = {
+		factor = 30
+	}
+	creation_effect = {
+		character_event = {
+			id = profession_events.0
+		}
+	}
+	success = {
+		has_profession_trigger = yes
+	}
+	abort = {
+		trait = incapable
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_music = {
+	type = character
+	allow = {
+		is_musician_trigger = yes
+		NOT = { trait = master_musician }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 2
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			diplomacy = 10
+		}
+	}
+	success = {
+		trait = master_musician
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_musician_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_craft = {
+	type = character
+	allow = {
+		is_craftsman_trigger = yes
+		NOT = { trait = master_craftsman }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			stewardship = 10
+		}
+	}
+	success = {
+		trait = master_craftsman
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_craftsman_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_sorcery = {
+	type = character
+	allow = {
+		is_sorcerer_trigger = yes
+		NOT = { trait = master_sorcerer }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			intrigue = 10
+		}
+	}
+	success = {
+		trait = master_sorcerer
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_sorcerer_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_healing = {
+	type = character
+	allow = {
+		is_healer_trigger = yes
+		NOR = {
+			kings_hands_trigger = yes
+			trait = master_healer
+		}
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			diplomacy = 10
+		}
+	}
+	success = {
+		trait = master_healer
+	}
+	abort = {
+		OR = {
+			NOT = {
+				is_healer_trigger = yes
+			}
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_mastery_combat = {
+	type = character
+	allow = {
+		has_combat_prowess_trigger = yes
+		NOT = { trait = master_fighter }
+	}
+	chance = {
+		factor = 30
+		modifier = {
+			factor = 2
+			trait = duelist
+		}
+		modifier = {
+			factor = 3
+			trait = proud
+		}
+		modifier = {
+			factor = 2
+			martial = 10
+		}
+	}
+	success = {
+		trait = master_fighter
+	}
+	abort = {
+		trait = incapable
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}
+obj_change_profession = {
+	type = character
+	allow = {
+		has_profession_trigger = yes
+	}
+	chance = {
+		factor = 1
+	}
+	creation_effect = {
+		set_character_flag = change_profession
+		character_event = {
+			id = profession_events.3
+		}
+	}
+	success = {
+		NOT = {
+			has_character_flag = change_profession
+		}
+	}
+	abort = {
+		NOT = {
+			trait = incapable
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		prestige = 150
+	}
+}

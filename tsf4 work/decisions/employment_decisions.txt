@@ -1,0 +1,383 @@
+decisions = {
+	employ_chancellor = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = employment_timer }
+			wealth = 10
+		}
+		effect = {
+			wealth = -10
+			capital_scope = {
+				create_random_diplomat = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			add_character_modifier = {
+				name = employment_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	employ_marshal = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = employment_timer }
+			wealth = 10
+		}
+		effect = {
+			wealth = -10
+			capital_scope = {
+				create_random_soldier = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			add_character_modifier = {
+				name = employment_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	employ_steward = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = employment_timer }
+			wealth = 100
+		}
+		effect = {
+			wealth = -10
+			capital_scope = {
+				create_random_steward = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			add_character_modifier = {
+				name = employment_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	employ_spymaster = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
+		}
+		allow = {
+			NOT = { has_character_modifier = employment_timer }
+			wealth = 100
+		}
+		effect = {
+			wealth = -10
+			capital_scope = {
+				create_random_intriguer = {
+					random_traits = yes
+					dynasty = random
+					female = no
+					culture = PREV
+					religion = PREV
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+			add_character_modifier = {
+				name = employment_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	present_debutante = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			NOT = { religion_group = religion_group_melkor }
+			is_landed = yes
+		}
+		allow = {
+			wealth = 10
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			wealth = -10
+			prestige = 10
+			add_character_modifier = {
+				name = employment_timer
+				duration = 365
+				hidden = yes
+			}
+			capital_scope = {
+				create_character = {
+					random_traits = yes
+					dynasty = random
+					female = yes
+					age = 17
+					culture = PREV
+					religion = PREV
+				}
+				new_character = {
+					remove_trait = slow
+					remove_trait = imbecile
+					remove_trait = dull
+					character_event = {
+						id = racetrait.0
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	hire_craftsman = {
+		potential = {
+			higher_real_tier_than = BARON
+			NOT = { religion = religion_wilderness }
+			is_landed = yes
+		}
+		allow = {
+			NOT = {
+				any_courtier = {
+					is_craftsman_trigger = yes
+				}
+			}
+			wealth = 10
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			character_event = { id = employ_events.1 }
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.1
+			}
+		}
+	}
+
+	employ_court_physician = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		potential = {
+			is_ruler = yes
+			higher_real_tier_than = BARON
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+			}
+			NOT = {
+				any_courtier = {
+					has_minor_title = title_court_physician
+				}
+			}
+		}
+		allow = {
+			hidden_tooltip = {
+				OR = {
+					wealth = 25
+					ai = no
+				}
+			}
+			NOR = {
+				has_character_modifier = in_seclusion
+				any_courtier = {
+					has_minor_title = title_court_physician
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				create_random_priest = {
+					culture = PREV
+					religion = PREV
+					dynasty = culture
+					age = 35
+					random_traits = yes
+					female = no
+				}
+				new_character = {
+					character_event = {
+						id = racetrait.0
+					}
+					random_list = {
+						1 = {
+							change_learning = 5
+						}
+						3 = {
+							change_learning = 10
+						}
+						4 = {
+							change_learning = 15
+						}
+						1 = {
+							change_learning = 20
+						}
+						1 = {
+							change_learning = 5
+							add_trait = drunkard
+						}
+						1 = {
+							change_learning = 5
+							add_age = 25
+							add_trait = blinded
+						}
+					}
+					random_list = {
+						4 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_good_side_trigger = yes
+								}
+							}
+							add_trait = novice_healer
+						}
+						3 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_good_side_trigger = yes
+								}
+							}
+							add_trait = adept_healer
+						}
+						2 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_good_side_trigger = yes
+								}
+							}
+							add_trait = skilled_healer
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_good_side_trigger = yes
+								}
+							}
+							add_trait = master_healer
+						}
+						4 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_evil_side_trigger = yes
+								}
+							}
+							add_trait = novice_sorcerer
+						}
+						3 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_evil_side_trigger = yes
+								}
+							}
+							add_trait = adept_sorcerer
+						}
+						2 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_evil_side_trigger = yes
+								}
+							}
+							add_trait = skilled_sorcerer
+						}
+						1 = {
+							modifier = {
+								factor = 0
+								NOT = {
+									mep_is_evil_side_trigger = yes
+								}
+							}
+							add_trait = master_sorcerer
+						}
+					}
+					give_minor_title = title_court_physician
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 0.5
+				NOT = {
+					independent = yes
+				}
+			}
+			modifier = {
+				factor = 0.5
+				any_close_relative = {
+					any_courtier = {
+						has_minor_title = title_court_physician
+					}
+				}
+			}
+		}
+	}
+}

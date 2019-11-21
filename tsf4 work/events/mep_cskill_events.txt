@@ -1,0 +1,70 @@
+namespace = mep_cskill_events
+character_event = {#Combat Skills
+	id = mep_cskill_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			trait = novice_fighter
+			trait = adept_fighter
+			trait = skilled_fighter
+			NOT = { has_combat_prowess_trigger = yes }
+		}
+	}
+
+	immediate = {
+		random = {
+			chance = 100
+			modifier = {
+				factor = 0.01
+				trait = skilled_fighter
+			}
+			modifier = {
+				factor = 0.05
+				trait = adept_fighter
+			}
+			modifier = {
+				factor = 0.10
+				trait = novice_fighter
+			}
+			character_event = { id = mep_cskill_events.1 }
+		}
+	}
+}
+character_event = {#Improved Skill
+	id = mep_cskill_events.1
+	desc = EVTDESCmep_cskill_events.1
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {
+			limit = { trait = skilled_fighter }
+			remove_trait = skilled_fighter
+			add_trait = master_fighter
+		}
+		IF = {
+			limit = { trait = adept_fighter }
+			remove_trait = adept_fighter
+			add_trait = skilled_fighter
+		}
+		IF = {
+			limit = { trait = novice_fighter }
+			remove_trait = novice_fighter
+			add_trait = adept_fighter
+		}
+		IF = {
+			limit = { NOT = { has_combat_prowess_trigger = yes } }
+			random_list = {
+				1 = {
+					add_trait = novice_fighter
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_cskill_events.1
+	}
+}

@@ -1,0 +1,115 @@
+has_ring_trigger = {
+	has_artifact = artifact_ring
+}
+kings_hands_trigger = {
+	mep_is_good_side_trigger = yes
+	OR = {
+		has_landed_title = e_gondor
+		has_landed_title = e_arnor
+		has_landed_title = e_reunited_kingdom
+	}
+	OR = {
+		trait = blood_of_elros
+		trait = blood_of_valandil
+		trait = blood_of_elendil
+		trait = blood_of_isildur
+		trait = blood_of_anarion
+		trait = blood_of_telcontar
+	}
+}
+has_profession_trigger = {
+	OR = {
+		#Musician
+		trait = novice_musician
+		trait = adept_musician
+		trait = skilled_musician
+		trait = master_musician
+		#Soldier
+		trait = novice_fighter
+		trait = adept_fighter
+		trait = skilled_fighter
+		trait = master_fighter
+		#Craftsman
+		trait = novice_craftsman
+		trait = adept_craftsman
+		trait = skilled_craftsman
+		trait = master_craftsman
+		#Magic
+		trait = novice_sorcerer
+		trait = adept_sorcerer
+		trait = skilled_sorcerer
+		trait = master_sorcerer
+		#Healing
+		trait = novice_healer
+		trait = adept_healer
+		trait = skilled_healer
+		trait = master_healer
+	}
+}
+is_musician_trigger = {
+	OR = {
+		#Musician
+		trait = novice_musician
+		trait = adept_musician
+		trait = skilled_musician
+		trait = master_musician
+	}
+}
+is_craftsman_trigger = {
+	OR = {
+		#Craftsman
+		trait = novice_craftsman
+		trait = adept_craftsman
+		trait = skilled_craftsman
+		trait = master_craftsman
+	}
+}
+is_sorcerer_trigger = {
+	OR = {
+		#Magic
+		trait = novice_sorcerer
+		trait = adept_sorcerer
+		trait = skilled_sorcerer
+		trait = master_sorcerer
+	}
+}
+is_healer_trigger = {
+	OR = {
+		#Healing
+		trait = novice_healer
+		trait = adept_healer
+		trait = skilled_healer
+		trait = master_healer
+		kings_hands_trigger = yes
+	}
+}
+is_minor_illness = {
+	OR = {
+		trait = ill
+		trait = wounded
+	}
+}
+is_moderate_illness = {
+	OR = {
+		trait = sickly
+		trait = pneumonic
+		trait = maimed
+		trait = scarred
+	}
+}
+is_severe_illness = {
+	OR = {
+		trait = syphilitic
+		trait = infirm
+	}
+}
+is_deadly_illness = {
+	OR = {
+		trait = has_tuberculosis
+		trait = has_typhoid_fever
+		trait = has_typhus
+		trait = has_bubonic_plague
+		trait = leper
+		trait = incapable
+	}
+}

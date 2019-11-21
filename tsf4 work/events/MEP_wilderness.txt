@@ -1,0 +1,537 @@
+namespace = colonisation
+province_event = {	#Dead Province
+	id = colonisation.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		religion = religion_wilderness
+		if = {
+			limit = {
+				mep_is_mountain_trigger = yes
+			}
+			culture = culture_mountains
+		}
+		else = {
+			culture = culture_wilderness
+		}
+		add_province_modifier = {
+			modifier = pop_wilderness
+			duration = -1
+		}
+		create_character = {
+			name = " "
+			culture = ROOT
+			religion = ROOT
+			age = 1
+			trait = wilderness
+		}
+		new_character = {
+			save_event_target_as = wilds
+		}
+		ROOT = {
+			county = {
+				grant_title = event_target:wilds
+				event_target:wilds = {
+					set_defacto_liege = THIS
+				}
+			}
+		}
+	}
+}
+province_event = {	#Failed Colonization
+	id = colonisation.1
+	desc = EVTDESCcolonisation.1
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = being_colonised
+		check_variable = {
+			which = sin_pop
+			value <= 100
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	immediate = {
+		set_variable = {
+			which = sin_pop
+			value = -1
+		}
+		remove_province_modifier = being_colonised
+		religion = religion_wilderness
+		if = {
+			limit = {
+				mep_is_mountain_trigger = yes
+			}
+			culture = culture_mountains
+		}
+		else = {
+			culture = culture_wilderness
+		}
+		add_province_modifier = {
+			modifier = pop_wilderness
+			duration = -1
+		}
+		create_character = {
+			name = " "
+			culture = ROOT
+			religion = ROOT
+			age = 1
+			trait = wilderness
+		}
+		new_character = {
+			save_event_target_as = wilds
+		}
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.1
+		owner = {
+			prestige = -500
+		}
+		ROOT = {
+			county = {
+				grant_title = event_target:wilds
+				event_target:wilds = {
+					set_defacto_liege = THIS
+				}
+			}
+		}
+	}
+}
+province_event = {	#Successful Colonization
+	id = colonisation.2
+	desc = EVTDESCcolonisation.2
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = being_colonised
+		check_variable = {
+			which = sin_pop
+			value = 5000
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	immediate = {
+		remove_province_modifier = being_colonised
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.1
+		owner = {
+			prestige = 100
+		}
+	}
+}
+#Colony Flavor Events
+#Good Events
+province_event = {	#New Opportunities Population Boom
+	id = colonisation.3
+	desc = EVTDESCcolonisation.3
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = being_colonised
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.3
+		multiply_variable = {
+			which = sin_pop
+			value = 1.05
+		}
+	}
+}
+#Bad Events
+province_event = {	#Raided
+	id = colonisation.4
+	hide_window = yes
+
+	trigger = {
+		has_province_modifier = being_colonised
+		OR = {
+			AND = {
+				mep_is_good_side_trigger = yes
+				any_neighbor_province = {
+					mep_is_evil_side_trigger = yes
+				}
+			}
+			AND = {
+				mep_is_evil_side_trigger = yes
+				any_neighbor_province = {
+					mep_is_good_side_trigger = yes
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 20
+	}
+
+	immediate = {
+		owner = {
+			character_event = {
+				id = colonisation.41
+			}
+		}
+	}
+}
+character_event = {	#Successful Colonization
+	id = colonisation.41
+	desc = {
+		text = EVTDESCAcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_good_side_trigger = yes
+			}
+			has_character_flag = raid_minor
+		}
+	}
+	desc = {
+		text = EVTDESCBcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_good_side_trigger = yes
+			}
+			has_character_flag = raid_moderate
+		}
+	}
+	desc = {
+		text = EVTDESCCcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_good_side_trigger = yes
+			}
+			has_character_flag = raid_severe
+		}
+	}
+	desc = {
+		text = EVTDESCDcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_evil_side_trigger = yes
+			}
+			has_character_flag = raid_minor
+		}
+	}
+	desc = {
+		text = EVTDESCEcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_evil_side_trigger = yes
+			}
+			has_character_flag = raid_moderate
+		}
+	}
+	desc = {
+		text = EVTDESCFcolonisation.41
+		trigger = {
+			FROM = {
+				mep_is_evil_side_trigger = yes
+			}
+			has_character_flag = raid_severe
+		}
+	}
+	picture = GFX_evt_ruins
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				set_character_flag = raid_minor
+			}
+			1 = {
+				set_character_flag = raid_moderate
+			}
+			1 = {
+				set_character_flag = raid_severe
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.41
+		IF = {
+			limit = {
+				has_character_flag = raid_minor
+			}
+			FROM = {
+				multiply_variable = {
+					which = sin_pop
+					value = 0.99
+				}
+			}
+		}
+		IF = {
+			limit = {
+				has_character_flag = raid_moderate
+			}
+			FROM = {
+				multiply_variable = {
+					which = sin_pop
+					value = 0.95
+				}
+			}
+		}
+		IF = {
+			limit = {
+				has_character_flag = raid_severe
+			}
+			FROM = {
+				multiply_variable = {
+					which = sin_pop
+					value = 0.9
+				}
+			}
+		}
+		clr_character_flag = raid_minor
+		clr_character_flag = raid_moderate
+		clr_character_flag = raid_severe
+	}
+}
+character_event = {	#Start the Slaughter
+	id = colonisation.5
+	desc = EVTDESCcolonisation.5
+	picture = GFX_evt_ruins
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAcolonisation.5
+		any_realm_province = {
+			limit = {
+				OR = {
+					AND = {
+						mep_is_good_side_trigger = yes
+						ROOT = {
+							OR = {
+								mep_is_evil_side_trigger = yes
+								religion_group = religion_group_ungoliant
+							}
+						}
+					}
+					AND = {
+						OR = {
+							mep_is_evil_side_trigger = yes
+							religion_group = religion_group_ungoliant
+						}
+						ROOT = {
+							mep_is_good_side_trigger = yes
+						}
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = clearing_province
+				duration = -1
+			}
+		}
+	}
+}
+character_event = {	#Lower Population, 10% Yearly
+	id = colonisation.51
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		any_demesne_province = {
+			has_province_modifier = clearing_province
+		}
+	}
+
+	immediate = {
+		any_demesne_province = {
+			limit = {
+				has_province_modifier = clearing_province
+			}
+			random_list = {
+				1 = {
+					multiply_variable = {
+						which = sin_pop
+						value = 0.9
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						owner = {
+							job_marshal = {
+								martial = 5
+							}
+						}
+					}
+					modifier = {
+						factor = 1.5
+						owner = {
+							job_marshal = {
+								martial = 7
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						owner = {
+							job_marshal = {
+								martial = 10
+							}
+						}
+					}
+					modifier = {
+						factor = 4
+						owner = {
+							job_marshal = {
+								martial = 15
+							}
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 0.75
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.25
+						owner = {
+							job_marshal = {
+								NOT = {
+									martial = 5
+								}
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 7
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 10
+							}
+						}
+					}
+					modifier = {
+						factor = 1.1
+						owner = {
+							job_marshal = {
+								martial = 12
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						owner = {
+							job_marshal = {
+								martial = 15
+							}
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 0.5
+					}
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = {
+						which = sin_pop
+						value < 100
+					}
+				}
+				province_event = {
+					id = colonisation.52
+				}
+			}
+		}
+	}
+}
+province_event = {	#Province Cleared
+	id = colonisation.52
+	desc = EVTDESCcolonisation.52
+	picture = GFX_evt_ruins
+	is_triggered_only = yes
+
+	immediate = {
+		owner = {
+			top_liege = {
+				capital_scope = {
+					save_event_target_as = owner
+				}
+			}
+		}
+		set_variable = {
+			which = sin_pop
+			value = 1000
+		}
+		culture = event_target:owner
+		religion = event_target:owner
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.52
+		remove_province_modifier = clearing_province
+	}
+}
+character_event = {	#Stop Genocide
+	id = colonisation.6
+	desc = EVTDESCcolonisation.6
+	picture = GFX_evt_ruins
+	is_triggered_only = yes
+
+	trigger = {
+		any_realm_province = {
+			OR = {
+				culture = ROOT
+				religion = ROOT
+			}
+			has_province_modifier = clearing_province
+		}
+		OR = {
+			AND = {
+				mep_is_good_side_trigger = yes
+				FROMFROM = {
+					mep_is_evil_side_trigger = yes
+				}
+			}
+			AND = {
+				mep_is_evil_side_trigger = yes
+				FROMFROM = {
+					mep_is_good_side_trigger = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAcolonisation.6
+		any_realm_province = {
+			limit = {
+				has_province_modifier = clearing_province
+				OR = {
+					culture = ROOT
+					religion = ROOT
+				}
+			}
+			remove_province_modifier = clearing_province
+		}
+	}
+}

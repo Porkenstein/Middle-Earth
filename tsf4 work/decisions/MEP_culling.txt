@@ -1,0 +1,161 @@
+targetted_decisions = {
+	MEP_cull = {
+		filter = self
+		ai_target_filter = self
+		potential = {
+			ai = yes
+			NOT = {
+				is_ruler = yes
+			}
+			OR = {
+				culture = culture_maiar
+				culture = culture_umaiar
+				culture = culture_balrog
+				culture = culture_dragons
+			}
+			NOR = {
+				character = 10016
+				character = 10029
+				character = 10026
+				character = 10030
+				character = 10031
+				character = 10032
+				character = 10033
+				character = 10068
+			}
+		}
+		allow = {
+			ai = yes
+			NOT = {
+				is_ruler = yes
+			}
+			OR = {
+				culture = culture_maiar
+				culture = culture_umaiar
+				culture = culture_balrog
+				culture = culture_dragons
+			}
+			NOR = {
+				character = 10016
+				character = 10029
+				character = 10026
+				character = 10030
+				character = 10031
+				character = 10032
+				character = 10033
+				character = 10068
+			}
+		}
+		effect = {
+			employer = {
+				any_courtier = {
+					limit = {
+						NOT = {
+							is_ruler = yes
+						}
+						OR = {
+							culture = culture_maiar
+							culture = culture_umaiar
+							culture = culture_balrog
+							culture = culture_dragons
+						}
+						NOR = {
+							character = 10016
+							character = 10029
+							character = 10026
+							character = 10030
+							character = 10031
+							character = 10032
+							character = 10033
+							character = 10068
+						}
+					}
+					death = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	MEP_cull_convert = {
+		filter = self
+		ai_target_filter = self
+		potential = {
+			ai = yes
+			is_ruler = yes
+			real_tier = BARON
+			OR = {
+				culture = culture_maiar
+				culture = culture_umaiar
+				culture = culture_balrog
+				culture = culture_dragons
+			}
+			NOR = {
+				character = 10016
+				character = 10029
+				character = 10026
+				character = 10030
+				character = 10031
+				character = 10032
+				character = 10033
+				character = 10068
+			}
+		}
+		allow = {
+			ai = yes
+			is_ruler = yes
+			real_tier = BARON
+			OR = {
+				culture = culture_maiar
+				culture = culture_umaiar
+				culture = culture_balrog
+				culture = culture_dragons
+			}
+			NOR = {
+				character = 10016
+				character = 10029
+				character = 10026
+				character = 10030
+				character = 10031
+				character = 10032
+				character = 10033
+				character = 10068
+			}
+		}
+		effect = {
+			top_liege = {
+				capital_scope = {
+					save_event_target_as = culture
+				}
+				any_realm_lord = {
+					limit = {
+						is_ruler = yes
+						real_tier = BARON
+						OR = {
+							culture = culture_maiar
+							culture = culture_umaiar
+							culture = culture_balrog
+							culture = culture_dragons
+						}
+						NOR = {
+							character = 10016
+							character = 10029
+							character = 10026
+							character = 10030
+							character = 10031
+							character = 10032
+							character = 10033
+							character = 10068
+						}
+					}
+					culture = event_target:culture
+					religion = event_target:culture
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

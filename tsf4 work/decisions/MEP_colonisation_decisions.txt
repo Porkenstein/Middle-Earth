@@ -1,0 +1,242 @@
+decisions = {
+	clear_realm = {
+		potential = {
+			is_ruler = yes
+			war = no
+		}
+		allow = {
+			independent = yes
+			higher_real_tier_than = COUNT
+			any_realm_province = {
+				OR = {
+					AND = {
+						mep_is_good_side_trigger = yes
+						ROOT = {
+							OR = {
+								mep_is_evil_side_trigger = yes
+								religion_group = religion_group_ungoliant
+							}
+						}
+					}
+					AND = {
+						OR = {
+							mep_is_evil_side_trigger = yes
+							religion_group = religion_group_ungoliant
+						}
+						ROOT = {
+							mep_is_good_side_trigger = yes
+						}
+					}
+				}
+				NOR = {
+					has_province_modifier = being_colonised
+					has_province_modifier = clearing_province
+				}
+			}
+		}
+		effect = {
+			character_event = { id = colonisation.5 }
+		}
+		ai_will_do = {
+			factor = 0.01
+		}
+	}
+}
+title_decisions = {
+	start_colony = {
+		only_playable = yes
+		only_independent = yes
+		only_rulers = yes
+		filter = all
+		ai_target_filter = all
+		from_potential = {
+			is_ruler = yes
+			NOT = {
+				culture_group = culture_group_wilderness
+			}
+		}
+		potential = {
+			real_tier = COUNT
+			NOT = {
+				location = {
+					has_province_modifier = being_colonised
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = COLONIZERTP
+			FROM = {
+				OR = {
+					wealth = 500
+					AND = {
+						mep_is_evil_side_trigger = yes
+						wealth = 100
+					}
+				}
+				capital_scope = {
+					check_variable = {
+						which = sin_pop
+						value > 1500
+					}
+				}
+				higher_real_tier_than = COUNT
+				independent = yes
+			}
+			holder_scope = {
+				OR = {
+					AND = {
+						culture = culture_wilderness
+						FROM = {
+							NOR = {
+								culture_group = culture_group_dwarves
+								culture = culture_dragons
+							}
+						}
+					}
+					AND = {
+						FROM = {
+							mep_is_mountain_dweller_trigger = yes
+						}
+						culture = culture_mountains
+					}
+				}
+				OR = {
+					any_neighbor_independent_ruler = {
+						character = FROM
+						NOR = {
+							culture_group = culture_group_dwarves
+							culture = culture_dragons
+						}
+					}
+					FROM = {
+						OR = {
+							culture_group = culture_group_dwarves
+							culture = culture_dragons
+						}
+					}
+				}
+			}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				holder_scope = {
+					any_courtier = {
+						limit = {
+							religion_group = religion_group_wilderness
+						}
+						death = {
+							death_reason = death_execution
+						}
+					}
+					save_event_target_as = wilds
+				}
+			}
+			grant_title = FROM
+			hidden_tooltip = {
+				event_target:wilds = {
+					death = {
+						death_reason = death_execution
+					}
+				}
+			}
+			FROM = {
+				if = {
+					limit = {
+						mep_is_evil_side_trigger = yes
+					}
+					wealth = -100
+				}
+				else = {
+					wealth = -500
+				}
+				capital_scope = {
+					change_variable = {
+						which = sin_pop
+						value = -1000
+					}
+					save_event_target_as = capital
+					if = {
+						limit = {
+							NOT = {
+								culture = culture_wight
+							}
+						}
+						ROOT = {
+							location = {
+								culture = event_target:capital
+							}
+						}
+					}
+					if = {
+						limit = {
+							culture = culture_wight
+						}
+						ROOT = {
+							location = {
+								culture = culture_orkish
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								religion = religion_wight
+							}
+						}
+						ROOT = {
+							location = {
+								religion = event_target:capital
+							}
+						}
+					}
+					if = {
+						limit = {
+							religion = religion_wight
+						}
+						ROOT = {
+							location = {
+								religion = religion_orkish
+							}
+						}
+					}
+				}
+			}
+			location = {
+				add_province_modifier = {
+					modifier = being_colonised
+					duration = -1
+				}
+				set_variable = {
+					which = sin_pop
+					value = 1000
+				}
+				province_event = {
+					id = population_events.21
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 5
+				FROM = {
+					wealth = 500
+				}
+			}
+			modifier = {
+				factor = 5
+				FROM = {
+					wealth = 1000
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					wealth = 2000
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,188 @@
+decisions = {
+
+	# These decisions generally assume just using a Palantir is likely to make your personality worse
+	# But I'll generalize to more than 2 Palantir, and make Sauron immune.
+	looking_at_palantir = {
+		potential = {
+			ai = no
+			NOT = { event_target:mep_chartarget_sauron = { character = PREV } }
+			any_artifact = {
+				has_artifact_flag = flag_a_palantir
+				NOT = { has_artifact_flag = flag_palantir_elostirion }
+			}			
+			NOT = { has_character_flag = looked_at_palantir }
+			NOT = { has_character_flag = looked_at_palantir2 }
+			NOT = { has_global_flag = saurondefeated }
+			NOT = { has_character_flag = renounce_to_palantir }
+			NOT = { has_character_flag = palantir_locked }
+			year = 10345
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			age = 16
+			prestige = 300
+			piety = 200
+			NOT = { trait = incapable }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir_use.1 }
+			}
+			prestige = -300
+			piety = -200
+		}
+	}
+	looking_at_palantir2 = {
+		potential = {
+			ai = no
+			#ai cannot use dynasty decisions
+			NOT = { event_target:mep_chartarget_sauron = { character = PREV } }
+			any_artifact = {
+				has_artifact_flag = flag_a_palantir
+				NOT = { has_artifact_flag = flag_palantir_elostirion }
+			}
+			has_character_flag = looked_at_palantir
+			NOT = { has_character_flag = looked_at_palantir2 }
+			NOT = { has_global_flag = saurondefeated }
+			NOT = { has_character_flag = renounce_to_palantir }
+			NOT = { has_character_flag = palantir_locked }
+			year = 10345
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			age = 16
+			prestige = 300
+			piety = 200
+			NOT = { trait = incapable }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir_use.7 }
+			}
+			prestige = -300
+			piety = -200
+		}
+	}
+	looking_at_palantir3 = {
+		potential = {
+			ai = no
+			#ai cannot use dynasty decisions
+			NOT = { event_target:mep_chartarget_sauron = { character = PREV } }
+			any_artifact = {
+				has_artifact_flag = flag_a_palantir
+				NOT = { has_artifact_flag = flag_palantir_elostirion }
+			}
+			has_character_flag = looked_at_palantir2
+			NOT = { has_global_flag = saurondefeated }
+			NOT = { has_character_flag = renounce_to_palantir }
+			NOT = { has_character_flag = palantir_locked }
+			year = 10345
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			age = 16
+			prestige = 300
+			piety = 200
+			NOT = { trait = incapable }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir_use.8 }
+			}
+			prestige = -300
+			piety = -200
+		}
+	}
+	locked_the_palantir = {
+		potential = {
+			ai = no
+			#ai cannot use dynasty decisions
+			NOT = { event_target:mep_chartarget_sauron = { character = PREV } }
+			any_artifact = {
+				has_artifact_flag = flag_a_palantir
+				NOT = { has_artifact_flag = flag_palantir_elostirion }
+			}
+			has_character_flag = renounce_to_palantir
+			NOT = { has_global_flag = saurondefeated }
+			NOT = { has_character_flag = palantir_locked }
+			year = 10345
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			age = 16
+			prestige = 100
+			piety = 100
+			NOT = { trait = incapable }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir_use.9 }
+			}
+			prestige = -100
+			piety = -100
+		}
+	}
+	#### The Elves and the Numenoreans can visit the Palantir of Elostirion ####
+	visit_palantir_elostirion = {
+		potential = {
+			ai = no
+			NOT = { has_character_flag = visit_elostirion }
+			OR = {
+				mep_is_good_numenorean_culture = yes
+				religion = religion_eldar
+			}
+		}
+		allow = {
+			in_command = no
+			prisoner = no
+			NOT = { trait = incapable }
+			OR = {
+				religion = religion_eldar
+				AND = {
+					age = 70
+					mep_is_good_numenorean_culture = yes
+				}
+			}
+			prestige = 100
+			piety = 100
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir.7 }
+			}
+			prestige = -100
+			piety = -100
+		}
+	}
+	#### Palantiri use during wartime ####
+	use_palantir_war = {
+		is_high_prio = no
+		potential = {
+			ai = no
+			#ai cannot use dynasty decisions
+			any_artifact = {
+				has_artifact_flag = flag_a_palantir
+				NOT = { has_artifact_flag = flag_palantir_elostirion }
+			}
+			NOT = { has_character_flag = use_palantir_war }
+			NOT = { has_character_flag = palantir_locked }
+		}
+		allow = {
+			war = yes
+			prisoner = no
+			age = 16
+			prestige = 300
+			piety = 200
+			NOT = { trait = incapable }
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = palantir.53 }
+			}
+		}
+	}
+}

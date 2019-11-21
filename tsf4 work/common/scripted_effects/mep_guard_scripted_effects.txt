@@ -1,0 +1,24 @@
+destroy_guard_effect = {
+	if = {
+		limit = { 
+			has_guard_trigger = yes
+		}
+		any_realm_character = {
+			limit = {
+				has_opinion_modifier = { modifier = opinion_commander who = ROOT }
+			}
+			remove_opinion = { modifier = opinion_commander who = ROOT }
+			remove_trait = guardsman
+		}
+		remove_trait = guardsman
+		any_demesne_title = {
+			limit = {
+				title = d_gondor_guard
+			}
+			hidden_tooltip = {
+				activate_title = { status = no title = THIS }
+			}
+			destroy_landed_title = ROOT
+		}
+	}
+}

@@ -1,0 +1,403 @@
+#### Claim the Palantiri #####
+### The Anor-Stone ###	
+obj_claim_palantir_anor = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_anor }
+		has_landed_title = c_minas_tirith
+		NOT = { has_character_flag = obj_claim_palantir_anor }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_anor
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_minas_tirith }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_anor
+	}	
+}
+### The Amon Sûl-Stone ###
+obj_claim_palantir_sul = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_sul }
+		has_landed_title = c_weather_hills
+		NOT = { has_character_flag = obj_claim_palantir_sul }
+		NOT = { year = 10318 }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_sul
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_weather_hills }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_sul
+	}	
+}
+### The Ithil-Stone ###
+obj_claim_palantir_ithil = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_ithil }
+		has_landed_title = c_morgul
+		NOT = { has_character_flag = obj_claim_palantir_ithil }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_ithil
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_morgul }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_ithil
+	}	
+}
+### The Osgiliath-Stone ###
+obj_claim_palantir_osgiliath = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_osgiliath }
+		has_landed_title = c_east_osgiliath
+		NOT = { has_character_flag = obj_claim_palantir_osgiliath }
+		NOT = { year = 9780 }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_osgiliath
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_east_osgiliath }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_osgiliath
+	}	
+}
+### The Elendil-Stone ###
+obj_claim_palantir_elostirion = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_elostirion }
+		has_landed_title = c_towerhills
+		NOT = { has_character_flag = obj_claim_palantir_elostirion }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_elostirion
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_towerhills }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_elostirion
+	}	
+}
+### The Annuminas-Stone ###
+obj_claim_palantir_annuminas = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_annuminas }
+		has_landed_title = c_annuminas
+		NOT = { year = 10318 }
+		NOT = { has_character_flag = obj_claim_palantir_annuminas }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_annuminas
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_annuminas }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_annuminas
+	}	
+}
+### The Orthanc-Stone ###
+obj_claim_palantir_orthanc = {
+	type = character
+	allow = {
+		is_female = no
+		culture_group = culture_group_numenorean		
+		is_adult = yes
+		NOT = { has_artifact = artifact_palantir_orthanc }
+		has_landed_title = c_orthanc
+		NOT = { has_character_flag = obj_claim_palantir_orthanc }
+	}
+	chance = {
+		factor = 100
+		modifier = {
+			factor = 2
+			trait = honorable
+		}
+		modifier = {
+			factor = 0.5
+			is_female = yes
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = proud
+		}
+		modifier = {
+			factor = 2.0
+			trait = strong
+		}
+		modifier = {
+			factor = 2.0
+			trait = duelist
+		}
+	}
+	success = {
+		has_artifact = artifact_palantir_orthanc
+	}
+	abort = {
+		OR = {
+			has_character_flag = abort_obj
+			trait = incapable
+			NOT = { has_landed_title = c_orthanc }
+		}
+	}
+	abort_effect = {
+		clr_character_flag = abort_obj
+		clr_character_flag = obj_check
+	}
+	effect = {
+		prestige = 10
+		set_character_flag = obj_claim_palantir_orthanc
+	}	
+}

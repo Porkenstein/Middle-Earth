@@ -1,0 +1,166 @@
+#  some MEP stuff to include in 00_scripted_triggers (and elsewhere)
+
+mep_is_good_side_trigger = {
+	religion_group = religion_group_eruhini
+}
+
+mep_is_evil_side_trigger = {
+	OR = {
+		religion_group = religion_group_melkor
+		religion_group = religion_group_ungoliant
+	}
+}
+
+mep_infertile_trait = {
+	OR = {
+		trait = marriedforever
+		trait = wight
+		trait = nazgul
+		trait = spiritform
+		trait = wilderness
+	}			
+}
+
+mep_inaccessible_traits = {
+	OR = {
+		trait = at_east
+		trait = sailed_west
+		trait = journey_to_valinor
+	}
+}
+
+mep_has_important_trait = {
+	OR = {
+		# In Middle-Earth, being immortal is not necessarily important...
+		AND = {
+			immortal = yes
+			NOT = { trait = wilderness }
+			NOT = { trait = elf }
+			NOT = { trait = ent }
+			NOT = { trait = spider }
+			NOT = { trait = wight }
+			NOT = { trait = eagle }
+		}
+		# other important MEP traits
+		trait = balrog
+		trait = blood_of_isildur
+		trait = blood_of_anarion
+		trait = half_elf
+		trait = valar
+		trait = enigma
+		trait = maiar
+		trait = nazgul
+		religion = religion_dragons
+		religion = religion_corrupted_dragons
+		religion = religion_melkor
+		trait = white_council
+		trait = onering
+		trait = master_healer
+		trait = master_craftsman
+		trait = master_musician
+		has_artifact = narya
+		has_artifact = nenya
+		has_artifact = vilya
+		trait = master_fighter
+		trait = master_sorcerer
+		trait = horse_master
+	}
+}
+
+has_education_trigger = {
+	OR = {
+		trait = naive_appeaser
+		trait = underhanded_rogue
+		trait = charismatic_negotiator
+		trait = grey_eminence
+		trait = misguided_warrior
+		trait = tough_soldier
+		trait = skilled_tactician
+		trait = brilliant_strategist
+		trait = indulgent_wastrel
+		trait = thrifty_clerk
+		trait = fortune_builder
+		trait = midas_touched
+		trait = amateurish_plotter
+		trait = flamboyant_schemer
+		trait = intricate_webweaver
+		trait = elusive_shadow
+		trait = detached_priest
+		trait = martial_cleric
+		trait = scholarly_theologian
+		trait = mastermind_theologian
+	}
+}
+
+mep_interesting_face_trigger = {
+	OR = {
+		trait = spider
+		trait = nazgul
+		trait = wight
+	}
+}
+
+mep_vrich_city_building = {
+	OR = {
+		# MEP corresponding buildings
+	}
+}
+
+mep_attraction_compatible_root = {
+	OR = {
+		# humans, elves, hobbits, and the like
+		AND = {
+			OR = {
+				religion = religion_edain
+				religion = religion_hildor
+				religion = religion_perian
+				religion = religion_dark_perian
+				religion = religion_eldar
+				religion = religion_dark_eldar
+				trait = valar
+				trait = enigma
+				trait = maiar
+			}
+			ROOT = {
+				OR = {
+					religion = religion_edain
+					religion = religion_hildor
+					religion = religion_perian
+					religion = religion_dark_perian
+					religion = religion_eldar
+					religion = religion_dark_eldar
+					trait = valar
+					trait = enigma
+					trait = maiar
+				}
+			}
+		}
+		# Orcs and Goblins
+		AND = {
+			OR = {
+				religion = religion_orkish
+				religion = religion_corrupted_orkish
+			}
+			ROOT = {
+				OR = {
+					religion = religion_orkish
+					religion = religion_corrupted_orkish
+				}
+			}
+		}
+		# Others
+		religion_group = ROOT
+	}
+}
+
+mep_is_adult = {
+	is_adult = yes
+	NOT = { trait = elf_childhood }
+}
+
+mep_is_child = {
+	OR = {
+		is_adult = no
+		trait = elf_childhood
+	}
+}

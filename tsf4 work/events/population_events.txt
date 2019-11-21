@@ -1,0 +1,5036 @@
+namespace = population_events
+character_event = {
+	id = population_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = c_minas_tirith
+	}
+
+	immediate = {
+		any_province = {
+			limit = {
+				is_land = yes
+				county = {
+					has_holder = yes
+				}
+				NOT = {
+					has_province_modifier = mod_pop_display
+				}
+			}
+			province_event = {
+				id = population_events.1
+			}
+		}
+	}
+}
+province_event = {	#Establish Base Populations
+	id = population_events.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_land = yes
+		county = {
+			has_holder = yes
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_province_modifier = mod_pop_display
+				}
+			}
+			add_province_modifier = {
+				modifier = mod_pop_display
+				duration = -1
+			}
+			random_list = {
+				1 = {	#1/X Chance of this Section Firing
+					modifier = {#The Chance of this firing for the province is times 0 if the province is NOT in the wilderness Culture Group
+						factor = 0
+						NOT = {
+							culture_group = culture_group_wilderness
+						}
+					}
+					set_variable = {#Population is set to -1 'cause CK2
+						which = sin_pop
+						value = -1
+					}
+				}
+				############################
+				#Standard Gondor population#
+				############################
+				#Anorien
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Anorien Region but not Minas Tirith or Annunimas
+						factor = 10000
+						region = custom_anorien
+						NOR = {
+							province_id = 422 #Minas Tirith
+							province_id = 1 #Pelennor
+							province_id = 427 #East Osgiliath
+							province_id = 428 #West Osgiliath
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 6000 #
+					}
+				}
+				#Lebennin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Lebennin Region but not Pelargir
+						factor = 10000
+						region = custom_lebennin
+						NOT = {
+							province_id = 18 #Pelargir
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 10000 #Lebennin is the most populated area in Gondor
+					}
+				}
+				#Belfalas
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Belfalas Region, but not Dol Amroth
+						factor = 10000
+						region = custom_belfalas
+						NOR = {
+							province_id = 656 #Dol Amroth
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 5000 #Belfalas is moderately dense populated
+					}
+				}
+				#Ithilien
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the 
+						factor = 10000
+						region = custom_ithilien
+						culture_group = culture_group_numenorean
+						NOR = {
+						    province_id = 51 #Henneth Annun, the secret pool and hideout of the Rangers
+							province_id = 426 #Minas Ithil
+							year = 10345 #Fall of Minas Ithil
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 2000
+					}
+				}
+				#Ithilien after it's fall
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the 
+						factor = 10000
+						region = custom_ithilien
+						year = 10345 #Fall of Minas Ithil
+						culture = culture_orkish
+						NOR = {
+						    province_id = 51 #Henneth Annun, the secret pool and hideout of the Rangers
+							province_id = 426 #Minas Ithil
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 20000
+					}
+				}
+				#Harondor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Harondor Region
+						factor = 10000
+						region = custom_harondor
+						
+						NOT = {
+							year = 10345 #Fall of Minas Ithil
+						}
+					}
+					set_variable = {#Harondor in the South of Gondor
+						which = sin_pop
+						value = 3000
+					}
+				}
+				#Andrast
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Gondor Region but not Minas Tirith or Annunimas
+						factor = 10000
+						region = custom_andrast
+					}
+					set_variable = {#The peninsula of Andrast at the Western tip of Gondor is barely inhabitated
+						which = sin_pop
+						value = 500
+					}
+				}
+				#The coast of Anfalas
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Anfalas region
+						factor = 10000
+						region = custom_anfalas
+					}
+					set_variable = {#Population in the West of Gondor is scarce and stretched thin over a vast territory
+						which = sin_pop
+						value = 1500
+					}
+				}
+				#The fiefdom of Pinnath Gelin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Pinnath Gelin Region
+						factor = 10000
+						region = custom_pinnath_gelin
+					}
+					set_variable = {#Population in the West of Gondor is scarce and stretched thin over a vast territory
+						which = sin_pop
+						value = 1000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Lebennin Region but not Pelargir
+						factor = 10000
+						region = custom_lamedon
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 6000 #Lamedon
+					}
+				}
+				#major population centres
+				#Minas Tirith, the White City
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Tirith
+					    factor = 10000
+						AND = { 
+						    province_id = 422 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 250000
+					}
+				}
+				#Fields of Pelennor (yes it is actually populated)
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelennor
+					    factor = 10000
+						AND = { 
+						    province_id = 1
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Population of Pelennor
+					    which = sin_pop
+						value = 75000
+					}
+				}
+				#Cair Andros
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Garrison of Cair Andros
+					    factor = 10000
+						AND = { 
+						    province_id = 1
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Garrison of Cair Anros
+					    which = sin_pop
+						value = 7000
+					}
+				}
+				#Pelargir
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelargir
+					    factor = 10000
+						AND = { 
+						    province_id = 18
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={#Population of Pelargir
+					    which = sin_pop
+						value = 800000
+					}
+				}
+				#Dol Amroth
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 656 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 100000
+					}
+				}
+				#Linhir
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Linhir adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 656 
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 4000
+					}
+				}
+				#Dol Amroth
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth
+					    factor = 10000
+						AND = { 
+						    province_id = 656 #Dol Amroth
+							NOT = { 
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 100000
+					}
+				}
+				#Henneth Annun, the Forbidden Pool
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth
+					    factor = 10000
+						AND = { 
+						    province_id = 51 #Henneth Annun
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 4600
+					}
+				}
+				#Minas Ithil before it's fall
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Ithil
+					    factor = 10000
+						AND = {
+						    province_id = 426 #Minas Ithil
+						    culture_group = culture_group_numenorean
+							NOT = {
+						    year = 10345
+						    }
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 37000
+					}
+				}
+				#Minas Morgul
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Morgul
+					    factor = 10000
+						AND = {
+						    province_id = 426 #Minas Morgul
+							culture_group = culture_group_melkor
+							year = 10345
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 15000
+					}
+				}
+				###Osgiliath
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10000
+						AND = { 
+						    province_id = 427
+							year = 9980
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 125000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before the Great Plague
+					    factor = 10000
+						AND = { 
+						    province_id = 427
+							NOT = {
+							    year = 9980 #8344 began the Third Age
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 280000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10000
+						AND = { 
+						    province_id = 428
+							year = 9980 #Great Plague
+							NOT = {
+							    year = 11361
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 125000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before the Great Plague
+					    factor = 10000
+						AND = { 
+						    province_id = 428
+							NOT = {
+							    year = 9980 #8344 began the Third Age
+							}
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 280000
+					}
+				}
+				##############################################
+				#Gondor population during the War of the Ring#
+				##############################################
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Minas Tirith adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 422 
+							year = 11361
+						}
+					}
+					set_variable ={#Population that is not evacuated to Lebennin
+					    which = sin_pop
+						value = 125000
+					}
+				}
+				#Fields of Pelennor (yes it is actually populated)
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelennor
+					    factor = 10000
+						AND = { 
+						    province_id = 1
+							year = 11361
+						}
+					}
+					set_variable ={#Population of Pelennor
+					    which = sin_pop
+						value = 25000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Pelargir adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 18
+							year = 11361
+						}
+					}
+					set_variable ={#Population of Pelargir together with the refugees from Minas Tirith
+					    which = sin_pop
+						value = 925000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 100000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Linhir adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 3000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of Dol Amroth adjusted to the startdate of the War of the Ring
+					    factor = 10000
+						AND = { 
+						    province_id = 656 
+							year = 11361
+						}
+					}
+					set_variable ={#Population that is not evacuated to Lebennin
+					    which = sin_pop
+						value = 100000
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of East Osgiliath before Gondor's retreat from it
+					    factor = 10000
+						AND = { 
+						    province_id = 427
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 200
+					}
+				}
+				1 = {
+				    modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+					    factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#Population of West Osgiliath before Gondor's retreat from it
+					    factor = 10000
+						AND = { 
+						    province_id = 427
+							year = 11361
+						}
+					}
+					set_variable ={
+					    which = sin_pop
+						value = 1000
+					}
+				}
+				###################################
+				#       Harad and Anadune         #
+				###################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10000
+						region = world_south
+						NOR = {
+						    region = custom_bellakar
+							region = custom_umbar
+							region = custom_anadune
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 3000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Bellakar, South of Umbar
+						factor = 10000
+						region = custom_bellakar
+						NOR = {
+						    province_id = 519
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 5000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Umbar
+						factor = 10000
+						region = custom_umbar
+						NOR = {
+						    province_id = 430
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 6000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Anadune
+						factor = 10000
+						region = custom_anadune
+						NOR = {
+						    province_id = 430
+							region = custom_umbar
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 7000 #
+					}
+				}
+				#Umbar and the Capital of Bellakar
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the City of Umbar
+						factor = 10000
+						AND = {
+						    province_id = 430
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 400000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Anadune
+						factor = 10000
+						AND = {
+						    province_id = 519
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 75000 #
+					}
+				}
+				##########################################################
+				# East - Rhun, Wainriders, Khand, Avari, Eastern Dwarves #
+				##########################################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10000
+						region = world_east
+						NOR = {
+						    region = custom_khand
+						}
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 2000 #
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in the Southern World, like Harad or Anadune
+						factor = 10000
+						region = custom_khand
+					}
+					set_variable = {#Population value is set to 5, will be represented as value of Thousand in Game, e.g. 5 Thousand Inhabitants
+						which = sin_pop
+						value = 4000 #
+					}
+				}
+				###############
+				#   Mordor    #
+				###############
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Gorgoroth
+						factor = 10000
+						region = custom_gorgoroth
+						NOR = {
+						    province_id = 654 #Barad-Dur
+							province_id = 148 #Orodruin, commonly known as Mount Doom
+							province_id = 691 #Morannon, the Black Gate
+							province_id = 662 #he Fortress of Durthang
+							province_id = 149 #Cirith Ungol
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 40000 #Orcs
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Nurn
+						factor = 10000
+						region = custom_nurn
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 75000 #Human Slaves
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is in Nurn
+						factor = 25000
+						region = custom_nurn
+						culture = culture_orkish
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 10000 #Human Slaves
+					}
+				}
+				#Major military camps and Fortresses within Mordor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is Barad-Dur
+						factor = 10000
+						province_id = 654 #Barad-Dur
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 90000 #Administrative and logistic staff alongside military
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 154 #Orodruin
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 691 #Morannon, the Black Gate
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 10000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 662 #Durthang
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150000 #Second largest Fortress within Mordor, former abandoned Last Alliance hold to watch over Mordor
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 149 #Cirith Ungol
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 50000 
+					}
+				}
+				##############
+				#   Lindon   #
+				##############
+				
+				#Mithlond
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mithlond
+						NOR = {
+						    province_id = 657 #Mithlond, the Grey Havens
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 3000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mithlond
+						province_id = 657 #Mithlond, the Grey Havens
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5700
+					}
+				}
+				#Harlindon
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_harlindon
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1500
+					}
+				}
+				#Forlindon
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_forlindon
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1500
+					}
+				}
+
+				#######################
+				#                     #
+				#		Eriador       #
+				#                     #
+				#######################
+				
+				#################
+				#    Angmar     #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_angmar
+						NOR = {
+						    province_id = 624 #Carn Dum
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 4000
+					}
+				}
+				#Carn Dum, capital of Angmar
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 624
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 125000
+					}
+				}
+				###################
+				#    Forochel     #
+				###################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_forochel
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 625
+					}
+				}
+				##################################################################
+				#    Numeriador (to be changed, name is wrong and misleading)    #
+				##################################################################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_numeriador
+						NOR = {
+						    province_id = 687 #Towers of Elostirion
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 650
+					}
+				}
+				###################
+				#      Arnor      #
+				###################
+				
+				#Shire before the arrival of the Hobbits
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_tower_lands
+						NOT = {
+						    year = 10500 #before settlement of Hobbits
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_the_farthings
+						NOT = {
+						    year = 10500 #before settlement of Hobbits
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1000
+					}
+				}
+				#Shire after arrival of Hobbits
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_tower_lands
+						year = 10500 #after settlement of Hobbits
+						NOR = {
+						    province_id = 95 #Michel Delving
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 20000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_the_farthings
+						year = 10500 #after settlement of Hobbits
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 20000
+					}
+				}
+				###Arthedain
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_lands_of_evendim #Area around Lake Evendim
+						NOR = {
+						    province_id = 659 #Annuminas
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 625
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_emyn_fornrim
+						NOR = {
+						    province_id = 270 #Fornost
+							province_id = 269 #Amon Sul
+							province_id = 267 #Bree
+						    province_id = 266 #West Breeland
+							province_id = 265 #North Breeland
+							province_id = 264 #Not South Breeland actually
+							province_id = 104 #Tom Bombadil
+							province_id = 659 #Annuminas
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 250
+					}
+				}
+				#Dunedain Cities in Arnor before the invasion of the witch king
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 270 #Fornost
+						NOT = { 
+							year = 9204 #Abandonement of Annuminas
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 75000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 270 #Fornost
+						year = 9204
+						NOT = { 
+							year = 10318 #Destruction of Fornost
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 125000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 269 #Weatherhills
+						NOT = { 
+							year = 9752 #Siege of Amon Sul
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 25000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 267 #Breeland including the city of Bree with 1500 inhabitants
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 266 #Brandy Hills
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 250
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 265 #Combe
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 24 #Archet
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 104 #Old Forest
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 200 #Obligatory, Tom Bombadil and his wife, trees don't count as people
+					}
+				}
+				#After invasion of Witch King
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 270 #Fornost
+						year = 10318 #Destruction of Fornost, now known as Deadman's Dike
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 269 #Weatherhills
+						year = 9752 #Siege of Amon Sul
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				
+				
+				###Cardolan
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_minhiarath
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 625
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_south_downs
+						NOR = {
+						    province_id = 172 #Tharbad
+							culture_group = culture_group_halfling
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_south_downs
+						province_id = 97 #Buckland
+						culture_group = culture_group_halfling
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 40000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 172 #Tharbad
+						NOR = {
+						    year = 9752 #Invasion of Cardolan
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 30000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 172 #Tharbad
+						year = 9752 #Invasion of Cardolan
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 8000
+					}
+				}
+				###Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_trollshaws
+						culture_group = culture_group_forodwaith #Hillmen
+					    NOR = {
+						    province_id = 298 #Trollshaws
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_ettenmoors
+						culture_group = culture_group_forodwaith
+						NOR = {
+							province_id = 366
+							province_id = 371
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_trollshaws
+						province_id = 298 #Trollshaws
+						culture = culture_orkish
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_ettenmoors
+						OR = {
+							province_id = 366
+							province_id = 371
+						}
+						culture = culture_orkish
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				#former Capital of Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 307
+						year = 9752
+						culture_group = culture_group_numenorean
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 3500
+					}
+				}
+				#Overthrow of the Dunedain King of Rhudaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						province_id = 307
+					    year = 9752
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				### Vale of Isen
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_vales_isen
+						NOR = {
+							region = custom_isengard
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2500
+					}
+				}
+				###Southern Eriador
+				#Barren Coastlands
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_barren_coastlands
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 750
+					}
+				}
+				#Shores of the Gwathlo River
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_gwathlo_shores
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				###Eregion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_bruinen_greenlands
+						NOR = {
+						    region = custom_eregion
+							province_id = 290 #Ost-in-Edhil
+							year = 6599 #Destruction by Sauron
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1500
+					}
+				}
+				
+				#After invasion by Sauron in the 2nd Age
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_bruinen_greenlands
+						year = 6599 #Destruction by Sauron
+						NOR = {
+							region = custom_eregion
+							province_id = 290 #Ost-in-Edhil
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 200
+					}
+				}
+				
+				#Dunland
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_foothills
+						NOR = {
+							province_id = 290 #Ost-in-Edhil
+							province_id = 288 #West Eregion
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5000
+					}
+				}
+				#Enedwaith
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_wild_fenlands
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 500
+					}
+				}
+				#####################
+				#      Rohan        #
+				#####################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						year = 10853
+						NOR = {
+						    province_id = 114 #Aldburg
+							province_id = 122 #Helms Deep
+							province_id = 115 #Edoras
+							province_id = 117 #King Fold
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 4500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 115 #Edoras
+						year = 10853
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 13000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 122 #Helms Deep
+						year = 10853
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 4000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 114 #Aldburg
+						year = 10853
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 6000
+					}
+				}
+				#Rohan before it was settled by Eorl
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						NOR = {
+						    province_id = 114 #Aldburg
+							province_id = 122 #Helms Deep
+							province_id = 115 #Edoras
+							year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1000
+					}
+				}
+				#Helms Deep before foundation by Helm Hammerhand
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 122 #Helms Deep
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1200 #Small Gondorian Garrison manning the fort
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 115 #Edoras
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 9000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						province_id = 114 #Aldburg
+						NOR = {
+						    year = 10853
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rohan
+						year = 10853
+						province_id = 117 #King Fold
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 6700
+					}
+				}
+				#################
+				#    Fangorn    #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_fangorn
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1200
+					}
+				}
+				#################
+				#   Isengard    #
+				#################
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_isengard
+						NOT = {
+						    province_id = 225
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 15000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						NOR = {
+						    year = 11333 #Before arrival of Saruman
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						year = 11333 #After arrival of Saruman
+						NOR = {
+						    year = 11362
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 50000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_isengard
+						province_id = 225 #Isengard, the tower of Orthanc
+						year = 11362 #Ents destroy the Orthanc and are handed control over by High King Elessar II
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1200
+					}
+				}
+				###Druwaith Iaur
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_druwaith_iaur
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2400
+					}
+				}
+				###############################
+				#       Misty Mountains       #
+				###############################
+				
+				###Grey Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_grey_mountains
+						NOT = {
+						    year = 10932 #Invasion by Gundabad
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 4500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_grey_mountains
+						year = 10932 #Invasion by Gundabad
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 12300
+					}
+				}
+				###Misty Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_mountains
+						NOR = {
+							province_id = 285 #Moria
+							province_id = 802 #Eagles
+						    year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 9000
+					}
+				}
+				#Moria
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_mountains
+						province_id = 285 #Moria
+						NOR = {
+						    year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 240000
+					}
+				}
+				#After invasion by Goblins
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_mountains
+						year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+						NOR = {
+							province_id = 285 #Moria
+							province_id = 802 #Eagles
+						
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 124000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_mountains
+						province_id = 285 #Moria
+						year = 10324 #Destruction by a Balrog, followed by a invasion by Goblins
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 840000
+					}
+				}
+				###Eagles
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_misty_mountains
+						province_id = 802 #Eagles
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 800
+					}
+				}
+				###Erebor
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_erebor
+						NOR = {
+							year = 10342
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 126
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_erebor
+						year = 10342 #Dwarves move to The Lonely Mountain
+						NOT = { 
+						    year = 11113 #Smaug
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 132000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_erebor
+						year = 11113 #Smaug
+						NOT = {
+						    year = 11284 #resettled by Dwarves
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_erebor
+						year = 11284 #resettled by Dwarves
+
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 75000
+					}
+				}
+				###Gundabad
+				#Before Orc Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						NOR = {
+						    year = 9648 #Orc Invasion
+							province_id = 642 #Gundabad
+							province_id = 805 #Mount Gram
+							
+						}
+
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 3400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						province_id = 642 #Gundabad
+						NOR = {
+						    year = 9648 #Orc Invasion
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 170000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						province_id = 805 #Mount Gram
+						NOR = {
+						    year = 9648 #Orc Invasion
+						}
+
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 55000
+					}
+				}
+				#After Orc Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						year = 9648 #Orc Invasion
+						NOR = {
+							province_id = 642 #Gundabad
+							province_id = 805 #Mount Gram
+						}
+
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 33000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						province_id = 642 #Gundabad
+						year = 9648 #Orc Invasion
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 530000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_northern_misty_mountains
+						province_id = 805 #Mount Gram
+						year = 9648 #Orc Invasion
+
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 420000
+					}
+				}
+				###Iron Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_iron_mountains #Iron Hills, not Mountains
+						NOT = { 
+						    province_id = 572 #Azanulimbar-Dum
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 10400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_iron_mountains #Iron Hills, not Mountains
+						province_id = 572 #Azanulimbar-Dum
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 35000
+					}
+				}
+				###Blue Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_blue_mountains #Blue Mountains in the West
+						NOT = { 
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 11000
+					}
+				}
+				###East Mountains
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_east_mountains #East Mountains in the East 
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 11300
+					}
+				}
+				###Nurunkhizdin, in the South East
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_nurunkhizdin
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 22300
+					}
+				}
+				#Aglarond, Glittering Caves, South of Helms Deep
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_aglarond
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 100
+					}
+				}
+				###Isles
+				#Belegaer
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_western_isles
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				#Meneltarma
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_meneltarma
+						year = 8221
+						NOT = { 
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 100
+					}
+				}
+				###Eregion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_eregion
+						NOR = {
+						    region = custom_bruinen_greenlands
+						    year = 6599
+							province_id = 234 #Ost-in-Edhil
+							province_id = 290 #Rivendell
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 13500
+					}
+				}
+				#After Saurons Invasion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_eregion
+						year = 6599
+						NOR = {
+							province_id = 234 #Ost-in-Edhil
+							province_id = 290 #Rivendell
+					    }
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 100
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_eregion
+						province_id = 290 #Ost-in-Edhil
+						NOR = {
+						    year = 6599 #Destruction of Eregion
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 54000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_eregion
+						province_id = 290 #Ost-in-Edhil
+						year = 6599 #Destruction of Eregion
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 150
+					}
+				}
+				#Rivendell
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_eregion
+						province_id = 234 #Rivendell
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2500
+					}
+				}
+				#####################
+				#     Rhovanion     #
+				#####################
+				###Mirkwood
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5100
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture = culture_spider
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 3300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture = culture_orkish
+						NOR = {
+						    province_id = 323 #Thranduils Halls
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 142000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+						province_id = 323 #Thranduils Halls
+						NOR = {
+							province_id = 310 #Amon Lanc, also known as Dol Guldur
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 51000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture = culture_orkish
+					    province_id = 310 #Amon Lanc, also known as Dol Guldur
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 130000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture_group = culture_group_umanyar
+					    province_id = 310 #Amon Lanc, also known as Dol Guldur
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 11300
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_mirkwood
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5300
+					}
+				}
+				###Dale
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dale
+						culture_group = culture_group_middlemen
+						NOR = {
+						    province_id = 529 #Dale
+							province_id = 540 #Esgaroth, Lake Town
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 13000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dale
+						culture_group = culture_group_middlemen
+						province_id = 529 #Dale
+						NOR = { 
+						    year = 11361
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 59000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dale
+						culture_group = culture_group_middlemen
+						province_id = 529 #Dale
+						year = 11361
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 9400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dale
+						culture_group = culture_group_middlemen
+					    province_id = 540 #Esgaroth, Lake Town
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1500
+					}
+				}
+				###Dorwinion
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dorwinion
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 9400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dorwinion
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 22000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_dorwinion
+						culture_group = culture_group_umanyar
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 22000
+					}
+				}
+				###Rhovanion Kingdom
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rhovanion_kingdom
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 10400
+					}
+				}
+				
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rhovanion_kingdom
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 12500
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_rhovanion_kingdom
+						culture_group = culture_group_easterling
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 14000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_brownlands
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 5200
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_brownlands
+						culture_group = culture_group_easterling
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 6600
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_brownlands
+						culture_group = culture_group_melkor
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 15900
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_brownlands
+						culture_group = culture_group_quendi
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 6400
+					}
+				}
+				###Vale of Anduin
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_anduin_vale
+						culture_group = culture_group_middlemen
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 24000
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_brownlands
+						culture_group = culture_group_umanyar
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 1400
+					}
+				}
+				###Lorien, the Golden Woods
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_lorien
+						culture_group = culture_group_umanyar
+						NOT = {
+						    province_id = 235
+						}
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 2400
+					}
+				}
+				1 = {
+					modifier = {#The Chance of this firing for the province is times 0 if the province IS in the wilderness Culture Group
+						factor = 0
+						culture_group = culture_group_wilderness
+					}
+					modifier = {#The chance of this firing on this province is times 10 if it is
+						factor = 10000
+						region = custom_lorien
+						culture_group = culture_group_umanyar
+						province_id = 235
+					}
+					set_variable = {#Population
+						which = sin_pop
+						value = 27000
+					}
+				}
+			}
+			#This was done in order to geographical region, except Gondor
+		}
+		province_event = {
+			id = population_events.21
+		}
+	}
+}
+character_event = {
+	id = population_events.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_ruler = yes
+		NOT = {
+			religion = religion_wilderness
+		}
+		any_demesne_province = {
+			has_province_modifier = mod_pop_display
+			check_variable = {
+				which = sin_pop
+				value < 1500000
+			}
+		}
+	}
+
+	immediate = {
+		any_demesne_province = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value < 1500000
+				}
+			}
+			random_list = {
+				1 = {
+					multiply_variable = {
+						which = sin_pop
+						value = 0.98
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = sin_pop
+						value = 0.99
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = sin_pop
+						value = 1.01
+					}
+				}
+				1 = {
+					multiply_variable = {
+						which = sin_pop
+						value = 1.02
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						OR = {
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 1.03
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.1
+						NOR = {
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 1.04
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.05
+						NOR = {
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 1.05
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.01
+						NOR = {
+							culture = culture_orkish
+							culture = culture_spider
+						}
+					}
+					multiply_variable = {
+						which = sin_pop
+						value = 1.06
+					}
+				}
+			}
+			province_event = {
+				id = population_events.21
+			}
+		}
+	}
+}
+province_event = {
+	id = population_events.21
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		remove_province_modifier = pop_wilderness
+		remove_province_modifier = pop_0
+		remove_province_modifier = pop_1
+		remove_province_modifier = pop_2
+		remove_province_modifier = pop_3
+		remove_province_modifier = pop_4
+		remove_province_modifier = pop_5
+		remove_province_modifier = pop_10
+		remove_province_modifier = pop_20
+		remove_province_modifier = pop_30
+		remove_province_modifier = pop_40
+		remove_province_modifier = pop_50
+		remove_province_modifier = pop_60
+		remove_province_modifier = pop_70
+		remove_province_modifier = pop_80
+		remove_province_modifier = pop_90
+		remove_province_modifier = pop_100
+		remove_province_modifier = pop_150
+		remove_province_modifier = pop_200
+		remove_province_modifier = pop_250
+		remove_province_modifier = pop_300
+		remove_province_modifier = pop_350
+		remove_province_modifier = pop_400
+		remove_province_modifier = pop_450
+		remove_province_modifier = pop_500
+		remove_province_modifier = pop_600
+		remove_province_modifier = pop_700
+		remove_province_modifier = pop_800
+		remove_province_modifier = pop_900
+		remove_province_modifier = pop_1000
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value <= 100
+				}
+			}
+			set_variable = {
+				which = sin_pop
+				value = -1
+			}
+			add_province_modifier = {
+				modifier = pop_wilderness
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					remove_building = ca_recruit_post_1
+					remove_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					remove_building = ct_recruit_post_1
+					remove_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					remove_building = tb_recruit_post_1
+					remove_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						owner = {
+							culture_group = culture_group_wilderness
+						}
+					}
+				}
+				province_event = {
+					id = colonisation.0
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 100
+				}
+				check_variable = {
+					which = sin_pop
+					value < 1000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_0
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					remove_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					remove_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					remove_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 1000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 2000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_1
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					remove_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					remove_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					remove_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 2000
+				}
+				NOT = {
+					check_variable = {
+						which = sin_pop
+						value = 3000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_2
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					remove_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					remove_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					remove_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 3000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 4000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_3
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					remove_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					remove_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					remove_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 4000
+				}
+				NOT = {
+					check_variable = {
+						which = sin_pop
+						value = 5000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_4
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 5000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 10000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_5
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 10000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 20000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_10
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 20000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 30000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_20
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					remove_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					remove_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					remove_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 30000
+				}
+				NOT = {
+					check_variable = {
+						which = sin_pop
+						value = 40000
+					}
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_30
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 40000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 50000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_40
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 50000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 60000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_50
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 60000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 70000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_60
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					remove_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					remove_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					remove_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 70000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 80000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_70
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 80000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 90000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_80
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 90000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 100000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_90
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 100000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 150000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_100
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					remove_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					remove_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					remove_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 150000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 200000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_150
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 200000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 250000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_200
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 250000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 300000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_250
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 300000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 350000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_300
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					remove_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					remove_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					remove_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 350000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 400000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_350
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 400000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 450000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_400
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 450000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 500000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_450
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					remove_building = ca_recruit_post_7
+					remove_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					remove_building = ct_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					remove_building = tb_recruit_post_7
+					remove_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 500000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 600000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_500
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 600000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 700000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_600
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 700000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 800000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_700
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 800000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 900000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_800
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 900000
+				}
+				check_variable = {
+					which = sin_pop
+					value < 1000000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_900
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+			}
+		}
+		IF = {
+			limit = {
+				check_variable = {
+					which = sin_pop
+					value = 1000000
+				}
+			}
+			add_province_modifier = {
+				modifier = pop_1000
+				duration = -1
+			}
+			any_province_holding = {
+				if = {
+					limit = {
+						holding_type = castle
+					}
+					add_building = ca_recruit_post_1
+					add_building = ca_recruit_post_2
+					add_building = ca_recruit_post_3
+					add_building = ca_recruit_post_4
+					add_building = ca_recruit_post_5
+					add_building = ca_recruit_post_6
+					add_building = ca_recruit_post_7
+					add_building = ca_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = city
+					}
+					add_building = ct_recruit_post_1
+					add_building = ct_recruit_post_2
+					add_building = ct_recruit_post_3
+					add_building = ct_recruit_post_4
+					add_building = ct_recruit_post_5
+					add_building = ct_recruit_post_6
+					add_building = ct_recruit_post_7
+					add_building = ct_recruit_post_8
+				}
+				if = {
+					limit = {
+						holding_type = tribal
+					}
+					add_building = tb_recruit_post_1
+					add_building = tb_recruit_post_2
+					add_building = tb_recruit_post_3
+					add_building = tb_recruit_post_4
+					add_building = tb_recruit_post_5
+					add_building = tb_recruit_post_6
+					add_building = tb_recruit_post_7
+					add_building = tb_recruit_post_8
+				}
+			}
+		}
+	}
+}
+character_event = {
+	id = population_events.3
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			any_demesne_province = {
+				has_province_modifier = mod_armed_peasants
+			}
+			FROM = {
+				any_demesne_province = {
+					has_province_modifier = mod_armed_peasants
+				}
+			}
+		}
+	}
+
+	immediate = {
+		any_demesne_province = {
+			limit = {
+				has_province_modifier = mod_armed_peasants
+			}
+			random_list = {
+				1 = {
+					change_variable = {
+						which = sin_pop
+						value = 2000
+					}
+				}
+				1 = {
+					change_variable = {
+						which = sin_pop
+						value = 1000
+					}
+				}
+				1 = {
+					change_variable = {
+						which = sin_pop
+						value = 500
+					}
+				}
+			}
+			remove_province_modifier = mod_armed_peasants
+		}
+		FROM = {
+			any_demesne_province = {
+				limit = {
+					has_province_modifier = mod_armed_peasants
+				}
+				random_list = {
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 2000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 1000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 500
+						}
+					}
+				}
+				remove_province_modifier = mod_armed_peasants
+			}
+		}
+	}
+}
+character_event = {
+	id = population_events.411
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = {
+			war = yes
+		}
+		FROM = {
+			location = {
+				has_province_modifier = mod_armed_peasants
+			}
+		}
+	}
+
+	immediate = {
+		FROM = {
+			location = {
+				random_list = {
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 2000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 1000
+						}
+					}
+					1 = {
+						change_variable = {
+							which = sin_pop
+							value = 500
+						}
+					}
+				}
+				remove_province_modifier = mod_armed_peasants
+			}
+		}
+	}
+}
+#Population Flavor
+province_event = {	#Pop Growth
+	id = population_events.4
+	desc = EVTDESCpopulation_events.4
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		check_variable = {
+			which = sin_pop
+			value < 1500000
+		}
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 600
+		modifier = {	#Happens more for Colonies
+			factor = 0.1
+			has_province_modifier = being_colonised
+		}
+		modifier = {	#Happens more for Rapid Breeders
+			factor = 0.65
+			OR = {
+				culture = culture_orkish
+				culture = culture_spider
+			}
+		}
+	}
+
+	option = {	#10% increase in population
+		name = EVTOPTApopulation_events.4
+		multiply_variable = {
+			which = sin_pop
+			value = 1.1
+		}
+	}
+}
+province_event = {	#Food Surplus
+	id = population_events.41
+	desc = EVTDESCpopulation_events.41
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {	#Collect a Bonus Tax
+		name = EVTOPTApopulation_events.41
+		owner = {
+			wealth = 100
+		}
+	}
+
+	option = {	#Donate it to the Poor
+		name = EVTOPTBpopulation_events.41
+		owner = {
+			prestige = 100
+		}
+	}
+
+	option = {	#Let them Keep it
+		name = EVTOPTCpopulation_events.41
+		trigger = {
+			check_variable = {
+				which = sin_pop
+				value < 1500000
+			}
+		}
+		multiply_variable = {
+			which = sin_pop
+			value = 1.05
+		}
+	}
+}
+province_event = {	#Pop Decline
+	id = population_events.5
+	desc = EVTDESCpopulation_events.5
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 600
+		modifier = {	#Rapid Breeders More likely to Crash
+			factor = 0.65
+			OR = {
+				culture = culture_orkish
+				culture = culture_spider
+			}
+		}
+	}
+
+	option = {	#10% decrease in population
+		name = EVTOPTApopulation_events.5
+		multiply_variable = {
+			which = sin_pop
+			value = 0.9
+		}
+	}
+}
+province_event = {	#Food Shortage
+	id = population_events.51
+	desc = EVTDESCpopulation_events.51
+	picture = GFX_evt_ruins
+
+	trigger = {
+		has_province_modifier = mod_pop_display
+		NOT = {
+			has_province_modifier = pop_wilderness
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {	#Pay for a Grain Shipment
+		name = EVTOPTApopulation_events.51
+		owner = {
+			wealth = -100
+		}
+	}
+
+	option = {	#Ask for aid from a Vassal
+		name = EVTOPTBpopulation_events.51
+		owner = {
+			prestige = -100
+		}
+	}
+
+	option = {	#Sucks for you
+		name = EVTOPTCpopulation_events.51
+		multiply_variable = {
+			which = sin_pop
+			value = 0.90
+		}
+	}
+}

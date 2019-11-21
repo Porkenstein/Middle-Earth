@@ -1,0 +1,47 @@
+decisions = {
+	deck_the_halls = {
+		is_high_prio = yes
+		potential = {
+			real_month_of_year = 11
+			month = 11
+			is_ruler = yes
+			independent = yes
+			OR = {
+				NOT = {
+					has_character_flag = deck_the_halls
+				}
+				had_character_flag = {
+					flag = deck_the_halls
+					years = 5
+				}
+			}
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+			wealth = 100
+		}
+		effect = {
+			IF = {
+				limit = {
+					has_character_flag = deck_the_halls
+				}
+				clr_character_flag = deck_the_halls
+			}
+			set_character_flag = deck_the_halls
+			character_event = { id = deck_halls_events.1 }
+			hidden_effect = {
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					wealth = 100
+				}
+			}
+		}
+	}
+}

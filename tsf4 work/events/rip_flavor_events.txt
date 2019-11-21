@@ -1,0 +1,45 @@
+###########################################
+#                                         #
+# RIP Flavor Events		           		  #
+# ID RIP.4010 - RIP.4499                  #
+# ID RIP.29000 -
+#                                         #
+###########################################
+
+#Court physician events written by Alexander Oltner & Mathilda Bjarnehed
+#Mourning events written by Mathilda Bjarnehed
+#Maimed events written by Mathilda Bjarnehed
+#Child reaction events written by Mathilda Bjarnehed
+#Suicide events written by Mathilda Bjarnehed
+#Chess with death events written by Mathilda Bjarnehed
+
+namespace = RIP
+
+###################################################################
+# Vassals appreciate when the liege builds stuff in their Holdings
+# Fired from 'on_holding_building_start'
+###################################################################
+letter_event = {
+	id = RIP.30100
+	
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { FROM = { holder_scope = { character = ROOT } } }
+			}
+			FROM = {
+				holder_scope = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_built_building
+						years = 5
+					}
+				}
+			}
+		}
+	}
+}

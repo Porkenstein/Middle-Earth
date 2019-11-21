@@ -1,0 +1,38 @@
+###############
+#Trait Triggers
+###############
+has_combat_prowess_trigger = {
+	OR = {
+		trait = novice_fighter
+		trait = adept_fighter
+		trait = skilled_fighter
+		trait = master_fighter
+	}
+}
+giftable_trigger = {
+	NOR = {
+		has_inheritance_blocker = yes
+		is_priest = yes
+	}
+	OR = {
+		is_primary_heir = yes
+		is_ruler = yes
+	}
+}
+
+###############
+#Title Triggers
+###############
+has_guard_trigger = {
+	has_landed_title = d_gondor_guard
+}
+has_full_guard_trigger = {
+	has_landed_title = d_gondor_guard
+	guardsman = {
+		has_opinion_modifier = { modifier = opinion_commander who = ROOT }
+		count = 5
+	}
+}
+is_guard_trigger = {
+	trait = guardsman
+}

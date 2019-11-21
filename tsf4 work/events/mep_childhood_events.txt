@@ -1,0 +1,1547 @@
+namespace = mep_childhood_events
+character_event = {	#Childhood Gain Traits
+	id = mep_childhood_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = {
+			personality_traits = 5
+		}
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = lustful
+						trait = chaste
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.1
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = gluttonous
+						trait = temperate
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.2
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = greedy
+						trait = charitable
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.3
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = slothful
+						trait = diligent
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.4
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = envious
+						trait = kind
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.5
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = wroth
+						trait = patient
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.6
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = proud
+						trait = humble
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.7
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = deceitful
+						trait = honest
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.8
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = brave
+						trait = craven
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.9
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = shy
+						trait = gregarious
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.10
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = ambitious
+						trait = content
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.12
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = arbitrary
+						trait = just
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.13
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = cynical
+						trait = zealous
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.14
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = paranoid
+						trait = trusting
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.15
+				}
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						trait = ruthless
+						trait = honorable
+					}
+				}
+				character_event = {
+					id = mep_childhood_events.16
+				}
+			}
+		}
+	}
+}
+character_event = {	#Lustful or Chaste
+	id = mep_childhood_events.1
+	desc = EVTDESCmep_childhood_events.1
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = lustful
+			trait = chaste
+		}
+	}
+
+	option = {	#Gain Lustful
+		name = EVTOPTAmep_childhood_events.1
+		add_trait = lustful
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.11
+			}
+		}
+	}
+
+	option = {	#Gain Chaste
+		name = EVTOPTBmep_childhood_events.1
+		add_trait = chaste
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.11
+			}
+		}
+	}
+}
+character_event = {	#Ward - Lustful or Chaste
+	id = mep_childhood_events.11
+	desc = {
+		text = EVTDESCAmep_childhood_events.11
+		trigger = {
+			FROM = {
+				trait = lustful
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.11
+		trigger = {
+			FROM = {
+				trait = chaste
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.11
+	}
+
+	option = {	#Lustful Change
+		name = EVTOPTBmep_childhood_events.11
+		trigger = {
+			FROM = {
+				trait = lustful
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = lustful
+				add_trait = chaste
+			}
+		}
+	}
+
+	option = {	#Chaste Change
+		name = EVTOPTCmep_childhood_events.11
+		trigger = {
+			FROM = {
+				trait = chaste
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = chaste
+				add_trait = lustful
+			}
+		}
+	}
+}
+character_event = {	#Gluttonous or Temperate
+	id = mep_childhood_events.2
+	desc = EVTDESCmep_childhood_events.2
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = gluttonous
+			trait = temperate
+		}
+	}
+
+	option = {	#Gain Gluttonous
+		name = EVTOPTAmep_childhood_events.2
+		add_trait = gluttonous
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.21
+			}
+		}
+	}
+
+	option = {	#Gain Temperate
+		name = EVTOPTBmep_childhood_events.2
+		add_trait = temperate
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.21
+			}
+		}
+	}
+}
+character_event = {	#Ward - Gluttonous or Temperate
+	id = mep_childhood_events.21
+	desc = {
+		text = EVTDESCAmep_childhood_events.21
+		trigger = {
+			FROM = {
+				trait = gluttonous
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.21
+		trigger = {
+			FROM = {
+				trait = temperate
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.21
+	}
+
+	option = {	#Gluttonous Change
+		name = EVTOPTBmep_childhood_events.21
+		trigger = {
+			FROM = {
+				trait = gluttonous
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = gluttonous
+				add_trait = temperate
+			}
+		}
+	}
+
+	option = {	#Temperate Change
+		name = EVTOPTCmep_childhood_events.21
+		trigger = {
+			FROM = {
+				trait = temperate
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = temperate
+				add_trait = gluttonous
+			}
+		}
+	}
+}
+character_event = {	#Greedy or Charitable
+	id = mep_childhood_events.3
+	desc = EVTDESCmep_childhood_events.3
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = greedy
+			trait = charitable
+		}
+	}
+
+	option = {	#Gain Greedy
+		name = EVTOPTAmep_childhood_events.3
+		add_trait = greedy
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.31
+			}
+		}
+	}
+
+	option = {	#Gain Charitable
+		name = EVTOPTBmep_childhood_events.3
+		add_trait = charitable
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.31
+			}
+		}
+	}
+}
+character_event = {	#Ward - Greedy or Charitable
+	id = mep_childhood_events.31
+	desc = {
+		text = EVTDESCAmep_childhood_events.31
+		trigger = {
+			FROM = {
+				trait = greedy
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.31
+		trigger = {
+			FROM = {
+				trait = charitable
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.31
+	}
+
+	option = {	#Greedy Change
+		name = EVTOPTBmep_childhood_events.31
+		trigger = {
+			FROM = {
+				trait = greedy
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = greedy
+				add_trait = charitable
+			}
+		}
+	}
+
+	option = {	#Charitable Change
+		name = EVTOPTCmep_childhood_events.31
+		trigger = {
+			FROM = {
+				trait = charitable
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = charitable
+				add_trait = greedy
+			}
+		}
+	}
+}
+character_event = {	#slothful or Diligent
+	id = mep_childhood_events.4
+	desc = EVTDESCmep_childhood_events.4
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = slothful
+			trait = diligent
+		}
+	}
+
+	option = {	#Gain slothful
+		name = EVTOPTAmep_childhood_events.4
+		add_trait = slothful
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.41
+			}
+		}
+	}
+
+	option = {	#Gain diligent
+		name = EVTOPTBmep_childhood_events.4
+		add_trait = diligent
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.41
+			}
+		}
+	}
+}
+character_event = {	#Ward - slothful or diligent
+	id = mep_childhood_events.41
+	desc = {
+		text = EVTDESCAmep_childhood_events.41
+		trigger = {
+			FROM = {
+				trait = slothful
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.41
+		trigger = {
+			FROM = {
+				trait = diligent
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.41
+	}
+
+	option = {	#slothful Change
+		name = EVTOPTBmep_childhood_events.41
+		trigger = {
+			FROM = {
+				trait = slothful
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = slothful
+				add_trait = diligent
+			}
+		}
+	}
+
+	option = {	#diligent Change
+		name = EVTOPTCmep_childhood_events.41
+		trigger = {
+			FROM = {
+				trait = diligent
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = diligent
+				add_trait = slothful
+			}
+		}
+	}
+}
+character_event = {	#envious or kind
+	id = mep_childhood_events.5
+	desc = EVTDESCmep_childhood_events.5
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = envious
+			trait = kind
+		}
+	}
+
+	option = {	#Gain envious
+		name = EVTOPTAmep_childhood_events.5
+		add_trait = envious
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.51
+			}
+		}
+	}
+
+	option = {	#Gain kind
+		name = EVTOPTBmep_childhood_events.5
+		add_trait = kind
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.51
+			}
+		}
+	}
+}
+character_event = {	#Ward - envious or kind
+	id = mep_childhood_events.51
+	desc = {
+		text = EVTDESCAmep_childhood_events.51
+		trigger = {
+			FROM = {
+				trait = envious
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.51
+		trigger = {
+			FROM = {
+				trait = kind
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.51
+	}
+
+	option = {	#envious Change
+		name = EVTOPTBmep_childhood_events.51
+		trigger = {
+			FROM = {
+				trait = envious
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = envious
+				add_trait = kind
+			}
+		}
+	}
+
+	option = {	#kind Change
+		name = EVTOPTCmep_childhood_events.51
+		trigger = {
+			FROM = {
+				trait = kind
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = kind
+				add_trait = envious
+			}
+		}
+	}
+}
+character_event = {	#wroth or patient
+	id = mep_childhood_events.6
+	desc = EVTDESCmep_childhood_events.6
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = wroth
+			trait = patient
+		}
+	}
+
+	option = {	#Gain wroth
+		name = EVTOPTAmep_childhood_events.6
+		add_trait = wroth
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.61
+			}
+		}
+	}
+
+	option = {	#Gain patient
+		name = EVTOPTBmep_childhood_events.6
+		add_trait = patient
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.61
+			}
+		}
+	}
+}
+character_event = {	#Ward - wroth or patient
+	id = mep_childhood_events.61
+	desc = {
+		text = EVTDESCAmep_childhood_events.61
+		trigger = {
+			FROM = {
+				trait = wroth
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.61
+		trigger = {
+			FROM = {
+				trait = patient
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.61
+	}
+
+	option = {	#wroth Change
+		name = EVTOPTBmep_childhood_events.61
+		trigger = {
+			FROM = {
+				trait = wroth
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = wroth
+				add_trait = patient
+			}
+		}
+	}
+
+	option = {	#patient Change
+		name = EVTOPTCmep_childhood_events.61
+		trigger = {
+			FROM = {
+				trait = patient
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = patient
+				add_trait = wroth
+			}
+		}
+	}
+}
+character_event = {	#proud or humble
+	id = mep_childhood_events.7
+	desc = EVTDESCmep_childhood_events.7
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = proud
+			trait = humble
+		}
+	}
+
+	option = {	#Gain proud
+		name = EVTOPTAmep_childhood_events.7
+		add_trait = proud
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.71
+			}
+		}
+	}
+
+	option = {	#Gain humble
+		name = EVTOPTBmep_childhood_events.7
+		add_trait = humble
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.71
+			}
+		}
+	}
+}
+character_event = {	#Ward - proud or humble
+	id = mep_childhood_events.71
+	desc = {
+		text = EVTDESCAmep_childhood_events.71
+		trigger = {
+			FROM = {
+				trait = proud
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.71
+		trigger = {
+			FROM = {
+				trait = humble
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.71
+	}
+
+	option = {	#proud Change
+		name = EVTOPTBmep_childhood_events.71
+		trigger = {
+			FROM = {
+				trait = proud
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = proud
+				add_trait = humble
+			}
+		}
+	}
+
+	option = {	#humble Change
+		name = EVTOPTCmep_childhood_events.71
+		trigger = {
+			FROM = {
+				trait = humble
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = humble
+				add_trait = proud
+			}
+		}
+	}
+}
+character_event = {	#deceitful or honest
+	id = mep_childhood_events.8
+	desc = EVTDESCmep_childhood_events.8
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = deceitful
+			trait = honest
+		}
+	}
+
+	option = {	#Gain deceitful
+		name = EVTOPTAmep_childhood_events.8
+		add_trait = deceitful
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.81
+			}
+		}
+	}
+
+	option = {	#Gain honest
+		name = EVTOPTBmep_childhood_events.8
+		add_trait = honest
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.81
+			}
+		}
+	}
+}
+character_event = {	#Ward - deceitful or honest
+	id = mep_childhood_events.81
+	desc = {
+		text = EVTDESCAmep_childhood_events.81
+		trigger = {
+			FROM = {
+				trait = deceitful
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.81
+		trigger = {
+			FROM = {
+				trait = honest
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.81
+	}
+
+	option = {	#deceitful Change
+		name = EVTOPTBmep_childhood_events.81
+		trigger = {
+			FROM = {
+				trait = deceitful
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = deceitful
+				add_trait = honest
+			}
+		}
+	}
+
+	option = {	#honest Change
+		name = EVTOPTCmep_childhood_events.81
+		trigger = {
+			FROM = {
+				trait = honest
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = honest
+				add_trait = deceitful
+			}
+		}
+	}
+}
+character_event = {	#Brave or Coward
+	id = mep_childhood_events.9
+	desc = EVTDESCmep_childhood_events.9
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = brave
+			trait = craven
+		}
+	}
+
+	option = {	#Gain Brave
+		name = EVTOPTAmep_childhood_events.9
+		add_trait = brave
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.91
+			}
+		}
+	}
+
+	option = {	#Gain Coward
+		name = EVTOPTBmep_childhood_events.9
+		add_trait = craven
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.91
+			}
+		}
+	}
+}
+character_event = {	#Ward - Brave or Coward
+	id = mep_childhood_events.91
+	desc = {
+		text = EVTDESCAmep_childhood_events.91
+		trigger = {
+			FROM = {
+				trait = brave
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.91
+		trigger = {
+			FROM = {
+				trait = craven
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.91
+	}
+
+	option = {	#Brave Change
+		name = EVTOPTBmep_childhood_events.91
+		trigger = {
+			FROM = {
+				trait = craven
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = brave
+				add_trait = craven
+			}
+		}
+	}
+
+	option = {	#Craven Change
+		name = EVTOPTCmep_childhood_events.91
+		trigger = {
+			FROM = {
+				trait = craven
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = craven
+				add_trait = brave
+			}
+		}
+	}
+}
+character_event = {	#shy or gregarious
+	id = mep_childhood_events.10
+	desc = EVTDESCmep_childhood_events.10
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = shy
+			trait = gregarious
+		}
+	}
+
+	option = {	#Gain shy
+		name = EVTOPTAmep_childhood_events.10
+		add_trait = shy
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.101
+			}
+		}
+	}
+
+	option = {	#Gain gregarious
+		name = EVTOPTBmep_childhood_events.10
+		add_trait = gregarious
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.101
+			}
+		}
+	}
+}
+character_event = {	#Ward - shy or gregarious
+	id = mep_childhood_events.101
+	desc = {
+		text = EVTDESCAmep_childhood_events.101
+		trigger = {
+			FROM = {
+				trait = shy
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.101
+		trigger = {
+			FROM = {
+				trait = gregarious
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.101
+	}
+
+	option = {	#shy Change
+		name = EVTOPTBmep_childhood_events.101
+		trigger = {
+			FROM = {
+				trait = shy
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = shy
+				add_trait = gregarious
+			}
+		}
+	}
+
+	option = {	#gregarious Change
+		name = EVTOPTCmep_childhood_events.101
+		trigger = {
+			FROM = {
+				trait = gregarious
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = gregarious
+				add_trait = shy
+			}
+		}
+	}
+}
+character_event = {	#ambitious or content
+	id = mep_childhood_events.12
+	desc = EVTDESCmep_childhood_events.12
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = ambitious
+			trait = content
+		}
+	}
+
+	option = {	#Gain ambitious
+		name = EVTOPTAmep_childhood_events.12
+		add_trait = ambitious
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.121
+			}
+		}
+	}
+
+	option = {	#Gain content
+		name = EVTOPTBmep_childhood_events.12
+		add_trait = content
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.121
+			}
+		}
+	}
+}
+character_event = {	#Ward - ambitious or content
+	id = mep_childhood_events.121
+	desc = {
+		text = EVTDESCAmep_childhood_events.121
+		trigger = {
+			FROM = {
+				trait = ambitious
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.121
+		trigger = {
+			FROM = {
+				trait = content
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.121
+	}
+
+	option = {	#ambitious Change
+		name = EVTOPTBmep_childhood_events.121
+		trigger = {
+			FROM = {
+				trait = ambitious
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = ambitious
+				add_trait = content
+			}
+		}
+	}
+
+	option = {	#content Change
+		name = EVTOPTCmep_childhood_events.121
+		trigger = {
+			FROM = {
+				trait = content
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = content
+				add_trait = ambitious
+			}
+		}
+	}
+}
+character_event = {	#arbitrary or just
+	id = mep_childhood_events.13
+	desc = EVTDESCmep_childhood_events.13
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = arbitrary
+			trait = just
+		}
+	}
+
+	option = {	#Gain arbitrary
+		name = EVTOPTAmep_childhood_events.13
+		add_trait = arbitrary
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.131
+			}
+		}
+	}
+
+	option = {	#Gain just
+		name = EVTOPTBmep_childhood_events.13
+		add_trait = just
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.131
+			}
+		}
+	}
+}
+character_event = {	#Ward - arbitrary or just
+	id = mep_childhood_events.131
+	desc = {
+		text = EVTDESCAmep_childhood_events.131
+		trigger = {
+			FROM = {
+				trait = arbitrary
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.131
+		trigger = {
+			FROM = {
+				trait = just
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.131
+	}
+
+	option = {	#arbitrary Change
+		name = EVTOPTBmep_childhood_events.131
+		trigger = {
+			FROM = {
+				trait = arbitrary
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = arbitrary
+				add_trait = just
+			}
+		}
+	}
+
+	option = {	#just Change
+		name = EVTOPTCmep_childhood_events.131
+		trigger = {
+			FROM = {
+				trait = just
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = just
+				add_trait = arbitrary
+			}
+		}
+	}
+}
+character_event = {	#cynical or zealous
+	id = mep_childhood_events.14
+	desc = EVTDESCmep_childhood_events.14
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = cynical
+			trait = zealous
+		}
+	}
+
+	option = {	#Gain cynical
+		name = EVTOPTAmep_childhood_events.14
+		add_trait = cynical
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.141
+			}
+		}
+	}
+
+	option = {	#Gain zealous
+		name = EVTOPTBmep_childhood_events.14
+		add_trait = zealous
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.141
+			}
+		}
+	}
+}
+character_event = {	#Ward - cynical or zealous
+	id = mep_childhood_events.141
+	desc = {
+		text = EVTDESCAmep_childhood_events.141
+		trigger = {
+			FROM = {
+				trait = cynical
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.141
+		trigger = {
+			FROM = {
+				trait = zealous
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.141
+	}
+
+	option = {	#cynical Change
+		name = EVTOPTBmep_childhood_events.141
+		trigger = {
+			FROM = {
+				trait = cynical
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = cynical
+				add_trait = zealous
+			}
+		}
+	}
+
+	option = {	#zealous Change
+		name = EVTOPTCmep_childhood_events.141
+		trigger = {
+			FROM = {
+				trait = zealous
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = zealous
+				add_trait = cynical
+			}
+		}
+	}
+}
+character_event = {	#paranoid or trusting
+	id = mep_childhood_events.15
+	desc = EVTDESCmep_childhood_events.15
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = paranoid
+			trait = trusting
+		}
+	}
+
+	option = {	#Gain paranoid
+		name = EVTOPTAmep_childhood_events.15
+		add_trait = paranoid
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.151
+			}
+		}
+	}
+
+	option = {	#Gain trusting
+		name = EVTOPTBmep_childhood_events.15
+		add_trait = trusting
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.151
+			}
+		}
+	}
+}
+character_event = {	#Ward - paranoid or trusting
+	id = mep_childhood_events.151
+	desc = {
+		text = EVTDESCAmep_childhood_events.151
+		trigger = {
+			FROM = {
+				trait = paranoid
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.151
+		trigger = {
+			FROM = {
+				trait = trusting
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.151
+	}
+
+	option = {	#paranoid Change
+		name = EVTOPTBmep_childhood_events.151
+		trigger = {
+			FROM = {
+				trait = paranoid
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = paranoid
+				add_trait = trusting
+			}
+		}
+	}
+
+	option = {	#trusting Change
+		name = EVTOPTCmep_childhood_events.151
+		trigger = {
+			FROM = {
+				trait = trusting
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = trusting
+				add_trait = paranoid
+			}
+		}
+	}
+}
+character_event = {	#ruthless or honorable
+	id = mep_childhood_events.16
+	desc = EVTDESCmep_childhood_events.16
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			trait = ruthless
+			trait = honorable
+		}
+	}
+
+	option = {	#Gain ruthless
+		name = EVTOPTAmep_childhood_events.16
+		add_trait = ruthless
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.161
+			}
+		}
+	}
+
+	option = {	#Gain honorable
+		name = EVTOPTBmep_childhood_events.16
+		add_trait = honorable
+		guardian = {
+			character_event = {
+				id = mep_childhood_events.161
+			}
+		}
+	}
+}
+character_event = {	#Ward - ruthless or honorable
+	id = mep_childhood_events.161
+	desc = {
+		text = EVTDESCAmep_childhood_events.161
+		trigger = {
+			FROM = {
+				trait = ruthless
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_childhood_events.161
+		trigger = {
+			FROM = {
+				trait = honorable
+			}
+		}
+	}
+	picture = GFX_evt_ring_craft
+	is_triggered_only = yes
+
+	option = {	#Accept it
+		name = EVTOPTAmep_childhood_events.161
+	}
+
+	option = {	#ruthless Change
+		name = EVTOPTBmep_childhood_events.161
+		trigger = {
+			FROM = {
+				trait = ruthless
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = ruthless
+				add_trait = honorable
+			}
+		}
+	}
+
+	option = {	#honorable Change
+		name = EVTOPTCmep_childhood_events.161
+		trigger = {
+			FROM = {
+				trait = honorable
+			}
+		}
+		FROM = {
+			random = {
+				chance = 60
+				remove_trait = honorable
+				add_trait = ruthless
+			}
+		}
+	}
+}

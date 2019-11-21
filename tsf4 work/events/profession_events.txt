@@ -1,0 +1,1053 @@
+namespace = profession_events
+character_event = {
+	id = profession_events.0
+	desc = EVTDESCprofession_events.0
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_profession_trigger = yes
+		}
+	}
+
+	option = {
+		name = EVTOPTAprofession_events.0
+		set_character_flag = become_musician
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.0
+		set_character_flag = become_soldier
+	}
+
+	option = {
+		name = EVTOPTCprofession_events.0
+		set_character_flag = become_craftsman
+	}
+
+	option = {
+		name = EVTOPTDprofession_events.0
+		trigger = {
+			mep_is_evil_side_trigger = yes
+		}
+		set_character_flag = become_sorcerer
+	}
+
+	option = {
+		name = EVTOPTEprofession_events.0
+		trigger = {
+			mep_is_good_side_trigger = yes
+		}
+		set_character_flag = become_healer
+	}
+}
+character_event = {
+	id = profession_events.1
+	hide_window = yes
+
+	trigger = {
+		has_ambition = obj_gain_profession
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = become_musician
+					}
+				}
+				add_trait = novice_musician
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = become_soldier
+					}
+				}
+				add_trait = novice_fighter
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = become_craftsman
+					}
+				}
+				add_trait = novice_craftsman
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = become_sorcerer
+					}
+				}
+				add_trait = novice_sorcerer
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = become_healer
+					}
+				}
+				add_trait = novice_healer
+			}
+		}
+		character_event = {
+			id = profession_events.11
+		}
+	}
+}
+character_event = {
+	id = profession_events.11
+	desc = {
+		text = EVTDESCAprofession_events.11
+		trigger = {
+			is_musician_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBprofession_events.11
+		trigger = {
+			has_combat_prowess_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCCprofession_events.11
+		trigger = {
+			is_craftsman_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCDprofession_events.11
+		trigger = {
+			is_sorcerer_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCEprofession_events.11
+		trigger = {
+			is_healer_trigger = yes
+			NOT = {
+				kings_hands_trigger = yes
+			}
+		}
+	}
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.11
+	}
+}
+character_event = {
+	id = profession_events.12
+	desc = {
+		text = EVTDESCAprofession_events.12
+		trigger = {
+			is_musician_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBprofession_events.12
+		trigger = {
+			is_craftsman_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCCprofession_events.12
+		trigger = {
+			is_sorcerer_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESCDprofession_events.12
+		trigger = {
+			is_healer_trigger = yes
+			NOT = {
+				kings_hands_trigger = yes
+			}
+		}
+	}
+	picture = GFX_placeholder
+
+	trigger = {
+		has_profession_trigger = yes
+		NOR = {
+			has_combat_prowess_trigger = yes
+			trait = master_musician
+			trait = master_craftsman
+			trait = master_sorcerer
+			trait = master_healer
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_ambition = obj_mastery_music
+				has_ambition = obj_mastery_craft
+				has_ambition = obj_mastery_sorcery
+				has_ambition = obj_mastery_healing
+			}
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				trait = skilled_musician
+				trait = skilled_craftsman
+				trait = skilled_sorcerer
+				trait = skilled_healer
+			}
+		}
+		modifier = {
+			factor = 3
+			OR = {
+				trait = adept_musician
+				trait = adept_craftsman
+				trait = adept_sorcerer
+				trait = adept_healer
+				trait = skilled_musician
+				trait = skilled_craftsman
+				trait = skilled_sorcerer
+				trait = skilled_healer
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				trait = skilled_sorcerer
+				trait = skilled_healer
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = adept_sorcerer
+				trait = adept_healer
+				trait = skilled_sorcerer
+				trait = skilled_healer
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAprofession_events.12
+		#Musician
+		IF = {
+			limit = {
+				trait = skilled_musician
+			}
+			remove_trait = skilled_musician
+			add_trait = master_musician
+		}
+		IF = {
+			limit = {
+				trait = adept_musician
+			}
+			remove_trait = adept_musician
+			add_trait = skilled_musician
+		}
+		IF = {
+			limit = {
+				trait = novice_musician
+			}
+			remove_trait = novice_musician
+			add_trait = adept_musician
+		}
+		#Craftsman
+		IF = {
+			limit = {
+				trait = skilled_craftsman
+			}
+			remove_trait = skilled_craftsman
+			add_trait = master_craftsman
+		}
+		IF = {
+			limit = {
+				trait = adept_craftsman
+			}
+			remove_trait = adept_craftsman
+			add_trait = skilled_craftsman
+		}
+		IF = {
+			limit = {
+				trait = novice_craftsman
+			}
+			remove_trait = novice_craftsman
+			add_trait = adept_craftsman
+		}
+		#Magic
+		IF = {
+			limit = {
+				trait = skilled_sorcerer
+			}
+			remove_trait = skilled_sorcerer
+			add_trait = master_sorcerer
+		}
+		IF = {
+			limit = {
+				trait = adept_sorcerer
+			}
+			remove_trait = adept_sorcerer
+			add_trait = skilled_sorcerer
+		}
+		IF = {
+			limit = {
+				trait = novice_sorcerer
+			}
+			remove_trait = novice_sorcerer
+			add_trait = adept_sorcerer
+		}
+		#Healing
+		IF = {
+			limit = {
+				trait = skilled_healer
+			}
+			remove_trait = skilled_healer
+			add_trait = master_healer
+		}
+		IF = {
+			limit = {
+				trait = adept_healer
+			}
+			remove_trait = adept_healer
+			add_trait = skilled_healer
+		}
+		IF = {
+			limit = {
+				trait = novice_healer
+			}
+			remove_trait = novice_healer
+			add_trait = adept_healer
+		}
+	}
+}
+character_event = {
+	id = profession_events.22
+	desc = EVTDESCprofession_events.22
+	picture = GFX_placeholder
+
+	trigger = {
+		has_combat_prowess_trigger = yes
+		NOT = {
+			trait = master_fighter
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.5
+			has_ambition = obj_mastery_combat
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = adept_fighter
+				trait = skilled_fighter
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = skilled_fighter
+		}
+	}
+
+	option = {
+		name = EVTOPTAprofession_events.22
+		#Fighter
+		IF = {
+			limit = {
+				trait = skilled_fighter
+			}
+			remove_trait = skilled_fighter
+			add_trait = master_fighter
+		}
+		IF = {
+			limit = {
+				trait = adept_fighter
+			}
+			remove_trait = adept_fighter
+			add_trait = skilled_fighter
+		}
+		IF = {
+			limit = {
+				trait = novice_fighter
+			}
+			remove_trait = novice_fighter
+			add_trait = adept_fighter
+		}
+	}
+}
+character_event = {
+	id = profession_events.3
+	desc = EVTDESCprofession_events.3
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	trigger = {
+		has_ambition = obj_change_profession
+		NOR = {
+			has_character_flag = change_musician
+			has_character_flag = change_craftsman
+			has_character_flag = change_sorcerer
+			has_character_flag = change_healer
+		}
+	}
+
+	option = {
+		name = EVTOPTAprofession_events.3
+		trigger = {
+			NOT = {
+				is_musician_trigger = yes
+			}
+		}
+		set_character_flag = change_musician
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.3
+		trigger = {
+			NOT = {
+				is_craftsman_trigger = yes
+			}
+		}
+		set_character_flag = change_craftsman
+	}
+
+	option = {
+		name = EVTOPTCprofession_events.3
+		trigger = {
+			NOT = {
+				is_sorcerer_trigger = yes
+			}
+			OR = {
+				mep_is_evil_side_trigger = yes
+				ai = no
+			}
+		}
+		custom_tooltip = {
+			text = become_corrupt_tooltip
+			IF = {
+				limit = {
+					NOR = {
+						mep_is_evil_side_trigger = yes
+						has_character_flag = corrupted
+					}
+				}
+				set_character_flag = corrupted
+			}
+			set_character_flag = change_sorcerer
+		}
+	}
+
+	option = {
+		name = EVTOPTDprofession_events.3
+		trigger = {
+			NOR = {
+				is_healer_trigger = yes
+				mep_is_evil_side_trigger = yes
+			}
+		}
+		set_character_flag = change_healer
+	}
+
+	option = {
+		name = EVTOPTEprofession_events.3
+		cancel_ambition = yes
+	}
+}
+character_event = {
+	id = profession_events.31
+	desc = EVTDESCprofession_events.31
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_character_flag = change_musician
+			has_character_flag = change_craftsman
+			has_character_flag = change_sorcerer
+			has_character_flag = change_healer
+		}
+	}
+
+	immediate = {
+		remove_trait = novice_musician
+		remove_trait = adept_musician
+		remove_trait = skilled_musician
+		remove_trait = master_musician
+		remove_trait = novice_craftsman
+		remove_trait = adept_craftsman
+		remove_trait = skilled_craftsman
+		remove_trait = master_craftsman
+		remove_trait = novice_sorcerer
+		remove_trait = adept_sorcerer
+		remove_trait = skilled_sorcerer
+		remove_trait = master_sorcerer
+		remove_trait = novice_healer
+		remove_trait = adept_healer
+		remove_trait = skilled_healer
+		remove_trait = master_healer
+		random_list = {
+			9 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_musician
+					}
+				}
+				add_trait = novice_musician
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_musician
+					}
+				}
+				add_trait = skilled_musician
+			}
+			9 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_craftsman
+					}
+				}
+				add_trait = novice_craftsman
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_craftsman
+					}
+				}
+				add_trait = skilled_craftsman
+			}
+			9 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_sorcerer
+					}
+				}
+				add_trait = novice_sorcerer
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_sorcerer
+					}
+				}
+				add_trait = skilled_sorcerer
+			}
+			9 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_healer
+					}
+				}
+				add_trait = novice_healer
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_character_flag = change_healer
+					}
+				}
+				add_trait = skilled_healer
+			}
+		}
+	}
+	option = {
+		name = EVTOPTAprofession_events.31
+		clr_character_flag = change_musician
+		clr_character_flag = change_craftsman
+		clr_character_flag = change_sorcerer
+		clr_character_flag = change_healer
+		clr_character_flag = change_profession
+	}
+}
+
+# Sorcerer Events
+character_event = {
+	id = profession_events.61
+	desc = EVTDESCprofession_events.61
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.61
+		death = {
+			death_reason = death_sacrificed
+			killer = FROMFROM
+		}
+	}
+}
+character_event = {
+	id = profession_events.62
+	desc = EVTDESCprofession_events.62
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.62
+		trigger = {
+			NOR = {
+				has_character_flag = sorcerer_stressed
+				has_character_flag = sorcerer_depressed
+				has_character_flag = sorcerer_lunatic
+				has_character_flag = sorcerer_wight
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.62
+		trigger = {
+			has_character_flag = sorcerer_stressed
+		}
+		clr_character_flag = sorcerer_stressed
+	}
+
+	option = {
+		name = EVTOPTCprofession_events.62
+		trigger = {
+			has_character_flag = sorcerer_depressed
+		}
+		clr_character_flag = sorcerer_depressed
+	}
+
+	option = {
+		name = EVTOPTDprofession_events.62
+		trigger = {
+			has_character_flag = sorcerer_lunatic
+		}
+		clr_character_flag = sorcerer_lunatic
+	}
+
+	option = {
+		name = EVTOPTEprofession_events.62
+		trigger = {
+			has_character_flag = sorcerer_wight
+		}
+		clr_character_flag = sorcerer_wight
+	}
+}
+character_event = {
+	id = profession_events.63
+	desc = EVTDESCprofession_events.63
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.63
+		trigger = {
+			trait = stressed
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.63
+		trigger = {
+			trait = depressed
+		}
+	}
+
+	option = {
+		name = EVTOPTCprofession_events.63
+		trigger = {
+			trait = lunatic
+		}
+	}
+
+	option = {
+		name = EVTOPTDprofession_events.63
+		trigger = {
+			trait = incapable
+		}
+	}
+}
+character_event = {
+	id = profession_events.64
+	desc = EVTDESCprofession_events.64
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.64
+		trigger = {
+			has_character_flag = force_suicide
+		}
+		death = {
+			death_reason = death_suicide
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.641
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.64
+		trigger = {
+			NOT = {
+				has_character_flag = force_suicide
+			}
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.641
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.641
+	desc = {
+		text = EVTDESCAprofession_events.641
+		trigger = {
+			FROM = {
+				NOT = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBprofession_events.641
+		trigger = {
+			FROM = {
+				is_alive = yes
+			}
+		}
+	}
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.641
+		trigger = {
+			FROM = {
+				NOT = {
+					is_alive = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.641
+		trigger = {
+			FROM = {
+				is_alive = yes
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.65
+	desc = EVTDESCprofession_events.65
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.65
+	}
+}
+character_event = {
+	id = profession_events.66
+	desc = EVTDESCprofession_events.66
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.66
+		trigger = {
+			trait = saruman_spell
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.66
+		trigger = {
+			NOT = {
+				trait = saruman_spell
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.67
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		trait = saruman_spell
+		NOT = {
+			trait = trait_nooo
+		}
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_opinion_modifier = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+				}
+			}
+			character_event = {
+				id = profession_events.671
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.671
+	desc = EVTDESCprofession_events.671
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.671
+		trigger = {
+			NOT = {
+				has_character_modifier = spell_fatigue3
+			}
+		}
+		add_character_modifier = {
+			modifier = spell_fatigue3
+			years = 5
+		}
+		remove_character_modifier = spell_fatigue2
+		remove_character_modifier = spell_fatigue1
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.671
+		FROM = {
+			remove_opinion = {
+				modifier = opinion_dark_puppetmaster
+				who = ROOT
+			}
+			reverse_remove_opinion = {
+				modifier = opinion_dark_puppet
+				who = ROOT
+			}
+			remove_trait = saruman_spell
+		}
+	}
+}
+
+# Healer Events
+character_event = {
+	id = profession_events.7
+	desc = EVTDESCprofession_events.7
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {	#Purchase Supplies
+		name = EVTOPTAprofession_events.7
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 5
+				wealth = 300
+			}
+			modifier = {
+				factor = 5
+				wealth = 400
+			}
+			modifier = {
+				factor = 5
+				wealth = 500
+			}
+		}
+		wealth = -100
+		set_character_flag = bought_supplies
+	}
+
+	option = {	#Forage Supplies
+		name = EVTOPTBprofession_events.7
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.95
+				wealth = 300
+			}
+			modifier = {
+				factor = 0.5
+				wealth = 400
+			}
+			modifier = {
+				factor = 0.5
+				wealth = 500
+			}
+		}
+	}
+
+	option = {	#Cancel
+		name = EVTOPTCprofession_events.7
+		trigger = {
+			ai = no
+		}
+		clr_character_flag = crafting_potion
+	}
+}
+character_event = {
+	id = profession_events.71
+	desc = EVTDESCprofession_events.71
+	picture = GFX_placeholder
+
+	trigger = {
+		has_character_flag = crafting_potion
+	}
+
+	mean_time_to_happen = {
+		years = 2
+		modifier = {
+			factor = 0.25
+			has_character_flag = bought_supplies
+		}
+	}
+
+	option = {
+		name = EVTOPTAprofession_events.71
+		clr_character_flag = crafting_potion
+		clr_character_flag = bought_supplies
+		add_artifact = artifact_potion
+	}
+}
+character_event = {
+	id = profession_events.72
+	desc = EVTDESCprofession_events.72
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.72
+		trigger = {
+			NOT = {
+				trait = incapable
+			}
+		}
+		opinion = {
+			modifier = opinion_grateful
+			who = FROM
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.72
+		trigger = {
+			trait = incapable
+		}
+		opinion = {
+			modifier = opinion_angry
+			who = FROM
+			years = 1
+		}
+	}
+}
+character_event = {
+	id = profession_events.73
+	desc = EVTDESCprofession_events.73
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.73
+	}
+}
+character_event = {
+	id = profession_events.74
+	desc = EVTDESCprofession_events.74
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.74
+		trigger = {
+			trait = saruman_spell
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.74
+		trigger = {
+			NOT = {
+				trait = saruman_spell
+			}
+		}
+	}
+}
+
+#Challenge to Duel
+character_event = {
+	id = profession_events.8
+	desc = EVTDESCprofession_events.8
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.8
+		hidden_tooltip = {
+			save_event_target_as = dueler2
+			set_character_flag = in_duel
+			FROMFROM = {
+				save_event_target_as = dueler1
+				set_character_flag = in_duel
+				character_event = { id = mep_duel_events.20  }
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTBprofession_events.8
+		if = {
+			limit = {
+				trait = master_fighter
+			}
+			prestige = -100
+		}
+		FROMFROM = {
+			character_event = {
+				id = profession_events.81
+			}
+		}
+	}
+}
+character_event = {
+	id = profession_events.81
+	desc = EVTDESCprofession_events.81
+	picture = GFX_placeholder
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAprofession_events.81
+		opinion = {
+			who = FROM
+			modifier = opinion_dishonorable_strong
+			years = 2
+		}
+	}
+}

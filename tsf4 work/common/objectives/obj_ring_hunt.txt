@@ -1,0 +1,68 @@
+obj_ring_hunt = {
+	type = character
+
+	can_cancel = no
+
+	potential = {
+		NOT = {
+			has_global_flag = one_ring_held
+		}
+		c_10016 = {
+			is_alive = yes
+		}
+	}
+
+	allow = {
+		is_ruler = yes
+		independent = yes
+		NOT = {
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
+			}
+		}
+	}
+
+	chance = {
+		factor = 10
+		modifier = {
+			factor = 0.01
+			trait = content
+		}
+		modifier = {
+			factor = 0.1
+			trait = shy
+		}
+		modifier = {
+			factor = 0.25
+			trait = slothful
+		}
+		modifier = {
+			factor = 5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 10
+			character = 10016
+		}
+	}
+	success = {
+		has_artifact = artifact_ring
+	}
+	abort = {
+		OR = {
+			AND = {
+				has_global_flag = one_ring_held
+				NOT = {
+					has_artifact = artifact_ring
+				}
+			}
+			any_artifact = {
+				has_artifact_flag = one_ring_maybe
+			}
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+	}
+}

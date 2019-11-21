@@ -1,0 +1,192 @@
+namespace = racetrait
+# Blood of Numenor, Elf, half-Elf, Half-Orc
+character_event = {
+	id = racetrait.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			#Numenors
+			father_even_if_dead = {
+				trait = numenorean
+			}
+			#Half Blood
+			father_even_if_dead = {
+				trait = numenor_blood
+			}
+			#Skin Changer
+			culture = culture_beorning
+			#Hobbit
+			culture_group = culture_group_halfling
+			#Dwarf
+			culture_group = culture_group_dwarves
+			#Elves
+			culture_group = culture_group_quendi
+			culture_group = culture_group_amanyar
+			culture_group = culture_group_umanyar
+			culture_group = culture_group_moriquendi
+			#Ents
+			culture_group = culture_group_onodrim
+			#Godly
+			culture = culture_maiar
+			culture = culture_umaiar
+			culture = culture_istari
+			culture = culture_valar
+			culture = culture_enigma
+			#Lesser Creatures
+			culture = culture_eagles
+			culture = culture_wight
+			culture = culture_half_orc
+			culture = culture_urukhai
+			culture = culture_orkish
+			#Greater Creatures
+			culture = culture_balrog
+			culture = culture_dragons
+			culture = culture_spider
+			#Wilderness
+			culture_group = culture_group_wilderness
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				father_even_if_dead = {
+					trait = numenorean
+				}
+				NOT = {
+					has_global_flag = numenor_sunk
+				}
+			}
+			add_trait = numenorean
+		}
+		if = {
+			limit = {
+				father_even_if_dead = {
+					OR = {
+						AND = {
+							trait = numenorean
+							has_global_flag = numenor_sunk
+						}
+						trait = numenor_blood
+					}
+				}
+			}
+			add_trait = numenor_blood
+		}
+		if = {
+			limit = {
+				culture = culture_beorning
+			}
+			add_trait = skin_changer
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_halfling
+			}
+			add_trait = hobbit
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_dwarves
+			}
+			add_trait = dwarven
+		}
+		if = {
+			limit = {
+				OR = {
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+				}
+			}
+			add_trait = elf
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_onodrim
+			}
+			add_trait = ent
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = culture_maiar
+					culture = culture_umaiar
+					culture = culture_istari
+				}
+			}
+			add_trait = maiar
+		}
+		if = {
+			limit = {
+				culture = culture_valar
+			}
+			add_trait = valar
+		}
+		if = {
+			limit = {
+				culture = culture_enigma
+			}
+			add_trait = enigma
+		}
+		if = {
+			limit = {
+				culture = culture_eagles
+			}
+			add_trait = eagle
+		}
+		if = {
+			limit = {
+				culture = culture_wight
+				NOT = {
+					has_character_flag = is_nazgul
+				}
+			}
+			add_trait = wight
+		}
+		if = {
+			limit = {
+				has_character_flag = is_nazgul
+			}
+			add_trait = nazgul
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = culture_half_orc
+					culture = culture_urukhai
+					culture = culture_orkish
+				}
+			}
+			add_trait = dark_creature
+		}
+		if = {
+			limit = {
+				culture = culture_balrog
+			}
+			add_trait = balrog
+		}
+		if = {
+			limit = {
+				culture = culture_dragons
+			}
+			add_trait = dragon
+		}
+		if = {
+			limit = {
+				culture = culture_spider
+			}
+			add_trait = spider
+		}
+		if = {
+			limit = {
+				culture_group = culture_group_wilderness
+			}
+			add_trait = wilderness
+		}
+	}
+	
+}

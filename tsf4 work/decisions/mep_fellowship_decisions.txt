@@ -1,0 +1,24 @@
+decisions = {
+	shire_interference_dec = {
+		potential = {
+			has_landed_title = e_isengard
+			NOT = {
+				has_global_flag = rohan_notthreatened
+			}
+			NOT = {
+				has_character_flag = shire_interference
+			}
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+		}
+		effect = {
+			set_character_flag = shire_interference
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

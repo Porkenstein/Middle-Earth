@@ -1,0 +1,174 @@
+namespace = dynasty_shifts
+narrative_event = {#Aragorn creates his own lineage
+	id = dynasty_shifts.3
+	title = EVTNAMEdynasty_shifts.3
+	desc = EVTDESCdynasty_shifts.3
+	picture = GFX_evt_gondor_kingdom
+	border = GFX_event_narrative_frame_economy	
+	is_triggered_only = yes
+
+	trigger = {
+		character = 2038
+		NOT = {
+			dynasty = 2004
+		}
+	}
+
+	option = {
+		name = "EVTOPTAdynasty_shifts.3" ## Yes!
+		dynasty = 2004
+		IF = {
+			limit = {
+				trait = blood_of_isildur
+			}
+			add_trait = blood_of_telcontar
+			remove_trait = blood_of_isildur
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.31
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBdynasty_shifts.3" ## No!
+		trigger = { ai = no }
+	}
+}
+character_event = {
+	id = dynasty_shifts.31
+	is_triggered_only = yes	
+	hide_window = yes
+
+	immediate = {
+		dynasty = 2004
+		IF = {
+			limit = {
+				trait = blood_of_isildur
+			}
+			add_trait = blood_of_telcontar
+			remove_trait = blood_of_isildur
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.31
+			}
+		}
+	}
+}
+
+narrative_event = {#Isildur creates his own lineage
+	id = dynasty_shifts.4
+	title = EVTNAMEdynasty_shifts.4
+	desc = EVTDESCdynasty_shifts.4
+	picture = GFX_evt_gondor_kingdom
+	border = GFX_event_narrative_frame_economy
+	is_triggered_only = yes
+
+	trigger = {
+		character = 12136
+		NOT = {
+			dynasty = 2001
+		}
+	}
+
+	option = {
+		name = "EVTOPTAdynasty_shifts.4" ## Yes!
+		dynasty = 2001
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_isildur
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.41
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBdynasty_shifts.4" ## No!
+		trigger = { ai = no }
+	}
+}
+character_event = {
+	id = dynasty_shifts.41
+	is_triggered_only = yes	
+	hide_window = yes
+
+	immediate = {
+		dynasty = 2001
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_isildur
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.41
+			}
+		}
+	}
+}
+
+narrative_event = {#Anarion create his own lineage
+	id = dynasty_shifts.5
+	title = EVTNAMEdynasty_shifts.5
+	desc = EVTDESCdynasty_shifts.5
+	picture = GFX_evt_gondor_kingdom
+	border = GFX_event_narrative_frame_economy
+	is_triggered_only = yes
+
+	trigger = {
+		character = 12137
+		NOT = {
+			dynasty = 102
+		}
+	}
+
+	option = {
+		name = "EVTOPTAdynasty_shifts.0" ## Yes!
+		dynasty = 102
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_anarion
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.51
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBdynasty_shifts.0" ## No!
+		trigger = { ai = no }
+	}
+}
+character_event = {
+	id = dynasty_shifts.51
+	is_triggered_only = yes	
+	hide_window = yes
+
+	immediate = {
+		dynasty = 102
+		IF = {
+			limit = {
+				trait = blood_of_valandil
+			}
+			add_trait = blood_of_anarion
+			remove_trait = blood_of_valandil
+		}
+		any_child_even_if_dead = {
+			character_event = {
+				id = dynasty_shifts.51
+			}
+		}
+	}
+}

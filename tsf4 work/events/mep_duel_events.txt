@@ -1,0 +1,1021 @@
+namespace = mep_duel_events
+character_event = {#Duel
+	id = mep_duel_events.0
+	desc = EVTDESCmep_duel_events.0
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	trigger = {
+		prisoner = no
+		OR = {
+			is_ruler = yes
+			employer = {
+				is_ruler = yes
+			}
+		}
+		any_current_enemy = {
+			OR = {
+				AND = {
+					in_battle = yes
+					at_location = ROOT
+					prisoner = no
+					is_alive = yes		
+					NOR = {
+						character = ROOT
+						has_character_flag = in_duel
+					}
+				}
+				any_realm_character = {
+					in_battle = yes
+					at_location = ROOT
+					prisoner = no
+					is_alive = yes		
+					NOR = {
+						character = ROOT
+						has_character_flag = in_duel
+					}
+				}
+			}
+		}
+	}
+
+	option = {#Fight Yourself
+		name = EVTOPTAmep_duel_events.0
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				trait = novice_fighter
+			}
+			modifier = {
+				factor = 4
+				trait = adept_fighter
+			}
+			modifier = {
+				factor = 6
+				trait = skilled_fighter
+			}
+			modifier = {
+				factor = 10
+				trait = master_fighter
+			}
+		}
+		random_current_enemy = {
+			limit = {
+				in_battle = yes
+				at_location = ROOT
+				prisoner = no
+				is_alive = yes		
+				NOR = {
+					character = ROOT
+					has_character_flag = in_duel
+				}
+			}
+			save_event_target_as = dueler2
+			set_character_flag = in_duel
+			ROOT = {
+				save_event_target_as = dueler1
+				set_character_flag = in_duel
+				character_event = { id = mep_duel_events.20  }
+			}
+			break = yes
+		}
+		any_current_enemy = {
+			random_realm_character = {
+				limit = {
+					in_battle = yes
+					at_location = ROOT
+					prisoner = no
+					is_alive = yes		
+					NOR = {
+						character = ROOT
+						has_character_flag = in_duel
+					}
+				}
+				save_event_target_as = dueler2
+				set_character_flag = in_duel
+				ROOT = {
+					save_event_target_as = dueler1
+					set_character_flag = in_duel
+					character_event = { id = mep_duel_events.20  }
+				}
+			}
+		}
+	}
+	option = {#Guard Fight Duel
+		name = EVTOPTBmep_duel_events.0
+		trigger = {
+			any_courtier = {
+				has_minor_title = title_personalguard
+				NOT = { has_character_flag = in_duel }
+				prisoner = no
+			}
+		}
+		ai_chance = {
+			factor = 0.5
+		}
+		random_current_enemy = {
+			limit = {
+				in_battle = yes
+				at_location = ROOT
+				prisoner = no
+				is_alive = yes		
+				NOR = {
+					character = ROOT
+					has_character_flag = in_duel
+				}
+			}
+			save_event_target_as = dueler2
+			set_character_flag = in_duel
+			ROOT = {
+				random_courtier = {
+					limit = {
+						has_minor_title = title_personalguard
+						NOT = { has_character_flag = in_duel }
+					}
+					save_event_target_as = dueler1
+					set_character_flag = in_duel
+					set_character_flag = guard_in_duel
+					character_event = { id = mep_duel_events.20  }
+				}
+			}
+			break = yes
+		}
+		any_current_enemy = {
+			random_realm_character = {
+				limit = {
+					in_battle = yes
+					at_location = ROOT
+					prisoner = no
+					is_alive = yes		
+					NOR = {
+						character = ROOT
+						has_character_flag = in_duel
+					}
+				}
+				save_event_target_as = dueler2
+				set_character_flag = in_duel
+				ROOT = {
+					random_courtier = {
+						limit = {
+							has_minor_title = title_personalguard
+							NOT = { has_character_flag = in_duel }
+						}
+						save_event_target_as = dueler1
+						set_character_flag = in_duel
+						set_character_flag = guard_in_duel
+						character_event = { id = mep_duel_events.20  }
+					}
+				}
+			}
+		}
+	}
+	option = {#Don't Fight
+		name = EVTOPTCmep_duel_events.0
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.75
+				trait = novice_fighter
+			}
+			modifier = {
+				factor = 0.5
+				trait = adept_fighter
+			}
+			modifier = {
+				factor = 0.33
+				trait = skilled_fighter
+			}
+			modifier = {
+				factor = 0.125
+				trait = master_fighter
+			}
+		}
+	}
+}
+character_event = {#Decide Duels
+	id = mep_duel_events.1
+	desc = EVTDESCmep_duel_events.1
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:dueler1 = {
+			set_variable = {
+				which = current_combat_rating
+				value = 0
+			}
+			export_to_variable = {
+				who = THIS
+				which = current_combat_rating
+				value = combat_rating
+			}
+		}
+		event_target:dueler2 = {
+			set_variable = {
+				which = current_combat_rating
+				value = 0
+			}
+			export_to_variable = {
+				who = THIS
+				which = current_combat_rating
+				value = combat_rating
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_duel_events.1 # Dueler 1 Wins
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:dueler1 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler1 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+			modifier = {
+				factor = 0.75
+				event_target:dueler1 = {
+					trait = pregnant
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Thrust
+						}
+						event_target:dueler2 = {
+							has_character_flag = Retreat
+						}
+					}
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Swing
+						}
+						event_target:dueler2 = {
+							has_character_flag = Block
+						}
+					}
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Chop
+						}
+						event_target:dueler2 = {
+							has_character_flag = Parry
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Thrust
+						}
+						event_target:dueler2 = {
+							has_character_flag = Parry
+						}
+					}
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Swing
+						}
+						event_target:dueler2 = {
+							has_character_flag = Retreat
+						}
+					}
+					AND = {
+						event_target:dueler1 = {
+							has_character_flag = Chop
+						}
+						event_target:dueler2 = {
+							has_character_flag = Block
+						}
+					}
+				}
+			}
+		}
+		event_target:dueler2 = {
+			clr_character_flag = Parry
+			clr_character_flag = Retreat
+			clr_character_flag = Block
+			event_target:dueler1 = {
+				clr_character_flag = Thrust
+				clr_character_flag = Swing
+				clr_character_flag = Chop
+			}
+			character_event = { id = mep_duel_events.10 }
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.1 # Dueler 2 Wins
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				NOT = {
+					event_target:dueler2 = {
+						check_variable = { which = current_combat_rating value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = -100 }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = -1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 0 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 1 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 2 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 3 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 4 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 5 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 6 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 7 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 8 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 9 }
+				}
+			}
+			modifier = {
+				factor = 1.1
+				event_target:dueler2 = {
+					check_variable = { which = current_combat_rating value = 10 }
+				}
+			}
+		}
+		event_target:dueler1 = {
+			clr_character_flag = Thrust
+			clr_character_flag = Swing
+			clr_character_flag = Chop
+			event_target:dueler2 = {
+				clr_character_flag = Parry
+				clr_character_flag = Retreat
+				clr_character_flag = Block
+			}
+			character_event = { id = mep_duel_events.10 }
+		}
+	}
+}
+character_event = {#Determine Rebound
+	id = mep_duel_events.10
+	desc = EVTDESCmep_duel_events.10
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	immediate = {
+		IF = {
+			limit = {
+				event_target:dueler1 = {
+					character = ROOT
+				}
+			}
+			clear_event_target = dueler1
+			clear_event_target = dueler2
+			save_event_target_as = dueler1
+			FROMFROM = { save_event_target_as = dueler2 }
+		}
+		IF = {
+			limit = {
+				event_target:dueler2 = {
+					character = ROOT
+				}
+			}
+			clear_event_target = dueler1
+			clear_event_target = dueler2
+			save_event_target_as = dueler1
+			FROMFROMFROM = { save_event_target_as = dueler2 }
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_duel_events.10 # Roll
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0.1
+						event_target:dueler1 = {
+							combat_rating < 5
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 6
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 7
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 8
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 9
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 10
+						}
+					}
+					event_target:dueler2 = { clr_character_flag = in_duel }
+					if = {
+						limit = {
+							NOT = {
+								duel_unkillable_trigger = yes
+							}
+						}
+						death = {
+							death_reason = death_duel
+							killer = event_target:dueler2
+						}
+					}
+					else = {
+						add_trait = maimed
+					}
+					event_target:dueler2 = {
+						character_event = { id = mep_duel_events.12 }
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.1
+						event_target:dueler1 = {
+							combat_rating < 5
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 6
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 7
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 8
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 9
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 10
+						}
+					}
+					if = {
+						limit = {
+							trait = wounded
+						}
+						add_trait = maimed
+						remove_trait = wounded
+					}
+					else = {
+						add_trait = wounded
+					}
+					event_target:dueler1 = {
+						character_event = { id = mep_duel_events.20 }
+					}
+				}
+				1 = {
+					modifier = {
+						factor = 0.1
+						event_target:dueler1 = {
+							combat_rating < 5
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 6
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 7
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 8
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 9
+						}
+					}
+					modifier = {
+						factor = 1.1
+						event_target:dueler1 = {
+							combat_rating = 10
+						}
+					}
+					event_target:dueler1 = {
+						character_event = { id = mep_duel_events.20 }
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.10 # Surrender
+		event_target:dueler2 = {
+			character_event = { id = mep_duel_events.11 }
+		}
+	}
+}
+character_event = {#Imprison or Kill Dueler
+	id = mep_duel_events.11
+	desc = EVTDESCmep_duel_events.11
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_duel_events.11 # Imprison
+		ai_chance = {
+			factor = 0.9
+			modifier = {
+				factor = 2
+				FROM = {
+					higher_real_tier_than = BARON
+				}
+			}
+		}
+		clr_character_flag = in_duel
+		prestige = 100
+		IF = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				FROM = {
+					imprison = PREV
+					clr_character_flag = in_duel
+				}
+				prestige = 20
+			}
+			clr_character_flag = guard_in_duel
+			break = yes
+		}
+		FROM = {
+			imprison = ROOT
+			clr_character_flag = in_duel
+		}
+		if = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				character_event = { id = mep_duel_events.12 }
+			}
+			clr_character_flag = guard_in_duel
+		}
+		else = {
+			character_event = { id = mep_duel_events.12 }
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.11 # Kill
+		ai_chance = {
+			factor = 0.1
+		}
+		clr_character_flag = in_duel
+		prestige = 100
+		IF = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				prestige = 20
+			}
+			clr_character_flag = guard_in_duel
+		}
+		FROM = {
+			if = {
+				limit = {
+					NOT = {
+						duel_unkillable_trigger = yes
+					}
+				}
+				any_child = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+				}
+				any_spouse = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+				}
+				any_sibling = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+				}
+				father = {
+					IF = {
+						limit = {
+							NOT = { character = ROOT }
+						}
+						opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+					}
+				}
+				mother = {
+					IF = {
+						limit = {
+							NOT = { character = ROOT }
+						}
+						opinion = { modifier = opinion_killed_family who = ROOT years = 100 }
+					}
+				}
+				any_friend = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_friend who = ROOT years = 100 }
+				}
+				any_vassal = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_liege who = ROOT years = 20 }
+				}
+				any_rival = {
+					limit = {
+						NOT = { character = ROOT }
+					}
+					opinion = { modifier = opinion_killed_rival who = ROOT years = 20 }
+				}
+				death = {
+					death_reason = death_duel
+					killer = ROOT
+				}
+			}
+			else = {
+				add_trait = maimed
+			}
+			clr_character_flag = in_duel
+		}
+		if = {
+			limit = { has_character_flag = guard_in_duel }
+			employer = {
+				character_event = { id = mep_duel_events.12 }
+			}
+			clr_character_flag = guard_in_duel
+		}
+		else = {
+			character_event = { id = mep_duel_events.12 }
+		}
+	}
+}
+character_event = {#Inform Lost Duel
+	id = mep_duel_events.12
+	desc = {
+		text = EVTDESCAmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:dueler1 = {
+			character_event = {
+				id = mep_duel_events.13
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.12
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+}
+character_event = {#Inform Lost Duel
+	id = mep_duel_events.13
+	desc = {
+		text = EVTDESCAmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				prisoner = yes
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = no
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.13
+		trigger = {
+			event_target:dueler1 = {
+				is_alive = yes
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+	}
+}
+character_event = {#Determine Attack
+	id = mep_duel_events.20
+	desc = EVTDESCmep_duel_events.20
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_duel_events.20 # Thrust
+		set_character_flag = Thrust
+		event_target:dueler2 = {
+			character_event = { id = mep_duel_events.21 }
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.20 # Swing
+		set_character_flag = Swing
+		event_target:dueler2 = {
+			character_event = { id = mep_duel_events.21 }
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.20 # Chop
+		set_character_flag = Chop
+		event_target:dueler2 = {
+			character_event = { id = mep_duel_events.21 }
+		}
+	}
+}
+character_event = {#Determine Defense
+	id = mep_duel_events.21
+	desc = EVTDESCmep_duel_events.21
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_duel_events.21 # Parry
+		set_character_flag = Parry
+		e_valinor = {
+			holder_scope = {
+				character_event = { id = mep_duel_events.1 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_duel_events.21 # Retreat
+		set_character_flag = Retreat
+		e_valinor = {
+			holder_scope = {
+				character_event = { id = mep_duel_events.1 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCmep_duel_events.21 # Block
+		set_character_flag = Block
+		e_valinor = {
+			holder_scope = {
+				character_event = { id = mep_duel_events.1 }
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+namespace = elfchild
+narrative_event = {# An Elf is still a child
+	id = elfchild.0
+	hide_window = yes
+
+	trigger = {
+		mep_is_elf_culture = yes
+		NOT = {
+			trait = elf_childhood
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_trait = elf_childhood
+	}
+}
+narrative_event = {# An elf can choose his name once adult
+	id = elfchild.2
+	title = "EVTTITelfchild.2"
+	desc = "EVTDESCelfchild.2"
+	picture = "GFX_evt_elven_story"
+	is_triggered_only = yes
+
+	min_age = 25
+
+	trigger = {
+		age = 25
+		trait = elf_childhood
+	}
+
+	option = {	# I keep my father name
+		name = "EVTOPTAelfchild.2"
+		ai_chance = {
+			factor = 80 
+		}
+		remove_trait = elf_childhood
+	}
+
+	option = {
+		name = "EVTOPTCelfchild.2"
+		ai_chance = {
+			factor = 20 
+		}
+		remove_trait = elf_childhood
+		prompt_name = {
+			player = ROOT
+			type = BAPTISM
+			name_list = culture
+		}
+	}
+}

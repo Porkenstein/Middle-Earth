@@ -1,0 +1,342 @@
+namespace = mep_breeding_events
+character_event = {	#Startup Pull Female Orcs to Pits
+	id = mep_breeding_events.0
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		is_female = yes
+		NOT = {
+			has_landed_title = k_breeding_pits
+		}
+		OR = {
+			culture = culture_urukhai
+			culture = culture_orkish
+			culture = culture_half_orc
+		}
+	}
+
+	immediate = {
+		abdicate = yes
+		any_spouse = {
+			remove_spouse = ROOT
+		}
+		any_claim = {
+			remove_claim = ROOT
+		}
+		k_breeding_pits = {
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+				character_event = {
+					id = mep_breeding_events.10
+				}
+			}
+		}
+	}
+}
+character_event = {	#On Birth, Pull Children Orks to pits
+	id = mep_breeding_events.1
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		father_even_if_dead = {
+			OR = {
+				culture = culture_urukhai
+				culture = culture_orkish
+				culture = culture_half_orc
+			}
+		}
+	}
+
+	immediate = {
+		if = {	#Assign Urukhai if orc and human parentage
+			limit = {
+				mother_even_if_dead = {
+					OR = {
+						culture_group = culture_group_edain
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture_group = culture_group_southron
+						culture_group = culture_group_easterling
+					}
+				}
+			}
+			culture = culture_urukhai
+		}
+		if = {#Assign Half orc if orc and elf parentage
+			limit = {
+				mother_even_if_dead = {
+					OR = {
+						culture_group = culture_group_quendi
+						culture_group = culture_group_amanyar
+						culture_group = culture_group_umanyar
+						culture_group = culture_group_moriquendi
+					}
+				}
+			}
+			culture = culture_half_orc
+		}
+		any_claim = {
+			remove_claim = ROOT
+		}
+		remove_trait = bastard
+		remove_trait = legit_bastard
+		k_breeding_pits = {
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+			}
+		}
+	}
+}
+character_event = {	#Move Male Orc to a court
+	id = mep_breeding_events.12
+	hide_window  = yes
+	only_rulers = no
+	only_men = yes
+	min_age = 16
+	capable_only = yes
+
+	trigger = {
+		OR = {
+			culture = culture_urukhai
+			culture = culture_orkish
+			culture = culture_half_orc
+		}
+		father = {
+			ai = yes
+		}
+		NOT = {
+			prisoner = yes
+		}
+		employer = {
+			has_landed_title = k_breeding_pits
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	immediate = {
+		random_landed_title = {
+			limit = {
+				holder_scope = {
+					OR = {
+						culture = culture_urukhai
+						culture = culture_orkish
+						culture = culture_half_orc
+					}
+				}
+			}
+			holder_scope = {
+				ROOT = {
+					move_character = PREV
+				}
+				if = {
+					limit = {
+						NOT = {
+							ai = yes
+						}
+					}
+					character_event = {
+						id = mep_breeding_events.121
+					}
+				}
+			}
+		}
+	}
+}
+character_event = {	#Informed of New Orc
+	id = mep_breeding_events.121
+	desc = EVTDESCmep_breeding_events.121
+	picture = GFX_evt_uncomfortable
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_breeding_events.121
+	}
+}
+character_event = {	#Breeding event
+	id = mep_breeding_events.2
+	desc = {
+		text = EVTDESCAmep_breeding_events.2
+		trigger = {
+			event_target:mare = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_breeding_events.2
+		trigger = {
+			event_target:mare = {
+				NOR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+			}
+		}
+	}
+	picture = GFX_evt_uncomfortable
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:mare = {
+			random_list = {
+				4 = {
+					modifier = {
+						factor = 0
+						NOT = {
+							event_target:stud = {
+								fertility = 0.01
+							}
+						}
+					}
+					impregnate = event_target:stud
+				}
+				1 = {
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_breeding_events.2
+	}
+}
+character_event = {	#Randomly Impregnate Females in Breeding Pits
+	id = mep_breeding_events.21
+	hide_window = yes
+	only_rulers = no
+	only_women = yes
+	min_age = 16
+	capable_only = yes
+
+	trigger = {
+		NOT = {
+			prisoner = yes
+		}
+		NOT = {
+			is_pregnant = yes
+		}
+		employer = {
+			has_landed_title = k_breeding_pits
+		}
+		any_independent_ruler = {
+			any_realm_character = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+				is_adult = yes
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				fertility = 0.01
+			}
+		}
+		fertility = 0.01
+		num_of_children < 1
+	}
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+				is_adult = yes
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				fertility = 0.01
+			}
+			ROOT = {
+				impregnate = PREV
+			}
+		}
+	}
+}
+character_event = {	#Create Orc Females if not enough
+	id = mep_breeding_events.10
+	is_triggered_only = yes
+	hide_window  = yes
+
+	trigger = {
+		has_landed_title = k_breeding_pits
+		NOT = {
+			any_courtier = {
+				prisoner = no
+				is_female = yes
+			}
+		}
+	}
+
+	immediate = {
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+		create_random_steward = {
+			female = yes
+			dynasty = none
+			culture = culture_orkish
+			religion = religion_orkish
+			random_traits = yes
+			trait = dark_creature
+		}
+	}
+}

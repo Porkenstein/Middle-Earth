@@ -1,0 +1,263 @@
+namespace = mep_med_events
+character_event = {
+	id = mep_med_events.1
+	desc = {
+		text = EVTDESCAmep_med_events.1
+		trigger = {
+			is_deadly_illness = yes
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_med_events.1
+		trigger = {
+			is_severe_illness = yes
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_med_events.1
+		trigger = {
+			is_moderate_illness = yes
+		}
+	}
+	desc = {
+		text = EVTDESCDmep_med_events.1
+		trigger = {
+			is_minor_illness = yes
+		}
+	}
+	picture = GFX_elf_meeting
+	is_triggered_only = yes
+
+	immediate = {
+		any_courtier = {
+			limit = {
+				has_minor_title = title_court_physician
+			}
+			save_event_target_as = doc
+		}
+	}
+    
+	option = {
+		name = EVTOPTAmep_med_events.1
+		event_target:doc = {
+			if = {
+				limit = {
+					has_minor_title = title_court_physician
+				}
+				character_event = {
+					id = mep_med_events.11
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBmep_med_events.1
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+		}
+		clr_character_flag = sought_treatment
+	}
+}
+character_event = {
+	id = mep_med_events.11
+	desc = EVTDESCmep_med_events.11
+	picture = GFX_elf_meeting
+	is_triggered_only = yes
+    
+	option = {
+		name = EVTOPTAmep_med_events.11
+		trigger = {
+			OR = {
+				trait = novice_healer
+				trait = novice_sorcerer
+			}
+		}
+		FROM = {
+			heal_minor_effect = yes
+			random_list = {
+				1 = {
+					heal_moderate_effect = yes
+					heal_severe_effect = yes
+					heal_deadly_effect = yes
+				}
+				3 = {
+				}
+				1 = {
+					set_character_flag = failed
+					add_trait = maimed
+				}
+			}
+			character_event = {
+				id = mep_med_events.12
+			}
+		}
+	}
+    
+	option = {
+		name = EVTOPTAmep_med_events.11
+		trigger = {
+			OR = {
+				trait = adept_healer
+				trait = adept_sorcerer
+				kings_hands_trigger = yes
+			}
+		}
+		FROM = {
+			heal_minor_effect = yes
+			heal_moderate_effect = yes
+			random_list = {
+				3 = {
+					heal_severe_effect = yes
+					heal_deadly_effect = yes
+				}
+				3 = {
+				}
+				1 = {
+					set_character_flag = failed
+					add_trait = maimed
+				}
+			}
+			character_event = {
+				id = mep_med_events.12
+			}
+		}
+	}
+    
+	option = {
+		name = EVTOPTCmep_med_events.11
+		trigger = {
+			OR = {
+				trait = skilled_healer
+				trait = skilled_sorcerer
+			}
+		}
+		FROM = {
+			heal_minor_effect = yes
+			heal_moderate_effect = yes
+			heal_severe_effect = yes
+			random_list = {
+				5 = {
+					heal_deadly_effect = yes
+				}
+				3 = {
+				}
+				1 = {
+					set_character_flag = failed
+					add_trait = maimed
+				}
+			}
+			character_event = {
+				id = mep_med_events.12
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_med_events.11
+		trigger = {
+			OR = {
+				trait = master_healer
+				trait = master_sorcerer
+			}
+		}
+		FROM = {
+			heal_minor_effect = yes
+			heal_moderate_effect = yes
+			heal_severe_effect = yes
+			heal_deadly_effect = yes
+			character_event = {
+				id = mep_med_events.12
+			}
+		}
+	}
+}
+character_event = {
+	id = mep_med_events.12
+	desc = {
+		text = EVTDESCAmep_med_events.12
+		trigger = {
+			NOR = {
+				is_severe_illness = yes
+				is_deadly_illness = yes
+				has_character_flag = failed
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBmep_med_events.12
+		trigger = {
+			OR = {
+				is_severe_illness = yes
+				is_deadly_illness = yes
+			}
+			NOT = {
+				has_character_flag = failed
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCmep_med_events.12
+		trigger = {
+			has_character_flag = failed
+		}
+	}
+	picture = GFX_elf_meeting
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_med_events.12
+		trigger = {
+			NOR = {
+				is_severe_illness = yes
+				is_deadly_illness = yes
+				has_character_flag = failed
+			}
+		}
+		FROM = {
+			prestige = 50
+		}
+	}
+
+	option = {
+		name = EVTOPTBmep_med_events.12
+		trigger = {
+			OR = {
+				is_severe_illness = yes
+				is_deadly_illness = yes
+			}
+			NOT = {
+				has_character_flag = failed
+			}
+		}
+		FROM = {
+			prestige = 10
+		}
+	}
+
+	option = {
+		name = EVTOPTCmep_med_events.12
+		trigger = {
+			has_character_flag = failed
+		}
+		clr_character_flag = failed
+		FROM = {
+			prestige = -100
+		}
+	}
+
+	option = {
+		name = EVTOPTDmep_med_events.12
+		trigger = {
+			has_character_flag = failed
+		}
+		clr_character_flag = failed
+		FROM = {
+			death = {
+				death_reason = death_execution
+				killer = ROOT
+			}
+		}
+	}
+}

@@ -1,0 +1,287 @@
+namespace = deck_halls_events
+character_event = {#Spend How Much
+	id = deck_halls_events.1
+	desc = EVTDESCdeck_halls_events.1
+	picture = GFX_sin_winter
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAdeck_halls_events.1
+		trigger = {
+			wealth = 100
+		}
+		set_character_flag = small_carol
+		wealth = -50
+		any_courtier_or_vassal = {
+			character_event = { id = deck_halls_events.11 }
+		}
+		character_event = {
+			id = deck_halls_events.10
+			days = 25
+			random = 3
+		}
+	}
+
+	option = {
+		name = EVTOPTBdeck_halls_events.1
+		trigger = {
+			wealth = 200
+		}
+		set_character_flag = med_carol
+		wealth = -100
+		any_courtier_or_vassal = {
+			character_event = { id = deck_halls_events.11 }
+		}
+		character_event = {
+			id = deck_halls_events.10
+			days = 25
+			random = 3
+		}
+	}
+
+	option = {
+		name = EVTOPTCdeck_halls_events.1
+		trigger = {
+			wealth = 300
+		}
+		set_character_flag = large_carol
+		any_courtier_or_vassal = {
+			character_event = { id = deck_halls_events.11 }
+		}
+		character_event = {
+			id = deck_halls_events.10
+			days = 25
+			random = 3
+		}
+	}
+}
+character_event = {#Liege Calls For Carols
+	id = deck_halls_events.11
+	desc = EVTDESCdeck_halls_events.11
+	picture = GFX_sin_dinner
+	is_triggered_only = yes
+
+	option = {	#Join Carolling
+		name = EVTOPTAdeck_halls_events.11
+		IF = {
+			limit = {
+				FROM = {
+					has_character_flag = small_carol
+				}
+			}
+			opinion = {
+				modifier = join_hall_deck_small
+				months = 2
+				who = FROM
+			}
+		}
+		IF = {
+			limit = {
+				FROM = {
+					has_character_flag = med_carol
+				}
+			}
+			opinion = {
+				modifier = join_hall_deck_med
+				months = 2
+				who = FROM
+			}
+		}
+		IF = {
+			limit = {
+				FROM = {
+					has_character_flag = large_carol
+				}
+			}
+			opinion = {
+				modifier = join_hall_deck_large
+				months = 2
+				who = FROM
+			}
+		}
+		character_event = {
+			id = deck_halls_events.10
+			days = 22
+		}
+	}
+
+	option = {	#Refuse Carolling
+		name = EVTOPTBdeck_halls_events.11
+		FROM = {
+			character_event = {
+				id = deck_halls_events.12
+				days = 3
+				random = 4
+			} 
+		}
+	}
+}
+character_event = {#Liege Calls For Carols
+	id = deck_halls_events.12
+	desc = EVTDESCdeck_halls_events.12
+	picture = GFX_sin_winter
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAdeck_halls_events.12
+		opinion = {
+			modifier = opinion_annoyed
+			who = FROM
+			years = 5
+		}
+	}
+}
+character_event = {#Carols
+	id = deck_halls_events.10
+	desc = {
+		text = EVTDESCAdeck_halls_events.10
+		trigger = {
+			has_character_flag = deck_the_halls
+			has_character_flag = carol_DTH
+		}
+		sound = sfx_deck_the_halls
+	}
+	desc = {
+		text = EVTDESCAdeck_halls_events.10
+		trigger = {
+			has_character_flag = deck_the_halls
+			has_character_flag = carol_SLN
+		}
+		sound = sfx_silent_night
+	}
+	desc = {
+		text = EVTDESCBdeck_halls_events.10
+		trigger = {
+			NOT = {
+				has_character_flag = deck_the_halls
+			}
+			has_character_flag = carol_DTH
+		}
+		sound = sfx_deck_the_halls
+	}
+	desc = {
+		text = EVTDESCBdeck_halls_events.10
+		trigger = {
+			NOT = {
+				has_character_flag = deck_the_halls
+			}
+			has_character_flag = carol_SLN
+		}
+		sound = sfx_silent_night
+	}
+	picture = GFX_sin_caroling
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = {
+				set_character_flag = carol_DTH
+			}
+			1 = {
+				set_character_flag = carol_SLN
+			}
+		}
+	}
+
+	option = {	#
+		name = EVTOPTAdeck_halls_events.10
+		trigger = {
+			has_opinion_modifier = {
+				modifier = join_hall_deck_small
+				who = FROMFROM
+			}
+		}
+		opinion = {
+			modifier = opinion_enjoyed_feast
+			years = 5
+			who = FROMFROM
+		}
+		clr_character_flag = carol_DTH
+		clr_character_flag = carol_SLN
+	}
+
+	option = {
+		name = EVTOPTBdeck_halls_events.10
+		trigger = {
+			has_opinion_modifier = {
+				modifier = join_hall_deck_med
+				who = FROMFROM
+			}
+		}
+		opinion = {
+			modifier = opinion_enjoyed_feast
+			years = 5
+			who = FROMFROM
+		}
+		opinion = {
+			modifier = opinion_impressed
+			years = 5
+			who = FROMFROM
+		}
+		clr_character_flag = carol_DTH
+		clr_character_flag = carol_SLN
+	}
+
+	option = {
+		name = EVTOPTCdeck_halls_events.10
+		trigger = {
+			has_opinion_modifier = {
+				modifier = join_hall_deck_large
+				who = FROMFROM
+			}
+		}
+		opinion = {
+			modifier = opinion_enjoyed_feast
+			years = 5
+			who = FROMFROM
+		}
+		opinion = {
+			modifier = opinion_thoroughly_impressed
+			years = 5
+			who = FROMFROM
+		}
+		clr_character_flag = carol_DTH
+		clr_character_flag = carol_SLN
+	}
+
+	option = {
+		name = EVTOPTDdeck_halls_events.10
+		trigger = {
+			NOT = {
+				has_character_flag = deck_the_halls
+			}
+		}
+		clr_character_flag = carol_DTH
+		clr_character_flag = carol_SLN
+	}
+
+	option = {
+		name = EVTOPTEdeck_halls_events.10
+		trigger = {
+			has_character_flag = deck_the_halls
+		}
+		IF = {
+			limit = {
+				has_character_flag = small_carol
+			}
+			prestige = 50
+		}
+		IF = {
+			limit = {
+				has_character_flag = med_carol
+			}
+			prestige = 100
+		}
+		IF = {
+			limit = {
+				has_character_flag = large_carol
+			}
+			prestige = 150
+		}
+		clr_character_flag = small_carol
+		clr_character_flag = med_carol
+		clr_character_flag = large_carol
+		clr_character_flag = carol_DTH
+		clr_character_flag = carol_SLN
+	}
+}

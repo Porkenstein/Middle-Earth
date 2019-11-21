@@ -1,0 +1,139 @@
+namespace = mep_onering_events
+character_event = {	#One Ring - A Choice to be Made
+	id = mep_onering_events.0
+	desc = EVTDESC_mep_onering_events.0
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	trigger = {
+		has_game_rule = { name = wotr_lore  value = sandbox }
+		FROM = {
+			has_artifact = artifact_ring
+		}
+	}
+
+	immediate = {
+		any_player = {
+			limit = {
+				NOT = {
+					character = ROOT
+				}
+			}
+			character_event = {
+				id = mep_onering_events.10
+			}
+		}
+	}
+
+	option = {	#It must be Destroyed
+		name = EVTOPTA_mep_onering_events.0
+		ai_chance = {
+			factor = 0
+		}
+		hidden_effect = {
+			e_barad_dur = {
+				holder_scope = {
+					character_event = { id = mep_misc_events.1 }
+				}
+			}
+		}
+		character_event = { id = mep_onering_events.1 days = 3 random = 5 }
+	}
+
+	option = {	#Keep it, your Precious
+		ai_chance = {
+			factor = 100
+		}
+		name = EVTOPTB_mep_onering_events.0
+	}
+}
+character_event = {	#One Ring Transferred
+	id = mep_onering_events.10
+	desc = EVTDESC_mep_onering_events.10
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {	#Alright
+		name = EVTOPTA_mep_onering_events.10
+	}
+}
+character_event = {	#One Ring - Warg Riders
+	id = mep_onering_events.1
+	desc = EVTDESC_mep_onering_events.1
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_mep_onering_events.1
+		character_event = { id = mep_onering_events.2 days = 3 random = 5 }
+	}
+}
+character_event = {	#One Ring - Encounter with Nazgul
+	id = mep_onering_events.2
+	desc = EVTDESC_mep_onering_events.2
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_mep_onering_events.2
+		character_event = { id = mep_onering_events.3 days = 3 random = 5 }
+	}
+}
+character_event = {	#One Ring - The Black Gate
+	id = mep_onering_events.3
+	desc = EVTDESC_mep_onering_events.3
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_mep_onering_events.3
+		character_event = { id = mep_onering_events.4 days = 3 random = 5 }
+	}
+}
+character_event = {	#One Ring - Mt Doom
+	id = mep_onering_events.4
+	desc = EVTDESC_mep_onering_events.4
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_mep_onering_events.4
+		character_event = { id = mep_onering_events.5 days = 1 }
+	}
+}
+character_event = {	#One Ring - Destruction of the Ring
+	id = mep_onering_events.5
+	desc = EVTDESC_mep_onering_events.5
+	picture = "GFX_shadows_coming"
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_mep_onering_events.5
+		remove_trait = onering
+		unsafe_destroy_artifact = artifact_ring
+		e_barad_dur = {
+			holder_scope = {
+				save_event_target_as = sauron
+				any_war = {
+					end_war = reverse_demand
+				}
+				k_mordor = {
+					any_direct_de_jure_vassal_title = {
+						limit = { tier = COUNT }
+						location = {
+							province_event = { id = mep_misc_events.5 }
+						}
+					}
+				}
+			}
+			activate_title = { status = no title = e_barad_dur }
+			destroy_landed_title = THIS
+		}
+		event_target:sauron = {
+			death = {
+				death_reason = death_battle
+				killer = ROOT
+			}
+		}
+	}
+}

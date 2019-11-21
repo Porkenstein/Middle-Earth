@@ -1,0 +1,1080 @@
+namespace = mep_tours_events
+character_event = {	#Where to go?
+	id = mep_tours_events.0
+	desc = EVTDESCmep_tours_events.0
+	picture = GFX_evt_journeybegins
+	is_triggered_only = yes
+
+	option = {	#Gondor, Minas Tirith
+		name = EVTOPTAmep_tours_events.0
+		trigger = {
+			has_character_flag = tours1
+		}
+		#add_trait = <away>
+		set_character_flag = gondor_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			422 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Rohan, Edoras
+		name = EVTOPTBmep_tours_events.0
+		trigger = {
+			has_character_flag = tours1
+		}
+		#add_trait = <away>
+		set_character_flag = rohan_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			115 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Mordor, Barad-dûr
+		name = EVTOPTCmep_tours_events.0
+		trigger = {
+			has_character_flag = tours1
+		}
+		#add_trait = <away>
+		set_character_flag = mordor_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			654 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Dwarven Realms, Moria
+		name = EVTOPTDmep_tours_events.0
+		trigger = {
+			has_character_flag = tours2
+		}
+		#add_trait = <away>
+		set_character_flag = dwarf_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			285 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Arnor, Annunimas
+		name = EVTOPTEmep_tours_events.0
+		trigger = {
+			has_character_flag = tours2
+		}
+		#add_trait = <away>
+		set_character_flag = arnor_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			659 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Elven Realms, Thrandil's Hall
+		name = EVTOPTFmep_tours_events.0
+		trigger = {
+			has_character_flag = tours2
+		}
+		#add_trait = <away>
+		set_character_flag = elf_tour
+		set_character_flag = went_on_tour
+		clr_character_flag = setting_up_tour
+		wealth = -400
+		hidden_effect = {
+			323 = {
+				save_event_target_as = tour_target
+			}
+		}
+		narrative_event = { id = mep_tours_events.1 days = 10 random = 5 }
+	}
+
+	option = {	#Nevermind
+		name = EVTOPTZmep_tours_events.0
+		trigger = {
+			has_character_flag = tours3
+		}
+		clr_character_flag = setting_up_tour
+		clr_character_flag = tour1
+		clr_character_flag = tour2
+		clr_character_flag = tour3
+	}
+
+	option = {	#More
+		name = EVTOPTZZmep_tours_events.0
+		if = {
+			limit = { has_character_flag = tours1 }
+			clr_character_flag = tours1
+			set_character_flag = tours2
+			break = yes
+		}
+		if = {
+			limit = { has_character_flag = tours2 }
+			clr_character_flag = tours2
+			set_character_flag = tours3
+			break = yes
+		}
+		if = {
+			limit = { has_character_flag = tours3 }
+			clr_character_flag = tours3
+			set_character_flag = tours1
+			break = yes
+		}
+	}
+}
+narrative_event = {	#First Tour Target
+	id = mep_tours_events.1
+	title = EVTTTLmep_tours_events.1
+	picture = GFX_evt_minastirith
+	desc = {	#Minas Tirith
+		text = EVTDESCmep_tours_events.1gondor
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = gondor_tour }
+	}
+	desc = {	#Edoras
+		text = EVTDESCmep_tours_events.1rohan
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Barad-dur
+		text = EVTDESCmep_tours_events.1mordor
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = mordor_tour }
+	}
+	desc = {	#Moria
+		text = EVTDESCmep_tours_events.1dwarf
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = dwarf_tour }
+	}
+	desc = {	#Annunimas
+		text = EVTDESCmep_tours_events.1arnor
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = arnor_tour }
+	}
+	desc = {	#Thranduil’s Halls
+		text = EVTDESCmep_tours_events.1elf
+		picture = GFX_evt_minastirith
+		trigger = { has_character_flag = elf_tour }
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		clr_character_flag = tours1
+		clr_character_flag = tours2
+		clr_character_flag = tours3
+	}
+
+	option = {	#On to Osgiliath
+		name = EVTOPTAmep_tours_events.1
+		trigger = { has_character_flag = gondor_tour }
+		hidden_effect = {
+			427 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+
+	option = {	#On to Dunharrow
+		name = EVTOPTBmep_tours_events.1
+		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			116 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+
+	option = {	#On to Black Gate
+		name = EVTOPTCmep_tours_events.1
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			691 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+
+	option = {	#On to Aglarond
+		name = EVTOPTDmep_tours_events.1
+		trigger = { has_character_flag = dwarf_tour }
+		hidden_effect = {
+			670 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+
+	option = {	#On to Fornost
+		name = EVTOPTEmep_tours_events.1
+		trigger = { has_character_flag = arnor_tour }
+		hidden_effect = {
+			270 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+
+	option = {	#On to Imladris
+		name = EVTOPTFmep_tours_events.1
+		trigger = { has_character_flag = elf_tour }
+		hidden_effect = {
+			234 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.11 days = 7 random = 5 }
+	}
+}
+narrative_event = {	#Second Tour Target
+	id = mep_tours_events.11
+	title = EVTTTLmep_tours_events.11
+	picture = GFX_evt_osgiliath
+	desc = {	#Osgiliath
+		text = EVTDESCmep_tours_events.11gondor
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = gondor_tour }
+	}
+	desc = {	#Dunharrow
+		text = EVTDESCmep_tours_events.11rohan
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Black Gate
+		text = EVTDESCmep_tours_events.11mordor
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = mordor_tour }
+	}
+	desc = {	#Aglarond
+		text = EVTDESCmep_tours_events.11dwarf
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = dwarf_tour }
+	}
+	desc = {	#Fornost
+		text = EVTDESCmep_tours_events.11arnor
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = arnor_tour }
+	}
+	desc = {	#Imladris
+		text = EVTDESCmep_tours_events.11elf
+		picture = GFX_evt_osgiliath
+		trigger = { has_character_flag = elf_tour }
+	}
+	is_triggered_only = yes
+
+	option = {	#On to Pelargir
+		name = EVTOPTAmep_tours_events.11
+		trigger = { has_character_flag = gondor_tour }
+		hidden_effect = {
+			18 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+
+	option = {	#On to Dimholt
+		name = EVTOPTBmep_tours_events.11
+		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			193 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+
+	option = {	#On to Isenmouthe
+		name = EVTOPTCmep_tours_events.11
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			232 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+
+	option = {	#On to Erebor
+		name = EVTOPTDmep_tours_events.11
+		trigger = { has_character_flag = dwarf_tour }
+		hidden_effect = {
+			292 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+
+	option = {	#On to Bree
+		name = EVTOPTEmep_tours_events.11
+		trigger = { has_character_flag = arnor_tour }
+		hidden_effect = {
+			267 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+
+	option = {	#On to Cerin Amroth
+		name = EVTOPTFmep_tours_events.11
+		trigger = { has_character_flag = elf_tour }
+		hidden_effect = {
+			235 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.12 days = 7 random = 5 }
+	}
+}
+narrative_event = {	#Third Tour Target
+	id = mep_tours_events.12
+	title = EVTTTLmep_tours_events.12
+	picture = GFX_evt_pelargir
+	desc = {	#Pelargir
+		text = EVTDESCmep_tours_events.12gondor
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = gondor_tour }
+	}
+	desc = {	#Dimholt
+		text = EVTDESCmep_tours_events.12rohan
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Isenmouthe
+		text = EVTDESCmep_tours_events.12mordor
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = mordor_tour }
+	}
+	desc = {	#Erebor
+		text = EVTDESCmep_tours_events.12dwarf
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = dwarf_tour }
+	}
+	desc = {	#Bree
+		text = EVTDESCmep_tours_events.12arnor
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = arnor_tour }
+	}
+	desc = {	#Cerin Amroth
+		text = EVTDESCmep_tours_events.12elf
+		picture = GFX_evt_pelargir
+		trigger = { has_character_flag = elf_tour }
+	}
+	is_triggered_only = yes
+
+	option = {	#On to Dol Amroth
+		name = EVTOPTAmep_tours_events.12
+		trigger = { has_character_flag = gondor_tour }
+		hidden_effect = {
+			656 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+
+	option = {	#On to Helm's Deep
+		name = EVTOPTBmep_tours_events.12
+		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			122 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+
+	option = {	#On to Minas Morgul
+		name = EVTOPTCmep_tours_events.12
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			426 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+
+	option = {	#On to Nogrod
+		name = EVTOPTDmep_tours_events.12
+		trigger = { has_character_flag = dwarf_tour }
+		hidden_effect = {
+			666 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+
+	option = {	#On to Amon Sul
+		name = EVTOPTEmep_tours_events.12
+		trigger = { has_character_flag = arnor_tour }
+		hidden_effect = {
+			269 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+
+	option = {	#On to Elostirion
+		name = EVTOPTFmep_tours_events.12
+		trigger = { has_character_flag = elf_tour }
+		hidden_effect = {
+			687 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.13 days = 7 random = 5 }
+	}
+}
+narrative_event = {	#Fourth Tour Target
+	id = mep_tours_events.13
+	title = EVTTTLmep_tours_events.13
+	picture = GFX_evt_dolamroth
+	desc = {	#Dol Amroth
+		text = EVTDESCmep_tours_events.13gondor
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = gondor_tour }
+	}
+	desc = {	#Helm's Deep
+		text = EVTDESCmep_tours_events.13rohan
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Minas Morgul
+		text = EVTDESCmep_tours_events.13mordor
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = mordor_tour }
+	}
+	desc = {	#Nogrod
+		text = EVTDESCmep_tours_events.13dwarf
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = dwarf_tour }
+	}
+	desc = {	#Amon Sul
+		text = EVTDESCmep_tours_events.13arnor
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = arnor_tour }
+	}
+	desc = {	#Elostirion
+		text = EVTDESCmep_tours_events.13elf
+		picture = GFX_evt_dolamroth
+		trigger = { has_character_flag = elf_tour }
+	}
+	is_triggered_only = yes
+
+	option = {	#On to Minas Ithil
+		name = EVTOPTAmep_tours_events.13
+		trigger = { has_character_flag = gondor_tour }
+		hidden_effect = {
+			426 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+
+	option = {	#On to Aldburg
+		name = EVTOPTBmep_tours_events.13
+		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			114 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+
+	option = {	#On to Cirith Ungol
+		name = EVTOPTCmep_tours_events.13
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			149 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+
+	option = {	#On to the Grey Mountains
+		name = EVTOPTDmep_tours_events.13
+		trigger = { has_character_flag = dwarf_tour }
+		hidden_effect = {
+			679 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+
+	option = {	#On to the Barrow Downs
+		name = EVTOPTEmep_tours_events.13
+		trigger = { has_character_flag = arnor_tour }
+		hidden_effect = {
+			105 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+
+	option = {	#On to the Mithlond
+		name = EVTOPTFmep_tours_events.13
+		trigger = { has_character_flag = elf_tour }
+		hidden_effect = {
+			657 = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.14 days = 7 random = 5 }
+	}
+}
+narrative_event = {	#Fifth Tour Target
+	id = mep_tours_events.14
+	title = EVTTTLmep_tours_events.14
+	picture = GFX_evt_minasmorgul
+	desc = {	#Minas Morgul
+		text = EVTDESCmep_tours_events.14gondor
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = gondor_tour }
+	}
+	desc = {	#Aldburg
+		text = EVTDESCmep_tours_events.14rohan
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = rohan_tour }
+	}
+	desc = {	#Cirith Ungol
+		text = EVTDESCmep_tours_events.14mordor
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = mordor_tour }
+	}
+	desc = {	#Grey Mountains
+		text = EVTDESCmep_tours_events.14dwarf
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = dwarf_tour }
+	}
+	desc = {	#Barrow Downs
+		text = EVTDESCmep_tours_events.14arnor
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = arnor_tour }
+	}
+	desc = {	#Mithlond
+		text = EVTDESCmep_tours_events.14elf
+		picture = GFX_evt_minasmorgul
+		trigger = { has_character_flag = elf_tour }
+	}
+	is_triggered_only = yes
+
+	option = {	#Return Home
+		name = EVTOPTAmep_tours_events.14
+		trigger = { has_character_flag = gondor_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTBmep_tours_events.14
+		trigger = { has_character_flag = rohan_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTCmep_tours_events.14
+		trigger = { has_character_flag = mordor_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTDmep_tours_events.14
+		trigger = { has_character_flag = dwarf_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTEmep_tours_events.14
+		trigger = { has_character_flag = arnor_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+
+	option = {	#Return Home
+		name = EVTOPTFmep_tours_events.14
+		trigger = { has_character_flag = elf_tour }
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = tour_target
+			}
+		}
+		random_list = {
+			94 = {}
+			5 = { narrative_event = { id = mep_tours_events.101 } }	#Treasure Riddles
+			1 = { narrative_event = { id = mep_tours_events.110 } }	#Grave of Iron Beagle
+		}
+		narrative_event = { id = mep_tours_events.100 days = 12 random = 7 }
+	}
+}
+narrative_event = {	#Return from Tour
+	id = mep_tours_events.100
+	title = EVTTTLmep_tours_events.100
+	desc = EVTDESCmep_tours_events.100
+	picture = GFX_evt_journeyhome
+	is_triggered_only = yes
+
+	option = {	#Good to be home
+		name = EVTOPTAmep_tours_events.100
+		#remove_trait = <away>
+		IF = {
+			limit = {
+				NOR = {
+					has_character_modifier = mod_gondolin_blade
+					has_character_modifier = mod_white_wizardstaff
+				}
+			}
+			add_character_modifier = { modifier = mod_lousy_shirt duration = -1 }
+		}
+	}
+}
+
+#################
+#Bonus Flavor Events
+#################
+narrative_event = {	#Special Item
+	id = mep_tours_events.101
+	title = EVTTTLmep_tours_events.101
+	picture = GFX_evt_castle_construction
+	desc = {
+		text = EVTDESCmep_tours_events.101A
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle1
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.101AB
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle1
+			has_character_flag = tour_riddle_failed
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.101B
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle2
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.101BB
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle2
+			has_character_flag = tour_riddle_failed
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.101C
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle3
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.101CB
+		picture = GFX_evt_castle_construction
+		trigger = {
+			has_character_flag = tour_riddle3
+			has_character_flag = tour_riddle_failed
+		}
+	}
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			has_character_flag = special_item1
+			has_character_flag = special_item2
+			has_character_flag = special_item3
+		}
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOR = {
+					has_character_flag = tour_riddle1
+					has_character_flag = tour_riddle2
+					has_character_flag = tour_riddle3
+				}
+			}
+			random_list = {
+				1 = { set_character_flag = tour_riddle1 }
+				1 = { set_character_flag = tour_riddle2 }
+				1 = { set_character_flag = tour_riddle3 }
+			}
+		}
+	}
+
+	option = {	#Gold
+		name = EVTOPTAmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle1
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Stone
+		name = EVTOPTBmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle1
+		}
+		clr_character_flag = tour_riddle1
+		clr_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.102 }
+	}
+	option = {	#Tomb
+		name = EVTOPTCmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle1
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Ground
+		name = EVTOPTDmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle1
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Dead
+		name = EVTOPTEmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle2
+		}
+		clr_character_flag = tour_riddle2
+		clr_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.102 }
+	}
+	option = {	#Dark
+		name = EVTOPTFmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle2
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Bled
+		name = EVTOPTGmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle2
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Waned
+		name = EVTOPTHmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle2
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Ground
+		name = EVTOPTImep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle3
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Wood
+		name = EVTOPTJmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle3
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Sand
+		name = EVTOPTKmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle3
+		}
+		set_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.101 }
+	}
+	option = {	#Land
+		name = EVTOPTLmep_tours_events.101
+		trigger = {
+			has_character_flag = tour_riddle3
+		}
+		clr_character_flag = tour_riddle3
+		clr_character_flag = tour_riddle_failed
+		narrative_event = { id = mep_tours_events.102 }
+	}
+}
+narrative_event = {	#Special Item
+	id = mep_tours_events.102
+	title = EVTTTLmep_tours_events.102
+	picture = GFX_evt_castle_construction
+	desc = {
+		text = EVTDESCmep_tours_events.102A
+		picture = GFX_evt_gondolin_blade
+		trigger = {
+			has_character_flag = special_item1
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.102B
+		picture = GFX_evt_white_wizardstaff
+		trigger = {
+			has_character_flag = special_item2
+		}
+	}
+	desc = {
+		text = EVTDESCmep_tours_events.102C
+		picture = GFX_evt_westernesse_dagger
+		trigger = {
+			has_character_flag = special_item3
+		}
+	}
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			1 = { set_character_flag = special_item1 }
+			1 = { set_character_flag = special_item2 }
+			1 = { set_character_flag = special_item3 }
+		}
+	}
+
+	option = {	#Receive Gondolin Blade
+		name = EVTOPTAmep_tours_events.102
+		trigger = { has_character_flag = special_item1 }
+		add_character_modifier = { modifier = mod_gondolin_blade duration = -1 }
+	}
+
+	option = {	#Receive White Wizard Staff
+		name = EVTOPTBmep_tours_events.102
+		trigger = { has_character_flag = special_item2 }
+		add_character_modifier = { modifier = mod_white_wizardstaff duration = -1 }
+	}
+
+	option = {	#Receive Westernesse Dagger
+		name = EVTOPTCmep_tours_events.102
+		trigger = { has_character_flag = special_item3 }
+		add_character_modifier = { modifier = mod_westernesse_dagger duration = -1 }
+	}
+}
+narrative_event = {	#Grave of Iron Beagle
+	id = mep_tours_events.110
+	title = EVTTTLmep_tours_events.110
+	desc = EVTDESCmep_tours_events.110
+	picture = GFX_evt_boromirsfall
+	is_triggered_only = yes
+
+	option = {	#A mighty Warrior of the Bygone Ages
+		name = EVTOPTAmep_tours_events.110
+		set_character_flag = iron_beagled
+	}
+}

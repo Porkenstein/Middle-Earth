@@ -1,0 +1,149 @@
+decisions = {
+	adopt_sinfertile = {
+		potential = {
+			ai = no
+			age = 16
+			NOT = { has_character_modifier = sinfertile2 }
+		}
+		allow = {
+			NOT = { has_character_modifier = sinfertile2 }
+		}
+		effect = {
+			add_character_modifier = { modifier = sinfertile2 duration = -1 }
+			hidden_tooltip = {
+				random = {
+					chance = 50
+					add_character_modifier = {
+						modifier = sinfertile
+						duration = -1
+						hidden = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	revoke_sinfertile = {
+		potential = {
+			ai = no
+			age = 16
+			has_character_modifier = sinfertile2
+		}
+		allow = {
+			has_character_modifier = sinfertile2
+		}
+		effect = {
+			remove_character_modifier = sinfertile2
+			hidden_tooltip = {
+				remove_character_modifier = sinfertile
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
+targetted_decisions = {
+	mep_vchambers_dec = {
+		filter = all
+		ai_target_filter = sub_realm
+
+		from_potential = {
+			ai = no
+			age = 14
+			NOT = { has_character_flag = sin_visited_chambers }
+			OR = {
+				NAND = {
+					ROOT = { has_character_modifier = visited_chambers }
+					has_character_modifier = visited_chambers
+				}
+				AND = {
+					ROOT = { trait = lustful }
+					trait = lustful
+				}
+			}
+		}
+		potential = {
+			OR = {	#Compatible Cultures
+				AND = {	#Humans and Elves
+					OR = {
+						culture_group = culture_group_edain
+						culture_group = culture_group_numenorean
+						culture_group = culture_group_middlemen
+						culture_group = culture_group_forodwaith
+						culture_group = culture_group_haldadian
+						culture_group = culture_group_southron
+						culture_group = culture_group_easterling
+						culture_group = culture_group_quendi
+						culture_group = culture_group_amanyar
+						culture_group = culture_group_umanyar
+					}
+					FROM = {
+						OR = {
+							culture_group = culture_group_edain
+							culture_group = culture_group_numenorean
+							culture_group = culture_group_middlemen
+							culture_group = culture_group_forodwaith
+							culture_group = culture_group_haldadian
+							culture_group = culture_group_southron
+							culture_group = culture_group_easterling
+							culture_group = culture_group_quendi
+							culture_group = culture_group_amanyar
+							culture_group = culture_group_umanyar
+						}
+					}
+				}
+				AND = {	#Orcs Interbreed
+					mep_orc_culture = yes
+					FROM = {
+						mep_orc_culture = yes
+					}
+				}
+				AND = {	#Dwarves
+					culture_group = culture_group_dwarves
+					FROM = {
+						culture_group = culture_group_dwarves
+					}
+				}
+				AND = {	#In Case they find the Entwives
+					culture = culture_entish
+					FROM = {
+						culture = culture_entish
+					}
+				}
+			}
+			OR = {
+				any_spouse = { character = FROM }
+				any_lover = {
+					character = FROM
+				}
+				FROM = {
+					is_consort = ROOT
+				}
+			}
+			age = 14
+		}
+		allow = {
+			ROOT = {
+				NOR = {
+					trait = pregnant
+					has_opinion_modifier = { who = FROM modifier = opinion_rejected }
+				}
+			}
+			FROM = {
+				NOR = {
+					trait = pregnant
+					has_opinion_modifier = { who = ROOT modifier = opinion_rejected }
+				}
+			}
+		}
+		effect = {
+			character_event = { id = mep_vchambers_events.0 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

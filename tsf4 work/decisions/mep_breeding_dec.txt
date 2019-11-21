@@ -1,0 +1,317 @@
+targetted_decisions = {
+	visit_breeding_pits = {
+		only_rulers = yes
+		filter = all
+		ai_target_filter = self
+		third_party = ROOT
+		third_party_filter = home_court
+		ai_third_party_filter = home_court
+		show_third_party_potential = yes
+
+		from_potential = {
+			NOT = {
+				ai = yes
+			}
+			OR = {
+				culture = culture_urukhai
+				culture = culture_orkish
+				culture = culture_half_orc
+			}
+			is_adult = yes
+			NOT = {
+				is_female = yes
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+			NOT = {
+				has_character_modifier = visited_chambers
+			}
+		}
+		potential = {
+			has_landed_title = k_breeding_pits
+		}
+		third_party_potential = {
+			FROMFROM = {
+				is_female = yes
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+				NOT = {
+					is_pregnant = yes
+				}
+				fertility = 0.01
+			}
+		}
+		allow = {
+			has_landed_title = k_breeding_pits
+			FROM = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					war = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		third_party_allow = {
+			FROMFROM = {
+				is_female = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		effect = {
+			FROMFROM = {
+				save_event_target_as = mare
+			}
+			FROM = {
+				save_event_target_as = stud
+				add_character_modifier = {
+					modifier = visited_chambers
+					days = 60
+				}
+			}
+			event_target:stud = {
+				character_event = {
+					id = mep_breeding_events.2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0.01
+			}
+			modifier = {
+				factor = 0.01
+				num_of_children > 1
+			}
+			modifier = {
+				factor = 10
+				age = 30
+			}
+			modifier = {
+				factor = 10
+				age = 30
+				num_of_children < 1
+			}
+			modifier = {
+				factor = 20
+				age = 40
+				num_of_children < 1
+			}
+			modifier = {
+				factor = 20
+				age = 50
+				num_of_children < 1
+			}
+		}
+	}
+	pull_from_pits = {
+		only_rulers = yes
+		filter = all
+		ai_target_filter = self
+		third_party = ROOT
+		third_party_filter = home_court
+		ai_third_party_filter = self
+		show_third_party_potential = yes
+
+		from_potential = {
+			NOT = {
+				ai = yes
+			}
+			is_adult = yes
+			OR = {
+				culture = culture_urukhai
+				culture = culture_orkish
+				culture = culture_half_orc
+			}
+			NOT = {
+				is_female = yes
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+			NOT = {
+				is_incapable = yes
+			}
+		}
+		potential = {
+			has_landed_title = k_breeding_pits
+		}
+		third_party_potential = {
+			FROMFROM = {
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+				NOT = {
+					is_female = yes
+				}
+			}
+		}
+		allow = {
+			has_landed_title = k_breeding_pits
+			FROM = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+				}
+				NOT = {
+					is_female = yes
+				}
+				NOT = {
+					war = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		third_party_allow = {
+			FROMFROM = {
+				is_adult = yes
+				NOT = {
+					prisoner = yes
+				}
+				NOT = {
+					is_incapable = yes
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				save_event_target_as = master
+			}
+			FROMFROM = {
+				move_character = event_target:master
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	ship_to_pits = {
+		only_rulers = yes
+		filter = home_court
+		ai_target_filter = home_court
+
+		from_potential = {
+			OR = {
+				culture = culture_urukhai
+				culture = culture_orkish
+				culture = culture_half_orc
+			}
+			NOT = {
+				war = yes
+			}
+			NOT = {
+				prisoner = yes
+			}
+		}
+		potential = {
+			host = {
+				character = FROM
+			}
+			prisoner = yes
+			is_female = yes
+			OR = {
+				culture = culture_urukhai
+				culture = culture_orkish
+				culture = culture_half_orc
+				culture_group = culture_group_edain
+				culture_group = culture_group_numenorean
+				culture_group = culture_group_middlemen
+				culture_group = culture_group_forodwaith
+				culture_group = culture_group_haldadian
+				culture_group = culture_group_southron
+				culture_group = culture_group_easterling
+				culture_group = culture_group_quendi
+				culture_group = culture_group_amanyar
+				culture_group = culture_group_umanyar
+				culture_group = culture_group_moriquendi
+			}
+		}
+		allow = {
+			prisoner = yes
+			is_female = yes
+			FROM = {
+				OR = {
+					culture = culture_urukhai
+					culture = culture_orkish
+					culture = culture_half_orc
+					culture_group = culture_group_edain
+					culture_group = culture_group_numenorean
+					culture_group = culture_group_middlemen
+					culture_group = culture_group_forodwaith
+					culture_group = culture_group_haldadian
+					culture_group = culture_group_southron
+					culture_group = culture_group_easterling
+					culture_group = culture_group_quendi
+					culture_group = culture_group_amanyar
+					culture_group = culture_group_umanyar
+					culture_group = culture_group_moriquendi
+				}
+				NOT = {
+					war = yes
+				}
+				NOT = {
+					prisoner = yes
+				}
+			}
+		}
+		effect = {
+			abdicate = yes
+			any_spouse = {
+				remove_spouse = ROOT
+			}
+			k_breeding_pits = {
+				holder_scope = {
+					ROOT = {
+						prisoner = no
+						move_character = PREV
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+		}
+	}
+}

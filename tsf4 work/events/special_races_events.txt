@@ -1,0 +1,208 @@
+namespace = special_races_events
+character_event = {
+	id = special_races_events.1
+	title = EVTTTLspecial_races_events.1
+	desc = {
+		text = EVTDESCspecial_races_events.1ents
+		trigger = {
+			FROM = {
+				location = {
+					has_province_modifier = ent_home
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.1spiders
+		trigger = {
+			FROM = {
+				location = {
+					has_province_modifier = spider_home
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.1spiders
+		trigger = {
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+	}
+	picture = GFX_evt_frodofindsring
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			mep_is_good_side_trigger = yes
+			mep_is_evil_side_trigger = yes
+		}
+		FROM = {
+			location = {
+				OR = {
+					has_province_modifier = ent_home
+					has_province_modifier = spider_home
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAspecial_races_events.1
+		trigger = {
+			mep_is_good_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = ent_home
+				}
+			}
+		}
+	}
+
+	option = {	#Tear them up, root and stem
+		name = EVTOPTBspecial_races_events.1
+		trigger = {
+			mep_is_evil_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = ent_home
+				}
+			}
+		}
+		FROM = {
+			location = {
+				set_province_flag = kill_ents
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTCspecial_races_events.1
+		trigger = {
+			mep_is_good_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = spider_home
+				}
+			}
+		}
+		FROM = {
+			location = {
+				set_province_flag = kill_spiders
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTDspecial_races_events.1
+		trigger = {
+			mep_is_evil_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = spider_home
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTEspecial_races_events.1
+		trigger = {
+			mep_is_good_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTFspecial_races_events.1
+		trigger = {
+			mep_is_evil_side_trigger = yes
+			FROM = {
+				location = {
+					has_province_modifier = eagle_home
+				}
+			}
+		}
+		FROM = {
+			location = {
+				set_province_flag = kill_eagles
+			}
+		}
+	}
+}
+province_event = {
+	id = special_races_events.11
+	title = EVTTTLspecial_races_events.11
+	desc = {
+		text = EVTDESCspecial_races_events.11ents
+		trigger = {
+			has_province_modifier = ent_home
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.11spiders
+		trigger = {
+			has_province_modifier = spider_home
+		}
+	}
+	desc = {
+		text = EVTDESCspecial_races_events.11eagles
+		trigger = {
+			has_province_modifier = eagle_home
+		}
+	}
+	picture = GFX_evt_frodofindsring
+
+	trigger = {
+		owner = {
+			OR = {
+				mep_is_good_side_trigger = yes
+				mep_is_evil_side_trigger = yes
+			}
+		}
+		OR = {
+			has_province_flag = kill_ents
+			has_province_flag = kill_spiders
+			has_province_flag = kill_eagles
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	option = {
+		name = EVTOPTAspecial_races_events.11
+		trigger = {
+			has_province_modifier = ent_home
+		}
+		remove_province_modifier = ent_home
+		clr_province_flag = kill_ents
+	}
+
+	option = {
+		name = EVTOPTBspecial_races_events.11
+		trigger = {
+			has_province_modifier = spider_home
+		}
+		remove_province_modifier = spider_home
+		clr_province_flag = kill_spiders
+	}
+
+	option = {
+		name = EVTOPTCspecial_races_events.11
+		trigger = {
+			has_province_modifier = eagle_home
+		}
+		remove_province_modifier = eagle_home
+		clr_province_flag = kill_eagles
+	}
+}

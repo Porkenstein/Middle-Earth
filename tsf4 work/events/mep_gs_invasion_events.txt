@@ -1,0 +1,156 @@
+namespace = mep_gs_invasion_events
+character_event = {
+	id = mep_gs_invasion_events.0
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_landed_title = e_valinor
+		NOT = { has_global_flag = gs_invasion_ended }
+		e_goshen = {
+			has_holder = no
+		}
+	}
+
+	immediate = {
+		hidden_tooltip = { activate_title = { status = yes title = e_goshen } }
+		e_goshen = {
+			create_character = {
+				name = "Stev"
+				age = 46
+			}
+			new_character = {
+				grant_title = PREV
+				random_landed_title = {
+					limit = {
+						real_tier = count
+						location = { port = yes }
+						holder_scope = { ai = yes }
+					}
+					grant_title_no_opinion = PREV
+				}
+				character_event = { id = mep_gs_invasion_events.1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = mep_gs_invasion_events.1
+	desc = EVTDESCmep_gs_invasion_events.1
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	trigger = {
+		has_landed_title = e_goshen
+	}
+
+	immediate = {
+		random_playable_ruler = {
+			limit = { ai = no }
+			save_event_target_as = gsi_target
+			any_demesne_title = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTAmep_gs_invasion_events.1
+		capital_scope = {
+			holder_scope = {
+				spawn_unit = {
+					owner = THIS
+					province = PREV
+					leader = none
+					troops = {
+						light_cavalry = { 2000 2000 }
+						heavy_infantry = { 4000 4000 }
+						light_infantry = { 8000 8000 }
+						archers = { 6000 6000 }
+					}
+					attrition = 0
+					maintenance_multiplier = 0.1
+					merge = yes
+				}
+				wealth = 1000
+			}
+		}
+		random_claim = {
+			limit = { holder_scope = { character = event_target:gsi_target } }
+			reverse_war = {
+				target = ROOT
+				casus_belli = claim
+			}
+		}
+		any_player = {
+			character_event = { id = mep_gs_invasion_events.2 }
+		}
+	}
+}
+
+character_event = {
+	id = mep_gs_invasion_events.2
+	desc = EVTDESCmep_gs_invasion_events.2
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_gs_invasion_events.2
+	}
+}
+
+character_event = {
+	id = mep_gs_invasion_events.3
+	desc = EVTDESCmep_gs_invasion_events.3
+	picture = GFX_evt_large_army
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTAmep_gs_invasion_events.3
+		FROMFROM = {
+			any_demesne_title = {
+				grant_title_no_opinion = ROOT
+			}
+		}
+	}
+}
+
+character_event = {
+	id = mep_gs_invasion_events.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { title = e_goshen }
+	}
+
+	immediate = {
+		set_global_flag = gs_invasion_ended
+		hidden_tooltip = { activate_title = { status = no title = e_goshen } }
+		e_goshen = {
+			destroy_landed_title = ROOT
+		}
+	}
+}
+
+character_event = {
+	id = mep_gs_invasion_events.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { has_landed_title = e_goshen }
+	}
+
+	immediate = {
+		set_global_flag = gs_invasion_ended
+		hidden_tooltip = { activate_title = { status = no title = e_goshen } }
+		e_goshen = {
+			destroy_landed_title = ROOT
+		}
+		any_player = {
+			character_event = { id = mep_gs_invasion_events.3 }
+		}
+	}
+}

@@ -1,0 +1,230 @@
+targetted_decisions = {
+	form_a_guard = {
+		is_high_prio = yes
+		filter = sub_realm
+		ai_target_filter = self
+
+		from_potential = {
+			NOT = { has_guard_trigger = yes }
+			primary_title = { title = e_gondor }
+			d_gondor_guard = { has_holder = no }
+		}
+		potential = {
+			age = 16
+			is_female = no
+			prisoner = no
+			is_married = no
+			is_ruler = no
+			employer = { character = FROM }
+			NOR = {
+				has_job_title = job_chancellor
+				has_job_title = job_marshal
+				has_job_title = job_treasurer
+				has_job_title = job_spymaster
+				has_job_title = job_spiritual
+			}
+			OR = {
+				trait = novice_fighter
+				trait = adept_fighter
+				trait = master_fighter
+				trait = skilled_fighter
+			}
+		}
+		allow = {
+			FROM = {
+				war = no
+				NOT = { has_guard_trigger = yes }
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					primary_title = { title = e_gondor }
+					d_gondor_guard= { has_holder = no }
+				}
+				activate_title = { status = yes title = d_gondor_guard }
+				d_gondor_guard= {
+					gain_title = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	name_to_guard = {
+		filter = sub_realm
+		ai_target_filter = self
+
+		from_potential = {
+			any_vassal = {
+				has_guard_trigger = yes
+			}
+			NOT = {
+				any_vassal = {
+					has_full_guard_trigger = yes
+				}
+			}
+			NOT = { has_opinion_modifier = { modifier = opinion_refused_guard who = ROOT } }
+		}
+		potential = {
+			age = 16
+			prisoner = no
+			OR = {
+				is_ruler = no
+				FROM = {
+					NOT = {
+						any_vassal = {
+							is_guard_trigger = yes
+							count = 3
+						}
+					}
+				}
+			}
+			NOT = { has_guard_trigger = yes }
+			NOT = { is_guard_trigger = yes }
+			NOR = {
+				has_job_title = job_chancellor
+				has_job_title = job_marshal
+				has_job_title = job_treasurer
+				has_job_title = job_spymaster
+				has_job_title = job_spiritual
+			}
+			OR = {
+				trait = novice_fighter
+				trait = adept_fighter
+				trait = master_fighter
+				trait = skilled_fighter
+			}
+		}
+		allow = {
+			age = 16
+			prisoner = no
+		}
+		effect = {
+			FROM = {
+				any_vassal = {
+					limit = { has_guard_trigger = yes }
+					ROOT = {
+						add_trait = guardsman
+						IF = {
+							limit = { is_ruler = no }
+							move_character = PREV
+						}
+					}
+					reverse_opinion = { modifier = opinion_commander who = ROOT years = 100 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 10
+				ROOT = { real_tier = duke }
+			}
+			modifier = {
+				factor = 2
+				ROOT = { real_tier = count }
+			}
+		}
+	}
+	name_personal_guardsman = {
+		filter = sub_realm
+		ai_target_filter = self
+		is_high_prio = yes
+
+		from_potential = {
+			any_vassal = {
+				has_guard_trigger = yes
+			}
+			NOT = {
+				any_courtier = {
+					has_minor_title = title_personalguard
+					count = 2
+				}
+			}
+		}
+		potential = {
+			is_guard_trigger = yes
+			is_ruler = no
+			FROM = {
+				any_vassal = {
+					has_guard_trigger = yes
+					ROOT = {
+						has_opinion_modifier = { modifier = opinion_commander who = PREV }
+					}
+				}
+			}
+			NOT = { has_minor_title = title_personalguard }
+		}
+		allow = {
+			prisoner = no
+		}
+		effect = {
+			opinion = { modifier = opinion_charge who = FROM years = 100 }
+			move_character = FROM
+			give_minor_title = title_personalguard
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	return_to_guard = {
+		filter = realm
+		ai_target_filter = self
+		is_high_prio = yes
+
+		from_potential = {
+			has_guard_trigger = yes
+		}
+		potential = {
+			is_guard_trigger = yes
+			is_ruler = no
+			NOT = { has_any_opinion_modifier = opinion_charge }
+			NOT = {
+				employer = { character = FROM }
+			}
+			has_opinion_modifier = { modifier = opinion_commander who = FROM }
+		}
+		allow = {
+			ROOT = {
+				has_opinion_modifier = { modifier = opinion_commander who = FROM }
+			}
+		}
+		effect = {
+			move_character = FROM
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	disband_guard = {
+		filter = realm
+		ai_target_filter = self
+		is_high_prio = yes
+
+		from_potential = {
+			has_guard_trigger = yes
+		}
+		potential = {
+			any_vassal = {
+				has_guard_trigger = yes
+				count = 2
+			}
+			any_vassal = { character = ROOT }
+		}
+		allow = {
+		}
+		effect = {
+			ROOT = {
+				random_vassal = {
+					limit = { has_guard_trigger = yes }
+					destroy_guard_effect = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
