@@ -1,0 +1,152 @@
+namespace = mep_elf_friend
+character_event = {	#Maintenance
+	id = mep_elf_friend.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = {
+			age = 8
+		}
+		OR = {
+			father = {
+				has_landed_title = d_dunedain_of_north
+				NOT = {
+					trait = zealous
+				}
+			}
+			mother = {
+				has_landed_title = d_dunedain_of_north
+				NOT = {
+					trait = zealous
+				}
+			}
+		}
+		is_primary_heir = yes
+		k_rivendell = {
+			holder_scope = {
+				is_adult = yes
+				dynasty = 3002
+			}
+		}
+
+	}
+
+	immediate = {
+		k_rivendell = {
+			holder_scope = {
+				save_event_target_as = Elrond
+			}
+		}
+		father = {
+			if = {
+				limit = {
+					has_landed_title = d_dunedain_of_north
+				}
+				character_event = {
+					id = mep_elf_friend.11
+				}
+			}
+			else = {
+				mother = {
+					character_event = {
+						id = mep_elf_friend.11
+					}
+				}
+				
+			}
+		}
+	}
+}
+character_event = {	#Maintenance
+	id = mep_elf_friend.11
+	desc = EVTDESCmep_elf_friend.11
+	picture = GFX_evt_castle_construction
+	is_triggered_only = yes
+
+	option  = {
+		name = EVTOPTAmep_elf_friend.11
+		ai_chance = {
+			factor = 99
+		}
+		FROM = {
+			set_guardian = event_target:Elrond
+		}
+	}
+
+	option  = {
+		name = EVTOPTBmep_elf_friend.11
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+character_event = {	#Maintenance
+	id = mep_elf_friend.2
+	desc = EVTDESCmep_elf_friend.2
+	picture = GFX_evt_castle_construction
+
+	trigger = {
+		NOR = {
+			trait = elf_friend
+			trait = zealous
+		}
+		is_adult = yes
+		is_ruler = yes
+		OR = {
+			AND = {
+				OR = {
+					has_landed_title = e_arnor
+					any_liege = {
+						has_landed_title = e_arnor
+					}
+				}
+				culture = culture_arnorian
+				religion = religion_edain
+				any_neighbor_independent_ruler = {
+					is_adult = yes
+					OR = {
+						culture_group = culture_group_amanyar
+						culture_group = culture_group_moriquendi
+						culture_group = culture_group_umanyar
+					}
+					religion = religion_eldar
+				}
+			}
+			AND = {
+				has_landed_title = d_dunedain_of_north
+				culture = culture_arnorian
+				religion = religion_edain
+				any_independent_ruler = {
+					is_adult = yes
+					OR = {
+						culture_group = culture_group_amanyar
+						culture_group = culture_group_moriquendi
+						culture_group = culture_group_umanyar
+					}
+					religion = religion_eldar
+				}
+			}
+		}
+
+	}
+
+	mean_time_to_happen = {
+		years = 200
+	}
+
+	option  = {
+		name = EVTOPTAmep_elf_friend.2
+		ai_chance = {
+			factor = 99
+		}
+		add_trait = elf_friend
+	}
+
+	option  = {
+		name = EVTOPTBmep_elf_friend.2
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
