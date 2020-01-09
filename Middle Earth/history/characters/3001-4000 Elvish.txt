@@ -467,9 +467,14 @@
 		}
 	} #Celebrían gives the Elessar to Arwen before she sails West
 	11323.1.1 = {
-		
-		add_trait = vow_of_cerin_amroth
-	
+		effect = {
+			if = {
+				limit = {
+					has_game_rule = { name = wotr_lore  value = canon }
+				}
+				add_trait = vow_of_cerin_amroth
+			}
+		}
 	}
 	11485.1.1 = {
 		death = "11485.1.1"
