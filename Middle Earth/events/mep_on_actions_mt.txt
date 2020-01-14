@@ -59,6 +59,7 @@ character_event = {	#Old age Trait for Characters
 			culture = culture_spider
 			culture_group = culture_group_onodrim
 			culture_group = culture_group_eru
+			culture_group = culture_group_melkor
 		}
 	}
 
@@ -106,8 +107,9 @@ character_event = {	#Old age Death for Characters
 
 	trigger = {
 		trait = trait_old_age
-		NOT = {
+		NOR = {
 			dont_kill_trigger = yes
+			culture_group = culture_group_melkor
 		}
 	}
 
