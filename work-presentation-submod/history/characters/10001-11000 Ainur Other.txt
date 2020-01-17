@@ -1,0 +1,90 @@
+10016 = {
+	name = "Mairon"
+	dynasty = 10011
+
+	religion = "religion_eruhini"
+	culture = "culture_umaiar"
+
+	disallow_random_traits = yes
+	add_trait = maiar
+
+	martial = 15
+	diplomacy = 15
+	intrigue = 20
+	learning = 8
+	stewardship = 10
+
+ 	dna = "bkadfwkiaal"
+  	properties = "am0ad000a00"
+
+	1.1.1 = {
+		birth = "1.1.1"
+		effect = {
+		set_character_flag = sauron
+		}
+		name = "Thû"
+		dynasty = 10012
+		religion = "religion_melkor"
+	} #Mairon is corrupted by Melkor
+	304.1.1 = {
+		name = "Gorthaur"
+	} #Gothmog and Thû begin to restore Angband, Thû is called Gorthaur by the Sindar
+	953.1.1 = {
+		name = "Sauron"
+	} #Minas Tirith falls to Gorthaur, and the Noldor give him the Quenya name Sauron, 'the Abhorred'
+	2286.1.1 = {
+		name = "Annatar"
+		add_trait = fair
+		religion = "religion_eruhini"
+	} #Sauron comes to the Eldar under a fair guise
+	2666.1.1 = {
+		name = "Sauron"
+		remove_trait = fair
+		add_trait = strong
+		add_trait = wroth
+		religion = "religion_melkor"
+		add_trait = cruel
+		add_trait = deceitful
+		add_trait = elusive_shadow
+		add_trait = aggressive_leader
+	} #Sauron returns to Mordor
+	2686.1.1 = {
+		effect = { 
+			add_artifact = artifact_ring  #Sauron forges the One Ring
+			set_character_flag = one_ring_info
+			set_global_flag = one_ring_held
+		}
+	}
+	4527.1.1 = {
+		effect = {
+			unsafe_destroy_artifact = artifact_ring
+		}
+		add_trait = ringbearer2
+		add_trait = spiritform
+	} #Sauron is defeated and loses the Ring
+	5527.1.1 = {
+		effect = {
+			clr_global_flag = one_ring_held
+		}
+		name = "Necromancer"
+		dynasty = 0
+		give_nickname = nick_the_black
+	} #Sauron come to Dol Guldur
+	6529.1.1 = {
+		# add_trait = palantir_ithil
+	} #The Nazgul capture the Ithil-stone
+	7372.1.1 = {
+		effect = {
+			add_artifact = durin_ring
+			add_artifact = dwarf_ring
+		}
+	}
+	7468.1.1 = {
+		name = "Sauron"
+		dynasty = 10012
+		prestige = -700
+	} #Sauron come back to Mordor after the attack of the White Council on Dol Guldur
+	7501.3.25 = {
+		death =  yes
+	} #The ring is destroyed, Sauron dies
+}
