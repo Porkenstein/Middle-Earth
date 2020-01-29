@@ -1,0 +1,71 @@
+24 = {
+	name="Théoden"
+	dynasty=5
+	dna="ckgdeeiigbm"
+	properties="ad00ic"
+	
+	religion="religion_edain"
+	culture="culture_rohirrim"
+	
+	father=23
+	mother=1990
+	
+	add_trait=strong
+	add_trait=cavalry_leader
+	add_trait=brilliant_strategist
+	add_trait=brave
+	add_trait=inspiring_leader
+	add_trait = horse_master
+	add_trait = skilled_fighter
+
+	
+	7430.1.1={
+		birth=yes
+		effect = {
+			set_character_flag = theoden
+		}
+	}
+	7457.1.1={
+		add_spouse=30
+	}
+	7479.1.1 = {add_trait = celibate}
+	7489.1.1 = {
+		add_trait = saruman_spell
+		effect = {
+			c_10032 = {
+				opinion = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+					years = 1000
+				}
+				reverse_opinion = {
+					modifier = opinion_dark_puppetmaster
+					who = ROOT
+					years = 1000
+				}
+			}
+		}
+	}
+	7501.3.2 = {
+		remove_trait = saruman_spell
+		effect = {
+			c_10032 = {
+				remove_opinion = {
+					modifier = opinion_dark_puppet
+					who = ROOT
+				}
+				reverse_remove_opinion = {
+					modifier = opinion_dark_puppetmaster
+					who = ROOT
+				}
+			}
+		}
+		give_nickname = nick_ednew
+	} #Is renewed by Gandalf
+	7501.3.15= {
+	death = {
+			death_reason = death_battle
+			killer = 12223
+		}
+	}
+}

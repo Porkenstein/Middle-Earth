@@ -88,3 +88,63 @@
 		death =  yes
 	} #The ring is destroyed, Sauron dies
 }
+10032 = {
+	name = "Curumo"
+	dynasty = 10011
+	religion = "religion_eruhini"
+	culture = "culture_maiar"
+
+	disallow_random_traits = yes
+	add_trait = maiar
+
+ 	dna = "alfca0kdaa0"
+ 	properties = "hg0ncfbebbb"
+	1.1.1 = {
+		birth = "1.1.1"
+		employer = 10001
+	}
+	5482.1.1 = {
+		name = "Saruman"
+		culture = "culture_istari"
+		give_nickname = "nick_the_white"
+		add_trait = mastermind_theologian
+		add_trait = at_east
+		effect = {
+			set_graphical_culture = culture_istari
+			add_artifact = staff_of_saruman
+		}
+	} #The Five Istari arrive in Middle-earth
+	6945.1.1 = {
+		add_trait =  white_council
+		remove_trait = at_east
+		employer = 3003 # He does not get Isengard until 11102, so I'll stick him with Elrond
+	} #The White Council is formed
+	7241.1.1 = {
+	    add_trait = ambitious
+		add_trait = cynical
+		add_trait = deceitful
+		# add_trait =  palantir_orthanc
+		remove_trait = mastermind_theologian
+		add_trait = intricate_webweaver
+		effect = {
+			add_artifact = key_of_orthanc
+		}
+	} #Saruman settled in Isengard
+	7435.1.1 = {
+		remove_trait = white_council
+		religion = "religion_melkor"
+		add_trait = cruel
+		effect = {
+			add_artifact = ring_saruman
+			set_character_flag = corrupted
+			add_rival = 10033 #Gandalf
+		}
+	} #Saruman is fully corrupted by Sauron
+	7501.3.13  = {
+   		effect = { set_character_flag = one_ring_info }
+	}
+ 	#Saruma isn't the major Istari anymore
+	7501.11.3 = {
+		death = yes
+	} #Saruman is stabbed by Wormtongue
+}
