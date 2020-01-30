@@ -148,3 +148,105 @@
 		death = yes
 	} #Saruman is stabbed by Wormtongue
 }
+10033 = {
+	name = "Olórin"
+	dynasty = 10022
+	religion = "religion_eruhini"
+	culture = "culture_maiar"
+
+	disallow_random_traits = yes
+	add_trait = maiar
+
+  	dna = "bmfle0idfb0"
+  	properties = "kh0ndgbebbb"
+	
+	1.1.1 = {
+		birth = "1.1.1"
+		effect = {
+			set_character_flag = gandalf
+		}
+		employer = 10001
+	}
+	
+	5482.1.1 = {
+		culture = "culture_istari"
+		give_nickname = "nick_the_grey"
+		add_trait = brave
+		name = "Gandalf"
+		effect = {
+			add_artifact = staff_of_gandalf
+			set_character_flag = gandalf
+			set_graphical_culture = culture_istari
+		}
+		employer = 3003 # Needed to move him out of Valinor so I'll stick him with Elrond		
+	} #The Five Istari arrive in Middle-earth
+	
+	6945.1.1 = {
+		add_trait = white_council
+		add_trait = humble
+		add_trait = kind
+		add_trait = patient
+		add_trait = charismatic_negotiator
+		add_trait = celibate
+		effect =  {
+			add_artifact = narya
+			add_friend = 3006 #Galadriel
+			add_friend = 3065 #Cirdan
+			add_friend = 3005 #Celeborn
+			add_friend = 3003 #Elrond
+		} #The White Council is formed
+	}
+	7423.5.30  = {
+		add_trait = inspiring_leader
+		effect = {
+		add_friend = 8140
+		add_friend = 8041
+		add_friend = 8028
+		add_friend = 8079
+		add_friend = 8065
+		add_friend = 10031
+		add_friend = 4040 #Thorin
+		add_friend = 4044 #Balin
+		add_friend = 4045 #Dwalin
+		add_friend = 4048 #Fili
+		add_friend = 4049 #Kili
+		add_friend = 4052 #Dori
+		add_friend = 4053 #Nori
+		add_friend = 4054 #Ori
+		add_friend = 4046 #Oin
+		add_friend = 4047 #Gloin
+		add_friend = 4081 #Bifur
+		add_friend = 4085 #Bofur
+		add_friend = 4086 #Bombur
+		add_friend = 339 #Beorn
+		}
+	}
+	#Glamdring, Orcrist and Sting recovered from the Troll-hoard
+
+	7439.1.1 = {
+		employer = 10031
+	}# Gandalf in the court of radagast to prevent him to be with Saruman
+	7501.3.13  = {
+		remove_trait = charismatic_negotiator
+		add_trait = grey_eminence
+	} #Gandalf the White
+	
+	7501.3.14 = {
+		give_nickname = "nick_the_white"
+		effect = {
+			set_character_flag = gandalf_the_white
+			destroy_artifact = staff_of_gandalf
+			add_artifact = white_staff_of_gandalf
+		}
+	} #Gandalf the White
+	
+	7505.1.1  = {
+		effect = { destroy_artifact = narya }
+		remove_trait = white_council
+		add_trait = sailed_west
+		employer = "10001"
+	}
+	9999.1.1 = {
+		death = yes
+	}
+ }
