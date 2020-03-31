@@ -3023,15 +3023,9 @@
 	4807.1.1 = {
 		birth = "4807.1.1"
 	}
-	4869.1.1 = {
-		add_spouse = 3184
-	}
-	4890.1.1 = {
-		add_trait = at_east
-	}
-	16000.1.1 = {
-		death = yes
-	}
+	4819.1.1 = {
+		death = { death_reason = death_vanished }
+	} 
 }
 
 3118 = {
@@ -3048,15 +3042,9 @@
 	4807.1.1 = {
 		birth = "4807.1.1"
 	}
-	4869.1.1 = {
-		add_spouse = 3185
-	}
-	4890.1.1 = {
-		add_trait = at_east
-	}
-	16000.1.1 = {
-		death = yes
-	}
+	4819.1.1 = {
+		death = { death_reason = death_vanished }
+	} 
 }
 
 # Line of Elmo
@@ -3404,8 +3392,11 @@
 		remove_trait = sailed_west
 	}
 	4784.1.1 = {
-		death = { death_reason = death_battle }
-	} #Slain in the Nirnaeth Arnoediad
+		death = {
+			death_reason = death_battle
+			killer = 10025
+		}
+	} #Slain in the Nirnaeth Arnoediad by Gothmog.
 }
 
 3132 = {
@@ -5820,7 +5811,7 @@
         remove_trait = sailed_west
     }
     4822.1.1 = {
-        death = { death_reason = death_battle }
+        death = { death_reason = death_accident_drowning }
     } #Slain in the Fall of Gondolin
 }
 
@@ -6207,7 +6198,9 @@
 		add_trait = at_east
 	}
 	4902.1.1 = {
-		death = { death_reason = death_suicide }
+		death = {
+			death_reason = death_suicide_fall
+		}
 	}
 }
 
@@ -6261,8 +6254,10 @@
 		employer = 3311
 	}
 	16000.1.1 = {
-		death = yes
-	}
+		death = {
+			death_reason = death_vanished
+		} 
+	} 
 }
 
 3241 = {
@@ -6552,8 +6547,11 @@
 		add_spouse = 3409
 	}
 	6599.1.1 = {
-		death = { death_reason = death_battle }
-	} #Slain in the War of the Elves and Sauron
+		death = {
+			death_reason = death_murder
+			killer = 10016
+		} #Slain by Sauron
+	} 
 }
 
 3249 = {
