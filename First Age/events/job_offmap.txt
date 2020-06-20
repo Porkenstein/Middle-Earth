@@ -3090,6 +3090,15 @@ character_event = { # What does the liege wish to do with the apostate?
 	
 	option = { # Execute them!
 		name = MNM.70200.a
+
+		trigger = {
+			# nice elves don't execute each other
+			hidden_tooltip = {
+				event_target:accused_apostate = {
+					not_this_and_root_elves_or_exception = yes
+				}
+			}
+		}
 		
 		ai_chance = {
 			factor = 50
@@ -3291,7 +3300,7 @@ character_event = { # What does the liege wish to do with the apostate?
 		}
 	}
 	
-	option = { # Brand them
+	option = { # Banish them
 		name = MNM.70200.c
 		
 		ai_chance = {
@@ -3348,14 +3357,8 @@ character_event = { # What does the liege wish to do with the apostate?
 					duration = -1
 				}
 			}
-			if = {
-				limit = {
-					religion = ROOT
-					controls_religion = no
-				}
-				add_trait = excommunicated
-				banish = yes
-			}
+			add_trait = excommunicated
+			banish = yes
 		}
 	}
 	

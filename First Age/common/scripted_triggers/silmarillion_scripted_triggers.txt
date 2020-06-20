@@ -118,6 +118,23 @@ not_both_elves_no_kinslaying = {
 	}
 }
 
+not_this_and_root_elves_or_exception = {
+	hidden_tooltip = {
+		NAND = { # eldar do not execute each other
+			ROOT = { #executer
+				religion_group = religion_group_eldar
+				NOT = { trait = kinslayer }
+				NOT = { trait = evil_side }
+				NOT = { trait = cruel }
+				NOT = { trait = authoritative }
+			}
+			PREV = { # executee
+				religion_group = religion_group_eldar
+			}
+		}
+	}
+}
+
 is_elf_culture = {
 	OR = {
 		culture_group = culture_group_amanyar

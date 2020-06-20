@@ -12,7 +12,6 @@ namespace = dagor_bragollach
 # The Siege of Angband is broken - AI
 narrative_event = {
 	id = dagor_bragollach.10
-	major = yes
 	hide_window = yes
 
 	trigger = {
@@ -55,7 +54,7 @@ narrative_event = {
 	}
 }
 
-# The Siege of Angband is broken - victim player
+# The Siege of Angband is broken - notification
 narrative_event = {
 	id = dagor_bragollach.11
 	title = EVTNAME_dagor_bragollach_11
@@ -69,6 +68,19 @@ narrative_event = {
 	
 	option = {
 		name = EVTOPTA_dagor_bragollach_11
+
+		# Cowardly reaction
+		trigger = {
+			NOT = { trait = brave }
+			NOT = {
+				OR = {
+					trait = evil_side
+					society_member_of = the_satanists
+					religion_group = religion_group_melkor
+				}
+			}
+		}
+
 		custom_tooltip = {
 			text = EVTOPTA_dagor_bragollach_11_TIP
 
@@ -86,9 +98,56 @@ narrative_event = {
 			limit = {
 				has_character_flag = flag_fingolfin
 			}
-
 			# the ride of rochallor
 			character_event = { id = fingolfin.12 days = 30 }
+		}
+	}
+
+	option = {
+		name = EVTOPTB_dagor_bragollach_11
+
+		# Brave reaction
+		trigger = {
+			trait = brave
+			NOT = {
+				OR = {
+					trait = evil_side
+					society_member_of = the_satanists
+					religion_group = religion_group_melkor
+				}
+			}
+		}
+
+		custom_tooltip = {
+			text = EVTOPTA_dagor_bragollach_11_TIP
+
+			any_realm_province = {
+				increase_depopulation_effect = yes
+			}
+			any_unit = {
+				damage_unit = {
+					percentage = 1.0
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_character_flag = flag_fingolfin
+			}
+			# the ride of rochallor
+			character_event = { id = fingolfin.12 days = 30 }
+		}
+	}
+
+	option = {
+		name = EVTOPTC_dagor_bragollach_11
+		trigger = {
+			OR = {
+				trait = evil_side
+				society_member_of = the_satanists
+				religion_group = religion_group_melkor
+			}
 		}
 	}
 }
@@ -151,52 +210,6 @@ narrative_event = {
 	}
 }
 
-# The Siege of Angband has been broken
-narrative_event = {
-	id = dagor_bragollach.13
-	title = EVTNAME_dagor_bragollach_13
-	desc = EVTDESC_dagor_bragollach_13
-	major = yes
-	
-	picture = GFX_anfauglith
-	border = GFX_event_narrative_frame_war
-	
-	is_triggered_only = yes
-
-	option = {
-		name = EVTOPTA_dagor_bragollach_13
-		trigger = {
-			NOT = {
-				OR = {
-					trait = evil_side
-					society_member_of = the_satanists
-					religion_group = religion_group_melkor
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				has_character_flag = flag_fingolfin
-			}
-
-			# the ride of rochallor
-			character_event = { id = fingolfin.12 days = 30 }
-		}
-	}
-
-	option = {
-		name = EVTOPTB_dagor_bragollach_13
-		trigger = {
-			OR = {
-				trait = evil_side
-				society_member_of = the_satanists
-				religion_group = religion_group_melkor
-			}
-		}
-	}
-}
-
 # The Siege of Angband is broken - Morgoth player
 narrative_event = {
 	id = dagor_bragollach.14
@@ -221,7 +234,7 @@ narrative_event = {
 	}
 }
 
-# Province is abandoneds by morgoth due to the siege
+# Province is abandoned by morgoth due to the siege
 province_event = {
 	id = dagor_bragollach.15
 	hide_window = yes
