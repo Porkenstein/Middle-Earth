@@ -567,10 +567,10 @@ silmarillion_province_become_heretic_effect = {
 }
 
 slmarillion_sudden_flame_effect = { # ROOT = morgoth
-	#change_infamy = {  # this currently gives EVERY character infamy for some damned reason
-		#	value = 35
-		#	localisation = "Dagor Bragollach"
-		#}
+	change_infamy = {
+		value = 80
+		localisation = "Dagor Bragollach"
+	}
 
 	custom_tooltip = {	text = EVTOPTA_dagor_bragollach_14_TIP }
 
@@ -580,16 +580,16 @@ slmarillion_sudden_flame_effect = { # ROOT = morgoth
 		any_independent_ruler = { # destroy armies of neighboring realms
 			limit = { NOT = { religion_group = religion_group_melkor } }
 			any_unit = {
-				limit = {
-					location = {
-						OR = {
-							de_jure_liege_or_above = d_ard_galen
-							de_jure_liege_or_above = k_angband
-						}
-					}
-				}
+				#limit = {
+				#	location = {
+				#		OR = {
+				#			de_jure_liege_or_above = d_ard_galen
+				#			de_jure_liege_or_above = k_angband
+				#		}
+				#	}
+				#}
 				damage_unit = {
-					percentage = 1.0 # TODO not working?
+					percentage = 100.0 # TODO not working?
 				}
 			}
 		}

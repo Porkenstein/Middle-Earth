@@ -2,11 +2,6 @@
 # the sudden flame
 #
 
-# TODO - 
-#  fix dagor_bragollach.10, which seems to be triggering a cascade of dagor_bragollach.13 events
-#  figure out why the unit damage is not working
-# 
-
 namespace = dagor_bragollach
 
 # The Siege of Angband is broken - AI
@@ -34,23 +29,23 @@ narrative_event = {
 
 	option = {
 		slmarillion_sudden_flame_effect = yes
-		#18 = {
-		#	spawn_unit = {
-		#		owner = ROOT
-		#		province = THIS
-		#		home = THIS
-		#		troops = {
-		#			archers = { 1500 1500 }
-		#			light_infantry = { 10000 10000 } # give the stupid morgoth AI a boost
-		#			heavy_infantry = { 2000 2000 }
-		#			light_cavalry = { 2000 2000 }
-		#			monster_infantry = { 500 500 }
-		#			monster_cavalry = { 500 500 }
-		#		}
-		#		disband_on_peace = no
-		#		maintenance_multiplier = 0.1
-		#	}
-		#}
+		18 = {
+			spawn_unit = {
+				owner = ROOT
+				province = THIS
+				home = THIS
+				troops = {
+					archers = { 1500 1500 }
+					light_infantry = { 10000 10000 } # give the stupid morgoth AI a boost
+					heavy_infantry = { 2000 2000 }
+					light_cavalry = { 2000 2000 }
+					monster_infantry = { 500 500 }
+					monster_cavalry = { 500 500 }
+				}
+				disband_on_peace = no
+				maintenance_multiplier = 0.1
+			}
+		}
 	}
 }
 
