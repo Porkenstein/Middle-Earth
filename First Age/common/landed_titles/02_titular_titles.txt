@@ -2472,7 +2472,7 @@ d_gelion_sirithyrn = {
 	mercenary_type = gelion_sirithyrn_composition
 }
 
-d_barad_nimras_palanrist = { 
+d_barad_nimras_palanrist = {
 
 # medium sized fleet, only good
 # exists after barad nimras is owned by a noldo, and exists until barad nimras is ruled by a creature of melkor
@@ -2540,7 +2540,7 @@ d_falathrim_celebrist = {
 
 d_merlocks = {
 
-# an independent brood of sea-orcs who serve evil masters
+# a brood of sea-orcs who serve evil masters
 # exists while a creature of melkor rules in the falas
 
 	color = { 102 90 90 }
@@ -2599,23 +2599,50 @@ d_kaukareldar = {
 ## TITULAR EMPIRES
 
 e_belegaer = {
+	religion = religion_moriquendi
+	culture = culture_falathrim
+	capital = 111 # c_brithombar
 
     # allows vassalization of the haven guard and sirion haven guard
 	
 	allow = {
-		has_landed_title = k_falas
-		has_landed_title = k_arvernien
-		has_landed_title = k_siriombar
+		OR = {
+			has_landed_title = k_falas
+			has_landed_title = k_arvernien
+			has_landed_title = k_balar
+		}
+		OR = {
+			has_landed_title = k_falas
+			completely_controls = k_falas
+		}
+		OR = {
+			has_landed_title = k_arvernien
+			completely_controls = k_arvernien
+		}
+		OR = {
+			has_landed_title = k_siriombar
+			completely_controls = k_siriombar
+		}
 	}
 }
 
 e_taur_im_duinath = {
+	religion = religion_moriquendi
+	culture = culture_nandor
+	capital = 96 # c_alat_nortil
 
 	# activates some bonuses corresponding to settlement of the forest
 
 	allow = {
+		OR = {
+			has_landed_title = k_siriombar
+			has_landed_title = k_ellinsire
+			has_landed_title = k_andram
+			has_landed_title = k_amon_ereb
+			has_landed_title = k_nan_tathren 
+		}
 		calc_true_if = {
-			amount = 8
+			amount = 7
 			OR = {
 				has_landed_title = d_nunaluksor
 				completely_controls = d_nunaluksor
@@ -2648,11 +2675,6 @@ e_taur_im_duinath = {
 				has_landed_title = d_avandor
 				completely_controls = d_avandor
 			}
-			has_landed_title = k_siriombar
-			has_landed_title = k_ellinsire
-			has_landed_title = k_andram
-			has_landed_title = k_amon_ereb
-			has_landed_title = k_nan_tathren
 			
 			# these each make it a little easier to form
 			religion = religion_moriquendi
@@ -2660,9 +2682,6 @@ e_taur_im_duinath = {
 			culture = culture_nandor
 		}
 	}
-	
-	religion = religion_moriquendi
-	culture = culture_nandor
 }
 
 
@@ -2727,18 +2746,21 @@ e_noldor = { # union of the noldor, or later the golodhrim/gondolindrim
 		prestige = 2000
 		realm_size = 40
 	}
-		
+
 	# Cannot be held as a secondary title
 	primary = yes
 	landless = yes # Gil-Galad at some point
 	assimilate = no
-	
+
+	# allows vassalization of the knights of the crown
 	culture = culture_noldor
 	religion = religion_calaquendi
 	dignity = 10
 }
 
-e_sindar = { # union of mithrim, eglath, falas, doriathrim.
+e_sindar = { # union of mithrim, eglath, falathrim, iathrim.
+	color={ 150 120 150 }
+	color2={ 255 255 255 }
 
     # allows vassalization of the grey sentinels
     
@@ -2749,7 +2771,10 @@ e_sindar = { # union of mithrim, eglath, falas, doriathrim.
 		OR = {
 			has_landed_title = k_nevrast
 			has_landed_title = k_hithlum
+			has_landed_title = k_mithrim
+			has_landed_title = k_linaewen
 			has_landed_title = e_aryador
+			has_landed_title = e_duvenbeleriand
 		}
 		OR = {
 			has_landed_title = e_belegaer
@@ -2765,7 +2790,6 @@ e_sindar = { # union of mithrim, eglath, falas, doriathrim.
 	primary = yes
 	assimilate = no
 
-    # allows vassalization of the grey sentinels
     culture = culture_sindar
     religion = religion_moriquendi
     dignity = 10
@@ -3114,144 +3138,162 @@ k_zirakbhund = { # Mallost
 # FICTIONAL KINGDOMS BASED ON DE JURE DUCHIES
 
 k_dor_lomin = { # independent kingdom of Dor-Lomin, perhaps formed historically by Ulbandim
-	
+	culture = culture_mithrim
+	religion = religion_moriquendi
+	capital = 143 # c_dor_lomin
+
     allow = {
         completely_controls = d_dor_lomin
+		has_landed_title = d_dor_lomin
 		OR = {
 			has_landed_title = d_darthir
 			has_landed_title = d_fingonardh
 			completely_controls = d_darthir
 			completely_controls = d_fingonardh
 		}
-		primary_title = { higher_tier_than = COUNT }
 		independent = yes
+		realm_size = 15
     }
-	
-	culture = culture_mithrim
-	religion = religion_moriquendi
 }
 
 
 k_sirion = { # independent kingdom of Sirion
-	
+	culture = culture_eglath
+	religion = religion_moriquendi
+	capital = 223 # c_tol_sirion
+
     allow = {
         completely_controls = d_sereach
 		has_landed_title = d_sereach
-		calc_true_if = {
-			amount = 2
+		OR = {
 			has_landed_title = d_lithir_malduin
 			has_landed_title = d_dimbar
 			has_landed_title = d_eithel_sirion
+			completely_controls = d_lithir_malduin
+			completely_controls = d_dimbar
+			completely_controls = d_eithel_sirion
 		}
 		independent = yes
 		realm_size = 15
     }
-	
-	culture = culture_eglath
-	religion = religion_moriquendi
 }
 
 k_balar = { # the bay of balar
+	culture = culture_falathrim
+	religion = religion_moriquendi
+	capital = 24 # c_tol_balar
 
     allow = {
         completely_controls = d_bay_of_balar
 		has_landed_title = d_bay_of_balar
-		calc_true_if = {
-			amount = 2
+		OR = {
 			has_landed_title = d_hyallondie
 			has_landed_title = d_lond_sirion
 			has_landed_title = d_arvernien
+			completely_controls = d_hyallondie
+			completely_controls = d_lond_sirion
+			completely_controls = d_arvernien
 		}
 		independent = yes
 		realm_size = 15
     }
-	
-	culture = culture_falathrim
-	religion = religion_moriquendi
 }
 
 k_mithrim = {  # the kingdom of mithrim
-
-    allow = {
-        has_landed_title = d_harmithrum
-		has_landed_title = d_fingolfinardh
-		has_landed_title = d_formithrim
-
-		independent = yes
-		realm_size = 15
-    }
-
 	culture = culture_mithrim
 	religion = religion_moriquendi
+	capital = 166 # c_mithrum
 
+    allow = {
+        completely_controls = d_harmithrum
+		completely_controls = d_formithrim
+		OR = {
+			has_landed_title = d_fingolfinardh
+			has_landed_title = d_harmithrum
+			has_landed_title = d_formithrim
+		}
+		independent = yes
+    }
 }
 
 k_linaewen = { # the kingdom of linaewen
+	culture = culture_eglath
+	religion = religion_moriquendi
+	capital = 236 # c_forlinaewen
 
     allow = {
         completely_controls = d_forlinaewen
 		completely_controls = d_harlinaewen
-		primary_title = { higher_tier_than = COUNT }
-
+		OR = {
+			has_landed_title = d_forlinaewen
+			has_landed_title = d_harlinaewen
+		}
 		independent = yes
     }
-
-	culture = culture_eglath
-	religion = religion_moriquendi
 }
 
 k_amon_ereb = { # a kingdom of amon ereb
+	culture = culture_laegrim
+	religion = religion_moriquendi
+	capital = 14 # c_ereb
+
     allow = {
 		any_demesne_province = { province_id = 14 } # Amon Ereb
-		
         has_landed_title = d_ramdal
-		has_landed_title = d_fornagelion
+		OR = {
+			has_landed_title = d_fornagelion
+			completely_controls = d_fornagelion
+		}
 		OR = {
 			has_landed_title = d_avandor
 			has_landed_title = d_talath_annui
+			completely_controls = d_avandor
+			completely_controls = d_talath_annui
 		}
-		
-		realm_size = 15
 		independent = yes
+		realm_size = 15
     }
-
-	culture = culture_laegrim
-	religion = religion_moriquendi
 }
 
 
 ## MINOR WOODLAND REALMS
 
 k_taur_nu_wethrin = { # forest kingdom the foot of the Ered Wethrin
+	culture = culture_eglath
+	religion = religion_moriquendi
+	capital = 220 # c_tofnuath
 
     allow = {
+		is_dark_elf_culture = yes
+
+		completely_controls = d_nuath
+		completely_controls = d_ivrin
 		OR = {
-			culture_group = culture_group_umanyar
-			culture_group = culture_group_moriquendi
+			has_landed_title = d_nuath
+			has_landed_title = d_ivrin
 		}
-        completely_controls = d_nuath
-		has_landed_title = d_nuath
-		has_landed_title = d_ivrin
 		OR = {
 			has_landed_title = d_dor_lomin
 			has_landed_title = d_uzlamazahar
 			has_landed_title = d_harlinaewen
 			has_landed_title = d_darthir
+			completely_controls = d_dor_lomin
+			completely_controls = d_uzlamazahar
+			completely_controls = d_harlinaewen
+			completely_controls = d_darthir
 		}
 		realm_size = 15
-
 		independent = yes
     }
-
-	culture = culture_eglath
-	religion = religion_moriquendi
 }
 
 k_nan_tathren = { # kingdom of nan-tathren/tasarinan
+	culture = culture_nandor
+	religion = religion_moriquendi
+	capital = 250 # c_nan_tathren
 
     allow = {
-		culture = culture_nandor
-		religion = religion_moriquendi
+		is_dark_elf_culture = yes
 
         completely_controls = d_nan_tathren
 		has_landed_title = d_nan_tathren
@@ -3259,37 +3301,40 @@ k_nan_tathren = { # kingdom of nan-tathren/tasarinan
 			has_landed_title = d_siriombar
 			has_landed_title = d_lhostesgar
 			has_landed_title = d_talath_i_sirion
+			completely_controls = d_siriombar
+			completely_controls = d_lhostesgar
+			completely_controls = d_talath_i_sirion
 		}
 		realm_size = 15
-
 		independent = yes
     }
-
-	culture = culture_nandor
-	religion = religion_moriquendi
 }
 
 k_faroth = { # kingdom of faroth
+	culture = culture_nandor
+	religion = religion_moriquendi
+	capital = 215 # c_taur_en_faroth
 
     allow = {
+		is_dark_elf_culture = yes
 
         completely_controls = d_faroth
 		has_landed_title = d_faroth
-
 		OR = {
 			has_landed_title = d_lhostesgar
 			has_landed_title = d_tumhalad
 			has_landed_title = d_harfalas
 			has_landed_title = d_talath_i_sirion
 			has_landed_title = d_nargothrond
+			completely_controls = d_lhostesgar
+			completely_controls = d_tumhalad
+			completely_controls = d_harfalas
+			completely_controls = d_talath_i_sirion
+			completely_controls = d_nargothrond
 		}
 		realm_size = 15
-
 		independent = yes
     }
-
-	culture = culture_nandor
-	religion = religion_moriquendi
 }
 
 
@@ -3298,6 +3343,7 @@ k_faroth = { # kingdom of faroth
 k_region = {
 	culture = culture_doriathrim
 	religion = religion_moriquendi
+	capital = 68 # c_fuir_region
 
     allow = {
         completely_controls = d_region
@@ -3318,6 +3364,7 @@ k_region = {
 k_neldoreth = {
 	culture = culture_doriathrim
 	religion = religion_moriquendi
+	capital = 64 # c_taur_na_neldor
 
     allow = {
         completely_controls = d_neldoreth
@@ -3341,6 +3388,7 @@ k_neldoreth = {
 k_arthorien = {
 	culture = culture_doriathrim
 	religion = religion_moriquendi
+	capital = 47 # c_arthorien
 
     allow = {
         completely_controls = d_arthorien
