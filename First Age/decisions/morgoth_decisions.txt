@@ -15,6 +15,32 @@ decisions = {
 		effect = {
             narrative_event = { id = dagor_bragollach.14 }
             piety = -10000
+			change_infamy = {
+				value = 80
+				localisation = "Dagor Bragollach"
+			}
+			#hidden_tooltip = {
+				any_playable_ruler = { # destroy armies upon the plains
+					limit = {
+						NOT = { mep_is_evil_side_trigger = yes }
+					}
+					any_controlled_unit = {
+						limit = {
+							location = {
+								OR = {
+									de_jure_liege_or_above = d_ard_galen
+									de_jure_liege_or_above = k_angband
+								}
+							}
+						}
+						damage_unit = {
+							# percentage = 1.0 # doesn't seem to be working.
+							amount = 100 # making this too high puts the unit into the negative troop counts!
+						}
+						damage_unit_morale = 100
+					}
+				}
+			#}
 		}
 		
 		revoke_allowed = {
