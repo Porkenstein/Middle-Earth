@@ -212,7 +212,7 @@ add_ruins = {
 # add ruins of the appropriate type and destroys all holdings.  called from province scope
 ruin_province = {
 
-	# damage any wonders here
+	# damage any wonders here TODO this doesn't seem to be working
 	wonder = {
 		set_wonder_damaged = yes
 		any_upgrade_on_wonder = {
@@ -324,6 +324,15 @@ populate_effect = {
 	remove_province_modifier = depopulated_3
 	remove_province_modifier = depopulated_2
 	remove_province_modifier = depopulated_1
+}
+
+depopulate_effect = {
+	remove_province_modifier = prosperity_modifier_1
+	remove_province_modifier = prosperity_modifier_2
+	remove_province_modifier = prosperity_modifier_3
+	remove_province_modifier = depopulated_1
+	remove_province_modifier = depopulated_2
+	add_province_modifier = { name = depopulated_3 duration = -1 }
 }
 
 build_city_effect = {
@@ -579,12 +588,22 @@ slmarillion_sudden_flame_effect = { # ROOT = morgoth
 			character_event = { id = dagor_bragollach.11 }
 		}
 
-		18 = { province_event = { id = evilside.4 }	}
-		198 = { province_event = { id = evilside.4 } }
-		199 = { province_event = { id = evilside.4 } }
-		200 = { province_event = { id = evilside.4 } }
-		17 = { province_event = { id = evilside.4 } }
-		430 = { province_event = { id = evilside.4 } }
-		431 = { province_event = { id = evilside.4 } }
+		18 = { desolate_province_effect = yes }
+		198 = {	desolate_province_effect = yes }
+		199 = {	desolate_province_effect = yes }
+		200 = {	desolate_province_effect = yes }
+		17 = { desolate_province_effect = yes }
+		430 = {	desolate_province_effect = yes }
+		431 = {	desolate_province_effect = yes }
 	}
+}
+
+desolate_province_effect = {
+	province_event = { id = evilside.4 } 
+	taint_province_effect = yes
+}
+
+taint_province_effect = {
+	add_province_modifier = { name = tainted duration = -1 }
+	depopulate_effect = yes
 }

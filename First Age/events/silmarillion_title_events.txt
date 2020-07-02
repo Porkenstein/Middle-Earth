@@ -1,0 +1,114 @@
+namespace = title_events
+
+##  Claim the High Kingship of the Noldor
+narrative_event = {
+	id = title_events.1
+	title = "EVTtitle_events.1"
+	desc = "EVTDESCtitle_events.1"
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAtitle_events.1" # I'll claim the High Kingship
+		prestige = -3000 # TODO create the title, make fealty swearers subjects
+		hidden_effect = {
+			any_independent_ruler = {
+				limit = {
+					is_noldor_culture = yes
+				}
+				narrative_event = { id = title_events.2 days = 14 }
+			}	
+		}
+		
+	}
+	option = {
+		name = "EVTOPTBtitle_events.1" # I won't claim it!
+		prestige = -100
+		remove_trait = ambitious
+	}
+}
+
+## A character claims the High Kingship of the Noldor - Swear Fealty?
+narrative_event = {
+	id = title_events.2
+	title = "EVTtitle_events.2"
+	desc = "EVTDESCtitle_events.2"
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAtitle_events.2" # Swear Fealty
+		ai_chance = {
+			factor = 90
+			modifier = {
+				opinion = {
+					who = FROM
+					value < 10
+				}
+				factor = 0
+			}
+			modifier = {
+				tier = KING
+				NOT = { dynasty = FROM }
+				factor = 0
+			}
+			modifier = {
+				trait = ambitious
+				factor = 0.3
+			}
+		}
+	}	
+	option = {
+		name = "EVTOPTBtitle_events.2" # No! TODO add a distance modifier
+		ai_chance = {
+			factor = 10
+			modifier = {
+				trait = content
+				factor = 0.3
+			}
+		}	
+	}
+	option = {
+		name = "EVTOPTCtitle_events.2" # Screw that guy
+		trigger = {
+			OR = {
+				opinion = {
+					who = FROM
+					value < -50
+				}
+				AND = {
+					# rival claimant
+					any_owned_bloodline = { has_bloodline_flag = bloodline_finwe }
+					NOT = { dynasty = FROM }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				opinion = {
+					who = FROM
+					value < 0
+				}
+				factor = 2
+			}
+		}
+		FROM = { character_event = { id = title_events.3 }
+	}
+}
+
+## Someone denounces you for claiming kingship
+character_event = {
+	id = title_events.3
+	desc = "EVTDESCtitle_events.3"
+	picture = GFX_elves_lords
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAtitle_events.1" # I'll claim the High Kingship
+		add_rival = FROM
+	}
+}

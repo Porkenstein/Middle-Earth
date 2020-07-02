@@ -128,17 +128,16 @@ city = {
 		tax_income = 0.2
 		ai_creation_factor = 99
 		
-		potential = {
-			FROM = { 
-				NOT = { religion_group = religion_group_wilderness }
-			}
-		}
+		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 		trigger = {
 			hidden_tooltip = {
 				OR = {
 					religion = religion_mahal
 					de_jure_liege_or_above = k_angband
-					year = 4300
+					year = 4500
+					capital_holding = {
+						title = FROMFROM
+					}
 					has_global_flag = building
 				}
 			}
@@ -157,19 +156,25 @@ city = {
 		tax_income = 0.2
 		ai_creation_factor = 98
 		
-		potential = {
-			FROM = { 
-				NOT = { religion_group = religion_group_wilderness }
-			}
-		}
+		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 		trigger = {
 			hidden_tooltip = {
 				OR = {
 					religion = religion_mahal
 					de_jure_liege_or_above = k_angband
 					religion = religion_calaquendi
-					year = 4400
+					culture = culture_falathrim # let the falathrim have their havens
 					has_global_flag = building
+				}
+				OR = {
+					has_global_flag = building
+					de_jure_liege_or_above = k_angband
+					AND = {
+						year = 4500
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
 				}
 			}
 		}
@@ -186,11 +191,7 @@ city = {
 		tax_income = 0.2
 		ai_creation_factor = 97
 		
-		potential = {
-			FROM = { 
-				NOT = { religion_group = religion_group_wilderness }
-			}
-		}
+		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 		trigger = {
 			has_depopulation_effect = no
 			hidden_tooltip = {
@@ -201,7 +202,12 @@ city = {
 					has_global_flag = building
 				}
 				OR = {
-					year = 4700
+					AND = {
+						year = 4700
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
 					has_global_flag = building
 				}
 			}
@@ -219,11 +225,7 @@ city = {
 		tax_income = 0.2
 		ai_creation_factor = 96
 		
-		potential = {
-			FROM = { 
-				NOT = { religion_group = religion_group_wilderness }
-			}
-		}
+		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 		trigger = {
 			has_depopulation_effect = no
 			hidden_tooltip = { 
@@ -249,11 +251,7 @@ city = {
 		tax_income = 0.5
 		ai_creation_factor = 95
 		
-		potential = {
-			FROM = {
-				NOT = { religion_group = religion_group_wilderness }
-			}
-		}
+		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
 		trigger = {
 			has_depopulation_effect = no
 			custom_tooltip = {

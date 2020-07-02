@@ -1,0 +1,24 @@
+decisions = {
+	## Claim the high kingdom of the noldor ##
+    claim_noldor = {
+		potential = {
+            primary_title = { higher_tier_than = COUNT }
+			is_noldor_culture = yes
+            e_noldor = { has_holder = no }
+			# is blood of finwe
+			any_owned_bloodline = { has_bloodline_flag = bloodline_finwe }
+		}
+		allow = {
+			war = no
+			in_command = no
+			prisoner = no
+			NOT = { trait = elf_childhood }
+			prestige = 3000
+		}
+		effect = {
+			ROOT = {
+				character_event = { id = title_events.1 }
+			}
+		}
+	}
+}

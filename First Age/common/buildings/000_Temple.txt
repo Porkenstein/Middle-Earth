@@ -64,6 +64,19 @@ temple = {
 
 		#extra_tech_building_start = 1.5
 		potential = { FROM = { NOT = { religion_group = religion_group_wilderness } } }
+		trigger = {
+			hidden_tooltip = {
+				OR = {
+					religion = religion_mahal
+					de_jure_liege_or_above = k_angband
+					year = 4500
+					capital_holding = {
+						title = FROMFROM
+					}
+					has_global_flag = building
+				}
+			}
+		}
 	}
 	tp_wall_2 = {
 		desc = ca_wall_2_desc
@@ -88,7 +101,12 @@ temple = {
 					has_global_flag = building
 				}
 				OR = {
-					year = 4700
+					AND = {
+						year = 4700
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
 					has_global_flag = building
 				}
 			}

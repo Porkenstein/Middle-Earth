@@ -99,7 +99,10 @@ castle = {
 				OR = {
 					religion = religion_mahal
 					de_jure_liege_or_above = k_angband
-					year = 4300
+					year = 4500
+					capital_holding = {
+						title = FROMFROM
+					}
 					has_global_flag = building
 				}
 			}
@@ -124,8 +127,18 @@ castle = {
 					religion = religion_mahal
 					de_jure_liege_or_above = k_angband
 					religion = religion_calaquendi
-					year = 4400
+					culture = culture_doriathrim # let doriath have big castles
 					has_global_flag = building
+				}
+				OR = {
+					has_global_flag = building
+					de_jure_liege_or_above = k_angband
+					AND = {
+						year = 4500
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
 				}
 			}
 		}
@@ -153,7 +166,12 @@ castle = {
 					has_global_flag = building
 				}
 				OR = {
-					year = 4700
+					AND = {
+						year = 4700
+						capital_holding = {
+							title = FROMFROM
+						}
+					}
 					has_global_flag = building
 				}
 			}
