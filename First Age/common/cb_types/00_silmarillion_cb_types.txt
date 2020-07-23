@@ -968,12 +968,24 @@ cb_destroy_empire = {
 
 		# destroy the empire
 		FROM = {
-		
+
 			# destroy all higher titles
 			any_demesne_title = {
 				limit = {
 					higher_tier_than = count
 				}
+
+				# if this is an important titular high kingdom, alert the heir
+				if = {
+					limit = {
+						title = e_noldor
+						heir_under_seniority_law = { independent = yes }
+					}
+					heir_under_seniority_law = {
+						narrative_event = { id = title_events.4 days = 14 }
+					}
+				}
+
 				unsafe_destroy_landed_title = THIS
 			}
 			
@@ -1380,9 +1392,9 @@ cb_defile_holy_site = {
 	
 	on_add = {
 		ROOT = {
-			prestige = -300 
+			piety = -300
 			wealth = 100
-			piety = 300
+			prestige = 100
 		}
 	}
 
@@ -1410,7 +1422,7 @@ cb_defile_holy_site = {
 
 	on_success = {
 		ROOT = {
-			piety = 300
+			prestige = 500
 		}
 		FROM = {
 			# loot the province
@@ -1431,22 +1443,46 @@ cb_defile_holy_site = {
 	
 	on_success_title = {
 
-		# destroy the duchy and taint the land
+		# destroy duchy
 		hidden_tooltip = {
 			any_de_jure_vassal_title = {
 
-				# conquer, ruin, taint the province
+				create_character = {
+					random_traits = no
+					name = "Wilderness"
+					religion = religion_wilderness
+					culture = culture_wilderness
+					dynasty = 19013
+					female = no
+					age = 4000
+					trait = wilderness
+					#disallow_random_traits = yes
+				}
+
+				# capital counties are looted
+				transfer_scaled_wealth = {
+					to = ROOT
+					value = 2.0
+				}
+
 				location = {
 					ruin_province = yes
 					taint_province_effect = yes
 				}
 				county = {
-					convert_to = CASTLE
-					location = {
-						culture = culture_orkish
-						religion = religion_orkish
+					new_character = {
+						usurp_title = PREV
+						set_defacto_liege = THIS
+						capital = PREV
 					}
-					ROOT = { usurp_title = PREV }
+					convert_to = CASTLE
+					new_character = {
+						set_government_type = wilderness_nongovernment
+					}
+					location = {
+						culture = culture_wilderness
+						religion = religion_wilderness
+					}
 				}
 			}
 		}

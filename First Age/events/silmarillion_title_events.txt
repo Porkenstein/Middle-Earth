@@ -56,10 +56,21 @@ narrative_event = {
 			}
 			modifier = {
 				trait = ambitious
-				factor = 0.3
+				factor = 0.5
+			}
+			modifier = { # these points become less potent the further we are from the capital
+				factor = 0.5
+				distance = { who = FROMFROM value = 600 }
+			}
+			modifier = {
+				factor = 0.2
+				distance = { who = FROMFROM value = 1200 }
 			}
 		}
-	}	
+
+		# become vassal
+		FROM = { letter_event = { id = title_events.5 } }
+	}
 	option = {
 		name = "EVTOPTBtitle_events.2" # No! TODO add a distance modifier
 		ai_chance = {
@@ -108,7 +119,51 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTAtitle_events.1" # I'll claim the High Kingship
+		name = "EVTOPTAtitle_events.3" # I'll claim the High Kingship
 		add_rival = FROM
+	}
+}
+
+## You are the natural heir. Claim?
+narrative_event = {
+	id = title_events.4
+	title = "EVTtitle_events.4"
+	desc = "EVTDESCtitle_events.4"
+	picture = GFX_elf_noldor
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAtitle_events.4" # I'll claim the High Kingship
+		prestige = -500 # TODO create the title, make fealty swearers subjects
+		hidden_effect = {
+			any_independent_ruler = {
+				limit = {
+					is_noldor_culture = yes
+					lower_tier_than = EMPEROR
+				}
+				narrative_event = { id = title_events.2 days = 14 }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTBtitle_events.4" # I won't claim it!
+		prestige = -100
+		remove_trait = ambitious
+		ai_chance = 0
+	}
+}
+
+## Fealty sworn!
+character_event = {
+	id = title_events.5
+	desc = "EVTDESCtitle_events.5"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTAtitle_events.5"
+		prestige = 100
+		set_defacto_vassal = FROM
 	}
 }
